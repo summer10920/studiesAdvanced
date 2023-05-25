@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TryCSS Round5!!</title>
+  <style>
+    div::before,
+    div::after {
+      content: "WOW!!";
+      background-color: red;
+    }
+
+    div {
+      background-color: green;
+      display: inline;
+    }
+
+    a::before {
+      content: attr(href);
+      /* content:"http://www.goole.com"; */
+      color: red;
+    }
+
+    a::after {
+      content: "YYYYY"attr(title) "NNNNNN";
+      /* content:"TitleGoogle"; */
+      color: blue;
+    }
+
+    a {
+      color: pink;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div>Lorem ipsum dolor sit amet.</div>
+  <br>
+  <a href="http://www.goole.com" title="TitleGoogle">Google</a>
+  <br>
+  <div class="showimg">
+    <img src="imgs/bs.png" title="111">
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container{
+      width: 660px;
+      border: 1px solid black;
+      /* overflow: auto; */
+    }
+    .col{
+      box-sizing: border-box;
+      width:200px;
+      margin:10px;
+      background: lightcoral;
+      float: right;
+    }
+    .clrfloat::after{
+      content: "";
+      display: block;
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+  <div class="container clrfloat">
+    <div class="col">Lorem ipsum dolor, sit amet consectetur adipisicing elit. In autem exercitationem modi veniam mollitia quod id porro explicabo excepturi itaque.</div>
+    <div class="col">Lorem ipsum dolor, sit amet consectetur adipisicing elit. In autem exercitationem modi veniam mollitia quod id porro explicabo excepturi itaque.</div>
+    <div class="col">Lorem ipsum dolor, sit amet consectetur adipisicing elit. In autem exercitationem modi veniam mollitia quod id porro explicabo excepturi itaque.</div>
+  </div>
+</body>
+</html>

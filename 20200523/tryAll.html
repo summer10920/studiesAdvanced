@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script> -->
+</head>
+
+<body class="p-5">
+  <br>
+  <br>
+
+  <br>
+  <div class="spinner-border"></div>
+  <div class="spinner-grow"></div>
+  <br>
+  <br>
+  <div class="progress mb-5">
+    <div class="progress-bar"></div>
+  </div>
+  <div class="progress mb-5" style="height: 50px;">
+    <div class="progress-bar" style="width: 25%">25</div>
+  </div>
+  <div class="progress mb-5">
+    <div class="progress-bar" style="width: 50%">50</div>
+  </div>
+  <div class="progress mb-5">
+    <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" style="width: 75%">75</div>
+  </div>
+  <div class="progress mb-5">
+    <div class="progress-bar" style="width: 100%">100</div>
+  </div>
+  <br>
+  <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title"
+    data-placement="bottom" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle
+    popover</button>
+
+  <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top"
+    data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."> Popover on top </button>
+
+  <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="right"
+    data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."> Popover on right</button>
+
+    <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom"
+      data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."> Popover on bottom </button>
+
+    <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="left"
+      data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."> Popover on left </button>
+
+    <script>
+      $(function () {
+        $('[data-toggle="popover"]').popover({
+          trigger: 'focus'
+        })
+      })
+    </script>
+
+    <hr>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+      <!-- <div class="container"> -->
+      <!-- LOGO -->
+      <a class="navbar-brand" href="#">
+        <img src="https://fakeimg.pl/200x50">
+      </a>
+
+      <!-- 隱藏的漢堡按鈕 -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- 內容區 -->
+      <div class="collapse navbar-collapse" id="myContent">
+
+        <!-- NAV 導覽 -->
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="#">Features</a>
+          <a class="nav-item nav-link" href="#">Pricing</a>
+          <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </div>
+        <span class="navbar-text ml-auto pr-5">
+          泰山職訓練習範例
+        </span>
+        <!-- 表單 -->
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+      <!-- </div> -->
+    </nav>
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Previous">
+          <span aria-hidden="true">&#x3C;&#x3C;</span>
+        </a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Next">
+          <span aria-hidden="true">&#x3E;&#x3E;</span>
+        </a>
+      </li>
+    </ul>
+    <div class="content display-1">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa soluta, iste odit praesentium debitis eveniet
+      doloribus maxime perspiciatis, nesciunt earum quibusdam repellendus, eaque voluptatem facilis. Nulla, nesciunt?
+      Explicabo dolore esse ex numquam dicta? Aliquid aliquam minima nostrum porro, adipisci ad itaque neque soluta
+      optio
+      ab, eveniet illo. Voluptatum placeat, explicabo reprehenderit minus id nostrum nisi ullam quisquam quis
+      necessitatibus. Expedita necessitatibus nobis officia, magni sunt laborum distinctio delectus, veritatis ipsa odio
+      ducimus ut dicta asperiores provident quas qui perferendis eius! Reiciendis illo quasi impedit commodi quo sequi,
+      est, et ipsam nostrum distinctio incidunt cum voluptas porro fugit quisquam eligendi aliquam?
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS - Font</title>
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-size: 30px;
+      /*pt(point,1/72英吋) px em rem */
+
+
+      font-weight: normal;
+      /* font-style: italic; */
+      color: #333;
+      /* font-family: Arial, "Microsoft JhengHei", Helvetica, sans-serif; */
+      font-family: Arial, "Noto Sans TC", sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <div style="font-size:1em">
+    <div style="font-size:2em">
+      <div style="font-size:3em"></div>
+    </div>
+  </div>
+  <hr>
+  <div style="font-size:1rem">
+    <div style="font-size:2rem">
+      <div style="font-size:3rem"></div>
+    </div>
+  </div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>
+    $("div").each(function() {
+      $(this).prepend($(this).css("font-size"));
+    });
+  </script>
+
+
+  <hr>
+  <p style="font-size:16px">lorem</p>
+  <p style="font-size:32px">lorem</p>
+  <p style="font-size:64px">lorem</p>
+
+  <h1 style="font-size:1em">lorem</h1>
+
+  <p style="font-size:16px">lorem</p>
+  <hr>
+  <p class="google">AAAA 123456 , 。一家和你。</p>
+  <p class="microsoft">AAAA 123456 , 。一家和你。</p>
+  <p>123456品質章節辦理我不感興趣作用警方交換一部分基地簡體，說出放棄無論，一段時間湖口，眼裡生存也要會員價保。</p>
+  <p>Lorem ipsum dolor sit amet.</p>
+</body>
+
+</html>

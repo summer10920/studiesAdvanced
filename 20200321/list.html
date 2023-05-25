@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List</title>
+  <style>
+    /*初始化外觀 CSS*/
+    * {
+      margin: 0;
+    }
+
+    ul.demo {
+      /* list-style:decimal; */
+      /* list-style-type:decimal; */
+      list-style-image: url("img/icon.png");
+    }
+
+    ul.demo1 {
+      list-style-type: none;
+      background: palevioletred;
+
+    }
+
+    ul.demo1>li {
+      display: inline-block;
+      /* height:40px; */
+      padding: 10px 20px;
+      /* margin: 0 -4px; */
+      background: yellowgreen;
+    }
+
+    .demo1 a {
+      text-decoration: none;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ul>(li>a:link{$$$})*5 -->
+  <ul class="demo1">
+    <li><a href="http://">關於我們</a></li>
+    <li><a href="http://">產品介紹</a></li>
+    <li><a href="http://">客戶案例</a></li>
+    <li><a href="http://">聯絡方式</a></li>
+  </ul>
+  <hr>
+  <!-- ul>li*5{$$$} -->
+  <ul start="5" class="demo">
+    <li>001</li>
+    <li>002</li>
+    <li>003</li>
+    <li>004</li>
+    <li>005</li>
+  </ul>
+  <ol start="5">
+    <li>001</li>
+    <li>002</li>
+    <li>003</li>
+    <li>004</li>
+    <li>005</li>
+  </ol>
+</body>
+
+</html>

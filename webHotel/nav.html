@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 碼源：[BS-Documentation-Quick start-CSS] -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <!-- 碼源：[BS-Home-Download] ※與上行二擇一使用
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+-->
+  <link rel="stylesheet" href="./css/my.css">
+
+  <title>向下彈出子選單</title>
+</head>
+
+<body>
+  <div class="row">
+    <div class="col">
+      <nav class="navbar navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#show-all-submenu"
+          aria-expanded="true">
+          *****</button>
+      </nav>
+      <div class="collapse show" id="show-all-submenu">
+        <nav class="navbar navbar-dark bg-dark">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#show-submenu">台北</button>
+        </nav>
+        <div class="collapse" id="show-submenu">
+          <div class="bg-white ml-3">
+            <button><a href="#">中正區</a></button><br />
+            <button><a href="#">中山區</a></button><br />
+            <button><a href="#">大同區</a></button><br />
+            <button><a href="#">士林區</a></button><br />
+          </div>
+        </div>
+
+        <nav class="navbar navbar-dark bg-dark">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#show-submenu1"
+            aria-expanded="false">
+            新北</button>
+        </nav>
+        <div class="collapse" id="show-submenu1">
+          <div class="bg-white ml-3">
+            <button><a href="#">新莊區</a></button><br />
+            <button><a href="#">樹林區</a></button><br />
+            <button><a href="#">土城區</a></button><br />
+            <button><a href="#">板橋區</a></button><br />
+            <button><a href="#">三重區</a></button><br />
+          </div>
+        </div>
+
+        <nav class="navbar navbar-dark bg-dark">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#show-submenu2"
+            aria-expanded="false">
+            桃園</button>
+        </nav>
+        <div class="collapse" id="show-submenu2">
+          <div class="bg-white ml-3">
+            <button><a href="#">桃園區</a></button><br />
+            <button><a href="#">八德區</a></button><br />
+            <button><a href="#">蘆竹區</a></button><br />
+            <button><a href="#">南崁區</a></button><br />
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 碼源：[BS-Documentation-Quick start-JS] -->
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>

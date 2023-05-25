@@ -1,0 +1,133 @@
+body {
+  font-family: "Roboto", Arial, "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  background: #eee;
+}
+
+/***************slider***************/
+#lokislider img {
+  object-fit: cover;
+}
+
+#lokislider .carousel-caption {
+  top: 0;
+  bottom: 0;
+  text-shadow: 2px 1px 2px #232323bf;
+}
+
+#lokislider .fas {
+  text-shadow: 2px 1px 2px #232323bf;
+}
+
+#lokislider .carousel-indicators li {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 10px solid transparent;
+}
+
+/*************footer*************/
+footer > a.position-fixed {
+  right: 5vh;
+  bottom: 5vh;
+  animation: bounce 2s ease infinite;
+  z-index: 999;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  53%,
+  80%,
+  100% {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translate(0, 0);
+  }
+  40%,
+  43% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate(0, -30px);
+  }
+
+  70% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate(0, -15px);
+  }
+  90% {
+    transform: translate(0, -4px);
+  }
+}
+
+/************room***************/
+#lokiroom .nav-item.active {
+  background: #117a8b;
+}
+
+#lokiroom .nav-item {
+  flex: 0 1 14%;
+  border: 0;
+  border-bottom: 1px solid #17a2b8;
+}
+
+#lokiroom .nav-tabs {
+  border-bottom: 1px solid #17a2b8;
+}
+
+#lokiroom .tab-content > .row.active {
+  display: flex;
+}
+
+/***************facility**************/
+@media (min-width: 992px) {
+  #lokifacility li:nth-of-type(even) > img {
+    order: 1;
+  }
+}
+
+#lokifacility {
+  background: url("https://picsum.photos/1920/1080/?random=1"),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.8) 0%,
+      rgba(63, 202, 255, 0.8) 40%,
+      rgba(51, 143, 190, 0.8) 60%,
+      rgba(255, 255, 255, 0.8) 100%
+    );
+  background-blend-mode: lighten;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+
+  text-shadow: #333 0.3rem 0.3rem 0.5rem;
+}
+
+/****************trans*************/
+#lokitrans iframe {
+  filter: brightness(0.5);
+}
+
+/***************menu**************/
+#lokimenu a::after {
+  content: "";
+  display: block;
+  width: 0%;
+  height: 2px;
+  background: #fff;
+  margin: 5px 0;
+  transition: 1s ease;
+}
+
+#lokimenu a.active::after{
+  width:100%;
+}
+
+/*********slider out*******/
+#scrolltop{
+  opacity: 0;
+  transition: 1.5s ease;
+}
+#scrolltop.shown{
+  opacity: 1;
+}
+#lokimenu{
+  transition: 1s ease;
+}

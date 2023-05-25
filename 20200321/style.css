@@ -1,0 +1,49 @@
+table {
+  border-collapse: collapse;
+  /* 讓邊框合併為單一邊框 */
+}
+
+body{
+  font-family: "Microsoft JhengHei";
+}
+h1{
+  font-size: 40px;
+}
+h1>em{
+  font-style: normal;
+}
+h2{
+  color:goldenrod;
+}
+a:link{
+  color:red;
+  text-decoration: none;
+}
+a:visited{
+  color:green;
+}
+a:hover{
+  color:blue;
+  text-decoration: underline;
+}
+a:active{
+  color:palevioletred;
+}
+p{
+  line-height: 1.5;
+  text-indent: 2rem;
+}
+p::first-letter{
+  font-weight: bold;
+  font-size: 2rem;
+}
+strong{
+  color:red;
+}
+.center{
+  text-align: center;
+}
+table{
+  margin:0 auto;
+}
+

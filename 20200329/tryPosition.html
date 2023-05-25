@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .dice{
+      width:200px;
+      height:200px;
+      border:2px solid #000;
+      background: linear-gradient(to right,white,#ccc);
+      border-radius: 20px;
+      box-shadow: 2px 2px 5px 0px #000;
+      position: relative;
+      display: inline-block;
+    }
+    .doc{
+      width:40px;
+      height:40px;
+      background: black;
+      border-radius: 50% 50%;
+      position: absolute;
+    }
+    .at1{
+      left:10%;
+      bottom:10%;
+    }
+    .at3{
+      right:10%;
+      bottom:10%;
+    }
+    .at4{
+      left:10%;
+      top:50%;
+      transform: translateY(-50%);
+    }
+    .at5{
+      left:50%;
+      top:50%;
+      transform: translate(-50%,-50%);
+    }
+    .at6{
+      right:10%;
+      top:80px;
+    }
+    .at7{
+      left:10%;
+      top:10%;
+    }
+    .at9{
+      right:10%;
+      top:10%;
+    }
+    .red{
+      background: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="dice">
+    <div class="doc at5 red"></div>
+  </div>
+  <div class="dice">
+    <div class="doc at3"></div>
+    <div class="doc at7"></div>
+  </div>
+  <div class="dice">
+    <div class="doc at3"></div>
+    <div class="doc at5"></div>
+    <div class="doc at7"></div>
+  </div>
+  <div class="dice">
+    <div class="doc at1"></div>
+    <div class="doc at3"></div>
+    <div class="doc at7"></div>
+    <div class="doc at9"></div>
+  </div>
+  <div class="dice">
+    <div class="doc at1"></div>
+    <div class="doc at3"></div>
+    <div class="doc at5"></div>
+    <div class="doc at7"></div>
+    <div class="doc at9"></div>
+  </div>
+  <div class="dice">
+    <div class="doc at1"></div>
+    <div class="doc at3"></div>
+    <div class="doc at4"></div>
+    <div class="doc at6"></div>
+    <div class="doc at7"></div>
+    <div class="doc at9"></div>
+  </div>
+</body>
+</html>

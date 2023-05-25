@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .sideL,.sideR{
+      width: 20%;
+      background: lightcoral;
+    }
+    .main{
+      width: 60%;
+      background: lightgreen;
+    }
+    .sideL.ly1{
+      float: left;
+    }
+    .main.ly1{
+      /* margin:0 20%; */
+      margin-left: 20%;
+    }
+    .sideR.ly1{
+      float: right;
+    }
+    .sideL.ly2{
+      float: left;
+    }
+    .main.ly2{
+      float: left;
+    }
+    .sideR.ly2{
+      float: right;
+    }
+    .clear::before{
+      content:"";
+      display: block;
+      clear:both;
+    }
+    .ly3{
+      float: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="ly1 sideL">A</div>
+  <div class="ly1 sideR">C</div>
+  <div class="ly1 main">B</div>
+  <hr>
+  <div class="ly2 sideL">A</div>
+  <div class="ly2 main">B</div>
+  <div class="ly2 sideR">C</div>
+  <div class="clear"><hr></div>
+  <div class="ly3 sideL">A</div>
+  <div class="ly3 main">B</div>
+  <div class="ly3 sideR">C</div>
+  <div class="clear"><hr></div>
+</body>
+</html>

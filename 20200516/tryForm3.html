@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- FontAwesome -->
+  <script src="https://kit.fontawesome.com/fa483230ea.js" crossorigin="anonymous"></script>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script> -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
+  <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script> -->
+
+</head>
+
+<body>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Fluid jumbotron</h1>
+      <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+    </div>
+  </div>
+
+
+
+  <div class="input-group flex-nowrap">
+
+    <div class="input-group-prepend"><span class="input-group-text">@</span></div>
+    <input type="text" class="form-control" placeholder="Username">
+    <div class="input-group-append"><span class="input-group-text">@example.com</span></div>
+    
+  </div>
+
+  <hr>
+  <div class="form-group">
+    <label for="LBfile">Example file input</label>
+    <input type="file" class="form-control-file form-control-lg" id="LBfile">
+  </div>
+  <br>
+  <div class="custom-file">
+    <input type="file" class="custom-file-input" id="customFile">
+    <label class="custom-file-label" for="customFile" data-browse="照片上傳">限定兩吋照片...</label>
+  </div>
+  <hr>
+  <select>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+  </select>
+  <br>
+  <select class="form-control">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+  </select>
+  <br>
+  <select class="custom-select">
+    <option selected>Open this select menu</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+  </select>
+  <hr>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="d1">
+    <label class="form-check-label" for="d1"> Default checkbox </label>
+  </div>
+
+  <div class="custom-control custom-checkbox">
+    <input class="custom-control-input" type="checkbox" id="c1">
+    <label class="custom-control-label" for="c1">Check this custom checkbox</label>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      bsCustomFileInput.init()
+    })
+  </script>
+</body>
+
+</html>

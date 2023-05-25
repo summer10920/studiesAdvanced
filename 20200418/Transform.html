@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      color:white;
+      text-align: center;
+    }
+    .box{
+      width:100px;
+      height:100px;
+      background: lightcoral;
+      line-height: 100px;
+      position: relative;
+    }
+    .box::after{
+      content:"Transform";
+      width: 100px;
+      height:100px;
+      background: lightgreen;
+      position: absolute;
+      left:0;
+      top:0;
+      z-index: -1;
+      /* opacity: 0.5; */
+      
+      /* translate 偏移 */
+      /* transform:translate(-50px,-50%); */
+
+      /* scale 縮放 */
+      transform: translate(100%) scale(2);
+
+      /* 倒影示範 
+      transform: translate(0,100%) scale(-1) rotateY(180deg);
+      content:"Befault";
+      background: linear-gradient(to top, #e66465 0%, transparent 80%);
+      opacity: 0.5;
+      */
+
+      /* rotate 旋轉 */
+      /* transform: translate(100%) rotate(15deg); */
+      
+
+      /* skew 歪斜 */
+      /* transform: translate(100%) skew(60deg); */
+
+      /* 變形點 */
+      transform-origin: 0% 100%;
+
+    }
+  </style>
+</head>
+<body>
+  <div class="box">Befault</div>
+</body>
+</html>

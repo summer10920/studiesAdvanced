@@ -1,0 +1,58 @@
+.dice {
+  width: 200px;
+  height: 200px;
+  border: 2px solid #000;
+  border-radius: 1rem;
+  display: inline-block;
+  background: linear-gradient(45deg, #fff, #ccc);
+  box-shadow: 0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.point {
+  width: 20%;
+  height: 20%;
+  background: black;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.red {
+  background: red;
+}
+
+.at1 {
+  left: 10%;
+  top: 10%;
+}
+.at3 {
+  right: 10%;
+  top: 10%;
+}
+.at4 {
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+}
+.at5 {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.at6 {
+  right: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.at7 {
+  left: 10%;
+  bottom: 10%;
+}
+.at9 {
+  right: 10%;
+  bottom: 10%;
+}
+
+.container {
+  text-align: center;
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      /*父容器*/
+      background: lightskyblue;
+      width: 500px;
+      height: 500px;
+      display: flex;
+
+      /* 主軸的對齊方式 */
+      justify-content: flex-start;
+
+      /* 交軸的對齊方式 */
+      /* 而stretch效果為：若未指定項目之交軸空間單位，填滿父容器 */
+      align-items: stretch;
+
+      /*
+      flex-direction: row;  主軸的方向性，包含順向與逆向 
+      flex-wrap:wrap; 可否換行
+      */
+      flex-flow: row wrap;
+      /*複合屬性 flex-direction flex-wrap */
+
+      /*限定多行模式(wrap,wrap-reverse)的專用屬性，控制單位[行]的排列方式*/
+      align-content: flex-start;
+    }
+
+    .item {
+      /*子項目*/
+      width: 100px;
+      /* margin: 10px; */
+      border: 1px solid black;
+    }
+
+    .aa {
+      background: lightyellow;
+      height: 50px;
+      /* 交軸的對齊方式之單筆項目 */
+      /* align-self: flex-end; */
+    }
+
+    .bb {
+      background: lightcoral;
+      height: 100px;
+      /* align-self: center; */
+    }
+    .cc{
+      background: lightgreen;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="item aa">A</div>
+    <div class="item bb">B</div>
+    <div class="item cc">C</div>
+    <div class="item aa">A</div>
+    <div class="item bb">B</div>
+    <div class="item cc">C</div>
+    <div class="item aa">A</div>
+    <div class="item bb">B</div>
+  </div>
+</body>
+
+</html>

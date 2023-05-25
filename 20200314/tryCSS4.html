@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TryCSS Round4!!</title>
+  <style>
+    a {
+      text-decoration: none;
+    }
+
+    /*偽class*/
+    a:link {
+      color: red;
+    }
+
+    /*連結提示的狀態*/
+    a:visited {
+      color: green;
+    }
+
+    /*已拜訪過的狀態*/
+    a:hover {
+      color: blue;
+    }
+
+    /*滑鼠移過的狀態*/
+    a:active {
+      color: purple;
+    }
+
+    /*按下去的狀態*/
+
+    /*a的類別如果要全考量，注意順序為lvha*/
+
+
+    table {
+      width: 100%;
+      border: 1px solid #000;
+      background-color: gray;
+    }
+
+    tr:nth-child(3n+1) {
+      background: #FFF;
+    }
+
+    tr.light{
+      background-color: #ccc;
+    }
+    td.light{
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <a href="http://www.kimo.com">Yahoo</a>
+    <a href="https://www.toyugi.com.tw/">溫泉飯店</a>
+    <a href="https://www.apple.com/">Apple!</a>
+    <a href="http://www.asus.com">ASUS</a>
+    <a href="http://www.acer.com">ACER</a>
+    <a href="http://www.momo.com">MOMO</a>
+  </div>
+
+  <table>
+    <tr class="light">
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td class="light">1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr class="light">
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr class="light">
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+  </table>
+</body>
+
+</html>

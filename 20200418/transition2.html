@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>轉場</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .box{
+      width:100px;
+      height:100px;
+      background: lightcoral;
+      position: relative;
+
+      color:white;
+      text-align: center;
+      line-height: 100px;
+      font-size: 1.5rem;
+
+    }
+    .box::before{
+      content:"after";
+      width:100px;
+      height:100px;
+      background: lightgreen;
+      position: absolute;
+      left:0px;
+      top:0;
+      opacity: 1;
+      transform-origin: left top;
+
+      /* transition: 1s ease-in; */
+      transition: 
+        /* opacity 1s ease 0s, */
+        left 1s ease 1s,
+        transform 1s ease 2s,
+        width 1s ease 3s
+      ;
+    }
+    .box:hover::before{
+      
+      /* opacity: 1; */
+      left:100px;
+      transform: rotate(-90deg);
+      width: 200px;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">before</div>
+</body>
+
+</html>

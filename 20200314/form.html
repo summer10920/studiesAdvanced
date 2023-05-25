@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form 表單</title>
+</head>
+<body>
+  <fieldset>
+    <legend>表單介紹</legend>
+    <form method="get" enctype="multipart/form-data" action="api.php">
+      <table width="100%">
+        <tr>
+          <td width="100">帳號：</td>
+          <td><input type="text" placeholder="請輸入帳號" name="user" value="guest" required></td>
+        </tr>
+        <tr>
+          <td width="100">密碼：</td>
+          <td><input type="password" name="pwd" placeholder="請輸入密碼" required></td>
+        </tr>
+        <tr>
+          <td>性別：</td>
+          <td>
+            <!--單選，name要一樣才會互斥切換-->
+            <input type="radio" name="gender" value="boy" id="sexboy">
+            <label for="sexboy">男</label>
+            <input type="radio" name="gender" value="girl" id="sexgirl">
+            <label for="sexgirl">女</label>
+          </td>
+        </tr>
+        <tr>
+          <td>興趣：</td>
+          <td>
+            <input type="checkbox" name="like[]" value="攝影">攝影
+            <input type="checkbox" name="like[]" value="看書">看書
+            <input type="checkbox" name="like[]" value="唱歌">唱歌
+            <input type="checkbox" name="like[]" value="寫程式" checked>寫程式
+            <input type="checkbox" name="like[]" value="逛街">逛街
+          </td>
+        </tr>
+        <tr>
+          <td>出生年份：</td>
+          <td>
+            <select name="birthyeay" id="">
+              <option value="0">請選擇</option>
+              <!-- option[value=$]{$}*20 -->
+              <option value="1921">1921</option>
+              <option value="1922">1922</option>
+              <option value="1923">1923</option>
+              <option value="1924">1924</option>
+              <option value="1925">1925</option>
+            </select>
+            <!-- <input type="date" name="birthday"> -->
+          </td>
+        </tr>
+        <tr>
+          <td>上傳檔案：</td>
+          <td><input type="file" name="picture"></td>
+        </tr>
+        <tr>
+          <td>留言訊息：</td>
+          <td>
+            <textarea name="msg" cols="50" rows="3" autofocus></textarea>
+            <br><small>剩餘<span>1000</span>字輸入</small>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <input type="submit" value="送出">
+            <input type="reset" value="重置">
+          </td>
+        </tr>
+      </table>
+    </form>
+</fieldset>
+</body>
+</html>

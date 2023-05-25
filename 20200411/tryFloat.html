@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container{
+      font-family: "Microsoft JhengHei", STHeiti;
+      width: 1024px;
+      height:768px;
+      border: 1px solid black;
+      font-size: 3rem;
+      text-align: center;
+      color:white;
+
+      /*ver1
+      position: fixed;
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+      margin: auto auto;
+      */
+
+      /*ver2
+      position: fixed;
+      left:50%;
+      top:50%;
+      */
+      /* transform: translate(-50%,-50%); */
+      /*
+      margin-left: -512px;
+      margin-top: -384px;
+      */
+    }
+    /*ver3*/
+    body{
+      margin:0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+    .header,.footer{
+      background: black;
+      height: 10%;
+      clear: both;
+      /* line-height: 76.8px; */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .left,.right{
+      height:80%;
+      float: left;
+      /* line-height: 614.4px; */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .left{
+      background: #ccc;
+      width: 20%;
+    }
+    .right{
+      background: #777;
+      width: 80%;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 
+    設計一個 1024x768 的版面 container 且對齊 body 水平垂直置中，並包含以下四個區塊 header、left、right、footer。
+    區塊顏色自由設計。
+    字型需用微軟正黑體。
+    文字需水平、垂直置中。
+  -->
+  <div class="container">
+    <div class="header">Header</div>
+    <div class="left">Left</div>
+    <div class="right">Right</div>
+    <div class="footer">Footer</div>
+  </div>
+</body>
+
+</html>

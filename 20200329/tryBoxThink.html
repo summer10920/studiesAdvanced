@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div{
+      width: 500px;
+      background: black;
+    }
+    p{
+      height: 30px;
+      background: #ccc;
+    }
+    p.demo1{
+      width: 100px;
+      margin-left: auto; /* 這裡會是300px*/
+      margin-right: 100px;
+    }
+    p.demo2{
+      width: 100px;
+      margin-right: 100px; /*雖然已指定100px，但瀏覽器會把剩餘的空間塞到這裡，看起來是300px，但定義上是100px*/
+      margin-left: 100px;
+    }
+    p.demo3{
+      /* width: auto;  */ 
+      /* 當沒有特別去指定內容寬時，扣除掉已指定的空間後，剩下的就歸給內容當作寬。*/
+      margin-left:100px;
+      margin-right: 100px;
+    }
+    p.demo4{
+      width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+      /*系統平均的分配left,right都是100px*/
+    }
+    p.demo5{
+      width: auto;
+      margin-left: auto;
+      margin-right: 100px;
+      /* 扣除完後剩餘400，系統會優先的塞給width,而ml就沒那麼重要直接給0 */
+    }
+    p.demo6{
+      width: auto;
+      margin-left:auto;
+      margin-right: auto;
+      /* 系統會優先的塞給width,而ml跟mr就沒那麼重要直接給0 */
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <!-- <p class="demo1"></p> -->
+    <!-- <p class="demo2"></p> -->
+    <!-- <p class="demo3"></p> -->
+    <!-- <p class="demo4"></p> -->
+    <!-- <p class="demo5"></p> -->
+    <p class="demo6"></p>
+
+
+  </div>
+</body>
+</html>
