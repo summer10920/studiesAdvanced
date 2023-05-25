@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #blk {
+      background: lightgreen;
+      width: 300px;
+      height: 100px;
+      position: relative;
+      overflow: hidden;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script>
+  </script>
+</head>
+
+<body>
+  <button id="btn1">hide</button>
+  <button id="btn2">show</button>
+  <button id="btn3">toggle</button>
+  <button id="btn4">fade in/fade out</button>
+  <button id="btn5">slide Down/slide Up</button>
+  <button id="btn6">STOP</button>
+  <button id="btn7">slide Toggle v2</button>
+  <button id="btn8">Animate Go</button>
+  <button id="btn9">Animate Back</button>
+  <hr>
+  <div id="blk" style="font-size: 3rem;padding:1rem">ABC</div>
+
+  <script>
+    $("#btn1").click(function () {
+      // $("#blk").hide();
+      // $("#blk").hide("slow");
+      $("#blk").hide("normal");
+    });
+    $("#btn2").click(function () {
+      $("#blk").show("fast");
+    });
+    $("#btn3").click(function () {
+      $("#blk").toggle(8000);
+    });
+    $("#btn4").click(function () {
+      // $("#blk").fadeIn();
+      // $("#blk").fadeOut();
+      $("#blk").fadeToggle("fast");
+      // $("#blk").fadeTo(null,0.5);
+    });
+    $("#btn5").click(function () {
+      // $("#blk").slideDown();
+      // $("#blk").slideUp();
+      // $("#blk").delay(2000).slideToggle(5000);
+      $("#blk").slideToggle(3000);
+    });
+    $("#btn6").click(function () {
+      $("#blk").stop();
+    });
+    $("#btn7").click(function () {
+      // $("#blk").slideToggle(3000);
+      $("#blk").stop().slideToggle(3000);
+    });
+    $("#btn8").click(function () {
+      $("#blk").stop().animate({
+        width:0,
+        left:"300px",
+        fontSize:"1rem"
+      },3000,function(){
+        alert("GO done");
+      });
+    });
+    $("#btn9").click(function () {
+      $("#blk").stop().animate({
+        width:"300px",
+        left:0,
+        fontSize:"3rem"
+      },3000,()=>{
+        alert("BACK done");
+      });
+    });
+
+    
+
+
+  </script>
+</body>
+
+</html>

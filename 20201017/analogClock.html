@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background: #ccc;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .circle {
+      /*時鐘圓盤底*/
+      width: 300px;
+      height: 300px;
+      background: white;
+      border-radius: 50%;
+      position: relative;
+      margin: 20px;
+    }
+
+    h3 {
+      position: relative;
+      top: 55%;
+    }
+
+    .zsec1,
+    .zhur1,
+    .zmin1 {
+      width: 300px;
+      height: 300px;
+      position: absolute;
+    }
+
+    .jmin1 {
+      width: 10px;
+      height: 40%;
+      background: #0f0;
+      position: absolute;
+      left: 50%;
+      top: 15%;
+      margin-left: -5px;
+    }
+
+    .jhur1 {
+      width: 10px;
+      height: 30%;
+      background: #00f;
+      position: absolute;
+      left: 50%;
+      top: 25%;
+      margin-left: -5px;
+    }
+
+    .jsec1 {
+      width: 4px;
+      height: 40%;
+      background: #f00;
+      position: absolute;
+      left: 50%;
+      top: 15%;
+      margin-left: -2px;
+    }
+
+    .zsec1 {
+      animation: jsr 60s linear infinite;
+    }
+
+    .zhur1 {
+      animation: jhr 43200s linear infinite;
+    }
+
+    .zmin1 {
+      animation: jmr 3600s linear infinite;
+    }
+
+    .jmin2,
+    .jhur2,
+    .jsec2 {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      margin-left: -14px;
+    }
+
+    .jmin2 {
+      animation: jmr 3600s linear infinite;
+    }
+
+    .jhur2 {
+      animation: jhr 43200s linear infinite;
+    }
+
+    .jsec2 {
+      animation: jsr 60s linear infinite;
+    }
+
+    .rmin3 {
+      animation: jmr 3600s linear infinite;
+      transform-origin: 50% 105px;
+    }
+
+    .rhur3 {
+      animation: jhr 43200s linear infinite;
+      transform-origin: 50% 75px;
+    }
+
+    .rsec3 {
+      animation: jsr 60s linear infinite;
+      transform-origin: 50% 105px;
+    }
+
+    .rmin4 {
+      transform-origin: 50% 105px;
+    }
+
+    .rhur4 {
+      transform-origin: 50% 75px;
+    }
+
+    .rsec4 {
+      transform-origin: 50% 105px;
+    }
+  </style>
+  <script>
+    let time = new Date();
+    // console.log(time.getHours(),time.getMinutes(),time.getSeconds());
+    // sec 一圈 60秒=>360度   45秒 => 270度
+    // min 一圈 60分=>360度   45分 => 270度
+    // hour 一圈 12H=>360度   6H => 180度
+    let sdeg = time.getSeconds() / 60 * 360;
+    let mdeg = (time.getMinutes() * 60 + time.getSeconds()) / 3600 * 360; //(總秒=分值+秒值)
+    let hdeg = (time.getHours() * 3600 + time.getMinutes() * 60 + time.getSeconds()) / 43200 * 360;
+
+    document.write(`
+    <style>
+      @keyframes jsr {
+        from {transform: rotate(${sdeg}deg);}
+        to {transform: rotate(${sdeg + 360}deg);}
+      }
+      @keyframes jhr {
+        from {transform: rotate(${hdeg}deg);}
+        to {transform: rotate(${hdeg + 360}deg);}
+      }
+      @keyframes jmr {
+        from {transform: rotate(${mdeg}deg);}
+        to {transform: rotate(${mdeg + 360}deg);}
+      }
+    </style>
+    `);
+
+    let smov = time.getSeconds() * 6;
+    //let mmov = time.getMinutes() * 6; //每分鐘移動6度
+    let mmov = Math.floor((time.getMinutes() * 60 + time.getSeconds()) / 10); //每10秒移動1度
+    let hmov = time.getHours() * 30 + time.getMinutes() * 0.5; //每分鐘0.5度
+
+    let loop = null;
+
+    window.onload = function () {
+      // 1. 畫面初始3針的預設位置
+      document.getElementsByClassName('rsec4')[0].style.transform = `rotate(${smov}deg)`;
+      document.getElementsByClassName('rmin4')[0].style.transform = `rotate(${mmov}deg)`;
+      document.getElementsByClassName('rhur4')[0].style.transform = `rotate(${hmov}deg)`;
+
+      // 2. 每秒鐘重新定義3針的新位置
+      // setInterval(function(){}, 1000);
+      loop = setInterval(runtime, 1000);
+    };
+
+    function ctl(who) {
+      if (who.textContent == "STOP") {//to stop
+        clearInterval(loop);
+        who.textContent = "PLAY";
+      }
+      else {
+        //to play
+        who.textContent = "STOP";
+        loop = setInterval(runtime, 1000);
+      }
+    }
+
+    function runtime() {
+      // time = new Date(); //新時間
+      time.setSeconds(time.getSeconds() + 1); //舊時間物件每秒給他添加1秒值
+
+      //新角度值
+      let smov = time.getSeconds() * 6;
+      //let mmov = time.getMinutes() * 6; //每分鐘移動6度
+      let mmov = Math.floor((time.getMinutes() * 60 + time.getSeconds()) / 10); //每10秒移動1度
+      let hmov = time.getHours() * 30 + time.getMinutes() * 0.5; //每分鐘0.5度
+      // console.log(mmov);
+      //重寫rotate值
+      document.getElementsByClassName('rsec4')[0].style.transform = `rotate(${smov}deg)`;
+      document.getElementsByClassName('rmin4')[0].style.transform = `rotate(${mmov}deg)`;
+      document.getElementsByClassName('rhur4')[0].style.transform = `rotate(${hmov}deg)`;
+    }
+
+  </script>
+
+
+</head>
+
+<body>
+  <div class="circle">
+    <div class="zmin1">
+      <div class="jmin1"></div>
+    </div>
+    <div class="zhur1">
+      <div class="jhur1"></div>
+    </div>
+    <div class="zsec1">
+      <div class="jsec1"></div>
+    </div>
+    <h3>CSS Animation + 雙DIV</h3>
+  </div>
+  <div class="circle">
+    <img src="mm.png" class="jmin2">
+    <img src="hh.png" class="jhur2">
+    <img src="ss.png" class="jsec2">
+    <h3>CSS Animation + 透背圖層</h3>
+  </div>
+  <div class="circle">
+    <div class="jmin1 rmin3"></div>
+    <div class="jhur1 rhur3"></div>
+    <div class="jsec1 rsec3"></div>
+    <h3>CSS Animation + 中心偏移</h3>
+  </div>
+  <div class="circle">
+    <div class="jmin1 rmin4"></div>
+    <div class="jhur1 rhur4"></div>
+    <div class="jsec1 rsec4"></div>
+    <h3>SetInterval + 中心偏移</h3>
+    <button onclick="ctl(this)">STOP</button>
+  </div>
+
+
+  <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+    y="0px" width="300px" height="300px" viewBox="0 0 300 300" enable-background="new 0 0 300 300" xml:space="preserve">
+    <rect id="squre" x="120" y="119" fill="#FF0000" width="158" height="158" />
+    <g id="gga">
+      <rect x="25" y="20" fill="#B3B3B3" width="158" height="158" />
+      <circle fill="#FFFF00" cx="104" cy="96.667" r="46" />
+    </g>
+  </svg>
+</body>
+
+</html>

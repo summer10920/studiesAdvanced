@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+      function delay() {
+        console.error("BOM!! Game Over GG!")
+      }
+      let myobj1=setTimeout(delay, 1000);
+      let myobj2=setTimeout(delay, 1000);
+      let myobj3=setTimeout(delay, 1000);
+
+      //如果想清除定時，可以透過此函式物件的回傳索引值找到目標進行clear
+      console.log(myobj1,myobj2,myobj3);
+      clearTimeout(1);
+      clearTimeout(2);
+      clearTimeout(3);
+    */
+    
+    // setTimeout(()=>{
+    //   console.warn("BOM!! BOM!! GG");
+    // },5000);
+
+    function lokiRepeat() {
+      console.log("hello!");
+      let a=setTimeout(lokiRepeat, 2000);
+      console.log(a);
+    }
+    setTimeout(lokiRepeat, 2000);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&family=Roboto&display=swap" rel="stylesheet">
+
+  <!-- <script src="https://kit.fontawesome.com/fa483230ea.js" crossorigin="anonymous"></script> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" crossorigin="anonymous">
+  <!--fontawesome-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Google Material Icon-->
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', 'Noto Sans TC', sans-serif;
+    }
+
+    #myFull {
+      background: rgba(35, 35, 35, 0.5);
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #myContent {
+      position: relative;
+      cursor: pointer;
+    }
+
+    #adClose {
+      position: absolute;
+      right: -30px;
+      top: -30px;
+      color: white;
+      font-weight: bolder;
+      font-size: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="myFull">
+    <div id="myContent">
+      <img src="https://picsum.photos/430/540/?random=1">
+      <div id="adClose">
+        <!-- <i class="far fa-times-circle"></i> -->
+        <span class="material-icons">cancel</span>
+      </div>
+    </div>
+  </div>
+  <div style="font-size: 5rem;">中文字一二三 HELLO WORLD </div>
+  <ol>
+    <li>當網頁開啟時，先判斷cookie裡面有沒有曾經看過廣告的變數aded?</li>
+    <li>如果aded存在代表已看過廣告，我們就不要顯示廣告</li>
+    <li>如果aded不存在代表未看過廣告，就要顯示廣告。同時我們要增加一個cookie較aded塞到用戶的瀏覽器內</li>
+  </ol>
+  <script>
+    const adClose = () => document.querySelector("#myFull").style.display = "none";
+    const adGoto = () => open("http://www.google.com", "_blank");
+
+    document.querySelector("#adClose").onclick = adClose;
+    document.querySelector("#myFull").onclick = adClose;
+    document.querySelector("img").onclick = adGoto;//當圖片被click，發生了捕獲冒泡事件
+
+    /*
+    select：document.cookie  //會全部吐出來String，用;區分不同的變數值
+    insert/update : document.cookie="loki=gold5"
+    delete: 
+    - 指定一個死亡時間，採用UTC表示法來指定，所以我們用Date()來完成一系列的工作。
+    - 如果想要立即刪除(立即死亡)，指定某一過去時間點來udpate覆蓋用戶的cookie，因時間已過去所以立刻死亡
+
+    let dd=new Date();
+    dd.setTime(dd.getTime()+60000);
+    const ddUTC=dd.toUTCString();
+    document.cookie="loki=gold5;expires="+ddUTC;
+    */
+
+    function findCook1(name) { //有找到會提供指定name的value，沒找到則提供false
+      const ary = document.cookie.split("; ");
+      // ary = ["loki=gold5", "july=sliver5", "watchedAdaaaa=123", "watchedAd=yes"]
+
+      const getitem = ary.find(function (item) {
+        return (name + "=" === item.substr(0, name.length + 1));
+      });
+      //console.log(getitem); // get(watchedAd=yes) or undefined
+      return (getitem != undefined) ? getitem.split("=")[1] : false;
+    }
+    /*
+    const testjson={
+      loki:"gold5",
+      b:"cat"
+    }
+    "b" in testjson ---return true
+    */
+    function findCook2(name) {
+      const ary = document.cookie.split("; ");
+      //console.log(ary);  (3) ["loki=gold5", "july=sliver5", "watchedAd=yes"]
+      let jsn = new Object(); // 空的json
+
+      ary.forEach(function (item) {
+        // console.log(item);loki=gold5
+        jsn[item.split("=")[0]] = item.split("=")[1];    // json[loki]=gold5
+      })
+
+      // console.log(jsn);
+      return (name in jsn) ? jsn[name] : false;
+
+    }
+
+
+    //每次拜訪網頁，檢查是否要顯示AD
+    //如果是false代表沒看過AD，我們要塞Cook(期限至今晚0點且給你看(免作業)廣告
+    //反之已看過，我們要幫你拿掉(或關閉)廣告。
+    if (!findCook1("watchedAD")) {
+      const endtime = new Date();
+      endtime.setHours(23), endtime.setMinutes(59), endtime.setSeconds(59);
+      document.cookie = "watchedAD=yes;expires=" + endtime.toUTCString();
+    } else {
+      // adClose();
+      // document.getElementById("myFull").remove();
+      document.querySelector("#myFull").remove();
+    }
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800&display=swap" rel="stylesheet">
+  <style>
+    body{
+      background: #333;
+      margin: 0;
+    }
+    .clock1{
+      width: 760px;
+      height: 100px;
+      background: #7773;
+      margin:15vh auto;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .ck{
+      display: flex;
+      background: #3339;
+      height: 100px;
+      width: 200px;
+    }
+    .cc{
+      /* background: #ccc; */
+      height: 100px;
+      width: 50px;
+      background: url("num2.png");
+      background-position: 50px;
+
+    }
+    .c0,.c1,.c2,.c3,.c4,.c5,.c6,.c7,.c8,.c9{
+      width: 100px;
+      height: 100px;
+      background: url("num2.png");
+    }
+    .c0{background-position: 150px;}
+    .c1{background-position: 0px;}
+    .c2{background-position: -100px;}
+    .c3{background-position: -200px;}
+    .c4{background-position: -300px;}
+    .c5{background-position: -400px;}
+    .c6{background-position: 550px;}
+    .c7{background-position: 450px;}
+    .c8{background-position: 350px;}
+    .c9{background-position: 250px;}
+
+
+    .clock2{
+      width: 600px;
+      height: 300px;
+      margin:50px auto;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-evenly;
+      color:white;
+      border: 1px solid white;
+      text-align: center;
+      /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+      font-family: 'Orbitron', sans-serif;
+    }
+    #ckTime{
+      font-size: 6rem;
+      margin: 0;
+    }
+    #ckDate{
+      font-size: 3rem;
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="clock1">
+    <div class="ck">
+      <div id="ck1" class="c1"></div>
+      <div id="ck2" class="c2"></div>
+    </div>
+    <div class="cc"></div>
+    <div class="ck">
+      <div id="ck3" class="c3"></div>
+      <div id="ck4" class="c4"></div>
+    </div>
+    <div class="cc"></div>
+    <div class="ck">
+      <div id="ck5" class="c5"></div>
+      <div id="ck6" class="c6"></div>
+    </div>
+  </div>
+  <script>
+    function retime(){
+      let time=new Date();
+      //三組的個位數s
+      let xsec=time.getSeconds()%10;
+      let xmin=time.getMinutes()%10;
+      let xhur=time.getHours()%10;
+      //三組的十位數
+      let hsec=Math.floor(time.getSeconds()/10);
+      let hmin=Math.floor(time.getMinutes()/10);
+      let hhur=Math.floor(time.getHours()/10);
+      // console.log(hhur,xhur,hmin,xmin,hsec,xsec);
+      document.getElementById("ck1").className="c"+hhur;
+      document.getElementById("ck2").className="c"+xhur;
+      document.getElementById("ck3").className="c"+hmin;
+      document.getElementById("ck4").className="c"+xmin;
+      document.getElementById("ck5").className="c"+hsec;
+      document.getElementById("ck6").className="c"+xsec;
+
+      //閃爍
+      // document.getElementsByClassName("cc")[0].style.opacity=1;
+      // document.getElementsByClassName("cc")[1].style.opacity=1;
+      let flashPoint=document.getElementsByClassName("cc"); //get array
+      for(let i=0;i<flashPoint.length;i++) flashPoint[i].style.opacity=1;
+
+      setTimeout(() => {
+        document.getElementsByClassName("cc")[0].style.opacity=0;
+        document.getElementsByClassName("cc")[1].style.opacity=0;
+      }, 500);
+
+
+      setTimeout(retime, 1000);
+    }
+    retime();
+
+  </script>
+
+  <div class="clock2">
+    <p id="ckTime">12:00:00</p>
+    <p id="ckDate">2000-01-01 SUN</p>
+  </div>
+  <script>
+    let weekStr=['SUN','MON','TUS','WED','THR','FRI','SAT'];
+    setInterval(reclock, 1000);
+
+
+    function chk0(num){
+      // if(num<10) num="0"+num;
+      // return num;
+      return (num<10)?"0"+num:num;
+    }
+    function reclock(){
+      let time=new Date();
+      let numH=time.getHours();
+      let numM=time.getMinutes();
+      let numS=time.getSeconds();
+      let numMth=time.getMonth()+1;
+      let numD=time.getDate();
+      let numW=time.getDay();
+
+      document.getElementById("ckTime").textContent=`${chk0(numH)}:${chk0(numM)}:${chk0(numS)}`;
+      document.getElementById("ckDate").textContent=`${time.getFullYear()}-${chk0(numMth)}-${chk0(numD)} ${weekStr[numW]}`;
+    }
+    reclock();
+  </script>
+</body>
+
+</html>

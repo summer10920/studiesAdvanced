@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>變數</h1>
+  <script>
+    // a 是臨時變數，雖然草率但任何都能對他做修改，且可透過 delete a 指令進行抹除
+    a = 100;
+    // var b 是宣告變數，正式的宣告是一個變數，但一樣的任何人都能修改他
+    var b = 200;
+    function test() {
+      //bb 是區域變數，有正式宣告，但是被放在{}內，稱呼為區域且只有限定區域內認識
+      var bb = 4;
+      console.log(b, bb);
+    }
+    test();
+
+    //常態變數，他是不能再被修改的變數
+    const c = 50;
+
+    //獨立變數，他只會活在{}內，且在{}已鎖死，不可再被重新宣告。
+    let d=5;
+    if(true){
+      let d=555;
+      console.log(d);
+    }
+    console.log(d);
+
+    if (1) {
+      let e = 5;
+      console.log(e);
+    }
+    if (1) {
+      let e = 6;
+      console.log(e);
+    }
+
+    //任何變數放在最外層代表全域下的變數，任何人都能取得
+
+    // let a1=null; //沒有東西可以表示，代表你創造出什麼都沒有的變數
+    // let a2;  //未指定，沒有指定任何東西，代表你創造但還沒有安排任何東西的變數
+    // let a3=''; //空字串，型態為string 但沒有任何文字
+    // let a4=100;
+    let a1=null,a2,a3='',a4=100;
+    console.log(a1,a2,a3,a4);
+    //console.log(a5);  //尚未定義這個變數，也就是不存在
+
+  </script>
+</body>
+
+</html>

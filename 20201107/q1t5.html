@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+
+<body>
+  <div style="width:100%; padding:2px; height:290px;">
+    <div id="mwww" loop="true" style="height:100%;">沒有資料</div>
+  </div>
+
+  <script>
+    $.getJSON("data.json", (result) => {
+      todo(result.q1t5);
+    });
+
+    function todo(myjson) {
+      // console.log(myjson);
+      let lin = myjson;
+      if (myjson.length) //有資料，先輪播第0張
+        $("#mwww").html(`<embed src="${myjson[0]}" style="width: 100%;height:100%">`);
+
+      if (myjson.length > 1) { //若輪播圖不只一張，需要interval處理3秒替換
+        let nIdx = 1;
+        setInterval(() => {
+          $("#mwww>embed").attr("src", myjson[nIdx]);
+          // if(nIdx==5)nIdx=0;
+          // else nIdx++;
+          // nIdx=(nIdx==5)?0:nIdx+1;
+          nIdx = (nIdx + 1) % myjson.length;
+        }, 3000);
+      }
+    }
+  </script>
+</body>
+
+</html>

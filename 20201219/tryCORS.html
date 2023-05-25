@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+
+<body>
+  <script>
+    $.getJSON("https://ptx.transportdata.tw/MOTC/v2/Tourism/Bus/EstimatedTimeOfArrival/TaiwanTrip?$top=1&$format=JSON")
+    // $.getJSON("http://192.168.211.1/20201219/corsServer.php") //CORS 同源政策
+      .done(function (result) {
+        console.log(result);
+      });
+  </script>
+
+
+</body>
+
+</html>

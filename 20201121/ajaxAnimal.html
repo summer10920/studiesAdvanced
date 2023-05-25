@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <style>
+    td {
+      text-align: center;
+    }
+
+    .name {
+      background: darkseagreen;
+    }
+  </style>
+</head>
+
+<body>
+  <table width="100%">
+    <thead>
+      <tr>
+        <th>編號</th>
+        <th>動物名稱</th>
+        <th>重量</th>
+        <th>簡介</th>
+        <th>更新日期</th>
+        <th>操作</th>
+      </tr>
+      <tr>
+        <td colspan="6">
+          <hr>
+        </td>
+      </tr>
+    </thead>
+    <tbody></tbody>
+    <tfoot>
+      <tr>
+        <td colspan="6" style="text-align: center;">
+          <hr>
+          <button>新增資料</button>
+          <button onclick="loading()">載入更多</button>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+  <script>
+    //CRUD => Create, Read, Update, Delete
+    /********Read (select)**********/
+    let start = 0;
+    function loading() {
+      $.post("http://192.168.211.1/ajaxServer/api.php?do=select", { start }, function (e) {
+        // console.log(e);
+        if (e != "fail") {
+          $("tbody").append(e);
+          $(".mdy").click(chginput);
+          start += 10;
+        }
+        // else alert("已經沒有資料了可加載了！");
+      });
+    }
+    loading();
+    /********Update**********/
+    function chginput() {
+      let item = $(this).parent().siblings();
+      item.parent().html(`
+        <td>
+          <input type="hidden" name="id" value="${item.eq(0).text()}">
+          ${item.eq(0).text()}
+        </td>
+        <td><input type="text" name="name" value="${item.eq(1).text()}"></td>
+        <td><input type="text" name="weight" value="${item.eq(2).text()}"></td>
+        <td><input type="text" name="info" value="${item.eq(3).text()}"></td>
+        <td>${item.eq(4).text()}</td>
+        <td><button onclick="chgtxt(this)">儲存</button></td>
+      `);
+    }
+    function chgtxt(who) {
+      let data = $(who).parents("tr").find("input").serialize();
+      // console.log(data);
+      $.post("http://192.168.211.1/ajaxServer/api.php?do=update", data, function (re) { //re=>php寫入資料庫的儲存日期
+        // console.log(re);
+        const
+          id = $(who).parents("tr").find("input[name=id]").val(),
+          name = $(who).parents("tr").find("input[name=name]").val(),
+          weight = $(who).parents("tr").find("input[name=weight]").val(),
+          info = $(who).parents("tr").find("input[name=info]").val();
+
+        $(who).parents("tr").html(`
+          <td>${id}</td>
+          <td class="name">${name}</td>
+          <td>${weight}</td>
+          <td>${info}</td>
+          <td>${re}</td>
+          <td>
+            <button class="mdy">修改</button>
+            <button onclick="del(this)">刪除</button>
+          </td>
+        `);
+        $(".mdy").click(chginput);//舊的修改紐已消失，新產生的修改尚未有event監聽
+      });
+    }
+    /********Delete**********/
+    function del(who) {
+      // console.log($(who).parents("tr").children().first().text());
+      $.post("http://192.168.211.1/ajaxServer/api.php?do=delete", {
+        id: $(who).parent().siblings().first().text()
+      }, function (re) {
+        if (re) {
+          $(who).parents("tr").remove();
+          alert("刪除成功");
+        }
+      });
+    }
+  </script>
+
+</body>
+
+</html>

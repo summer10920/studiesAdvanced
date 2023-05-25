@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" href="plugin/slick-theme.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <style>
+    body {
+      background: #555;
+      color: white;
+      margin: 0;
+    }
+
+    #container {
+      margin: 0 auto;
+      width: 50vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    #box {
+      flex-basis: 414px;
+      overflow: hidden;
+    }
+
+    .control img {
+      /* width: 90px; */
+      padding: 0 5px;
+      cursor: pointer;
+    }
+
+    .control img:focus {
+      outline: unset;
+    }
+
+    .control {
+      width: 400px;
+    }
+
+    #aniZone {
+      transform: scale(1);
+      transition: transform 0.5s;
+      position: relative;
+    }
+
+    #aniZone.active {
+      transform: scale(0);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- #main>h1{預告片介紹}+#box>#aniZone>img[src=03A01.jpg]+p{123}^^.control -->
+  <div id="container">
+    <h1>預告片介紹</h1>
+    <div id="box">
+      <div id="aniZone">
+        <img src="03AXX.jpg">
+        <p>沒有片名</p>
+      </div>
+    </div>
+    <div class="control">
+    </div>
+  </div>
+
+  <script>
+    let effect = 0, myjson = new Object(), pause=null;
+
+    $.getJSON("data.json", function (result) {
+      effect = result.q3t4.effect;
+      myjson = result.q3t4.img;
+      todo();
+    });
+
+    function todo() { //DOM寫入
+      for (const key in myjson)
+        $(".control").append(`<img src="${myjson[key]}" alt="${key}">`);
+
+      //初始化首張影片
+      /*
+      let allKeys=Object.keys(myjson);//吐所有key給我，採用陣列變數傳回
+      let firstKey=allKeys[0]; //找到原myjson第首個key值
+      let imgSpace=myjson[firstKey]; //拿key換value
+      */
+      $("#aniZone").children("img").attr("src", myjson[Object.keys(myjson)[0]]);
+      $("#aniZone").find("p").text(Object.keys(myjson)[0]);
+
+      $('.control').slick({
+        infinite: false,
+        slidesToShow: 4,
+        slidesToScroll: 4
+      });
+
+      $(".control img").click(function () {
+        let key = $(this).attr("alt");
+        swap(key);
+
+        clearInterval(pause);
+        setTimeout(() => {
+          autoPlay(key);
+        }, 7000);
+      });
+
+      autoPlay(Object.keys(myjson)[0]);
+    }
+
+    function swap(who) { //who 是片名
+      let aniBox = $("#aniZone");
+      switch (effect) {
+        case 1: //特效 淡入淡出
+          aniBox.fadeToggle(function () {
+            aniBox.find("img").attr("src", myjson[who]).find("p").text(who);
+            // aniBox.find("p").text(who);
+            aniBox.fadeToggle();
+          });
+          break;
+        case 2: //特效2
+          aniBox.slideToggle(function () {
+            aniBox.find("img").attr("src", myjson[who]);
+            aniBox.find("p").text(who);
+            aniBox.slideToggle();
+          });
+          break;
+        case 3:
+          aniBox.toggleClass("active");
+          setTimeout(() => {
+            aniBox.find("img").attr("src", myjson[who]);
+            aniBox.find("p").text(who);
+            aniBox.toggleClass("active");
+          }, 500);
+          break;
+        case 4:
+          aniBox.animate({"left":"-100%"},function(){
+            aniBox.find("img").attr("src", myjson[who]);
+            aniBox.find("p").text(who);
+            aniBox.css("left","100%");
+            aniBox.animate({"left":"0%"});
+          });
+          break;
+      }
+    }
+    function autoPlay(key){ // 自動播放，告知key是目前圖，它會自動從下一張開始輪播
+      let nowat=Object.keys(myjson).indexOf(key) //將key(片名)轉成排序號
+      pause=setInterval(() => {
+        nowat=(nowat+1)%(Object.keys(myjson).length); //5->0, 3->4
+        swap(Object.keys(myjson)[nowat]);
+      }, 2000);
+    }
+  </script>
+
+</body>
+
+</html>

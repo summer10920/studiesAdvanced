@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .hot {
+      color: red;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script>
+    // $(document).ready(function () {
+    //   //確保DOM跑完後才會執行這裡的程式碼
+    //   console.log($("h2"));
+    // });
+    $(window).on('load', function () {
+      //不只DOM，且需整個網頁資源都載入完畢才會執行
+        console.log($("h2"));
+    });
+
+  </script>
+</head>
+
+<body>
+  <div id="page">
+    <h1 id="header">My JQuery Demo List</h1>
+    <h2 class="hot">我的代辦事項</h2>
+    <ul id="myul">
+      <li id="one" class="hot">買晚餐</li>
+      <li id="two" class="hot">練程式</li>
+      <li id="three" class="hot" style="font-size: 2rem;">打電動</li>
+      <li id="four">洗澡</li>
+    </ul>
+  </div>
+  <img src="https://fakeimg.pl/100x100" width="50" height="50">
+  <div>
+    <p>Lorem ipsum dolor sit amet.</p>
+  </div>
+  <form>
+    <!--prepend-->
+    <input type="text" name="user name" value="loki jiang">
+    <input type="email" name="gmail" value="summer10920@gmail.com">
+    <!--append-->
+  </form>
+  <script>
+    /*
+      //CSS 讀:目前已套用(優先)的參數   寫:以行內樣式為指定新值，不會影響修改原先已存在之樣式表
+      $("#three").css("color")  // "rgb(255, 0, 0)"
+      $("#three").css("font-size")  // "32px"
+      $("#three").css("fontSize", "16px"  // 於行內樣式，寫入該對象CSS參數
+      $("#three").css("fontSize", "1.5re  // 於行內樣式，寫入該對象CSS參數
+      $("#three").css("color", "blue")  // 於行內樣式，寫入該對象CSS參數
+      $("#three").css("color", "#ff00ff"  // 於行內樣式，寫入該對象CSS參數
+      $("#three").css("color", "rgb(100,  // 於行內樣式，寫入該對象CSS參數
+
+      //多筆CSS同時指定，採用JSON寫法
+      $("#one").css({
+        "color":"blue",
+        "font-size":"3rem"
+      })
+
+      //value 讀寫
+      $("input[type=email]").val()                 //"summer10920@gmail.com"
+      $("input[type=text]").val()                 // "loki jiang"
+      $("input[type=text]").val("LOKI")                 // 修改值為LOKI
+
+
+      // 遍歷 select某對象後，可接著根據關係位置做二次選擇
+      $("#four").parent() //找父層 (1階)
+      $("#four").parents()  //延伸至祖先 (N階)
+      $("#four").parents("div") //同上且追加select過濾條件
+      $("#four").parents("#page")
+      $("#four").parents("div#page")
+      $("#four").parents("div#page").css("background","gray")
+
+      $("#page").children() // 找兒子 (1階)
+      $("#page").children().eq(0) //找兒子之結果後，再找第0個
+      $("#page").children().eq(1) //找兒子之結果後，再找第1個
+      $("#page").children("h2") //找兒子且select條件為h2標籤DOM
+      $("#page").children("#header") //找兒子且select條件為持有id為header標籤DOM
+
+      $("#page").find()  //找不到，必須強迫指定select過濾條件
+      $("#page").find("li") //從#page往子孫找，滿足li之子孫選取
+      $("#page").find("div") //從#page往子孫找，滿足li之子孫選取
+      $("#page").find(".hot") //從#page往子孫找，滿足持有class為hot之子孫選取
+
+      $("h2.hot").prev() //同層之上一個
+      $("h2.hot").next() //同層之下一個
+      $("h2.hot").next("ul") //增加select條件(多餘動作)
+      $("#two").next()
+
+      $("#two").siblings() //找兄弟，除了自己
+      $("#two").parent().children() //方法1：包含自己的所有兄弟
+      $("li") //方法2
+      $("ul#myul>li") //方法3
+
+      $("h2").width() //計算寬
+      $("h2").height() //計算高
+      $("h2").offset() //計算畫面之絕對座標值
+      $("h2").position() //計算以父容器為初始之相對座標
+*/
+
+  </script>
+</body>
+
+</html>

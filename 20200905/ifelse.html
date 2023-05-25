@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>條件式處理</h1>
+  <script>
+    /*
+      // 如果A條件成立，執行某段範圍A
+      if(條件A){範圍A}
+      // 否則，執行某段範圍B
+      else{範圍B}
+      //總結來說，條件A是true那會得到範圍A。反之條件A是false將得到範圍B
+    */
+    let which = true; //宣告一個獨立變數為布林值 true
+    if (which) {
+      console.log("這世界是美好的");
+    }
+    else {
+      console.log("這世界充滿敵意");
+    }
+
+    //0可以當作false,1當作true
+    let height = 171, money = 2000000, face = 1;
+
+    //三好
+    if( (height>170) && (money>1000000) && (face)) console.log("100分");
+    else console.log("0~99分");
+
+    //一好
+    if( height>170 || money>1000000 || face) console.log("60~100分");
+    else console.log("0~59分");
+
+    /* if else 可以巣狀遞增
+      if(條件A){範圍A}
+      else if(條件B){範圍B}
+      else if(){}
+      else{}
+    */
+    let aa=1,bb=4,cc=1;
+
+    if(aa==bb==cc==1) console.log("豹子");
+    else if(aa+bb+cc>9) console.log("大");
+    else console.log("小");
+
+    //三元運算子  where?true:false
+    let day=5;
+    // console.log((day<6)?"is workday":"is holiday");
+    let massage=(day<6)?"is workday":"is holiday";  // massage="is workday"
+    console.log(day,massage);
+  </script>
+</body>
+
+</html>

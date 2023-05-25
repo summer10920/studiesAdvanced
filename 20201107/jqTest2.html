@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #blk {
+      background: lightgreen;
+      width: 300px;
+      height: 100px;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script>
+   </script>
+</head>
+
+<body>
+<button id="btn1">click me</button>
+<button id="btn2">click me</button>
+<button id="btn3">click me</button>
+<button id="btn4">click me</button>
+<hr>
+<div id="blk"></div>
+
+<script>
+  //event listener 事件 by JQ
+  $("#btn1").on("click",function(){
+    $("#blk").css("display","none");
+  });
+  
+  //event listen by JS
+  let btn=document.getElementById("btn2");
+  btn.addEventListener("click",function(){
+    $("#blk").removeAttr("style");
+  });
+
+  $("#btn3").click(function(){
+    $("#blk").hide("slow");
+  });
+  $("#btn4").click(function(){
+    $("#blk").show("fast");
+  });
+  // $("#btn3").hover(function(){
+  //   alert("is hover");
+  // });
+</script>
+</body>
+
+</html>

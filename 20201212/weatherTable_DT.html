@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+  <link rel="stylesheet" href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+  <style>
+    * {
+      font-size: 1.2rem;
+    }
+
+    img {
+      height: 1.2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>36小時天氣預報</h1>
+  <table id="dt" border="1" width="100%">
+    <thead>
+      <tr>
+        <th>編號</th>
+        <th>地區</th>
+        <th>2020年12月12號 下午</th>
+        <th>時間2</th>
+        <th>時間3</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>台北市</td>
+        <td>陰短暫雨 | 溫度 17~19度</td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <script>
+    $.getJSON("https://opendata.cwb.gov.tw/fileapi/v1/opendataapi/F-C0032-001?Authorization=CWB-77F7EF76-6578-458C-ACDF-72ABF4BE7727&downloadType=WEB&format=JSON")
+      .done((re) => {
+        let data = re.cwbopendata.dataset.location;
+        const
+          date1 = new Date(data[0].weatherElement[0].time[0].startTime),
+          date2 = new Date(data[0].weatherElement[0].time[1].startTime),
+          date3 = new Date(data[0].weatherElement[0].time[2].startTime);
+
+        // day or night ? 0 or 18 is night, 6 or 12 is day
+        daynight = [
+          (date1.getHours() == 6 || date1.getHours() == 12) ? "day" : "night",
+          (date2.getHours() == 6 || date2.getHours() == 12) ? "day" : "night",
+          (date3.getHours() == 6 || date3.getHours() == 12) ? "day" : "night"];
+
+        let print = "";
+        for (let i = 0; i < data.length; i++) {
+          const row = data[i];
+          const
+            local = row.locationName,
+            state = [
+              row.weatherElement[0].time[0].parameter.parameterName,
+              row.weatherElement[0].time[1].parameter.parameterName,
+              row.weatherElement[0].time[2].parameter.parameterName
+            ],
+            wimg = [
+              row.weatherElement[0].time[0].parameter.parameterValue,
+              row.weatherElement[0].time[1].parameter.parameterValue,
+              row.weatherElement[0].time[2].parameter.parameterValue
+            ],
+            low = [
+              row.weatherElement[2].time[0].parameter.parameterName,
+              row.weatherElement[2].time[1].parameter.parameterName,
+              row.weatherElement[2].time[2].parameter.parameterName
+            ],
+            high = [
+              row.weatherElement[1].time[0].parameter.parameterName,
+              row.weatherElement[1].time[1].parameter.parameterName,
+              row.weatherElement[1].time[2].parameter.parameterName
+            ];
+          print += `
+          <tr>
+            <td>${i + 1}</td>
+            <td>${local}</td>
+            <td>${state[0]}<img src="img/${daynight[0]}/${wimg[0]}.svg"> | 溫度 ${low[0]}~${high[0]} ℃</td>
+            <td>${state[1]}<img src="img/${daynight[1]}/${wimg[1]}.svg"> | 溫度 ${low[1]}~${high[1]} ℃</td>
+            <td>${state[2]}<img src="img/${daynight[2]}/${wimg[2]}.svg"> | 溫度 ${low[2]}~${high[2]} ℃</td>
+          </tr>
+          `;
+        }
+        $("#dt>tbody").html(print);
+
+
+        // hourValueToHourString   0(凌晨), 6(白天), 12(下午), 18(晚上)
+        hText = new Array();
+        hText[0] = "凌晨";   //getHours() = > String
+        hText[6] = "白天";
+        hText[12] = "下午";
+        hText[18] = "晚上";
+        const
+          dateStr1 = `${date1.getFullYear()}年${date1.getMonth() + 1}月${date1.getDate()}日 ${hText[date1.getHours()]}`,
+          dateStr2 = `${date2.getFullYear()}年${date2.getMonth() + 1}月${date2.getDate()}日 ${hText[date2.getHours()]}`,
+          dateStr3 = `${date3.getFullYear()}年${date3.getMonth() + 1}月${date3.getDate()}日 ${hText[date3.getHours()]}`;
+        $("#dt>thead").find("th").eq(2).text(dateStr1);
+        $("#dt>thead").find("th").eq(3).text(dateStr2);
+        $("#dt>thead").find("th").eq(4).text(dateStr3);
+
+        //table 建立完成已輸出完畢;
+        $('#dt').DataTable();
+      });
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+
+<body>
+  <script>
+
+    $.getJSON("iamhtml.html", function (e) {
+      console.log("1", e);
+    });
+
+    $.get("iamhtml.html", function (e) {
+      console.log("2", e);
+      $("body").append(e);
+    }, "html");
+
+    $.ajax({
+      type: "get",
+      url: "iamhtml.html",
+      dataType: "html",
+      success: function (e) {
+        $("body").append(e);
+      }
+    });
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+
+<body style="text-align: center;">
+  <h3>預告片清單</h3>
+  <form>
+    <!-- table>thead>tr>th*4^^tbody>tr>td*4 -->
+    <table border="1" style="margin:0 auto">
+      <thead>
+        <tr>
+          <th>海報</th>
+          <th>片名</th>
+          <th>播放順序</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      </tbody>
+    </table>
+    <p><input type="submit" value="修改提交"></p>
+  </form>
+  <script>
+    $.getJSON("data.json", function (result) {
+      todo(result.q3t5);
+    });
+    function todo(myjson) {
+      for (const value of myjson) {
+        $("tbody").append(`
+          <tr>
+            <td><img src="${value.img}" height="80"></td>
+            <td>${value.text}</td>
+            <td>
+              <input type="hidden" name="odr[${value.text}]" value="${value.odr}">
+              <input type="button" value="上移" class="up">
+              <input type="button" value="下移" class="down">
+            </td>
+            <td>
+              <input type="checkbox">顯示
+              <input type="checkbox">刪除
+            </td>
+          </tr>
+        `);
+      }
+      $("input:button").click(function () {
+        let nodeSelf = $(this).parents("tr");
+        let nodeTarget = null;
+
+        switch (this.className) {
+          case "up":
+            nodeTarget = nodeSelf.prev();//上面的
+            if (nodeTarget.length) {
+              nodeSelf.find("input:hidden").val((idx, ova) => { return --ova; });
+              nodeTarget.find("input:hidden").val((idx, ova) => { return ++ova; });
+              nodeSelf.insertBefore(nodeTarget);
+            }
+            break;
+          case "down":
+            nodeTarget = nodeSelf.next();//後面的
+            if (nodeTarget.length) {
+              nodeSelf.find("input:hidden").val((idx, ova) => { return ++ova; });
+              nodeTarget.find("input:hidden").val((idx, ova) => { return --ova; });
+              nodeSelf.insertAfter(nodeTarget);
+              break;
+            }
+        }
+      });
+    }
+
+  </script>
+</body>
+
+</html>

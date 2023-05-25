@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>While迴圈</h1>
+  <script>
+    //while也是迴圈，與for不同的差異在於它只有判斷是否要繼續迴圈處理
+    let n=0;
+    while(n<5){
+      console.log(n);
+      n++;
+    }
+
+    console.log("----------");
+
+    //do while是while的延伸，提前先做才檢查
+    let m=0;
+    do{
+      console.log(m);
+      m++;
+    }while(m<0);
+
+    console.log("----------");
+
+    //迴圈跳脫的方式
+    let k=0;
+    while(k<10){
+      k++;
+      if(k==5) continue; //PASS目前的迴圈回到下次的迴圈進入
+      if(k==8) break; //崩解迴圈，直接迴圈消失
+      console.log(k);
+    }
+    console.log("done");
+
+
+  </script>
+  
+</body>
+</html>

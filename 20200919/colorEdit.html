@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div#zone {
+      width: 500px;
+      height: 300px;
+      border: pink 1px solid;
+      margin-bottom: 10px;
+      text-align: center;
+      font-size: 40px;
+      line-height: 300px;
+      text-transform: uppercase;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="zone"></div>
+  <div>
+    <input type="button" value="R" onclick="ask('r')">
+    <input type="button" value="G" onclick="ask('g')">
+    <input type="button" value="B" onclick="ask('b')">
+  </div>
+
+  <script>
+    let rgb={r:0,g:0,b:0};
+    rgb.r=Math.floor(Math.random()*256);
+    rgb.g=Math.floor(Math.random()*256);
+    rgb.b=Math.floor(Math.random()*256);
+    printRGB();
+
+
+    function ask(clr){
+      let newclr; //讓function內任何地方都能讀到
+      do{
+        newclr=prompt("請輸入0~255",rgb[clr]); // 可能是給r或g或b,所以看crl變數寫的是誰那就是要給誰的數字
+      }while(!(0<=newclr && newclr <=255));  // 不屬於 0~255的成立，while成立do會再問一遍
+      rgb[clr]=(newclr==null)?rgb[clr]:Number(newclr);  //// rgb[clr]=newclr之行為，透過三元判斷避免null發生
+      printRGB();  //轉由另一個函式負責輸出畫面
+    } 
+
+    function printRGB(){
+      document.getElementById("zone").style.backgroundColor=`rgb(${rgb.r},${rgb.g},${rgb.b})`;
+      document.getElementById("zone").style.color=`rgb(${255-rgb.r},${255-rgb.g},${255-rgb.b})`;
+      document.getElementById("zone").textContent=`#${zerochk(rgb.r)}${zerochk(rgb.g)}${zerochk(rgb.b)}`;
+    }
+
+    function zerochk(str){
+      str=str.toString(16);
+      return str.length==2?str:"0"+str;
+    }
+  </script>
+</body>
+
+</html>

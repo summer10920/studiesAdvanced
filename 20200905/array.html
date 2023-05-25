@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>陣列</h1>
+  <script>
+    let a="A";
+    let b="B";
+    let aryFirst=new Array(); //指定新的空陣列，指派給aryFirst
+    aryFirst.push("A");
+    aryFirst.push("B");
+    aryFirst.push("C","D");
+    let arySecond=["A","B"]; //某陣列結構，指派給arySecond
+
+    let reA=aryFirst.pop(); //從尾末端吐出一個東西出來，而原本的陣列該值會消失
+    let reB=aryFirst.shift();//從初始端吐出一個東西出來，而原本的陣列該值會消失
+
+    //JS的array結構可以分為index (數字) & value (值)
+
+    let aryThird=new Array();
+    for(let i=101;i<111;i++){
+      aryThird.push(i);
+    }
+
+    for(let i=0;i<aryThird.length;i++){
+      console.log(aryThird[i]);
+    }
+
+    console.log("---------");
+
+    function showMe(val,idx){
+      console.log(val,idx);
+    }
+
+    aryThird.forEach(showMe); //()循序批次的丟出value跟index放入到某個函式
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+
+<body>
+  <script>
+    let data, data1, data2;
+    let str = '{"cat":123,"dog":456}'; //假設拿到string型態的資料 可透過JSON.parse(str)轉為JSON物件
+    /* method 1 */
+    /*
+    $.ajax({
+      url:"https://opendata.cwb.gov.tw/fileapi/v1/opendataapi/F-C0032-001?Authorization=CWB-77F7EF76-6578-458C-ACDF-72ABF4BE7727&downloadType=WEB&format=JSON",
+      method:"GET",
+      dataType:"json",
+      success:function(e){
+        // data=e;
+        data=e.cwbopendata.dataset.location;
+        console.log(data);
+      }
+    });//完整寫法
+    */
+    /* method 2 */
+    /*
+    $.getJSON("https://opendata.cwb.gov.tw/fileapi/v1/opendataapi/F-C0032-001?Authorization=CWB-77F7EF76-6578-458C-ACDF-72ABF4BE7727&downloadType=WEB&format=JSON")
+      .done(function(result){
+        data=result.cwbopendata.dataset.location;
+      })
+      .fail(function(result){
+        alert("API獲取失敗:"+result);
+        data=result;
+      });
+    */
+    /* method 3 */
+    $.get("https://opendata.cwb.gov.tw/fileapi/v1/opendataapi/F-C0032-001?Authorization=CWB-77F7EF76-6578-458C-ACDF-72ABF4BE7727&downloadType=WEB&format=JSON",function(re){
+      data=re.cwbopendata.dataset.location; //假設如果你拿的是純文字，可以自己手動轉換，可透過JSON.parse()處理
+    });
+    /* 如果要拿兩個API(含以上)且需要等全部都回傳後才能進行工作，那你需要$.when().then()來做等待作業 */
+    $.when(
+      $.getJSON("https://opendata.cwb.gov.tw/fileapi/v1/opendataapi/F-C0032-001?Authorization=CWB-77F7EF76-6578-458C-ACDF-72ABF4BE7727&downloadType=WEB&format=JSON")
+        .done(function (re) { data1 = re }),
+      $.getJSON("https://opendata.cwb.gov.tw/fileapi/v1/opendataapi/E-A0073-001?Authorization=CWB-77F7EF76-6578-458C-ACDF-72ABF4BE7727&downloadType=WEB&format=JSON")
+        .done(function (re) { data2 = re })
+    ).then(function () {
+      console.log(data1, data2);
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+    $.getJSON();//快速取得JSON寫法
+  </script>
+</body>
+
+</html>

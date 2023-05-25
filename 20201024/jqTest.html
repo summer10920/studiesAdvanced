@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .hot{
+      color:red;
+    }
+  </style>
+  <script src="plugins/jquery-3.5.1.min.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> -->
+</head>
+<body>
+  <!-- JQ三大好處 : DOM快、特效易套、AJAX簡單 -->
+  <div id="page">
+    <h1 id="header">My JQuery Demo List</h1>
+    <h2 class="hot">我的代辦事項</h2>
+    <ul>
+      <li id="one" class="hot">買晚餐</li>
+      <li id="two" class="hot">練程式</li>
+      <li id="three" class="hot">打電動</li>
+      <li id="four">洗澡</li>
+    </ul>
+  </div>
+  <img src="https://fakeimg.pl/100x100" width="50" height="50">
+  <div>
+    <p>Lorem ipsum dolor sit amet.</p>
+  </div>
+  <form>
+    <!--prepend-->
+    <input type="text" name="user name" value="loki jiang">
+    <input type="email" name="gmail" value="summer10920@gmai.com">
+    <!--append-->
+  </form>
+  <script>
+    let str="<li>散步</li>";
+    $("#two").after(str);//將HTML代碼塞入選擇點同層之下
+    $("#two").before("<li>做運動</li>");
+
+    
+    $("form").append('<input type="text">');
+    $("form").prepend(`
+      <select>
+        <option value="1">1</option>
+      </select>
+    `);
+
+    // let tt=$("option").clone();
+    // tt.text(2);
+    // $("select").append(tt);
+    $("select").append($("option").clone().text(2));
+    abc=$("#two").next().remove();//完全刪除
+    def=$("#two").next().detach();//假刪除，可事後還原可能
+    $("div:eq(1)").empty();//內容清空
+    $("img").attr("width","100")// 指定選擇器下的指定屬性值增改
+    $("img").removeAttr("height");
+
+  </script>
+</body>
+</html>

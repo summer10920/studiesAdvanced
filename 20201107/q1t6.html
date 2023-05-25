@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: darkgrey;
+    }
+
+    .imglist {
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+    }
+
+    .dbor {
+      width: 150px;
+      text-align: center;
+      background: white;
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="dbor">
+    <span class="t botli">校園映象區</span>
+    <hr>
+    <div>
+      <img src="media/01E01.jpg" onclick="pp(1)">
+      <div class="imglist">
+        <!-- <img src="media/01D01.jpg" width="150" height="103"> -->
+        <!-- <img src="media/01D02.jpg" width="150" height="103"> -->
+      </div>
+      <img src="media/01E02.jpg" onclick="pp(2)">
+      <script>
+        let nowat = 0, num = 0;
+        $.getJSON("data.json", (result) => {
+          todo(result.q1t6);
+        });
+
+        function todo(myjson) {
+          num = myjson.length; //因為fn不同，pp()不認識myjson，因此改用全域變數來共享
+          /*step 1: creat DOM*/
+          // for(let i=0;i<myjson.length;i++)
+          //   $(".imglist").append(`<img id="ssaa${i}" src="${myjson[i]}" width="150" height="103">`);
+          let i = 0;
+          myjson.forEach(e => {
+            $(".imglist").append(`<img id="ssaa${i}" src="${e}" width="150" height="103">`);
+            i++;
+          });
+          /*step 2: only show No0.1.2*/
+          $(".imglist").children().hide();
+          // for(let i=0;i<3;i++) $(`#ssaa${i}`).show();
+          // for(let i=0;i<3;i++) $("#ssaa"+i).show();
+          $("#ssaa0").add("#ssaa1").add("#ssaa2").show();
+        }
+        function pp(x) {
+          //step3 :執行往上下頁碼動作
+          if (x == 1 && nowat > 0) { //do 往上
+            nowat--;
+            $(`#ssaa${nowat}`).slideToggle();
+            $(`#ssaa${nowat + 3}`).slideToggle();
+          }
+          if (x == 2 && nowat < (num - 3)) { //do 往下   
+            $(`#ssaa${nowat}`).slideToggle();
+            $(`#ssaa${nowat + 3}`).slideToggle();
+            nowat++;
+          }
+        }
+      </script>
+    </div>
+  </div>
+</body>
+
+</html>

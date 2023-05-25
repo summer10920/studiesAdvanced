@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table {
+      border: 10px solid orange;
+    }
+
+    td {
+      border: 1px solid black;
+      padding: 15px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <table>
+    <tbody>
+      <tr>
+        <script>
+          for (let i = 2; i < 10; i++) {
+            if (i == 6) document.write('</tr><tr>');
+
+            document.write('<td>');
+            for (let j = 2; j < 10; j++) {
+              document.write(`${i}*${j}=${i * j}<br>`);
+            }
+            document.write('</td>');
+
+            // if (i == 5) document.write('</tr><tr>');
+          }
+        </script>
+      </tr>
+    </tbody>
+  </table>
+  <script>
+    /*
+    for (let i = 1, j = 1; j < 10; j++) {
+      document.write(`${i}*${j}=${i * j}<br>`); //last 9*9
+      if (j == 9) {
+        i++; //i=10
+        j = 0; //j=0
+        document.write('<hr>');
+      }
+      if (i == 10) break;
+    }
+     */
+  </script>
+</body>
+
+</html>

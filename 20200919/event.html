@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>事件</title>
+</head>
+
+<body>
+  <input type="button" value="onclick demo" onclick="alert('這是HTML屬性下的滑鼠事件')">
+  <hr>
+  <input type="button" value="My onclick" onclick="chgCSS(this)" id="tt" onmousedown="chgCSS(this)">
+  <input type="button" value="My onmousedown" onmousedown="chgCSS(this)">
+  <input type="button" value="My onmouseup" onmouseup="chgCSS(this)">
+  <input type="button" value="My onmouseover" onmouseover="chgCSS(this)">
+  <input type="button" value="My onmouseout" onmouseout="chgCSS(this)">
+  <hr>
+  <input type="text" value="輸入有變化" onchange="chgCSS(this)">
+  <input type="text" value="失去焦點時" onblur="chgCSS(this)">
+  <input type="text" value="進入焦點時" onfocus="chgCSS(this)">
+  <hr>
+  <div id="fake"></div>
+
+  <script>
+    // document.getElementById("tt").style.fontSize="70px";
+    function chgCSS(obj) {
+      // console.log(obj,obj.value);
+      if (obj.style.color == "red") {
+        /*
+          //method1 
+          obj.style.color=null;
+          obj.style.fontSize=null;
+          //method2
+          obj.style="";
+          //method3
+        */
+        obj.removeAttribute("style"); //刪除屬性
+        // obj.setAttribute("class","test") //增加屬性與值
+      }
+      else obj.style = "color:red;font-size:30px";
+    }
+
+    /* fake element*/
+    let fakebtn = document.getElementById("fake");
+    fakebtn.style="background-color: gray; box-shadow: 2px 2px 4px 0px black; cursor: pointer; display: inline; padding: 5px; border-radius: 5px; color: lightgreen;"
+    fakebtn.innerHTML="按鈕";
+    // fakebtn.onclick=chgCSS(fakebtn); //這樣做會直接執行，所以需過場一個匿名函式，使得chg(fakebtn)可以該事件下才執行
+    fakebtn.onclick=function(){
+      // chgCSS(fakebtn);
+      fakebtn.style.backgroundColor=((fakebtn.style.backgroundColor=="darkcyan")?"gray":"darkcyan");
+    }
+    
+
+    document.onkeydown=getcode;
+
+    function getcode(){
+      console.log(event.keyCode);
+      fakebtn.innerHTML=event.keyCode;
+    }
+  </script>
+</body>
+
+</html>

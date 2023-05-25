@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>localStroage(時間接近無限) vs sessionStorage(當網頁關閉就會消失)</h1>
+  <input type="text">
+  <button class="save">Save</button>
+  <button class="clear">Clear</button>
+
+  <script>
+    document.querySelector(".save").onclick = () => { //寫入
+      const val = document.querySelector("input").value;
+      localStorage.setItem("msg", val);
+      sessionStorage.setItem("msg", val);
+    }
+
+    document.querySelector(".clear").onclick = () => {
+      localStorage.removeItem("msg");
+      sessionStorage.removeItem("msg");
+    }
+    // console.log(localStorage, sessionStorage);
+  </script>
+
+
+</body>
+
+</html>

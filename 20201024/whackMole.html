@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .ninebk {
+      display: flex;
+      flex-flow: row wrap;
+      width: 330px;
+      height: 330px;
+    }
+
+    .ninebk>img {
+      flex: 0 0 100px;
+      border: 5px solid gray;
+      background: yellow;
+      width: 100px;
+      height: 100px;
+      cursor: pointer;
+    }
+
+    .container {
+      width: 330px;
+      text-align: center;
+    }
+
+    .bar {
+      margin: 15px auto;
+      display: flex;
+      justify-content: space-between;
+    }
+    .bar > *{
+      flex:0 0 33.333%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="ninebk">
+      <img src="shark_img/yellow.png" class="cell" onclick="getCount(0)">
+      <img src="shark_img/yellow.png" class="cell" onclick="getCount(1)">
+      <img src="shark_img/yellow.png" class="cell" onclick="getCount(2)">
+      <img src="shark_img/yellow.png" class="cell" onclick="getCount(3)">
+      <img src="shark_img/yellow.png" class="cell" onclick="getCount(4)">
+      <img src="shark_img/yellow.png" class="cell" onclick="getCount(5)">
+      <img src="shark_img/yellow.png" class="cell" onclick="getCount(6)">
+      <img src="shark_img/yellow.png" class="cell" onclick="getCount(7)">
+      <img src="shark_img/yellow.png" class="cell" onclick="getCount(8)">
+    </div>
+    <div class="control">
+      <div class="bar">
+        <span id="time">剩餘時間:0s</span>
+        <button>遊戲開始</button>
+        <span>成績分數:<span id="combo">100</span></span>
+      </div>
+      <hr>
+      <b>遊戲說明</b>
+      <p>打地鼠遊戲，遊戲開始時使用滑鼠(或鍵盤數字區對應)點擊紅色圖片進行得分</p>
+    </div>
+  </div>
+  <script>
+    //初始化，規劃一些節點DOM 與 全域變數區
+    let btn = document.getElementsByTagName("button")[0];
+    let time = document.getElementById("time");
+    let combo = document.getElementById("combo");
+    let animal = document.getElementsByClassName("cell");
+    let sec = 0, count = 0, flag = 0;
+    let beYellow=new Array(); // idx = animal seq, value= settimeout's id
+
+    btn.addEventListener("click", gamestart);
+
+    function gamestart() {
+      sec = 60, count = 0, flag = 1;
+      time.textContent = `剩餘時間:${sec}s`;
+      combo.textContent = count;
+      btn.removeEventListener("click", gamestart);
+
+      let start = setInterval(() => {
+        if (sec == 0) {
+          flag = 0;
+          clearInterval(start);
+          btn.addEventListener("click", gamestart);
+        }
+        else {
+          sec--;
+          time.textContent = `剩餘時間:${sec}s`;
+        }
+      }, 1000);
+
+      for (let i = 0; i < 100; i++) {
+        let ontime = Math.floor(Math.random() * 56000); //0~55999ms
+        let space = Math.floor(Math.random() * 9); //0~8位置
+        let stick = Math.floor(Math.random() * 3) + 2; // 停留 2~4s
+
+        setTimeout(() => {
+          showit(space, stick, i);
+        }, ontime);
+      }
+    }
+
+    function showit(sSpace, sStick, sI) { //yellow to red
+      if (animal[sSpace].attributes.src.value == "shark_img/yellow.png") {
+        animal[sSpace].src = "shark_img/red.png";
+        animal[sSpace].style.background = "red";
+        animal[sSpace].alt = sI;
+        
+        beYellow[sI]=setTimeout(() => { //to yellow
+          animal[sSpace].src = "shark_img/yellow.png";
+          animal[sSpace].style.background = null;
+          animal[sSpace].removeAttribute('alt');
+        }, sStick * 1000);
+      }
+      else {
+        //let nextSpace=(sSpace==8)?0:sSpace+1;
+        //let nextSpace=(sSpace+1)%9;
+        let nextSpace = Math.floor(Math.random() * 9); //0~8位置
+        
+        setTimeout(()=>{
+          showit(nextSpace, sStick, sI);
+        },100);
+      }
+    }
+
+    ////////////////////////////////////////////////////////
+    //keyborad event
+    document.onkeydown = keyToDo;
+
+    function keyToDo() {
+      switch (event.keyCode) {
+        case 103: getCount(0); break;
+        case 104: getCount(1); break;
+        case 105: getCount(2); break;
+        case 100: getCount(3); break;
+        case 101: getCount(4); break;
+        case 102: getCount(5); break;
+        case 97: getCount(6); break;
+        case 98: getCount(7); break;
+        case 99: getCount(8); break;
+      }
+    }
+
+    function getCount(space) {  // red to green
+      if (animal[space].attributes.src.value == "shark_img/red.png" && flag) {
+        //換圖
+        animal[space].src = "shark_img/green.png";
+        animal[space].style.background = "green";
+        
+        //得分
+        count++;
+        combo.textContent = count;
+
+        //清除原本red->yellow的預定排成
+        let theId=animal[space].alt;
+        clearTimeout(beYellow[theId]);
+        animal[space].removeAttribute('alt');
+
+        setTimeout(() => { //to yellow
+          animal[space].src = "shark_img/yellow.png";
+          animal[space].style.background = null;
+        }, 1000);
+      }
+    }
+  </script>
+</body>
+
+</html>

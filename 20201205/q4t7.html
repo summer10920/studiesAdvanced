@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+
+<body>
+  <h3>註冊帳號</h3>
+  <form method="get" onsubmit="return recheck()">
+    姓名：<input type="text" name="name" autocomplete="off"><br>
+    帳號：<input type="text" name="acc" onchange="flag=0"><input type="button" value="檢測新帳號" onclick="check()"><br>
+    密碼：<input type="password" name="pwd"><br>
+    <input type="submit" value="註冊">
+  </form>
+
+  <script>
+    let flag = 0;
+    function check() {
+      const acc = $("input[name=acc]").val();
+      $.post("http://192.168.211.1/accountServer/api.php?do=checkuser", { acc }, (re) => {
+        alert(re);
+        flag = (re == "可使用此帳號") ? 1 : 0;
+      });
+    }
+    function recheck() {
+      if (!flag) { //驗證未過
+        alert("請先驗證帳號");
+        return false;
+      }
+    }
+  </script>
+</body>
+
+</html>

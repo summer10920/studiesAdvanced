@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>內建函式(物件)</h1>
+  <script>
+    const say = 'hello world';
+    console.log(say.length); //11
+    const ary = [123, 456, 789];
+    console.log(ary.length);
+
+    let a = '5', b = 100;
+    //string + number => string +string
+    console.log(a + 3 + b);//53100
+    console.log(a + (3 + b));//5103
+    //Number() 型態轉換為數字 , String() 轉為字串
+    console.log(Number(a) + 3 + b);//108
+    console.log(Number(a) + 3 + String(b));//8100
+
+    /* Math
+    Math.round(6.4) //6  四捨五入
+    Math.ceil(6.1)  //7  無條件進
+    Math.floor(6.8)  //6  無條件捨
+    Math.random()  // 0~1 之浮點數，含0不含1
+
+    //乘15倍 等同於 0~15之間(不含15)
+    let rand=Math.random();
+    console.log(rand,rand*15);  //0~1 => 0~15 (不含15)
+
+    build 1~49 
+    Math.random()*49  // 0~48.多
+    Math.floor(Math.random()*49)  // 0~48
+    Math.floor(Math.random()*49)+1  // 1~49
+
+    build 50~120 => 0~70 ,then add 50
+    Math.random()*(70+1)  // 0~70.多
+    Math.floor(Math.random()*71) //0~70
+    Math.floor(Math.random()*71)+50  //50~120
+ */
+    // try writting custom function rand(min,max) to build min~max
+    function rand(min, max) {
+      // let result=Math.floor(Math.random()*(max-min+1))+min;  //50~120
+      // return result;
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    let dataA = '123', dataB = 123, dataC = false;
+    let dataD = [456, "456"], dataE = { jsn1: "789", jsn2: 789 };
+    //typeof(dataA);
+    //typeof(dataE.jsn1);
+
+  </script>
+</body>
+
+</html>

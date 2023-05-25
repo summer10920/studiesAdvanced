@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <style>
+    .insertZone {
+      position: fixed;
+      background: #333A;
+      color: #eee;
+      font-weight: bold;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-basis: 50%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="insertZone" style="display: none;">
+
+
+
+  </div>
+  <table width="100%">
+    <thead>
+      <tr>
+        <td>編號</td>
+        <td>動物名</td>
+        <td>重量</td>
+        <td>簡介</td>
+        <td>更新日期</td>
+        <td>操作</td>
+      </tr>
+      <tr>
+        <td colspan="6">
+          <hr>
+        </td>
+      </tr>
+    </thead>
+    <tbody></tbody>
+    <tfoot>
+      <tr>
+        <td colspan="6" style="text-align: center;padding:10px;">
+          <button onclick="active()">新增</button>
+          <button onclick="loading()">加載10筆</button>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <script>
+    let start = 0;
+
+    function loading() { //select
+      $.post("api.php?do=select", { start }, function (result) {
+
+        if (result != "fail") {
+          $("tbody").append(result); //DOM 生成
+          $(".mdy").click(chginput); //JS指定 剛新生成的DOM 持有特定EVENT
+          start += 10;
+        } else alert("已無資料傾倒");
+      });
+    }
+    loading();
+
+    function chginput() {
+      //將table tr>td 換成 input
+      let item = $(this).parent().siblings(); //keep 5 data
+      item.parent().html(`
+      <td><input type="hidden" name="id" value="${item.eq(0).text()}">${item.eq(0).text()}</td>
+      <td><input name="name" value="${item.eq(1).text()}"></td>
+      <td><input name="weight" value="${item.eq(2).text()}"></td>
+      <td><input name="info" value="${item.eq(3).text()}"></td>
+      <td>${item.eq(4).text()}</td>
+      <td>
+        <button onclick="chgtxt(this)">儲存</button>
+      </td>
+      
+      `);
+    }
+
+    // let item=null;
+    function chgtxt(who) {
+      // console.log(who);
+
+      let data = $(who).parents("tr").find("input").serialize();
+      // console.log(data,typeof(data));
+
+      // test={ //json
+      //   id:"1",
+      //   name:"AAA",
+      //   weight:"BBB",
+      //   info:"CCC"
+      // }
+      // $.post("api.php?do=update",{id:"1",name:"AAA",weight:"BBB",info:"CCC"},function(result){
+      $.post("api.php?do=update", data, function (result) {
+        // console.log(result);
+        // result 內是後端告訴我的系統更新之時間文字
+
+        let item = $(who).parent().siblings();
+        let
+          id = item.eq(0).text(),
+          name = item.eq(1).children().val(),
+          weight = item.eq(2).children().val(),
+          info = item.eq(3).children().val();
+
+        // console.log(id,name,weight,info);
+
+        item.parent().html(`
+          
+          <td>${id}</td>
+          <td>${name}</td>
+          <td>${weight}</td>
+          <td>${info}</td>
+          <td>${result}</td>
+          <td>
+            <button class="mdy">修改</button>
+            <button onclick="del(this)">刪除</button>
+          </td>
+          
+          `);
+
+        $(".mdy").click(chginput); //因為dom又變新的出來瀏覽器不認識，所以又要整體.mdy再宣告click 事件
+
+
+      });
+
+    }
+
+    // let ttry=null;
+    function del(e) {
+      let id = $(e).parent().siblings().eq(0).text();
+
+      $.post("api.php?do=delete", { id }, function (re) {
+        // if(re=="deleted") console.log("已刪除");
+        // else console.log("失敗");
+        if (re) $(e).parent().parent().remove();
+      });
+    }
+
+    function active() {
+      $(".insertZone").html(`
+        <!-- 沒有要透過from submit 進行網頁轉移 -->
+        <form>
+          <h1>新增動物資料</h1>
+          <hr>
+          <p>動物：<input type="text" name="name"></p>
+          <p>重量：<input type="text" name="weight"></p>
+          <p>簡介：<input type="text" name="info"></p>
+          <hr>
+          <p>
+            <button type="button" onclick="sendAdd(this)">提交</button>
+            <button type="button" onclick="closeZone()">取消</button>
+          </p>
+        </form>
+      `);
+
+      $(".insertZone").fadeIn();
+    }
+
+    function closeZone() {
+      $(".insertZone").fadeOut();
+    }
+
+    function sendAdd(who){
+      let data=$(who).parents("form").find("input").serialize();
+      $.post("api.php?do=insert",data,function (re) {
+        $("tbody").empty();
+        start=0;
+        loading();
+        closeZone();
+      });
+    }
+  </script>
+</body>
+
+</html>

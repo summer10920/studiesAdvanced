@@ -1,0 +1,130 @@
+body {
+  font-family: "Open Sans", "Noto Sans TC", Arial, Helvetica, sans-serif;
+  background: #eee;
+}
+
+/*slider*/
+#lokiSlider img {
+  object-fit: cover;
+  filter: grayscale(45%);
+}
+
+#lokiSlider .carousel-caption {
+  top: 0;
+  bottom: 0;
+  text-shadow: 0.3rem 0.3rem 0.4rem #000;
+}
+
+#lokiSlider .carousel-indicators li {
+  background: whitesmoke;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  border: 5px solid transparent;
+}
+
+/*footer*/
+#lokiFooter a.position-fixed {
+  bottom: 5vh;
+  right: 5vh;
+  z-index: 999;
+  animation: bounce 2s ease infinite;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  53%,
+  80%,
+  100% {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translate(0, 0);
+  }
+  40%,
+  43% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate(0, -30px);
+  }
+
+  70% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate(0, -15px);
+  }
+  90% {
+    transform: translate(0, -4px);
+  }
+}
+
+/*room*/
+#lokiRoom .nav-tabs .nav-link {
+  flex: 0 1 15%;
+  box-shadow: 1px -1px 2px 0px #8888;
+  border: 0;
+  border-bottom: 1px solid transparent;
+}
+#lokiRoom .nav-tabs .nav-link.active {
+  background-color: #17a2b8 !important;
+  color: #fff !important;
+  border-bottom: 1px solid #17a2b8;
+}
+#lokiRoom nav.nav-tabs {
+  border-bottom: 1px solid #17a2b8;
+}
+#lokiRoom .tab-content .row.active {
+  display: flex;
+}
+
+/*facility*/
+#lokiFacility {
+  background: url("https://picsum.photos/1920/1080/?random=4"),
+    radial-gradient(circle, #777 30%, #ccc 70%),
+    linear-gradient(to right, #999, #444);
+  background-blend-mode: multiply, screen;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  text-shadow: 0.3rem 0.3rem 0.4rem #000;
+}
+@media (min-width: 992px) {
+  #lokiFacility li.col-lg-6:nth-of-type(even) img {
+    order: 1;
+  }
+}
+
+/*menu*/
+#lokiMenu .navbar .nav-link {
+  transition: 5s ease;
+}
+
+/*Transport*/
+#lokiTrans > iframe {
+  filter: grayscale(0.7) brightness(0.5);
+}
+
+/************js:::::::::::::::::::spy*/
+header a:after{
+  content: "";
+  display: block;
+  height: 2px;
+  background: #fff;
+  margin:5px 0;
+  transition: 0.5s ease;
+  width: 0%;
+}
+
+header a.active:after{
+  width: 100%;
+}
+
+/************js:::::::::::::::::::menu spy*/
+#lokiMenu{
+  transition: 0.5s ease;
+}
+
+#scrollTop{
+  opacity: 0;
+  transition: 0.5s ease;
+}
+#scrollTop.shown{
+  opacity: 1;
+}

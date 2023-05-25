@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+
+<body>
+  <form>
+    電影：<select name="mm" id="sm" onchange="gd()"></select>
+    日期：<select name="dd" id="sd" onchange="gt()"></select>
+    場次：<select name="st" id="st"></select>
+    <input type="submit" value="確定">
+  </form>
+  <script>
+    // $.getJSON("http://192.168.211.1/movieServer/api.php?do=getmovie",function(re){
+    //   console.log(re,typeof(re));
+    // })
+    $.get("http://192.168.211.1/movieServer/api.php", { do: "getmovie" }, function (re) {
+      console.log(re, typeof (re));
+      // re=JSON.parse(re);
+      // console.log(re,typeof(re));
+      let content = "";
+      for (const row of re) content += `<option value="${row.id}">${row.movie}</option>`;
+      console.log(content);
+      $("#sm").html(content);
+      gd();
+    }, "json");
+    function gd() { //產生目前根據#sm的電影為誰，去找該電影的銷售日期
+      const mv = $("#sm").val();
+      $.get("http://192.168.211.1/movieServer/api.php", { do: "getdate", id: mv }, function (re) {
+        // console.log(re);
+        let content = "";
+        for (const row of re) content += `<option value="${row.id}">${row.date}</option>`;
+        $("#sd").html(content);
+        gt();
+      }, "json");
+    }
+    function gt() {
+      let dv = $("#sd").val();
+      console.log(dv);
+      $.get("http://192.168.211.1/movieServer/api.php", { do: "gettime", id: dv }, function (re) {
+        let times = [ //各時段的銷售狀況初始值
+          { txt: "10:00~12:00", tick: 20 },
+          { txt: "12:00~14:00", tick: 20 },
+          { txt: "14:00~16:00", tick: 20 },
+          { txt: "16:00~18:00", tick: 20 },
+          { txt: "18:00~20:00", tick: 20 },
+          { txt: "20:00~22:00", tick: 20 },
+          { txt: "22:00~24:00", tick: 20 }
+        ];
+        for (const row of re) {
+          console.log(row);
+          times[row.time - 1].tick -= row.sellout; //tim[0].tick=time[0].tick-2; //x=x-2 => x-=2;
+        }
+        const nowTime=new Date();
+        // const nowH=nowTime.getHours();
+        // 10=1,11=1,12=2,13=2..... x=>y | y=floor(x/2)-4
+        const nowToTimes=Math.floor(nowTime.getHours()/2)-4;
+        const selectDayStr=$("#sd>option:selected").text(); //目前所選到的option
+        const selectTime=new Date(selectDayStr);//建立指定的時間物件，利於跟目前時間做檢查
+        // console.log(selectTime.toDateString(),nowTime.toDateString()); //將兩個時間物件都轉成文字串方便進行比較
+
+        let content = "";
+        for (const key in times) {
+            //if 選取的場次值小於目前小時(之場次值)&時間等於今天 要跳過
+            if((Number(key)+1)<=nowToTimes&&selectTime.toDateString()==nowTime.toDateString()) continue;
+            content+=`<option value="${Number(key)+1}">${times[key].txt} 剩餘座位 ${times[key].tick}</option>`;  
+        }
+        // let count=1;
+        // for (const row of times) {
+        //   content+=`<option value="${count}">${row.txt} 剩餘座位 ${row.tick}</option>`;
+        //   count++;
+        // }
+        $("#st").html(content);
+      }, "json");
+    }
+  </script>
+</body>
+
+</html>

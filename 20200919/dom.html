@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM</title>
+</head>
+
+<body>
+  <h1 id="demo">Document <mark>Object</mark> Modal</h1>
+  <script>
+    let obj = document.getElementById("demo");
+    console.log(obj.textContent);
+    console.log(obj.innerHTML);
+
+    obj.textContent = '<mark>DOM</mark> 文件物件模型'; //純文字
+    obj.innerHTML = '<mark>DOM</mark> 文件物件模型';  //HTML代碼
+  </script>
+
+  <ul id="demo2">
+    <li class="list">apple</li>
+    <li class="list">banana</li>
+    <li class="list">orange</li>
+  </ul>
+  <script>
+    /*
+    let obj2=document.getElementById("demo2");
+    console.log(obj2.textContent);
+    console.log(obj2.innerHTML);
+    */
+    /*
+    let ary=document.getElementsByClassName("list");
+    console.log(ary[1]);
+    */
+    let objBanana = document.getElementsByClassName("list")[1];
+    // console.log(objBanana);
+    objBanana.innerHTML = "<a href='http://www.google.com'>Google</a>";
+
+    console.log(document.getElementsByTagName("h1"));
+  </script>
+
+</body>
+
+</html>

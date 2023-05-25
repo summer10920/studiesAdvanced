@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>hello world</h1>
+
+  <script>
+    function sayHi(name){
+      //name="loki";
+      console.log(`Hi, i am ${name}`);
+    }
+
+    //word本身是一個變數，而它的內容為匿名函式
+    word=function(){
+      console.log('hi');
+    }
+
+    //word本身是一個變數，而它的內容為箭頭函式
+    word2=()=>{
+      console.log('hi hi');
+    }
+
+    //函式回傳 return
+    function show(name){
+      return "hi,"+name;
+    }
+
+    //函式的傳遞變數可以安排預設值，當沒有東西進來時
+    function num(a=0){
+      console.log("i have "+a+" dollors.");
+    }
+  </script>
+</body>
+
+</html>

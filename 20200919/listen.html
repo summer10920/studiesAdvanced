@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listener</title>
+</head>
+<body>
+  <input type="button" value="try it" id="ock">
+  <script>
+    let mybtn=document.getElementById("ock");
+    
+    mybtn.addEventListener("click",function(){
+      alert("it's click");
+    });
+    mybtn.addEventListener("mouseover",myfun1);
+    mybtn.addEventListener("mouseover",myfun2);
+
+
+    function myfun1(){
+      alert("it's mouse over");
+    }
+    function myfun2(){
+      alert("it's mouse over again");
+    }
+  </script>
+
+
+  <div id="mydiv">hello world</div>
+  <script>
+    let mydiv=document.getElementById("mydiv");
+  </script>
+</body>
+</html>

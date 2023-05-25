@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    window.onload=function(){ //當網頁載入完成後才會執行該匿名函式
+      write();
+      console.log(123);
+    }
+  </script>
+  <h1>Hello World</h1>
+  <h2 id="wirteHere">AAA</h2>
+
+
+  <script>
+    function write() {
+      //如果該指令是在document完成後執行(onload)，會重新再創造一份空白的document進行寫入
+      // document.write("<h2>我的第一個JS之網頁顯示</h2>");
+      // document.getElementById("wirteHere"); //找到document內的某個id叫做XXX的位置
+
+      document.getElementById("wirteHere").textContent="我的第一個JS之網頁顯示";
+      //DOM操作，從HTML的節點進行相關行為
+
+    }
+  </script>
+</body>
+
+</html>

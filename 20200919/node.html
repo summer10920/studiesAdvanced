@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p id="demo">按這裡</p>
+  <p onclick="console.log(456);newAdd()">也可以按這裡</p>
+  <p id="listen">或按這裡</p>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  <!-- <button>YAA!!</button> -->
+  <script>
+    document.getElementById("demo").onclick=()=>{
+      console.log(123);
+      newAdd();
+    };
+
+    document.getElementById("listen").addEventListener("click",()=>{
+      console.log(789);
+      newAdd();
+    });
+
+    function newAdd(){
+      let newbtn=document.createElement("button");
+      newbtn.textContent="YAA!!";
+      document.body.appendChild(newbtn);
+      setTimeout(()=>{
+        document.body.removeChild(newbtn);
+      },2000);
+    }
+
+    function removelast(){
+
+    }
+
+    
+  </script>
+</body>
+</html>

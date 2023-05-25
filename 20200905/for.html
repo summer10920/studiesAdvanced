@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>for迴圈</h1>
+  <script>
+    //初始作業;條件判斷是否進入迴圈;離開作業
+    let str = "";
+    let j = 0;
+    for (let i = 0; i < 9; i++) { //如果i有小於9則進入以下區段
+      // str=str+i;
+      str += i;
+    } //離開時進行 i=i+1 , i=2
+    console.log(str);
+
+    /* 印出
+    1
+    4
+    7
+    10
+    */
+    for (let i = 1; i < 11; i += 3) {
+      // console.log(i);
+    }
+
+    //99乘法表 i*j=??
+    for(let i=1;i<10;i++){
+      for(let j=1;j<10;j++){
+        // let j="?";
+        // console.log(i+"*"+j+"="+i*j);
+        console.log(`${i}*${j}=${i*j}`);
+      }
+      console.log("---------");
+    }
+  </script>
+</body>
+
+</html>

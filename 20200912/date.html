@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Date</h1>
+  <script>
+    let now = Date(); //這個只是跑一個Date()物件的結果回傳值給now
+    let nowtime = new Date(); //宣告一個Date()之物件指定給nowtime
+
+    /* Date()
+    不指定時間，他會以現在的瀏覽器時間為時間
+    若要指定：
+    1. 可使用年月日時分秒毫秒來個別指定
+    2. 可使用ISO表示法來寫
+    */
+
+    let custom1 = new Date(2020, 11, 31, 23, 59, 59, 999); //month 0~11
+    let custom2 = new Date("2020-12-31T23:59:59"); //ISO string
+
+    /*
+    對一個時間物件進行抽取各單位數據
+    nowtime.getFullYear();
+    nowtime.getMonth();
+    nowtime.getDate();
+    nowtime.getHours();
+    nowtime.getMinutes();
+    nowtime.getSeconds();
+    nowtime.getMilliseconds();
+    */
+
+    ///////////////////////////////////////////////////////////////////
+    let time = new Date(); //宣告一個Date()之物件指定給time
+    let finalTime = new Date("2020-12-31T23:59:59"); //ISO string
+    let tmin = time.getTime(); //現在的時間搓記
+    let tmax = finalTime.getTime(); //年底的時間搓記
+    let beto = Math.floor((tmax - tmin) / 1000); //距離跨年還剩下多少秒 ex:9542477秒 => ?天?時?分?秒
+
+    let bsec = 0, bmin = 0, bhur = 0, bday = 0;
+    /*
+    127秒 => x分y秒  => 2分7秒
+    127/60=>2.多
+    127/60的餘數 => 127%60
+
+    x=Math.floor(127/60);
+    y=127%60;
+    */
+    bsec = beto % 60;
+    bmin = Math.floor(beto / 60) % 60;
+    bhur = Math.floor(beto / 60 / 60) % 24;
+    bday = Math.floor(beto / 60 / 60 / 24);
+    /*
+    beto/60= 159005.05 分鐘  (不要小數點)
+    Math.floor(beto/60) = 159005分鐘 ，接著變成 (商?) 時  (餘?) 分
+    Math.floor(beto/60)%60 = 59分 
+    */
+
+    console.log(`距離今年結束還剩下${bday}天${bhur}時${bmin}分${bsec}秒`);
+    /////////////////////////////////////////////////////////////////////
+
+    let nowis=new Date();
+    // nowis.setDate(nowis.getDate()+15);
+    nowis.setDate(nowis.getDate()+20); // 9/12 + 10天 => 10/2
+  </script>
+</body>
+
+</html>

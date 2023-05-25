@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+
+<body>
+  <!-- table>tr>td[width="30%"]{標題}+td[width="70%"]{內容} -->
+  <table border="1">
+    <thead>
+      <tr>
+        <th width="30%">標題</th>
+        <th width="70%">內容</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
+
+  <div id="alerr" style="
+    background:rgba(51,51,51,0.8);
+    color:#FFF;
+    min-height:100px;
+    height:600px;
+    width:600px;
+    position:fixed;
+    display:none;
+    z-index:9999;
+    overflow:auto;
+  ">
+    <span id="ssaa"></span>
+  </div>
+  <div id="overlay" style="
+    position: fixed;
+    z-index:-1;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    background: #3333;
+    display: none;
+  "></div>
+  <script>
+    $.getJSON("data.json", function (result) {
+      todo(result.q2t12);
+    });
+
+    function todo(myjson) {
+      for (const key in myjson) {
+        $('tbody').append(`
+          <tr>
+            <td>${key}</td>
+            <td class="event">
+              ${myjson[key].substr(0, 20)}...
+              <div style="display:none">${myjson[key]}</div>
+            </td>
+          </tr>
+        `);
+      }
+      // event 事件設計 需等todo的 DOM寫入 完成後
+      $(".event").hover(function () {
+        $("#ssaa").html($(this).children().html());
+        $("#alerr").show().css({
+          "left": $(this).offset().left + 20,
+          "top": $(this).offset().top + 30
+        });
+        $("#overlay").show();
+
+      });
+      // $(".event").mouseout(function () {
+      //   $("#alerr").hide();
+      // });
+      $("#overlay").click(function () {
+        $("#alerr").hide();
+        $("#overlay").hide();
+      });
+    }
+  </script>
+</body>
+
+</html>

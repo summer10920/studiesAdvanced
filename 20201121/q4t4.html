@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <style>
+    a {
+      display: block;
+      padding: 20px 5px;
+      text-decoration: none;
+      background: rgb(194, 136, 3);
+      margin: 10px auto;
+      color: ghostwhite;
+      font-weight: 400;
+      font-size: 1.2rem;
+      width: 200px;
+      text-align: center;
+    }
+
+    .son {
+      background: rgb(236, 189, 79);
+      /* display: none; */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="menu">
+    <!-- 
+      <a href="#">全部商品(8)</a>
+      <a href="#" class="fa" id="fa1">流行皮件(3)</a>
+      <a href="#" class="son fa1">男用皮件(3)</a>
+      <a href="#" class="son fa1">女用皮件(0)</a>
+      <a href="#" class="fa" id="fa2">流行鞋區(2)</a>
+      <a href="#" class="son fa2">少女鞋區(1)</a>
+      <a href="#" class="son fa2">紳士流行鞋區(1)</a>
+      <a href="#" class="fa" id="fa3">流行飾品(1)</a>
+      <a href="#" class="son fa3">時尚手錶(0)</a>
+      <a href="#" class="son fa3">時尚珠寶(1)</a>
+      <a href="#" class="fa" id="fa4">背包(2)</a>
+      <a href="#" class="son fa4">背包(2)</a>
+    -->
+  </div>
+  <script>
+    $.getJSON("data.json",(e)=>{todo(e.q4t4)});
+    function todo(myjson){
+      // DOM write
+      let total=0; //for categoryAll
+      for (const fa of myjson) { //x4
+        // console.log(fa.title);
+        let print="";
+        let faTotal=0;
+        for (const son of fa.sub) {// x2, x1
+          // console.log(son.count);
+          print+=`<a href="#" class="son fa${fa.id}">${son.title} (${son.count})</a>`;
+          faTotal+=son.count;
+        }
+        // console.log(print,faTotal);
+        $(".menu").append(`<a href="#" class="fa" id="fa${fa.id}">${fa.title} (${faTotal})</a>`+print);
+        total+=faTotal;
+      }
+      $(".menu").prepend(`<a href="#">全部商品 (${total})</a>`);
+
+      //hover effect
+      $(".son").hide();
+      $(".fa").mouseover(function(){
+        let who=$(this).attr('id');
+        /*
+          $(".son").slideUp(); //不管怎樣，都全收起來
+          $("."+who).slideDown();   //.fa1
+        */
+        $(".son").not("."+who).slideUp("fast");
+        $("."+who).slideDown("fast");
+      });
+    }
+  </script>
+</body>
+
+</html>

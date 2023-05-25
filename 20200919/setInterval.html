@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // let a=setInterval(()=>{
+    //   console.error("BOM");
+    // },2000);
+    
+    let i=0;
+    function replay(){
+      i++;
+      console.error(`${i} second!!`);
+      if(i==9) {
+        clearInterval(time);
+        console.error("吃我壓路機，JOJO!!");
+      }
+    }
+    let time=setInterval(replay,1000);
+
+  </script>
+</body>
+</html>

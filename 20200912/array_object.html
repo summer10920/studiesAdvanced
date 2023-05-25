@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Array & Object</h1>
+  <script>
+    // let ary=new Array();
+    // let ary=[123,456];
+    let ary1 = [];
+
+    ary1.push("aaa");
+    ary1.push("bbb");
+    ary1.push("ccc");
+    ary1[5] = "loki";
+
+    //doubble array
+    let ary2 = new Array();
+
+    ary2[0] = [1, 3, 5];
+    ary2[1] = "hello world";
+    ary2[2] = ["a", "b", "c"];
+
+    let ary3 = [[1, 3, 5], "hello world", ["a", "b", "c"]];
+
+    ////////////////////////////////////array.html
+
+    function show(val, idx) {
+      console.log(val, idx);
+    }
+    ary1.forEach(show);//裡面需放入某個自訂函式
+
+    console.log("-----------------------");
+
+    ary2.forEach(function (mydata) {
+      console.log(mydata);
+    }); //直接使用匿名函式
+
+    console.log("-----------------------");
+
+    ary3.forEach((mydata) => {
+      //Array.isArray(mydata) 會提供 True/False
+      if (Array.isArray(mydata)) { //is array type
+        mydata.forEach((mindata) => { console.log(mindata); });
+      }
+      else console.log(mydata); //is not array type
+    }); //直接使用箭頭函式
+
+    console.log("-----------------------");
+    //三元運算子  where?true:false
+    // ary3.forEach((mydata) => {(Array.isArray(mydata))?mydata.forEach((mindata) => {console.log(mindata)}):console.log(mydata)});
+
+    /*
+      filter 過濾
+      1. 雷同foreach作業，循序的將陣列的每個值丟出來到指定的函式進行處理
+      2. 這個指定的函式(重點於判斷處理作業)進行時，最後通常會有return要吐回給filter，完成單次過濾的工作
+      3. filter會收集所有return回來的值，並轉換成"新的ary資料"結構完成工作
+      4. 所以你可以指定這個新ary給任何變數或塞入某位置使用
+    */
+    let newAry=ary1.filter(clearEmpty); //['aaa','bbb','ccc','loki']
+
+    function clearEmpty(val){
+      return (val!="loki");
+    }
+
+    //for-of (by ES6) array
+    for (const val of ary2){
+      //if string + array => string + string(ary data)
+      console.log("the value = " + val);
+      // console.log(`the value = ${val}`); 
+    }
+
+    //Array 陣列(以index跟value做規劃) 偏向是數據整理，其實陣列也是一種特別的Object
+    let ary4=new Array();
+    ary4['cat']="kitty";//雖然可以這樣指定，但不是標準做法無法以陣列原生練來處理(push,pop)
+    ary4['dog']="Snoopy";//這裡事實上採用標準物件來執行
+    ary4[2]="number";
+
+    for (const val of ary4) console.log(val); //kitty Snoppy 根本印不出來
+
+    //Object 物件(以key跟value做規劃) 偏向是資料存取或物件導向
+    let obj4={cat:"凱蒂貓",dog:"史奴比"}; //JSON
+    
+    //for-in(by ES6) object
+    for (const key in obj4) {
+      console.log(key,obj4[key]);
+    }
+
+    console.log("----------------");
+
+    let obj5={'cat':"凱蒂貓",dog:"史奴比"}; //JSON
+    console.log(obj5.cat,obj5['cat']);
+    let have='cat' in obj5; //get true 有在obj5裡面
+    console.log(have);
+
+    // obj6={'foreach':function(){},"filter":function(){}}
+  </script>
+</body>
+
+</html>
