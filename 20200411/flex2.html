@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      background: lightskyblue;
+      /* width:360px; */
+      /* width: 270px; */
+      height: 500px;
+      display: flex;
+
+      justify-content: flex-start;
+      align-items: stretch;
+      flex-flow: row nowrap;
+
+    }
+    .item {
+      margin:10px;
+      /*
+      子項目的預設規則為
+      flex:0 1 auto = 膨脹係數 收縮係數 基本空間 = flex-grow flex-shrink flex-basis
+      */
+      width: 100px;
+      height: 50px; /* 有指定flex-basis且column時，空間分配是指height這定位*/
+      /*
+      空間分配的考量順序
+      flex-basic > width/height > content
+      */
+      /* border: 1px solid black; */
+    }
+    .aa {
+      background: lightyellow;
+      flex-grow:0;
+      flex-shrink: 1;
+      flex-basis: auto;
+      order:1; /* 數字越大越往end方向*/
+    }
+    .bb {
+      background: lightcoral;
+      flex:0 1 auto;
+      order:-5;
+    }
+    .cc{
+      background: lightgreen;
+      flex:0 1 auto;
+      order:0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="item aa">A</div>
+    <div class="item bb">B</div>
+    <div class="item cc">C</div>
+  </div>
+</body>
+
+</html>

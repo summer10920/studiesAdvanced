@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TryCSS Round3!!</title>
+  <style>
+    /*nav子孫為p的對象選擇=>後代*/
+    nav p{
+      color:blue;
+    }
+    /*nav兒子為p的對象選擇=>子代*/
+    nav>p{
+      color:red;
+    }
+
+
+
+
+    
+    input[type$=l]{
+      color:green;
+    }
+  </style>
+</head>
+
+<body>
+<nav>
+  <h1>Title Lorem ipsum dolor sit.</h1>
+  <p>Lorem ipsum dolor sit amet.</p>
+  <div>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <div>
+      <p>Lorem ipsum dolor sit amet.</p>
+    </div>
+  </div>
+</nav>
+<input type="text" name="" value="text">
+<input type="email" name="" value="email">
+<input name="" value="someone">
+</body>
+
+</html>

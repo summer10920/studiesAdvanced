@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div.aa::before{
+      content:"WOW";
+      background: red;
+      width:50px;
+      height:50px;
+      display: block;
+
+    }
+    div.aa::after{
+      content:"YAA";
+      background: green;
+      width:50px;
+      height:50px;
+      display: block;
+    }
+    div.aa, div.bb{
+      background: rgb(195, 195, 238);
+      width: 250px;
+      height:250px;
+    }
+  </style>
+</head>
+<body>
+  <div class="aa">Lorem ipsum dolor sit amet.</div>
+
+<hr>
+
+  <div class="bb">
+    <div style="width:50px;height:50px;background: red;">WOW</div>
+    Lorem ipsum dolor sit amet.
+    <div style="width:50px;height:50px;background: green;">YAA</div>
+  </div>
+
+
+
+
+
+
+
+
+<!--
+  <hr>
+  <div>Lorem ipsum dolor sit amet. 素的色塊</div>
+  <h1>Lorem ipsum dolor sit amet.</h1>
+  <hr>
+  <span>Lorem ipsum dolor sit amet.素的行內</span>
+  <a href="http://www.google.com">Google</a>
+  <strong>Lorem ipsum dolor sit amet.</strong>
+-->
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div.house1{
+      background: gray;
+      height: 300px;
+      width:300px;
+      /* margin:50px; */
+      padding:50px;
+      border:50px solid #000;
+      display: inline-block;
+      box-sizing:border-box;
+      /*
+        當指定了border-box後，width的空間=content+padding+border
+        對設計師來說較容易排版上的空間分配
+      */
+      /* 
+      visibility: hidden; 
+      可見性
+
+      opacity: 0.1;
+      透明度
+
+      display:none;
+      不要顯示
+      */
+    }
+    div.house2{
+      background: gray;
+      height: 300px;
+      width:300px;
+      /* margin:50px; */
+      padding:50px;
+      border:50px solid #000;
+      display: inline-block;
+      box-sizing:content-box;
+      /* 當沒有特別指定時，width的空間=content */
+    }
+  </style>
+</head>
+<body>
+  <div></div>
+  <div>
+    <div class="house1">Lorem ipsum dolor sit amet.</div>
+    <div class="house1">Lorem ipsum dolor sit amet.</div>
+    <div class="house1">Lorem ipsum dolor sit amet.</div>
+  </div>
+  <div>
+    <div class="house2">Lorem ipsum dolor sit amet.</div>
+    <div class="house2">Lorem ipsum dolor sit amet.</div>
+    <div class="house2">Lorem ipsum dolor sit amet.</div>
+  </div>
+</body>
+</html>

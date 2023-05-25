@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    thead {
+      background: black;
+      color: white;
+    }
+
+    table {
+      font-family: "Microsoft JhengHei";
+      line-height: 2rem;
+      border: 1px solid black;
+      width: 100%;
+    }
+
+    td {
+      padding: 0 5px;
+    }
+
+    tbody>tr:nth-child(even) {
+      background: lightgray;
+    }
+    @media (max-width:756px) {
+      thead{
+        display: none;
+      }
+      tr{
+        display: block;
+      }
+      td{
+        display: block;
+        position: relative;
+        margin-left: 100px;
+      }
+      td::before{
+        content:attr(data-loki) "：";
+        position: absolute;
+        left:-100px;
+        width:100px;
+        text-align: right;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <table class="demo">
+    <thead>
+      <tr>
+        <th>服務站名</th>
+        <th>電話</th>
+        <th>傳真</th>
+        <th>地址</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-loki="服務站名">北基宜花金馬分署</td>
+        <td data-loki="電話">(02)8995-6399</td>
+        <td data-loki="傳真">(02)8995-6398</td>
+        <td data-loki="地址">新北市新莊區中平路439號南棟3樓</td>
+      </tr>
+      <tr>
+        <td data-loki="服務站名">基隆就業中心</td>
+        <td data-loki="電話">(02)2422-5263</td>
+        <td data-loki="傳真">(02)2428-1514</td>
+        <td data-loki="地址">基隆市中正區中正路102號</td>
+      </tr>
+      <tr>
+        <td data-loki="服務站名">羅東就業中心</td>
+        <td data-loki="電話">(03)954-2094</td>
+        <td data-loki="傳真">(03)957-6435</td>
+        <td data-loki="地址">宜蘭縣羅東鎮中正北路50號1、2樓</td>
+      </tr>
+      <tr>
+        <td data-loki="服務站名">基隆就業中心-六堵分站</td>
+        <td data-loki="電話">(02)2451-5020</td>
+        <td data-loki="傳真">(02)2452-8501</td>
+        <td data-loki="地址">基隆市七堵區工建北路1之2號</td>
+      </tr>
+      <tr>
+        <td data-loki="服務站名">花蓮就業中心</td>
+        <td data-loki="電話">(03)832-3262</td>
+        <td data-loki="傳真">(03)835-6927</td>
+        <td data-loki="地址">花蓮縣花蓮市國民三街25號</td>
+      </tr>
+      <tr>
+        <td data-loki="服務站名">連江就業中心</td>
+        <td data-loki="電話">(0836)23576</td>
+        <td data-loki="傳真">(0836)26304</td>
+        <td data-loki="地址">連江縣南竿鄉介壽村47-4號</td>
+      </tr>
+      <tr>
+        <td data-loki="服務站名">玉里就業中心</td>
+        <td data-loki="電話">(03)888-2033</td>
+        <td data-loki="傳真">(03)888-6140</td>
+        <td data-loki="地址">花蓮縣玉里鎮莊敬路8號2樓</td>
+      </tr>
+      <tr>
+        <td data-loki="服務站名">金門就業中心</td>
+        <td data-loki="電話">(082)31-1119</td>
+        <td data-loki="傳真">(082)31-1120</td>
+        <td data-loki="地址">金門縣金城鎮民權路173號</td>
+      </tr>
+      <tr>
+        <td data-loki="服務站名">頭城就業服務台</td>
+        <td data-loki="電話">(03)977-1650</td>
+        <td data-loki="傳真">(03)977-1650</td>
+        <td data-loki="地址">宜蘭縣頭城鎮開蘭路1號</td>
+      </tr>
+      <tr>
+        <td data-loki="服務站名">員山就業服務台</td>
+        <td data-loki="電話">(03)923-2880</td>
+        <td data-loki="傳真">(03)923-2880</td>
+        <td data-loki="地址">宜蘭縣員山鄉員山路一段322號</td>
+      </tr>
+      <tr>
+        <td data-loki="服務站名">蘇澳就業服務台</td>
+        <td data-loki="電話">(03)996-5300</td>
+        <td data-loki="傳真">(03)996-5300</td>
+        <td data-loki="地址">宜蘭縣蘇澳鎮蘇港路215號</td>
+      </tr>
+      <tr>
+        <td data-loki="服務站名">礁溪就業服務台</td>
+        <td data-loki="電話">(03)988-3234</td>
+        <td data-loki="傳真">(03)988-3234</td>
+        <td data-loki="地址">宜蘭縣礁溪鄉中山路二段3號</td>
+      </tr>
+      <tr>
+        <td data-loki="服務站名">瑞穗就業服務台</td>
+        <td data-loki="電話">(03)887-0507</td>
+        <td data-loki="傳真">(03)887-0507</td>
+        <td data-loki="地址">花蓮縣瑞穗鄉成功南路19號</td>
+      </tr>
+      <tr>
+        <td data-loki="服務站名">壽豐就業服務台</td>
+        <td data-loki="電話">(03)865-0885</td>
+        <td data-loki="傳真">(03)865-0885</td>
+        <td data-loki="地址">花蓮縣壽豐鄉壽山路26號</td>
+      </tr>
+      <tr>
+        <td data-loki="服務站名">冬山就業服務台</td>
+        <td data-loki="電話">(03)959-6490</td>
+        <td data-loki="傳真">(03)959-6490</td>
+        <td data-loki="地址">宜蘭縣冬山鄉冬山路100號</td>
+      </tr>
+      <tr>
+        <td data-loki="服務站名">秀林就業服務台</td>
+        <td data-loki="電話">(03)861-0803</td>
+        <td data-loki="傳真">(03)861-0803</td>
+        <td data-loki="地址">花蓮縣秀林鄉秀林村12鄰62號</td>
+      </tr>
+      <tr>
+        <td data-loki="服務站名">五結就業服務台</td>
+        <td data-loki="電話">(03)950-9912</td>
+        <td data-loki="傳真">(03)950-9912</td>
+        <td data-loki="地址">宜蘭縣五結鄉五結路二段343 號</td>
+      </tr>
+      <tr>
+        <td data-loki="服務站名">吉安就業服務台</td>
+        <td data-loki="電話">(03)852-9886</td>
+        <td data-loki="傳真">(03)852-9886</td>
+        <td data-loki="地址">花蓮縣吉安鄉吉安村吉安路二段116號</td>
+      </tr>
+      <tr>
+        <td data-loki="服務站名">光復就業服務台</td>
+        <td data-loki="電話">(03)870-0226</td>
+        <td data-loki="傳真">(03)870-0226</td>
+        <td data-loki="地址">花蓮縣光復鄉中山路一段216巷8號</td>
+      </tr>
+      <tr>
+        <td data-loki="服務站名">銀髮人才資源中心</td>
+        <td data-loki="電話">(02)7730-8878</td>
+        <td data-loki="傳真">(02)2231-0109</td>
+        <td data-loki="地址">新北市永和區自由街64號1樓</td>
+      </tr>
+      <tr>
+        <td data-loki="服務站名">臺北青年職涯發展中心</td>
+        <td data-loki="電話">(02)2977-0755</td>
+        <td data-loki="傳真">(02)2977-0765</td>
+        <td data-loki="地址">新北市三重區重新路4段12號3樓</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+
+</html>

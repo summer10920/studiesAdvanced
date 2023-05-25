@@ -1,0 +1,54 @@
+body {
+  text-align: center;
+}
+table {
+  margin: 1rem;
+  display: inline-block;
+}
+table,
+tr,
+td {
+  border: 1px solid #000;
+}
+table td {
+  width: 200px;
+  height: 200px;
+}
+
+.a {
+  background: crimson;
+}
+.b {
+  background: url("https://picsum.photos/50/50/?random=1") no-repeat
+    center/cover;
+}
+.c {
+  background: url("https://picsum.photos/50/50/?random=1") repeat-x;
+}
+.d {
+  background: url("https://picsum.photos/50/50/?random=1") repeat-y;
+}
+.e {
+  background: url("https://picsum.photos/50/50/?random=1") no-repeat center;
+}
+.f {
+  background: url("https://picsum.photos/50/50/?random=1") no-repeat center,
+    #ffa;
+}
+.g {
+  background: url("https://picsum.photos/200/50/?random=2") no-repeat top,
+    url("https://picsum.photos/200/100/?random=3") no-repeat center,
+    url("https://picsum.photos/200/50/?random=2") no-repeat bottom;
+}
+.h {
+  background: linear-gradient(90deg, black, blue);
+}
+.i{
+  /* background: radial-gradient(circle at left, black,white); */
+  background: radial-gradient(black,white);
+}
+
+/*
+線性漸層語法：background: linear-gradient(方向,顏色1,顏色2, ......);
+徑向漸層語法：background: radial-gradient(ellipse 或 circle,顏色1,顏色2, ......);
+*/

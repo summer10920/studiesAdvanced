@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .side{
+      width: 20%;
+      background: lightcoral;
+    }
+    .main{
+      width: 80%;
+      background: lightgreen;
+    }
+    .side.lay1{
+      float: left;
+    }
+    .main.lay1{
+      margin-left: 20%;
+    }
+    .main.lay2{
+      float: right;
+    }
+    .side.lay3{
+      float: right;
+    }
+    /*
+    .side.lay4{
+      float: left;
+    }
+    .main.lay4{
+      float: left;
+    } 
+    */
+    .lay4{
+      float:left;
+    }
+    .clear::before{
+      content:"";
+      display: block;
+      clear:both;
+    }
+    .side.lay5{
+      float: left;
+    }
+    .main.lay5{
+      float: right;
+    }
+    .side.lay6{
+      float: left;
+    }
+    .main.lay6{
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="side lay1">A</div>
+  <div class="main lay1">B</div>
+  <hr>
+  <div class="main lay2">B</div>
+  <div class="side lay2">A</div>
+  <hr>
+  <div class="side lay3">A</div>
+  <div class="main">B</div>
+  <hr>
+  <div class="side lay4">A</div>
+  <div class="main lay4">B</div>
+  <div class="clear"><hr></div>
+  <div class="side lay5">A</div>
+  <div class="main lay5">B</div>
+  <div class="clear"><hr></div>
+  <div class="side lay6">A</div>
+  <div class="main lay6">B</div>
+</body>
+</html>

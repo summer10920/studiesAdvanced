@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      background: #ccc;
+    }
+
+    .box {
+      width: 50px;
+      height: 50px;
+      background: darkcyan;
+      color: white;
+      text-align: center;
+      line-height: 50px;
+      display: inline-block;
+      font-size: 1rem;
+      margin: 5px;
+    }
+
+    .bigbox {
+      font-size: 0;
+      width: 300px;
+      border: 1px solid #000;
+      background: lightyellow;
+      position: relative;
+    }
+
+    .rel {
+      position: relative;
+      background: brown;
+      top: -30px;
+      left: -30px;
+      z-index: 999;
+    }
+
+    .abs {
+      background: purple;
+      position: absolute;
+      /* opacity: 0.7; */
+      /* 
+      left:-10px;
+      top:50px;
+      z-index: -9;
+      */
+    }
+
+    .center {
+      left: 50%;
+      top: 50%;
+      transform: translate(calc(-50% - 5px), calc(-50% - 5px));
+    }
+
+    .fix {
+      background: limegreen;
+      position: fixed;
+      /* opacity: 0.7; */
+      right: 30vw;
+      z-index: 2;
+    }
+
+    .zid {
+      z-index: 999999;
+      left: 0;
+      right: 0;
+    }
+
+    .main {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- div.main>div.bigbox>div.box{$}*20 -->
+  <div class="main">
+    <div class="bigbox">
+      <div class="box zid">01</div>
+      <div class="box">02</div>
+      <div class="box">03</div>
+      <div class="box">04</div>
+      <div class="box">05</div>
+      <div class="box">06</div>
+      <div class="box rel">07</div>
+      <div class="box">08</div>
+      <div class="box">09</div>
+      <div class="box">10</div>
+      <div class="box">11</div>
+      <div class="box">12</div>
+      <div class="box abs center">13</div>
+      <div class="box">14</div>
+      <div class="box">15</div>
+      <div class="box">16</div>
+      <div class="box">17</div>
+      <div class="box">18</div>
+      <div class="box fix">19</div>
+      <div class="box">20</div>
+    </div>
+  </div>
+</body>
+
+</html>

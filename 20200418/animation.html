@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>動畫</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: black;
+      color: white;
+      text-align: center;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      background: darkred;
+      font-size: 1.5rem;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .box:hover {
+      /* name duration timing-function delay iteration-count direction fill-mode */
+      animation: infinite myani1 3s alternate;
+    }
+
+    @keyframes myani1 {
+      to {
+        background: darkorange;
+      }
+    }
+
+    .btn {
+      width: 100px;
+      height: 50px;
+      background: darkorange;
+      border-radius: 5px;
+      line-height: 50px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: "";
+      width: 100px;
+      height: 50px;
+      background: linear-gradient(-50deg, transparent 30%, #ffffff88, transparent 70%);
+      position: absolute;
+      left: -100%;
+      top: 0;
+      animation: myani2 3s infinite;
+    }
+
+    @keyframes myani2 {
+      from {
+        left: -100%;
+        transform: scale(1);
+      }
+
+      50% {
+        left: -100%;
+        transform: scale(1.5);
+      }
+
+      100% {
+        left: 150%;
+        transform: scale(2);
+      }
+    }
+
+    .load {
+      position: relative;
+      width: 100px;
+
+    }
+
+    .load::before,
+    .load::after {
+      content: "";
+      border: 1px solid white;
+      position: absolute;
+      left: -100px;
+      right: -100px;
+      top: 0;
+      bottom: 0;
+    }
+
+    .load::after {
+      animation: myani3 5s 1 linear forwards;
+      z-index: -1;
+    }
+
+    @keyframes myani3 {
+      0% {
+        right: 200px;
+      }
+
+      25%,
+      75% {
+        background: darkred;
+      }
+
+      50% {
+        background: red;
+      }
+
+      100% {
+        right: -100px;
+        background: maroon;
+      }
+    }
+
+    .logo {
+      font-size: 5rem;
+      font-family: Arial, Helvetica, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1rem;
+      border: 1px solid white;
+      padding: 0.5rem 0 0.5rem 1rem;
+      animation: rgbTxt 4s infinite, rgbBox 7s infinite;
+
+    }
+
+    @keyframes rgbTxt {
+      0%,100% {text-shadow: 0 0 30px red, 0 0 20px red, 0 0 10px red;}
+      33.3% {text-shadow: 0 0 30px green, 0 0 20px green, 0 0 10px green;}
+      66.6% {text-shadow: 0 0 30px blue, 0 0 20px blue, 0 0 10px blue;}
+    }
+    @keyframes rgbBox {
+      0%,100% {box-shadow: 0px 0 10px 5px red, inset 0px 0 10px 5px red;}
+      12.5% {box-shadow: 0px 0 10px 8px orange, inset 0px 0 10px 8px orange;}
+      25% {box-shadow: 0px 0 10px 5px yellow, inset 0px 0 10px 5px yellow;}
+      37.5% {box-shadow: 0px 0 10px 8px greenyellow, inset 0px 0 10px 8px greenyellow;}
+      50% {box-shadow: 0px 0 10px 5px rgb(0, 200, 0), inset 0px 0 10px 5px rgb(0, 200, 0);}
+      62.5% {box-shadow: 0px 0 10px 8px cyan, inset 0px 0 10px 8px cyan;}
+      75% {box-shadow: 0px 0 10px 5px rgb(76, 73, 255), inset 0px 0 10px 5px rgb(76, 73, 255);}
+      87.5% {box-shadow: 0px 0 10px 8px purple, inset 0px 0 10px 8px purple;}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">Hello World</div>
+  <div class="btn">button</div>
+  <div class="load">loading</div>
+  <div class="logo">loki</div>
+</body>
+
+</html>
