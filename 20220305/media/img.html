@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- <img src="http://127.0.0.1:5500/media/unknow.jpg" width="300"> -->
+  <!--內部連結(相對路徑)-->
+
+  <!-- 從img.html(自己)出發尋找同層位置 media → unknow.jpg -->
+  <img src="media/unknow.jpg" width="300">
+  <!-- 從同層的index.html(找不到就改自己)出發尋找同層位置 media → unknow.jpg -->
+  <img src="./media/unknow.jpg" width="300">
+
+  <!-- 從上一層出發尋找同層位置 media → unknow.jpg -->
+  <img src="../media/unknow.jpg" width="300">
+  <!-- 從根目錄出發尋找同層位置 media → unknow.jpg -->
+  <img src="/media/unknow.jpg" width="300">
+
+</body>
+
+</html>

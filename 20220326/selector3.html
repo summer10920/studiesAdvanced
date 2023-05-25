@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>偽類別</title>
+  <style>
+    a {
+      text-decoration: none;
+    }
+
+    /*如果你要完全控制這四項，因優先權問題建議順序為lvha*/
+    a:link {
+      /* 連結提示 */
+      color: purple;
+    }
+
+    a:visited {
+      /* 已拜訪過提示 */
+      color: green;
+    }
+
+    a:hover {
+      /* 滑入提示 */
+      color: yellow;
+    }
+
+    a:active {
+      /* 點擊當下提示 */
+      color: red;
+      font-size: 1.5rem;
+    }
+
+    /* div.odd:hover{ */
+    div:not(.odd):hover {
+      background: pink;
+    }
+
+    div:hover {
+      background: black;
+      color: white;
+    }
+
+    div:not(.odd) {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="http://www.google.com">Google</a>
+  Lorem ipsum dolor sit amet.
+  <!-- <div>Lorem ipsum dolor sit amet.</div> -->
+  <input type="text">
+  <!-- (div{A}+div.odd{B})*4 -->
+  <div>A</div>
+  <div class="odd">B</div>
+  <div>A</div>
+  <div class="odd">B</div>
+  <div>A</div>
+  <div class="odd">B</div>
+  <div>A</div>
+  <div class="odd">B</div>
+
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>關係偽類</title>
+  <style>
+    p:nth-child(2) {
+      /* 某個p是家庭排行老二 */
+      background: red;
+    }
+
+    p:nth-of-type(3) {
+      /* 某個p是家庭之中，同類型元素排行老三 */
+      background: green;
+    }
+
+    h6:nth-of-type(2n+1){
+      background: pink;
+    }
+    h6:nth-of-type(2n){
+      background: lightgreen;
+    }
+
+    
+  </style>
+</head>
+
+<body>
+  <h6>Lorem, ipsum dolor.</h6>
+  <h6>Lorem, ipsum dolor.</h6>
+  <h6>Lorem, ipsum dolor.</h6>
+  <h6>Lorem, ipsum dolor.</h6>
+  <h6>Lorem, ipsum dolor.</h6>
+  <h6>Lorem, ipsum dolor.</h6>
+  <h6>Lorem, ipsum dolor.</h6>
+  <h6>Lorem, ipsum dolor.</h6>
+
+  <h3>hhh</h3>
+  <p>ppp</p>
+  <p>ppp</p>
+  <p>ppp</p>
+
+  <hr>
+
+  <div>
+    <p>ppp</p>
+    <h3>hhh</h3>
+    <p>ppp</p>
+    <h3>hhh</h3>
+    <p>ppp</p>
+    <h3>hhh</h3>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/css/bootstrap.min.css"
+      integrity="sha512-6KY5s6UI5J7SVYuZB4S/CZMyPylqyyNZco376NM2Z8Sb8OxEdp02e1jkKk/wZxIEmjQ6DRCEBhni+gpr9c4tvA=="
+      crossorigin="anonymous"
+    />
+    <style>
+      body{
+        margin-top: 100px;
+      }
+      .row > div {
+        background: #ccc;
+        border: 1px solid black;
+      }
+      .row {
+        margin-bottom: 20px;
+        outline: 1px solid blueviolet;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3">Level 1: .col-sm-3</div>
+        <div class="col-sm-9">
+          <div class="row">
+            <div class="col-8 col-sm-6">Level 2: .col-8 .col-sm-6</div>
+            <div class="col-4 col-sm-6">Level 2: .col-4 .col-sm-6</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="container">
+      <!-- 以前的做法，在各顯示尺寸下做不同的排列 -->
+      <div class="row">
+        <div class="col-sm-6 col-md-4 col-xl-3">col</div>
+        <div class="col-sm-6 col-md-4 col-xl-3">col</div>
+        <div class="col-sm-6 col-md-4 col-xl-3">col</div>
+        <div class="col-sm-6 col-md-4 col-xl-3">col</div>
+      </div>
+      <div class="row row-cols-sm-2 row-cols-md-3 row-cols-xl-4">
+        <div class="col">col</div>
+        <div class="col">col</div>
+        <div class="col">col</div>
+        <div class="col">col</div>
+      </div>
+    </div>
+    <hr />
+    <div class="container">
+      <!-- 預設 col 是吃剩下的空間再均分 -->
+      <div class="row">
+        <div class="col-6">col-6</div>
+        <div class="col">col</div>
+      </div>
+      <!-- row-cols-5 導致 col 有 width:20% ( 等於 12/5 格數） -->
+      <div class="row row-cols-5">
+        <div class="col-6">col-6</div>
+        <div class="col">col with<br />row-cols-5</div>
+      </div>
+      <div class="row row-cols-auto">
+        <!-- row-cols-auto 導致 col 全都是內容寬設定 -->
+        <div class="col-6">col-6</div>
+        <div class="col">col with<br />row-cols-autoooooo</div>
+        <div class="col">col with<br />row-cols-auto</div>
+        <div class="col">col with<br />row-cols-a</div>
+      </div>
+    </div>
+  </body>
+</html>

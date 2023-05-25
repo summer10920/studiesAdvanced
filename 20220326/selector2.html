@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>複合子選擇</title>
+  <style>
+    nav p {
+      /* 後代選擇 */
+      color: blue;
+    }
+
+    nav>p {
+      /* 子代選擇 */
+      color: red;
+    }
+
+    .g>.a {
+      color: green;
+    }
+
+    input[name=user] {
+      color: pink;
+    }
+
+    body {
+      background: #ccc;
+      margin: 20px;
+    }
+
+    div>* {
+      font-size: 1.5rem;
+    }
+
+    div.g, [name=pwd] {
+      background: lightcoral;
+    }
+  </style>
+</head>
+
+<body>
+  <p>Lorem ipsum dolor sit amet.</p>
+  <nav>
+    <p name="user">Lorem ipsum dolor sit amet.</p>
+    <div class="g">
+      <p>Lorem ipsum dolor sit amet.</p>
+      <p class="a">Lorem ipsum dolor sit amet.</p>
+      <p>Lorem ipsum dolor sit amet.</p>
+      <h2>H2</h2>
+      <div>
+        <p>Lorem ipsum dolor sit amet.</p>
+      </div>
+    </div>
+    <p>Lorem ipsum dolor sit amet.</p>
+  </nav>
+  <input type="text" name="user" value="Loki">
+  <input type="password" name="pwd" value="1234">
+  <input type="text" value="noName">
+
+  <a href="http://www.google.com">Google</a>
+  <a href="http://www.yahoo.com">Yahoo</a>
+  <img src="https://fakeimg.pl/200x200" title="imgA">
+  <img src="https://fakeimg.pl/200x200" title="imgB">
+  <img src="https://fakeimg.pl/200x200" title="imgC">
+</body>
+
+</html>

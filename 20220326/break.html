@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /*
+word-break: 
+  normal （瀏覽器預設值）
+  break-all （允許破壞單字進行換行）
+  keep-all （保留單字完整，只能在半形空格或連字符號換行） 
+  break-word （非標準寫法，同等 overflow-wrap:break-word 行為）
+*/
+    p.test1 {
+      word-break: keep-all;
+    }
+
+    p.test2 {
+      word-break: break-all;
+    }
+
+    /*
+overflow-wrap:
+  break-word （單字會有 keep 效果，但如果特長的單字或 URL 超出寬度則會 break 單字。
+*/
+    p.test3 {
+      overflow-wrap: break-word;
+    }
+
+    /*
+wite-space:
+  normal（忽略空白）
+  pre（像 pre 標籤用途，保留空白）
+  nowrap（死都不換行，除非有 br，否則不會斷行，會一直顯示超出區塊。)
+  pre-wrap（保留空白，但是會自動換行）
+*/
+    p.test4 {
+      white-space: nowrap;
+    }
+
+    p {
+      width: 9em;
+      border: 1px solid #000000;
+      margin: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>word-break:keep-all（只能在半角空格或連字符處換行）</h1>
+  <p class="test1">
+    This paragraph contains some text. This line will-break-at-hyphenates.
+  </p>
+
+  <h1>
+    word-break:break-all（若一個單字過長，超過畫面的寬度，則將單字切斷，並換行。）
+  </h1>
+  <p class="test2">
+    This paragraph contains some text: The lines will break at any character.
+  </p>
+
+  <h1>
+    word-wrap:break-word（若一個單字過長，超過畫面的寬度，則將單字換行（不切斷單字）。）
+  </h1>
+  <p class="test3">
+    This paragraph contains a very long word:
+    thisisaveryveryveryveryveryverylongword. The long word will break and wrap to
+    the next line..
+  </p>
+
+  <h1>
+    white-space:nowrap（移除連續空白，移除換行符號 (n r)， 強迫文字不換行。）
+  </h1>
+  <p class="test4">
+    This is some text. This is some text. This is some text. This is some text.
+  </p>
+
+</body>
+
+</html>

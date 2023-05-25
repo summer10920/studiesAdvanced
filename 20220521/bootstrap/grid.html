@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/css/bootstrap.min.css"
+      integrity="sha512-6KY5s6UI5J7SVYuZB4S/CZMyPylqyyNZco376NM2Z8Sb8OxEdp02e1jkKk/wZxIEmjQ6DRCEBhni+gpr9c4tvA=="
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/js/bootstrap.min.js"
+      integrity="sha512-ewfXo9Gq53e1q1+WDTjaHAGZ8UvCWq0eXONhwDuIoaH8xz2r96uoAYaQCm1oQhnBfRXrvJztNXFsTloJfgbL5Q=="
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .row > div,
+      .check {
+        background: #ccc;
+        border: 2px solid #aaa;
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container check">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi qui
+      consectetur nobis architecto dolorum reiciendis consequatur impedit, odio
+      necessitatibus fuga delectus est eum tenetur voluptatem minima, quas quia
+      quibusdam earum.
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col">col</div>
+        <div class="col">col</div>
+      </div>
+      <div class="row">
+        <div class="col">col</div>
+        <div class="col">col</div>
+        <div class="col">col</div>
+      </div>
+    </div>
+    <hr />
+    <div class="container">
+      <div class="row">
+        <div class="col">col</div>
+        <div class="col-9">col-9</div>
+        <div class="col">col</div>
+      </div>
+      <div class="row">
+        <div class="col-1">col-1</div>
+        <div class="col">col</div>
+        <div class="col-1">col-1</div>
+      </div>
+      <div class="row">
+        <div class="col">col</div>
+        <div class="col-5">col-5</div>
+        <div class="col-5">col-5</div>
+      </div>
+      <div class="row">
+        <div class="col">col</div>
+        <div class="col-5">col-5</div>
+        <div class="col-auto">col-auto</div>
+      </div>
+    </div>
+    <hr />
+    <div class="container">
+      <!-- 總寬空間總和為 12，舉例可以 12,6+6, 3+3+3+3, 3+3+6, 4+4+4, 2+2+2+2+2+2+2...... -->
+      <div class="row">
+        <div class="col-6">col-6</div>
+      </div>
+      <div class="row">
+        <div class="col-3">col-3</div>
+        <div class="col-6">col-6</div>
+        <div class="col-3">col-3</div>
+      </div>
+      <!-- 如果該 col 沒有指定數字（空間），全 12 空間會優先有指定空間的 col 分配，剩餘的空間再平均給未指定數字的 col。 -->
+      <div class="row">
+        <div class="col-3">col-3</div>
+        <div class="col-2">col-2</div>
+        <div class="col-4">col-4</div>
+        <div class="col-4">col-4</div>
+        <div class="col-4">col-4</div>
+      </div>
+      <!-- 如想以內容為寬，可以使用`<div class="col-auto">`，將只根據 content 為寬做保留，不是以網格單位。 -->
+      <div class="row">
+        <div class="col-3">col-3</div>
+        <div class="col-auto">i am content!</div>
+        <div class="col-6">col-6</div>
+        <div class="col">col</div>
+      </div>
+    </div>
+  </body>
+</html>

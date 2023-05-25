@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>lorem</h1>
+  <h1 style="font-size:1em">lorem</h1>
+  <h1 style="font-size:2em">lorem</h1>
+  <h1 style="font-size:3em">lorem</h1>
+  <div style="font-size:3em">
+    <h1 style="font-size:3em">lorem</h1>
+  </div>
+  <hr>
+  <div style="font-size:1em"> font 20
+    <div style="font-size:2em;"> font 40
+      <div style="font-size:3em;"> font 40</div>
+    </div>
+  </div>
+  <hr />
+  <div style="font-size:1rem"> font
+    <div style="font-size:2rem;"> font
+      <div style="font-size:3rem;"> font</div>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>
+    $("div").each(function () {
+      $(this).prepend($(this).css("font-size"));
+    });
+  </script>
+
+</body>
+
+</html>

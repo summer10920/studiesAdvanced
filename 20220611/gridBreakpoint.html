@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/css/bootstrap.min.css"
+      integrity="sha512-6KY5s6UI5J7SVYuZB4S/CZMyPylqyyNZco376NM2Z8Sb8OxEdp02e1jkKk/wZxIEmjQ6DRCEBhni+gpr9c4tvA=="
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/js/bootstrap.min.js"
+      integrity="sha512-ewfXo9Gq53e1q1+WDTjaHAGZ8UvCWq0eXONhwDuIoaH8xz2r96uoAYaQCm1oQhnBfRXrvJztNXFsTloJfgbL5Q=="
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .row > div {
+        background: #ccc;
+        border: 1px solid black;
+      }
+
+      .row {
+        margin-bottom: 20px;
+        outline: 1px solid blueviolet;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <!-- col 能決定何時才會變成 full width -->
+        <div>this is a normal div, always=100%</div>
+        <div class="col-12">this is a col-12, always=100%</div>
+        <div class="col-xxl">col-xxl, when &lt;1400 = 100%</div>
+        <div class="col-xl">col-xl, when &lt;1200 = 100%</div>
+        <div class="col-lg">col-lg, when &lt;992 = 100%</div>
+        <div class="col-md">col-md, when &lt;768 = 100%</div>
+        <div class="col-sm">col-sm, when &lt;576 = 100%</div>
+        <div class="col">col, width = auto</div>
+        <div class="col">col, width = auto</div>
+      </div>
+      <div class="row">
+        <!-- 不帶數字的 `col-{breakpoint}` 可視同當下 media queries 狀態為 col 而自動分配寬度 -->
+        <div class="col">col</div>
+        <div class="col-sm">col-sm</div>
+        <div class="col-md">col-md</div>
+      </div>
+      <div class="row">
+        <!-- 如果某 media queries 當下找不到 col 公式會導致 100% 滿版（除非有需求否則應避免） -->
+        <div class="col-xl-6">col-xl-6</div>
+        <div class="col-xl-3">col-xl-3</div>
+      </div>
+      <div class="row">
+        <div class="col col-xl-4">col<br>col-xl-4</div>
+        <div class="col-xl-4">col-xl-4</div>
+        <div class="col col-xl-4">col<br>col-xl-4</div>
+      </div>
+      <div class="row">
+        <!-- 透過公式的混和與各自 media queries 的 width 值不同，形成響應式的多欄位控制 -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">col-12<br>col-sm-6<br>col-md-4<br>col-lg-3<br>col-xl-2</div>
+      </div>
+      <div class="row">
+        <!-- 響應斷點本身有向上相容（優先權）的效果，所以相同數字可省略  -->
+        <div class="col-sm-4">col-sm-4</div>
+        <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">col-sm-4<br>col-md-4<br>col-lg-4<br>col-xl-4</div>
+        <div class="col-sm-4 col-md-4 col-lg-4 col-xl-6">col-sm-4<br>col-md-4<br>col-lg-4<br>col-xl-6</div>
+      </div>
+    </div>
+  </body>
+</html>

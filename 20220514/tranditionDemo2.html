@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="IE=edge"
+  >
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      color: white;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      background: #FF0000;
+      line-height: 100px;
+      position: relative;
+    }
+
+    .box::after {
+      content: "transform";
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: #0000FF;
+      transform-origin: right top;
+      /* opacity: 0; */
+
+      transition:
+        /* opacity 0.5s ease 0s, */
+        top 0.5s ease 0.5s,
+        width 0.5s ease 1s,
+        transform 0.5s ease 1.5s;
+    }
+
+    .box:hover::after {
+      /* opacity: 1; */
+      top: 100px;
+      width: 200px;
+      transform: rotate(90deg);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+</body>
+
+</html>

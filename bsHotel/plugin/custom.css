@@ -1,0 +1,107 @@
+:root {
+  --bs-info: #008aa6;
+}
+
+body {
+  font-family: "Roboto", "Noto Sans TC", sans-serif;
+  background: #eee; /*太白眼睛不舒服*/
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 600, "GRAD" 0, "opsz" 120;
+  font-size: 2.5rem;
+}
+
+section#lokiSlider img {
+  object-fit: cover;
+  filter: grayscale(0.7);
+}
+
+section#lokiSlider .carousel-caption {
+  text-shadow: 2px 2px 2px black;
+  /* width: 70%; */
+}
+
+section#lokiSlider .carousel-indicators button {
+  width: 20px;
+  height: 20px;
+  border: 10px solid transparent;
+  border-radius: 50%;
+}
+
+section#lokiRoom .nav-link {
+  color: #055160;
+  background-color: #cff4fc;
+  border-color: #b6effb;
+  flex: 0 1 16%;
+  box-shadow: 1px -1px 3px 0px #0005;
+  border: 0;
+}
+
+section#lokiRoom nav > .nav-link.active {
+  /* background: rgb(13, 202, 240); */
+  background: var(--bs-info);
+  /* color: rgb(248, 249, 250); */
+  color: var(--bs-light);
+}
+
+section#lokiRoom nav.nav-tabs,
+section#lokiRoom .nav-link {
+  border-bottom: 1px solid var(--bs-info);
+}
+
+section#lokiFacility {
+  background: url("https://picsum.photos/1080/1080/?random=10"),
+    radial-gradient(circle, #777 30%, #ccc 70%),
+    linear-gradient(to right, #999, #444);
+  background-blend-mode: multiply, screen;
+  background-position: center;
+  background-size: cover;
+  text-shadow: 0 0 7px #444;
+}
+
+section#lokiFood .accordion-button:not(.collapsed) {
+  background: var(--bs-info);
+  color: var(--bs-light);
+}
+
+#lokiFood small {
+  transform: rotate(-15deg) translate(-25%, -25%);
+  z-index: 999;
+}
+
+#lokiTrans iframe {
+  filter: grayscale(0.75) brightness(0.5);
+}
+
+#lokiArrow {
+  right: 5vh;
+  bottom: 5vh;
+  animation: bounce 2s ease infinite;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  53%,
+  80%,
+  100% {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translate(0, 0);
+  }
+
+  40%,
+  43% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate(0, -30px);
+  }
+
+  70% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate(0, -15px);
+  }
+
+  90% {
+    transform: translate(0, -4px);
+  }
+}

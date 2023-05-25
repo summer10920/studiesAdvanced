@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="IE=edge"
+  >
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    div.flex {
+      background: #ccc;
+      height: 500px;
+
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+    }
+
+    p.item {
+      margin: 0;
+      width: 200px;
+      height: 200px;
+      /* margin: 0 50px; */
+      /* flex: 0 0 33.3%; */
+    }
+
+    .red {
+      background: red;
+      /* flex-grow: 0; */
+      /* flex-shrink: 2; */
+      /* flex-basis: 33.3%; */
+      /* flex: 0 1 auto; */
+      order: 0;
+    }
+
+    .blue {
+      background: blue;
+      /* flex-grow: 1; */
+      /* flex-shrink: 1; */
+      /* flex-basis: 33.3%; */
+      /* flex: 0 1 auto; */
+      order: 1;
+    }
+
+    .green {
+      background: green;
+      /* flex-grow: 2; */
+      /* flex-shrink: 0; */
+      /* flex-basis: 33.3%; */
+      /* flex: 0 1 auto; */
+      order: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="flex">
+    <p class="item red">A</p>
+    <p class="item blue">B</p>
+    <p class="item green">C</p>
+  </div>
+
+</body>
+
+</html>

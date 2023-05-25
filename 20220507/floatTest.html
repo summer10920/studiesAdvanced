@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="IE=edge"
+  >
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <title>Document</title>
+  <style>
+    body{
+      margin: 0;
+    }
+
+    .container {
+      width: 1024px;
+      height: 768px;
+      color: white;
+      font-size: 3rem;
+      font-family: "microsoft jhenghei";
+      text-align: center;
+
+      position: fixed;
+      /* left: 50%;
+      top:50%;
+      transform: translate(-50%,-50%); */
+      top:0;
+      left:0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+    }
+
+    .header,.footer {
+      width: 1024px;
+      height: 100px;
+      background: black;
+      line-height: 100px;
+      clear: both;
+    }
+
+    .left {
+      width: 30%;
+      height: 567px;
+      float: left;
+      background: #ccc;
+      line-height: 568px;
+    }
+
+    .right {
+      width: 70%;
+      height: 567px;
+      float: right;
+      background: #777;
+      line-height: 568px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">Header</div>
+    <div class="left">Left</div>
+    <div class="right">Right</div>
+    <div class="footer">Footer</div>
+  </div>
+</body>
+
+</html>

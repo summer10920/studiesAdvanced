@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 50px;
+      padding: 50px;
+      background: #ccc;
+      border: 1px solid #ff0;
+      /* height: calc(100vh - 204px);  */
+      height: calc(100vh - 204px); 
+
+      /* flexbox 效果，使內容居中心 */
+      /* display: flex;
+      justify-content: center;
+      align-items: center;*/
+      
+      position: relative;
+    }
+
+    .main {
+      padding: 100px;
+      background: #aaa;
+      border: 1px solid #f00;
+      position: absolute;
+      /* top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); */
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      width: 302px;
+      height: 242px;
+    }
+
+    .bigbox {
+      width: 300px;
+      border: 1px solid #000;
+      background: rgb(209, 248, 248);
+      font-size: 0;
+    }
+
+    .box {
+      font-size: 1rem;
+      width: 50px;
+      height: 50px;
+      margin: 5px;
+      color: white;
+      background-color: darkcyan;
+      text-align: center;
+      line-height: 50px;
+      display: inline-block;
+    }
+
+    .relative {
+      background: lightcoral;
+      position: relative;
+      top: 29px;
+      left: 28px;
+    }
+
+    .absolute {
+      background: lightgreen;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .flexd {
+      background: lightskyblue;
+      position: fixed;
+      left: 0;
+      top: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <body>
+    <!-- div.bigbox>div.box{$}*20 -->
+    <div class="main">
+      <div class="bigbox">
+        <div class="box">01</div>
+        <div class="box">02</div>
+        <div class="box">03</div>
+        <div class="box">04</div>
+        <div class="box">05</div>
+        <div class="box">06</div>
+        <div class="box relative">07</div>
+        <div class="box">08</div>
+        <div class="box">09</div>
+        <div class="box absolute">10</div>
+        <div class="box">11</div>
+        <div class="box">12</div>
+        <div class="box">13</div>
+        <div class="box">14</div>
+        <div class="box">15</div>
+        <div class="box">16</div>
+        <div class="box flexd">17</div>
+        <div class="box">18</div>
+        <div class="box">19</div>
+        <div class="box">20</div>
+      </div>
+    </div>
+  </body>
+
+</body>
+
+</html>

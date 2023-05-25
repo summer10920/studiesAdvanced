@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>泰山渡假飯店 - 享受生活的優閒時刻</title>
+  <link rel="shortcut icon" href="media/favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&family=Roboto&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="plugin/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.0/font/bootstrap-icons.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="plugin/custom.css" />
+
+  <script src="plugin/bootstrap.bundle.min.js"></script>
+  <script src="https://kit.fontawesome.com/fa483230ea.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <!-- 選單 -->
+  <header id="lokiMenu" class="fixed-top">
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#lokiNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="lokiNav">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="#lokiRoom"><i class="fas fa-bed me-2"></i>房型介紹</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#lokiFacility"><i class="fas fa-gamepad me-2"></i>服務設施</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#lokiFood"><i class="fas fa-utensils me-2"></i>餐飲美食</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#lokiTrans"><i class="fas fa-map-marker-alt me-2"></i>交通資訊</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#lokiContact"><i class="fas fa-envelope me-2"></i>聯絡我們</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+  <!-- 首頁廣告 -->
+  <section id="lokiSlider" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="4000">
+    <div class="carousel-indicators">
+      <button data-bs-target="#lokiSlider" data-bs-slide-to="0" class="active"></button>
+      <button data-bs-target="#lokiSlider" data-bs-slide-to="1"></button>
+      <button data-bs-target="#lokiSlider" data-bs-slide-to="2"></button>
+      <button data-bs-target="#lokiSlider" data-bs-slide-to="3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item vh-100 active">
+        <img src="https://picsum.photos/1920/1080/?random=1" class="w-100 h-100">
+        <div class="carousel-caption top-0 bottom-0 d-flex flex-column justify-content-center">
+          <h1>泰山渡假飯店 您的唯一首選</h1>
+          <p class="d-none d-md-block">可以用，共同精英物流，蔬菜以後，應用電。</p>
+        </div>
+      </div>
+      <div class="carousel-item vh-100">
+        <img src="https://picsum.photos/1920/1080/?random=2" class="w-100 h-100">
+        <div class="carousel-caption top-0 bottom-0 d-flex flex-column justify-content-center">
+          <h1>泰山咖啡廳 世界聞名而來</h1>
+          <p class="d-none d-md-block">戰爭典型編號股權不過俱樂部實業發佈日期黃金因而吸。</p>
+        </div>
+      </div>
+      <div class="carousel-item vh-100">
+        <img src="https://picsum.photos/1920/1080/?random=3" class="w-100 h-100">
+        <div class="carousel-caption top-0 bottom-0 d-flex flex-column justify-content-center">
+          <h1>寵愛有你 婚宴專案特惠</h1>
+          <p class="d-none d-md-block">加強貫徹力道住了日前西安市場價土地，最好博士給你人數。</p>
+        </div>
+      </div>
+      <div class="carousel-item vh-100">
+        <img src="https://picsum.photos/1920/1080/?random=4" class="w-100 h-100">
+        <div class="carousel-caption top-0 bottom-0 d-flex flex-column justify-content-center">
+          <h1>外燴商餐 美食饗宴</h1>
+          <p class="d-none d-md-block">廣場我想哥哥徹底指標晶片是我權利出發。</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" data-bs-target="#lokiSlider" data-bs-slide="prev">
+      <i class="bi bi-caret-left-fill display-3"></i>
+    </button>
+    <button class="carousel-control-next" data-bs-target="#lokiSlider" data-bs-slide="next">
+      <span class="material-symbols-outlined">double_arrow</span>
+    </button>
+  </section>
+
+  <!-- 房型介紹 -->
+  <section id="lokiRoom" class="container py-5">
+    <header>
+      <h2 class="text-center text-info py-4">房型介紹</h2>
+      <nav class="nav nav-tabs justify-content-around" id="nav-tab">
+        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#roomA">行政本館</button>
+        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#roomB">雙幕川館</button>
+        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#roomC">繪圖湯屋</button>
+        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#roomPrice">價目表</button>
+        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#roomRule">訂房須知</button>
+      </nav>
+    </header>
+
+    <article class="tab-content py-5" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="roomA">
+        <p class="text-center text-muted">
+          今天特殊基於通知篇文章國內外晚上並且特徵，<br>
+          基於寬頻，教授依法手段是不是足球，平。
+        </p>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+          <div class="col">
+            <div class="card">
+              <img src="https://picsum.photos/600/400/?random=10" class="card-img-top">
+              <div class="card-body">
+                <small class="text-muted float-end">1 大床 | 6.5 坪</small>
+                <h5>繪影湯屋</h5>
+                <p class="card-text">溫馨雙人房</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img src="https://picsum.photos/600/400/?random=10" class="card-img-top">
+              <div class="card-body">
+                <small class="text-muted float-end">1 大床 | 6.5 坪</small>
+                <h5>繪影湯屋</h5>
+                <p class="card-text">溫馨雙人房</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img src="https://picsum.photos/600/400/?random=10" class="card-img-top">
+              <div class="card-body">
+                <small class="text-muted float-end">1 大床 | 6.5 坪</small>
+                <h5>繪影湯屋</h5>
+                <p class="card-text">溫馨雙人房</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="roomB">
+        <p class="text-center text-muted">
+          今天特殊基於通知篇文章國內外晚上並且特徵，<br>
+          基於寬頻，教授依法手段是不是足球，平。
+        </p>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+          <div class="col">
+            <div class="card">
+              <img src="https://picsum.photos/600/400/?random=1" class="card-img-top">
+              <div class="card-body">
+                <small class="text-muted float-end">1 大床 | 6.5 坪</small>
+                <h5>繪影湯屋</h5>
+                <p class="card-text">溫馨雙人房</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img src="https://picsum.photos/600/400/?random=1" class="card-img-top">
+              <div class="card-body">
+                <small class="text-muted float-end">1 大床 | 6.5 坪</small>
+                <h5>繪影湯屋</h5>
+                <p class="card-text">溫馨雙人房</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="roomC">
+        <p class="text-center text-muted">
+          今天特殊基於通知篇文章國內外晚上並且特徵，<br>
+          基於寬頻，教授依法手段是不是足球，平。
+        </p>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+          <div class="col">
+            <div class="card">
+              <img src="https://picsum.photos/600/400/?random=2" class="card-img-top">
+              <div class="card-body">
+                <small class="text-muted float-end">1 大床 | 6.5 坪</small>
+                <h5>繪影湯屋</h5>
+                <p class="card-text">溫馨雙人房</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img src="https://picsum.photos/600/400/?random=2" class="card-img-top">
+              <div class="card-body">
+                <small class="text-muted float-end">1 大床 | 6.5 坪</small>
+                <h5>繪影湯屋</h5>
+                <p class="card-text">溫馨雙人房</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img src="https://picsum.photos/600/400/?random=2" class="card-img-top">
+              <div class="card-body">
+                <small class="text-muted float-end">1 大床 | 6.5 坪</small>
+                <h5>繪影湯屋</h5>
+                <p class="card-text">溫馨雙人房</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img src="https://picsum.photos/600/400/?random=2" class="card-img-top">
+              <div class="card-body">
+                <small class="text-muted float-end">1 大床 | 6.5 坪</small>
+                <h5>繪影湯屋</h5>
+                <p class="card-text">溫馨雙人房</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="roomPrice">
+        <div class="mb-5">
+          <h5 class="text-info">[ 行政本館 ]</h5>
+          <table class="table text-center">
+            <thead class="table-info text-info">
+              <tr>
+                <th>房型</th>
+                <th>平日</th>
+                <th>假日</th>
+                <th>連續國定假日</th>
+              </tr>
+            </thead>
+            <tbody class="table-group-divider border-info">
+              <tr>
+                <th>溫馨雙人房</th>
+                <td>NT3000</td>
+                <td>NT3000</td>
+                <td>NT3000</td>
+              </tr>
+              <tr>
+                <th>精緻雙人房</th>
+                <td>NT3000</td>
+                <td>NT3000</td>
+                <td>NT3000</td>
+              </tr>
+              <tr>
+                <th>親子四人房</th>
+                <td>NT3000</td>
+                <td>NT3000</td>
+                <td>NT3000</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+        <div class="mb-5">
+          <h5 class="text-info">[ 雙幕川館 ]</h5>
+          <table class="table text-center">
+            <thead class="table-info text-info">
+              <tr>
+                <th>房型</th>
+                <th>平日</th>
+                <th>假日</th>
+                <th>連續國定假日</th>
+              </tr>
+            </thead>
+            <tbody class="table-group-divider border-info">
+              <tr>
+                <th>溫馨雙人房</th>
+                <td>NT3000</td>
+                <td>NT3000</td>
+                <td>NT3000</td>
+              </tr>
+              <tr>
+                <th>精緻雙人房</th>
+                <td>NT3000</td>
+                <td>NT3000</td>
+                <td>NT3000</td>
+              </tr>
+              <tr>
+                <th>親子四人房</th>
+                <td>NT3000</td>
+                <td>NT3000</td>
+                <td>NT3000</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+        <div class="mb-5">
+          <h5 class="text-info">[ 繪影湯屋 ]</h5>
+          <table class="table text-center">
+            <thead class="table-info text-info">
+              <tr>
+                <th>房型</th>
+                <th>平日</th>
+                <th>假日</th>
+                <th>連續國定假日</th>
+              </tr>
+            </thead>
+            <tbody class="table-group-divider border-info">
+              <tr>
+                <th>溫馨雙人房</th>
+                <td>NT3000</td>
+                <td>NT3000</td>
+                <td>NT3000</td>
+              </tr>
+              <tr>
+                <th>精緻雙人房</th>
+                <td>NT3000</td>
+                <td>NT3000</td>
+                <td>NT3000</td>
+              </tr>
+              <tr>
+                <th>親子四人房</th>
+                <td>NT3000</td>
+                <td>NT3000</td>
+                <td>NT3000</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+
+
+
+
+      </div>
+      <div class="tab-pane fade" id="roomRule">
+
+        <h3 class="text-end border-bottom border-info mb-5">入住須知</h3>
+        <div class="mb-5">
+          <h5 class="text-info">[ 飯店設備 ]</h5>
+          <p>客房無線網路、有線第四台、自助洗衣機、免費烘乾機、免費停車場</p>
+        </div>
+        <div class="mb-5">
+          <h5 class="text-info">[ 入住須知 ]</h5>
+          <p>
+            進房時間（Check In ) 時間為 15:00 以後；退房時間（Check Out）時間為 11:00 以前。<br>
+            住宿時請攜帶本人身分證正本、駕照以利核對。<br>
+            一般住宿附贈早餐、SPA 券（依住宿房型開立），特殊專案依專案條件辦理。<br>
+            超過退房時間一個小時將以一個小時 200 元計費，超過半個小時將以一個小時計算。<br>
+            請注意住宿人數勿超過客房設定之人數，若有超過客房設定人數，飯店有權拒絕入住。
+          </p>
+        </div>
+        <div class="mb-5">
+          <h5 class="text-info">[ 平假日定義 ]</h5>
+          <p>平日時間：星期日~星期五；假日時間：星期六、連續假日結束前一日，依飯店公告為準。</p>
+        </div>
+        <div class="mb-5">
+          <h5 class="text-info">[ 加人服務 ]</h5>
+          <p>
+            本飯店繪圖湯屋房型提供加人服務（含軟墊、備品、早餐、溫泉 SPA 券），<br>
+            每加一人 NT$600（春節期間不適用）。
+          </p>
+        </div>
+        <div class="mb-5">
+          <h5 class="text-info">[ 其他注意事項 ]</h5>
+          <p>
+            為維護住宿品質，室內空間全面禁菸，禁止攜帶貓狗等寵物入住，如經查獲加收清潔費 5000 元。<br>
+            為維護公共及個人安全，禁止在房間內烹煮食物，或攜帶瓦斯、電磁爐等同性質用具，敬請房客務必配合。<br>
+            客房地面為木質地板，請勿擅自移動房內傢俱，如發現自行搬動客房家具造成木質地面損傷，需付損毁費用。<br>
+            房型擺設僅供參考，以實體房間為主。<br>
+            免費停車場（僅供免費停車，不負保管之責）。<br>
+            行政本館及雙幕川館內衛浴設備皆為一般熱水，如需使用溫泉需至戶外大眾池或改訂繪圖湯屋房型。
+          </p>
+        </div>
+
+
+        <h3 class="text-end border-bottom border-info">官網訂房規範</h3>
+        <p class="mb-5">- 僅適用官網訂房，專案如有特殊需求，依專案為主</p>
+        <div class="mb-5">
+          <h5 class="text-info">[ 線上訂房須知 ]</h5>
+          <p>
+            線上訂房交易價格均已含營業稅及服務費，若您選擇線上刷卡，交易成功後將由您的信用卡帳戶直接扣款。<br>
+            線上訂房不接受國民旅遊卡刷卡訂房，若需使用國民旅遊卡訂房請直接電洽櫃台辦理。
+          </p>
+        </div>
+        <div class="mb-5">
+          <h5 class="text-info">[ 延遲入住手續 ]</h5>
+          <p>若您在住宿當日，因塞車或其他的因素有所耽擱，無法在當日下午六點以前辦理住房手續，請您先以電話聯繫，否則飯店將視為您當日取消訂房，恕不退費。</p>
+        </div>
+        <div class="mb-5">
+          <h5 class="text-info">[ 更改入住日期 ]</h5>
+          <p>
+            訂房後如欲更改訂房日期，請電話聯絡協助處理。<br>
+            同一筆訂單限更改一次，且更改後的訂單恕不接受退房，否則視同取消訂房，依取消訂房規範處理。<br>
+            如更改後訂單金額大於原訂單金額，旅客需現場另行支付差額；如更改後金額小於原訂單金額，恕不退還差額。
+          </p>
+        </div>
+        <div class="mb-5">
+          <h5 class="text-info">[ 取消訂房 ]</h5>
+
+          取消訂房將依以下規範酌收定金，請特別注意：
+          <ul>
+            <li>住宿日 當日 取消訂房，扣定金總金額 100%</li>
+            <li>住宿日 1 天前（不含當日）取消訂房，扣定金總金額 80%</li>
+            <li>住宿日 2~3 天前（不含當日）取消訂房，扣定金總金額 70%</li>
+            <li>住宿日 4~6 天前（不含當日）取消訂房，扣定金總金額 60%</li>
+            <li>住宿日 7~9 天前（不含當日）取消訂房，扣定金總金額 50%</li>
+            <li>住宿日 10~13 天前（不含當日）取消訂房，扣定金總金額 30%</li>
+            <li>住宿日 14 天前（不含當日）取消訂房，扣除匯款手續費後，剩餘定金退還。</li>
+            <li>線上訂房若有需求取消，請直接與我們「電話」聯繫進行取消訂房。</li>
+            <li>若您使用信用卡付款，我們將由系統進行刷退動作；若您使用臨櫃匯款或 ATM 轉帳，請您傳真訂房者之任一銀行存摺封面至 089-515026。</li>
+          </ul>
+          </p>
+        </div>
+        <div class="mb-5">
+          <h5 class="text-info">[ 特殊因素之退房處理 ]</h5>
+          <p>
+            若因天然災害等不可抗拒之因素（如地震、颱風等，以飯店所在地縣市政府公告為準）無法如期前往住宿<br>
+            請於原訂住宿日３日（含當日）內與飯店之訂房中心連絡改期（得保留 6 個月）或是辦理退費。
+          </p>
+        </div>
+        <div class="mb-5">
+          <h5 class="text-info">[ 其他注意事項 ]</h5>
+          <p></p>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- 設施 -->
+  <section id="lokiFacility" class="py-5">
+    <header class="container">
+      <h2 class="text-center text-info py-4">服務設施</h2>
+    </header>
+    <article class="py-5 container text-white">
+      <!-- row lever - 1 -->
+      <ul class="list-unstyled row g-4">
+        <li class="col-lg-6">
+          <!-- row lever - 2 -->
+          <div class="row align-items-center g-4">
+            <img class="col-sm-6" src="https://fakeimg.pl/400x400">
+            <div class="col-sm-6">
+              <h5>戶外海景游泳池</h5>
+              <p class="pb-3 border-bottom border-info">提供佔地面積1000坪的戶外大型游泳池，躺臥在優懶的助曬椅上，盡情享受陽光空氣與水的度假時光。</p>
+            </div>
+          </div>
+        </li>
+        <li class="col-lg-6">
+          <!-- row lever - 2 -->
+          <div class="row align-items-center g-4">
+            <img class="col-sm-6" src="https://fakeimg.pl/400x400">
+            <div class="col-sm-6">
+              <h5>戶外海景游泳池</h5>
+              <p class="pb-3 border-bottom border-info">提供佔地面積1000坪的戶外大型游泳池，躺臥在優懶的助曬椅上，盡情享受陽光空氣與水的度假時光。</p>
+            </div>
+          </div>
+        </li>
+        <li class="col-lg-6">
+          <!-- row lever - 2 -->
+          <div class="row align-items-center g-4">
+            <img class="col-sm-6 order-lg-1" src="https://fakeimg.pl/400x400">
+            <div class="col-sm-6">
+              <h5>戶外海景游泳池</h5>
+              <p class="pb-3 border-bottom border-info">提供佔地面積1000坪的戶外大型游泳池，躺臥在優懶的助曬椅上，盡情享受陽光空氣與水的度假時光。</p>
+            </div>
+          </div>
+        </li>
+        <li class="col-lg-6">
+          <!-- row lever - 2 -->
+          <div class="row align-items-center g-4">
+            <img class="col-sm-6 order-lg-1" src="https://fakeimg.pl/400x400">
+            <div class="col-sm-6">
+              <h5>戶外海景游泳池</h5>
+              <p class="pb-3 border-bottom border-info">提供佔地面積1000坪的戶外大型游泳池，躺臥在優懶的助曬椅上，盡情享受陽光空氣與水的度假時光。</p>
+            </div>
+          </div>
+        </li>
+        <li class="col-lg-6">
+          <!-- row lever - 2 -->
+          <div class="row align-items-center g-4">
+            <img class="col-sm-6" src="https://fakeimg.pl/400x400">
+            <div class="col-sm-6">
+              <h5>戶外海景游泳池</h5>
+              <p class="pb-3 border-bottom border-info">提供佔地面積1000坪的戶外大型游泳池，躺臥在優懶的助曬椅上，盡情享受陽光空氣與水的度假時光。</p>
+            </div>
+          </div>
+        </li>
+        <li class="col-lg-6">
+          <!-- row lever - 2 -->
+          <div class="row align-items-center g-4">
+            <img class="col-sm-6" src="https://fakeimg.pl/400x400">
+            <div class="col-sm-6">
+              <h5>戶外海景游泳池</h5>
+              <p class="pb-3 border-bottom border-info">提供佔地面積1000坪的戶外大型游泳池，躺臥在優懶的助曬椅上，盡情享受陽光空氣與水的度假時光。</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </article>
+  </section>
+
+  <!-- 美食 -->
+  <section id="lokiFood" class="container py-5">
+    <header>
+      <h2 class="text-center text-info py-4">餐飲美食</h2>
+    </header>
+    <article class="py-5 row g-4">
+      <!-- tab Content -->
+      <div class="col-lg-6 tab-content">
+        <img id="fdM1" src="https://picsum.photos/600/400/?random=1"
+          class="img-thumbnail img-fluid w-100 tab-pane fade show active">
+        <img id="fdM2" src="https://picsum.photos/600/400/?random=2"
+          class="img-thumbnail img-fluid w-100 tab-pane fade">
+        <img id="fdM3" src="https://picsum.photos/600/400/?random=3"
+          class="img-thumbnail img-fluid w-100 tab-pane fade">
+      </div>
+      <!-- Accordion -->
+      <div class="col-lg-6 accordion list-group px-3" id="foodMenu">
+        <div class="accordion-item active" data-bs-toggle="list" data-bs-target="#fdM1">
+          <a class="alert-info alert rounded-0 m-0 text-decoration-none accordion-header accordion-button"
+            data-bs-toggle="collapse" data-bs-target="#fdT1">
+            Item#1
+            <small class="badge bg-danger position-absolute start-0 top-0">1F 食堂</small>
+          </a>
+          <div id="fdT1" class="accordion-collapse collapse show" data-bs-parent="#foodMenu">
+            <div class="accordion-body">
+              <p>
+                菜色美味有口皆碑，在這裡除了品嘗美食外更可飽覽溫泉公園山光水色，味覺與視覺的雙重享受。<br>
+                適合工商宴席、婚禮宴客、家庭聚餐、大宴小酌、台菜、客家菜、風味套餐色、香、味美。寬敞的宴會大廳飯店備有多種餐飲選擇，是用餐之好所在！，多種餐飲選擇滿足您挑剔的味蕾並歡迎親臨品嚐！!
+              </p>
+              <p class="float-end text-danger">
+                定價： 大人 NT500 / 小孩 NT300<br>
+                營業時間：AM 06:00 ~ AM 11:00
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item" data-bs-toggle="list" data-bs-target="#fdM2">
+          <a class="alert-info alert rounded-0 m-0 text-decoration-none accordion-header accordion-button collapsed"
+            data-bs-toggle="collapse" data-bs-target="#fdT2">
+            Item#2
+            <small class="badge bg-danger position-absolute start-0 top-0">1F 食堂</small>
+          </a>
+          <div id="fdT2" class="accordion-collapse collapse" data-bs-parent="#foodMenu">
+            <div class="accordion-body">
+              <p>
+                致春園餐廳眺望溫泉公園景觀，嚴選谷關當地食材精心烹調充滿谷關風味的特色小吃，菜色美味有口皆碑，在這裡除了品嘗美食外更可飽覽溫泉公園山光水色，味覺與視覺的雙重享受。<br>
+                適合工商宴席、婚禮宴客、家備有多種餐飲選擇，是用餐之好所在！，多種餐飲選擇滿足您挑剔的味蕾並歡迎親臨品嚐！!
+              </p>
+              <p class="float-end text-danger">
+                定價： 大人 NT500 / 小孩 NT300<br>
+                營業時間：AM 06:00 ~ AM 11:00
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item" data-bs-toggle="list" data-bs-target="#fdM3">
+          <a class="alert-info alert rounded-0 m-0 text-decoration-none accordion-header accordion-button collapsed"
+            data-bs-toggle="collapse" data-bs-target="#fdT3">
+            Item#2
+            <small class="badge bg-danger position-absolute start-0 top-0">1F 食堂</small>
+          </a>
+          <div id="fdT3" class="accordion-collapse collapse" data-bs-parent="#foodMenu">
+            <div class="accordion-body">
+              <p>
+                致春園餐廳眺望溫泉公園景觀，嚴選谷關當地食材精心烹調充滿谷關風味的特色小吃，菜色美味有口皆碑，在這裡除了品嘗美食外更可飽覽溫泉公園山光水色，味覺與視覺的雙重享受。<br>
+                適合工商宴席、婚禮宴客、家庭聚餐、大宴小酌、台菜、客家菜、風味套餐色、香、味美。寬敞的宴會大廳飯店備有多種餐飲選擇，是用餐之好所在！，多種餐飲選擇滿足您挑剔的味蕾並歡迎親臨品嚐！!
+              </p>
+              <p class="float-end text-danger">
+                定價： 大人 NT500 / 小孩 NT300<br>
+                營業時間：AM 06:00 ~ AM 11:00
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- 交通 -->
+  <section id="lokiTrans" class="py-5 ratio">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.703649326451!2d121.41951560000001!3d25.044129299999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a7bec9ad74b1%3A0xa639904a89f26435!2z5Yue5YuV6YOo5Yue5YuV5Yqb55m85bGV572y5YyX5Z-65a6c6Iqx6YeR6aas5YiG572y5rOw5bGx6IG35qWt6KiT57e05aC0!5e0!3m2!1szh-TW!2stw!4v1657956107936!5m2!1szh-TW!2stw"
+      allowfullscreen=""></iframe>
+    <article class="py-5 container position-static">
+      <div class="row gy-2">
+        <header class="col-12 col-lg-6">
+          <h2 class="card text-center text-info py-2">交通資訊</h2>
+        </header>
+        <div class="col-12"></div>
+        <div class="colr-12 col-lg-6">
+          <div class="card">
+            <div class="card-body">
+              <strong>公車、捷運</strong>
+              <ul class="ps-4">
+                <li>公車：三重客運 (637、638)、指南客運 (797、798、801、858、880、883、1501、1503)，至明志科技大學站下車。</li>
+                <li>新北市泰山區免費公車（泰山區 F216 明志國小-台北車站（北三門搭車）)：至貴子路下車後，步行至貴子路口左轉明志路 3 段，明志路直行約 100 公尺至工專路右轉，再直行即可至明志科技大學。
+                </li>
+                <li>捷運：臺北捷運中和新蘆線至丹鳳站 1 號出口或桃園捷運機場線至泰山貴和站（明志科大）1 號出口，再轉乘公車或騎乘 YouBike 微笑單車（約 10~15 分鐘）至明志科技大學。</li>
+              </ul>
+              <strong>自行開車</strong>
+              <ul class="ps-4">
+                <li>高速公路五股交流道下（往新莊、泰山），經新五路至新北大道右轉，直行至貴子路口右轉，貴子路直行至明志路左轉。於明志路繼續前行約 100 公尺右轉工專路，即可抵達明科技大學。</li>
+                <li>由台北車站走忠孝橋，直行高架道路，下到平面道路之後直行至貴子路口右轉，貴子路直行至明志路左轉，於明志路繼續前行約 100 公尺右轉工專路，即可抵達明科技大學。</li>
+                <li>明志科大「汽車」停車費 30 元/小時，請儘量搭乘大眾交通工具或機車（免停車費）。</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- 聯絡 -->
+  <section id="lokiContact" class="container py-5">
+    <header>
+      <h2 class="text-center text-info py-4">聯絡我們</h2>
+    </header>
+
+    <article class="py-5">
+      <form class="row g-4" method="post">
+        <div class="col-12 col-md-6">
+          <label for="dataUser" class="form-label">訪客姓名</label>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Full Name" id="dataUser">
+            <div class="input-group-text">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="dataSex" id="man" value="man">
+                <label class="form-check-label" for="man">男性</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="dataSex" id="woman" value="woman">
+                <label class="form-check-label" for="woman">女性</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <label for="dataPhone" class="form-label">連絡電話</label>
+          <input type="text" class="form-control" id="dataPhone" placeholder="Phone Number">
+        </div>
+        <div class="col-12 col-md-6">
+          <label for="dataMail" class="form-label">電子信箱</label>
+          <input type="email" class="form-control" id="dataMail" placeholder="name@example.com">
+        </div>
+        <div class="col-12 col-md-6">
+          <label for="dataQus" class="form-label">問題類型</label>
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+        <div class="col-12">
+          <label for="dataText" class="form-label">需求說明</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <div class="col-12 text-center">
+          <div class="form-text">請如實填寫便於信件回覆，我們保證不隨意公開您的留言資訊</div>
+          <hr class="border-secondary">
+          <button type="submit" class="btn btn-primary">確認送出</button>
+        </div>
+      </form>
+    </article>
+    <article class="container-fluid bg-light py-5 text-center">
+      <!-- footer Info Before -->
+      <div class="d-flex justify-content-center align-items-center flex-wrap">
+        <a class="link-secondary border p-3 m-3" href="https://www.facebook.com/tsvts/" target="_blank">
+          <i class="fab fa-facebook fa-3x"></i><br>泰山職業訓練場
+        </a>
+        <a href="https://tkyhkm.wda.gov.tw/Default.aspx" target="_blank">
+          <img src="https://ws.wda.gov.tw/001/Upload/308/sites/pagebackimage/366d4144-bdac-4a20-a1f2-b0846004efc0.png"
+            alt="勞動部勞動力發展署北基宜花金馬分署全球資訊網">
+        </a>
+        <a href="https://www.taiwanjobs.gov.tw/home/new_index.aspx" target="_blank">
+          <img
+            src="https://icmp-ws.chiayi.gov.tw/001/Upload/408/relpic/9352/408618/8e7e31cb-201c-4b6f-802f-920fb8f06e28@710x470.png"
+            alt="台灣就業通">
+        </a>
+      </div>
+      <div class="text-secondary">
+        <a class="link-secondary" href="tel:02-2901-8274">電話：02-2901-8274</a> ｜
+        <span class="link-secondary">傳真：02-2908-4773</span> ｜
+        <a class="link-secondary" href="mainto:service@toyugi.com.tw">信箱：service@toyugi.com.tw</a>
+        <a class="link-secondary" href="https://goo.gl/maps/NDzTUToVSbMQYLwv6" target="_blank">
+          <address class="m-0">243 新北市泰山區貴子里致遠新村 55 之 1 號</address>
+        </a>
+      </div>
+    </article>
+  </section>
+
+  <!-- 頁尾 -->
+  <footer id="lokiFooter" class="bg-dark bg-gradient text-center py-3 text-light">
+    <small>
+      泰山職業訓練中心課程教材編譯<br>
+      copyright © <span class="text-info">洛奇數位設計</span>. all rights reserved
+    </small>
+  </footer>
+  <div id="lokiArrow" class="position-fixed">
+    <a class="btn btn-warning text-light" href="#lokiSlider"><i class="fas fa-angle-double-up fa-2x"></i></a>
+  </div>
+</body>
+
+</html>

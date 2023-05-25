@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/css/bootstrap.css"
+      integrity="sha512-YfFXNd2o6swxA1M0ll6EDdnVdYdE6iz+C6k0Guqf18JW6sVq6Oz9lfbjOso+LMwwNYNxUbp7egkYmC2W/IyeVA=="
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/js/bootstrap.min.js"
+      integrity="sha512-ewfXo9Gq53e1q1+WDTjaHAGZ8UvCWq0eXONhwDuIoaH8xz2r96uoAYaQCm1oQhnBfRXrvJztNXFsTloJfgbL5Q=="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <!-- body 版本 -->
+  <body data-bs-spy="scroll" data-bs-target="#lokiNavbar" data-bs-offset="56">
+    <!-- MENU -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav nav-pills">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#item1"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#item2">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#item3">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#item4">Link</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- CONTENT -->
+    <section
+      id="item1"
+      style="height: 200vh; padding-top: 120px"
+      class="alert-primary"
+    >
+      <div class="container">
+        <h1>hello world</h1>
+        <div class="spinner-border"></div>
+        <div class="spinner-grow"></div>
+      </div>
+    </section>
+    <section
+      id="item2"
+      style="height: 200vh; padding-top: 120px"
+      class="alert-warning"
+    >
+      <div class="container">
+        <h1>hello world</h1>
+        <button type="button" class="btn btn-primary" id="liveToastBtn">
+          Show live toast
+        </button>
+
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+          <div
+            id="liveToast"
+            class="toast"
+            role="alert"
+            aria-live="assertive"
+            aria-atomic="true"
+          >
+            <div class="toast-header">
+              <img src="..." class="rounded me-2" alt="..." />
+              <strong class="me-auto">Bootstrap</strong>
+              <small>11 mins ago</small>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="toast"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="toast-body">Hello, world! This is a toast message.</div>
+          </div>
+        </div>
+      </div>
+      <script>
+        var toastTrigger = document.getElementById("liveToastBtn");
+        var toastLiveExample = document.getElementById("liveToast");
+        if (toastTrigger) {
+          toastTrigger.addEventListener("click", function () {
+            var toast = new bootstrap.Toast(toastLiveExample);
+            toast.show();
+          });
+        }
+      </script>
+    </section>
+    <section
+      id="item3"
+      style="height: 200vh; padding-top: 120px"
+      class="alert-info"
+    >
+      <div class="container">
+        <h1>hello world</h1>
+      </div>
+    </section>
+    <section
+      id="item4"
+      style="height: 200vh; padding-top: 120px"
+      class="alert-success"
+    >
+      <div class="container">
+        <h1>hello world</h1>
+      </div>
+    </section>
+  </body>
+</html>

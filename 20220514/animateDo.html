@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="IE=edge"
+  >
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      background: #333;
+      font-weight: bold;
+      font-size: 1.2rem;
+
+      color: white;
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    div.demo1 {
+      width: 100px;
+      height: 100px;
+      /* background: red; */
+      animation: lokiA 1s infinite alternate;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      line-height: 2rem;
+    }
+
+    @keyframes lokiA {
+      from {
+        background: red;
+      }
+
+      to {
+        background: yellow;
+      }
+    }
+
+    div.demo2 {
+      width: 100px;
+      height: 50px;
+      background: orange;
+      border-radius: 5px;
+      line-height: 50px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    div.demo2::after {
+      content: "";
+      width: 300px;
+      height: 150px;
+      background: linear-gradient(24deg,
+          transparent 45%,
+          rgba(255, 255, 255, 0.8) 49.5%,
+          rgba(255, 255, 255, 0.8) 50.5%,
+          transparent 55%);
+      opacity: 0.8;
+      position: absolute;
+      left: -300px;
+      top: -50px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="demo1">HELLO WORLD</div>
+  <div class="demo2">BUTTON</div>
+  <div></div>
+  <div></div>
+</body>
+
+</html>

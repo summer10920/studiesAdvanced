@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- fieldset組合元素，HTML5給表單或任何東西進行框線美化，legend 可指定標題-->
+  <fieldset>
+    <legend>表單介紹</legend>
+    <form action="fakeapi.php">
+      <!-- table>(tr>td*2)*3 -->
+      <table width="100%">
+        <tr>
+          <td width="200"><label for="lbacc" style="display: block;">用戶帳號：</label></td>
+          <td><input type="text" name="acc" placeholder="account" value="guest" id="lbacc"><br></td>
+        </tr>
+        <tr>
+          <td>密碼：</td>
+          <td><input type="password" name="pwd" placeholder="password"><br></td>
+        </tr>
+        <tr>
+          <td>性別：</td>
+          <td>
+            <input type="radio" name="sex" value="man" id="rdom" checked> 
+            <label for="rdom">男</label>
+            <label>
+              <input type="radio" name="sex" value="woman"> 女
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <td>興趣：</td>
+          <td>
+            <label><input type="checkbox" name="like[]" value="拍照">拍照</label>
+            <label><input type="checkbox" name="like[]" value="看書">看書</label>
+            <label><input type="checkbox" name="like[]" value="唱歌" checked>唱歌</label>
+            <label><input type="checkbox" name="like[]" value="運動" checked>運動</label>
+            <label><input type="checkbox" name="like[]" value="喝酒">喝酒</label>
+            <label><input type="checkbox" name="like[]" value="追劇">追劇</label>
+            <label><input type="checkbox" name="like[]" value="旅行">旅行</label>
+          </td>
+        </tr>
+        <tr>
+          <td>出生年：</td>
+          <td>
+            <!-- select>option[value=$$]{$$}*5 -->
+            <select name="year">
+              <option value="1980">1980</option>
+              <option value="1981">1981</option>
+              <option value="1982" selected>1982</option>
+              <option value="1983">1983</option>
+              <option value="1984">1984</option>
+            </select> 年
+          </td>
+        </tr>
+        <tr>
+          <td>留言資訊：</td>
+          <td>
+            <textarea name="info" cols="10" rows="3"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>頭像上傳：</td>
+          <td>
+            <!--失敗，因為GET表單無法傳送檔案-->
+            <input type="file" name="img">
+          </td>
+        </tr>
+      </table>
+
+      <input type="submit" value="送出">
+    </form>
+  </fieldset>
+</body>
+
+</html>

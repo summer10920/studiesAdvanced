@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="IE=edge"
+  >
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    div {
+      height: 100px;
+    }
+
+    .floatBox::after {
+      content: "";
+      display: block;
+      clear: both;
+      border-bottom: 1px solid gray;
+    }
+
+    /* /////////////////////////// */
+    .sideF1 {
+      width: 20%;
+      background: bisque;
+      float: left;
+    }
+
+    .sideF2 {
+      width: 20%;
+      background: bisque;
+      float: left;
+    }
+
+    .mainF {
+      width: 60%;
+      background: #aaa;
+      float: left;
+    }
+
+    .sideE1 {
+      width: 20%;
+      background: bisque;
+      float: left;
+    }
+
+    .sideE2 {
+      width: 20%;
+      background: bisque;
+      float: right;
+    }
+
+    .mainE {
+      width: 60%;
+      background: #aaa;
+      margin: 0 20%;
+    }
+
+
+
+    /* /////////////////////////// */
+    .sideD {
+      width: 20%;
+      background: bisque;
+      float: left;
+    }
+
+    .mainD {
+      width: 80%;
+      background: #aaa;
+      overflow: hidden;
+    }
+
+    .sideC {
+      width: 20%;
+      background: bisque;
+      float: left;
+    }
+
+    .mainC {
+      width: 80%;
+      background: #aaa;
+      /* float: left; */
+      float: right;
+    }
+
+    .sideB {
+      width: 20%;
+      background: bisque;
+      float: right;
+    }
+
+    .mainB {
+      width: 80%;
+      background: #aaa;
+    }
+
+    .sideA {
+      width: 20%;
+      background: bisque;
+      float: left;
+    }
+
+    .mainA {
+      width: 80%;
+      background: #aaa;
+      margin-left: 20%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="floatBox">
+    <div class="sideF1">sidebarF1</div>
+    <div class="mainF">mainF</div>
+    <div class="sideF2">sidebarF2</div>
+  </div>
+  <hr>
+  <div class="floatBox">
+    <div class="sideE1">sidebarE1</div>
+    <div class="sideE2">sidebarE2</div>
+    <div class="mainE">mainE</div>
+  </div>
+  <hr>
+  <hr>
+  <hr>
+  <div class="floatBox">
+    <div class="sideD">D1</div>
+    <div class="mainD">D2</div>
+  </div>
+  <hr>
+  <div class="floatBox">
+    <div class="sideC">C1</div>
+    <div class="mainC">C2</div>
+  </div>
+  <hr>
+  <div class="floatBox">
+    <div class="sideB">B1</div>
+    <div class="mainB">B2</div>
+  </div>
+  <hr>
+  <div class="floatBox">
+    <div class="sideA">A1</div>
+    <div class="mainA">A2</div>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      text-align: center;
+    }
+
+    table {
+      margin: 1rem;
+      display: inline-block;
+    }
+
+    table,
+    tr,
+    td {
+      border: 1px solid #000;
+    }
+
+    table td {
+      width: 200px;
+      height: 200px;
+    }
+
+    .a {
+      background: crimson;
+    }
+
+    .b {
+      background: url("https://picsum.photos/50/50/?random=1") center/cover;
+    }
+
+    .c{
+      background: url("https://picsum.photos/50/50/?random=1") repeat-x;
+    }
+    .d{
+      background: url("https://picsum.photos/50/50/?random=1") repeat-y;
+    }
+    .e{
+      background: url("https://picsum.photos/50/50/?random=1") center no-repeat;
+    }
+    .f{
+      background: url("https://picsum.photos/50/50/?random=1") center no-repeat lightyellow;
+    }
+    .g{
+      background: 
+        url("https://picsum.photos/200/50/?random=1") no-repeat,
+        url("https://picsum.photos/200/50/?random=1") no-repeat bottom,
+        url("https://picsum.photos/200/100/?random=1") no-repeat center;
+    }
+    .h{
+      background: linear-gradient(-90deg,blue,black);
+    }
+    .i{
+      background: radial-gradient(black,white);
+    }
+  </style>
+</head>
+
+<body>
+  <table>
+    <tr>
+      <td class="a"></td>
+      <td class="b"></td>
+      <td class="c"></td>
+    </tr>
+    <tr>
+      <td class="d"></td>
+      <td class="e"></td>
+      <td class="f"></td>
+    </tr>
+    <tr>
+      <td class="g"></td>
+      <td class="h"></td>
+      <td class="i"></td>
+    </tr>
+  </table>
+</body>
+
+</html>

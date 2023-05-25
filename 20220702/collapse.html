@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/css/bootstrap.css"
+      integrity="sha512-YfFXNd2o6swxA1M0ll6EDdnVdYdE6iz+C6k0Guqf18JW6sVq6Oz9lfbjOso+LMwwNYNxUbp7egkYmC2W/IyeVA=="
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"
+      integrity="sha512-trzlduO3EdG7Q0xK4+A+rPbcolVt37ftugUSOvrHhLR5Yw5rsfWXcpB3CPuEBcRBCHpc+j18xtQ6YrtVPKCdsg=="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- list group -->
+    <section class="container my-5">
+      <div class="row">
+        <div class="col-4">
+          <div class="list-group">
+            <a
+              class="list-group-item list-group-item-action active"
+              data-bs-toggle="list" href="#lokiTab1"
+              >Home</a
+            >
+            <a
+              class="list-group-item list-group-item-action"
+              data-bs-toggle="list" href="#lokiTab2"
+              >Profile</a
+            >
+          </div>
+        </div>
+        <div class="col-8">
+          <div class="tab-content">
+            <div class="tab-pane fade show active" id="lokiTab1">
+              Lorem ipsum dolor sit amet.A
+            </div>
+            <div class="tab-pane fade" id="lokiTab2">
+              Lorem ipsum dolor sit amet.B
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="list-group">
+        <label class="list-group-item list-group-item-action">
+          <input class="form-check-input me-1" type="checkbox" value="" />
+          First checkbox
+        </label>
+        <label class="list-group-item list-group-item-action">
+          <input class="form-check-input me-1" type="checkbox" value="" />
+          Second checkbox
+        </label>
+        <label class="list-group-item list-group-item-action">
+          <input class="form-check-input me-1" type="checkbox" value="" />
+          Third checkbox
+        </label>
+        <label class="list-group-item list-group-item-action">
+          <input class="form-check-input me-1" type="checkbox" value="" />
+          Fourth checkbox
+        </label>
+        <label class="list-group-item list-group-item-action">
+          <input class="form-check-input me-1" type="checkbox" value="" />
+          Fifth checkbox
+        </label>
+      </div>
+    </section>
+    <!-- dropmenu -->
+    <section class="container my-5">
+      <div class="dropdown d-inline-block">
+        <a class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown">
+          Dropdown button
+        </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+      </div>
+      <div class="btn-group">
+        <a class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown">
+          Dropdown button
+        </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+      </div>
+      <div class="btn-group dropend">
+        <a class="btn btn-danger"> Loki </a>
+        <a
+          class="btn btn-danger dropdown-toggle dropdown-toggle-split"
+          data-bs-toggle="dropdown"
+        ></a>
+        <ul class="dropdown-menu dropdown-menu-dark">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item active" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+          <li class="text-center">
+            <img src="https://fakeimg.pl/100x100/200" />
+          </li>
+        </ul>
+      </div>
+      <div class="btn-group">
+        <a class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown">
+          Dropdown
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+      </div>
+      <div class="btn-group">
+        <a class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown">
+          Dropdown
+        </a>
+        <div class="dropdown-menu dropdown-menu-end p-4" style="width: 300px">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident,
+          voluptates.
+        </div>
+      </div>
+      <div class="btn-group">
+        <a
+          class="btn btn-secondary dropdown-toggle"
+          data-bs-toggle="dropdown"
+          data-bs-auto-close="false"
+        >
+          LOGIN
+        </a>
+        <div class="dropdown-menu">
+          <form class="px-4 py-3">
+            <div class="mb-3">
+              <label for="exampleDropdownFormEmail1" class="form-label"
+                >Email address</label
+              >
+              <input
+                type="email"
+                class="form-control"
+                id="exampleDropdownFormEmail1"
+                placeholder="email@example.com"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="exampleDropdownFormPassword1" class="form-label"
+                >Password</label
+              >
+              <input
+                type="password"
+                class="form-control"
+                id="exampleDropdownFormPassword1"
+                placeholder="Password"
+              />
+            </div>
+            <div class="mb-3">
+              <div class="form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="dropdownCheck"
+                />
+                <label class="form-check-label" for="dropdownCheck">
+                  Remember me
+                </label>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Sign in</button>
+          </form>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">New around here? Sign up</a>
+          <a class="dropdown-item" href="#">Forgot password?</a>
+        </div>
+      </div>
+    </section>
+    <hr />
+    <section class="container my-5">
+      <!-- collapse -->
+      <p>
+        <a class="btn btn-primary" data-bs-toggle="collapse" href="#lokiZone1">
+          Link with href
+        </a>
+        <button
+          class="btn btn-primary"
+          data-bs-toggle="collapse"
+          data-bs-target="#lokiZone2"
+        >
+          Button with data-bs-target
+        </button>
+        <button
+          class="btn btn-danger"
+          data-bs-toggle="collapse"
+          data-bs-target=".lokiMult"
+        >
+          Button with data-bs-target
+        </button>
+      </p>
+      <div class="collapse lokiMult" id="lokiZone1">
+        <div class="border p-3">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe,
+          aliquid! A
+        </div>
+      </div>
+      <div class="collapse lokiMult collapse-horizontal" id="lokiZone2">
+        <div class="border p-3" style="width: 300px">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe,
+          aliquid! B
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

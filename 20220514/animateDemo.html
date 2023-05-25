@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="IE=edge"
+  >
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <title>Document</title>
+  <style>
+    .animated_div {
+      width: 70px;
+      height: 47px;
+      background: #92B901;
+      color: #ffffff;
+      position: relative;
+      font-weight: bold;
+      font-size: 20px;
+      padding: 10px;
+      border-radius: 5px;
+
+      /* animation: animated_div 5s infinite; */
+      /* animation-duration: 2s;
+      animation-timing-function: ease;
+      animation-delay: 0s;
+      animation-iteration-count: infinite;
+      animation-direction: normal;  */
+      /* animation-direction: alternate;  */
+      /* 1.3.5場...正演, 2.4.6 反演*/
+      /* animation-direction: alternate-reverse;  */
+      /* 1.3.5場...反演, 2.4.6 正演*/
+      /* animation-fill-mode: forwards;
+      animation-play-state: running;
+      animation-name: animated_div; */
+      animation: animated_div 2s infinite alternate;
+      /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+    }
+
+    div:hover{
+      animation-play-state: paused;
+    }
+
+    @keyframes animated_div {
+      0% {
+        transform: rotate(0deg);
+        left: 0px;
+      }
+
+
+      100% {
+        transform: rotate(90deg);
+        left: 500px;
+      }
+
+      /* 55% {
+        transform: rotate(90deg);
+        left: 500px;
+      }
+
+
+      100% {
+        transform: rotate(-360deg);
+        left: 0px;
+      } */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="animated_div">CSS</div>
+</body>
+
+</html>

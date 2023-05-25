@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>行高</title>
+  <style>
+    body {
+      background: gray;
+    }
+
+    div {
+      width: 100px;
+      height: 100px;
+      background: red;
+      text-align: center;
+      line-height: 100px;
+      color: white;
+    }
+
+    nav {
+      background: lightcoral;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    a {
+      text-decoration: none;
+      display: inline-block;
+      width: 150px;
+      height: 50px;
+      line-height: 50px;
+      /* background: lightgrey; */
+      color:black;
+    }
+    /* nav>a:not(:nth-last-of-type(1)){ */
+    nav>a:nth-last-of-type(n+2){
+      border-right: 5px solid;
+    }
+
+    a:hover {
+      background: lightgreen;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="#">LINK1</a>
+    <a href="#">LINK2</a>
+    <a href="#">LINK3</a>
+    <a href="#">LINK4</a>
+    <a href="#">LINK5</a>
+  </nav>
+
+  <div>
+    Lorem ipsum dolor sit amet.
+  </div>
+</body>
+
+</html>

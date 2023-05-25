@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/css/bootstrap.css"
+      integrity="sha512-YfFXNd2o6swxA1M0ll6EDdnVdYdE6iz+C6k0Guqf18JW6sVq6Oz9lfbjOso+LMwwNYNxUbp7egkYmC2W/IyeVA=="
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/js/bootstrap.min.js"
+      integrity="sha512-ewfXo9Gq53e1q1+WDTjaHAGZ8UvCWq0eXONhwDuIoaH8xz2r96uoAYaQCm1oQhnBfRXrvJztNXFsTloJfgbL5Q=="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="alert-warning" style="height:300vh">
+    <section
+      id="lokiSlider"
+      class="container carousel carousel-dark slide"
+      data-bs-ride="carousel"
+      data-bs-touch="false"
+      data-bs-interval="false"
+    >
+      <!-- 幻燈片 -->
+      <div class="carousel-inner" style="height:800px">
+        <div class="carousel-item overflow-hidden h-100 active">
+          <img class="position-absolute mx-auto h-100" style="left:-9999px;right:-9999px" src="https://fakeimg.pl/1920x1080/900" />
+          <div class="carousel-caption d-none d-md-block">
+            <h5>First slide label</h5>
+            <p>Some representative placeholder content for the first slide.</p>
+          </div>
+        </div>
+        <div class="carousel-item overflow-hidden h-100">
+          <img class="position-absolute mx-auto h-100" style="left:-9999px;right:-9999px" src="https://fakeimg.pl/1920x1080/090" />
+          <div class="carousel-caption d-none d-md-block">
+            Lorem ipsum dolor sit amet. B
+          </div>
+        </div>
+        <div class="carousel-item overflow-hidden h-100">
+          <img class="position-absolute mx-auto h-100" style="left:-9999px;right:-9999px" src="https://fakeimg.pl/1920x1080/009" />
+          <div class="carousel-caption d-none d-md-block">
+            Lorem ipsum dolor sit amet. C
+          </div>
+        </div>
+      </div>
+
+      <!-- 控制 -->
+      <button
+        class="carousel-control-prev"
+        data-bs-target="#lokiSlider"
+        data-bs-slide="prev"
+      >
+        <i class="fa-solid fa-circle-chevron-left fa-2xl"></i>
+      </button>
+      <button
+        class="carousel-control-next"
+        data-bs-target="#lokiSlider"
+        data-bs-slide="next"
+      >
+        <i class="fa-solid fa-circle-chevron-right" style="font-size: 2rem"></i>
+      </button>
+
+      <!-- 指示器 -->
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#lokiSlider"
+          data-bs-slide-to="0"
+          class="active"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#lokiSlider"
+          data-bs-slide-to="1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#lokiSlider"
+          data-bs-slide-to="2"
+        ></button>
+      </div>
+    </section>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="https://fakeimg.pl/150x50" />
+        </a>
+        <span class="navbar-text"> Make you dream </span>
+        <button
+          class="navbar-toggler"
+          data-bs-toggle="collapse"
+          data-bs-target="#lokiMenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- 可響應的容器 -->
+        <div class="collapse navbar-collapse" id="lokiMenu">
+          <nav class="navbar-nav me-auto">
+            <a class="nav-link active" aria-current="page" href="#">Active</a>
+            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link disabled">Disabled</a>
+          </nav>
+          <!-- <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled">Disabled</a>
+            </li>
+          </ul> -->
+
+          <form class="d-flex">
+            <div class="input-group">
+              <span class="input-group-text" id="basic-addon1">@</span>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Username"
+                aria-label="Username"
+                aria-describedby="basic-addon1"
+              />
+            </div>
+            <div class="input-group ms-3">
+              <span class="input-group-text" id="basic-addon1">#</span>
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Password"
+                aria-label="Username"
+                aria-describedby="basic-addon1"
+              />
+            </div>
+            <button class="btn btn-outline-success ms-3" type="submit">
+              Login
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </body>
+</html>

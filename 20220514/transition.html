@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="IE=edge"
+  >
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      /* border-radius: 0; */
+    }
+
+    div {
+      /* Ａ狀態 */
+      width: 100px;
+      height: 100px;
+      background: red;
+      /* transform: scale(1); */
+
+      /* transition: 0s; */
+      /* transition-property: background,width; */
+      /* transition-property: all;
+      transition-duration: 0.5s;
+      transition-timing-function: ease;
+      transition-delay: 0.2s; */
+
+      /* transition: all 0.5s ease 0.2s; */
+
+      /* transition-property: background-color, transform, border-radius;
+      transition-duration: 1s, 2s, 3s;
+      transition-timing-function: linear, ease-in, ease-out;
+      transition-delay: 0, 0, 0; */
+
+      transition: background-color 5s linear, transform 2s ease-in, border-radius 3s ease-out;
+
+    }
+
+    div:hover {
+      /* Ｂ狀態 */
+      background: yellow;
+      /* width: 200px;
+      height: 200px; */
+      transform: scale(2);
+      border-radius: 50%;
+      /* transform: translate(500px); */
+
+      
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+  <div></div>
+</body>
+
+</html>
