@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <table border="5" width="300" cellspacing="10" cellpadding="20">
+    <thead>
+      <!-- <tr align="left">   以前的做法應淘汰 -->
+      <tr style="text-align:left">
+        <th>姓名</th>
+        <th>英文成績</th>
+        <th>數學成績</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- 左右合併=col合併=colspan -->
+      <!-- 上下合併=row合併=rowspan -->
+      <tr>
+        <td colspan="3">姓名</td>
+        <!-- <td>英文成績</td> -->
+        <!-- <td>數學成績</td> -->
+      </tr>
+      <tr>
+        <td rowspan="2">The table body</td>
+        <td colspan="2" rowspan="2">2X2</td>
+        <!-- <td>with two columns</td> -->
+      </tr>
+      <tr>
+        <!-- <td>The table body</td> -->
+        <!-- <td>The table body</td> -->
+        <!-- <td>with two columns</td> -->
+      </tr>
+    </tbody>
+  </table>
+</body>
+
+</html>

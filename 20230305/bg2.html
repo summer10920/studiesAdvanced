@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 500px;
+      height: 500px;
+
+      /* 錯誤寫法，這是搶優先 */
+      /* background-image: url("https://picsum.photos/300/200/?random=10");
+      background-image: url("https://picsum.photos/300/200/?random=11");
+      background-image: url("https://picsum.photos/300/200/?random=12"); */
+
+      /* 寫法1 */
+      /* background-color: lightcoral; */
+      /* background-image:
+        url("https://picsum.photos/300/200/?random=10"),
+        url("https://picsum.photos/300/300/?random=11"),
+        url("https://picsum.photos/200/400/?random=12");
+      background-repeat: no-repeat, no-repeat, no-repeat;
+      background-position: left top,left 100px,100% 100%; */
+
+      /* 寫法2 */
+      background:
+      url("https://picsum.photos/300/200/?random=10") no-repeat left top,
+      url("https://picsum.photos/300/300/?random=10") no-repeat 100px 150px,
+      url("https://picsum.photos/200/400/?random=10") no-repeat 100% 100%,
+      lightcoral;
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+</body>
+
+</html>

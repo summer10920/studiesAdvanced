@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 50px;
+      padding: 50px;
+      background: #ccc;
+      border: 1px solid #ff0;
+      /* flexbox 效果，使內容居中心 */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: calc(100vh - 204px);
+    }
+
+    .main {
+      padding: 100px;
+      background: #aaa;
+      border: 1px solid #f00;
+    }
+
+    .bigbox {
+      width: 300px;
+      border: 1px solid #000;
+      background: rgb(209, 248, 248);
+    }
+
+    .box {
+      width: 50px;
+      height: 50px;
+      margin: 5px;
+      color: white;
+      background-color: darkcyan;
+      text-align: center;
+      line-height: 50px;
+      display: inline-block;
+      font-size: 1rem;
+    }
+
+    .relative {
+      background: rebeccapurple;
+      position: relative;
+      top: 30px;
+      left: 30px;
+    }
+
+    .absolute {
+      background: goldenrod;
+      position: absolute;
+      right: 50%;
+      bottom: 50%;
+      /* 咬上面某人的空間，那個人需要position屬性 */
+    }
+
+    .fixed {
+      position: fixed;
+      background: yellowgreen;
+      /* 直接咬畫面的空間 */
+      right: 5vw;
+      bottom: 5vh;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- div.bigbox>div.box{$}*20 -->
+  <div class="main" style="position:relative">
+    <div class="bigbox" style="font-size:0">
+      <div class="box">01</div>
+      <div class="box">02</div>
+      <div class="box">03</div>
+      <div class="box">04</div>
+      <div class="box">05</div>
+      <div class="box">06</div>
+      <div class="box relative">07</div>
+      <div class="box">08</div>
+      <div class="box">09</div>
+      <div class="box absolute">10</div>
+      <div class="box">11</div>
+      <div class="box">12</div>
+      <div class="box">13</div>
+      <div class="box">14</div>
+      <div class="box">15</div>
+      <div class="box">16</div>
+      <div class="box">17</div>
+      <div class="box">18</div>
+      <div class="box fixed">19</div>
+      <div class="box">20</div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      background: #f00;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .box::after {
+      content: "transform";
+      width: 100px;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0.8;
+      background: #00f;
+      /* transform: translate(-50%, -50%); */
+      /* transform: translateY(100%) scale(1, -1); */
+      /* transform: translateY(100%) rotate(-90deg); */
+      /* transform: translateY(100%) skew(45deg); */
+      transform: translateY(100%) rotate(15deg) scale(0.8);
+      transform-origin: 0 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <!--本篇利用 ::after 模擬出變形差異比較-->
+  <div class="box">transform</div>
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    a {
+      color: lightblue;
+    }
+
+    /* a:link {
+      color: lightblue;
+    }
+
+    a:visited {
+      color: lightgreen;
+    }*/
+    a:hover {
+      color: lightcoral;
+    }
+
+    /*
+    a:active {
+      color: lightyellow;
+    } */
+    li:not(.liA) {
+      /* color: blue; */
+    }
+
+    /* 他是p且在同層之間不考慮type的排第三個 */
+    p:nth-child(3) {
+      color: red;
+    }
+
+    /* 他是p且在同層之間同屬p(type)的排第三個 */
+    p:nth-of-type(3) {
+      color: orange;
+    }
+
+    li:nth-child(2n) {
+      color: blue;
+    }
+
+    /* li:first-child => li.nth-child(1) */
+    /* li:first-of-type => p:nth-of-type(1) */
+    p:nth-last-of-type(2) {
+      color: red;
+    }
+
+    .sample a {
+      text-decoration: none;
+      color: darkblue;
+      padding: 0 20px;
+    }
+
+    /* .sample a:not(:nth-last-of-type(1)) { */
+    .sample a:not(:last-of-type) {
+      border-right: 1px solid;
+    }
+
+    /* .sample a:nth-last-of-type(1) {
+      border-right: 0;
+    } */
+  </style>
+</head>
+
+<body>
+  <nav class="sample">
+    <a href="http://#">item</a>
+    <a href="http://#">item</a>
+    <a href="http://#">item</a>
+    <a href="http://#">item</a>
+    <a href="http://#">item</a>
+  </nav>
+  <hr>
+  <p>p lorem</p>
+  <p>p lorem</p>
+  <h3>h3</h3>
+  <p>p lorem</p>
+  <p>p lorem</p>
+  <p>p lorem</p>
+  <p>p lorem</p>
+  <p>p lorem</p>
+  <div>
+    <h3>h3</h3>
+    <p>p lorem</p>
+    <p>p lorem</p>
+    <p>p lorem</p>
+    <p>p lorem</p>
+    <p>p lorem</p>
+    <p>p lorem</p>
+    <p>p lorem</p>
+  </div>
+  <hr>
+  <ul>
+    <li class="liA">A lorem</li>
+    <li class="liB">B lorem</li>
+    <li class="liB">B lorem</li>
+    <li class="liB">B lorem</li>
+    <li class="liB">B lorem</li>
+    <li class="liB">B lorem</li>
+  </ul>
+  <a href="http://www.kimo.com">Goole Home Page</a>
+  <a href="http://www.asus.com">Goole Home Page</a>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    .slider {
+      max-height: 50px;
+      width: 300px;
+      transition: 0.3s all;
+      /* 不顯示 */
+      /* display: none; */
+      /* 看不見 */
+      /* visibility: hidden; */
+    }
+
+    .slider:hover {
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    @media screen {
+      .slider {
+        overflow-y: hidden;
+        background: lightblue;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="slider"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit corporis obcaecati hic qui
+    aperiam beatae deleniti ratione nam assumenda recusandae? Corrupti minima eaque beatae nobis obcaecati delectus,
+    vel, illum iure, similique aliquid tempore nesciunt voluptates reprehenderit repudiandae quod ullam fugiat
+    exercitationem asperiores autem numquam aperiam reiciendis natus illo totam. Voluptate. Lorem ipsum dolor sit amet
+    consectetur adipisicing elit. Magnam molestiae accusantium odit eligendi perspiciatis cum repellat laborum quisquam
+    at esse enim maxime minima vero necessitatibus quibusdam, laudantium sint tempora dolore.</div>
+  <!-- <table>
+    <tr>
+      <td></td>
+    </tr>
+  </table>
+  <div style="display: table">
+    <div style="display:table-row">
+      <div style="display:table-cell"></div>
+      <div style="display:table-cell"></div>
+      <div style="display:table-cell"></div>
+    </div>
+  </div> -->
+</body>
+
+</html>

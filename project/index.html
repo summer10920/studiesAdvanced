@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="IE=edge"
+  >
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <title>洛奇營地渡假村 - 溫泉露營</title>
+  <link
+    rel="shortcut icon"
+    href="./media/favicon.ico"
+    type="image/x-icon"
+  >
+  <!-- google font -->
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&family=Roboto&display=swap"
+    rel="stylesheet"
+  >
+  <!-- Bootstrap v5.1.3 -->
+  <script src="plugins/bootstrap.bundle.min.js"></script>
+  <link
+    rel="stylesheet"
+    href="./plugins/bootstrap.min.css"
+  >
+  <!-- 所有自訂CSS -->
+  <link
+    rel="stylesheet"
+    href="./plugins/style.css"
+  >
+  <!-- fontawesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous"
+  />
+  <!-- masonry -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js"
+    integrity="sha512-JRlcvSZAXT8+5SQQAvklXGJuxXTouyq8oIMaYERZQasB8SBDHZaUbeASsJWpk0UUrf89DP3/aefPPrlMR1h1yQ=="
+    crossorigin="anonymous"
+  ></script>
+</head>
+
+<body
+  data-bs-spy="scroll"
+  data-bs-target="#lokiMenu"
+>
+  <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+    <div class="container">
+      <a
+        class="navbar-brand"
+        href="#"
+      ><i class="fa-solid fa-campground mx-2"></i>洛奇度假勝地</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#lokiMenu"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="collapse navbar-collapse"
+        id="lokiMenu"
+      >
+        <div class="navbar-nav ms-auto mb-2 mb-md-0">
+          <a
+            class="nav-link px-3"
+            href="#lokiPallet"
+          >營位介紹</a>
+          <a
+            class="nav-link px-3"
+            href="#lokiPark"
+          >探索體驗</a>
+          <a
+            class="nav-link px-3"
+            href="#lokiService"
+          >遊客服務</a>
+          <a
+            class="nav-link px-3"
+            href="#lokiRole"
+          >營區守則</a>
+          <a
+            class="nav-link px-3"
+            href="#lokiContact"
+          >聯絡我們</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <section
+    id="lokiSlider"
+    class="carousel slide carousel-fade"
+    data-bs-ride="carousel"
+    data-bs-interval="2500"
+  >
+    <div class="carousel-indicators">
+      <button
+        data-bs-target="#lokiSlider"
+        data-bs-slide-to="0"
+        class="active"
+      ></button>
+      <button
+        data-bs-target="#lokiSlider"
+        data-bs-slide-to="1"
+      ></button>
+      <button
+        data-bs-target="#lokiSlider"
+        data-bs-slide-to="2"
+      ></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item vh-100 active">
+        <img
+          src="https://picsum.photos/1920/1080/?random=10"
+          class="d-block w-100 h-100"
+        >
+        <div class="carousel-caption d-flex flex-column align-items-start">
+          <h3>
+            <label class="badge text-bg-success">山景</label>
+            <label class="badge text-bg-light">芬多精</label>
+            <label class="badge text-bg-danger">網美打卡</label>
+          </h3>
+          <h2 class="display-2 fw-bolder">體驗大自然的空氣</h2>
+          <p class="d-none d-md-block">遠離塵囂的夢想園地，也是一個讓家人朋友們能夠更親密、更快樂的童話村！</p>
+        </div>
+      </div>
+      <div class="carousel-item vh-100">
+        <img
+          src="https://picsum.photos/1920/1080/?random=11"
+          class="d-block w-100 h-100"
+        >
+        <div class="carousel-caption d-flex flex-column align-items-end">
+          <h2 class="display-2 fw-bolder">Second slide label</h2>
+          <p class="d-none d-md-block">Some representative placeholder content for the second slide.</p>
+        </div>
+      </div>
+      <div class="carousel-item vh-100">
+        <img
+          src="https://picsum.photos/1920/1080/?random=12"
+          class="d-block w-100 h-100"
+        >
+        <div class="carousel-caption d-flex flex-column align-items-start">
+          <h2 class="display-2 fw-bolder">Third slide label</h2>
+          <p class="d-none d-md-block">Some representative placeholder content for the third slide.</p>
+        </div>
+      </div>
+    </div>
+    <button
+      class="w-auto carousel-control-prev"
+      data-bs-target="#lokiSlider"
+      data-bs-slide="prev"
+    >
+      <i class="fa-solid fa-caret-left"></i>
+    </button>
+    <button
+      class="w-auto carousel-control-next"
+      data-bs-target="#lokiSlider"
+      data-bs-slide="next"
+    >
+      <i class="fa-solid fa-caret-right"></i>
+    </button>
+  </section>
+  <section
+    id="lokiPallet"
+    class="container py-5"
+  >
+    <!-- .row.row-cols-4.g-0>img.col.img-fluid*4 -->
+    <div class="row row-cols-4 g-0 mb-5">
+      <img
+        src="https://picsum.photos/300/200/?random=10"
+        class="col img-fluid"
+      >
+      <img
+        src="https://picsum.photos/300/300/?random=10"
+        class="col img-fluid"
+      >
+      <img
+        src="https://picsum.photos/400/250/?random=10"
+        class="col img-fluid"
+      >
+      <img
+        src="https://picsum.photos/360/250/?random=10"
+        class="col img-fluid"
+      >
+    </div>
+    <header class="h2 border-start border-5 ps-3 mb-5 border-warning">營位介紹</header>
+    <article class="row row-cols-1 row-cols-lg-2 g-4 g-lg-5 flex-row-reverse">
+      <div class="col">
+        <div class="card text-bg-dark overflow-hidden">
+          <img
+            src="https://picsum.photos/600/400/?random=10"
+            class="card-img"
+          >
+          <div
+            class="card-img-overlay text-center bg-dark bg-opacity-50 d-flex flex-column justify-content-center overflow-hidden"
+          >
+            <h3 class="card-title text-warning fw-bolder">Card title</h3>
+            <ul class="card-text list-unstyled">
+              <li>每帳空間4X8公尺，獨立水槽與供電，共20帳</li>
+              <li>帳邊可停每帳限1台，超過酌收至指定停車場 $100/車</li>
+              <li>每帳限四人，超出費用（五歲以上）酌收人頭費 $300</li>
+            </ul>
+            <h5 class="card-text">
+              <label class="badge rounded-pill text-bg-light bg-opacity-75">一宿 / $1200</label>
+              <label class="badge rounded-pill text-bg-dark bg-opacity-75">夜衝 / $800</label>
+            </h5>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-bg-dark overflow-hidden">
+          <img
+            src="https://picsum.photos/600/400/?random=11"
+            class="card-img"
+          >
+          <div
+            class="card-img-overlay text-center bg-dark bg-opacity-50 d-flex flex-column justify-content-center overflow-hidden"
+          >
+            <h3 class="card-title text-warning fw-bolder">Card title</h3>
+            <ul class="card-text list-unstyled">
+              <li>每帳空間4X8公尺，獨立水槽與供電，共20帳</li>
+              <li>帳邊可停每帳限1台，超過酌收至指定停車場 $100/車</li>
+              <li>每帳限四人，超出費用（五歲以上）酌收人頭費 $300</li>
+            </ul>
+            <h5 class="card-text">
+              <label class="badge rounded-pill text-bg-light bg-opacity-75">一宿 / $1200</label>
+              <label class="badge rounded-pill text-bg-dark bg-opacity-75">夜衝 / $800</label>
+            </h5>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-bg-dark overflow-hidden">
+          <img
+            src="https://picsum.photos/600/400/?random=12"
+            class="card-img"
+          >
+          <div
+            class="card-img-overlay text-center bg-dark bg-opacity-50 d-flex flex-column justify-content-center overflow-hidden"
+          >
+            <h3 class="card-title text-warning fw-bolder">Card title</h3>
+            <ul class="card-text list-unstyled">
+              <li>每帳空間4X8公尺，獨立水槽與供電，共20帳</li>
+              <li>帳邊可停每帳限1台，超過酌收至指定停車場 $100/車</li>
+              <li>每帳限四人，超出費用（五歲以上）酌收人頭費 $300</li>
+            </ul>
+            <h5 class="card-text">
+              <label class="badge rounded-pill text-bg-light bg-opacity-75">一宿 / $1200</label>
+              <label class="badge rounded-pill text-bg-dark bg-opacity-75">夜衝 / $800</label>
+            </h5>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-bg-dark overflow-hidden">
+          <img
+            src="https://picsum.photos/600/400/?random=13"
+            class="card-img"
+          >
+          <div
+            class="card-img-overlay text-center bg-dark bg-opacity-50 d-flex flex-column justify-content-center overflow-hidden"
+          >
+            <h3 class="card-title text-warning fw-bolder">Card title</h3>
+            <ul class="card-text list-unstyled">
+              <li>每帳空間4X8公尺，獨立水槽與供電，共20帳</li>
+              <li>帳邊可停每帳限1台，超過酌收至指定停車場 $100/車</li>
+              <li>每帳限四人，超出費用（五歲以上）酌收人頭費 $300</li>
+            </ul>
+            <h5 class="card-text">
+              <label class="badge rounded-pill text-bg-light bg-opacity-75">一宿 / $1200</label>
+              <label class="badge rounded-pill text-bg-dark bg-opacity-75">夜衝 / $800</label>
+            </h5>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+  <section
+    id="lokiPark"
+    class="container-fluid py-5"
+  >
+    <header class="container">
+      <h2 class="border-start border-5 ps-3 mb-5 border-warning">探索體驗</h2>
+      <p class="text-center mx-auto pb-5 w-75">Lorem, ipsum dolor sit adipisicing elit. Numquam natus sint possimus
+        laborum! Nemo nihil ad laboriosam excepturi minus dolorum obcaecati eum illum voluptate beatae praesentium,
+        sapiente deserunt incidunt itaque!</p>
+    </header>
+    <article class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-2 g-md-0">
+      <div class="col">
+        <img
+          src="https://picsum.photos/600/400/?random=10"
+          class="w-100 img-fluid"
+        >
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <h5 class="rounded-pill bg-opacity-75 p-3">Lorem, ipsum.</h5>
+        </div>
+      </div>
+      <div class="col">
+        <img
+          src="https://picsum.photos/400/600/?random=11"
+          class="w-100 img-fluid"
+        >
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <h5 class="rounded-pill bg-opacity-75 p-3">Lorem, ipsum.</h5>
+        </div>
+      </div>
+      <div class="col">
+        <img
+          src="https://picsum.photos/500/400/?random=12"
+          class="w-100 img-fluid"
+        >
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <h5 class="rounded-pill bg-opacity-75 p-3">Lorem, ipsum.</h5>
+        </div>
+      </div>
+      <div class="col">
+        <img
+          src="https://picsum.photos/600/200/?random=13"
+          class="w-100 img-fluid"
+        >
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <h5 class="rounded-pill bg-opacity-75 p-3">Lorem, ipsum.</h5>
+        </div>
+      </div>
+      <div class="col">
+        <img
+          src="https://picsum.photos/600/500/?random=14"
+          class="w-100 img-fluid"
+        >
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <h5 class="rounded-pill bg-opacity-75 p-3">Lorem, ipsum.</h5>
+        </div>
+      </div>
+      <div class="col">
+        <img
+          src="https://picsum.photos/800/400/?random=15"
+          class="w-100 img-fluid"
+        >
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <h5 class="rounded-pill bg-opacity-75 p-3">Lorem, ipsum.</h5>
+        </div>
+      </div>
+      <div class="col">
+        <img
+          src="https://picsum.photos/400/400/?random=16"
+          class="w-100 img-fluid"
+        >
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <h5 class="rounded-pill bg-opacity-75 p-3">Lorem, ipsum.</h5>
+        </div>
+      </div>
+      <div class="col">
+        <img
+          src="https://picsum.photos/500/400/?random=17"
+          class="w-100 img-fluid"
+        >
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <h5 class="rounded-pill bg-opacity-75 p-3">Lorem, ipsum.</h5>
+        </div>
+      </div>
+      <div class="col">
+        <img
+          src="https://picsum.photos/600/450/?random=18"
+          class="w-100 img-fluid"
+        >
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <h5 class="rounded-pill bg-opacity-75 p-3">Lorem, ipsum.</h5>
+        </div>
+      </div>
+      <div class="col">
+        <img
+          src="https://picsum.photos/400/400/?random=19"
+          class="w-100 img-fluid"
+        >
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <h5 class="rounded-pill bg-opacity-75 p-3">Lorem, ipsum.</h5>
+        </div>
+      </div>
+    </article>
+  </section>
+  <section
+    id="lokiService"
+    class="py-5"
+  >
+    <div class="container">
+      <header class="h2 border-start border-5 ps-3 mb-5 border-warning">遊客服務</header>
+      <article class="row row-cols-1 row-cols-lg-3 gy-3">
+        <div class="col">
+          <div class="card h-100 text-bg-dark py-3">
+            <div class="card-header text-center">
+              <h3 class="card-title">Card title</h3>
+              <img
+                src="https://picsum.photos/150/150/?random=10"
+                class="rounded-circle border border-warning-subtle border-4 m-3"
+              >
+            </div>
+            <div class="card-body">
+              <h6 class="text-info">Card subtitle</h6>
+              <ul class="p-0">
+                <li class="row g-1 justify-content-between">
+                  <div class="col-9 my-2">
+                    <label class="text-info px-2">Snow Peak003 四人帳</label>
+                    <p class="px-2 m-0">300X300 cm、附釘&槌&繩</p>
+                  </div>
+                  <div class="col-3 text-end">
+                    <span class="badge bg-info rounded-pill">NT2000</span>
+                  </div>
+                </li>
+                <li class="row g-1 justify-content-between">
+                  <div class="col-9 my-2">
+                    <label class="text-info px-2">Snow Peak003 四人帳</label>
+                    <p class="px-2 m-0">300X300 cm、附釘&槌&繩</p>
+                  </div>
+                  <div class="col-3 text-end">
+                    <span class="badge bg-info rounded-pill">NT2000</span>
+                  </div>
+                </li>
+                <li class="row g-1 justify-content-between">
+                  <div class="col-9 my-2">
+                    <label class="text-info px-2">Snow Peak003 四人帳</label>
+                    <p class="px-2 m-0">300X300 cm、附釘&槌&繩</p>
+                  </div>
+                  <div class="col-3 text-end">
+                    <span class="badge bg-info rounded-pill">NT2000</span>
+                  </div>
+                </li>
+                <li class="row g-1 justify-content-between">
+                  <div class="col-9 my-2">
+                    <label class="text-info px-2">Snow Peak003 四人帳</label>
+                    <p class="px-2 m-0">300X300 cm、附釘&槌&繩</p>
+                  </div>
+                  <div class="col-3 text-end">
+                    <span class="badge bg-info rounded-pill">NT2000</span>
+                  </div>
+                </li>
+                <li class="row g-1 justify-content-between">
+                  <div class="col-9 my-2">
+                    <label class="text-info px-2">客廳帳</label>
+                    <p class="px-2 m-0">四面邊布需另租 $500</p>
+                  </div>
+                  <div class="col-3 text-end">
+                    <span class="badge bg-info rounded-pill">NT2000</span>
+                  </div>
+                </li>
+                <li class="row g-1 justify-content-between">
+                  <div class="col-9 my-2">
+                    <label class="text-info px-2">Snow Peak003 四人帳</label>
+                    <p class="px-2 m-0">300X300 cm、附釘&槌&繩</p>
+                  </div>
+                  <div class="col-3 text-end">
+                    <span class="badge bg-info rounded-pill">NT2000</span>
+                  </div>
+                </li>
+              </ul>
+              <!-- <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 text-bg-dark py-3">
+            <div class="card-header text-center">
+              <h3 class="card-title">Card title</h3>
+              <img
+                src="https://picsum.photos/150/150/?random=10"
+                class="rounded-circle border border-warning-subtle border-4 m-3"
+              >
+            </div>
+            <div class="card-body">
+              <h6 class="text-warning d-flex justify-content-between">
+                <span>Card subtitle</span>
+                <span class="badge bg-warning rounded-pill">NT2000</span>
+              </h6>
+              <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi in illo suscipit. Ipsum
+                nam dolorum praesentium distinctio velit, eligendi incidunt?</p>
+              <h6 class="text-warning d-flex justify-content-between">
+                <span>Card subtitle</span>
+                <span class="badge bg-warning rounded-pill">NT2000</span>
+              </h6>
+              <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi in illo suscipit. Ipsum
+                nam dolorum praesentium distinctio velit, eligendi incidunt?</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 text-bg-dark py-3">
+            <div class="card-header text-center">
+              <h3 class="card-title">Card title</h3>
+              <img
+                src="https://picsum.photos/150/150/?random=10"
+                class="rounded-circle border border-warning-subtle border-4 m-3"
+              >
+            </div>
+            <div class="card-body">
+              <h6 class="text-success d-flex justify-content-between">
+                <span>Card subtitle</span>
+                <span class="badge text-bg-success rounded-pill">NT2000</span>
+              </h6>
+              <ul>
+                <li class="py-2">Lorem ipsum dolor sit amet.</li>
+                <li class="py-2">Lorem ipsum dolor sit amet.</li>
+                <li class="py-2">Lorem ipsum dolor sit amet.</li>
+                <li class="py-2">Lorem ipsum dolor sit amet.</li>
+                <li class="py-2">Lorem ipsum dolor sit amet.</li>
+                <li class="py-2">Lorem ipsum dolor sit amet.</li>
+                <li class="py-2">Lorem ipsum dolor sit amet.</li>
+                <li class="py-2">Lorem ipsum dolor sit amet.</li>
+                <li class="py-2">Lorem ipsum dolor sit amet.</li>
+                <li class="py-2">Lorem ipsum dolor sit amet.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section
+    id="lokiRule"
+    class="container py-5"
+  >
+    <header class="h2 border-start border-5 ps-3 mb-5 border-warning">營區守則</header>
+    <article class="row row-cols-1 row-cols-lg-2 gy-3 flex-row-reverse">
+      <div class="col">
+        <img
+          src="https://picsum.photos/600/400/?random=10"
+          class="img-fluid img-thumbnail rounded-0 w-100 shadow"
+        >
+      </div>
+      <div
+        class="col accordion accordion-flush"
+        id="lokiAcc"
+      >
+        <div class="accordion-item my-3 rounded-5 overflow-hidden shadow">
+          <h2
+            class="bg-warning-subtle btn accordion-header accordion-button"
+            data-bs-toggle="collapse"
+            data-bs-target="#lokiItemA"
+          ><i class="fa-solid fa-circle-question me-3"></i>Accordion Item #1 </h2>
+          <div
+            id="lokiItemA"
+            class="accordion-collapse collapse show"
+            data-bs-parent="#lokiAcc"
+          >
+            <div class="accordion-body pb-4">A Lorem ipsum dolor sit </div>
+          </div>
+        </div>
+        <div class="accordion-item my-3 rounded-5 overflow-hidden shadow">
+          <h2
+            class="bg-warning-subtle btn accordion-header accordion-button collapsed"
+            data-bs-toggle="collapse"
+            data-bs-target="#lokiItemB"
+          ><i class="fa-solid fa-circle-question me-3"></i>Accordion Item #2 </h2>
+          <div
+            id="lokiItemB"
+            class="accordion-collapse collapse"
+            data-bs-parent="#lokiAcc"
+          >
+            <div class="accordion-body pb-4">
+              <p class="text-end">非連假 : 入場時間10:00 / 退場時間12:00 <br> 連假 : 入場時間12:00 / 退場時間12:00</p>
+              <ul>
+                <li>預訂(星期五)二天一夜露營，請於星期六上午10:00前離場，以提供星期六訂位者使用，造成不便敬請見諒。</li>
+                <li>連續假日營地紮營時間為中午12點至隔日中午12點，以供下位紮營者使用。</li>
+                <li>週五(或前一晚)提前進場夜衝（限隔日續住者) 17:00~22:00 可入營，17:00前到場，以整日收費計算，請於23:00前搭營完成，避免打擾已就寢露友。</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item my-3 rounded-5 overflow-hidden shadow">
+          <h2
+            class="bg-warning-subtle btn accordion-header accordion-button collapsed"
+            data-bs-toggle="collapse"
+            data-bs-target="#lokiItemC"
+          ><i class="fa-solid fa-circle-question me-3"></i>Accordion Item #3 </h2>
+          <div
+            id="lokiItemC"
+            class="accordion-collapse collapse"
+            data-bs-parent="#lokiAcc"
+          >
+            <div class="accordion-body pb-4">C Lorem ipsum dolor sit</div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+  <section
+    id="lokiContact"
+    class="py-5"
+  >
+    <div class="container">
+      <header class="h2 border-start border-5 ps-3 mb-5 border-warning">聯絡我們</header>
+      <article id="ff-compose"></article>
+    </div>
+  </section>
+  <footer class="text-bg-dark">
+    <div class="bg-light bg-opacity-25 position-relative">
+      <img
+        src="media/camp.svg"
+        class="position-absolute start-0 bottom-0"
+        style="max-width:400px"
+      >
+      <div class="container py-5 position-relative z-1">
+        <div class="row g-5">
+          <div class="col-md-6 col-lg-4">
+            <h5>泰山溫泉度假營地</h5>
+            <ul class="fa-ul">
+              <li><span class="fa-li"><i class="fa-solid fa-location-dot"></i></span>243 新北市泰山區貴子里致遠新村 55 之 1 號 </li>
+              <li><span class="fa-li"><i class="fa-solid fa-phone"></i></span>02-2901-8274</li>
+              <li><span class="fa-li"><i class="fa-solid fa-print"></i></span>02-2908-4773 </li>
+              <li><span class="fa-li"><i class="fa-solid fa-envelope"></i></span>service@toyugi.com.tw</li>
+            </ul>
+            <a
+              class="btn btn-primary rounded-circle d-inline-flex justify-content-center align-items-center mx-1 fs-5"
+              style="width:2.5rem;height:2.5rem"
+              link="#"
+            ><i class="fa-brands fa-facebook-f"></i></a>
+            <a
+              class="btn btn-danger rounded-circle d-inline-flex justify-content-center align-items-center mx-1 fs-5"
+              style="width:2.5rem;height:2.5rem"
+              link="#"
+            ><i class="fa-brands fa-youtube"></i></a>
+            <a
+              class="btn btn-success rounded-circle d-inline-flex justify-content-center align-items-center mx-1 fs-4"
+              style="width:2.5rem;height:2.5rem"
+              link="#"
+            ><i class="fa-brands fa-line"></i></a>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <h5>自行開車</h5>
+            <p>高速公路五股交流道下（往新莊、泰山），經新五路至新北大道右轉，直行至貴子路口右轉，貴子路直行至明志路左轉。於明志路繼續前行約 100 公尺右轉工專路，即可抵達明科技大學。 </p>
+            <p>由台北車站走忠孝橋，直行高架道路，下到平面道路之後直行至貴子路口右轉，貴子路直行至明志路左轉，於明志路繼續前行約 100 公尺右轉工專路，即可抵達明科技大學。 明志科大「汽車」停車費 30
+              元/小時，請儘量搭乘大眾交通工具或機車（免停車費）。 </p>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="ratio ratio-1x1">
+              <iframe
+                class="rounded-circle border-warning-subtle border-5 border"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.717259986109!2d121.4181369413343!3d25.043667570558604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a7bec9ad74b1%3A0xa639904a89f26435!2z5Yue5YuV6YOo5Yue5YuV5Yqb55m85bGV572y5YyX5Z-65a6c6Iqx6YeR6aas5YiG572y5rOw5bGx6IG35qWt6KiT57e05aC0!5e0!3m2!1szh-TW!2stw!4v1683444303764!5m2!1szh-TW!2stw"
+                loading="lazy"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center text-secondary py-3 small"> 泰山職業訓練中心課程教材編譯，本圖片素材引用來源自 snow peak JP 並僅作為學術用途。<br> Copyright
+      &copy; 2022 <span class="text-white">洛奇數位設計 &reg;</span>. all rights reserved </div>
+  </footer>
+  <script>
+    onload = () => {
+      var msnry = new Masonry('#lokiPark article.row', {
+        percentPosition: true
+      });
+    }
+  </script>
+  <script
+    async
+    defer
+    src="https://formfacade.com/include/104718054880738559461/form/1FAIpQLSeZTUxkzQF4l9UG_qIg4UnbXKapqX2MuSKO2RYyTXlv5cYWpg/bootstrap.js?div=ff-compose"
+  ></script>
+</body>
+
+</html>

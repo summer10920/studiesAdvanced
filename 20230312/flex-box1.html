@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    .flex-container {
+      background: lightgoldenrodyellow;
+      height: 100vh;
+      display: flex;
+      /* flex-direction: row; */
+      /* flex-wrap: wrap-reverse; */
+      flex-flow: row wrap-reverse;
+      /*主軸方向*/
+      justify-content: flex-start;
+      /*item對齊主軸*/
+      /* align-items: stretch; */
+      /*item對齊交軸 */
+
+      /* align-content: stretch; */
+    }
+
+    .flex-item {
+      background: lightblue;
+      width: 100px;
+      height: 100px;
+      border: 0.5px solid gray;
+      box-shadow: 1px 1px 5px 0 #3333;
+    }
+
+    .alignSelf {
+      /* align-self: flex-end; */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="flex-container">
+    <div class="flex-item">1</div>
+    <div class="flex-item alignSelf">2</div>
+    <div class="flex-item">3</div>
+    <div class="flex-item">4</div>
+    <div class="flex-item">5</div>
+    <div class="flex-item">6</div>
+    <div class="flex-item">7</div>
+    <div class="flex-item">8</div>
+    <div class="flex-item">8</div>
+    <div class="flex-item">8</div>
+    <div class="flex-item">8</div>
+    <div class="flex-item">8</div>
+  </div>
+</body>
+
+</html>

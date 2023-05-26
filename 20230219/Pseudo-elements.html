@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div.teach {
+      background-color: green;
+    }
+
+    div.sample::before,
+    div.sample::after {
+      content: 'WOW';
+      background-color: red;
+      width: 10px;
+      height: 10px;
+    }
+
+    .pic {
+      width: 50px;
+      height: 50px;
+      background: lightcoral;
+      border-radius: 10px;
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .pic::before {
+      content: '';
+      width: 10px;
+      height: 10px;
+      background: lightcoral;
+      clip-path: polygon(100% 0, 0 0, 9% 100%);
+      position: absolute;
+      bottom: -10px;
+      left: 20%;
+    }
+
+    ul.customListStyle {
+      list-style: none;
+      padding-left: 5px;
+    }
+
+    ul.customListStyle>li::before {
+      content: '';
+      clip-path: polygon(49% 41%, 100% 0, 98% 35%, 67% 59%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 0 0);
+      width: 0.5rem;
+      height: 0.5rem;
+      background-color: red;
+      display: inline-block;
+      margin-right: 5px;
+    }
+    p::first-line{
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <ul class="customListStyle">
+    <!-- <li>
+      <div class="icon"></div>Lorem, ipsum dolor.
+    </li> -->
+    <li>Lorem, ipsum dolor.</li>
+    <li>Lorem, ipsum dolor.</li>
+    <li>Lorem, ipsum dolor.</li>
+    <li>Lorem, ipsum dolor.</li>
+  </ul>
+  <div class="pic"></div>
+  <!-- <div class="pic">
+    <div class="arrow"></div>
+  </div> -->
+  <hr>
+  <div class="teach">
+    <span>WOW</span>WOW<span>WOW</span>
+  </div>
+  <hr>
+  <div class="sample teach">Lorem ipsum dolor sit amet.</div>
+  <p>目前現代化投票證件精品其他，西安天地緊急，日子控制無奈站內寬頻超過原本通常，賓館將在斗內空間對面專。</p>
+</body>
+
+</html>

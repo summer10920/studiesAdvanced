@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 300px;
+      background-color: lightcoral;
+    }
+
+    div.demo2 {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    div.demo1 {
+      text-overflow: clip;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="demo2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, harum! Quas explicabo, voluptas
+    sapiente, quam soluta provident ut neque perferendis commodi ab eaque ullam fuga pariatur velit? Vitae magni,
+    necessitatibus dicta deleniti libero quo nobis, ipsa eaque ab ut ad repudiandae enim voluptatem. Reprehenderit
+    expedita earum iure quisquam provident quae.</div>
+  <hr>
+  <div class="demo1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, harum! Quas explicabo, voluptas
+    sapiente, quam soluta provident ut neque perferendis commodi ab eaque ullam fuga pariatur velit? Vitae magni,
+    necessitatibus dicta deleniti libero quo nobis, ipsa eaque ab ut ad repudiandae enim voluptatem. Reprehenderit
+    expedita earum iure quisquam provident quae.</div>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .ad {
+      width: 300px;
+      height: 200px;
+      background-color: #333;
+      padding: 2rem;
+      color: #fff;
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      z-index: 999;
+    }
+
+    .all {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .close {
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      border: 3px double #aaa;
+      border-radius: 50%;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      right: -15px;
+      top: -15px;
+      font-size: 15px;
+    }
+
+    .close:hover {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="ad"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat quia quam consectetur
+    reprehenderit explicabo voluptates minima possimus at, dignissimos, tempora culpa hic voluptatum fugiat nostrum
+    excepturi architecto rem eos cupiditate! <span class="close">X</span>
+  </div>
+  <div class="all"></div>
+  <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore maxime, ducimus vel atque id
+    fuga sint velit repellendus deserunt hic!</p>
+  <script>
+    document.querySelector('.close').onclick = function () {
+      document.querySelectorAll('.ad, .all').forEach(e => e.remove());
+    }
+  </script>
+</body>
+
+</html>

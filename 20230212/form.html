@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form</title>
+</head>
+
+<body>
+  <fieldset>
+    <legend>表單</legend>
+    <!-- GET VS POST -->
+    <!-- <form action="api.html?do=accUpdate" method="post"> -->
+    <form action="api.php" method="post" enctype="multipart/form-data">
+      <!-- <p>會員帳號: <input type="text"></p>
+      <p>密碼: <input type="text"></p> -->
+      <table border="0" width="100%">
+        <tr>
+          <td width="20%">帳號:</td>
+          <td>
+            <input type="text" name="acc" placeholder="請輸入帳號" value="admin" autocomplete="off" disabled>
+          </td>
+        </tr>
+        <tr>
+          <td>密碼:</td>
+          <td>
+            <!-- <input type="password" name="pwd" placeholder="密碼不可低於8位元" required> -->
+            <input type="password" name="pwd" placeholder="密碼不可低於8位元">
+          </td>
+        </tr>
+        <tr>
+          <td>信箱:</td>
+          <td>
+            <input type="email" name="mail" placeholder="至少需有@符號">
+          </td>
+        </tr>
+        <tr>
+          <td>性別:</td>
+          <td>
+            <input type="radio" name="sex" id="rdo_B" value="boy" required><label for="rdo_B">男</label>
+            <label><input type="radio" name="sex" value="girl">女</label>
+            <input type="radio" name="sex" value="unknown">通用
+          </td>
+        </tr>
+        <tr>
+          <td>興趣:</td>
+          <td>
+            
+            <input type="checkbox" name="like[]" value="拍照">拍照
+            <input type="checkbox" name="like[]" checked value="看書">看書
+            <input type="checkbox" name="like[]" value="唱歌">唱歌
+            <input type="checkbox" name="like[]" value="拍抖音">拍抖音
+            <input type="checkbox" name="like[]" value="躺平">躺平
+          </td>
+        </tr>
+        <tr>
+          <td>授權電訪:</td>
+          <td><input type="checkbox" name="agree" value="ok">我同意</td>
+        </tr>
+        <tr>
+          <td>得知來源:</td>
+          <td>
+            <!-- select>option*3 -->
+            <select name="howKnow">
+              <!-- <option value="">請選擇...</option> -->
+              <option value="news">新聞</option>
+              <option value="fb" selected>FB</option>
+              <option value="friend">親友</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>生日</td>
+          <td><input type="date" name="birth"></td>
+        </tr>
+        <tr>
+          <td>喜好顏色</td>
+          <td><input type="color" name="color"></td>
+        </tr>
+        <tr>
+          <td>簽名檔</td>
+          <td>
+            <textarea name="message" placeholder="寫點什麼吧...">爺就是爺，&#13;沒在那逼逼</textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>檔案上傳</td>
+          <td><input type="file" name="myfile"></td>
+        </tr>
+        <tr align="center">
+          <td colspan="2">
+            <input type="button" value="INPUT">
+            <input type="reset" value="重置">
+            <!-- <input type="submit" value="送出"> -->
+            <button>BTN</button> 
+            <!-- btn元素 是一個動作，被 form 理所當然視同 action 行為=>提交 -->
+            <input type="hidden" name="accId" value="737">
+          </td>
+        </tr>
+      </table>
+    </form>
+  </fieldset>
+</body>
+
+</html>
