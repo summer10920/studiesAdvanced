@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Function</title>
+</head>
+
+<body>
+  <script>
+    // var a=1; //宣告一個變數
+    // b=1; // 使用一個臨時的變數
+
+
+    function sayHi(name = 'Seri') { //宣告一個函式 名稱為 sayHi
+      // if(name==undefined) name='Seri';
+      // name
+      console.log('hello world, i am ' + name + '!!');
+    }
+    // sayHi('Loki');
+    // sayHi('Max');
+
+    var sayName = function (name) {  // 匿名函式 指定給 變數 sayname
+      console.log(`hi!, ${name}`);
+    }
+    // sayName('Loki Jiang');
+
+    var sayWho = (name) => { //箭頭函式 ES6 語法糖
+      console.log('Hello ' + name);
+    }
+
+    ////////////return//////////////////
+    /*
+    function show(name){
+      // console.log('nice to meet you, '+name);
+      var request='nice to meet you, '+name;
+      return request;
+    }
+
+    // var ans=show('Loki');
+    // console.warn(ans);
+    console.warn(show('Loki'));
+    */
+
+    var examCount=function(num){
+      var finalCount=Math.sqrt(num)*10;
+      return finalCount;
+    }
+    console.log(examCount(64));  // 將64傳給function當作參數，經過結果回傳(return)出來
+
+  </script>
+</body>
+
+</html>

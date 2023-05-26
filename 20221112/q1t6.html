@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+    crossorigin="anonymous"></script>
+  <style>
+    .dbor {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      height: 400px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="dbor">
+    <span class="t botli">校園映象區</span>
+    <img src="img/01E01.jpg" onclick="pp('prev')">
+    <div id="imglist" style="display:flex; flex-direction:column;align-items:center">
+      <!-- 大概 div 內長這樣 -->
+      <!-- 
+        <img class="im" id="ssaa0" src="img/01D01.jpg" width="150" height="103">
+        <img class="im" id="ssaa1" src="img/01D02.jpg" width="150" height="103">
+        <img class="im" id="ssaa2" src="img/01D03.jpg" width="150" height="103">
+        <img class="im" id="ssaa3" src="img/01D04.jpg" width="150" height="103">
+        <img class="im" id="ssaa4" src="img/01D05.jpg" width="150" height="103">
+        <img class="im" id="ssaa5" src="img/01D06.jpg" width="150" height="103">
+      -->
+    </div>
+    <img src="img/01E02.jpg" onclick="pp('next')">
+  </div>
+  <script>
+    let idx = 0, total = 0;
+    $.getJSON('../db.json', function (res) { //非同步存取，當回傳之後可以順利繼續執行預計的作業
+      todo(res.q1t6);
+    });
+    function todo(imgAry) {
+      //DOM建構
+      for (let i = 0; i < imgAry.length; i++)
+        $('#imglist').append(`<img class="im" id="ssaa${i}" src="${imgAry[i]}" width="150" height="103">`);
+      total = imgAry.length; //存入圖片數
+
+      //init 初始化
+      $(".im").hide();
+      for (let j = 0; j < 3; j++) {
+        $(`#ssaa${j}`).show();
+      }
+    }
+    function pp(action) {
+      //當 0,1,2 到頂了，不可以進入if
+      if (action == 'prev' && idx > 0) {
+        // 2,3,4 => 1,2,3
+        // idx=2 => idx-1.show(), idx+2.hide()
+        // idx=2 ~> 1
+        $(`#ssaa${idx + 2}`).slideToggle();
+        $(`#ssaa${idx - 1}`).slideToggle();
+        idx--;
+      }
+      // 0~9 , 目前狀況是7.8.9 不要進入以下{}
+      // 若總數10張 => 只要 idx != 7 => 可以進入if{}
+      //10-3
+
+      // 0~4 =>  2.3.4 no if
+      // 若總數 5張 => idx !=2 can if
+      // 5-3
+
+      if (action == 'next' && idx < (total - 3)) {
+        // first img=x  as  x.hide(), (x+3).show()
+        $(`#ssaa${idx}`).slideToggle();
+        $(`#ssaa${idx + 3}`).slideToggle();
+        idx++; //每次結束這回合，X一定會+1，因為頂樓已經是原樓下idx
+
+        // firstIndex++;
+        // first img=2  as  2.3.4  =>  3.4.5
+        // first img=3  as  3.4.5  =>  4.5.6
+        // first img=x  as  x.x+1.x+2  =>  x+1.x+2.x+3
+      }
+    }
+
+    // var nowpage = 0, num = 0;
+    // function pp(x) {
+    //   var s, t;
+    //   if (x == 1 && nowpage - 1 >= 0) { nowpage--; }
+    //   if (x == 2 && (nowpage + 1) * 3 <= num * 1 + 3) { nowpage++; }
+    //   $(".im").hide()
+    //   for (s = 0; s <= 2; s++) {
+    //     t = s * 1 + nowpage * 1;
+    //     $("#ssaa" + t).show()
+    //   }
+    // }
+    // pp(1);
+  </script>
+</body>
+
+</html>

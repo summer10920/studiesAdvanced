@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="IE=edge"
+  >
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <title>Document</title>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+    crossorigin="anonymous"
+  ></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      text-align: center;
+      margin: 0;
+      padding: 0 20px;
+      box-sizing: border-box;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    section {
+      display: flex;
+    }
+
+    section div {
+      position: relative;
+      width: calc(50% - 20px);
+      margin: auto;
+      height: 300px;
+      padding: 10px;
+    }
+
+    section div:nth-child(2) {
+      background: #eee;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>未來一周天氣預報</h1>
+  <hr>
+  <h2>北部地區</h2>
+  <section>
+    <div>
+      <canvas id="chartDay"></canvas>
+    </div>
+    <div>
+      <canvas id="chartNight"></canvas>
+    </div>
+  </section>
+  <script>
+    //拿API
+    $.getJSON('https://opendata.cwb.gov.tw/fileapi/v1/opendataapi/F-D0047-091?Authorization=CWB-77F7EF76-6578-458C-ACDF-72ABF4BE7727&downloadType=WEB&format=JSON', function (result) {
+
+      //API取回之後，做以下三件事
+
+
+      //1. 將拿到的API稍微整理成多個變數
+      const kl = result.cwbopendata.dataset.locations.location[13];
+      const tp = result.cwbopendata.dataset.locations.location[16];
+      const nt = result.cwbopendata.dataset.locations.location[18];
+      const tu = result.cwbopendata.dataset.locations.location[21];
+      // console.log(kl);
+
+      const dayLine = [];
+      const nightLine = [];
+
+      const klAryD = [];
+      const tpAryD = [];
+      const ntAryD = [];
+      const tuAryD = [];
+
+      const klAryN = [];
+      const tpAryN = [];
+      const ntAryN = [];
+      const tuAryN = [];
+
+      for (let i = 0; i < kl.weatherElement[0].time.length; i++) {
+        //整理14個time
+
+        //利用隨便一個city，整理出白天date 跟 晚上 date
+        const dateObj = new Date(kl.weatherElement[0].time[i].startTime);
+        // console.log(dateObj.getDate());
+        if (dateObj.getHours() == '6' || dateObj.getHours() == '12') { //該天氣物件屬於白天chart還是晚上chart
+
+          dayLine.push(`${dateObj.getMonth() + 1}-${dateObj.getDate()}`);
+
+          klAryD.push(kl.weatherElement[0].time[i].elementValue.value);
+          tpAryD.push(tp.weatherElement[0].time[i].elementValue.value);
+          ntAryD.push(nt.weatherElement[0].time[i].elementValue.value);
+          tuAryD.push(tu.weatherElement[0].time[i].elementValue.value);
+
+
+        }
+        if (dateObj.getHours() == '18' || dateObj.getHours() == '0') {
+          nightLine.push(`${dateObj.getMonth() + 1}-${dateObj.getDate()}`);
+
+          klAryN.push(kl.weatherElement[0].time[i].elementValue.value);
+          tpAryN.push(tp.weatherElement[0].time[i].elementValue.value);
+          ntAryN.push(nt.weatherElement[0].time[i].elementValue.value);
+          tuAryN.push(tu.weatherElement[0].time[i].elementValue.value);
+        }
+      }
+
+      // console.log(dayLine, nightLine);
+
+      //2. 將多個變數放入到一個大型object資料
+      const dayChartObj = {
+        type: 'line',
+        data: {
+          labels: dayLine,
+          datasets: [
+            {
+              label: kl.locationName,
+              data: klAryD, //keel ary
+              borderWidth: 3,
+              backgroundColor: 'rgba(255, 99, 132, 0.2)',
+              borderColor: 'rgb(255, 99, 132)',
+              tension: 0.25,
+            },
+            {
+              label: tp.locationName,
+              data: tpAryD,
+              borderWidth: 3,
+              backgroundColor: 'rgba(255, 159, 64, 0.2)',
+              borderColor: 'rgb(255, 159, 64)',
+              tension: 0.25,
+            },
+            {
+              label: nt.locationName,
+              data: ntAryD,
+              borderWidth: 3,
+              backgroundColor: 'rgba(255, 205, 86, 0.2)',
+              borderColor: 'rgb(255, 205, 86)',
+              tension: 0.25,
+            },
+            {
+              label: tu.locationName,
+              data: tuAryD,
+              borderWidth: 3,
+              backgroundColor: 'rgba(75, 192, 192, 0.2)',
+              borderColor: 'rgb(75, 192, 192)',
+              tension: 0.25,
+            },
+          ]
+        },
+        options: {
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              labels: {
+                font: {
+                  size: 20
+                }
+              }
+            },
+            title: {
+              display: true,
+              text: '白天平均溫度',
+              font: {
+                size: 20
+              }
+            },
+          },
+          scales: {
+            y: {
+              beginAtZero: false,
+              grace: '10%'
+            }
+          }
+        }
+      };
+
+      const nightChartObj = {
+        type: 'line',
+        data: {
+          labels: nightLine,
+          datasets: [
+            {
+              label: kl.locationName,
+              data: klAryN, //keel ary
+              borderWidth: 3,
+              backgroundColor: 'rgba(255, 99, 132, 0.2)',
+              borderColor: 'rgb(255, 99, 132)',
+              tension: 0.25,
+            },
+            {
+              label: tp.locationName,
+              data: tpAryN,
+              borderWidth: 3,
+              backgroundColor: 'rgba(255, 159, 64, 0.2)',
+              borderColor: 'rgb(255, 159, 64)',
+              tension: 0.25,
+            },
+            {
+              label: nt.locationName,
+              data: ntAryN,
+              borderWidth: 3,
+              backgroundColor: 'rgba(255, 205, 86, 0.2)',
+              borderColor: 'rgb(255, 205, 86)',
+              tension: 0.25,
+            },
+            {
+              label: tu.locationName,
+              data: tuAryN,
+              borderWidth: 3,
+              backgroundColor: 'rgba(75, 192, 192, 0.2)',
+              borderColor: 'rgb(75, 192, 192)',
+              tension: 0.25,
+            },
+          ]
+        },
+        options: {
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              labels: {
+                font: {
+                  size: 20
+                }
+              }
+            },
+            title: {
+              display: true,
+              text: '晚間平均溫度',
+              font: {
+                size: 20
+              }
+            },
+          },
+          scales: {
+            y: {
+              beginAtZero: false,
+              grace: '10%',
+            }
+          }
+        }
+      };
+
+
+      //3. new Chart(node對象,object資料);
+      new Chart(document.getElementById('chartDay'), dayChartObj);
+      new Chart(document.getElementById('chartNight'), nightChartObj);
+    });
+
+
+  </script>
+</body>
+
+</html>

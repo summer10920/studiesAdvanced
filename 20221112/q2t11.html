@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+    crossorigin="anonymous"></script>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    table,
+    td {
+      border: 1px solid;
+    }
+  </style>
+</head>
+
+<body>
+  <table>
+    <tr>
+      <td width="30%">標題</td>
+      <td width="70%">內容</td>
+    </tr>
+  </table>
+  <div id="alt" style="
+    position: fixed; 
+    width: 600px; 
+    min-height: 100px; 
+    word-break:break-all; 
+    text-align:justify; 
+    background-color: rgb(255, 255, 204); 
+    display: none;
+    z-index: 99; 
+    padding: 5px; 
+    border: 3px double rgb(255, 153, 0); 
+    background-position: initial initial; 
+    background-repeat: initial initial;
+  ">等待被傳入文字放在這裡
+  </div>
+  <script>
+    $.getJSON('../db.json', function (res) {
+      todo(res.q2t11);
+    });
+
+    function todo(jsonData) {
+      // console.log(jsonData);
+      for (const key in jsonData) {
+        // console.log(key);
+        $('table').append(`
+        <tr>
+          <td width="30%" class="act">${key}</td>s
+          <td width="70%" class="sswww">
+            ${jsonData[key].substring(0, 20)}...
+            <span style="display:none">${jsonData[key]}</span>
+          </td>
+        </tr>
+        `);
+      }
+
+      $('.sswww,.act').mousemove(function (event) {
+        // console.log($(this).hasClass('act'));
+        const target=$(this).hasClass('act')?$($(this).next()):$(this);
+        const words = target.children('span').html();
+        // console.log($(this).offset().top);
+        // console.log($(this).offset().left);
+        // $('#alt').text(words);
+        // $('#alt').show();
+        $('#alt').html(words).show();
+        $('#alt').css({
+          // top: ($(this).offset().top + 50) + 'px',
+          // left: `${$(this).offset().left - 100}px`
+          top: (event.pageY + 30) + 'px',
+          left: `${event.pageX}px`
+
+        });
+
+      });
+      $('.sswww').mouseout(function () {
+        $('#alt').hide();
+      });
+    }
+    // $(".sswww").hover(
+    //   function () {
+    //     $("#alt").html("" + $(this).children(".all").html() + "").css({ "top": $(this).offset().top - 50 })
+    //     $("#alt").show()
+    //   }
+    // )
+    // $(".sswww").mouseout(
+    //   function () {
+    //     $("#alt").hide()
+    //   }
+    // )
+    
+    
+    
+    // https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/pageX
+  </script>
+</body>
+
+</html>

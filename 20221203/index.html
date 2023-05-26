@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="IE=edge"
+  >
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <title>jqajax-animal</title>
+  <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+  <style>
+    .insertZone {
+      position: fixed;
+      background: #333333AA;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-basis: 50%;
+      color: white;
+      font-weight: bolder;
+      text-align: center;
+    }
+
+    .insertZone>form {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div
+    class="insertZone"
+    style="display: none;"
+  >
+    <!-- 
+      這裡不先寫好 HTML 是因為我們網頁不會重整，因此第二次進行新增時 HTML 子元素需要清掉
+      因此直接由 JavaScript 來設計較適宜
+    -->
+  </div>
+  <table width="100%">
+    <thead>
+      <tr>
+        <td>編號</td>
+        <td>動物名</td>
+        <td>重量</td>
+        <td>簡介</td>
+        <td>更新日期</td>
+        <td>操作</td>
+      </tr>
+      <tr>
+        <td colspan="6">
+          <hr>
+        </td>
+      </tr>
+    </thead>
+    <tbody></tbody>
+    <tfoot>
+      <tr>
+        <td colspan="6">
+          <hr>
+        </td>
+      </tr>
+      <tr>
+        <td
+          colspan="6"
+          style="text-align:center"
+        >
+          <button
+            id="more"
+            onclick="loading()"
+          >載入更多</button>
+          <button onclick="newCreate()">新增資料</button>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+  <script>
+    const apiPath = 'http://192.168.211.1/ajaxServer/api.php?do=';
+    /*read*/
+    let start = 0;
+    function loading() {
+      $.post(apiPath + 'select', { start }, function (re) {
+        re.forEach(row => {
+          const htmlStr = `
+          <tr>
+            <td>${row.id}</td>
+            <td class="name">${row.name}</td>
+            <td>${row.weight}</td>
+            <td>${row.info}</td>
+            <td>${row.date}</td>
+            <td>
+              <button class="mdy" onclick="chgInput(this)">修改</button>
+              <button onclick="del(this)">刪除</button>
+            </td>
+          </tr>
+        `;
+          $('tbody').append(htmlStr);
+        });
+        if (re.length < 10) $('#more').attr('disabled', true);
+      }, 'json').fail(function () {
+        $('#more').attr('disabled', true);
+      });
+      start += 10;
+    }
+    loading();
+
+    function chgInput(who) {
+      const items = $(who).parent().siblings();
+      // console.log(items);
+      items.parent().html(`
+        <td>
+          <input type="hidden" name="id" value="${items.eq(0).text()}">
+          ${items.eq(0).text()}
+        </td>
+        <td class="name">
+          <input type="text" name="name" value="${items.eq(1).text()}">
+        </td>
+        <td>
+          <input type="number" name="weight" value="${items.eq(2).text()}">
+        </td>
+        <td>
+          <input type="text" name="info" value="${items.eq(3).text()}">
+        </td>
+        <td>${items.eq(4).text()}</td>
+        <td>
+          <button onclick="chgText(this)">儲存</button>
+        </td>
+      `);
+    }
+
+    function chgText(who) {
+      // const data = {
+      //   id: 10,
+      //   name: '美洲豹',
+      //   weight: '999',
+      //   info: 'Lorem 1234'
+      // }
+      const data = $(who).parents('tr').find('input').serialize();
+      $.post(apiPath + 'update', data, function (createTime) {
+        const items = $(who).parent().siblings();
+        items.parent().html(`
+          <td>${items.eq(0).text()}</td>
+          <td class="name">${items.eq(1).children().val()}</td>
+          <td>${items.eq(2).children().val()}</td>
+          <td>${items.eq(3).children().val()}</td>
+          <td>${createTime}</td>
+          <td>
+            <button class="mdy" onclick="chgInput(this)">修改</button>
+            <button onclick="del(this)">刪除</button>
+          </td>
+        `);
+      });
+    }
+
+    function del(who) {
+      //我的爸爸的兄弟的第一個
+      // const id1 = $(who).parent().siblings().eq(0).text();
+      const id2 = $(who).parents('tr').children().eq(0).text();
+
+      $.post(apiPath + 'delete', { id: id2 }, function (re) {
+        if (re == 'deleted') {
+          $(who).parents('tr').remove();
+        }
+      })
+    }
+
+    function newCreate() {
+      $('.insertZone').html(`
+        <form>
+          <h1>新增動物資料</h1>
+          <hr>
+          <p>動物：<input type="text" name="name"></p>
+          <p>重量：<input type="text" name="weight"></p>
+          <p>簡介：<input type="text" name="info"></p>
+          <hr>
+          <p>
+            <button type="button" onclick="sendForm(this)">新增</button>
+            <button type="button" onclick="cancelCreate()">取消</button>
+          </p>
+        </form>
+      `).fadeIn();
+    }
+
+    function cancelCreate() {
+      $('.insertZone').fadeOut();
+    }
+
+    function sendForm(who) {
+      const data = $(who).parents('form').serialize();
+
+      $.post(apiPath + 'insert', data, function (re) {
+        if (re == 'inserted') {
+          $('tbody').empty();
+          start=0;
+          loading();
+          $('.insertZone').fadeOut();
+        }
+      });
+    }
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    sourceAry = ['A1', 'A2', 'A3', 'B1', 'B2', 'B3', 'C1', 'C2', 'C3', 'D1', 'D2'];
+    finalAry = [];
+
+    while (sourceAry.length > 0) {
+      const tmpAry = sourceAry.splice(0, 3); //cut each 3 items pop it
+      finalAry.push(tmpAry);
+    }
+    // console.log(finalAry);
+
+    let htmlCode = '';
+    finalAry.forEach(tr => {
+      htmlCode += '<tr>';
+      tr.forEach(td => htmlCode += '<td>' + td + '</td>');
+      htmlCode += '</td>';
+    });
+
+    document.write(`<table>${htmlCode}</table>`);
+  </script>
+
+</body>
+
+</html>

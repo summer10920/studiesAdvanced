@@ -1,0 +1,61 @@
+/*遮罩區*/
+#myFull {
+  background-color: rgba(35, 35, 35, 0.9);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+/*廣告區*/
+#myContent {
+  cursor: pointer;
+  position: relative;
+}
+
+#myContent img {
+  max-width: 65vw;
+  max-height: 65vh;
+}
+
+#adClose {
+  position: absolute;
+  right: -1rem;
+  top: -1rem;
+  /* background: #eee; */
+  border-radius: 50%;
+  /* border: 3px solid #000; */
+  line-height: 0;
+  transition: background-color 0.5s;
+}
+
+#adClose i {
+  font-size: 2rem;
+  transition: color 0.5s;
+  font-weight: bold;
+}
+
+#adClose:hover {
+  background: #fff;
+}
+
+#adClose:hover i {
+  color: #000;
+}
+
+#lokiCookie {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 40px 60px;
+  background: #6c6c6ced;
+  z-index: 9999;
+  display: none;
+}

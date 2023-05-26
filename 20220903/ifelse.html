@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // const aa = 100, bb = 200;
+    // if (aa) { // 100 => 有 => TRUE , 0 => 空 => 否 False
+    //   console.log('A身上有錢');
+    // }
+    // else {
+    //   console.log('A身上0元');
+    // }
+    // console.log('END');
+
+    const
+      height = 158,  //178
+      money = 5000,  //10000
+      face = false;   //true
+
+    /*
+    if (height > 178 && money > 10000 && face) {
+      console.log('100分');
+      console.log('分析完畢，是好男人');
+    }
+    else {
+      if (height > 178 || money > 10000 || face) {
+        console.log('60~99');  //某一個有true
+      } else {
+        console.log('不及格');
+      }
+    }
+    */
+
+    if (height > 178 && money > 10000 && face) {
+      // if ((height > 178 || money > 10000) && face) {
+      // if (height > 178 || (money > 10000 && face)) {
+      console.log('100分');
+      console.log('分析完畢，是好男人');
+    }
+    else if (height > 178 || money > 10000 || face) console.log('60~99');
+    else console.log('不及格');
+
+
+    //三元運算子  (條件)?(true執行這裡):(false執行這裡)
+
+    const day = 7; // 1~7
+    const message = (day < 6) ? '平日' : '假日';
+    console.log('today is ' + message);
+
+    let num = 5;
+    (num > 5) ? num++ : num = null;
+    console.log('num is ' + num);
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #myblock {
+      width: 100px;
+      height: 100px;
+      background: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="myblock"></div>
+  <hr />
+  <input type="button" value="正方形" onclick="trans('A')" />
+  <input type="button" value="圓形" onclick="trans('B')" />
+  <input type="button" value="三角形" onclick="trans('C')" />
+  <p>Color Code: <input type="text" onchange="zone.backgroundColor=this.value" /></p>
+
+  <script>
+    var zone = document.getElementById("myblock").style; //目標對象
+    function trans(re) {
+      switch (re) {
+        case "A":
+          zone.clipPath = "polygon(0 0, 100% 0%, 100% 100%, 0% 100%)";
+          break;
+        case "B":
+          zone.clipPath = "circle(50% at 50% 50%)";
+          break;
+        case "C":
+          zone.clipPath = "polygon(50% 0%, 0% 100%, 100% 100%)";
+          break;
+      }
+    }
+  </script>
+</body>
+
+</html>

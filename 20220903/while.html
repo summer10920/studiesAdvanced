@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // for(初始;條件;變化){
+    // }
+
+    // let n = 0;
+    // while (n < 5) {
+    //   console.log(n);
+    //   n++;
+    // }
+
+    let n = 0;
+    while (n < 10) {
+      n++;
+      if (n == 4) continue;  // 跳過這回，後面程式碼不讀了回到迴圈
+      if (n == 7) break; // 破壞迴圈，使迴圈直接終止
+      console.log(n);
+    }
+
+    function parrot(say) {
+      if(say=='閉嘴') return; //終止後續，直接回傳出來
+      n = 4;
+      while (n > 0) {
+        console.log('阿~~~!');
+        console.log(say);
+        n--;
+      }
+      console.log('~~~~~~!!!');
+    }
+  </script>
+</body>
+
+</html>

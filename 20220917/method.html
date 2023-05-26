@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // let aa = '5', bb = 100;
+
+    Math.round(6.4);// 6  四捨五入
+    Math.ceil(6.3); //7 無進
+    Math.floor(6.8); //6 無捨
+    Math.random(); // 隨機 0(包含) ~ 1(不含) 之浮點數。 0 ~ 0.99999
+
+    /*
+    產生 1 ~ 10 之隨機數 x
+
+    0~0.999 * 10
+    0 ~ 9.9999 +1
+    1 ~ 10.99999 不要小數點
+    1 ~ 10 整數
+    
+    */
+    // for (let i = 0; i < 100; i++) {
+    //   const step1 = (Math.random() * 10) + 1;
+    //   const step2 = Math.floor(step1);
+    //   console.log(step2);
+    // }
+
+    const ary1to10 = [];
+    for (let i = 0; i < 5; i++) {
+      // console.log('run!');
+      const nowGet = Math.floor(Math.random() * 10 + 1);
+      if (ary1to10.includes(nowGet)) {
+        // console.log(`可惡，${nowGet}重複了`);
+        i--; //有在array內，那就讓迴圈多一次
+      }
+      else ary1to10.push(nowGet); //因為不在裡面，所以放進去
+    }
+
+    // console.log(ary1to10);
+    // [1,...,42] length=>42  random 1/42
+    // [2,...,42] length=>41
+    // [40,41,42] length=>3 random 1/3
+
+    // function rand(min,max){ // return min~max
+    // }
+
+
+    /*
+    0~0.999 * 10
+    0 ~ 9.9999 不要小數點
+    0 ~ 9 +1 
+    1 ~ 10 整數
+    */
+
+    // 31~55 隨機整數 0 ~ 24 + 31
+    /*
+    0 ~ 0.9999 *25
+    0 ~ 24.99999
+    */
+    Math.floor(Math.random() * (24 + 1)) + 31
+
+    function rand(fst, sec = null) { // return min ~ max or 1 ~ max
+      let min, max;
+      if (sec == null) min = 1, max = fst;
+      else min = fst, max = sec;
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+
+  </script>
+</body>
+
+</html>

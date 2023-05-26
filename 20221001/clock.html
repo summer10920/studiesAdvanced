@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="clock1">
+    <span class="ck">
+      <span id="ck1" class="c1"></span>
+      <span id="ck2" class="c2"></span>
+    </span>
+    <span class="cc"></span>
+    <span class="ck">
+      <span id="ck3" class="c3"></span>
+      <span id="ck4" class="c4"></span>
+    </span>
+    <span class="cc"></span>
+    <span class="ck">
+      <span id="ck5" class="c5"></span>
+      <span id="ck6" class="c6"></span>
+    </span>
+  </div>
+  <script>
+    function nowTime() {
+      var num = setTimeout(nowTime, 1000); //請一秒後執行FN
+      // console.log('num', num);
+      const now = new Date();
+      const
+        nHour = now.getHours(),
+        nMin = now.getMinutes(),
+        nSec = now.getSeconds(),
+        timeAry = [];
+
+      timeAry.push('c' + Math.floor(nHour / 10));
+      timeAry.push('c' + nHour % 10);
+      timeAry.push('c' + Math.floor(nMin / 10));
+      timeAry.push('c' + nMin % 10);
+      timeAry.push('c' + Math.floor(nSec / 10));
+      timeAry.push('c' + nSec % 10);
+      // console.log(timeAry);
+
+
+      document.getElementById('ck1').className = timeAry[0];
+      document.getElementById('ck2').className = timeAry[1];
+      document.getElementById('ck3').className = timeAry[2];
+      document.getElementById('ck4').className = timeAry[3];
+      document.getElementById('ck5').className = timeAry[4];
+      document.getElementById('ck6').className = timeAry[5];
+    }
+
+    nowTime();
+  </script>
+</body>
+
+</html>

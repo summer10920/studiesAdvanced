@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="IE=edge"
+  >
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <title>Document</title>
+  <style>
+    .box {
+      background: url("img/03D04.png");
+      width: 540px;
+      height: 370px;
+      box-sizing: border-box;
+      padding: 19px 112px 11px;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+    }
+
+    .box>label {
+      flex: 0 0 20%;
+      height: 85px;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    label>input[type="checkbox"] {
+      align-self: flex-end;
+    }
+  </style>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+    crossorigin="anonymous"
+  ></script>
+</head>
+
+<body>
+  <form
+    action="api.php?do=order"
+    method="post"
+  >
+    <div class="box">
+    </div>
+    <hr>
+    <input
+      type="hidden"
+      name="title"
+      value=""
+    >
+    <input
+      type="hidden"
+      name="date"
+      value=""
+    >
+    <input
+      type="hidden"
+      name="time"
+      value=""
+    > 您選擇的電影是：<span id="mm"></span><br> 您選擇的時刻是：<span id="tt"></span><br> 您勾選了<span id="nn">0</span>張票，最多可購買 4 張票<br>
+    <input
+      type="submit"
+      value="確定"
+    >
+  </form>
+  <script>
+    const abcd = ['A', 'B', 'C', 'D'];
+    $.getJSON('../db.json', re => todo(re.q3t8));
+    // function todo(json) {
+    //   console.log(json);
+    // }
+    const todo = json => {
+
+      for (let i = 1; i < 21; i++) {
+        // 5=>5,  6=>1 , 9=>4, 10=5, 11=>1, 18=>3
+        const rowNum = Math.floor((i - 1) / 5);  // 0~3
+        const colNum = (i - 1) % 5 + 1; //1~5
+
+        //每次 i 值要確認是否在sellout陣列內
+
+        if (json.sellout.includes(i)) {//TRUE，該i位置已賣掉，顯示沒勾勾
+          $('.box').append(`
+            <label style="background: url(img/03D03.png) no-repeat center;">${abcd[rowNum]}排 ${colNum} 號</label>
+          `);
+        }
+        else {
+          $('.box').append(`
+            <label style="background: url(img/03D02.png) no-repeat center;">${abcd[rowNum]}排 ${colNum} 號
+              <input type="checkbox" name="buyseat[]" value="${i}">
+            </label>
+          `);
+        }
+      }
+
+      $('#mm').text(json.movie.title);
+      $('#tt').text(json.movie.date + ' ' + json.movie.time);
+      $('input[name="title"]').val(json.movie.title);
+      $('input[name=date]').val(json.movie.date);
+      $('input[name=time]').val(json.movie.time);
+
+      let num = 0; //if=4
+      $('input:checkbox').click(function () {
+
+        // console.log(this.checked);
+        if (this.checked)
+          num < 4 ? num++ : this.checked = false;
+
+        else num--;
+
+        $('#nn').text(num);
+
+      });
+
+
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="clock1">
+    <span class="ck">
+      <span id="ck1" class="c1"></span>
+      <span id="ck2" class="c2"></span>
+    </span>
+    <span class="cc"></span>
+    <span class="ck">
+      <span id="ck3" class="c3"></span>
+      <span id="ck4" class="c4"></span>
+    </span>
+    <span class="cc"></span>
+    <span class="ck">
+      <span id="ck5" class="c5"></span>
+      <span id="ck6" class="c6"></span>
+    </span>
+    <button onclick="todo(this)" id="doWhat">PLAY</button>
+  </div>
+
+  <div id="clock2">
+    <p id="clk2-time">12:00:00</p>
+    <p id="clk2-date">2019-12-06 MON</p>
+  </div>
+
+
+
+
+  <script>
+    let keepNum = null;
+    function nowTime() { //專門將畫面數字校正
+      const now = new Date();
+      const
+        nHour = now.getHours(),
+        nMin = now.getMinutes(),
+        nSec = now.getSeconds(),
+        timeAry = [];
+
+      timeAry.push('c' + Math.floor(nHour / 10));
+      timeAry.push('c' + nHour % 10);
+      timeAry.push('c' + Math.floor(nMin / 10));
+      timeAry.push('c' + nMin % 10);
+      timeAry.push('c' + Math.floor(nSec / 10));
+      timeAry.push('c' + nSec % 10);
+      // console.log(timeAry);
+
+
+      document.getElementById('ck1').className = timeAry[0];
+      document.getElementById('ck2').className = timeAry[1];
+      document.getElementById('ck3').className = timeAry[2];
+      document.getElementById('ck4').className = timeAry[3];
+      document.getElementById('ck5').className = timeAry[4];
+      document.getElementById('ck6').className = timeAry[5];
+
+      //關掉冒號
+      document.querySelectorAll('.cc').forEach(function (item) {
+        item.style.opacity = 1;
+      });
+      //0.5秒後 打開冒號
+      setTimeout(function () { //這裡要放一個FN，因為覺得沒必要特別規劃FN，所以使用一次性的匿名FN
+        document.querySelectorAll('.cc').forEach(function (item) {
+          item.style.opacity = 0;
+        });
+      }, 500);
+
+    }
+    nowTime();
+
+    function todo(who) { //將整個this物件傳進來，這樣同個記憶體位置做value修改 才會一致同源頭
+      if (who.textContent == 'PLAY') {
+        who.textContent = 'PAUSE';
+        keepNum = setInterval(nowTime, 1000);
+      }
+      else {
+        who.textContent = 'PLAY';
+        clearInterval(keepNum);
+      };
+    }
+
+    todo(document.getElementById('doWhat')); // 執行todo這個FN，在JS這裡我們要想辦法將DOM傳送進去
+
+    /////////////////////////////////////////////////////clock.html
+
+    let dayStr = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+    function chkZero(num) {
+      if (num < 10) num = '0' + num;
+      return num;
+    }
+
+    let nowtime2 = function () {
+      // setTimeout(nowtime2,1000);
+      const now = new Date();
+      // const
+      //   nHour = now.getHours(),
+      //   nMin = now.getMinutes(),
+      //   nSec = now.getSeconds(),
+      //   nYear = now.getFullYear(),
+      //   nMon = now.getMonth() + 1,  0~11  => 一月,二月,三月 | JAN,FEB,MAT,APR
+      //   nDate = now.getDate(),
+      //   nDay = now.getDay();  //0~6  datStr[nDay];
+
+      // console.log(nHour, nMin, nSec, nYear, nMon, nDate, dayStr[nDay]);
+      // document.getElementById('clk2-time').textContent=`${chkZero(nHour)}:${chkZero(nMin)}:${chkZero(nSec)}`;
+      // document.getElementById('clk2-date').textContent=`${nYear}-${chkZero(nMon)}-${chkZero(nDate)} ${dayStr[nDay]}`;
+
+      const nowObj = {
+        nHour: chkZero(now.getHours()),
+        nMin: chkZero(now.getMinutes()),
+        nSec: chkZero(now.getSeconds()),
+        nYear: now.getFullYear(),
+        nMon: chkZero(now.getMonth() + 1),
+        nDate: chkZero(now.getDate()),
+        nDay: dayStr[now.getDay()]  //0~6  datStr[nDay];
+      }
+
+      // console.log(nowObj);
+      document.getElementById('clk2-time').textContent = `${nowObj.nHour}:${nowObj.nMin}:${nowObj.nSec}`;
+      document.getElementById('clk2-date').textContent = `${nowObj.nYear}-${nowObj.nMon}-${nowObj.nDate} ${nowObj.nDay}`;
+    }
+    nowtime2();
+    setInterval(nowtime2, 1000);
+
+
+  </script>
+</body>
+
+</html>

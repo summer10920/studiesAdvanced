@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .red {
+      color: red;
+    }
+
+    input[type=button] {
+      color: yellow;
+    }
+  </style>
+  <!-- <script src="jquery-3.6.1.min.js"></script> -->
+  <!-- <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script> -->
+  <!-- <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <script>
+    // window.onload = () => {
+    //   $('#header').addClass('red');
+    // };
+    // $(document).ready(()=>{
+    //   $('#header').addClass('red');
+    // });
+  </script>
+  <div id="page">
+    <h1 id="header">MyjQueryDemo List</h1>
+    <h2>我的代辦事項</h2>
+    <ul>
+      <li id="one" class="hot"><b>買</b> 晚餐</li>
+      <li id="two" class="hot">練程式</li>
+      <li id="three" class="hot">打電動</li>
+      <li id="four">記得去洗澡</li>
+    </ul>
+    <input type="button" value="BUTTON">
+    <input type="text" value="INPUT TEXT">
+    <input type="email" value="">
+  </div>
+
+  <script>
+    // $('li').each(function (index, nodeItem) {
+    //   // console.log(nodeItem.textContent);
+    //   const word=$(nodeItem).text();
+    //   console.log(word);
+    // });
+    // $('#one').html('<b style="color:blue">買</b>西瓜');
+    // $('#one').replaceWith('<b style="color:blue">買</b>西瓜');
+    $('#one').after('<li style="color:blue">買西瓜</li>');
+    // $('body').prepend('<div>START</div>');
+    $(document.body).prepend('<div>START</div>');
+  </script>
+</body>
+
+</html>

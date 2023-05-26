@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="IE=edge"
+  >
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <title>Document</title>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+    crossorigin="anonymous"
+  ></script>
+</head>
+
+<body>
+  <h3>預告片清單</h3>
+  <form
+    action="jq_q3t5_from.php"
+    method="post"
+    style="text-align: center;"
+  >
+    <table
+      border="1"
+      style="margin:0 auto"
+    >
+      <thead>
+        <tr>
+          <th>預告片海報</th>
+          <th>預告片片名</th>
+          <th>播放順序</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 
+      <tr>
+        <td><img width="100" src="img/03A01.jpg"></td>
+        <td>03A01</td>
+        <td>
+          <input type="hidden" name="odr[03A01]" value="1">
+          <input type="button" class="up" value="上移">
+          <input type="button" class="down" value="下移">
+        </td>
+        <td>
+          <input type="checkbox">顯示
+          <input type="checkbox">刪除
+        </td>
+      </tr>
+    -->
+      </tbody>
+    </table>
+    <div class="ct"><input
+        type="submit"
+        value="編輯"
+      ></div>
+  </form>
+  <script>
+    $.getJSON('../db.json', function (re) {
+      todo(re.q3t5);
+    });
+
+    function todo(json) {
+      for (const item of json) {
+        $('tbody').append(` 
+          <tr>
+            <td><img width="100" src="${item.img}"></td>
+            <td>${item.text}</td>
+            <td>
+              <input type="hidden" name="odr[${item.text}]" value="${item.odr}">
+              <input type="button" class="up" value="上移">
+              <input type="button" class="down" value="下移">
+            </td>
+            <td>
+              <input type="checkbox">顯示
+              <input type="checkbox">刪除
+            </td>
+          </tr>
+        `);
+      }
+
+
+      //規劃 event
+      $('input:button').click(function () {
+        nodeSelf = $(this).parents('tr');
+
+        switch (this.className) {
+          case 'up':
+            nodeTarget = $(this).parents('tr').prev();
+            if (nodeTarget.length != 0) {
+              nodeSelf.find('input:hidden').val(function (i, v) { return --v; });
+              nodeTarget.find('input:hidden').val((i, v) => ++v);
+
+              nodeSelf.insertBefore(nodeTarget);
+              //nodeSelf要插入前面針對nodeTarget
+            }
+            break;
+
+            case 'down':
+            nodeTarget = $(this).parents('tr').next();
+            if (nodeTarget.length != 0) {
+              nodeSelf.find('input:hidden').val(function (i, v) { return ++v; });
+              nodeTarget.find('input:hidden').val((i, v) => --v);
+
+              nodeSelf.insertAfter(nodeTarget);
+              //nodeSelf要插入後面針對nodeTarget
+            }
+            break;
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="IE=edge"
+  >
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <title>jqajax-animal</title>
+  <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+</head>
+
+<body>
+  <table width="100%">
+    <thead>
+      <tr>
+        <td>編號</td>
+        <td>動物名</td>
+        <td>重量</td>
+        <td>簡介</td>
+        <td>更新日期</td>
+        <td>操作</td>
+      </tr>
+      <tr>
+        <td colspan="6">
+          <hr>
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+  </table>
+  <script>
+    /*select*/
+    let start = 0;
+    function loading() {
+      $.post("http://127.0.0.1/studiesAdvanced_111js/ajax_animal/api.php?do=select", { start }, function (result) {
+        if (result != "fail") {
+          $("tbody").append(result);
+          $(".mdy").click(chginput);//因為是後來生成的 HTML，你必須重新使 DOM 路徑被認識（或者走 HTML 的 onclick 比較快）
+          start += 10;
+        }
+      });
+    }
+    loading();
+  </script>
+</body>
+
+</html>

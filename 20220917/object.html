@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const ary = [1, 'A', 'C', 4];   //index & value(element) 陣列拿來做資料處理
+    const obj = { cat: 1, dog: 2, honse: 3 }; // key & value 物件只是資料化結構
+    obj['mouse']=4;
+    obj.snake=5;
+    console.log(obj);
+
+    let student = {
+      name: 'Loki',
+      seat: 3,
+      sex: 'man',
+      score: {
+        en: 50,
+        math: 100,
+        ch: 85
+      },
+      demo: ary //等同一個變數，並不是讀出變數寫死在這
+    }
+    console.log(student.name); //物件目標名稱
+    console.log(student['name']); // 指定該字串
+
+    console.log(student.score.ch); // 85
+
+    //陣列變換了，物件內的陣列也會變，因為只是幫指向到記憶體位置，而不是讀值直接寫死在object內
+    console.log(student.demo);
+    ary.push(5);
+    console.log(student.demo);
+
+
+    ///////////////////////////////// 用 for-of 遍歷 each(loop) 批次(迴圈)
+    for (const key in obj) {  
+      // console.log(key);
+      // console.log(obj[key]);
+      console.log(`key=${key},val=${obj[key]}`);
+    }
+  </script>
+</body>
+
+</html>

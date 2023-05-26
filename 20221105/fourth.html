@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+    crossorigin="anonymous"></script>
+  <style>
+    .box,
+    .sataticBox {
+      width: 100px;
+      height: 100px;
+      background: lightcoral;
+      padding: 20px;
+      margin: 40px;
+      font-size: 2rem;
+      transition: 1s;
+    }
+
+    .sataticBox {
+      background: lightgoldenrodyellow;
+    }
+
+    .box.green {
+      background: lightgreen;
+    }
+
+    .dn {
+      display: none;
+    }
+
+    .mainZone {
+      display: flex;
+      justify-content: center;
+      /* align-items: center; */
+      /* flex-direction: column; */
+      height: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <button class="btn">toggleClass</button>
+  <button class="btn">hide</button>
+  <button class="btn">show</button>
+  <button class="btn">toggle Effect</button>
+  <button class="btn">fade out</button>
+  <button class="btn">fade in</button>
+  <button class="btn">fade toggle</button>
+  <button class="btn">fade to</button>
+  <button class="btn">slide Up</button>
+  <button class="btn">slide Down</button>
+  <button class="btn">jq animate</button>
+  <hr>
+  <div class="mainZone">
+    <div class="box">AAAA</div>
+    <!-- <div class="sataticBox"></div> -->
+  </div>
+  <script>
+    const allBtn = $('.btn');
+    const box = $('.box');
+
+    allBtn.eq(0).click(function () {
+      box.toggleClass('dn');
+    });
+
+    allBtn.eq(1).click(function () {
+      box.hide('fast', function () {
+        console.log('hide done');
+      });
+      // box.show();
+      // box.toggle();
+    });
+    allBtn.eq(2).click(function () {
+      // box.hide(3000);
+      box.show('slow', function () {
+        console.log('show done');
+      });
+      // box.toggle();
+    });
+    allBtn.eq(3).click(function () {
+      box.stop();
+      box.toggle('slow', function () {
+        box.toggleClass('green');
+        box.toggle('slow');
+      });
+    });
+
+    allBtn.eq(4).click(function () {
+      box.fadeOut(1000);
+    });
+    allBtn.eq(5).click(function () {
+      box.fadeIn(1000);
+    });
+    allBtn.eq(6).click(function () {
+      box.fadeToggle(1000);
+    });
+    allBtn.eq(7).click(function () {
+      box.delay(2000).fadeTo(1000, 0.5);
+    });
+    allBtn.eq(8).click(function () {
+      box.slideUp(5000);
+    });
+    allBtn.eq(9).click(function () {
+      box.slideDown(5000);
+    });
+    allBtn.eq(10).click(function () {
+      // box.animate({
+      //   opacity:'0.5'
+      // },2000,function(){
+      //   box.animate({
+      //     fontSize:'1rem'
+      //   },2000)
+      // });
+      // box.animate({
+      //   opacity: '0.5',
+      //   width: '300px',
+      // }, 2000);
+      // box.animate({
+      //   fontSize: '1rem',
+      //   color: 'white'
+      // });
+      box.animate({
+        opacity: '0.5',
+        width: '300px',
+      }, 2000).animate({
+        fontSize: '1rem',
+        color: 'white'
+      });
+    });
+
+
+  </script>
+</body>
+
+</html>

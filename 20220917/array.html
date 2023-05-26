@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let a = 100;
+    let b = 200;
+    let c = 300;
+    let aryA = new Array();
+    let aryB = [100, 'Loki', 200];
+
+    aryA.push(100);
+    aryA.push('Loki', 200);
+
+
+    //student question
+    // delete aryB[1]; // remove loki
+    // let newAryB = aryB.filter(e => e);
+
+    // 3號的建議可用  splice(從哪個index位置,連續拔除幾個,要插入value嗎?)
+    aryB.splice(1, 1);
+    ////
+
+    aryC = new Array();
+    // aryC[0]='Loki';
+    // aryC[1]='Jiang';
+    // aryC[12]='Good!';
+    // aryC[1]='Good!';
+
+    aryC[0] = [
+      'A',
+      'B',
+      'C'
+    ];
+    aryC[1] = ['乙', [5, 6, 7]];
+    aryC.push('Jiang');
+
+    console.log('aryC[1][0] is', aryC[1][0]);
+    console.log('aryC[1][1][2] is', aryC[1][1][2]);
+
+    aryD = [
+      [
+        'A',
+        'B',
+        'C'
+      ],
+      [
+        '乙',
+        '丙',
+        [5, 6, 7]
+      ],
+      'Loki'
+    ];
+
+  </script>
+</body>
+
+</html>

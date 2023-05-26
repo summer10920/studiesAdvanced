@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+.container {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+.playzone {
+  display: flex;
+  width: 330px;
+  flex-wrap: wrap;
+}
+.cell {
+  background: yellow;
+  border: 5px solid #e2b3b8;
+  cursor: pointer;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+.control {
+  max-width: 350px;
+}
+.msg {
+  margin: 5px auto;
+  display: flex;
+  justify-content: space-around;
+  line-height: 2rem;
+}
+.msg > * {
+  width: 33%;
+}

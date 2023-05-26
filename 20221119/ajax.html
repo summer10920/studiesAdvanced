@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="IE=edge"
+  >
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <title>Document</title>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+    crossorigin="anonymous"
+  ></script>
+</head>
+
+<body>
+  <div
+    class="lokiBox"
+    style="border:1px solid"
+  >
+    <h1>LOKI ZONE</h1>
+  </div>
+  <script>
+    // $.getJSON('https://jsonplaceholder.typicode.com/posts',function(response){
+    //   console.log(response);
+    // });
+
+    // $.ajax({
+    //   // type: 'GET',
+    //   url:'https://jsonplaceholder.typicode.com/posts',
+    //   success:function(response){
+    //     console.log(response);
+    //   },
+    //   dataType:'text'
+    // });
+    $.ajax({
+      // type: 'GET',
+      url: 'https://www.runoob.com/jquery/ajax-ajax.html',
+      success: function (response) {
+        console.log(response);
+        $('.lokiBox').html(response);
+      },
+      dataType: 'text'
+    });
+
+    // $.post('https://jsonplaceholder.typicode.com/posts',
+    //   {
+    //     title: 'foo',
+    //     body: 'bar',
+    //     userId: 1,
+    //   }, function (re) {
+    //     console.log(re);
+    //   });
+
+    // $.ajax({
+    //   type: 'POST',
+    //   data: {
+    //     title: 'foo',
+    //     body: 'bar',
+    //     userId: 1,
+    //   },
+    //   url: 'https://jsonplaceholder.typicode.com/posts',
+    //   success: function (response) {
+    //     console.log(response);
+    //   },
+    //   dataType: 'json'
+    // });
+
+  </script>
+</body>
+
+</html>

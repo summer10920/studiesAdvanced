@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <!-- <form method="post" action="api.php"> -->
+  <form method="get">
+    <p>新增管理者帳號</p>
+    <p>帳號 ： <input name="acc" type="text" value="admin"></p>
+    <p>密碼 ： <input name="pwd" type="password"></p>
+    <p>確認密碼 ： <input name="pwdcheck" type="password"><br><b style="color:red"></b></p>
+    <p>
+      <input type="submit" value="提交">
+      <input type="reset" value="重置">
+    </p>
+  </form>
+  <script>
+    $('form').submit(function (event) {
+      //若不正常的submit return false
+
+      const
+        pwd = $('input[name=pwd]'),
+        chk = $('input[name=pwdcheck]');
+
+      if (pwd.val() != chk.val()) {
+        // console.log('密碼不相同');
+        chk.siblings('b').text('密碼不相同');
+        return false;
+      }
+
+      if (chk.val().length < 8) {
+        chk.siblings('b').text('密碼長度小於8');
+        return false;
+      }
+
+      // return false;
+      // event.preventDefault();
+    });
+  </script>
+</body>
+
+</html>

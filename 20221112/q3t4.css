@@ -1,0 +1,37 @@
+body {
+  background: #335582;
+  color: #fff;
+  margin: 0px;
+}
+#main {
+  margin: 0 auto;
+  /* width: 50vw; */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.control {
+  width: 400px;
+  margin: 10px 30px;
+}
+.control img {
+  width: 90px;
+  padding: 0 5px;
+  cursor: pointer;
+}
+#box {
+  flex: 0 0 414px;
+  width: 100%;
+  overflow: hidden;
+}
+#ani_zone {
+  position: relative;
+  transform: scale(1);
+  transition: transform 0.5s;
+}
+#ani_zone.scale {
+  transform: scale(0);
+}

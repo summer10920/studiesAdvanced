@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+    crossorigin="anonymous"></script>
+  <style>
+    .hot {
+      color: red;
+    }
+
+    .fw {
+      font-size: 2rem;
+      font-weight: bolds;
+    }
+  </style>
+</head>
+
+<body style="margin: 0;">
+  <div style="width: 200px;height: 100px; background: purple;"></div>
+  <div style="width: 200px;height: 200px; background: green;">
+    <div class="pos" style="width: 100px;height: 100px; background: red;position: static; right: 0;"></div>
+  </div>
+  <h2>我的代辦事項</h2>
+  <div id="page">
+    <h1 id="header">MyjQueryDemo List</h1>
+    <h2>我的代辦事項</h2>
+    <ul>
+      <li id="one" class="hot"><b>買</b> 晚餐</li>
+      <li id="two" class="hot">練程式</li>
+      <li id="three" class="hot" style="background-color:yellow">打電動</li>
+      <li id="four" onclick="toggle(this)">記得去洗澡</li>
+    </ul>
+    <input type="button" value="BUTTON" onclick="doCss()">
+    <input type="text" value="INPUT TEXT">
+    <input type="email" value="">
+    <hr>
+    <img src="https://picsum.photos/300/200/?random=10" width="100">
+    <img src="https://fakeimg.pl/300x200/200">
+
+  </div>
+  <script>
+    function doCss() {
+      const who = $('#three');
+      // $(who).css('color', 'white');
+      // $(who).css('background', 'black');
+      // $(who).css('fontSize', '2rem');
+      // $(who).css('font-weight', 'bold');
+
+      // $(who).css({
+      //   color: 'white',
+      //   background: 'black',
+      //   fontSize: '2rem',
+      //   fontWeight: 'bold'
+      // });
+
+      const obj = {
+        color: 'white',
+        background: 'black',
+        fontSize: '2rem',
+        fontWeight: 'bold'
+      };
+      $(who).css(obj);
+    }
+    function toggle(who) {
+      // $(who).toggleClass('hot');
+      const toggle = $(who);
+      if (toggle.hasClass('hot')) toggle.removeClass('hot');
+      else toggle.addClass('hot');
+    }
+    // const toggle = $('#four');
+
+    // if (toggle.hasClass('hot')) toggle.removeClass('hot');
+    // else toggle.addClass('hot');
+  </script>
+</body>
+
+</html>

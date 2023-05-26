@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+    crossorigin="anonymous"></script>
+  <style>
+    .hot {
+      color: red;
+    }
+
+    .fw {
+      font-size: 2rem;
+      font-weight: bolds;
+    }
+  </style>
+</head>
+<script>
+  // $(document).ready(function(){  //JQ:event 當文件準備好=> 做某件事
+  //   console.log($('#three'));
+  // });
+
+  // window.onload=function(){ //JS:當網頁的event事件:載入完畢 =>做某件事
+  //   console.log($('#three'));
+  // };
+
+  $(window).on('load', function () { // 同上的邏輯寫成JQ event事件
+    console.log($('#three'));
+  })
+</script>
+
+<body style="margin: 0;">
+  <h2>我的代辦事項</h2>
+  <div id="page">
+    <h1 id="header">MyjQueryDemo List</h1>
+    <h2>我的代辦事項</h2>
+    <ul>
+      <li id="one" class="hot"><b>買</b> 晚餐</li>
+      <li id="two" class="hot">練程式</li>
+      <li id="three" class="hot">打電動</li>
+      <li id="four" onclick="toggle(this)">記得去洗澡</li>
+    </ul>
+    <input type="button" value="BUTTON" onclick="doCss()">
+    <input type="text" value="INPUT TEXT">
+    <input type="email" value="">
+  </div>
+
+  <script>
+    function say() {
+      console.log('hello');
+    }
+    // document.querySelector('h1').onclick = say;
+    // $('h1').click(say);
+    $('h1').hover(function(){
+      // console.log($('h1').text());
+      // console.log($(this).text());
+      console.log(this.textContent);
+    });
+    /* 
+    $('button').submit(function(){
+      //...
+    });
+    */
+
+
+    //addEventListener('click',say); // removeEventListener('click',say);
+    // $('h1').on('click', say);  //$('h1').off('click', say);
+
+    $(window).resize(function(){
+      // console.log($(window).width());
+      console.log($(this).width()>300?'screenMode':'phoneMode');
+    });
+
+  </script>
+</body>
+
+</html>

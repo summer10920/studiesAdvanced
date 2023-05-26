@@ -1,0 +1,299 @@
+@charset "utf-8";
+/* CSS Document */
+body
+{
+	background:#E8E8E8;
+	padding:0px;
+	margin:0px;
+	font-family:"微軟正黑體";
+}
+pre {
+  white-space: pre-wrap; /* css-3 */
+  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+  white-space: -pre-wrap; /* Opera 4-6 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word; /* Internet Explorer 5.5+ */
+  font-family:"微軟正黑體";
+}
+img
+{
+	border:none;
+}
+a
+{
+	text-decoration:none;
+	color:#36C;
+	cursor:pointer;
+}
+a:hover
+{
+	text-decoration:underline;
+}
+#mm
+{
+	min-height:570px;
+}
+#all
+{
+	padding: 2px;
+	width: 1024px;
+	height: 768px;
+	background: #FFF;
+	margin: 10px auto 10px auto;
+	box-shadow: #999 0px 0px 1px .3px;
+	position: relative;
+}
+#title
+{
+	height:15px;
+	padding:1px;
+	font-size:10px;
+	color:#999;
+}
+#lef
+{
+	width:18.2%;
+	padding:2px;
+	background:url(../icon/02B04.png) repeat-y;
+	/*background-size:100% auto;*/
+	min-height:568px;
+	display:inline-block;
+	vertical-align:top;
+	position:relative;
+	top:-3px;
+}
+#mm
+{
+	padding-top:3px;
+}
+#main
+{
+	display:inline-block;
+	width:78%;
+	height:565px;
+	padding:4px;
+	border:solid 1px #000000;
+	overflow:auto;
+	position:relative;
+	left:1%;
+}
+#lef a
+{
+	padding:20px 5px 20px 5px;
+}
+#bottom
+{
+	text-align:right;
+	padding:24px;
+}
+a.button
+{
+	text-decoration:none;
+}
+.button
+{
+	color:#000;
+	text-decoration:none;
+}
+.button:active
+{
+	color:#F00;
+}
+input,button,.button,select,textarea
+{
+	font-family:"微軟正黑體";
+	border:#999 1px solid;
+	border-radius:3px;
+	background:#FFF;
+	padding:5px;
+	margin:3px;
+	text-decoration:none;
+	cursor:pointer;
+}
+input:active,button:active,.button:active,select:active,textarea:active
+{
+	background:#333;
+	color:#fff;
+}
+input[type=text],input[type=password]
+{
+	width:150px;
+}
+input:focus,button:focus,.button:focus,select:focus,textarea:focus
+{
+	box-shadow:#09C 0px 0px 3px .3px;
+}
+input[type=radio]
+{
+	border-radius:100px;
+}
+.cent
+{
+	margin-left:auto;
+	margin-right:auto;
+	display:block;
+}
+.ct
+{
+	text-align:center;
+}
+.hal
+{
+	height:100%;
+}
+.blo
+{
+	display:block;
+}
+.bordt
+{
+	border-top:#666 1px solid;
+	border-left:#666 1px solid;
+	padding:0px;
+	display:inline-block;
+	border-radius:2px 2px 0px 0px;
+}
+.cent .sel
+{
+	background:#FFF;
+	z-index:9999;
+	border-bottom:none;
+}
+.bbb
+{
+	border-bottom:#666 1px solid;
+}
+.cent .sel:hover
+{
+	background:#FFF;
+}
+.bordt span
+{
+	padding:5px 10px 5px 10px; 
+	border-right:#666 1px solid;
+	border-left:none;
+	margin:0px;
+	float:left;
+	display:inline-block;
+	background:#CCC;
+	margin:0px;
+	cursor:pointer;
+}
+.bordt span:hover
+{
+	background:#D9D9D9;
+}
+.bordt span::selection
+{
+	cursor:default;
+}
+.bordt span:active
+{
+	background:#E7E7E7;
+}
+.view
+{
+	border:#666 1px solid;
+	width:100%;
+	min-height:300px;
+}
+.fei
+{
+	border:#333 1px solid;
+	padding:20px 15px 20px 15px;
+	display:inline-block;
+	min-width:400px;
+	position:relative;
+	margin-top:10px;
+}
+.fei .leng
+{
+	position:absolute;
+	padding:0px 3px 0px 3px;
+	top:-10px;
+	background:#FFF;
+	overflow-x: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	max-width: 90%;
+	cursor:default;
+}
+.tsb
+{
+	width:100%;
+	min-height:50px;
+}
+.l
+{
+	text-align:left;
+}
+.l td
+{
+	text-align:left;
+}
+.r
+{
+	text-align:right;
+}
+.r td
+{
+	text-align:right;
+}
+
+.clo
+{
+	background:#E0E0E0;
+	padding:10px 3px 10px 3px;
+}
+.clo td
+{
+	background:#E0E0E0;
+	padding:3px;
+	min-width:30px;
+	min-height:30px;
+}
+.tab
+{
+	width:80%;
+}
+.nbcent
+{
+	margin-left:auto;
+	margin-right:auto;
+}
+.bigg {
+overflow-x: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+width: 200px;
+cursor:default;
+}
+.good
+{
+	width:25px;
+	height:25px;
+	background:url(../icon/02B03.jpg);
+	background-size:cover;
+	display:inline-block;
+	background-position:0px 2px;
+}
+#alerr h3
+{
+	color:#0CF;
+}
+.t_int
+{
+	width:0px;
+	height:0px;
+	border-width:30px;
+	border-style:solid;
+	border-color:transparent transparent #fff transparent ;
+	position:absolute;
+	top:0px;
+}
+.aut
+{
+	left:0px;
+	right:0px;
+	margin:auto;
+}

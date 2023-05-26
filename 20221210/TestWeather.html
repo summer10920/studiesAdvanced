@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="IE=edge"
+  >
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <title>Document</title>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+    crossorigin="anonymous"
+  ></script>
+  <style>
+    table {
+      width: 100%;
+      border: 1px solid;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      border: 1px solid;
+    }
+
+    img {
+      width: 1rem;
+      height: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>36H 天氣預報</h1>
+  <table
+    id="dt"
+    class="display compact hover"
+  >
+    <thead>
+      <tr>
+        <th>編號</th>
+        <th>地區</th>
+        <th>時間 1</th>
+        <th>時間 2</th>
+        <th>時間 3</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+  <script>
+    $.getJSON('https://opendata.cwb.gov.tw/fileapi/v1/opendataapi/F-C0032-001?Authorization=CWB-77F7EF76-6578-458C-ACDF-72ABF4BE7727&downloadType=WEB&format=JSON')
+      .done(function (response) {
+        // console.log(response);
+        const data = response.cwbopendata.dataset.location;
+        // console.log(data);
+        for (let i = 0; i < data.length; i++) { //22組縣市資料輸出
+          const city = data[i];
+          const strCode = `
+          <tr>
+            <td>${i + 1}</td>
+            <td>${city.locationName}</td>
+            <td>
+              ${city.weatherElement[0].time[0].parameter.parameterName}
+              <img src="img/day/${city.weatherElement[0].time[0].parameter.parameterValue}.svg">
+              降雨率 ${city.weatherElement[4].time[0].parameter.parameterName}%
+              <br>
+              溫度 ${city.weatherElement[2].time[0].parameter.parameterName} ~ ${city.weatherElement[1].time[0].parameter.parameterName} ℃
+            </td>
+            <td>
+              ${city.weatherElement[0].time[1].parameter.parameterName}
+              <img src="img/day/${city.weatherElement[0].time[1].parameter.parameterValue}.svg">
+              降雨率 ${city.weatherElement[4].time[1].parameter.parameterName}%
+              <br>
+              溫度 ${city.weatherElement[2].time[1].parameter.parameterName} ~ ${city.weatherElement[1].time[1].parameter.parameterName} ℃
+            </td>
+            <td>
+              ${city.weatherElement[0].time[2].parameter.parameterName}
+              <img src="img/day/${city.weatherElement[0].time[2].parameter.parameterValue}.svg">
+              降雨率 ${city.weatherElement[4].time[2].parameter.parameterName}%
+              <br>
+              溫度 ${city.weatherElement[2].time[2].parameter.parameterName} ~ ${city.weatherElement[1].time[2].parameter.parameterName} ℃
+            </td>
+          </tr>`;
+
+          $('#dt>tbody').append(strCode);
+        }
+
+        //時間標題重規劃
+        const hourCh = [];
+        hourCh[0] = '凌晨';
+        hourCh[6] = '白天';
+        hourCh[12] = '下午';
+        hourCh[18] = '晚上';
+
+        const time1 = new Date(data[0].weatherElement[0].time[0].startTime);
+        const time2 = new Date(data[0].weatherElement[0].time[1].startTime);
+        const time3 = new Date(data[0].weatherElement[0].time[2].startTime);
+
+        const time1Obj = { y: time1.getFullYear(), m: time1.getMonth() + 1, d: time1.getDate() };
+        const time2Obj = { y: time2.getFullYear(), m: time2.getMonth() + 1, d: time2.getDate() };
+        const time3Obj = { y: time3.getFullYear(), m: time3.getMonth() + 1, d: time3.getDate() };
+
+        const time1Str = `${time1Obj.y}-${time1Obj.m}-${time1Obj.d} ${hourCh[time1.getHours()]}`;
+        const time2Str = `${time2Obj.y}-${time2Obj.m}-${time2Obj.d} ${hourCh[time2.getHours()]}`;
+        const time3Str = `${time3Obj.y}-${time3Obj.m}-${time3Obj.d} ${hourCh[time3.getHours()]}`;
+
+        $('#dt th').eq(2).text(time1Str);
+        $('#dt th').eq(3).text(time2Str);
+        $('#dt th').eq(4).text(time3Str);
+      })
+      .fail(function (err) {
+        console.error('weather api path error', err);
+      });
+  </script>
+</body>
+
+</html>

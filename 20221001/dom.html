@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    onload=function(){
+      const obj = document.getElementById('demo');
+    // console.log(obj, typeof (obj));
+    // alert(obj);  // 拿到一個HTML元素之object，所以還會需要透過.來下一步處理
+
+    // console.log(obj.innerHTML, typeof (obj.innerHTML));
+    // obj.innerHTML = '<li>AAA</li><li>BBB</li> ';
+
+    // console.log(obj.textContent, typeof (obj.innerHTML));
+    // obj.textContent = '<li>AAA</li><li>BBB</li>';
+
+    // console.log(obj.outerHTML);
+
+    ////////////////////////////////////////////////////////////////////////
+
+    const food = document.getElementsByClassName('list');
+    // console.log(food);
+    // console.log(food[0],typeof(food[0]));
+    // console.log(food[0].innerHTML);
+    // food[0].innerHTML='<b style="color:red">AAA</b>';
+
+    for (let i = 0; i < food.length; i++) {
+      // food[i].style.color = 'red';
+      // food[i].style.fontWeight = 'bold';
+      // food[i].innerHTML='<b style="color:red">'+food[i].textContent+'</b>';
+    }
+
+    ////////////////////////////////////////////////////////////////////////
+
+    const el = document.getElementsByTagName('li');
+    // console.log(el);
+
+    ////////////////////////////////////////////////////////////////////////
+    // console.log(document.querySelector('#demo'));
+    // console.log(document.querySelector('.list'));
+    // document.querySelector('.list').innerHTML = 'AAA';
+    // console.log(document.querySelector('#demo>li.user'));
+    ////////////////////////////////////////////////////////////////
+
+    document.querySelectorAll('#demo>.list').forEach(function(node){
+      node.style.color = 'red';
+      node.style.fontWeight = 'bold';
+    });
+    }
+  </script>
+  <h1>my list</h1>
+  <ul id="demo">
+    <li class="list">apple</li>
+    <li class="list">banana</li>
+    <li class="user">Loki</li>
+  </ul>
+</body>
+
+</html>

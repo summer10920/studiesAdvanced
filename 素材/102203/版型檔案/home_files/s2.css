@@ -1,0 +1,49 @@
+@charset "utf-8";
+/* CSS Document */
+
+	#abgne-block-20111227 {
+	width: 420px;
+	height: 400px;
+	position: relative;
+	overflow: hidden;
+}
+#abgne-block-20111227 ul, #abgne-block-20111227 ul li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+#abgne-block-20111227 .lists {
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+}
+#abgne-block-20111227 .lists img {
+	width: 100%;
+	height: 100%;
+	border: none;
+}
+#abgne-block-20111227 .controls {
+	width: 100%;
+	height: 35px;
+	position: absolute;
+	bottom: 0;
+	font-size: 13px;
+	z-index: 2;
+}
+#abgne-block-20111227 .controls li {
+	float: left;
+}
+#abgne-block-20111227 .controls li a {
+	display: block;
+	width: 44px;	/* 寬度會影響未放大前顯示的字數 */
+	height: 35px;
+	line-height: 35px;
+	margin-right: 1px;
+	text-align: center;
+	background: #000;
+	color: #fff;
+	text-decoration: none;
+}
+#abgne-block-20111227 .controls li.selected a {
+	background: #87bf00;
+}

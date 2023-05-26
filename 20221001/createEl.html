@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button>Add input</button>
+  <input type="text" placeholder="Please">
+  <script>
+    document.querySelector('button').onclick = function(){
+      const newEl = document.createElement('input');
+      newEl.type = 'text';
+      newEl.placeholder = '請輸入';
+      // document.body.appendChild(newEl); //插在最後一個小孩
+      // document.body.insertAfter(newEl,this); //插在哪個小孩前面
+      this.after(newEl); //插在誰的後面
+    };
+  </script>
+</body>
+
+</html>

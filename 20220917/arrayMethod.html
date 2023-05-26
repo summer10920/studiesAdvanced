@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /////////////////////////////////////////////////////////////////規劃陣列素材 start
+    ary = [];
+    for (let i = 0; i < 10; i++) {
+      ary.push(i * 100);
+    }
+    ary.shift();
+    /////////////////////////////////////////////////////////////////規劃陣列素材 end
+
+    //print all element in array :method1
+    // for (let idx = 0; idx < ary.length; idx++)
+    //   console.log(ary[idx]);
+
+    //使用 ary.forEach('塞某個函式');
+
+    //same as prev : method 2
+    // function showIt(val,idx){ // 指定兩個參數為value與index
+    //   console.log(`index=${idx}, value=${val}`);
+    // }
+    // ary.forEach(showIt); // 連續9次將每單格陣列內元素整理成value與index，丟到指定的function
+
+    //same as prev : method 3
+    // ary.forEach(function (val, idx) {
+    //   console.log(`index=${idx}, value=${val}`);
+    // });
+
+    //same as prev : method 4 if only used value prop.
+    // ary.forEach(val => console.log(`value=${val}`));
+
+    // use for-of(ES6) : method 5
+    // for (const val of ary) {
+    //   console.log(`value=${val}`)
+    // }
+
+    ////////////////////////filter 過濾//////////////////////////////
+    //method 1
+    // function limited500(val) if (val < 500) return true;
+    // const newAry = ary.filter(limited500); //根據你每次的T/F收集起來整理成新Arrray
+
+    //method 2
+    // const newAry = ary.filter((val) => {
+    //   // if (val < 500) return true;
+    //   // if (true) return true;
+    //   return (val < 500);
+    // });
+    // console.log(newAry);
+
+    //method 2-plus
+    console.log(ary.filter(e => e < 500));
+
+    //bonus 只想拿 idx=0,3,6....
+    aryB=ary.filter(function (e, i) {
+      return (i % 3 == 0)  // 要回傳給filter布林值，得知當下這格是否要保留於新陣列
+    });
+    console.log(aryB);
+    // console.log(ary.filter((e, i) => !(i % 3)));  //太變態，可以不用學
+  </script>
+</body>
+
+</html>

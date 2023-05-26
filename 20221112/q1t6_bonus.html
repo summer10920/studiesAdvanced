@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+    crossorigin="anonymous"></script>
+  <style>
+    .dbor {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      height: 400px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="dbor">
+    <span class="t botli">校園映象區</span>
+    <img src="img/01E01.jpg" onclick="pp('prev')">
+    <div id="imglist" style="display:flex; flex-direction:column;align-items:center">
+    </div>
+    <img src="img/01E02.jpg" onclick="pp('next')">
+  </div>
+  <script>
+    $.getJSON('../db.json', function (res) { //非同步存取，當回傳之後可以順利繼續執行預計的作業
+      todo(res.q1t6);
+    });
+    function todo(imgAry) {
+      //DOM建構
+      for (let i = 0; i < imgAry.length; i++)
+        $('#imglist').append(`<img src="${imgAry[i]}" width="150" height="103">`);
+
+      //init 初始化
+      $("#imglist>img").hide();
+      for (let j = 0; j < 3; j++) $('#imglist>img').eq(j).show();
+    }
+
+    function pp(action) {
+      if (action == 'prev') {
+        $('#imglist').prepend($('#imglist>img').last());
+        // const node = $('#imglist>img').last();
+        // $('#imglist').prepend(node);
+        $('#imglist>img').eq(0).slideDown();
+        $('#imglist>img').eq(3).slideUp();
+      }
+
+      if (action == 'next') {
+        $('#imglist>img').eq(3).slideDown();
+        $('#imglist>img').eq(0).slideUp(function () {
+          $('#imglist').append(this);
+        });
+        // const node = $('#imglist>img').eq(0);
+        // node.slideUp(function () {
+        //   $('#imglist').append(node);
+        // });
+      }
+    }
+
+  </script>
+</body>
+
+</html>

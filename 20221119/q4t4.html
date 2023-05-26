@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="IE=edge"
+  >
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <title>Document</title>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+    crossorigin="anonymous"
+  ></script>
+  <style>
+    a {
+      display: block;
+      padding: 20px 5px 20px 5px;
+      text-decoration: none;
+      background: #F4C591;
+      margin: 10px auto 10px auto;
+      color: #65350A;
+      width: 200px;
+      text-align: center;
+    }
+
+    .son {
+      background: rgb(252, 226, 196);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="menu">
+  </div>
+  <script>
+    $.getJSON('../db.json', re => todo(re.q4t4));
+
+    const todo = json => {
+      let allTotal = 0;
+      for (const fa of json) {
+        let sonTotal = 0;
+        let sonHtml = '';
+        // $('.menu').append(`<a href="#" id="fa${fa.id}" class="fa">${fa.title} (${sonTotal})</a>`); //fa
+
+        for (const son of fa.sub) {
+          sonHtml += `<a href="#" class="fa${fa.id} son">${son.title} (${son.count})</a>`; //son
+          sonTotal += son.count;
+        }
+
+        $('.menu').append(`<a href="#" id="fa${fa.id}" class="fa">${fa.title} (${sonTotal})</a>` + sonHtml);
+        allTotal += sonTotal;
+      }
+
+      $('.menu').prepend(`<a href="#">全部商品 (${allTotal})</a>`);
+
+      $('.son').hide();
+      $('.fa').mouseover(function () {
+        const keyword = $(this).attr('id');  //fa1
+        $('.'+keyword).slideDown();
+        $('.son').not('.'+keyword).slideUp();
+      });
+
+    };
+  </script>
+</body>
+
+</html>

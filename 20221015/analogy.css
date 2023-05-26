@@ -1,0 +1,135 @@
+body {
+  margin: 0;
+  background: #ccc;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  height: 100vh;
+  /* align-content: center; */
+}
+.circle {
+  /*圓盤底*/
+  width: 300px;
+  height: 300px;
+  background: white;
+  border-radius: 300px;
+  margin: 20px;
+  padding: 20px;
+  position: relative;
+}
+h3 {
+  text-align: center;
+  position: relative;
+  z-index: 999;
+}
+.jhour1 {
+  /*時針*/
+  width: 10px;
+  height: 30%;
+  background: #00f;
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  margin-left: -5px;
+}
+.jmin1 {
+  /*分針*/
+  width: 10px;
+  height: 40%;
+  background: #0f0;
+  position: absolute;
+  left: 50%;
+  top: 15%;
+  margin-left: -5px;
+}
+.jsec1 {
+  /*秒針*/
+  width: 4px;
+  height: 50%;
+  background: #f00;
+  position: absolute;
+  left: 50%;
+  top: 5%;
+  margin-left: -2px;
+}
+.zsec1 {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  animation: j_s 60s infinite linear;
+}
+.zmin1 {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  animation: j_m 3600s infinite linear;
+}
+.zhour1 {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  animation: j_h 43200s infinite linear;
+}
+
+.jhour2 {
+  /*時針*/
+  /* width: 28px; */
+  /* background: url("hh.png"); */
+  /* margin-left: -14px; */
+  width: 20px;
+  background: url("h.png");
+  margin-left: -10px;
+  height: 300px;
+  position: absolute;
+  left: 50%;
+  animation: j_h 43200s infinite linear;
+}
+.jmin2 {
+  /*分針*/
+  /* width: 28px; */
+  /* background: url("mm.png"); */
+  /* margin-left: -14px; */
+  width: 20px;
+  background: url("m.png");
+  margin-left: -10px;
+  height: 300px;
+  position: absolute;
+  left: 50%;
+  animation: j_m 3600s infinite linear;
+}
+.jsec2 {
+  /*秒針*/
+  /* width: 28px; */
+  /* background: url("ss.png"); */
+  /* margin-left: -14px; */
+  width: 20px;
+  background: url("s.png");
+  margin-left: -10px;
+  height: 300px;
+  position: absolute;
+  left: 50%;
+  animation: j_s 60s infinite linear;
+}
+
+.ohour3 {
+  animation: j_h 43200s infinite linear;
+  transform-origin: 50% 82px;
+}
+.omin3 {
+  animation: j_m 3600s infinite linear;
+  transform-origin: 50% 116px;
+}
+.osec3 {
+  animation: j_s 60s infinite linear;
+  transform-origin: 50% 150px;
+}
+
+.ohour4 {
+  transform-origin: 50% 82px;
+}
+.omin4 {
+  transform-origin: 50% 116px;
+}
+.osec4 {
+  transform-origin: 50% 150px;
+}

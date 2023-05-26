@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="analogy.css">
+</head>
+
+<body>
+  <div class="circle">
+    <div class="zmin1">
+      <div class="jmin1"></div>
+    </div>
+    <div class="zhour1">
+      <div class="jhour1"></div>
+    </div>
+    <div class="zsec1">
+      <div class="jsec1"></div>
+    </div>
+    <h3>CSS Animation + 雙 DIV<br />表示法</h3>
+    <p>父 div 做中心旋轉，子 div 定位在父內的偏斜位置上。導致視覺上的子 div 進行旋轉時，有中心偏移效果</p>
+  </div>
+  <div class="circle">
+    <div class="jmin2"></div>
+    <div class="jhour2"></div>
+    <div class="jsec2"></div>
+    <h3>CSS Animation + 圖片堆疊<br />表示法</h3>
+    <p>透過圖片透明，使得旋轉中心不變但有色區域，有中心偏移效果</p>
+  </div>
+  <div class="circle">
+    <div class="jmin1 omin3"></div>
+    <div class="jhour1 ohour3"></div>
+    <div class="jsec1 osec3"></div>
+    <h3>CSSAnimation+中心偏移<br>表示法</h3>
+    <p>補充屬性 transform-origin 真正讓旋轉的中心點偏移</p>
+  </div>
+  <div class="circle">
+    <div class="jmin1 omin4"></div>
+    <div class="jhour1 ohour4"></div>
+    <div class="jsec1 osec4"></div>
+    <h3>setInterval+中心偏移<br>表示法</h3>
+    <p>補充屬性 transform-origin，而不使用 kerfram 反而透過 setInterval 來執行</p>
+  </div>
+  <script src="js.js"></script>
+</body>
+
+</html>

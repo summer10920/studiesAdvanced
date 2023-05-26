@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="q3t4.css">
+  <link rel="stylesheet" href="slick/slick.css">
+  <link rel="stylesheet" href="slick/slick-theme.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+    crossorigin="anonymous"></script>
+  <script src="slick/slick.min.js"></script>
+</head>
+
+<body>
+  <div id="main">
+    <h1>預告片介紹</h1>
+    <div id="box">
+      <div id="ani_zone">
+        <img src="img/03A05.jpg">
+        <p>123</p>
+      </div>
+    </div>
+    <div class="control"></div>
+  </div>
+
+  <script>
+    let num = 0;
+    $.getJSON('../db.json', function (res) {
+      todo(res.q3t4);
+      // num = res.q3t4.effect;
+    })
+
+    function todo(obj) {
+      num = obj.effect;
+      //初始化 小圖 list
+      for (const key in obj.img) {
+        // $('.control').append(`<div><img src="圖路徑" alt="片名" clas="min-img"></div>`);
+        $('.control').append(`<div><img src="${obj.img[key]}" alt="${key}" class="min-img"></div>`);
+      }
+
+      //替換預設的主圖 (物件第一筆)
+      // console.log(Object.keys(obj.img)[0]);
+      // console.log(Object.values(obj.img)[0]);
+      $('#ani_zone>img').attr('src', Object.values(obj.img)[0]);
+      $('#ani_zone>p').text(Object.keys(obj.img)[0]);
+
+      //將已初始化的小圖套入plugin
+      $('.control').slick({
+        infinite: true,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        dots: true
+      });
+
+      //規劃小圖的 click event
+      $('.min-img').click(function () {
+        // console.log(this);
+        const
+          key = $(this).attr('alt'),
+          value = $(this).attr('src');
+        // console.log(key,value);
+        swap(key, value);
+      });
+    }
+
+    function swap(key, val) {
+      const effect = num;
+
+      switch (effect) {
+        case 1:
+          $('#ani_zone').fadeOut(function () {
+            $(this).children('p').text(key);
+            $(this).children('img').attr('src', val);
+            $(this).fadeIn();
+          });
+          break;
+
+        case 2:
+          console.log('特效2');
+          break;
+      }
+
+    }
+  </script>
+</body>
+
+</html>

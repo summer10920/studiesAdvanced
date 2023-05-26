@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //think one print
+    // let i = 4, j = 8;
+    // console.log(`${i}*${j}=${i * j}`);
+
+    // method 1:
+    // for (let i = 2; i < 10; i++) {
+    //   for (let j = 1; j < 10; j++) {
+    //     console.log(`${i}*${j}=${i * j}`);
+    //   }
+    //   // if (i != 9) console.log('---------');
+    //   if(i==9) break;
+    //   console.log('---------');
+    // }
+
+    // method 2:
+    // for (let i = 2, j = 1; i < 10; j++) {
+    //   console.log(`${i}*${j}=${i * j}`);
+    //   // 當 j=9時，我想要 i+1 & j=1
+    //   if (j == 9) {
+    //     i++;
+    //     j = 1;
+    //     if (i != 10) console.log('-----');
+    //   }
+    // }
+
+    // method 1 plus:
+    for (let i = 2; i < 10; i++) {
+      for (let j = 1; j < 10; j++) console.log(`${i}*${j}=${i * j}`);
+      if (i != 9) console.log('---------');
+    }
+
+  </script>
+</body>
+
+</html>

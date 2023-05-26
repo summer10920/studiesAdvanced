@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function sayHello(words) {
+      console.log(words);
+    }
+  </script>
+  <input type="button" value="onclick demo" onclick="sayHello('hello Loki')">
+  <button type="button" value="onclick demo" onclick="sayHello('hello Loki')">DEMO</button>
+  <div style="border:1px solid red" onclick="sayHello('Work in DIV')">DEMO ON DIV</div>
+  <hr>
+  <input type="button" value="on ~ click(Bad)" onclick="whatIsBad('a1')" id="a1">
+  <input type="button" value="on ~ click" onclick="whatIs(this)">
+  <input type="button" value="on ~ mousedown" onmousedown="whatIs(this)">
+  <input type="button" value="on ~ mouseup" onmouseup="whatIs(this)">
+  <input type="button" value="on ~ mouseover" onmouseover="whatIs(this)">
+  <input type="button" value="on ~ mouseout" onmouseout="whatIs(this)">
+  <hr>
+  <input type="text" value="on ~ change" onchange="whatIs(this)">
+  <input type="text" value="on ~ focus" onfocus="whatIs(this)">
+  <input type="text" value="on ~ blur" onblur="whatIs(this)">
+  <hr>
+  <div id="fakeBtn"></div>
+  <button id="remove1" onclick="fakeBtn.onclick=null">remove fakeBtn Event</button>
+  <hr>
+  <button id="ock">try click</button>
+  <button id="remove2" onclick="remove2()">remove tryClick Event No.2</button>
+
+  <script>
+    function whatIsBad(who) {
+      document.getElementById(who).style = 'color:red';
+    }
+    function whatIs(e) {
+      console.log(e.style);
+      // console.log(e);
+      if (e.style.color == 'red') e.style.color = null;
+      else {
+        // e.style = 'color:red';
+        // e.style = 'font-size:1.2rem';
+        // e.style.color = 'red';
+        // e.style.fontSize = '1.2rem';
+        e.style = 'color:red; font-size:1.2rem';
+      }
+      console.log('你剛剛對 "' + e.value + '" 做event事件!!');
+    }
+    ///////////////////////////////////////////////////////////////////////////
+    const fakeBtn = document.getElementById('fakeBtn');
+    fakeBtn.style = `
+      background-color: lightgoldenrodyellow;
+      box-shadow: 3px 3px 1px rgba(193, 193, 193, 0.5);
+      cursor: pointer;
+      display:inline;
+      padding:5px`;
+    fakeBtn.innerHTML = '假按鈕';
+    fakeBtn.onclick = function () {
+      whatIs(this);
+    };
+    // document.getElementById('remove1').onclick=()=>{
+    //   fakeBtn.onclick=null;
+    // };
+
+    /*///////////////////////////////////////////////////////////////////////////
+    // document.onkeydown = function () {
+    //   event.preventDefault();
+    //   console.log(event);
+    //   const fakeBtn = document.getElementById('fakeBtn');
+    //   fakeBtn.innerHTML = event.key.toUpperCase();
+    // }
+
+
+    // document.oncontextmenu=function(){
+    //   event.preventDefault(); //取消該原本要做的event
+    //   alert('想偷看，沒門');
+    // }
+    /////////////////////////////////////////////////////////////////////*/
+
+    const btn = document.querySelector('#ock');
+    btn.addEventListener('click', click1);
+    btn.addEventListener('click', click2);
+    btn.addEventListener('mouseover', function () {
+      console.log('hover!!!');
+    });
+
+    function click1() {
+      console.log('click No.1!!!');
+    }
+    function click2() {
+      console.log('click No.2!!!');
+    }
+
+    function remove2() {
+      btn.removeEventListener('click', click2);
+    }
+  </script>
+</body>
+
+</html>

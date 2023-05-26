@@ -1,0 +1,177 @@
+body {
+  background: #222;
+  margin: 0;
+  color:white;
+}
+
+#clock1 {
+  width: 740px;
+  height: 100px;
+  background: rgb(119 119 119 / 48%);
+  margin: 20vh auto;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+#clock1 button{
+  margin: 15px auto 0;
+}
+.ck {
+  display: inline-flex;
+}
+.c1,
+.c2,
+.c3,
+.c4,
+.c5,
+.c6,
+.c7,
+.c8,
+.c9,
+.c0 {
+  width: 100px;
+  height: 100px;
+  background: url("num.png");
+  display: inline-block;
+}
+.cc {
+  width: 50px;
+  height: 100px;
+  background: url("num.png");
+  background-position: 50px;
+  display: inline-block;
+  margin: 0 10px;
+}
+.c0 {
+  background-position: 0px;
+}
+.c1 {
+  background-position: -100px;
+}
+.c2 {
+  background-position: -200px;
+}
+.c3 {
+  background-position: -300px;
+}
+.c4 {
+  background-position: -400px;
+}
+.c5 {
+  background-position: -500px;
+}
+.c6 {
+  background-position: -600px;
+}
+.c7 {
+  background-position: -700px;
+}
+.c8 {
+  background-position: -800px;
+}
+.c9 {
+  background-position: -900px;
+}
+
+/* ///////////////// */
+
+#clock2 {
+  width: 600px;
+  height: 300px;
+  /* background: #555; */
+  margin: 50px auto;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: column nowrap;
+  font-family: "Orbitron", sans-serif;
+  animation: light 10s linear infinite;
+}
+#clk2-time {
+  font-size: 6rem;
+  margin: 0;
+}
+#clk2-date {
+  font-size: 3rem;
+  margin: 0;
+}
+
+@keyframes light {
+  from {
+    /*fat*/
+    box-shadow: inset 0 0 300px hsla(0, 100%, 15%, 1), 0 0 200px hsla(0, 100%, 0%, 1);
+    text-shadow: 0 0 200px hsla(0, 100%, 60%, 1), 0 0 40px hsla(0, 100%, 30%, 1);
+    color: hsla(0, 100%, 95%, 1);
+  }
+
+  10% {
+    /*thin*/
+    box-shadow: inset 0 0 20px hsla(36, 100%, 15%, 1), 0 0 40px hsla(36, 100%, 0%, 1);
+    text-shadow: 0 0 10px hsla(36, 100%, 60%, 1), 0 0 40px hsla(36, 100%, 30%, 1);
+    color: hsla(36, 100%, 95%, 1);
+  }
+
+  20% {
+    /*fat*/
+    box-shadow: inset 0 0 300px hsla(72, 100%, 15%, 1), 0 0 200px hsla(72, 100%, 0%, 1);
+    text-shadow: 0 0 200px hsla(72, 100%, 60%, 1), 0 0 40px hsla(72, 100%, 30%, 1);
+    color: hsla(72, 100%, 95%, 1);
+  }
+
+  30% {
+    /*thin*/
+    box-shadow: inset 0 0 20px hsla(108, 100%, 15%, 1), 0 0 40px hsla(108, 100%, 0%, 1);
+    text-shadow: 0 0 10px hsla(108, 100%, 60%, 1), 0 0 40px hsla(108, 100%, 30%, 1);
+    color: hsla(108, 100%, 95%, 1);
+  }
+
+  40% {
+    /*fat*/
+    box-shadow: inset 0 0 300px hsla(144, 100%, 15%, 1), 0 0 200px hsla(144, 100%, 0%, 1);
+    text-shadow: 0 0 200px hsla(144, 100%, 60%, 1), 0 0 40px hsla(144, 100%, 30%, 1);
+    color: hsla(144, 100%, 95%, 1);
+  }
+
+  50% {
+    /*thin*/
+    box-shadow: inset 0 0 20px hsla(180, 100%, 15%, 1), 0 0 40px hsla(180, 100%, 0%, 1);
+    text-shadow: 0 0 10px hsla(180, 100%, 60%, 1), 0 0 40px hsla(180, 100%, 30%, 1);
+    color: hsla(180, 100%, 95%, 1);
+  }
+
+  60% {
+    /*fat*/
+    box-shadow: inset 0 0 300px hsla(216, 100%, 15%, 1), 0 0 200px hsla(216, 100%, 0%, 1);
+    text-shadow: 0 0 200px hsla(216, 100%, 60%, 1), 0 0 40px hsla(216, 100%, 30%, 1);
+    color: hsla(216, 100%, 95%, 1);
+  }
+
+  70% {
+    /*thin*/
+    box-shadow: inset 0 0 20px hsla(252, 100%, 15%, 1), 0 0 40px hsla(252, 100%, 0%, 1);
+    text-shadow: 0 0 10px hsla(252, 100%, 60%, 1), 0 0 40px hsla(252, 100%, 30%, 1);
+    color: hsla(252, 100%, 95%, 1);
+  }
+
+  80% {
+    /*fat*/
+    box-shadow: inset 0 0 300px hsla(288, 100%, 15%, 1), 0 0 200px hsla(288, 100%, 0%, 1);
+    text-shadow: 0 0 200px hsla(288, 100%, 60%, 1), 0 0 40px hsla(288, 100%, 30%, 1);
+    color: hsla(288, 100%, 95%, 1);
+  }
+
+  90% {
+    /*thin*/
+    box-shadow: inset 0 0 20px hsla(324, 100%, 15%, 1), 0 0 40px hsla(324, 100%, 0%, 1);
+    text-shadow: 0 0 10px hsla(324, 100%, 60%, 1), 0 0 40px hsla(324, 100%, 30%, 1);
+    color: hsla(324, 100%, 95%, 1);
+  }
+
+  to {
+    /*fat*/
+    box-shadow: inset 0 0 300px hsla(360, 100%, 15%, 1), 0 0 200px hsla(360, 100%, 0%, 1);
+    text-shadow: 0 0 200px hsla(360, 100%, 60%, 1), 0 0 40px hsla(360, 100%, 30%, 1);
+    color: hsla(360, 100%, 95%, 1);
+  }
+
+}

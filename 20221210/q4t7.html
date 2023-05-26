@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="IE=edge"
+  >
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+    crossorigin="anonymous"
+  ></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <h3>註冊帳號</h3>
+  <form method="get"> 姓名：<input
+      type="text"
+      name="name"
+      id=""
+    ><br> 帳號：<input
+      type="text"
+      name="acc"
+    ><br> 密碼：<input
+      type="text"
+      name="pwd"
+      id=""
+    ><br>
+    <input
+      type="submit"
+      value="確認"
+    >
+  </form>
+  <script>
+    document.querySelector('form').onsubmit = function (event) {
+      event.preventDefault();
+      const thisForm = this;
+
+      const acc = $('input[name=acc]').val();
+      $.post(
+        'http://192.168.211.1/accountApi.php?do=checkuser',
+        { acc },
+        function (response) {
+          if (response == '帳號重複') alert(response);
+          else thisForm.submit();
+        }
+      )
+    }
+
+  </script>
+</body>
+
+</html>

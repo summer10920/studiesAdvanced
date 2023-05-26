@@ -1,0 +1,161 @@
+@charset "utf-8";
+/* CSS Document */
+body
+{
+	padding:0px;
+	margin:0px;
+}
+#cover
+{
+	width:100%;
+	height:100%;
+	position:fixed;
+	z-index:5;
+	background:rgba(51,51,51,0.4);
+	top:0px;
+	left:0px;
+	overflow:auto;
+}
+#coverr
+{
+	width:70%;
+	min-width:300px;
+	max-width:800px;
+	height:70%;
+	min-height:300px;
+	position:absolute;
+	z-index:5;
+	background:#ffffff;
+	top:0px;
+	left:0px;
+	right:0px;
+	bottom:0px;
+	margin:auto;
+	overflow:auto;
+}
+#main
+{
+	width:1024px;
+	height:768px;
+	margin:10px auto 10px auto;
+	border:#EE7728 1px solid;
+	position:relative;
+}
+.ti
+{
+	width:100%;
+	height:100px;
+	position:relative;
+	background-size:cover;
+	background-repeat:no-repeat;
+}
+.dbor
+{
+	border:#EE7728 double 3px;
+	margin:1px;
+	padding:2px 10px 2px 10px;
+}
+.t
+{
+	font-weight:800;
+	display:block;
+	text-align:center;
+	padding:10px 1px 10px 1px;
+}
+.botli
+{
+	border-bottom:#333 1px solid;
+}
+.mainmu
+{
+	position:relative;
+	border-radius:10px;
+	background:url(icon/menu.fw.png) center no-repeat;
+	background-size:cover;
+	line-height:30px;
+	padding:2px 10px 2px 10px;
+	margin:7px 1px 7px 1px;
+}
+.mainmu:hover
+{
+	background:url(icon/menu2.fw.png) center no-repeat;
+	background-size:cover;
+}
+.mainmu2
+{
+	position:relative;
+	border-radius:10px;
+	background:url(icon/menu3.fw.png)center no-repeat;
+	background-size:100% 100%;
+	line-height:30px;
+	padding:2px 10px 2px 10px;
+	margin:7px 1px 7px 1px;
+}
+.mainmu2:hover
+{
+	background:url(icon/menu4.fw.png) center no-repeat;
+	background-size:cover;
+}
+#lf
+{
+	height:540px;
+	width:21%;
+	display:inline-block;
+}
+#menuput
+{
+	width:100%;
+	height:75%;
+	position:relative;
+	padding:5px;
+	display:block;
+	margin: 3px;
+}
+.di
+{
+	display:inline-block;
+}
+.ad
+{
+	margin:1px;
+	padding:2px 10px 2px 10px;
+}
+.cent
+{
+	text-align:center;
+}
+input,button
+{
+	border:#999 1px solid;
+	border-radius:3px;
+	background:#EFEFEF;
+	padding:5px;
+	margin:3px;
+}
+input:active,button:active
+{
+	background:#E6E6E6;
+}
+input[type=text],input[type=password]
+{
+	width:150px;
+}
+input:focus,button:focus
+{
+	box-shadow:#09C 0px 0px 3px .3px;
+}
+.yel td
+{
+	background:#F3DA49;
+	text-align:center;
+}
+.trce td
+{
+	text-align:center;
+}
+.bl
+{
+	color:#0CF;
+	cursor:pointer;
+	text-decoration:none;
+}

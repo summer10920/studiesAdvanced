@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="IE=edge"
+  >
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+    crossorigin="anonymous"
+  ></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- http://192.168.211.1/movieApi.php -->
+  <form>
+    <span> 電影：</span>
+    <select
+      name="mm"
+      id="sm"
+      onchange="gd()"
+    >
+    </select>
+    <span>日期：</span>
+    <select
+      name="dd"
+      id="sd"
+      onchange="gt()"
+    >
+    </select>
+    <span>場次：</span>
+    <select
+      name="tt"
+      id="st"
+    >
+      <!-- 
+      共7場， 10~12,12~14,14~16,16~18,18~20,20~22,22~24
+      <option value="3">14:00~16:00 剩餘座位 18</option>
+     -->
+    </select>
+    <input
+      type="submit"
+      value="確定"
+    >
+  </form>
+  <script>
+    // $.get('http://192.168.211.1/movieApi.php', { todo: "getMovie" }, function (response) {
+    //   const result = JSON.parse(response);
+    //   console.log(result);
+    //   console.log(response);
+    // });
+    // const demo = 'getMovie';
+    // $.getJSON(`http://192.168.211.1/movieApi.php?todo=${demo}`, function (response) {
+    //   console.log(response);
+    // });
+    $.getJSON('http://192.168.211.1/movieApi.php', { todo: "getMovie" }, function (response) {
+      // console.log(response);
+      let strCode = '';
+      for (const item of response) {
+        // console.log(item);
+        strCode += `<option value="${item.id}">${item.movie}</option>`;
+      }
+      // console.log(strCode);
+      $('#sm').html(strCode);
+
+      gd();
+    });
+
+    //根據電影來翻新 #sd>option
+    function gd() {
+      // console.log('跟後端拿關於#sm.value的日期');
+      const movieID = $('#sm').val();
+      $.getJSON('http://192.168.211.1/movieApi.php?todo=getDate&id=' + movieID, function (response) {
+        // console.log(response);
+        //     <option value="2">2022-12-12</option>
+        let strCode = '';
+        for (const item of response) {
+          strCode += `<option value="${item.id}">${item.date}</option>`;
+        }
+        // console.log(strCode);
+        $('#sd').html(strCode);
+
+        gt();
+      });
+    }
+
+    function gt() {
+      // console.log('跟後端拿關於#sd.value的場次');
+      const dayID = $('#sd').val();
+      const timeData = [
+        { txt: '10:00~12:00', ticketlast: 20 },
+        { txt: '12:00~14:00', ticketlast: 20 },
+        { txt: '14:00~16:00', ticketlast: 20 },
+        { txt: '16:00~18:00', ticketlast: 20 },
+        { txt: '18:00~20:00', ticketlast: 20 },
+        { txt: '20:00~22:00', ticketlast: 20 },
+        { txt: '22:00~24:00', ticketlast: 20 }
+      ];
+
+
+      $.getJSON('http://192.168.211.1/movieApi.php?todo=getTime&id=' + dayID, function (response) {
+        // console.log(response);
+        // <option value="1">10:00~12:00 剩餘座位 20</option>
+        // <option value="2">12:00~14:00 剩餘座位 16</option>
+        // ...
+
+        //扣除已銷售的資訊，使得timeData資訊算出正確值
+        for (const item of response) {
+          // console.log(item.time, item.sellout);
+          timeData[item.time - 1].ticketlast -= item.sellout;  // 2, 2
+        }
+
+        /*
+          設計甚麼條件提供輸出判斷是否要跳過
+          1. 是否 #sm 是今天 => nowDay==selectDay
+          2. 現在的時間(getHours:00~23 => 1~N)跟場次(1~7)的時間是否過時
+        */
+        const nowTime = new Date();
+        const selectTime = new Date($('#sd>option:selected').text());
+        // const nowDay = nowTime.toDateString();
+        // const selectDay = selectTime.toDateString();
+        // console.log(nowDay, selectDay);
+        const isToday = nowTime.toDateString() === selectTime.toDateString();
+        // console.log('isToday', isToday);
+
+        /*
+          getHours() to timeNum : 
+          10=>1, 11=>1, 12=>2, 13=>2, 14=>3, 15=>3, 16=>4.... do /2
+          5=>1, 5.5=>1, 6=>2, 6.5=>2, 7=>3, 7.5=>3, 8=>4.... do floor
+          5=>1, 5=>1, 6=>2, 6=>2, 7=>3, 7=>3, 8=>4....  do sub 4
+          1=>,2=>2....
+        */
+        const nowHourToTimeNum = Math.floor(nowTime.getHours() / 2) - 4;
+
+        //可以判斷了， 現在 nowHourToTimeNum =3 代表場次1,2,3都過期不該輸出
+        //可以判斷了， 現在 nowHourToTimeNum =7 代表場次1~7都過期不該輸出
+
+        let strCode = '';
+        let count = 0;
+        //獲取所有option字串準備輸出畫面
+        for (const option of timeData) {
+          count++;
+          //當滿足某條件，這次的option string不要併入strCode =>下面這行不執行 => 跑 continue
+          if (isToday && count <= nowHourToTimeNum) continue;
+          strCode += `<option value="${count}">${option.txt} 剩餘座位 ${option.ticketlast}</option>`;
+        }
+        $('#st').html(strCode);
+      });
+    }
+
+
+  </script>
+</body>
+
+</html>

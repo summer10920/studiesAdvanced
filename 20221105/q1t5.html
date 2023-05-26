@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <!--正中央-->
+  <div style="width:100%; padding:2px; height:290px;">
+    <div id="mwww" loop="true" style="width:100%; height:100%;">
+      <div style="width:99%; height:100%; position:relative;" class="cent">沒有資料</div>
+    </div>
+  </div>
+
+  <!-- 自訂js -->
+  <script>
+    $.getJSON('db.json', function (res) { //非同步存取，當回傳之後可以順利繼續執行預計的作業
+      // todo(res.q1t5);
+      toBetter(res.q1t5);
+    });
+
+    function toBetter(imgAry) {
+      if (imgAry.length) { //當有1張以上就要處理
+        $("#mwww").html("<embed loop=true src='" + imgAry[0] + "' style='width:99%; height:100%;'></embed>");
+
+        if (imgAry.length > 1) { //超過1張做輪播
+          let nowAt = 1;
+          setInterval(function () {
+            $('#mwww>embed').attr('src', imgAry[nowAt]);
+            // nowAt = (nowAt + 1) % imgAry.length;
+            nowAt = nowAt == 5 ? 0 : nowAt + 1;
+          }, 3000);
+        }
+      }
+    }
+
+    // function todo(lin) {  //原素材規劃沒有很完全
+    //   // var lin = new Array(); //圖片陣列
+    //   // lin = myDate;
+    //   var now = 0; //索引0
+    //   $("#mwww").html("<embed loop=true src='" + lin[now] + "' style='width:99%; height:100%;'></embed>");
+    //   if (lin.length > 1) { //圖片超過1張
+    //     setInterval(ww, 3000); //不斷執行ww函式，每間格3秒
+    //     now = 1; //索引便1
+    //   }
+    //   function ww() { //將指定元素的抽換他的html(img)
+    //     $("#mwww").html("<embed loop=true src='" + lin[now] + "' style='width:99%; height:100%;'></embed>");
+    //     //$("#mwww").attr("src",lin[now])
+    //     now++; //索引+1
+    //     if (now >= lin.length) //如索引大於圖片數量，歸0
+    //       now = 0;
+    //   }
+    // }
+
+
+
+
+  </script>
+</body>
+
+</html>

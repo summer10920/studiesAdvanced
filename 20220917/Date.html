@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // let str=Date();
+    let nowTime = new Date();
+    // let custom=new Date('2022-12-31T23:59:59'); //ISO 8601  時間字串格式
+    let endYear = new Date(2022, 11, 31, 23, 59, 59, 999); //month 0~11 一月~十二月
+
+    nowTime.getFullYear();
+    nowTime.getMonth();
+    nowTime.getDate();
+    nowTime.getHours();
+    nowTime.getMinutes();
+    nowTime.getSeconds();
+    nowTime.getDay();
+    nowTime.getTime(); //時間戳記 timestamp
+
+    //倒數還剩下多久
+    const tMin = nowTime.getTime(); //get a number type
+    const tMax = endYear.getTime(); //get a number type
+    // console.log(tMin, tMax);
+    const beto = tMax - tMin; // 毫秒
+
+    // 23559毫秒 => 23秒
+    // 23.559
+    // 23
+
+    const beAllsec=Math.floor(beto / 1000); //總 seconds
+    // console.log('距離跨年還剩下' + beAllsec + '秒');
+
+    // 123秒 => 2分3秒
+    const beSec=beAllsec%60;  //餘數 by 秒
+    const beAllMin=Math.floor(beAllsec/60); //總 mins
+    // console.log(`距離跨年還剩下${beAllMin}分${beSec}秒`);
+    
+    const beMin=beAllMin%60;  //餘數 by 分
+    const beAllHur=Math.floor(beAllMin/60); //總 hours
+    // console.log(`距離跨年還剩下${beAllHur}時${beMin}分${beSec}秒`);
+
+    const beHur=beAllHur%24;   //餘數 by 時
+    const beAllDay=Math.floor(beAllHur/24); //總 days
+    console.log(`距離跨年還剩下${beAllDay}天${beHur}時${beMin}分${beSec}秒`);
+
+    /////////////////////修改時間物件，通常先需得知目前參數做++--後存入
+    now=new Date();
+    now.setDate(now.getDate()+105);
+    console.log(now);
+
+
+
+  </script>
+</body>
+
+</html>

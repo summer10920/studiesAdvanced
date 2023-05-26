@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+    crossorigin="anonymous"></script>
+  <style>
+    .dbor {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      height: 400px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="dbor">
+    <span class="t botli">校園映象區</span>
+    <img src="img/01E01.jpg" onclick="pp(1)">
+    <div id="imglist" style="display:flex; flex-direction:column;align-items:center">
+      <!-- 大概 div 內長這樣 -->
+      <!-- 
+        <img class="im" id="ssaa0" src="img/01D01.jpg" width="150" height="103">
+        <img class="im" id="ssaa1" src="img/01D02.jpg" width="150" height="103">
+        <img class="im" id="ssaa2" src="img/01D03.jpg" width="150" height="103">
+        <img class="im" id="ssaa3" src="img/01D04.jpg" width="150" height="103">
+        <img class="im" id="ssaa4" src="img/01D05.jpg" width="150" height="103">
+        <img class="im" id="ssaa5" src="img/01D06.jpg" width="150" height="103">
+      -->
+    </div>
+    <img src="img/01E02.jpg" onclick="pp(2)">
+  </div>
+  <script>
+    $.getJSON('../db.json', function (res) { //非同步存取，當回傳之後可以順利繼續執行預計的作業
+      todo(res.q1t6);
+    });
+
+    function todo(imgAry) {
+      //DOM建構
+      for (let i = 0; i < imgAry.length; i++)
+        $('#imglist').append(`<img class="im" id="ssaa${i}" src="${imgAry[i]}" width="150" height="103">`);
+
+      //init 初始化
+      $(".im").hide();
+      for (let j = 0; j < 3; j++) {
+        $(`#ssaa${j}`).show();
+      }
+
+
+    }
+
+    // var nowpage = 0, num = 0;
+    // function pp(x) {
+    //   var s, t;
+    //   if (x == 1 && nowpage - 1 >= 0) { nowpage--; }
+    //   if (x == 2 && (nowpage + 1) * 3 <= num * 1 + 3) { nowpage++; }
+    //   $(".im").hide()
+    //   for (s = 0; s <= 2; s++) {
+    //     t = s * 1 + nowpage * 1;
+    //     $("#ssaa" + t).show()
+    //   }
+    // }
+    // pp(1);
+  </script>
+</body>
+
+</html>
