@@ -21,5 +21,4 @@
 
 ### 已結訓課程
 已結訓的課程採用 Releases 方式封裝提供下載，透過 repository 主頁面選擇右側 Release 點選，找到已結訓之課程名稱選擇 Assets 底下的 Source code 下載該課程所有隨課檔案。
-
 ![Imgur](https://i.imgur.com/84cc6aZ.gif)
