@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>布林值</title>
+</head>
+
+<body>
+  <script>
+    a = 100;
+    b = '100';
+    console.log('a=', a, ', b=', b);
+
+    console.log('a==b', a == b);  //等於
+    console.log('a!=b', a != b); //不等於
+
+    console.log('a===b', a === b); //完全等於(考慮型別)
+    console.log('a!==b', a !== b); //完全不等於(考慮型別)
+
+    c = 300;
+
+    t = true;
+    f = false;
+
+    /*
+    （條件 A) && （條件 B)：為 AND  (且)所有條件 ，所有條件皆為 true 時成立。
+    （條件 A)||（條件 B)：為 OR  (或)任一條件 ，任一條件為 true 時成立。
+    */
+    and_or = (false || false) && true
+    console.log('var "and_or" type is => ', typeof (and_or));  //typeof() 是一個內建的函式，可問到型別是什麼
+
+    // ansRequire = 'var "and_or" type is => ' + typeof (and_or);
+    // alert('var "and_or" type is => ' + typeof (and_or));
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>變數宣告</title>
+</head>
+
+<body>
+  <script>
+    // a = 100; //臨時變數，任何地方都能讀到
+    // var b = 200; // 宣告一個全區域變數，落在於最上面，也就是全域底下
+
+    // function test() {
+    //   var c = 300; // 宣告一個區間變數，只落在特定範圍內，只有該範圍認識這個變數
+    //   d = 400; //臨時變數，任何地方都能讀到
+    //   console.log(a + b + c + d);
+    // }
+
+    // test();
+    // console.log(a, b, c, d);
+
+    ///////////////////////////////////
+
+    // //若要全域可存取，可以在一開始公共外面宣告，使得fn裡面跟外面可以共用存取
+    // var
+    //   a = 100,
+    //   b = 200,
+    //   c = 0,
+    //   d = 0;
+
+    // function test() {
+    //   c = 300; // 宣告一個區間變數，只落在特定範圍內，只有該範圍認識這個變數
+    //   d = 400; //臨時變數，任何地方都能讀到
+    //   console.log(a + b + c + d);
+    // }
+
+    // test();
+    // console.log(a, b, c, d);
+
+    ///////////////////////////////////
+
+    //若要全域可存取，可以在一開始公共外面宣告，使得fn裡面跟外面可以共用存取
+    var
+      a = 100,
+      b = 200,
+      c = 0,
+      d = 0,
+      e = 0;
+
+    function test() {
+      var a = 'A';
+      c = 300; // 宣告一個區間變數，只落在特定範圍內，只有該範圍認識這個變數
+      d = 400; //臨時變數，任何地方都能讀到
+      console.log(a, b, c, d);
+      var e = 'E';
+    }
+
+    test();
+    console.log(a, b, c, d);
+    console.log(e);
+
+  </script>
+</body>
+
+</html>

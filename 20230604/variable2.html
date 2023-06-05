@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>變數宣告2</title>
+</head>
+
+<body>
+  <script>
+    /*
+    a = 100; // 可透過delete a 刪除臨時變數
+    var //ES5
+      b = 200,
+      c = 0;
+
+    // const, let ES6出現的變數宣告，比var更完整的應用
+
+    let d = 300; // 可以確保該變數沒有重複
+    const e = 'E'; // 同上，且確保變數不會再變，保護此數據不修改
+    */
+
+    ////////////////////////////////////////
+
+    let  // 全域變數宣告
+      a = 100,
+      b = 200,
+      c = 0,
+      d = 0;
+    const e = 0;
+
+    function test() {
+      //區間變數宣告
+      const a = 'A'; //新的區間變數 a，不是外面的全域變數 a
+      let e = 'E'; //新的區間變數 e，不是外面的全域變數 e
+
+      //指令進行 ，指定運算子(修改變數)
+      c = 300; // 指定 300 給全域變數 c
+      d = 400; // 指定 400 給全域變數 d
+
+      console.log(a, b, c, d, e); //A 200 300 400 E
+    }
+
+    test();
+    console.log(a, b, c, d); //100 200 300 400
+
+    a += 10;
+    console.log(a, e); //110 0
+
+  </script>
+</body>
+
+</html>

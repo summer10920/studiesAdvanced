@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>自訂函式 - function</title>
+</head>
+
+<body>
+  <script>
+    function sayHello(name) {  // 宣告一個函式FN，函式名稱為sayHello，規劃一個name變數作參數
+      // console.log('hello, ' + name + '!!');
+      // str = 'hello, ' + name + '!!';
+      // return str;
+      return 'hello, ' + name + '!!';
+    };
+    // sayHello('loki');
+
+    // ans = sayHello('loki');  // FN 經過處理之後，可以回傳return 給我們，我們會拿到FN所return的東西
+    // console.log(ans);
+
+    console.log(sayHello('loki'));
+
+
+    sayHi = function (name='unKnow') {  // 等式右邊匿名函式，等式左邊稱呼為函式型變數(typeof問就是function)
+      console.log('Hi, ' + name + '!!');
+    };
+    sayHi('loki');
+
+    sayHey = (name) => { // 右邊做 ES6 箭頭函式，雷同上面，缺點不支援this寫法
+      console.log('Hey, ' + name + '!!');
+      return 'done';
+    }
+
+    ///////////////////////////////////////////////
+
+    ha=(function() {
+      console.log('haha');
+    })();
+
+    // haha = function () {
+    //   console.log('haha');
+    //   return 'i said haha';
+    // }();
+
+
+  </script>
+</body>
+
+</html>
