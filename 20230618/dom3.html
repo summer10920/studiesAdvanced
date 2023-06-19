@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM</title>
+  <style>
+    #myBox>h1:nth-child(3) {
+      color: red;
+    }
+    h1.danger{
+      background: red;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class="danger">Title Out</h1>
+  <div id="myBox">
+    <h1>Hello World</h1>
+    <h1 class="danger">Title In</h1>
+    <h1>Title</h1>
+    <h1>Title</h1>
+    <h1>Title</h1>
+    <ul>
+      <li>apple</li>
+      <li>banana</li>
+    </ul>
+  </div>
+  <script>
+    // document.querySelector('css selector 寫法')  // 快又方便，老人家不知道的東西
+    // document.querySelectorAll('css selector 寫法')  // 快又方便，老人家不知道的東西
+    document.querySelector('#myBox>h1:nth-child(2)');
+    document.querySelectorAll('#myBox>h1')[1];
+  </script>
+</body>
+
+</html>

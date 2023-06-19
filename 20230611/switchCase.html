@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let lang = 'it';
+    switch (lang) {
+      case 'tw':
+        console.log('我喜歡您!');
+        break; // 破壞這個執行，使後續不再處理
+      case 'en':
+        console.log('i love you!');
+        break;
+      case 'jp':
+        console.log('愛洗爹路!');
+        break;
+      case 'kr':
+        console.log('撒拉黑油!');
+        break;
+      default:
+        console.log('.....不會XD');
+        break;
+    }
+
+    // if (lang === 'tw') console.log('我喜歡您!');
+    // else if (lang === 'en') console.log('i love you!');
+    // else if (lang === 'jp') console.log('愛洗爹路!');
+    // else if (lang === 'kr') console.log('撒拉黑油!');
+    // else console.log('.....不會XD!');
+
+
+  </script>
+</body>
+
+</html>

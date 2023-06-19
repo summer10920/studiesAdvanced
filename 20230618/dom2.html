@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM</title>
+  <style>
+    #loki {
+      color: red;
+    }
+
+    .aa {
+      background: black;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="myBox">
+    <h1 id="title" class="red">Hello World</h1>
+    <h1>Title</h1>
+    <ul id="list" name="orderList">
+      <li>apple</li>
+      <li class="red">banana</li>
+    </ul>
+  </div>
+  <script>
+    // document.getElementById('title') // useful
+    // document.getElementsByClassName('red')
+    // document.getElementsByTagName('h1')
+    // document.getElementsByName('orderList')
+    const objTitle = document.getElementById('title');
+
+    // console.log(objTitle.textContent);
+    // objTitle.textContent = 'World Hello';
+    // console.log(objTitle.textContent);
+    console.log(objTitle.innerHTML);
+    objTitle.innerHTML = 'World Hello';
+    console.log(objTitle.innerHTML);
+
+    objTitle.innerHTML = '<span style="color:red">World</span> Hello';
+    console.log(objTitle.textContent);
+    console.log(objTitle.innerHTML);
+
+
+    // document.getElementById('list').innerHTML='<li>AAA</li><li>BBB</li><li>CCC</li>';
+    document.getElementById('list').innerHTML = `
+      <li>AAA</li>
+      <li>BBB</li>
+      <li>CCC</li>
+    `;
+
+
+  </script>
+</body>
+
+</html>

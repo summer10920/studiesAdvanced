@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>get Date</title>
+</head>
+
+<body>
+  <script>
+    /*
+    const nowStr = Date(); // 只是透過Date()獲得一個string，沒啥用，如果要玩Date，需要拿到Date物件
+    const nowObj = new Date(); // date object，建構式new 特定 Date物件複製一份拿回來。
+    // const nowObj = new Date(2023,11,31,23,59,59,999); // 今年最後一毫秒的時間，取得物件
+    // const nowObj = new Date('2023-12-31T23:59:59'); // ISO表示法
+    // const nowObj = new Date('2023-12-31 23:59:59:999'); // ISO表示法
+
+    const MonthLabel = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+    const DayLabel = ['週日', '週一', '週二', '週三', '週四', '週五', '週六'];
+
+    console.log('西元', nowObj.getFullYear());
+    console.log('月(美)', MonthLabel[nowObj.getMonth()]); // JAN ~ DEC => 0 ~ 11
+    console.log('月(數)', nowObj.getMonth() + 1); // JAN ~ DEC => 0 ~ 11
+    console.log('日', nowObj.getDate());
+    console.log('時', nowObj.getHours());
+    console.log('分', nowObj.getMinutes());
+    console.log('秒', nowObj.getSeconds());
+    console.log('豪秒', nowObj.getMilliseconds());
+    console.log('星期', DayLabel[nowObj.getDay()]);
+    console.log('時間戳記', nowObj.getTime());  // 超重要，要算日子都靠這為單位
+    */
+
+
+    //倒數日子
+    // const nowObj=new Date(); //Date object
+    // const trgObj=new Date('2023-12-31 23:59:59');
+
+    // fakeData testing
+    // const nowTime = new Date('2023-06-18 11:04:00:000').getTime();  //time number  單位總毫秒
+    // const trgTime = new Date('2023-06-20 23:59:59:567').getTime();
+
+    // realData 
+    // const nowTime = new Date().getTime();  //time number  單位總毫秒
+    // const trgTime = new Date('2023-12-31 23:59:59:567').getTime();
+
+    // const between = trgTime - nowTime; // 相差 16980959567 毫秒
+    // const between = Math.floor((trgTime - nowTime) / 1000); // 相差 16980959 秒 => ?天?時?分?秒
+    // const between = 86400 * 2 + 71500;
+    // const between = 86400 * 2 + 3600 * 19 + 3100;
+    // let bSec = 0, bMin = 0, bHour = 0, bDay = 0;
+
+    // 1天有 3600*24= 86400
+    // 1時有 3600秒
+    // 1分有 60秒
+    // bDay = Math.floor(between / 86400);
+    // bHour = Math.floor((between % 86400) / 3600);
+    // bMin = Math.floor(between % 86400 % 3600 / 60);
+    // bSec = between % 86400 % 3600 % 60;
+
+
+    // console.log(`跨年還剩下${bDay}天${bHour}時${bMin}分${bSec}秒`);
+
+    function init(myTime) {
+      const nowTime = myTime.start !== null ? new Date(myTime.start).getTime() : new Date().getTime();
+      const trgTime = new Date(myTime.end).getTime();
+      const between = Math.floor((trgTime - nowTime) / 1000);
+      const
+        bDay = Math.floor(between / 86400),
+        bHour = Math.floor((between % 86400) / 3600),
+        bMin = Math.floor(between % 86400 % 3600 / 60),
+        bSec = between % 86400 % 3600 % 60;
+
+      console.log(`跨年還剩下${bDay}天${bHour}時${bMin}分${bSec}秒`);
+      if (myTime.start == null) setTimeout(() => {
+        console.clear();
+        init(myTime);
+      }, 1000);
+    }
+
+    const myTime = {
+      start: null,
+      end: '2023-12-31 23:59:59',
+    }
+
+    init(myTime);
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>常用的方法1(函式)</title>
+</head>
+
+<body>
+  <script>
+    /*
+    const str = 'hello world';
+    console.log(str.length);  //11
+    const ary = [123, 456, 789];
+    console.log(ary.length); //3
+
+    const a = '5';
+    const b = 100;
+
+    console.log(Number(a)+b);  // 5+100
+    console.log(String(b)); // '100'   內建函式專門處理任何東西轉，你可以b多個可能
+    console.log(b.toString()); //'100'  b一定是個數字也有prototype其中有提供toString
+
+    console.log('loki'.toUpperCase());
+    const name="loki";
+    console.log(name.toUpperCase());
+    */
+
+    // Math
+    const num = 6.937;
+    console.log(Math.round(num));  // 4捨5入
+    console.log(Math.ceil(num));  // 無進入
+    console.log(Math.floor(num));  // 無捨去
+    console.log(Math.random());  // 0(含) ~ 0.9999999999(不含)之隨機浮點數
+
+    console.log('---------------');
+
+    //若 想要 1 ~ 10 隨機整數，該如何做
+    // const rand1to10 = Math.random()*10;   // 0 ~  9.99999
+    // const rand1to10 = Math.floor(Math.random()*10);   // 0 ~  9
+    // const rand1to10 = Math.floor(Math.random() * 10) + 1;   // 1 ~  10
+
+    // const rand1to10 = Math.random()*10+1;   // 1 ~  10.99999
+    // const rand1to10 = Math.floor(Math.random()*10+1);   // 1 ~  10
+
+    for (let i = 0; i < 50; i++) {
+      const rand1to10 = Math.floor(Math.random() * 10 + 1);   // 1 ~  10
+      console.log(rand1to10);
+    }
+
+    console.log('------5~37---------');
+
+    // 5 ~ 37 => (0 ~ 32) + 5
+    // const rand5to37=Math.random();   // 0 ~0.999
+    // const rand5to37=Math.random()*32;   // 0 ~0.999 * 32 => 0 ~ 31.99999999
+    // const rand5to37=Math.random()*33;   // 0 ~0.999 * 33 => 0 ~ 32.99999999
+    // const rand5to37=Math.floor(Math.random()*33);   // 0 ~0.999 * 33 => 0 ~ 32
+    // const rand5to37=Math.floor(Math.random()*33)+5;   //  5 ~ 37
+
+    // for(let i=0;i<100;i++){
+    //   const rand5to37=Math.floor(Math.random()*33)+5;   //  5 ~ 37
+    //   console.log(rand5to37);
+    // }
+
+    function rand(min, max) {  //5,37
+      return Math.floor(Math.random() * (max - min + 1)) + min;   //  5 ~ 37
+    }
+
+    console.log('------5~10 by function---------');
+
+    for (let i = 0; i < 100; i++) console.log(rand(5, 10));
+
+    // rand(5,10);
+    // rand(1,10);
+    // rand(5,35);
+    
+    // try 10.0 ~ 20.9 => (100 ~ 209) /10 => (0 ~ 109 +100) / 10
+    // rand(min,max,decimal); => 10.00 ~ 20.99
+    
+  </script>
+</body>
+
+</html>

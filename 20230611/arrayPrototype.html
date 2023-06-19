@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array 函式(prototype 原型鏈)</title>
+</head>
+
+<body>
+  <script>
+    const aryA = [];
+
+    for (let i = 0; i < 10; i++) {
+      aryA.push('A' + i);
+    }
+    aryA.pop();
+
+    // 0 ~ 9
+
+    // function showMe(value, index) {
+    //   console.log('index = ' + index, 'value = ' + value);
+    // }
+
+    console.log('****foreach + name Fn****');
+    function showMe(value) {  //value 接收
+      console.log('value = ' + value);
+      // console.log('B');
+    }
+    // aryA.forEach(showMe);
+
+    aryA.forEach(showMe);
+    // value => showMe 跑 8次 自己的陣列拆成8次批次送交給showMe
+
+    console.log('****foreach + 匿名 Fn****');
+    aryA.forEach(function (v, i) {
+      console.log('value = ' + v, 'index = ' + i);
+    });
+
+    console.log('****ES6 forOf 語句****');
+    for (let val of aryA) {
+      console.log('value = ' + val);
+    }
+
+    console.log('****for 土炮法****');
+    for (let i = 0; i < aryA.length; i++) {
+      console.log('value = ' + aryA[i], 'index = ' + i);
+    }
+
+    console.log('---------------------------------');
+    // console.log(aryA);
+
+    // const mapAryA = aryA.map(function (v, i) {
+    //   return v + v; // 新value
+    // });
+    const mapAryA = aryA.map((v, i) => v + v);
+    // const filterAryA = aryA.filter(function (v, i) {
+    //   // return false; //要還是不要 boolean
+    //   return i % 2 !== 0;
+    // });
+
+    const filterAryA = aryA.filter((v, i) => i % 2 !== 0);
+
+
+
+    // const array1 = [5, 8, 130, 12, 44];
+    // const found = array1.find(element => element > 10);
+
+    const found = aryA.find(function (val){
+      return val === 'A3';
+    });
+
+    console.log(found);
+
+  </script>
+</body>
+
+</html>

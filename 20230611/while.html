@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>While</title>
+</head>
+
+<body>
+  <script>
+    for (let i = 0; i < 9; i++) {
+      console.log(i);
+    }
+
+    let i = 0;
+    while (i < 9) { //是否執行迴圈 todo
+      console.log(i);
+      i++;
+    }
+
+    // i=9
+    do { // 一定會先todo 1次，在判斷是否執行迴圈
+      console.log(i);
+      i++;
+    } while (i < 10); //i=10
+
+    console.log('end');
+  </script>
+</body>
+
+</html>

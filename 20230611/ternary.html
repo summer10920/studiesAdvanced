@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>三元</title>
+</head>
+
+<body>
+  <script>
+    // 三元運算子 where條件 ? true todo : false todo ;
+    const day = 6;  // 1~7 eq. 周1~周日
+    //v1
+    // const message = day < 6 ? 'is word day' : 'is holiday';
+    // console.log(message);
+
+    //v2
+    // console.log(day < 6 ? 'is word day' : 'is holiday');
+
+    //v3
+    const message = day < 6 ? 'is word day' : '';
+    
+    // "||前面" 只要是(null,undefined,'',0,false)的value會當作 false，改由"||後面"指定給ans
+    const ans = message || 'is holiday'; 
+    console.log(ans);
+
+    /////////////////////// vs if-else method
+    // let message = '';
+    // if (day < 6) {
+    //   message = 'is word day'; //在區間內，如果宣告變數，外面就讀不到
+    // }
+    // else {
+    //   message = 'is holiday';
+    // }
+
+    // console.log(message);
+
+  </script>
+</body>
+
+</html>

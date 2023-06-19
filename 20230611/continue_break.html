@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>continue and break</title>
+</head>
+
+<body>
+  <script>
+    // for (let i = 0; i < 10; i++) {
+    //   if (i === 4) continue; //繼續
+    //   if (i === 8) break; //破壞
+    //   console.log('i is ' + i);
+    //   console.log('for end' + i);
+    // }
+
+    // console.log('end');
+
+
+    function parrot(sayString) { //任務結束於return
+      let n = 4;
+
+      while (n > 0) {
+        console.log('鸚鵡: 阿~~~~~');
+        if (sayString === '閉嘴') return null;
+        console.log('鸚鵡: ' + sayString);
+        n--;
+      }
+    }
+  </script>
+</body>
+
+</html>

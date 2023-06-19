@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>timeout</title>
+</head>
+
+<body>
+  <script>
+    // function init() {
+    //   console.log('object');
+    //   // setTimeout(init, 1000);
+    // }
+    // function sayA() {
+    //   console.log('A');
+    //   // setTimeout(init, 1000);
+    // }
+
+    // // const loki=setTimeout(init, 10000);
+
+    // const intervalId = setInterval(() => {
+    //   init();
+    //   sayA();
+    // }, 1000);
+
+    let i = 0;
+    const myId = setInterval(() => {
+      console.log(i);
+      i++;
+      if (i == 5) clearInterval(myId);
+    }, 500);
+  </script>
+</body>
+
+</html>

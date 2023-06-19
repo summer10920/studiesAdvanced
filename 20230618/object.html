@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>object</title>
+</head>
+
+<body>
+  <script>
+    const ary = [
+      'A',
+      'B',
+      'C'
+    ];
+
+    for (const item of ary) { // 拿 value, 陣列用
+      console.log(item);
+    }
+
+    console.log('---------------------');
+
+    const obj = {
+      //key : value
+      cat: '喵喵',
+      'dog': '汪汪',
+      myAry: ['A', 'B', 'C'],
+      data: {
+        apple: "蘋果",
+        banana: "大劍香蕉"
+      }
+    };
+
+    for (const key in obj) { // 拿 key，物件用
+      // const showWord = obj.cat; // 可以因為cat 是關鍵字，等價是一個靜態字串。
+      // const showWord = obj.key; // 失敗因為 key 不是關鍵字是變數，所以用下列寫法
+      const showWord = obj[key];
+      console.log(showWord);
+    }
+
+    console.log('---------------------');
+
+    console.log('cat' in obj);
+    console.log('mouse' in obj);
+
+  </script>
+</body>
+
+</html>

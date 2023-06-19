@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>陣列</title>
+</head>
+
+<body>
+  <script>
+    // let a = 7;
+    // let b = 8;
+    // let c = 9;
+    let aryHas = [20000, 'String', false]; //type array(object)
+
+    //內建的原生函式(原生鍊)  array.??? => array.prototype
+
+    // aryHas.push(123); 
+    // aryHas.push(456); 
+    // aryHas.push(789); 
+    aryHas.push(123, 456, 789);
+
+    // let getIt = aryHas.pop();
+    // let getIt = aryHas.pop();
+    // console.log(getIt);
+    console.log(aryHas.pop());
+    console.log(aryHas['pop']()); //用物件導向觀念有這樣寫法觀念可通，但很少人這樣寫
+    // console.log(aryHas, getIt);
+
+    // const aa = aryHas.shift(); // 20000
+    // console.log(aa);
+
+
+    let aryEmt = []; // 將一個 [] 陣列形式運算表達式 指定給變數
+    let artInit = new Array(); //透過建構子產生一個陣列object 指定給變數
+
+  </script>
+</body>
+
+</html>
