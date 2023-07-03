@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .square {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+
+    .circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: red;
+    }
+
+    .triangle {
+      width: 0;
+      height: 0;
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+      border-bottom: 100px solid red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="triangle" style=""></div>
+  <hr>
+  <input type="button" value="正方型">
+  <input type="button" value="三角型">
+  <input type="button" value="圓型">
+  <input type="text" value="red">
+  <script>
+    const
+      box = document.querySelector('div'),
+      clrImport = () => {
+        // 根據目前的class類型，將input:text的 value 指定到 bg or bbc， style 重洗
+        box.style = box.className === 'triangle' ?
+          'border-bottom-color:' + document.querySelector('input[type=text]').value :
+          'background-color:' + document.querySelector('input[type=text]').value;
+      };
+
+    document.querySelectorAll('input[type=button]').forEach(function (item) {
+      item.addEventListener('click', function () {
+        // console.log(this.value);
+        box.attributes.removeNamedItem('class');
+        switch (this.value) {
+          case '正方型':
+            box.classList.add('square');
+            break;
+          case '三角型':
+            box.classList.add('triangle');
+            break;
+          case '圓型':
+            box.classList.add('circle');
+            break;
+        }
+        clrImport();
+      });
+    });
+
+    document.querySelector('input[type=text]').addEventListener('input', clrImport);
+  </script>
+</body>
+
+</html>

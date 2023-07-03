@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .sample {
+      color: green;
+      font-size: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <input id="demo" type="button" class="t1 t2" value="按鈕" onclick="showAlert('這是 on click 效果')" style="">
+  <hr>
+  <input type="button" value="onClick" onclick="whatIs(this)">
+  <input type="button" value="onMousedown" onmousedown="whatIs(this)">
+  <input type="button" value="onmouseup" onmouseup="whatIs(this)">
+  <input type="button" value="onmouseover" onmouseover="whatIs(this)">
+  <input type="button" value="onmouseout" onmouseout="whatIs(this)">
+  <hr>
+  <label>password: <input type="text" value="" onchange="chkPwd(this)"></label>
+  <!-- change value 當 此node失焦&value改變才會觸發 -->
+  <span id="pwdInfo"></span>
+  <hr>
+  <select onchange="whatIs(this)">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <input type="text" value="focus" onfocus="whatIs(this)"> <!--關注-->
+  <input type="text" value="blur" onblur="whatIs(this)"> <!--失焦-->
+  <hr>
+  <!-- <div id="fakeBtn" onclick="whatIs(this)"></div> -->
+  <div id="fakeBtn"></div>
+  <hr>
+  <div>你按下的鍵盤(<span id="codeName"></span>)之鍵碼為:<span id="keyCode"></span></div>
+  <script>
+    function showAlert(msg) {
+      // alert(msg);
+      console.log(msg);
+
+      document.querySelector('#demo').value = '已點選'; // 以HTML元素之屬性，塞入string
+
+      // document.querySelector('#demo').style.color='red'; //透過style本身的object特性，找到指定key替換 value
+      // document.querySelector('#demo').style.fontSize='2rem';
+
+      // document.querySelector('#demo').style = "color:red; font-size:2rem";  // 以HTML元素之屬性，塞入string
+
+      // document.querySelector('#demo').className='sample';
+      document.querySelector('#demo').classList.add('sample');
+    }
+
+    function whatIs(node) {
+      console.log(node);
+      // console.log(document.querySelector('#loki').value);
+      // console.log(node.value);
+      // console.log(node.style.color);
+      // if (!node.style.color) node.style = 'color:red;font-size:2rem';
+      // else node.style = '';
+      console.log(node.style);
+      node.style = !node.style.color ? 'color:red;font-size:2rem' : '';
+
+    }
+
+    function chkPwd(n) {
+      // if (n.value.length < 9) alert('密碼長度最少8個字');
+      console.log('檢查囉');
+      if (n.value.length < 9) {
+        document.querySelector('#pwdInfo').innerHTML = '密碼長度不足';
+      } else {
+        document.querySelector('#pwdInfo').innerHTML = '';
+      }
+      return;
+    }
+
+    function fakeBtnWorking() {
+      const btn = document.querySelector('#fakeBtn');
+      btn.innerHTML = '假按鈕';
+      btn.style = `
+      background: gainsboro;
+      box-shadow: 1px 1px 4px 0px #0005;
+      cursor: pointer;
+      display: inline-block;
+      padding: 2px 5px;
+    `;
+      // btn.onclick = () => {
+      //   console.log(this); // window== this, 因為箭頭函式沒有this物件導向觀念，所以只會指向到最大整體的window
+      //   // whatIs(btn);
+      // };
+
+      // console.log(this); // window==this
+
+      // bth.onclick=whatIs(btn); // 錯誤觀念，因為等式右邊會執行指令之結果assign給左邊，那whatIs早就跑完了，且onclick不會等於該FN
+
+      /*
+      btn.onclick = function () { // 正確觀念，將一堆工作指令包成一個函式assign給左邊，每當此click作用，會執行該函式內的工作
+        console.log(this); //btn == this
+        whatIs(btn);
+      };
+      */
+
+      // btn.onclick = () => {
+      // btn.onclick = (event) => {
+      //   whatIs(event.target);
+      // };
+
+      btn.onclick = (e) => {
+        whatIs(e.target);
+      };
+    }
+    fakeBtnWorking();
+
+    document.onkeydown = function (e) { // e==event
+      console.log(e);
+      document.querySelector('#codeName').innerHTML = e.code;
+      document.querySelector('#keyCode').innerHTML = e.keyCode;
+
+      if(e.keyCode===123) e.preventDefault();
+    }
+
+    document.oncontextmenu=function(e){ // 右鍵事件發生時
+      e.preventDefault(); // 將該e事件原本Default要執行的事情cancel
+    }
+
+    // document.oncopy=function(){
+    //   console.log('copying');
+    // }
+
+    onresize=function(e){
+      console.log(window.innerWidth);
+    }
+
+
+
+  </script>
+</body>
+
+</html>

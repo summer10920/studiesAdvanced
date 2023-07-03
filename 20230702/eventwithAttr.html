@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <p class="txt" title="message"> click me !!</p>
+  <input type="text" id="input" placeholder="請輸入">
+  <div></div>
+  <script>
+    document.querySelector('p').addEventListener('click', function () {
+      const btn = document.createElement('button');
+      btn.textContent = 'YA';
+      btn.style.color = 'red';
+
+      // 遍歷的觀念在jQuery為重點介紹，JS DOM也是可以做(做久就習慣了)，畢竟JQ是JS的延伸套件
+      // document.querySelector('body')
+      // document.body.append(btn);
+      document.body.prepend(btn);
+      // document.body.insertBefore(btn, document.querySelector('input'));
+      if (document.querySelector('input') !== null) document.querySelector('input').remove();
+    });
+
+  </script>
+  <!-- <button type="button">YA</button> -->
+</body>
+
+</html>

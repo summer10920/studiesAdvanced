@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="button" id="ock" value="try try">
+  <input type="button" id="cancelOver1" value="cancel over1">
+  <script>
+    function clickToDo() {
+      console.log('clicking!!!');
+    }
+    function over1ToDo() {
+      console.log('mouse hovering version 1!!!');
+    }
+    function over2ToDo() {
+      console.log('mouse hovering version 2!!!');
+    }
+
+    const btn = document.querySelector('#ock');
+    btn.addEventListener('click', clickToDo);
+    btn.addEventListener('mouseover', over1ToDo);
+    btn.addEventListener('mouseover', over2ToDo);
+
+    document.addEventListener('contextmenu', function (e) {
+      e.preventDefault();
+    });
+
+    document.querySelector('#cancelOver1').addEventListener('click', function () {
+      btn.removeEventListener('mouseover', over1ToDo);
+    });
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>

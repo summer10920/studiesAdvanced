@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 400px;
+      text-align: center;
+      height: 550px;
+      justify-content: space-around;
+    }
+
+    .row {
+      display: flex;
+      width: 330px;
+      flex-flow: row wrap;
+    }
+
+    img {
+      width: 100px;
+      background: yellow;
+      border: 5px solid gray;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content">
+    <div class="row">
+      <img src="imgs/yellow.png">
+      <img src="imgs/yellow.png">
+      <img src="imgs/yellow.png">
+      <img src="imgs/yellow.png">
+      <img src="imgs/yellow.png">
+      <img src="imgs/yellow.png">
+      <img src="imgs/yellow.png">
+      <img src="imgs/yellow.png">
+      <img src="imgs/yellow.png">
+    </div>
+    <div class="control">
+      <label>剩餘時間:<span id="time">0</span>s </label>
+      <button>遊戲開始</button>
+      <span id="count">成績分數:95</span>
+    </div>
+    <div class="gameInfo">
+      <hr>
+      <h2>遊戲說明 </h2>
+      <p>按下遊戲開始之後，請利用電腦鍵盤數字 1~9 作為打地鼠動作。或也能支援手機畫面點選。</p>
+      <hr>
+    </div>
+  </div>
+  <script>
+    /*初始宣告區*/
+    const btn = document.querySelector('button');
+    const timeNode = document.querySelector('#time');
+    const countNode = document.querySelector('#count');
+    let time, count;
+
+    //遊戲開始
+    const gameStart = function () {
+      //關閉按鈕，避免重複
+      btn.removeEventListener('click', gameStart);
+      btn.disabled = true;
+
+      //初始校正歸零
+      time = 60;
+      count = 0;
+      timeNode.textContent = time;
+      countNode.innerHTML = `成績分數:${count}`;
+
+      const timing = setInterval(function () {
+        if (time === 0) {
+          //取消倒數，開放按鈕
+          clearInterval(timing);
+          btn.addEventListener('click', gameStart);
+          btn.disabled = false;
+        } else {
+          time--;
+          timeNode.innerHTML = time;
+        }
+      }, 1000);
+
+      for (let i = 0; i < 100; i++) { //產生 100 個餓肚子 red 事件
+        const
+          atTime = 0,  // 0 ~ 60s 之間， random 0 ~ 56000ms
+          atSpcae = 0, // 0 ~ 9
+          atShow = 0; // 2 ~ 4 s
+
+      }
+
+    };
+
+    btn.addEventListener('click', gameStart);
+
+
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+
+    .square {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    .circle {
+      clip-path: circle(50.0% at 50% 50%);
+    }
+
+    .triangle {
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="triangle"></div>
+  <hr>
+  <input type="button" value="正方型">
+  <input type="button" value="三角型">
+  <input type="button" value="圓型">
+  <input type="text" value="red">
+  <script>
+    const box = document.querySelector('div');
+
+    document.querySelectorAll('input[type=button]').forEach(function (item) {
+      item.addEventListener('click', function () {
+        // console.log(this.value);
+        box.attributes.removeNamedItem('class');
+        switch (this.value) {
+          case '正方型':
+            box.classList.add('square');
+            break;
+          case '三角型':
+            box.classList.add('triangle');
+            break;
+          case '圓型':
+            box.classList.add('circle');
+            break;
+        }
+      });
+    });
+
+    document.querySelector('input[type=text]').addEventListener('input', () => {
+      box.style = 'background-color:' + document.querySelector('input[type=text]').value;
+    });
+  </script>
+</body>
+
+</html>
