@@ -11,6 +11,7 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
+      margin: 0;
     }
 
     .content {
@@ -34,13 +35,21 @@
       background: yellow;
       border: 5px solid gray;
     }
+
+    .red {
+      background: red;
+    }
+
+    .green {
+      background: green;
+    }
   </style>
 </head>
 
 <body>
   <div class="content">
     <div class="row">
-      <img src="imgs/yellow.png">
+      <img src="imgs/yellow.png" class="red">
       <img src="imgs/yellow.png">
       <img src="imgs/yellow.png">
       <img src="imgs/yellow.png">
@@ -67,12 +76,12 @@
     const btn = document.querySelector('button');
     const timeNode = document.querySelector('#time');
     const countNode = document.querySelector('#count');
+    const animal = document.querySelectorAll('img');
+    const toYellow = [];
     let time, count;
 
-    //遊戲開始
-    const gameStart = function () {
-      //關閉按鈕，避免重複
-      btn.removeEventListener('click', gameStart);
+    const gameStart = function () { //遊戲開始
+      btn.removeEventListener('click', gameStart); //關閉按鈕，避免重複
       btn.disabled = true;
 
       //初始校正歸零
@@ -82,8 +91,7 @@
       countNode.innerHTML = `成績分數:${count}`;
 
       const timing = setInterval(function () {
-        if (time === 0) {
-          //取消倒數，開放按鈕
+        if (time === 0) { //取消倒數，開放按鈕
           clearInterval(timing);
           btn.addEventListener('click', gameStart);
           btn.disabled = false;
@@ -94,19 +102,84 @@
       }, 1000);
 
       for (let i = 0; i < 100; i++) { //產生 100 個餓肚子 red 事件
-        const
-          atTime = 0,  // 0 ~ 60s 之間， random 0 ~ 56000ms
-          atSpcae = 0, // 0 ~ 9
-          atShow = 0; // 2 ~ 4 s
+        // const
+        //   atTime = Math.floor(Math.random() * 56000),  // 0 ~ 60s 之間， random 0 ~ 55999ms
+        //   atSpace = Math.floor(Math.random() * 9), // 0 ~ 8
+        //   atShow = Math.floor(Math.random() * 3) + 2; // 2 ~ 4 s
+        const showObj = {
+          space: Math.floor(Math.random() * 9),
+          show: Math.floor(Math.random() * 3) + 2, // 2 ~ 4 
+          id: i
+        }
 
+        setTimeout(() => {
+          showIt(showObj); // 處理呈現的fn
+        }, Math.floor(Math.random() * 56000));
       }
-
     };
 
+    const showIt = (obj) => {
+      if (animal[obj.space].classList.length === 0) { // 如果是黃色(class沒有指定), yellow to red
+        animal[obj.space].src = 'imgs/red.png'; //轉紅
+        animal[obj.space].classList.add('red');
+        animal[obj.space].dataset.id = obj.id; // 記下動物id
+        toYellow[obj.id] = setTimeout(() => { // 曝光一段時間後，自己轉黃
+          animal[obj.space].src = 'imgs/yellow.png';
+          animal[obj.space].classList.remove('red');
+        }, obj.show * 1000);
+      } else { //想要的位置沒了，重新再安排一次新位置
+        obj.space = Math.floor(Math.random() * 9); // 0 ~ 8
+        setTimeout(() => {
+          showIt(obj);
+        }, 100); // 避免記憶體瞬間塞滿，稍慢執行
+      }
+    }
+
+    const getCount = (at) => {  // 評估哪個位置，進行得分作業與計算分數
+      if (animal[at].classList.contains('red')) {
+        animal[at].classList.remove('red');
+        animal[at].classList.add('green');
+        animal[at].src = 'imgs/green.png';
+
+        clearTimeout(toYellow[animal[at].dataset.id]); // 透過動物id找到timeout編號進行取消
+        delete animal[at].dataset.id;
+
+        setTimeout(() => {
+          animal[at].classList.remove('green');
+          animal[at].src = 'imgs/yellow.png';
+        }, 1000);
+
+        countNode.innerHTML = `成績分數:${++count}`;
+      }
+    }
+
+    // event 行為區
+    // btn.addEventListener('click', function(){
+    //   gameStart();
+    // });
     btn.addEventListener('click', gameStart);
-
-
-
+    document.onkeydown = function (e) { // e==event
+      // console.log(e.keyCode);
+      // switch (e.keyCode) {
+      //   case 103: getCount(0); break;
+      //   case 104: getCount(1); break;
+      //   case 105: getCount(2); break;
+      //   case 100: getCount(3); break;
+      //   case 101: getCount(4); break;
+      //   case 102: getCount(5); break;
+      //   case 97: getCount(6); break;
+      //   case 98: getCount(7); break;
+      //   case 99: getCount(8); break;
+      // }
+      const code2At = [103, 104, 105, 100, 101, 102, 97, 98, 99];
+      getCount(code2At.findIndex(item => item === e.keyCode));
+    }
+    animal.forEach(function (v, i) {
+      // v.addEventListener('click', getCount(i)); // 錯誤寫法，需指定FN不是執行FN
+      v.addEventListener('click', function () { // 指定FN(匿名)，內容指令才是執行FN
+        getCount(i);
+      });
+    });
 
   </script>
 </body>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .hot,
+    #header {
+      color: red;
+    }
+  </style>
+  <script src="jquery-3.7.0.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script> -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script> -->
+  <script>
+    window.onload = function () { //JS: window 載入完畢
+      console.log(document.querySelector('#three').textContent, 0);
+    }
+
+    $(window).on('load', function () {  //JQ: window 載入完畢
+      console.log($('#three').text(), 1);
+    });
+
+    // const init = function () {
+    //   console.log('可開始初始作業',3);
+    // }
+    // $(init);
+    $(function () {
+      console.log('可開始初始作業', 3);
+    });
+    
+    $(document).ready(function () { //JQ: DOM 生成準備完畢
+      console.log($('#three').text(), 2);
+    })
+
+</script>
+</head>
+
+<body>
+  <div id="page">
+    <h1 id="header">MyjQueryDemo List</h1>
+    <h2>我的代辦事項</h2>
+    <ul>
+      <li id="one" class="hot"><b>買</b> 晚餐</li>
+      <!-- $('#two').before('htmlCode') -->
+      <li id="two" class="hot">練程式</li>
+      <li id="three" class="hot">打電動</li>
+      <li id="four" style="background:red">記得去洗澡</li>
+    </ul>
+    <input type="text" value="name input">
+    <input type="button" value="sumbit button">
+    <img src="https://fakeimg.pl/300x200" width="300" height="200">
+    <img src="https://fakeimg.pl/300x200" width="300" height="200">
+    <img src="https://fakeimg.pl/300x200" width="300" height="200">
+    <img src="https://fakeimg.pl/300x200" width="300" height="200">
+    <img src="https://fakeimg.pl/300x200" width="300" height="200">
+    <img src="https://fakeimg.pl/300x200" width="300" height="200">
+    <img src="https://fakeimg.pl/300x200" width="300" height="200">
+    <img src="https://fakeimg.pl/300x200" width="300" height="200">
+    <img src="https://fakeimg.pl/300x200" width="300" height="200">
+  </div>
+</body>
+
+</html>

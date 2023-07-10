@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+    integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+    crossorigin="anonymous"></script>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      background: lightcyan;
+    }
+  </style>
+</head>
+
+<body>
+  <button>BUTTON 1</button>
+  <button>BUTTON 2</button>
+  <button>BUTTON 3</button>
+  <div>DIV</div>
+  <form action="">
+    <input type="text" value="text">
+    <input type="submit" value="send">
+  </form>
+  <script>
+    function eventListenerToDo() {
+      console.log('button click!!');
+    }
+    function eventListenerToDoV2() {
+      console.log('button click!! ver 2');
+    }
+
+    // document.querySelector('button').addEventListener('click', function () { });
+    $('button').on('click', eventListenerToDo);  // equal addEventListener(),removeEventListener
+    $('button').off('click', eventListenerToDo);
+
+    // 同上面，簡化 click, hover, submit 寫法
+    $('button').click(eventListenerToDoV2);
+    // $('button').off('click',eventListenerToDoV2); // 可以取消
+
+    // $('div').hover(inToDo,outToDo)
+    $('div').hover(function () {
+      console.log('equal mouse over');
+    });
+
+
+    $('form').submit(function (e) {
+      e.preventDefault();
+      console.log('提交唷!');
+    });
+
+  </script>
+</body>
+
+</html>
