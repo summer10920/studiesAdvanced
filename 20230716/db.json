@@ -1,0 +1,13 @@
+{
+  "movieSlider": {
+    "list": {
+      "03A01": "img/03A01.jpg",
+      "03A02": "img/03A02.jpg",
+      "03A03": "img/03A03.jpg",
+      "03A04": "img/03A04.jpg",
+      "03A05": "img/03A05.jpg",
+      "03A06": "img/03A06.jpg"
+    },
+    "effect": 5
+  }
+}

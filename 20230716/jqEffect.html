@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+    integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+    crossorigin="anonymous"></script>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background: lightcoral;
+      color: white;
+      font-size: 2rem;
+      position: relative;
+    }
+
+    div>h1 {
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <button>show(no time)</button>
+  <button>show</button>
+  <button>hide</button>
+  <button>toggle</button>
+  <button>fadeIn</button>
+  <button>fadeOut</button>
+  <button>fadeToggle</button>
+  <button>fadeTo0.5</button>
+  <button>fadeTo1</button>
+  <button>fadeToggleOfDelay</button>
+  <button>slideDown</button>
+  <button>slideUp</button>
+  <button>slideToggle</button>
+  <button style="color:red;font-weight: bold">STOP</button>
+  <button>animate1</button>
+  <button>animate2</button>
+  <button>animate3</button>
+  <hr>
+  <div>
+    <h1>Hello World</h1>
+  </div>
+  <hr>
+  <script>
+    // $('button').click((event) => {
+    //   console.log($(event.target).text());
+    // });
+    const box = $('div');
+    $('button').click(function () {
+      // console.log(this.textContent);
+      // console.log($(this).text());
+      switch ($(this).text()) {
+        case 'show(no time)':
+          box.show(0, function () {
+            console.log('show done without times & easing');
+          });
+          break;
+        case 'show':
+          box.show(5000, function () {
+            console.log('show done');
+          });
+          break;
+        case 'hide':
+          box.hide('fast', function () {
+            console.log('hide done');
+          });
+          break;
+        case 'toggle':
+          box.toggle('fast', function () {
+            console.log('toggle done');
+          });
+          break;
+        case 'fadeIn':
+          box.fadeIn('slow');
+          break;
+        case 'fadeOut':
+          box.fadeOut('slow');
+          break;
+        case 'fadeToggle':
+          box.fadeToggle('slow', function () {
+            console.log('fadeToggle Done');
+          });
+          break;
+        case 'fadeTo0.5':
+          box.fadeTo('slow', 0.5, function () {
+            console.log('fadeTo 0.5 Done');
+          });
+          break;
+        case 'fadeTo1':
+          box.fadeTo('slow', 1, function () {
+            console.log('fadeTo 1 Done, equals fadeIn');
+          });
+          break;
+        case 'fadeToggleOfDelay':
+          box.delay('slow').fadeToggle();
+          break;
+        case 'slideDown':
+          box.slideDown(3000);
+          break;
+        case 'slideUp':
+          box.slideUp(3000);
+          break;
+        case 'slideToggle':
+          box.slideToggle(3000);
+          break;
+        case 'STOP':
+          box.stop();
+          break;
+        case 'animate1':
+          box.animate({
+            width: '300px',
+            left: '100px',
+            opacity: 0.5
+          }, 5000);
+          break;
+        case 'animate2':
+          box.animate({
+            width: '+=50px',
+            opacity: '-=0.25'
+          }, 'fast');
+          break;
+        case 'animate3':
+          box.animate({
+            left: '+=100px',
+            opacity: '-=0.25',
+          }, 5000, function () {
+            $(this).css('display', 'none');
+          });
+          break;
+      }
+    });
+  </script>
+</body>
+
+</html>

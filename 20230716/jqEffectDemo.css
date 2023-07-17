@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  background: #335582;
+  color: white;
+}
+
+#main {
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  
+  width: fit-content;
+  overflow: hidden;
+}
+
+.control {
+  width: 400px;
+  margin: 10px 30px;
+}
+
+.control img {
+  width: 90px;
+  padding: 0 5px;
+  cursor: pointer;
+}
+
+#box {
+  flex: 0 0 414px;
+  /* width: 100%; */
+  transform: scale(1);
+  transition: transform 0.5s;
+  
+  /* overflow: hidden; */
+  position: relative;
+  left: 0;
+}
+
+#box.scale {
+  transform: scale(0);
+}

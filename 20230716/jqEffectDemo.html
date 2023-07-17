@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="jqEffectDemo.css">
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <!-- <link rel="stylesheet" href="slick/slick-theme.css"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+    integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
+    crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+    integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+    crossorigin="anonymous"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+</head>
+
+<body>
+  <!-- #main>h1+#box>img+p^.control -->
+  <div id="main">
+    <h1>預告片介紹</h1>
+    <div id="box">
+      <img src="img/03A06.jpg">
+      <p>key</p>
+    </div>
+    <div class="control"></div>
+  </div>
+  <script>
+    let myObj = {};
+    let autoRunNum = null;
+    let delayRunNum = null;
+
+
+    // $.getJSON('db.json', function (response) { // jquery AJAX 做非同步存取方法之一
+    //   myObj = response.movieSlider;
+    //   todo();
+    // });
+
+    $.ajax({
+      type: 'GET',
+      url: 'db.json',
+      success: function (response) {
+        console.log(response,typeof(response));
+        myObj = response.movieSlider;
+        todo();
+      },
+      dataType: 'json'
+    });
+
+    function todo() { //取得JSON內的物件之後開始工作
+      // console.log(myObj.list);
+      for (const key in myObj.list) {
+        // console.log(key,obj.list[key]);
+        // console.log(`<img src="${obj.list[key]}" alt="${key}">`);
+        $('.control').append(`<img src="${myObj.list[key]}" alt="${key}">`);
+      }
+
+      $('.control').slick({
+        infinite: true,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        dots: true,
+      });
+
+      // console.log(Object.keys(myObj.list)[0], myObj.list[Object.keys(myObj.list)[0]]);
+      // console.log(Object.keys(myObj.list)[0], Object.values(myObj.list)[0]);
+      $('#box>img').attr('src', Object.values(myObj.list)[0]);
+      $('#box>p').text(Object.keys(myObj.list)[0]);
+
+      // // imgs click
+      // $('.control img').click(function () {
+      //   // console.log(this);
+      //   // const mTarget = {
+      //   //   name: $(this).attr('alt'),
+      //   //   img: $(this).attr('src')
+      //   // }
+      //   // console.log(mTarget);
+      //   swap({ name: $(this).attr('alt'), img: $(this).attr('src') });
+      //   clearInterval(autoRunNum);
+      //   auto($(this).attr('alt'));
+      // });
+
+      // imgs hover ver.
+      // $('.control img').hover(callback,callback);
+      $('.control img').hover(
+        function () {
+          const img = $(this);
+          clearInterval(autoRunNum);
+          clearTimeout(delayRunNum);
+          delayRunNum = setTimeout(function () {
+            swap({ name: img.attr('alt'), img: img.attr('src') });
+          }, 500);
+        },
+        function () {
+          const img = $(this);
+          clearTimeout(delayRunNum);
+          delayRunNum = setTimeout(function () {
+            auto(img.attr('alt'));
+          }, 200);
+        }
+      );
+
+      auto(Object.keys(myObj.list)[0]);
+    }
+
+    function swap(obj) {
+      // console.log(obj);
+      const box = $('#box');
+      switch (myObj.effect) {
+        case 1:
+          box.fadeOut(function () {
+            // $('#box>img').attr('src', Object.values(obj.list)[0]);
+            // $('#box>p').text(Object.keys(obj.list)[0]);
+
+            // box.children('img').attr('src', obj.img);
+            // box.find('p').text(obj.name);
+            // box.fadeIn();
+            $(this).children('img').attr('src', obj.img).siblings('p').text(obj.name).parent().fadeIn();
+          });
+          break;
+        case 2:
+          box.toggle(function () {
+            $(this).children('img').attr('src', obj.img).siblings('p').text(obj.name).parent().toggle('fast');
+          });
+          break;
+        case 3:
+          //失敗，因為flex-basis 固定高所以height被咬死
+          box.slideToggle(function () {
+            $(this).children('img').attr('src', obj.img).siblings('p').text(obj.name).parent().slideToggle('fast');
+          });
+          break;
+        case 4:
+          box.toggleClass('scale');
+          setTimeout(function () {
+            box.children('img').attr('src', obj.img).siblings('p').text(obj.name).parent().toggleClass('scale');
+          }, 500);
+          break;
+        case 5:
+          box.animate({ left: "-100%" }, function () {
+            $(this)
+              .children('img').attr('src', obj.img)
+              .siblings('p').text(obj.name)
+              .parent().css({ left: '100%' }).animate({ left: '0' });
+          });
+          break;
+      }
+    }
+
+    function auto(atName) {  // name
+      // const atIdx = Object.keys(myObj.list).indexOf(atName);  // index=0
+      // const nextIdx = (atIdx + 1) % Object.keys(myObj.list).length; // index => 1
+
+      let newIdx = Object.keys(myObj.list).indexOf(atName);  // name => 0
+
+      autoRunNum = setInterval(function () {
+        newIdx = (newIdx + 1) % Object.keys(myObj.list).length;  //0->1  , 1->2, ... 5 -> 0
+
+        const newName = Object.keys(myObj.list)[newIdx]; // 1 => 03A02
+        swap({ name: newName, img: myObj.list[newName] });  // { name:03A02, img:'img/03A02.jpg' }
+
+      }, 2000);
+    }
+  </script>
+</body>
+
+</html>
