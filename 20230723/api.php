@@ -1,12 +1,16 @@
 <?php
+header('Access-Control-Allow-Origin:*');
 $db = new PDO("mysql:host=127.0.0.1;dbname=jq_sample;charset=utf8", "test", "test");
 date_default_timezone_set('asia/Taipei');
 // 取得 PDO 物件，另外順便校正 PHP 時差
 
 // 這裡用 switch 是因為還有其他 Ajax 提交，因此利用 GET 來做區分判斷處理。
 switch ($_GET['do']) {
+  case 'hello':
+    echo '<h1>hello world</h1>';
+    break;
   case 'select':
-    $sql = "SELECT * FROM ajax_animal limit " . $_POST['start'] . ",10";
+    $sql = "SELECT * FROM ajax_animal ORDER BY id DESC limit " . $_POST['start'] . ",10";
     $rows = $db->query($sql)->fetchAll();
     // print_r($_POST);
     // print_r($rows);
@@ -26,7 +30,8 @@ switch ($_GET['do']) {
           </tr>
         ';
       }
-    } else echo 'fail';
+    } else if (count($rows) === 0) echo 'empty';
+    else echo 'fail';
     // SQL 內取得所有動物資料，由 foreach 規劃完整 tr>td，使前端單純 HTML 替換即可。
     break;
   case 'update':

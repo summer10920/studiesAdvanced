@@ -1,0 +1,187 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jqAjax-animal</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+    integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+    crossorigin="anonymous"></script>
+  <style>
+    .insertZone {
+      position: fixed;
+      background: #333333AA;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-basis: 50%;
+      color: white;
+      font-weight: bolder;
+      text-align: center;
+    }
+
+    .insertZone>form {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <table width="100%">
+    <thead>
+      <tr>
+        <td>編號</td>
+        <td>動物名</td>
+        <td>重量</td>
+        <td>簡介</td>
+        <td>更新日期</td>
+        <td>操作</td>
+      </tr>
+      <tr>
+        <td colspan="6">
+          <hr>
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- after api to insert here -->
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="6" style="text-align: center;">
+          <hr>
+          <button onclick="addDialog()">新增</button>
+          <button class="load" onclick="loading()">加載</button>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+  <div class="insertZone" style="display: none;"></div>
+  <script>
+    // $.ajax({
+    //   type: 'GET',
+    //   url: 'http://192.168.211.1/api.php',
+    //   data: { do: 'hello' },
+    //   success: function (res) {
+    //     console.log(res);
+    //   }
+    // });
+    // $.get('http://192.168.211.1/api.php?do=hello', function (res) {
+    //   console.log(res);
+    //   // $('table').html(res);
+    // });
+    let start = 0;
+    const api = 'http://192.168.211.1/api.php?do=';
+
+    function loading() {
+      $.post(api + 'select', { start }, function (res) {
+        if (res === 'empty') $('.load').prop('disabled', true);
+        else if (res === 'fail') alert('資料庫連線失敗');
+        else {
+          $('tbody').append(res);
+          $('.mdy').click(chgInput);
+        }
+      });
+      start += 10;
+    }
+
+    function chgInput() {
+      const items = $(this).parent().siblings();
+      items.parent().html(`
+        <td>
+          <input name="id" value="${items.eq(0).text()}" type="hidden">
+          ${items.eq(0).text()}
+        </td>
+        <td><input name="name" value="${items.eq(1).text()}"></td>
+        <td><input name="weight" value="${items.eq(2).text()}"></td>
+        <td><input name="info" value="${items.eq(3).text()}"></td>
+        <td>${items.eq(4).text()}</td>
+        <td>
+          <button onclick="chgTxt(this)">儲存</button>
+        </td>
+      `);
+    }
+
+    function chgTxt(who) {
+      // console.log($(who).parents('tr').find('input').serialize());
+      const data = $(who).parents('tr').find('input').serialize();
+      $.post(api + 'update', data, function (createTime) {
+        // $('tbody').empty();
+        // start=0;
+        // loading();
+        const items = $(who).parent().siblings();
+        items.parent().html(`
+          <td>${items.eq(0).text()}</td>
+          <td>${items.eq(1).children().val()}</td>
+          <td>${items.eq(2).children().val()}</td>
+          <td>${items.eq(3).children().val()}</td>
+          <td>${createTime}</td>
+          <td>
+            <button class="mdy">修改</button>
+            <button onclick="del(this)">刪除</button>
+          </td>
+        `);
+        $('.mdy').click(chgInput);
+      });
+    }
+
+    function del(who) {
+      // console.log($(who).parents('tr').children().first().text());
+      // console.log($(who).parent().siblings().first().text());
+      $.post(api + 'delete', {
+        id: $(who).parent().siblings().first().text()
+      }, function (res) {
+        $(who).parents('tr').remove();
+      });
+    }
+
+    function addDialog() {
+      $('.insertZone').html(`
+        <form action="api.html" onsubmit="return sendApi(this)">
+          <h1>新增動物資料</h1>
+          <hr>
+          <p>動物: <input type="text" name="name"></p>
+          <p>重量: <input type="text" name="weight"></p>
+          <p>簡介: <input type="text" name="info"></p>
+          <hr>
+          <p>
+            <!-- <button type="button" onclick="closeDialog()">取消</button> -->
+            <input type="button" value="取消" onclick="closeDialog()">
+            <!-- <button onclick="sendApi(this,event)">儲存</button> -->
+            <button onclick="">儲存</button>
+          </p>
+        </form>
+      `).fadeIn();
+    }
+    loading();
+    // $('button').on('click',loading);
+
+    function closeDialog() {
+      console.log('close');
+      $('.insertZone').fadeOut();
+    }
+    // function sendApi(who,e) {
+    //   e.preventDefault();
+    //   console.log(who);
+    //   $('.insertZone').fadeOut();
+    // }
+
+    function sendApi(who) {
+      // console.log($(who).find('input').not(':button').serialize());
+      // console.log($(who).serialize());
+      $.post(api + 'insert', $(who).serialize(), function (res) {
+        if (res === 'inserted') {
+          $('tbody').empty();
+          start = 0;
+          loading();
+        }
+        else alert('新增失敗');
+      });
+
+      $('.insertZone').fadeOut().empty();
+      return false;
+    }
+  </script>
+</body>
