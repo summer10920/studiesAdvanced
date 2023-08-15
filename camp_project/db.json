@@ -47,7 +47,7 @@
     {
       "date": "2023-08-22",
       "sellout": {
-        "aArea": 1,
+        "aArea": 2,
         "bArea": 1,
         "cArea": 1,
         "dArea": 1
@@ -56,7 +56,7 @@
     {
       "date": "2023-08-23",
       "sellout": {
-        "aArea": 10,
+        "aArea": 1,
         "bArea": 10,
         "cArea": 10,
         "dArea": 10
@@ -74,7 +74,7 @@
     {
       "date": "2023-08-25",
       "sellout": {
-        "aArea": 10,
+        "aArea": 4,
         "bArea": 8,
         "cArea": 10,
         "dArea": 10
