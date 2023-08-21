@@ -25,13 +25,17 @@
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/localeData.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/isSameOrBefore.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/isBetween.js"></script>
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <!-- custom -->
   <link rel="stylesheet" href="plugins/style.css">
   <link rel="stylesheet" href="plugins/lokiCalendar.css">
+  <link rel="stylesheet" href="plugins/lokiLightBox.css">
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#lokiMenu">
-  <nav class="navbar navbar-expand-lg text-bg-dark navbar-dark position-fixed top-0 w-100">
+  <nav class="navbar navbar-expand-lg text-bg-secondary navbar-dark position-fixed top-0 w-100">
     <div class="container">
       <a class="navbar-brand" href="#"><i class="fa-solid fa-campground"></i> 洛奇營地渡假村</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#lokiMenu">
@@ -99,10 +103,10 @@
   </section>
   <section id="lokiPallet" class="container pt-5">
     <div class="row row-cols-4 g-0">
-      <img class="col img-fluid" src="media/imgs/palletHeader01.jpg">
-      <img class="col img-fluid" src="media/imgs/palletHeader02.jpg">
-      <img class="col img-fluid" src="media/imgs/palletHeader03.jpg">
-      <img class="col img-fluid" src="media/imgs/palletHeader04.jpg">
+      <img class="col img-fluid" src="media/imgs/palletHeader01.jpg" data-aos="fade-in" data-aos-delay="0">
+      <img class="col img-fluid" src="media/imgs/palletHeader02.jpg" data-aos="fade-left" data-aos-delay="300">
+      <img class="col img-fluid" src="media/imgs/palletHeader03.jpg" data-aos="fade-up" data-aos-delay="900">
+      <img class="col img-fluid" src="media/imgs/palletHeader04.jpg" data-aos="fade-down" data-aos-delay="600">
     </div>
     <header class="h2 my-5 border-start border-5 border-secondary ps-3">營位介紹</header>
     <article class="row row-cols-1 row-cols-md-2 flex-row-reverse g-4 gx-md-4 gy-md-0 overflow-hidden">
@@ -674,14 +678,12 @@
         並僅作為學術用途。 <br>Copyright © 2022 <span class="text-white">洛奇數位設計</span>. all rights reserved </small>
     </div>
   </footer>
-  <script src="plugins/custom.js"></script>
-  <script src="plugins/lokiCalendar.js"></script>
   <section class="offcanvas offcanvas-start" data-bs-backdrop="static">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title">訂位確認</h5>
       <button class="btn-close" data-bs-dismiss="offcanvas"></button>
     </div>
-    <form id="orderForm" class="offcanvas-body  needs-validation" novalidate>
+    <form id="orderForm" class="offcanvas-body needs-validation" novalidate>
       <div class="card mb-3">
         <ol class="list-group list-group-flush list-group-numbered">
           <li class="list-group-item d-flex justify-content-between align-items-start">
@@ -737,6 +739,23 @@
       </div>
     </form>
   </section>
+  <section id="lokiLightBox" style="display: none">
+    <div class="mainZone">
+      <img src="media/imgs/park01.jpg" class="img-fluid">
+      <p>Lorem ipsum dolor sit amet.</p>
+    </div>
+    <div class="control">
+    </div>
+    <div class="backdrop"></div>
+  </section>
+  <div id="lokiCookie">
+    <h4>Cookie 之使用</h4>
+    <p>為提供您更完善之個人化與即時服務，本網站運用 Cookies 技術，記錄、存取及蒐集您的瀏覽使用資訊，若您欲停用 Cookies 技術支援者，請自行操作瀏覽器設定加以排除，但有可能無法使用本網站之部分服務。</p>
+    <button class="btn btn-outline-light float-end">我了解</button>
+  </div>
+  <script src="plugins/custom.js"></script>
+  <script src="plugins/lokiCalendar.js"></script>
+  <script src="plugins/lokiLightBox.js"></script>
 </body>
 
 </html>
