@@ -1,0 +1,65 @@
+<?php
+// require_once("./function.php");
+session_save_path('tmp');
+session_start();
+if (isset($_SESSION['admin'])) header('Location:/admin.php');
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>洛奇度假村 - 管理登入</title>
+  <link href="/plugins/admin-styles.css" rel="stylesheet" />
+  <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="bg-primary">
+  <div id="layoutAuthentication">
+    <div id="layoutAuthentication_content">
+      <main>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-5">
+              <div class="card shadow-lg border-0 rounded-lg mt-5">
+                <div class="card-header">
+                  <h3 class="text-center font-weight-light my-4">SIGN IN</h3>
+                </div>
+                <div class="card-body">
+                  <form action="function?do=login" method="post">
+                    <div class="form-floating mb-3">
+                      <input class="form-control" id="inputAccount" name="inputAccount" type="text" placeholder="name@example.com" required />
+                      <label for="inputAccount">Account</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input class="form-control" id="inputPassword" name="inputPassword" type="password" placeholder="Password" required />
+                      <label for="inputPassword">Password</label>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center mt-4 mb-0">
+                      <input type="submit" class="btn btn-primary" value="Login">
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <div id="layoutAuthentication_footer">
+      <footer class="bg-dark mt-auto">
+        <div class="text-muted py-3 text-center">
+          <small class="container"> 泰山職業訓練中心課程教材編譯，本圖片素材引用來源自 <a href="https://startbootstrap.com/theme/sb-admin-2">SB
+              Admin 2</a> 並僅作為學術用途。 <br>Copyright © 2023 <span class="text-white">洛奇數位設計</span>. all rights reserved
+          </small>
+        </div>
+      </footer>
+    </div>
+  </div>
+</body>
+
+</html>
