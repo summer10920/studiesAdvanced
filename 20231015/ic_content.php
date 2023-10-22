@@ -30,7 +30,7 @@ if (!empty($_GET['movie'])) {
   }
   include_once('ic_layout.php');
   // echo '<a href="ic_content.php">Go Back</a>';
-echo 'run';
+// echo 'run';
 } else {
 ?>
   <ul>
