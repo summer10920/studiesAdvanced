@@ -1,0 +1,59 @@
+{
+  "sqltools.connections": [
+    {
+      "mysqlOptions": {
+        "authProtocol": "default"
+      },
+      "previewLimit": 50,
+      "server": "devquantum.c41f5bi5nzeb.ap-northeast-1.rds.amazonaws.com",
+      "port": 3306,
+      "driver": "MySQL",
+      "name": "sds_v12_dev",
+      "database": "sds_v12_dev",
+      "username": "root",
+      "password": "kySIOIy0qyozCVfL8KcayJXl"
+    },
+    {
+      "mssqlOptions": {
+        "appName": "SQLTools",
+        "useUTC": true,
+        "encrypt": true
+      },
+      "previewLimit": 50,
+      "server": "sqlserver-tw.c41f5bi5nzeb.ap-northeast-1.rds.amazonaws.com",
+      "port": 1433,
+      "driver": "MSSQL",
+      "name": "sds_v13_hks_qa",
+      "password": "Qp8.!FSH",
+      "username": "root",
+      "database": "hks_qa"
+    },
+    {
+      "mysqlOptions": {
+        "authProtocol": "default"
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 3306,
+      "driver": "MySQL",
+      "name": "wp_quantum_taiwan_dev",
+      "database": "wp_quantum_taiwan_dev",
+      "username": "wp_quantum_taiwan_dev",
+      "password": "wp_quantum_taiwan_dev"
+    },
+    {
+      "mysqlOptions": {
+        "authProtocol": "default",
+        "enableSsl": "Disabled"
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 3306,
+      "driver": "MariaDB",
+      "name": "php_study",
+      "database": "php_11201",
+      "username": "loki",
+      "password": "test"
+    }
+  ]
+}
