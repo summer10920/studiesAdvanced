@@ -18,7 +18,7 @@ checkPermission();
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/datatables.min.css" />
   <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/datatables.min.js"></script>
 
-  <link href="/plugins/admin-styles.css" rel="stylesheet" />
+  <link href="./plugins/admin-styles.css" rel="stylesheet" />
   <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 
@@ -38,7 +38,7 @@ checkPermission();
           <li>
             <hr class="dropdown-divider" />
           </li> -->
-          <li><a class="dropdown-item" href="function?do=logout">登出</a></li>
+          <li><a class="dropdown-item" href="./function.php?do=logout">登出</a></li>
         </ul>
       </li>
     </ul>

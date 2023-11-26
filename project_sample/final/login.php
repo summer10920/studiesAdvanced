@@ -2,7 +2,7 @@
 // require_once("./function.php");
 session_save_path('tmp');
 session_start();
-if (isset($_SESSION['admin'])) header('Location:/admin.php');
+if (isset($_SESSION['admin'])) header('Location:/admin');
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +13,7 @@ if (isset($_SESSION['admin'])) header('Location:/admin.php');
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <title>洛奇度假村 - 管理登入</title>
-  <link href="/plugins/admin-styles.css" rel="stylesheet" />
+  <link href="./plugins/admin-styles.css" rel="stylesheet" />
   <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </head>
@@ -30,7 +30,7 @@ if (isset($_SESSION['admin'])) header('Location:/admin.php');
                   <h3 class="text-center font-weight-light my-4">SIGN IN</h3>
                 </div>
                 <div class="card-body">
-                  <form action="function?do=login" method="post">
+                  <form action="./function?do=login" method="post">
                     <div class="form-floating mb-3">
                       <input class="form-control" id="inputAccount" name="inputAccount" type="text" placeholder="name@example.com" required />
                       <label for="inputAccount">Account</label>

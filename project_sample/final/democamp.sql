@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 
--- 伺服器版本： 10.1.40-MariaDB
--- PHP 版本： 7.3.5
+-- 產生時間： 2023 年 11 月 26 日 14:47
+-- 伺服器版本： 10.5.8-MariaDB-log
+-- PHP 版本： 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- 資料庫： `project_camp`
+-- 資料庫: `democamp`
 --
 
 -- --------------------------------------------------------
@@ -31,10 +30,10 @@ SET time_zone = "+00:00";
 CREATE TABLE `_loki_daily_state` (
   `id` int(11) NOT NULL,
   `date` date NOT NULL,
-  `aArea` int(11) NOT NULL,
-  `bArea` int(11) NOT NULL,
-  `cArea` int(11) NOT NULL,
-  `dArea` int(11) NOT NULL
+  `aArea` int(11) NOT NULL DEFAULT 0,
+  `bArea` int(11) NOT NULL DEFAULT 0,
+  `cArea` int(11) NOT NULL DEFAULT 0,
+  `dArea` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -60,7 +59,7 @@ INSERT INTO `_loki_daily_state` (`id`, `date`, `aArea`, `bArea`, `cArea`, `dArea
 CREATE TABLE `_loki_holiday` (
   `id` int(11) NOT NULL,
   `year` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `date` text COLLATE utf8mb4_unicode_ci NOT NULL
+  `date` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -183,35 +182,35 @@ ALTER TABLE `_loki_user`
   ADD PRIMARY KEY (`id`);
 
 --
--- 在傾印的資料表使用自動增長(AUTO_INCREMENT)
+-- 在傾印的資料表使用自動遞增(AUTO_INCREMENT)
 --
 
 --
--- 使用資料表自動增長(AUTO_INCREMENT) `_loki_daily_state`
+-- 使用資料表自動遞增(AUTO_INCREMENT) `_loki_daily_state`
 --
 ALTER TABLE `_loki_daily_state`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- 使用資料表自動增長(AUTO_INCREMENT) `_loki_holiday`
+-- 使用資料表自動遞增(AUTO_INCREMENT) `_loki_holiday`
 --
 ALTER TABLE `_loki_holiday`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- 使用資料表自動增長(AUTO_INCREMENT) `_loki_order_list`
+-- 使用資料表自動遞增(AUTO_INCREMENT) `_loki_order_list`
 --
 ALTER TABLE `_loki_order_list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- 使用資料表自動增長(AUTO_INCREMENT) `_loki_pallet`
+-- 使用資料表自動遞增(AUTO_INCREMENT) `_loki_pallet`
 --
 ALTER TABLE `_loki_pallet`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- 使用資料表自動增長(AUTO_INCREMENT) `_loki_user`
+-- 使用資料表自動遞增(AUTO_INCREMENT) `_loki_user`
 --
 ALTER TABLE `_loki_user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;

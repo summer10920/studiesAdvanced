@@ -6,7 +6,7 @@ dayjs.extend(dayjs_plugin_isBetween); //宣告
 
 //全域變數宣告區
 let
-  fetchPath = 'db.json.php',
+  fetchPath = './db.json.php',
   nationalHoliday = [],
   booked = [],
   pallet = {},
@@ -100,7 +100,7 @@ const init = () => {
       else {
         // fetch post
         // fetch('https://jsonplaceholder.typicode.com/posts', {
-        fetch('/function?do=newOrder', {
+        fetch('./function.php?do=newOrder', {
           method: 'POST',
           body: sendData,
           // headers: { 'Content-Type': 'multipart/form-data' }
@@ -108,7 +108,7 @@ const init = () => {
           .then((res) => res.json()).then((data) => {
             if (data) {
               alert('感謝您的預約！期待見面');
-              // document.location.href = '/';
+              document.location.href = './';
             }
           })
       }

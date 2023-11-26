@@ -18,14 +18,14 @@ checkPermission();
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/datatables.min.css" />
   <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/datatables.min.js"></script>
 
-  <link href="/plugins/admin-styles.css" rel="stylesheet" />
+  <link href="./plugins/admin-styles.css" rel="stylesheet" />
   <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="sb-nav-fixed">
   <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
     <!-- Navbar Brand-->
-    <a class="navbar-brand ps-3" href="index.html">洛奇度假村 - 後台</a>
+    <a class="navbar-brand ps-3" href="./">洛奇度假村 - 後台</a>
     <!-- Sidebar Toggle-->
     <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
     <!-- Navbar-->
@@ -38,7 +38,7 @@ checkPermission();
           <li>
             <hr class="dropdown-divider" />
           </li> -->
-          <li><a class="dropdown-item" href="function?do=logout">登出</a></li>
+          <li><a class="dropdown-item" href="./function?do=logout">登出</a></li>
         </ul>
       </li>
     </ul>

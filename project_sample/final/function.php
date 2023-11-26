@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 session_save_path('tmp');
 session_start();
 // echo $_SERVER['REQUEST_URI'];
@@ -8,7 +10,7 @@ class lokiSQL {
     $prefix_name = '_loki_';
 
   public function __construct() {
-    $this->db = new PDO("mysql:host=127.0.0.1;dbname=project_camp;charset=utf8", "root", "", null);
+    $this->db = new PDO("mysql:host=127.0.0.1;dbname=php_11201_project;charset=utf8", "loki", "test", null);
   }
 
   public function select($tb, $wh) {
