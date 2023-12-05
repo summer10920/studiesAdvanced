@@ -42,7 +42,7 @@ foreach ($rows as $row) {
 }
 ?>
 
-<form class="container-fluid px-4" method="post" action="./function?do=mdyPallet">
+<form class="container-fluid px-4" method="post" action="./api?do=mdyPallet">
   <h1 class="mt-4">營位參數設定</h1>
   <div class="row row-cols-1 row-cols-sm-2">
     <?= $htmlCode ?>

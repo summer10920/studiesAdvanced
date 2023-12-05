@@ -1,64 +1,3 @@
-<?php
-$rows = getOrderList();
-$htmlCode = '';
-
-foreach ($rows as $row) {
-  $selectDateAry = unserialize($row['selectDate']);
-  $selectDateStr =
-    '<span class="badge bg-secondary me-1">' .
-    implode('</span><span class="badge bg-secondary me-1">', $selectDateAry) .
-    '</span>';
-
-  $selectPalletObj = unserialize($row['sellout']);
-  $selectPalletStr = '';
-  foreach ($selectPalletObj as $key => $value) {
-    switch ($key) {
-      case 'aArea':
-        $selectPalletStr .= '<span class="badge rounded-pill bg-danger me-1">A區 x ' . $value . '</span>';
-        break;
-      case 'bArea':
-        $selectPalletStr .= '<span class="badge rounded-pill bg-warning me-1">B區 x ' . $value . '</span>';
-        break;
-      case 'cArea':
-        $selectPalletStr .= '<span class="badge rounded-pill bg-success me-1">C區 x ' . $value . '</span>';
-        break;
-      case 'dArea':
-        $selectPalletStr .= '<span class="badge rounded-pill bg-info me-1">D區 x ' . $value . '</span>';
-        break;
-    }
-  }
-
-  $getAry = [
-    'do' => 'delOrder',
-    'id' => $row['id'],
-    'date' => $selectDateAry, //增加
-    'pallet' => $selectPalletObj //增加
-  ];
-  //這裡可以string慢慢湊，或者利用http_build_query將array轉為get參數
-
-  $dateNum = array_map(function ($date) {
-    return strtotime($date);
-  }, $selectDateAry);
-
-  $lessDay = min($dateNum) < time() ?
-    '<span class="btn btn-secondary btn-sm disabled">過期</span>' :
-    '<a class="btn btn-danger btn-sm" href="./function.php?' . http_build_query($getAry) . '">刪除</a>';
-
-  $htmlCode .= '<tr>
-    <td>' . $row['name'] . '</td>
-    <td>' . $selectDateStr . '</td>
-    <td>' . $selectPalletStr . '</td>
-    <td>' . $row['price'] . '</td>
-    <td>' . $row['phone'] . ' | ' . $row['mail'] . '</td>
-    <td>' . $row['createDate'] . '</td>
-    <td>' . $lessDay . '</td>
-    </tr>';
-}
-
-
-
-?>
-
 <div class="container-fluid px-4">
   <h1 class="mt-4">訂購資料</h1>
   <div class="card mb-4">
@@ -76,7 +15,51 @@ foreach ($rows as $row) {
           </tr>
         </thead>
         <tbody>
-          <?= $htmlCode ?>
+          <tr>
+            <td>Tiger Nixon</td>
+            <td>System Architect</td>
+            <td>Edinburgh</td>
+            <td>61</td>
+            <td>2011/04/25</td>
+            <td>2011/04/25</td>
+            <td>$320,800</td>
+          </tr>
+          <tr>
+            <td>Garrett Winters</td>
+            <td>Accountant</td>
+            <td>Tokyo</td>
+            <td>63</td>
+            <td>2011/07/25</td>
+            <td>2011/07/25</td>
+            <td>$170,750</td>
+          </tr>
+          <tr>
+            <td>Shad Decker</td>
+            <td>Regional Director</td>
+            <td>Edinburgh</td>
+            <td>51</td>
+            <td>2008/11/13</td>
+            <td>2008/11/13</td>
+            <td>$183,000</td>
+          </tr>
+          <tr>
+            <td>Michael Bruce</td>
+            <td>Javascript Developer</td>
+            <td>Singapore</td>
+            <td>29</td>
+            <td>2011/06/27</td>
+            <td>2011/06/27</td>
+            <td>$183,000</td>
+          </tr>
+          <tr>
+            <td>Donna Snider</td>
+            <td>Customer Support</td>
+            <td>New York</td>
+            <td>27</td>
+            <td>2011/01/25</td>
+            <td>2011/01/25</td>
+            <td>$112,000</td>
+          </tr>
         </tbody>
       </table>
     </div>

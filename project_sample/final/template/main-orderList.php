@@ -42,7 +42,7 @@ foreach ($rows as $row) {
 
   $lessDay = min($dateNum) < time() ?
     '<span class="btn btn-secondary btn-sm disabled">過期</span>' :
-    '<a class="btn btn-danger btn-sm" href="./function?' . http_build_query($getAry) . '">刪除</a>';
+    '<a class="btn btn-danger btn-sm" href="./api?' . http_build_query($getAry) . '">刪除</a>';
 
   $htmlCode .= '<tr>
     <td>' . $row['name'] . '</td>

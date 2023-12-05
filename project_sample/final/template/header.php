@@ -38,7 +38,7 @@ checkPermission();
           <li>
             <hr class="dropdown-divider" />
           </li> -->
-          <li><a class="dropdown-item" href="./function?do=logout">登出</a></li>
+          <li><a class="dropdown-item" href="./api?do=logout">登出</a></li>
         </ul>
       </li>
     </ul>

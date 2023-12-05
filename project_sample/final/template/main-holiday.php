@@ -20,7 +20,7 @@ foreach ($rows as $row) {
 }
 
 ?>
-<form class="container-fluid px-4" method="post" action="./function?do=mdyHoliday">
+<form class="container-fluid px-4" method="post" action="./api?do=mdyHoliday">
   <h1 class="mt-4">國定假日</h1>
   <div class="row row-cols-1 row-cols-sm-3">
     <?= $htmlCode ?>

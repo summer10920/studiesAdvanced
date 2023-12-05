@@ -1,6 +1,6 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 require_once("./function.php");
 
 $dbJSONStr = '{
@@ -118,12 +118,28 @@ foreach ($rows as $row) $nationalHoliday = array_merge($nationalHoliday, explode
 * 使用雙引號意味著“解析這個字符串”，因此您的控製字符將被解析。
 */
 
+// booked data
+$rows = getDaily();
+$booked = array_map(function ($row) {
+  return [
+    'date' => $row['date'],
+    'sellout' => [
+      'aArea' => $row['aArea'],
+      'bArea' => $row['bArea'],
+      'cArea' => $row['cArea'],
+      'dArea' => $row['dArea'],
+    ]
+  ];
+}, $rows);
+
+
 //overwrite to json
 $dbJSONAry = json_decode($dbJSONStr, true);
 
 //each data overwrite
 $dbJSONAry['pallet'] = $pallet; //更新指定的值
 $dbJSONAry['nationalHoliday'] = $nationalHoliday; //更新指定的值
+$dbJSONAry['booked'] = $booked; //更新指定的值
 
 
 //show on page

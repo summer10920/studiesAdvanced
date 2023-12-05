@@ -30,7 +30,7 @@ if (isset($_SESSION['admin'])) header('Location:/admin');
                   <h3 class="text-center font-weight-light my-4">SIGN IN</h3>
                 </div>
                 <div class="card-body">
-                  <form action="./function?do=login" method="post">
+                  <form action="./api?do=login" method="post">
                     <div class="form-floating mb-3">
                       <input class="form-control" id="inputAccount" name="inputAccount" type="text" placeholder="name@example.com" required />
                       <label for="inputAccount">Account</label>

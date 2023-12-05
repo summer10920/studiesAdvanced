@@ -99,8 +99,7 @@ const init = () => {
       if (!this.checkValidity()) this.classList.add('was-validated');
       else {
         // fetch post
-        // fetch('https://jsonplaceholder.typicode.com/posts', {
-        fetch('./function.php?do=newOrder', {
+        fetch('https://jsonplaceholder.typicode.com/posts', {
           method: 'POST',
           body: sendData,
           // headers: { 'Content-Type': 'multipart/form-data' }
