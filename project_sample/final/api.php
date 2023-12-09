@@ -84,7 +84,7 @@ if (isset($_GET['do'])) {
 
     case 'delOrder':
       if (delOrder($_GET['id'])) {
-        header('Location:admin.php');
+        header('Location:admin');
         exit();
       } else echo 'SQL FAIL';
       break;
@@ -105,7 +105,7 @@ if (isset($_GET['do'])) {
       }
 
       if ($flag) {
-        header('Location:pallet.php');
+        header('Location:pallet');
         exit();
       }
       break;
@@ -119,14 +119,14 @@ if (isset($_GET['do'])) {
       }
 
       if ($flag) {
-        header('Location:holiday.php');
+        header('Location:holiday');
         exit();
       }
       break;
 
     case 'login':
       if (checkUserSaveSession($_POST['inputAccount'], $_POST['inputPassword']))
-        header('Location:admin.php');
+        header('Location:admin');
       else exit('access deny');
       break;
 

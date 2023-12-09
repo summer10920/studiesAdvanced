@@ -49,13 +49,13 @@ checkPermission();
         <div class="sb-sidenav-menu">
           <div class="nav">
             <div class="sb-sidenav-menu-heading">訂房資訊</div>
-            <a class="nav-link" href="admin.php">
+            <a class="nav-link" href="admin">
               <i class="sb-nav-link-icon fas fa-clipboard-list"></i>訂單資料</a>
-            <a class="nav-link" href="daily.php">
+            <a class="nav-link" href="daily">
               <i class="sb-nav-link-icon fas fa-calendar-days"></i>每日房況</a>
-            <a class="nav-link" href="holiday.php">
+            <a class="nav-link" href="holiday">
               <i class="sb-nav-link-icon fas fa-calendar-plus"></i>國定假日</a>
-            <a class="nav-link" href="pallet.php">
+            <a class="nav-link" href="pallet">
               <i class="sb-nav-link-icon fas fa-pallet"></i>營位參數設定</a>
             <!-- <div class="sb-sidenav-menu-heading">Addons</div>
             <a class="nav-link" href="#!">
