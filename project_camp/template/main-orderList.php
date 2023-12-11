@@ -31,10 +31,10 @@ foreach ($rows as $row) {
     }
   }
 
-  echo '<hr>';
-
-
-  # code...
+  $getAry = [  //透過array，之後再透過http_build_query可以快速變成GET所有參數
+    'do' => 'delOrder',
+    'id' => $row['id']
+  ];
   $htmlCode .= '
   <tr>
     <td>' . $row['name'] . '</td>
@@ -43,10 +43,11 @@ foreach ($rows as $row) {
     <td>' . $row['price'] . '</td>
     <td>' . $row['phone'] . ' | ' . $row['mail'] . '</td>
     <td>' . $row['createDate'] . '</td>
-    <td>' . $row['id'] . '</td>
-  </tr>
-  ';
+    <td><a class="btn btn-danger btn-sm" href="api.php?' . http_build_query($getAry) . '">刪除</a></td>
+    </tr>
+    ';
 }
+// <td><a href="api.php?do=delOrder&id=' . $row['id'] . '">刪除</a></td>
 
 ?>
 

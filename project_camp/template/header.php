@@ -32,7 +32,7 @@
           <li>
             <hr class="dropdown-divider" />
           </li> -->
-          <li><a class="dropdown-item" href="./function.php?do=logout">登出</a></li>
+          <li><a class="dropdown-item" href="#">登出</a></li>
         </ul>
       </li>
     </ul>
