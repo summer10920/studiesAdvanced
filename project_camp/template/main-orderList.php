@@ -33,8 +33,27 @@ foreach ($rows as $row) {
 
   $getAry = [  //透過array，之後再透過http_build_query可以快速變成GET所有參數
     'do' => 'delOrder',
-    'id' => $row['id']
+    'id' => $row['id'],
+    'date' => $selectDateAry, //將該訂單的使用者選擇日期傳遞給api處理，好釋放回房況資訊
+    'sellout' => $selectPalletObj //將該訂單的購買資訊傳遞給api處理，好釋放回房況資訊
   ];
+
+
+  $dateOfStrToTime = array_map(function ($dateStr) {
+    return strtotime($dateStr);
+  }, $selectDateAry);
+
+  // print_r($dateOfStrToTime);
+  // echo min($dateOfStrToTime);
+  // echo '<br>';
+  // echo time();
+  // if (min($dateOfStrToTime) < time()){
+  //   過期的日子
+  // }
+  $lessDay = (min($dateOfStrToTime) < time()) ?
+    '<span class="btn btn-secondary btn-sm disabled">過期</span>' :
+    '<a class="btn btn-danger btn-sm" href="api.php?' . http_build_query($getAry) . '">刪除</a>';
+
   $htmlCode .= '
   <tr>
     <td>' . $row['name'] . '</td>
@@ -43,7 +62,7 @@ foreach ($rows as $row) {
     <td>' . $row['price'] . '</td>
     <td>' . $row['phone'] . ' | ' . $row['mail'] . '</td>
     <td>' . $row['createDate'] . '</td>
-    <td><a class="btn btn-danger btn-sm" href="api.php?' . http_build_query($getAry) . '">刪除</a></td>
+    <td>' . $lessDay . '</td>
     </tr>
     ';
 }
@@ -55,7 +74,7 @@ foreach ($rows as $row) {
   <h1 class="mt-4">訂購資料</h1>
   <div class="card mb-4">
     <div class="card-body">
-      <table id="orderTable" class="table">
+      <table id="orderListTable" class="table">
         <thead>
           <tr>
             <th>訂購人</th>

@@ -27,4 +27,9 @@ window.addEventListener('DOMContentLoaded', event => {
     const orderTable = document.getElementById('orderTable');
     if (orderTable) new DataTable(orderTable);
 
+    const orderListTable = document.getElementById('orderListTable');
+    if (orderListTable) new DataTable(orderListTable,{
+        order: [[5, 'desc']]
+    });
+
 });

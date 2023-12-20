@@ -1,3 +1,8 @@
+<?php
+if (empty($_SESSION['admin'])) header('Location:./login.php');
+checkPermission($_SESSION['admin']['account']);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,7 +37,8 @@
           <li>
             <hr class="dropdown-divider" />
           </li> -->
-          <li><a class="dropdown-item" href="#">登出</a></li>
+          <!-- <li><a class="dropdown-item" href="#">登出</a></li> -->
+          <li><a class="dropdown-item" href="./api.php?do=logout">登出</a></li>
         </ul>
       </li>
     </ul>
