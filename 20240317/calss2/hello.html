@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Loki Jiang">
+    <!-- title 標題，規劃在網頁的上面或讓瀏覽知道這是怎樣的標題 -->
+    <title>My First HTML</title>
+</head>
+
+<body>
+    <h1>hello world</h1>
+    <hr>
+    <!-- <img src="img.jpg" alt="悟空再見" title="悟空掰啦"> -->
+    <a href="http://www.google.com">去 Google</a>
+    <a href="./tag.html">去下一課Tag練習</a>
+    <hr>
+    <hr>
+    <hr>
+    <!-- 絕對路徑與相對路徑 -->
+    <img src="media/img.jpg" alt="悟空再見" title="悟空掰啦">
+    <!--
+        根據目前檔案為出發點，去找同層media底下的img 
+        http://127.0.0.1:5500/20240317/calss2/media/img.jpg
+    -->
+    <img src="./media/img.jpg" alt="悟空再見" title="悟空掰啦">
+    <!-- 
+        推薦，根據目前檔案的參考同層index.html為出發點，去找同層media底下的img 
+        http://127.0.0.1:5500/20240317/calss2/media/img.jpg
+    -->
+    <img src="/media/img2.jpg" alt="悟空再見" title="悟空掰啦">
+    <!-- 
+        根據整個專案(網站)根目錄為出發點去，去找同層media底下的img 
+        http://127.0.0.1:5500/media/img.jpg
+    -->
+    <img src="../../media/bye.png" alt="老師再見" title="老師掰啦" width="200">
+    <!-- 
+        根據目前位置，往上層2次，走到Media目錄往下找 img 
+        http://127.0.0.1:5500/media/bye.png
+    -->
+    <img src="http://127.0.0.1:5500/media/bye.png" alt="老師再見" title="老師掰啦" width="200">
+    <!-- 
+        決對路徑，直接指定網址位置
+        http://127.0.0.1:5500/media/img.jpg
+    -->
+    <img src="https://scontent.cdninstagram.com/v/t39.30808-6/359817541_18375283417043587_7268273325542511701_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08&_nc_ht=scontent.cdninstagram.com&_nc_cat=107&_nc_ohc=r5b8KpLBa-MAX9fi14H&edm=APs17CUAAAAA&ccb=7-5&oh=00_AfDyts9MRpCHZguOunLrUoi-vLxtxO3H1SruxnDMIfbeNw&oe=65FA8551&_nc_sid=10d13b"
+        alt="i'm 盜圖仔" width="200">
+    <!-- 
+        決對路徑，直接指定網址位置
+        http://127.0.0.1:5500/media/img.jpg
+    -->
+</body>
+
+</html>

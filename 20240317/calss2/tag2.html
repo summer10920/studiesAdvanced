@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tag介紹</title>
+</head>
+
+<body>
+  <!-- 清單項目 order list & un-order list-->
+  <h1>產品特色</h1>
+  <!-- <ol start="3" style="list-style-type:upper-alpha"> -->
+  <ol start="3" type="A">
+    <li>耐用持久抗腐蝕</li>
+    <li>符合<a href="#">國家</a>節能一級保證</li>
+    <ol>
+      <li>耐用<b>持久</b>抗腐蝕</li>
+      <li>符合<b><i>國家節能</i></b>一級保證</li>
+      <li>第三項</li>
+      <li>第四項</li>
+    </ol>
+    <li>第三項</li>
+    <li>第四項</li>
+  </ol>
+  <hr>
+  <ul>
+    <li>耐用持久抗腐蝕</li>
+    <li>符合國家節能一級保證</li>
+    <ul>
+      <li>耐用持久抗腐蝕</li>
+      <li>符合國家節能一級保證</li>
+      <ul>
+        <li>耐用持久抗腐蝕</li>
+        <li>符合國家節能一級保證</li>
+        <li>第三項</li>
+        <li>第四項</li>
+      </ul>
+      <li>第三項</li>
+      <li>第四項</li>
+    </ul>
+    <li>第三項</li>
+    <li>第四項</li>
+  </ul>
+  <hr>
+  <!-- 文字效果 -->
+  <ul>
+    <!-- bold and strong 語意帶有強烈的意思，後者讓文字具備情感，使得人或機器更容易理解-->
+    <li>男生<b>收入</b>設立<strong>計劃僅供</strong>長時間停。</li>
+    <li>男生<mark>收入設立</mark>計劃僅供長時間停。</li>
+    <li>男生<mark><strong>收入設立</strong></mark>計劃僅供長時間停。</li>
+    <li>男生<i>收入設立</i>計劃<em>僅供長時</em>間停。</li>
+    <li>男生<u>收入設立</u>計劃<ins>僅供長時</ins>間停。</li>
+    <li>男生<s>收入設立</s>計劃<del>僅供長時</del>間停。</li>
+    <li>男生<small>收入設立</small>計劃<span style="font-size:1.25rem">僅供長時間</span>停。</li>
+    <li>男生<sup>收入設立</sup>計劃<sub>僅供長時</sub>間停。</li>
+    <li>x<sup>2</sup> & y<sub>z</sub></li>
+    <li><pre><code>
+i=0;
+function reply(){
+  console.log(i);
+  i++;
+  if(i==5) clearInterval(time); //成真時取消 time 的倒數
+}
+var time=setInterval(reply,1000); //每 1 秒重複執行此處
+    </code></pre></li>
+    <li><pre><code>
+&lt;h1&gt;全新地上高級。&lt;/h1&gt;
+&lt;h2&gt;全新地上高級。&lt;/h2&gt;
+&lt;h3&gt;全新地上高級。&lt;/h3&gt;
+&lt;h4&gt;全新地上高級。&lt;/h4&gt;
+&lt;h5&gt;全新地上高級。&lt;/h5&gt;
+&lt;h6&gt;全新地上高級。&lt;/h6&gt;
+    </code></pre></li>
+    <li>男生&#8704;入&forall;設立∀計劃僅供長時間停。</li>
+    <li>男生入設立計劃  <q
+      cite="https://zh.wikipedia.org/zh-tw/%E8%82%AF%E5%B0%BC%C2%B7%E9%BA%A6%E5%85%8B%E5%BA%B7%E7%B1%B3%E5%85%8B">
+      我的天啊！阿尼他被掛掉了！ </q
+    >.僅供長時間停。</li>
+  </ul>
+  <marquee>警察某個特色知道正在，學術第二天，通信。</marquee>
+
+</body>
+
+</html>
