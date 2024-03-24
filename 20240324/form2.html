@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- <a href="api.php?do=login&couponCode=878657">登入網頁</a> -->
+  <form action="login.html" method="get" id="myForm">
+    <input type="hidden" name="couponCode" value="878657">
+    <!-- <form action="http://127.0.0.1/api.php" method="post" enctype="multipart/form-data"> -->
+    <fieldset>
+      <legend>表單介紹</legend>
+      <table border="0" cellspacing="0" width="100%">
+        <tr>
+          <td width="30%"><label for="acc">帳號:<span style="color:red">*</span></label></td>
+          <td><input type="text" name="acc" placeholder="請輸入帳號" id="acc" required value="admin" autocomplete="off"
+              disabled></td>
+        </tr>
+        <tr>
+          <td>密碼:</td>
+          <td><input type="password" name="pwd" placeholder="請輸入密碼長度為8" required autofocus></td>
+        </tr>
+        <tr>
+          <td>評價:</td>
+          <td>劣<input type="range" name="level" min="0" max="5" value="5">優</td>
+        </tr>
+        <tr>
+          <td>稱呼:</td>
+          <td>
+            <input type="radio" name="sex" value="mr" id="inpMr"><label for="inpMr">先生</label>
+            <input type="radio" name="sex" value="miss" id="inpMiss"><label for="inpMiss">小姐</label>
+            <label><input type="radio" name="sex" value="none"> 無</label>
+          </td>
+        </tr>
+        <tr>
+          <td>興趣:</td>
+          <td>
+            <label><input type="checkbox" name="like[]" value="game">遊戲</label>
+            <label><input type="checkbox" name="like[]" value="book" checked>看書</label>
+            <label><input type="checkbox" name="like[]" value="movie" checked>電影</label>
+            <label><input type="checkbox" name="like[]" value="travel">旅行</label>
+          </td>
+        </tr>
+        <tr>
+          <td>居住地:</td>
+          <td>
+            <select name="city">
+              <option value="">請選擇</option>
+              <option value="基隆" selected>基隆</option>
+              <option value="新北">新北</option>
+              <option value="桃園">桃園</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <!-- 如果要進行檔案物件上傳，就必須是要post + enctype設定 + 有server 可以 action -->
+          <td>上傳附件</td>
+          <td>
+            <input type="file" id="limitFile" name="attachment" accept="image/png, image/gif, image/jpeg" />
+          </td>
+        </tr>
+        <tr>
+          <td>簡介</td>
+          <td>
+            <textarea name="info" rows="3" placeholder="請輸入">Lorem ipsum dolor sit?</textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>背景參數</td>
+          <td>
+            <input type="color" name="bgColor">
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" align="right">
+            <hr>
+            <input type="reset" value="重置">
+            <input type="submit" value="提交">
+          </td>
+        </tr>
+      </table>
+    </fieldset>
+  </form>
+  <label for="inpMiss">猜猜看點我等於點誰?</label>
+  <script>
+    // 
+
+    let flag = false;
+    document.getElementById("limitFile").onchange = function () {
+      // alert('檔案改變了');
+      if (this.files[0].size > 50152) {
+        alert("File is too big!");
+        this.value = "";
+        flag = false; // 太大了
+      } else flag = true;
+    };
+
+    document.getElementById("myForm").onsubmit = function () {
+      if (!flag) alert("File is too big!, submit is canceled!!");
+      return flag;
+    }
+  </script>
+</body>
+
+</html>

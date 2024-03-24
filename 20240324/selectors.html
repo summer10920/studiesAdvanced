@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS 選擇器</title>
+  <style>
+    /* id 用 #，很少設計師會用id來規劃css */
+    .p-mark {
+      color: darkorange;
+      background: black;
+    }
+
+    /* class 用 dot */
+    .text-success {
+      color: green;
+    }
+
+    h1 {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 id="p-mark">選擇器有三種方向，分別Tag, Class, ID</h1>
+  <h1 class="text-success">選擇器有三種方向，分別Tag, Class, ID</h1>
+  <h1 class="text-success">選擇器有三種方向，分別Tag, Class, ID</h1>
+  <h1>選擇器有<span class="text-success">三種</span>方向，分別Tag, Class, ID</h1>
+  <p id="p-mark">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error, eos.</p>
+</body>
+
+</html>

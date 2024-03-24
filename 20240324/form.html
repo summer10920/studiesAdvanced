@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <form action="http://127.0.0.1/api.php?do=login" method="post">
+  <!-- <form action="login.html" method="post"> -->
+    <fieldset>
+      <legend>登入會員</legend>
+      <table border="0" cellspacing="0">
+        <tr>
+          <td width="100">帳號:</td>
+          <td><input type="text" name="acc" placeholder="請輸入帳號"></td>
+        </tr>
+        <tr>
+          <td>密碼:</td>
+          <td><input type="password" name="pwd" placeholder="請輸入密碼長度為8"></td>
+        </tr>
+        <tr>
+          <td colspan="2" align="right">
+            <hr>
+            <input type="submit" value="提交">
+          </td>
+        </tr>
+      </table>
+    </fieldset>
+  </form>
+  <form action="http://127.0.0.1/api.php?do=signup" method="post">
+  <!-- <form action="login.html" method="post"> -->
+    <fieldset>
+      <legend>註冊會員</legend>
+      <table border="0" cellspacing="0">
+        <tr>
+          <td width="100">帳號:</td>
+          <td><input type="text" name="acc" placeholder="請輸入帳號"></td>
+        </tr>
+        <tr>
+          <td>密碼:</td>
+          <td><input type="password" name="pwd" placeholder="請輸入密碼長度為8"></td>
+        </tr>
+        <tr>
+          <td colspan="2" align="right">
+            <hr>
+            <input type="submit" value="提交">
+          </td>
+        </tr>
+      </table>
+    </fieldset>
+  </form>
+</body>
+
+</html>
