@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* tag 標籤，直接指定元素標籤做選擇 */
+    h2 {
+      color: red;
+    }
+
+    p {
+      color: purple;
+    }
+
+    /* ID，指定一個id做選擇，在一份html內id只會出現一次。通常會建議少用因為他有唯一性不好用 */
+    #top,
+    #top2,
+    #top3 {
+      color: white;
+      background: black;
+    }
+
+    .topAll {
+      color: blue;
+      background: black;
+    }
+
+    /* class 類別，指定一個className做選擇 */
+    .text-org,
+    .text-org2,
+    .text-org3 {
+      color: orange;
+    }
+
+    .bg-blk {
+      background: black;
+    }
+  </style>
+</head>
+
+<body>
+  <h2 id="top" class="topAll">Lorem ipsum dolor sit amet.</h2>
+  <h2 class="text-org bg-blk">Lorem ipsum dolor sit amet.</h2>
+  <h2>Lorem ipsum dolor sit amet.</h2>
+  <p id="top2" class="topAll">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro, neque.</p>
+  <p class="text-org">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro, neque.</p>
+  <p id="top3" class="topAll">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro, neque.</p>
+  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro, neque.</p>
+</body>
+
+</html>

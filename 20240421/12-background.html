@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div.demo {
+      background-color: red;
+      background-image: url(https://picsum.photos/id/77/150/200);
+      /* background-repeat: round; */
+      /* background-repeat: round space; */
+      /* background-repeat: no-repeat repeat; */
+      background-repeat: no-repeat;
+      /* background-position: center bottom; */
+      /* background-position: 100% 0%; */
+      /* background-position: -75px -100px; */
+      /* background-size: 300px 300px; */
+      background-size: cover;
+      background-position: center;
+    }
+
+    div.demo2 {
+      /* background-image: url(https://picsum.photos/id/77/150/200);
+      background-position-x: 0%;
+      background-position-y: 0%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: scroll;
+      background-color: red; */
+      background: url(https://picsum.photos/id/77/150/200) center/cover;
+    }
+
+    .bgClip {
+      width: 600px;
+      height: 600px;
+      font-size: 9rem;
+      font-weight: bolder;
+      color: transparent;
+      text-align: center;
+      background-image: url(https://picsum.photos/id/165/600/600);
+      background-clip: text;
+    }
+
+    .attachment {
+      width: 100%;
+      height: 450px;
+      background-image: url(https://picsum.photos/id/165/1920/1080);
+      background-attachment: fixed;
+      /* background-position:center bottom ; */
+      /* background-size: cover; */
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 5rem;
+      margin: 100px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bgClip">HELLO WORLD</div>
+  <div class="attachment">
+    <h1>HELLO WORLD</h1>
+  </div>
+  <div class="demo" style="width: 800px;height: 650px;"></div>
+  <div class="demo2" style="width: 800px;height: 650px;"></div>
+</body>
+
+</html>

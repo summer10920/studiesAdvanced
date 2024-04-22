@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>em，以自身元素該有的尺寸為基準，做倍比例</h1>
+  <div style="font-size:1em">font 16px
+    <div style="font-size:2em;">font 32px
+      <div style="font-size:3em;">font 96px</div>
+    </div>
+  </div>
+  <hr/>
+  <hr/>
+  <h1>root of em，以root元素(html=16px)該有的尺寸為基準，做倍比例</h1>
+  <div style="font-size:1rem">font 16px
+    <div style="font-size:2rem;">font 32px
+      <div style="font-size:3rem;">font 48px</div>
+    </div>
+  </div>
+</body>
+</html>

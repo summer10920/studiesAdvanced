@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>偽類別</title>
+  <style>
+    a:link {
+      color: red;
+      text-decoration: none;
+    }
+
+    a:visited {
+      color: green;
+    }
+
+    a:hover {
+      color: orange;
+    }
+
+    /* a:active{
+      color:purple;
+    } */
+    div {
+      width: 100px;
+      height: 100px;
+      background: #000;
+    }
+
+    div:hover {
+      background: red;
+    }
+
+    input:focus {
+      color: red;
+    }
+
+    /* p.even { */
+    p.odd:not([title]) {
+      color: orange;
+    }
+  </style>
+</head>
+
+<body>
+  <p class="odd" title="special">Lorem ipsum dolor sit amet.</p>
+  <p class="even">Lorem ipsum dolor sit amet.</p>
+  <p class="odd">Lorem ipsum dolor sit amet.</p>
+  <p class="even">Lorem ipsum dolor sit amet.</p>
+  <p class="odd">Lorem ipsum dolor sit amet.</p>
+  <p class="even">Lorem ipsum dolor sit amet.</p>
+  <hr>
+  <a href="https://www.google.com">Google</a>
+  <a href="https://www.momo.com">MoMo</a>
+  <div></div>
+  <input type="text" value="123">
+</body>
+
+</html>

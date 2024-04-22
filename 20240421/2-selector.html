@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 子代，使用>定義*/
+    nav>p {
+      color: orange !important;
+    }
+
+    /* 後代，使用空白符號定義 */
+    /* .menu p.red { */
+    nav.menu p.red {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <p>Lorem ipsum dolor sit amet.</p>
+  </div>
+  <hr>
+  <nav class="menu">
+    <p class="red" style="color:blue !important">Lorem ipsum dolor sit amet.</p>
+    <div>
+      <p>Lorem ipsum dolor sit amet.</p>
+      <div>
+        <h4 class="red">Lorem ipsum dolor sit amet.</h4>
+        <p class="red">Lorem ipsum dolor sit amet.</p>
+      </div>
+    </div>
+  </nav>
+</body>
+
+</html>

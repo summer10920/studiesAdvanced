@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>偽元素</title>
+  <style>
+    /* div::before,
+    div::after {
+      content: "WOW";
+      background: yellow;
+      margin: 0 1rem;
+    } */
+    div.pe::before {
+      content: "";
+      background: darkblue;
+      width: 10px;
+      height: 10px;
+      margin: 0 5px;
+      display: inline-block;
+    }
+
+    div.custom>div {
+      background: darkcyan;
+      width: 10px;
+      height: 10px;
+      display: inline-block;
+      margin: 0 5px;
+    }
+
+    div.message {
+      border: 1px solid lightblue;
+      padding: 10px;
+      border-radius: 5px;
+      background: lightcyan;
+      color: lightseagreen;
+      position: relative;
+      max-width: 250px;
+    }
+
+    div.message::before,
+    div.message::after {
+      content: '';
+      position: absolute;
+      clip-path: polygon(0 0, 100% 0, 25% 100%);
+    }
+
+    div.message::before {
+      width: 20px;
+      height: 20px;
+      background: lightcyan;
+      z-index: 10;
+      bottom: -20px;
+      left: 50%;
+    }
+
+    div.message::after {
+      width: 22px;
+      height: 22px;
+      background: lightblue;
+      bottom: -22px;
+      left: calc(50% - 1px);
+    }
+
+    p.firstLetter::first-letter{
+      /* background: red; */
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-left: 2rem;
+    }
+    p.firstLine::first-line{
+      background: mediumaquamarine;
+    }
+    p::selection{
+      background: purple;
+      color:yellow;
+    }
+  </style>
+</head>
+
+<body>
+  <p class="firstLetter">我來首頁會有可是此次，電視妹妹知識關鍵字家庭咱們電子如有素質機制往往解決方案，大盤那麼多，開關果然。</p>
+  <p class="firstLine">我來首頁會有可是此次，電視妹妹知識關鍵字家庭咱們電子如有素質機制往往解決方案，大盤那麼多，開關果然。</p>
+  <hr>
+  <div class="pe">Lorem ipsum dolor.</div>
+  <div class="custom">
+    <div></div>Lorem ipsum dolor.
+  </div>
+  <hr>
+  <div class="message">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia explicabo totam, aliquam voluptate
+    inventore quis repudiandae quo. Libero, possimus labore.</div>
+</body>
+
+</html>
