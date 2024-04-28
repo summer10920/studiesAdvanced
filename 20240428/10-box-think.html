@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    div {
+      /*有塊地要蓋房子*/
+      width: 500px;
+      background: black;
+    }
+
+    p {
+      /*別墅*/
+      height: 100px;
+      background: gray;
+    }
+
+    .q1 {
+      width: 100px;
+      margin-left: auto;
+      /* 300px */
+      margin-right: 100px;
+    }
+
+    .q2 {
+      width: 100px;
+      margin-left: 100px;
+      margin-right: 100px;
+      /*剩餘的200在仍此右側沒使用到*/
+    }
+
+    .q3 {
+      margin-left: 100px;
+      margin-right: 100px;
+      /* width: auto; */
+    }
+
+    .q4 {
+      margin-left: auto;
+      /*150px*/
+      margin-right: auto;
+      /*150px*/
+      width: 200px;
+    }
+
+    .q5 {
+      width: auto;
+      /*400*/
+      margin-left: auto;
+      /*0*/
+      margin-right: 100px;
+    }
+
+    .q6 {
+      width: 100%;/*500*/
+      margin-left: auto;/*?*/
+      margin-right: auto;/*?*/
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <p class="q6"></p>
+  </div>
+  <div>
+    <p class="q5"></p>
+  </div>
+  <div>
+    <p class="q5"></p>
+  </div>
+  <div>
+    <p class="q4"></p>
+  </div>
+  <div>
+    <p class="q3"></p>
+  </div>
+  <div>
+    <p class="q2"></p>
+  </div>
+  <div>
+    <p class="q1"></p>
+  </div>
+</body>
+
+</html>

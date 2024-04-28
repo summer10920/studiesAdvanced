@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 以前的人img本身，他會有比例問題，他沒有所謂的像bg背景可以裁切掉的邏輯 -->
+  <img src="https://fakeimg.pl/1000x600/" style="
+    width:100%;
+    height: 600px;
+  " />
+  <hr>
+  <!-- 透過BG來控制裁切圖片，但注意他仍是div方塊元素，並非為圖片元素，不容易被機器人偵測理解出這是張網站上的圖片-->
+  <div style="
+    width: 100%;
+    height:600px;
+    background-image:url(https://fakeimg.pl/1000x600/);
+    background-size:cover;
+    background-position: center center;
+  "></div>
+  <hr>
+  <!-- 現在有 object-fit 做法可以了 -->
+  <img src="https://fakeimg.pl/1000x600/" style="
+    width:100%;
+    height: 600px;
+    object-fit: cover;
+  " />
+</body>
+
+</html>

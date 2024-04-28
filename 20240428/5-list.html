@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    ul.demo,
+    ol.demo {
+      /* list-style: bengali; */
+      list-style-position: inside;
+      list-style-image: url("./list-cion.png");
+      /* list-style-image: url("https://fakeimg.pl/50x50/"); */
+    }
+
+    ul.menu {
+      background: lightblue;
+      padding: 0;
+      text-align: center;
+      /* list-style: none; */
+    }
+
+    ul.menu>li {
+      display: inline-block;
+      background: lightpink;
+    }
+
+    ul.menu a {
+      display: inline-block;
+      padding: 20px;
+      text-decoration: none;
+      color: white;
+    }
+
+    ul.fix4px {
+      font-size: 0;
+    }
+
+    ul.fix4px>li {
+      font-size: 1rem;
+    }
+
+    ul.no-use-inline-block {
+      display: flex;
+      justify-content: center;
+    }
+
+    /* ul.no-use-linline-block>li {
+      display: initial;
+    } */
+  </style>
+</head>
+
+<body>
+  <ul class="menu no-use-inline-block">
+    <li><a href="#">關於我們</a></li>
+    <li><a href="#">產品介紹</a></li>
+    <li><a href="#">客戶案例</a></li>
+    <li><a href="#">售後服務</a></li>
+  </ul>
+  <ul class="menu fix4px">
+    <li><a href="#">關於我們</a></li>A <li><a href="#">產品介紹</a></li>
+    <li><a href="#">客戶案例</a></li>
+    <li><a href="#">售後服務</a></li>
+  </ul>
+  <p>ABCD</p>
+  <hr>
+  <ul class="menu">
+    <li><a href="#">關於我們</a></li>
+    <li><a href="#">產品介紹</a></li>
+    <li><a href="#">客戶案例</a></li>
+    <li><a href="#">售後服務</a></li>
+  </ul>
+  <hr>
+  <!-- ul>li*5{$$$} -->
+  <ul class="demo" start="5">
+    <li>001</li>
+    <li>002</li>
+    <li>003</li>
+    <li>004</li>
+    <li>005</li>
+  </ul>
+  <ol class="demo" start="5">
+    <li>001</li>
+    <li>002</li>
+    <li>003</li>
+    <li>004</li>
+    <li>005</li>
+  </ol>
+  <ul start="5">
+    <li>001</li>
+    <li>002</li>
+    <li>003</li>
+    <li>004</li>
+    <li>005</li>
+  </ul>
+  <ol start="5">
+    <li>001</li>
+    <li>002</li>
+    <li>003</li>
+    <li>004</li>
+    <li>005</li>
+  </ol>
+  <p style="padding: 20px;">Lorem ipsum <span style="padding: 20px;">dolor</span> sit amet <a>consectetur</a>
+    adipisicing elit. Cupiditate delectus et culpa eos vitae? Vel possimus quibusdam atque deserunt cum.</p>
+</body>
+
+</html>

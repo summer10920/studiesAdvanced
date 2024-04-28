@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table {
+      text-align: center;
+      border: 1px solid red;
+      box-shadow: 2px 3px 6px 0px #0005;
+      /* width: 300px; */
+      border-collapse: collapse;
+      border-spacing: 0;
+      /* 當有設定border-collapse時，border-spacing無效果 */
+      empty-cells: hide;
+      /* 當有設定border-collapse時，empty-cells無效果 */
+    }
+
+    /* tr.odd, */
+    /* tr:nth-of-type(2n+1) { */
+    tr:nth-of-type(odd) {
+      background: lightgreen;
+    }
+
+    td {
+      border: 1px solid black;
+      width: 100px;
+      padding: 10px;
+      /* background: lightblue; */
+      /* box-shadow: inset 2px 3px 6px 0px #f005; */
+    }
+
+    div {
+      background: lightcoral;
+      width: 100px;
+      height: 100px;
+      /* box-shadow: 2px 3px 6px 0px #0005; */
+      box-shadow: inset 2px 3px 6px 0px #0005;
+    }
+  </style>
+</head>
+
+<body>
+  <table>
+    <tr>
+      <td>lorem</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>lorem</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>lorem</td>
+    </tr>
+    <tr>
+      <td>lorem</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>lorem</td>
+    </tr>
+  </table>
+  <hr>
+  <div></div>
+</body>
+
+</html>
