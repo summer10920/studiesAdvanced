@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      position: relative;
+      height: 100vh;
+      font-family: 'Microsoft JhengHei', PingFang, sans-serif;
+      font-size: 2rem;
+      color: white;
+      text-align: center;
+    }
+
+    .container {
+      background: gold;
+      width: 1024px;
+      height: 768px;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      position: absolute;
+      /* position: fixed; */
+    }
+
+    .header,
+    .footer {
+      height: 100px;
+      background: #000;
+      line-height: 100px;
+    }
+
+    .left {
+      width: 30%;
+      height: calc(768px - 100px - 100px);
+      background: #333;
+      float: left;
+      line-height: calc(768px - 100px - 100px);
+    }
+
+    .right {
+      width: 70%;
+      height: calc(100% - 200px);
+      background: #777;
+      /* float: right; */
+      margin-left: 30%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">Header</div>
+    <div class="left">Left</div>
+    <div class="right">Right</div>
+    <div class="footer">Footer</div>
+  </div>
+</body>
+
+</html>

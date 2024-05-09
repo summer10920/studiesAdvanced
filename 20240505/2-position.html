@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 50px;
+      padding: 50px;
+      background: #ccc;
+      border: 1px solid #ff0;
+      /*
+        為了讓flexbox有高度情況下可以置中，
+        我們透過vh螢幕高度扣除body本身的margin+padding+border，
+        也就僅留下content高度
+      */
+      height: calc(100vh - 202px);
+      /*flexbox 上下左右置中，規則邏輯目前有點難懂，之後再完整flex教學*/
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .main {
+      padding: 100px;
+      background: #aaa;
+      border: 1px solid #f00;
+      position: relative;
+      left: 50px;
+
+      /*小心abs 跟 fixed 遇到 這個屬性會定位在這裡，所以通常我們不會把層級搞這麼複雜，html盡量靠近你想要參考的位置*/ 
+      /* transform: rotate(10deg); */
+    }
+
+    .bigBox {
+      width: 300px;
+      border: 1px solid #000;
+      background: lightblue;
+      /*
+      method 1:
+      if inline-block, use font-size:0
+      font-size: 0;
+      */
+      /*
+      method 2:
+      use float+overflow:auto
+      */
+      overflow: auto;
+    }
+
+    .box {
+      width: 50px;
+      height: 50px;
+      margin: 5px;
+      background: darkolivegreen;
+      color: white;
+      text-align: center;
+      line-height: 50px;
+      overflow: hidden;
+      /*method1:
+      display: inline-block;
+      font-size: 1rem;
+      */
+      /*method2:*/
+      float: left;
+    }
+
+    .relative {
+      position: relative;
+      /* 百分比是父容器單位*/
+      left: 10%;
+      top: -30px;
+      background: lightpink;
+    }
+
+    .absolute {
+      position: absolute;
+      background: lightseagreen;
+      /* right: 0;
+      bottom: 0; */
+      left: 0;
+      top: 0;
+    }
+
+    .fixed {
+      position: fixed;
+      /* 不找誰持有pos,是直接找整個畫面固定*/
+      left: 0;
+      top: 0;
+      background: lightgreen;
+    }
+
+    .goTop {
+      position: fixed;
+      right: 50px;
+      bottom: 50px;
+      width: 50px;
+      height: 50px;
+      background: darkkhaki;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .goTop>a {
+      font-size: 1.25rem;
+      color: white;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- .main>.bigBox>.box{$$}*20 -->
+  <div class="main">
+    <div class="bigBox">
+      <div class="box">01</div>
+      <div class="box">02</div>
+      <div class="box">03</div>
+      <div class="box">04</div>
+      <div class="box">05</div>
+      <div class="box">06</div>
+      <div class="box relative">07</div>
+      <div class="box">08</div>
+      <div class="box">09</div>
+      <div class="box">10</div>
+      <div class="box">11</div>
+      <div class="box">12</div>
+      <div class="box absolute">13</div>
+      <div class="box">14</div>
+      <div class="box fixed">15</div>
+      <div class="box">16</div>
+      <div class="box">17</div>
+      <div class="box">18</div>
+      <div class="box">19</div>
+      <div class="box">20</div>
+    </div>
+  </div>
+  <div class="goTop">
+    <a href="#">Top</a>
+  </div>
+</body>
+
+</html>

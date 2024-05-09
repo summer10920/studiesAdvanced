@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .dice {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(45deg, #fff, #ccc);
+      box-shadow: 4px 4px 10px 0px #0006;
+      border: 2px solid;
+      display: inline-block;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    .point {
+      background: black;
+      width: 20%;
+      height: 20%;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .at1 {
+      left: 10%;
+      top: 10%;
+    }
+
+    .at3 {
+      /* left: 70%; */
+      right: 10%;
+      top: 10%;
+    }
+
+    .at4 {
+      left: 10%;
+      /* top: 40%; */
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .at5 {
+      /* left: 40%;
+      top: 40%; */
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .at6 {
+      right: 10%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .at7 {
+      left: 10%;
+      bottom: 10%;
+    }
+
+    .at9 {
+      right: 10%;
+      bottom: 10%;
+    }
+
+    .red{
+      background: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="dice">
+    <div class="point at5 red"></div>
+  </div>
+  <div class="dice">
+    <div class="point at1"></div>
+    <div class="point at9"></div>
+  </div>
+  <div class="dice">
+    <div class="point at1"></div>
+    <div class="point at5"></div>
+    <div class="point at9"></div>
+  </div>
+  <div class="dice">
+    <div class="point at1"></div>
+    <div class="point at3"></div>
+    <div class="point at7"></div>
+    <div class="point at9"></div>
+  </div>
+  <div class="dice">
+    <div class="point at1"></div>
+    <div class="point at3"></div>
+    <div class="point at5"></div>
+    <div class="point at7"></div>
+    <div class="point at9"></div>
+  </div>
+  <div class="dice">
+    <div class="point at1"></div>
+    <div class="point at3"></div>
+    <div class="point at4"></div>
+    <div class="point at6"></div>
+    <div class="point at7"></div>
+    <div class="point at9"></div>
+  </div>
+</body>
+
+</html>
