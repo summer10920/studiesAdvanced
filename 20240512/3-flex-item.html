@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      margin: 0;
+    }
+    /* span, */
+    div.container {
+      height: 500px;
+      background: lightslategray;
+      /* border: 1px solid; */
+      /*flex*/
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* flex-direction: column; */
+    }
+
+    .item {
+      width: 200px;
+      /* height: 100px; */
+      /* border: 1px solid black; */
+      color: white;
+      font-size: 3rem;
+      /*text center*/
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .red {
+      background: lightcoral;
+      /* flex-grow: 1; */
+      /* flex-shrink: 2; */
+      /* flex-basis: 200px; */
+      /* flex-basis: 33.333333333%;
+      max-width: 150px; */
+      flex: 1 0 50%;
+    }
+
+    .green {
+      background: lightgreen;
+      /* flex-grow: 2; */
+      /* flex-shrink: 1; */
+      /* flex-basis: 400px; */
+      /* flex-basis: 33.333333333%; */
+    }
+
+    .blue {
+      background: lightblue;
+      /* flex-grow: 0; */
+      /* flex-shrink: 0; */
+      /* flex-basis: auto; */
+      /* flex-basis: 33.333333333%; */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="item red">11</div>
+    <div class="item green">22</div>
+    <div class="item blue">33</div>
+  </div>
+</body>
+
+</html>

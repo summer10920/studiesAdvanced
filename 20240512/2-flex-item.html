@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* span, */
+    div.container {
+      height: 500px;
+      background: lightgreen;
+      border: 1px solid;
+      display: flex;
+      align-items: center;
+    }
+
+    .item {
+      width: 100px;
+      height: 100px;
+      background: lightcoral;
+      border: 1px solid black;
+      color: white;
+      font-size: 3rem;
+      /*text center*/
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /*item 的 order值預設為0*/
+    }
+
+    .i2 {
+      height: auto;
+      align-self: stretch;
+    }
+
+    .i3 {
+      order: -1;
+    }
+
+    .i1 {
+      order: 5;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="item i1">11</div>
+    <div class="item i2">22</div>
+    <div class="item i3">33</div>
+    <div class="item">44</div>
+  </div>
+</body>
+
+</html>

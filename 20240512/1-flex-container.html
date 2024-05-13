@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* span, */
+    div.container {
+      /* width: 500px; */
+      height: 500px;
+      background: lightgreen;
+      border: 1px solid;
+
+      display: flex;
+      /* justify-content: center; */
+      align-items: center;
+      flex-direction: row;
+      /* flex-flow: column wrap; */
+      flex-wrap: wrap-reverse;
+      /* align-content: flex-end; */
+
+    }
+    .item{
+      width: 100px;
+      height: 100px;
+      background: lightcoral;
+      border: 1px solid black;
+      color: white;
+      font-size: 3rem;
+
+      /*這是為了item的文字(content也是子項目可被控制)做中心效果*/
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Hello World -->
+    <div class="item">11</div>
+    <div class="item">22</div>
+    <div class="item">33</div>
+    <div class="item">44</div>
+    <div class="item">55</div>
+    <div class="item">66</div>
+  </div>
+  <!-- <span></span> -->
+</body>
+
+</html>

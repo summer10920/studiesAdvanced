@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+      font-size: 1.25rem;
+      background: lightslategray;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      background: lightgreen;
+      position: relative;
+      /* text-align: center;
+      line-height: 100px; */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .box::after {
+      content: 'Transform';
+      width: 100px;
+      height: 100px;
+      background: lightcoral;
+      opacity: 0.5;
+      position: absolute;
+      left: 0%;
+      top: 0%;
+      text-align: center;
+      line-height: 100px;
+      /* display: flex;
+      justify-content: center;
+      align-items: center; */
+      /* transform: translate(100%, -100px) scale(-1); */
+      /* transform: translate(100%, -100px) rotate(45deg); */
+      /* transform: translate(100%, -100px) skew(45deg); */
+      /* transform: translate(100%, -100px) rotate(0deg); */
+      transform: translate(100%, -100px) rotate(45deg) scale(0.5);
+      transform-origin: right center;
+      /*變形基準點*/
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">Default</div>
+  <!-- <div class="box">Default</div> -->
+  <!-- <div class="box">Default</div> -->
+</body>
+
+</html>

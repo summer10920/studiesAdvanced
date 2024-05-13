@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+      font-size: 1.25rem;
+      background: lightslategray;
+    }
+
+    div {
+      width: 100px;
+      height: 100px;
+      background: lightcoral;
+      position: relative;
+    }
+
+    div::after {
+      content: 'Transition';
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      background: lightgreen;
+      left: 0;
+      top: 0;
+      /* z-index: -1; */
+      opacity: 0;
+      transform-origin: right top;
+      /* transition: all 1s; */
+      transition:
+        opacity 1s ease 0s,
+        top 1s ease 1s,
+        width 1s ease 2s,
+        transform 1s ease 3s;
+    }
+
+    div:hover::after {
+      transform: rotate(90deg);
+      opacity: 1;
+      top: 100px;
+      width: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <div>Box</div>
+</body>
+
+</html>
