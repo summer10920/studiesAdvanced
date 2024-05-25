@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+</head>
+<style>
+  .row>div {
+    background: #ccc;
+    border: 1px solid;
+  }
+  .loki-box{
+    height: 400px;
+    background: lightblue;
+  }
+  .loki-box>div{
+    width: 100px;
+    height: 100px;
+    background: lightcoral;
+  }
+</style>
+
+<body>
+  <div class="loki-box d-flex justify-content-around align-items-center flex-column flex-md-row">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <div class="container">
+    <div class="row row-cols-3 bg-info align-items-center" style="height: 400px;">
+      <div class="col">Column</div>
+      <div class="col">Column</div>
+      <div class="col">Column</div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-3"> Level 1 </div>
+      <div class="col-9">
+        <div class="row">
+          <div class="col-8"> Level 2 </div>
+          <div class="col-4"> Level 2 </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+      <div class="col">Column</div>
+      <div class="col">Column</div>
+      <div class="">Column</div>
+      <div class="">Column</div>
+      <div class="">Column</div>
+      <div class="col">Column</div>
+      <div class="col">Column</div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    @media (min-width:300px) {
+      body {
+        background: lightblue;
+      }
+    }
+
+    @media (min-width:500px) {
+      body {
+        background: lightcoral;
+      }
+    }
+
+    @media (min-width:700px) {
+      body {
+        background: lightgreen;
+      }
+    }
+
+    @media (min-width:900px) {
+      body {
+        background: lightgrey;
+      }
+    }
+
+    .box {
+      height: 50vh;
+    }
+
+    .bg1 {
+      background: darkcyan;
+    }
+
+    .bg2 {
+      background: darkgoldenrod;
+    }
+
+    @media (min-width:768px) {
+      .box{
+        width: 50%;
+        float: left;
+        height: 100vh;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box bg1">hello world</div>
+  <div class="box bg2">hello world</div>
+</body>
+
+</html>

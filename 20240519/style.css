@@ -1,0 +1,13 @@
+@media screen {
+  div {
+    background: lightblue;
+    color: yellow;
+  }
+}
+
+@media print {
+  div {
+    background: lightcoral;
+    color: white;
+  }
+}

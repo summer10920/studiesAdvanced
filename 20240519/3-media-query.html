@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      margin: 0;
+    }
+    /* @media screen {
+      div {
+        background: lightblue;
+      }
+    } */
+    /* @media (min-width:480px) {
+      div {
+        background: lightblue;
+      }
+    } */
+    @media screen and (min-width:480px) {
+      div {
+        background: lightblue;
+      }
+    }
+
+    @media (min-width:680px),
+    print {
+      div {
+        background: lightcoral;
+      }
+    }
+
+    @media (min-width:780px) and (max-width:980px) {
+      div {
+        background: lightgreen;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div>hello world</div>
+</body>
+
+</html>
