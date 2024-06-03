@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../20240519/bootstrap/css/bootstrap.css">
+  <style>
+    :root {
+      --loki-color: lightcoral;
+    }
+
+    .row>div {
+      /* background: lightblue; */
+      /* border: 1px solid; */
+    }
+
+    .box {
+      /* width: auto; */
+      height: 100px;
+      /* background: lightcoral; */
+      background: var(--loki-color);
+    }
+
+    .round {
+      width: 100px;
+      height: 100px;
+      border-radius: 50px;
+      background: var(--loki-color);
+    }
+  </style>
+</head>
+
+<body class="m-5">
+  <p>Save the document by pressing <kbd>Ctrl</kbd> + <kbd>S</kbd></p>
+  <hr>
+  <ul>
+    <li>All lists have their top margin removed</li>
+    <li>And their bottom margin normalized</li>
+    <li>Nested lists have no bottom margin <ul>
+        <li>This way they have a more even appearance</li>
+        <li>Particularly when followed by more list items</li>
+      </ul>
+    </li>
+    <li>The left padding has also been reset</li>
+  </ul>
+  <hr>
+  <!-- <div class="round"></div> -->
+  <div class="container px-4">
+    <h1>歡迎!你好!</h1>
+    <div class="row row-cols-3 gx-5">
+      <div class="col">
+        <div class="box"></div>
+      </div>
+      <div class="col">
+        <div class="box"></div>
+      </div>
+      <div class="col">
+        <div class="box"></div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="container">
+    <h1>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid voluptatibus molestiae illo officia repellat,
+      facere repellendus ad eum fugit maxime praesentium sunt incidunt nostrum ipsum vel quasi minima! Quia, vel.</h1>
+    <div class="row row-cols-2 gy-3">
+      <div class="col">
+        <div class="box"></div>
+      </div>
+      <div class="col">
+        <div class="box"></div>
+      </div>
+      <div class="col">
+        <div class="box"></div>
+      </div>
+      <div class="col">
+        <div class="box"></div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="container">
+    <h1>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid voluptatibus molestiae illo officia repellat,
+      facere repellendus ad eum fugit maxime praesentium sunt incidunt nostrum ipsum vel quasi minima! Quia, vel.</h1>
+    <div class="row row-cols-2">
+      <div class="col">
+        <div class="box"></div>
+      </div>
+      <div class="col">
+        <div class="box"></div>
+      </div>
+      <div class="col">
+        <div class="box"></div>
+      </div>
+      <div class="col">
+        <div class="box"></div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
