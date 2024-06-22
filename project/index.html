@@ -21,9 +21,36 @@
   <!-- js -->
   <!-- <script src="https://kit.fontawesome.com/fa483230ea.js" crossorigin="anonymous"></script> -->
   <script src="./plugins/bootstrap.bundle.min.js"></script>
+  <script src="./plugins/masonry.pkgd.min.js"></script>
+  <script>
+    onload = () => {
+      var grid = document.querySelector('#lokiPark article.row');
+      var msnry = new Masonry(grid, {
+        percentPosition: 'true'
+      });
+    }
+  </script>
 </head>
 
-<body>
+<body data-bs-spy="scroll" data-bs-target="#lokiMenu">
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark position-fixed top-0 w-100">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="./media/logo.png" class="me-3">Loki 洛奇度假村</a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#lokiMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="lokiMenu">
+        <div class="navbar-nav ms-auto">
+          <a class="nav-link px-3" href="#lokiPallet">營位介紹</a>
+          <a class="nav-link px-3" href="#lokiPark">探索體驗</a>
+          <a class="nav-link px-3" href="#lokiService">遊客服務</a>
+          <a class="nav-link px-3" href="#lokiRule">營區守則</a>
+          <a class="nav-link px-3" href="#lokiContect">聯絡我們</a>
+        </div>
+      </div>
+    </div>
+  </nav>
   <section id="lokiSlider" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000"
     data-bs-pause="false">
     <div class="carousel-indicators">
@@ -77,50 +104,270 @@
       <i class="fa-solid fa-caret-right"></i>
     </button>
   </section>
+  <section class="lokiAd container">
+    <div class="row row-cols-4 g-0">
+      <img class="col img-fluid" src="https://picsum.photos/1920/1080/?random=10">
+      <img class="col img-fluid" src="https://picsum.photos/1920/1080/?random=11">
+      <img class="col img-fluid" src="https://picsum.photos/1920/1080/?random=12">
+      <img class="col img-fluid" src="https://picsum.photos/1080/1080/?random=13">
+    </div>
+  </section>
   <section id="lokiPallet" class="container">
     <header class="h2 my-5 border-start border-5 ps-3 border-warning">營位介紹</header>
-    <article class="row row-cols-2 g-5">
+    <article class="row row-cols-1 row-cols-lg-2 g-4 flex-row-reverse">
       <div class="col">
-        <div class="card bg-dark text-white">
+        <div class="card bg-dark text-white overflow-hidden border-0 shadow">
           <img src="https://picsum.photos/400/300/?random=10" class="card-img">
-          <div class="card-img-overlay">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-              content. This content is a little bit longer.</p>
-            <p class="card-text">Last updated 3 mins ago</p>
+          <div
+            class="card-img-overlay text-center d-flex justify-content-center align-items-center flex-column bg-opacity-50 bg-dark">
+            <h3 class="card-title text-warning fw-bolder">河畔 × A區</h3>
+            <ul class="list-unstyled">
+              <li>每帳空間4X8公尺，獨立水槽與供電，共20帳</li>
+              <li>帳邊可停限1台車，超過酌收至指定停車場費用 $100/車</li>
+              <li>每帳限四人，超出費用（五歲以上）酌收人頭費 $300</li>
+            </ul>
+            <p class="card-text bg-opacity-100">
+              <label class="badge rounded-pill text-bg-light">一宿 / $1200</label>
+              <label class="badge rounded-pill text-bg-dark">夜衝 / $800</label>
+            </p>
           </div>
         </div>
       </div>
       <div class="col">
-        <div class="card bg-dark text-white">
+        <div class="card bg-dark text-white overflow-hidden border-0 shadow">
           <img src="https://picsum.photos/400/300/?random=10" class="card-img">
-          <div class="card-img-overlay">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-              content. This content is a little bit longer.</p>
-            <p class="card-text">Last updated 3 mins ago</p>
+          <div
+            class="card-img-overlay text-center d-flex justify-content-center align-items-center flex-column bg-opacity-50 bg-dark">
+            <h3 class="card-title text-warning fw-bolder">河畔 × A區</h3>
+            <ul class="list-unstyled">
+              <li>每帳空間4X8公尺，獨立水槽與供電，共20帳</li>
+              <li>帳邊可停限1台車，超過酌收至指定停車場費用 $100/車</li>
+              <li>每帳限四人，超出費用（五歲以上）酌收人頭費 $300</li>
+            </ul>
+            <p class="card-text bg-opacity-100">
+              <label class="badge rounded-pill text-bg-light">一宿 / $1200</label>
+              <label class="badge rounded-pill text-bg-dark">夜衝 / $800</label>
+            </p>
           </div>
         </div>
       </div>
       <div class="col">
-        <div class="card bg-dark text-white">
+        <div class="card bg-dark text-white overflow-hidden border-0 shadow">
           <img src="https://picsum.photos/400/300/?random=10" class="card-img">
-          <div class="card-img-overlay">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-              content. This content is a little bit longer.</p>
-            <p class="card-text">Last updated 3 mins ago</p>
+          <div
+            class="card-img-overlay text-center d-flex justify-content-center align-items-center flex-column bg-opacity-50 bg-dark">
+            <h3 class="card-title text-warning fw-bolder">河畔 × A區</h3>
+            <ul class="list-unstyled">
+              <li>每帳空間4X8公尺，獨立水槽與供電，共20帳</li>
+              <li>帳邊可停限1台車，超過酌收至指定停車場費用 $100/車</li>
+              <li>每帳限四人，超出費用（五歲以上）酌收人頭費 $300</li>
+            </ul>
+            <p class="card-text bg-opacity-100">
+              <label class="badge rounded-pill text-bg-light">一宿 / $1200</label>
+              <label class="badge rounded-pill text-bg-dark">夜衝 / $800</label>
+            </p>
           </div>
         </div>
       </div>
       <div class="col">
-        <div class="card bg-dark text-white">
+        <div class="card bg-dark text-white overflow-hidden border-0 shadow">
           <img src="https://picsum.photos/400/300/?random=10" class="card-img">
-          <div class="card-img-overlay">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-              content. This content is a little bit longer.</p>
-            <p class="card-text">Last updated 3 mins ago</p>
+          <div
+            class="card-img-overlay text-center d-flex justify-content-center align-items-center flex-column bg-opacity-50 bg-dark">
+            <h3 class="card-title text-warning fw-bolder">河畔 × A區</h3>
+            <ul class="list-unstyled">
+              <li>每帳空間4X8公尺，獨立水槽與供電，共20帳</li>
+              <li>帳邊可停限1台車，超過酌收至指定停車場費用 $100/車</li>
+              <li>每帳限四人，超出費用（五歲以上）酌收人頭費 $300</li>
+            </ul>
+            <p class="card-text bg-opacity-100">
+              <label class="badge rounded-pill text-bg-light">一宿 / $1200</label>
+              <label class="badge rounded-pill text-bg-dark">夜衝 / $800</label>
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+  <section id="lokiPark" class="container-fluid overflow-hidden">
+    <!-- <header class="h2 my-5 border-start border-5 ps-3 border-warning">探索體驗</header> -->
+    <header class="my-5 container">
+      <h2 class="border-start border-5 ps-3 border-warning">探索體驗</h2>
+      <p class="w-75 text-center mx-auto py-5">
+        洛奇渡假村腹地面積生態豐富，擁有眾多的設施周邊供您滿足整天的玩樂。不只玩的快樂也放得輕鬆。請盡情享受我們的人間樂園，帶回流連忘返的快樂心情，為您旅途點綴豐富回憶。 </p>
+    </header>
+    <article class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-1">
+      <div class="col">
+        <a href="http://www.google.com">
+          <img src="https://picsum.photos/400/300/?random=10" class="card-img">
+          <div class="card-img-overlay d-flex justify-content-center align-items-center">
+            <h5 class="card-title text-bg-warning rounded-pill px-3 py-2">登星山景步道</h5>
+          </div>
+        </a>
+      </div>
+      <div class="col">
+        <img src="https://picsum.photos/400/450/?random=10" class="card-img">
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <a href="http://www.google.com" class="btn stretched-link">
+            <h5 class="card-title text-bg-warning rounded-pill px-3 py-2">登星山景步道</h5>
+          </a>
+        </div>
+      </div>
+      <div class="col">
+        <img src="https://picsum.photos/400/600/?random=10" class="card-img">
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <h5 class="card-title text-bg-warning rounded-pill px-3 py-2">登星山景步道</h5>
+        </div>
+      </div>
+      <div class="col">
+        <img src="https://picsum.photos/400/300/?random=10" class="card-img">
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <h5 class="card-title text-bg-warning rounded-pill px-3 py-2">登星山景步道</h5>
+        </div>
+      </div>
+      <div class="col">
+        <img src="https://picsum.photos/400/800/?random=10" class="card-img">
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <h5 class="card-title text-bg-warning rounded-pill px-3 py-2">登星山景步道</h5>
+        </div>
+      </div>
+      <div class="col">
+        <img src="https://picsum.photos/400/200/?random=10" class="card-img">
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <h5 class="card-title text-bg-warning rounded-pill px-3 py-2">登星山景步道</h5>
+        </div>
+      </div>
+      <div class="col">
+        <img src="https://picsum.photos/400/500/?random=10" class="card-img">
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <h5 class="card-title text-bg-warning rounded-pill px-3 py-2">登星山景步道</h5>
+        </div>
+      </div>
+      <div class="col">
+        <img src="https://picsum.photos/400/700/?random=10" class="card-img">
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <h5 class="card-title text-bg-warning rounded-pill px-3 py-2">登星山景步道</h5>
+        </div>
+      </div>
+      <div class="col">
+        <img src="https://picsum.photos/400/300/?random=10" class="card-img">
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <h5 class="card-title text-bg-warning rounded-pill px-3 py-2">登星山景步道</h5>
+        </div>
+      </div>
+      <div class="col">
+        <img src="https://picsum.photos/400/300/?random=10" class="card-img">
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <h5 class="card-title text-bg-warning rounded-pill px-3 py-2">登星山景步道</h5>
+        </div>
+      </div>
+      <div class="col">
+        <img src="https://picsum.photos/400/800/?random=10" class="card-img">
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <h5 class="card-title text-bg-warning rounded-pill px-3 py-2">登星山景步道</h5>
+        </div>
+      </div>
+      <div class="col">
+        <img src="https://picsum.photos/400/200/?random=10" class="card-img">
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <h5 class="card-title text-bg-warning rounded-pill px-3 py-2">登星山景步道</h5>
+        </div>
+      </div>
+      <div class="col">
+        <img src="https://picsum.photos/400/500/?random=10" class="card-img">
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <h5 class="card-title text-bg-warning rounded-pill px-3 py-2">登星山景步道</h5>
+        </div>
+      </div>
+      <div class="col">
+        <img src="https://picsum.photos/400/700/?random=10" class="card-img">
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <h5 class="card-title text-bg-warning rounded-pill px-3 py-2">登星山景步道</h5>
+        </div>
+      </div>
+      <div class="col">
+        <img src="https://picsum.photos/400/500/?random=10" class="card-img">
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <h5 class="card-title text-bg-warning rounded-pill px-3 py-2">登星山景步道</h5>
+        </div>
+      </div>
+      <div class="col">
+        <img src="https://picsum.photos/400/500/?random=10" class="card-img">
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <h5 class="card-title text-bg-warning rounded-pill px-3 py-2">登星山景步道</h5>
+        </div>
+      </div>
+      <div class="col">
+        <img src="https://picsum.photos/400/800/?random=10" class="card-img">
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <h5 class="card-title text-bg-warning rounded-pill px-3 py-2">登星山景步道</h5>
+        </div>
+      </div>
+      <div class="col">
+        <img src="https://picsum.photos/400/200/?random=10" class="card-img">
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <h5 class="card-title text-bg-warning rounded-pill px-3 py-2">登星山景步道</h5>
+        </div>
+      </div>
+      <div class="col">
+        <img src="https://picsum.photos/400/500/?random=10" class="card-img">
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <h5 class="card-title text-bg-warning rounded-pill px-3 py-2">登星山景步道</h5>
+        </div>
+      </div>
+      <div class="col">
+        <img src="https://picsum.photos/400/700/?random=10" class="card-img">
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <h5 class="card-title text-bg-warning rounded-pill px-3 py-2">登星山景步道</h5>
+        </div>
+      </div>
+    </article>
+  </section>
+  <!-- <section id="lokiService" class="container-fluid"> -->
+  <section id="lokiService">
+    <article class="container">
+      <header class="h2 my-5 border-start border-5 ps-3 border-warning">遊客服務</header>
+      <div class="row row-cols-1 row-cols-md-3 gy-3">
+        <div class="col">
+          <div class="card py-3 shadow-lg text-bg-dark">
+            <div class="card-header text-center">
+              <h3 class="card-title">設備租借</h3>
+              <img src="https://picsum.photos/150/150/?random=10"
+                class="border border-warning   border-3 rounded-circle m-3">
+            </div>
+            <div class="card-body">
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+                content. This content is a little bit longer.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card py-3 shadow-lg text-bg-dark">
+            <div class="card-header text-center">
+              <h3 class="card-title">設備租借</h3>
+              <img src="https://picsum.photos/150/150/?random=11"
+                class="border border-warning   border-3 rounded-circle m-3">
+            </div>
+            <div class="card-body">
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+                content. This content is a little bit longer.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card py-3 shadow-lg text-bg-dark">
+            <div class="card-header text-center">
+              <h3 class="card-title">設備租借</h3>
+              <img src="https://picsum.photos/150/150/?random=12"
+                class="border border-warning   border-3 rounded-circle m-3">
+            </div>
+            <div class="card-body">
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+                content. This content is a little bit longer.</p>
+            </div>
           </div>
         </div>
       </div>

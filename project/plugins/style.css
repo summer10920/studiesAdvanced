@@ -54,3 +54,137 @@ body {
   border: 0;
   border-radius: 5px;
 }
+
+/* lg */
+@media screen and (min-width: 992px) {
+  #lokiPallet article > .col:nth-child(odd) {
+    transform: translateY(-50%);
+    padding-bottom: 150px;
+  }
+  #lokiPallet article {
+    padding-top: 300px;
+  }
+
+  #lokiPallet article .card-img-overlay {
+    transform: scale(0);
+    transition: 0.3s;
+  }
+  #lokiPallet article .card:hover .card-img-overlay {
+    transform: scale(1);
+  }
+
+  #lokiPallet article .card-img {
+    /* transform: scale(1); */
+    transition: 0.3s;
+  }
+  #lokiPallet article .card:hover .card-img {
+    transform: scale(1.25);
+  }
+}
+
+.lokiAd > .row > img {
+  object-fit: cover;
+}
+
+#lokiPark {
+  background: url("https://picsum.photos/1920/1200/?random=10") #0008 no-repeat
+    center/cover fixed;
+  background-blend-mode: darken;
+}
+
+@media screen and (min-width: 768px) {
+  #lokiPark .col {
+    /* transform: scale(1); */
+    transition: 0.3s;
+  }
+  #lokiPark .col:hover {
+    z-index: 99;
+    transform: scale(1.2);
+  }
+
+  #lokiPark .col .card-img {
+    filter: brightness(0.5);
+    transition: 0.3s;
+  }
+  #lokiPark .col:hover .card-img {
+    filter: brightness(1);
+  }
+}
+
+section:not(#lokiSlider) {
+  padding-bottom: 150px;
+  padding-top: 100px;
+}
+
+nav.navbar {
+  z-index: 9999;
+}
+
+#lokiMenu a.nav-link,
+nav.navbar .navbar-brand {
+  letter-spacing: 0.2rem;
+}
+
+nav.navbar .navbar-brand img {
+  height: 4rem;
+}
+
+/* lg */
+@media screen and (min-width: 992px) {
+  /* active 效果，現場點名示範 start*/
+  nav.navbar {
+    padding: 0;
+  }
+
+  nav.navbar > .container {
+    align-items: stretch;
+  }
+
+  #lokiMenu .navbar-nav {
+    height: 100%;
+  }
+
+  #lokiMenu a.nav-link {
+    transition: 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  #lokiMenu a.nav-link::before {
+    content: "";
+    width: 0%;
+    height: 0.2rem;
+    background: white;
+    position: absolute;
+    top: 0;
+    transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  #lokiMenu a.nav-link.active::before {
+    width: 100%;
+  }
+
+  #lokiMenu a.nav-link::after {
+    content: "";
+    width: 0.5rem;
+    height: 0.5rem;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0.5rem;
+    opacity: 0;
+    transition: 0.5s 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  #lokiMenu a.nav-link.active::after {
+    opacity: 1;
+  }
+  /* active 效果，現場點名示範 end*/
+}
+
+
+#lokiService {
+  background: url("https://picsum.photos/1920/1200/?random=10") #3338 no-repeat
+    center/cover fixed;
+  background-blend-mode: lighten;
+}
