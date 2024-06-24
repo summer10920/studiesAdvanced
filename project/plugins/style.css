@@ -2,6 +2,10 @@
   font-variation-settings: "FILL" 0, "wght" 700, "GRAD" 200, "opsz" 48;
 } */
 
+:root {
+  --lokiPink: #2ae67f;
+}
+
 body {
   font-family: "Roboto", "Noto Sans TC", "Open Sans", Helvetica, sans-serif;
   /* background: #f3f3f3; */
@@ -182,9 +186,86 @@ nav.navbar .navbar-brand img {
   /* active 效果，現場點名示範 end*/
 }
 
-
 #lokiService {
   background: url("https://picsum.photos/1920/1200/?random=10") #3338 no-repeat
     center/cover fixed;
   background-blend-mode: lighten;
 }
+
+/** bonus:示範如何用變數一起管理參數值 start **/
+#lokiPallet header {
+  /* border-color: pink !important; */
+  /* border-color: #e62a62 !important; */
+  border-color: var(--lokiPink) !important;
+}
+#lokiPallet .card-title {
+  color: var(--lokiPink) !important;
+}
+/** bonus:示範如何用變數一起管理參數值 end **/
+
+#lokiFoot a {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+}
+
+#lokiContact {
+  background: url("https://picsum.photos/1920/1080/?random=10") #000 no-repeat
+    center/cover;
+  background-attachment: fixed;
+  background-blend-mode: luminosity;
+}
+
+#lokiContact .ff-form {
+  background: rgb(0 225 255 / 35%);
+  backdrop-filter: blur(8px);
+  border-radius: 15px;
+  padding: 20px 40px;
+}
+
+#lokiContact .ff-title {
+  font-size: calc(1.325rem + 0.9vw);
+  border-left: rgba(var(--bs-warning-rgb)) solid 5px;
+  padding-left: 16px;
+  padding-bottom: 0;
+}
+
+#lokiContact .ff-description > *,
+#lokiContact .ff-watermark > * {
+  display: none !important;
+}
+
+#lokiContact .ff-description {
+  text-align: center;
+}
+#lokiContact .ff-description::before {
+  content: "感謝您的留言，我們將盡快跟您聯繫！";
+}
+
+#lokiContact .ff-button-bar {
+  display: flex;
+  justify-content: center;
+}
+
+#lokiContact .ff-powered-img {
+  transform: scale(0);
+  width: 0;
+}
+
+/* **************** */
+#lokiForm {
+  max-width: 740px;
+  padding: 20px 40px;
+  margin: 0 auto;
+  background: rgba(35, 150, 165, 0.35);
+  backdrop-filter: blur(8px);
+  border-radius: 15px;
+  padding: 20px 40px;
+}
+
+/* #lokiForm label{
+  color:
+} */
