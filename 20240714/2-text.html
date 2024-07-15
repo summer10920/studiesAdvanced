@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text</title>
+</head>
+
+<body>
+  <h1>HTML 程式碼片段</h1>
+  <pre><code>
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang=&quot;zh-TW&quot;&gt;
+    &lt;head&gt;
+      &lt;meta charset=&quot;UTF-8&quot;&gt;
+      &lt;meta name="viewport" content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+      &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+      &lt;title&gt;&#x7DB2;&#x9801;&#x7684;&#x6A19;&#x984C;&#x540D;&#x7A31;&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+      &lt;p&gt;&#x6211;&#x7684;&#x7B2C;&#x4E00;&#x500B; HTML &#x756B;&#x9762;&lt;/p&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+    
+
+
+    <!-- 標題 Heading or Header -->
+      &lt;h1&gt;Hello World!&lt;/h1&gt;
+      &lt;h2&gt;Hello World!&lt;/h2&gt;
+      &lt;h3&gt;Hello World!&lt;/h3&gt;
+      &lt;h4&gt;Hello World!&lt;/h4&gt;
+      &lt;h5&gt;Hello World!&lt;/h5&gt;
+      &lt;h6&gt;Hello World!&lt;/h6&gt;
+      
+    <!-- 段落 paragraph -->
+    <p>積極常用不停風雲那是股份受傷冠軍陽明山兩人臺灣玄幻彩色天氣，專業誠信。</p>
+    <p>點擊數對話報導攝影抓住你說等級一條性質斑竹，投票溝通下去怪物周圍接着每天拍攝。</p>
+
+
+  </code></pre>
+  <hr>
+  <h1>JS 程式碼片段</h1>
+  <pre><code>
+    <mark><strong>function</strong></mark> getcount(who) { // 計分且將紅色變綠色  who=0~8
+      if(animal[who].title=="red"&&flag==1){ <mark>//確定是遊戲中的紅色事件</mark>
+        animal[who].src="green.png";
+        animal[who].style.background="green";
+        animal[who].title="green";
+    
+        /*加分*/
+        count++;
+        combo.textContent=`成績分數：${count}`;
+    
+        id=animal[who].alt;
+        clearTimeout(beYellow[id]); //清除原先路線的轉黃定時器
+        animal[who].alt=null;
+    
+        setTimeout(() => { //green 1 秒之後自己變回 yellow
+          animal[who].src="yellow.png";
+          animal[who].style.background=null;
+          animal[who].title="yellow";
+        }, 1000);
+      }
+    }
+  </code></pre>
+  <hr>
+  <!-- other -->
+  <p>x<sup>2</sup> + y<sub>z</sub> = ?</p>
+  <p>
+    看到諮詢，研究有關<small>設施年度</small>美容經驗曝光尋求預測以外資料，書記什麼樣些什麼說過全身魅力經理你能世界盃似乎年代所需，背景都在街道對象注重原則之類市政府太麻里攻擊天使，字元和他設施剛才不錯屏東資本感情條件聽到為您而來超市處理開展，停止進入完全承擔天天雙手風雲臺。
+  </p>
+  <!-- underline -->
+  <p>
+    看到諮詢，研究有關<u>設施年度</u>美容經驗曝光<ins>尋求預測</ins>以外資料，書記什麼樣些什麼說過全身魅力經理你能世界盃似乎年代所需，背景都在街道對象注重原則之類市政府太麻里攻擊天使，字元和他設施剛才不錯屏東資本感情條件聽到為您而來超市處理開展，停止進入完全承擔天天雙手風雲臺。
+  </p>
+  <!-- strike -->
+  <p>
+    看到諮詢，研究有關<s>設施年度</s>美容經驗曝光<del>尋求預測</del>以外資料，書記什麼樣些什麼說過全身魅力經理你能世界盃似乎年代所需，背景都在街道對象注重原則之類市政府太麻里攻擊天使，字元和他設施剛才不錯屏東資本感情條件聽到為您而來超市處理開展，停止進入完全承擔天天雙手風雲臺。
+  </p>
+  <!-- strike -->
+  <p>
+    看到諮詢，研究有關<s>設施年度</s>美容經驗曝光<del>尋求預測</del>以外資料，書記什麼樣些什麼說過全身魅力經理你能世界盃似乎年代所需，背景都在街道對象注重原則之類市政府太麻里攻擊天使，字元和他設施剛才不錯屏東資本感情條件聽到為您而來超市處理開展，停止進入完全承擔天天雙手風雲臺。
+  </p>
+  <!-- italic -->
+  <p>
+    看到諮詢，研究有關<i>設施年度</i>美容經驗曝光<em>尋求預測</em>以外資料，書記什麼樣些什麼說過全身魅力經理你能世界盃似乎年代所需，背景都在街道對象注重原則之類市政府太麻里攻擊天使，字元和他設施剛才不錯屏東資本感情條件聽到為您而來超市處理開展，停止進入完全承擔天天雙手風雲臺。
+  </p>
+  <!-- mark -->
+  <p>看到諮詢，研究有關設施年<span
+      style="background: yellow;">度美容經驗曝光</span>尋求預測以外資料，書記什麼樣些什麼說過<mark>全身魅力經理</mark>你能世界盃似乎年代所需，背景都在街道對象注重原則之類市政府太麻里攻擊天使，字元和他設施剛才不錯屏東資本感情條件聽到為您而來超市處理開展，停止進入完全承擔天天雙手風雲臺。
+  </p>
+  <!-- bold  -->
+  <!-- 語意:語句的意思，讓這個元素具備代表某個意思，strong 代表文字的強調，而b只是視覺加粗(沒有特意思)，但兩者在畫面上都是粗體視覺，而背後的意義有差 -->
+  <p>
+    看到諮詢，研究有關設施年度<b>美容</b>經驗曝光預測以外資料，書記什麼樣些什麼說過全身<strong>魅力</strong>經理你能世界盃似乎年代所需，背景都在街道對象注重原則之類市政府太麻里攻擊天使，字元和他設施剛才不錯屏東資本感情條件聽到為您而來超市處理開展，停止進入完全承擔天天雙手風雲臺。
+  </p>
+  <hr>
+  <!-- <b>美容</b><b>美容</b> -->
+  <b>美容</b>經驗曝光經驗曝光預測以外資 <p>經驗曝光預測以外資</p>
+  <h6>經驗曝光預測以外資</h6>
+</body>
+
+</html>

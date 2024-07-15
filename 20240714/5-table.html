@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>table</title>
+</head>
+
+<body>
+  <table border="1" width="400" cellspacing="0">
+    <thead>
+      <tr>
+        <th>A01</th>
+        <th>A02</th>
+        <th>A03</th>
+        <th>A04</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td colspan="2">A01</td>
+        <td>A03</td>
+        <td rowspan="4">A04</td>
+      </tr>
+      <tr>
+        <td>A01</td>
+        <td>A02</td>
+        <td>A03</td>
+      </tr>
+      <tr>
+        <td rowspan="2" colspan="2">A01</td>
+        <!-- <td>A02</td> -->
+        <td>A03</td>
+      </tr>
+      <tr>
+        <!-- <td>A01</td> -->
+        <!-- <td>A02</td> -->
+        <td>A03</td>
+      </tr>
+    </tbody>
+    <!-- <tfoot>
+      <tr>
+        <td>A01</td>
+        <td>A02</td>
+        <td>A03</td>
+        <td>A04</td>
+      </tr>
+    </tfoot> -->
+  </table>
+  <hr>
+  <table border="1" width="800" cellspacing="10" cellpadding="20" align="center">
+    <tr align="center">
+      <td>A01</td>
+      <td>A02</td>
+      <td>A03</td>
+      <td>A04</td>
+    </tr>
+    <tr align="center">
+      <td>B01</td>
+      <td>B02</td>
+      <td>B03</td>
+      <td>B04</td>
+    </tr>
+  </table>
+</body>
+
+</html>

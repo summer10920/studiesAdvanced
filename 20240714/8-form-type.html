@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form 表單</title>
+</head>
+
+<body>
+  <!-- <form action="api.html" method="GET"> -->
+  <!-- 如果表單有傳檔案的需求，需要使用POST方法並追加特定enctype -->
+  <form action="http://127.0.0.1/20240714/api.php" method="POST" enctype="multipart/form-data">
+    <fieldset>
+      <legend>表單介紹</legend>
+      <table width="100%" cellpadding="5">
+        <tbody>
+          <tr>
+            <td width="150" align="right"><label>員工帳號：</label></td>
+            <td>
+              <input id="lokiAcc" type="text" name="acc" placeholder="請輸入帳號" value="admin" autocomplete="on">
+            </td>
+          <tr>
+          <tr>
+            <td align="right">密碼：</td>
+            <td><input type="password" name="pwd" placeholder="請輸入帳號" value="1234"></td>
+          </tr>
+          <tr>
+            <td align="right">性別：</td>
+            <td>
+              <label><input type="radio" name="gender" value="boy"> 男性</label>
+              <label><input type="radio" name="gender" value="girl" checked> 女性</label>
+            </td>
+          </tr>
+          <tr>
+            <td align="right">興趣：</td>
+            <!-- 這裡like[]是代表陣列型變數，用一個變數整合多個值，取決後端伺服器的需求規定，當然亦可以暴力N個不同變數名稱給後端自己想辦法歸類為一個like的組合答案 -->
+            <td>
+              <label><input type="checkbox" name="like[]" value="book">看書</label>
+              <label><input type="checkbox" name="like[]" value="唱歌">唱歌</label>
+              <label><input type="checkbox" name="like[]" value="sleep">睡覺</label>
+              <label><input type="checkbox" name="like[]" value="code" checked>程式</label>
+            </td>
+          </tr>
+          <tr>
+            <td align="right">出生年：</td>
+            <td>
+              <select name="birthYear">
+                <!-- option*10[value=199$] -->
+                <option value="1991">1991</option>
+                <option value="1992">1992</option>
+                <option value="1993">1993</option>
+                <option value="1994">1994</option>
+                <option value="1995">1995</option>
+                <option value="1996">1996</option>
+                <option value="1997">1997</option>
+                <option value="1998">1998</option>
+                <option value="1999">1999</option>
+                <option value="2000">2000</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td align="right">上傳檔案：</td>
+            <td>
+              <input type="file" name="upload" multiple>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td align="center" colspan="2">
+              <hr>
+              <input type="submit" value="送出">
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </fieldset>
+  </form>
+</body>
+
+</html>
