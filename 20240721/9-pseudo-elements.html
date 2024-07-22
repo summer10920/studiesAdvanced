@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>偽元素</title>
+  <style>
+    div.text {
+      font-weight: bold;
+      position: relative;
+    }
+
+    div.text::before {
+      content: 'Lorem ipsum dolor.';
+      color: #46f0ed;
+    }
+
+    div.text::after {
+      content: 'Lorem ipsum dolor.';
+      color: #f21953;
+    }
+
+    div.box {
+      width: 500px;
+      height: 500px;
+      background-color: #45d638;
+      position: relative;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 5rem;
+      text-transform: uppercase;
+      margin-bottom: 250px;
+    }
+
+    div.box::after {
+      content: 'Loki';
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 500px;
+      height: 250px;
+      position: absolute;
+      top: 125%;
+      background-image: linear-gradient(0deg, #45d638, transparent);
+      opacity: 0.5;
+      transform: scale(1, -0.5);
+      transform-origin: top center;
+    }
+
+    div.word::first-letter,
+    div.word2>span {
+      font-size: 5rem;
+      color: black;
+    }
+
+    div.selection::selection {
+      background-color: pink;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <div><span>AAA</span> Lorem ipsum dolor sit amet. <span>BBB</span></div> -->
+  <div class="text">Lorem ipsum dolor.</div>
+  <div class="box">Loki</div>
+  <div class="word">Loki</div>
+  <div class="word2"><span>L</span>oki</div>
+  <div class="selection">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam tempore maiores temporibus at aut
+    amet optio facilis iste ratione hic.</div>
+</body>
+
+</html>

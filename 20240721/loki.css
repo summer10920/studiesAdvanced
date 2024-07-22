@@ -1,0 +1,10 @@
+body.blog > div > p#text.alert {
+  color: red !important;
+}
+
+input[type="email"],
+a[href="http://www.google.com"],
+div[class="july"] ,
+div.july {
+  color: red;
+}

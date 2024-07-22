@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* div {
+      color: red;
+    }
+
+    div:hover {
+      color: pink;
+    } */
+    input:focus {
+      color: purple;
+    }
+
+    a {
+      color: aqua;
+    }
+
+    a:hover {
+      color: orange;
+    }
+
+    a:active {
+      color: red;
+    }
+
+    /* a:link {
+      color: green;
+    } */
+    a:visited {
+      color: purple;
+    }
+
+    /* is li but not li.pink */
+    li:not(.pink) {
+      color: lightcoral;
+    }
+
+    /* li:first-child {
+      background-color: black;
+    } */
+    /* li:last-child {
+      background-color: purple;
+    } */
+    /* li:nth-child(2) {
+      background-color: purple;
+    } */
+    /* li:nth-child(odd) {
+      background-color: purple;
+    } */
+    /* li:nth-child(even) {
+      background-color: black;
+    } */
+    li:nth-child(3n+1),
+    /* tr.odd { */
+    tr:nth-child(odd),
+    /* h5:nth-child(1),
+    h5:nth-child(4),
+    h5:nth-child(5) { */
+      /* h5:nth-child(odd) { */
+      h5:nth-of-type(odd) {
+      background-color: purple;
+    }
+
+    li {
+      background-color: black;
+    }
+  </style>
+</head>
+
+<body>
+  <div>Lorem ipsum dolor sit amet.</div>
+  <hr>
+  <div>
+    <input type="text" value="hello world">
+  </div>
+  <hr>
+  <div>
+    <a href="http://www.google.com">Google 連結</a>
+  </div>
+  <hr>
+  <ul>
+    <li>001</li>
+    <li class="pink">002</li>
+    <li>003</li>
+    <li>004</li>
+    <li>005</li>
+    <li>006</li>
+    <li>007</li>
+    <li>008</li>
+    <li>009</li>
+  </ul>
+  <hr>
+  <table border="1" width="100%">
+    <tr>
+      <td>001</td>
+      <td>002</td>
+    </tr>
+    <tr>
+      <td>001</td>
+      <td>002</td>
+    </tr>
+    <tr>
+      <td>001</td>
+      <td>002</td>
+    </tr>
+    <tr>
+      <td>001</td>
+      <td>002</td>
+    </tr>
+    <tr>
+      <td>001</td>
+      <td>002</td>
+    </tr>
+    <tr>
+      <td>001</td>
+      <td>002</td>
+    </tr>
+    <tr>
+      <td>001</td>
+      <td>002</td>
+    </tr>
+    <tr>
+      <td>001</td>
+      <td>002</td>
+    </tr>
+    <tr>
+      <td>001</td>
+      <td>002</td>
+    </tr>
+    <tr>
+      <td>001</td>
+      <td>002</td>
+    </tr>
+  </table>
+  <div>
+    <h5>Lorem ipsum dolor sit amet.</h5>
+    <h5>Lorem ipsum dolor sit amet.</h5>
+    <h4>Lorem ipsum dolor sit amet.</h4>
+    <h5>Lorem ipsum dolor sit amet.</h5>
+    <h5>Lorem ipsum dolor sit amet.</h5>
+    <h5>Lorem ipsum dolor sit amet.</h5>
+    <h5>Lorem ipsum dolor sit amet.</h5>
+    <h5>Lorem ipsum dolor sit amet.</h5>
+    <h5>Lorem ipsum dolor sit amet.</h5>
+  </div>
+</body>
+
+</html>

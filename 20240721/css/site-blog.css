@@ -1,0 +1,7 @@
+@import url('blog.css');
+@import url('menu.css');
+@import url('product.css');
+  
+.pink {
+  color: pink;
+}

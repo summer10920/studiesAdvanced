@@ -1,0 +1,16 @@
+/********* a.css *********/
+h1,
+p {
+  color: red;
+  background-color: black;
+}
+
+/********* b.css *********/
+
+h1 {
+  font-size: 24px;
+}
+
+.pink {
+  color: pink;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>複合子選擇</title>
+  <style>
+    /* 子孫(後代) */
+    nav p {
+      color: pink;
+    }
+
+    /* 兒子(子代) */
+    div>p {
+      color: orange;
+    }
+
+    .loki {
+      color: darkblue;
+    }
+
+    p {
+      color: #333;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- nav>p+div>p+div>p -->
+  <p>Lorem ipsum dolor sit amet.</p>
+  <nav>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <div>
+      <p>Lorem ipsum dolor sit amet.</p>
+      <div>
+        <p class="loki">Lorem ipsum dolor sit amet.</p>
+      </div>
+    </div>
+  </nav>
+</body>
+
+</html>

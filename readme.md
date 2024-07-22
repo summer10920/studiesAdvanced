@@ -3,7 +3,7 @@
 ## 課程名稱
 - [ ] [RWD 網頁設計（假日班）（泰山）第 01 期](https://ojt.wda.gov.tw/ClassSearch/Detail?PlanType=2&OCID=153575)
 - [x] [RWD 網頁設計（假日班）（泰山）第 02 期](https://ojt.wda.gov.tw/ClassSearch/Detail?PlanType=2&OCID=153617)
-- [ ] [JavaScript前端開發(假日班)(泰山)第01期](https://ojt.wda.gov.tw/ClassSearch/Detail?PlanType=2&OCID=153653)
+- [ ] [JavaScript 前端開發（假日班）（泰山）第 01 期](https://ojt.wda.gov.tw/ClassSearch/Detail?PlanType=2&OCID=153653)
 <!-- - [ ] [PHP 程式設計（假日班）](https://ojt.wda.gov.tw/ClassSearch/Detail?OCID=146967&plantype=2) -->
 
 ## 訓練日期 
@@ -16,13 +16,16 @@
 - CSS 版面樣式 （32 小時）-認識 CSS3、選擇器使用、定位排版
 - Bootstrap 網頁應用 （32 小時）-RWD 網頁製作
 
-<!-- - JavaScript 程式基礎 (24 小時）-開發環境設定、程式邏輯概念
-- jQuery 函式庫操作 (24 小時）-函式庫介紹、實例演練
-- JavaScript 實作應用 (32 小時）-常用套件介紹、動態網頁技術實作 -->
+## 課程摘要
 
-<!-- - PHP 程式語言介紹 (24 小時）-開發環境設定、程式邏輯概念
-- MySQL 資料庫查詢語法 (24 小時）-MySQL 資料庫操作、SQL 語法、資料庫管理概念
-- PHP 互動網頁製作 (32 小時）-互動網頁實作 -->
+### 20240707
+IDE 環境安裝與設定、VSCode 軟體操作說明、網頁與伺服器基本觀念解析、HTML5 開發與結構觀念介紹、檔案路徑概念與示範、標籤規則與特性、網頁元素特性說明、標籤含標題、段落。.. 等項目說明及示範。
+
+### 20240714
+標籤含清單項目、文字效果、多媒體、表格、表單。.. 等項目說明及示範、課堂練習表格製作、符號實體化用途說明。
+
+### 20240721
+標籤表單文字區域項目說明及示範、HTML5 語意用途、其他進階表單元素簡要介紹、CSS 基礎觀念與規則特性、CSS 宣告方式、color 屬性與色碼操作、選擇器用途與選項說明、複合子選擇、偽類、偽元素等選擇器用法說明、CSS 優先權技巧與示範、基本屬性 Font-Family 與線上字型示範。
 
 ## 檔案留存下載方說明
 
