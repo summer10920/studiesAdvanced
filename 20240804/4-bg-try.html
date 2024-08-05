@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      text-align: center;
+    }
+
+    table {
+      margin: 1rem;
+      display: inline-block;
+    }
+
+    table,
+    tr,
+    td {
+      border: 1px solid #000;
+      padding: 0;
+      /* 小細節:影響到 g 空間計算，實際上多padding 1px，形成 202 * 202 背景空間。*/
+    }
+
+    table td {
+      width: 200px;
+      height: 200px;
+      vertical-align: bottom;      /* 只作用於行內跟儲存格，不適用於block*/
+      
+      span {
+        color: white;
+        text-shadow: 0 0 5px #0007;
+        line-height: 2rem;
+        padding: 5px;
+        background: #0005;
+      }
+    }
+
+    .a {
+      background: #dc143c;
+    }
+
+    .b {
+      background: url("https://picsum.photos/50/50/?random=10") center/cover;
+    }
+
+    .c {
+      background: url("https://picsum.photos/50/50/?random=10") repeat-x;
+    }
+
+    .d {
+      background: url("https://picsum.photos/50/50/?random=10") repeat-y;
+    }
+
+    .e {
+      background: url("https://picsum.photos/50/50/?random=10") no-repeat center;
+    }
+
+    .f {
+      background: #ffa url("https://picsum.photos/50/50/?random=10") no-repeat center;
+    }
+
+    .g {
+      background:
+        url("https://picsum.photos/200/50/?random=10") no-repeat top,
+        url("https://picsum.photos/200/100/?random=10") no-repeat center,
+        url("https://picsum.photos/200/50/?random=10") no-repeat bottom;
+    }
+
+    .h {
+      background: linear-gradient(to right, black, blue);
+    }
+
+    .i {
+      background: radial-gradient(black, white);
+    }
+  </style>
+</head>
+
+<body>
+  <table>
+    <tr>
+      <td class="a"></td>
+      <td class="b"></td>
+      <td class="c"></td>
+    </tr>
+    <tr>
+      <td class="d"><span>hello world</span></td>
+      <td class="e"></td>
+      <td class="f"></td>
+    </tr>
+    <tr>
+      <td class="g"></td>
+      <td class="h"></td>
+      <td class="i"></td>
+    </tr>
+  </table>
+</body>
+
+</html>

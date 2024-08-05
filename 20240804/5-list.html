@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .v1 {
+      ul {
+        list-style-type: square;
+        padding-left: 20px;
+        list-style-image: url("https://picsum.photos/10/10/?random=10");
+      }
+
+      ol {
+        /* list-style-type: square; */
+        /* list-style-type: cjk-decimal; */
+        list-style-type: cjk-heavenly-stem;
+      }
+
+      ol {
+        list-style-position: inside;
+      }
+    }
+
+    ul.v2 {
+      background: lightcoral;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      /* 可以控制內容content的文字對齊水平至中，而content內的inline都可受影響*/
+      font-size: 0;
+    }
+
+    ul.v2 li {
+      display: inline-block;
+      /* 可以視為inline 一種，理所當然父元素的"text"-align 受控制*/
+      background: lightblue;
+      font-size: 1rem;
+    }
+
+    ul.v2 a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 15px;
+    }
+  </style>
+</head>
+
+<body>
+  <ul class="v2">
+    <li><a href="#">關於我們</a></li>
+    <li><a href="#">產品介紹</a></li>
+    <li><a href="#">客戶案例</a></li>
+    <li><a href="#">售後服務</a></li>
+  </ul>
+  <hr>
+  <div class="v1">
+    <!-- ul>li{Loki$$$}*5 -->
+    <ul>
+      <li>Loki001</li>
+      <li>Loki002</li>
+      <li>Loki003</li>
+      <li>Loki004</li>
+    </ul>
+    <ol>
+      <li>Loki001</li>
+      <li>Loki002</li>
+      <li>Loki003</li>
+      <li>Loki004</li>
+    </ol>
+  </div>
+</body>
+
+</html>

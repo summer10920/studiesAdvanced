@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      /* background-color: lightcoral; */
+    }
+
+    div.v1 {
+      /* width: 300px; */
+      height: 300px;
+      /* 背景色 */
+      background-color: aqua;
+      /* 背景圖片 */
+      /* background-image: url('./pika.jpg'); */
+      /* background-image: url("https://fakeimg.pl/200x150/"); */
+      background-image: url('./pika.png');
+      /* background-repeat: repeat-x; */
+      /* background-repeat: repeat no-repeat; */
+      background-repeat: no-repeat;
+      /* background-position: 50px -100px; */
+      /* background-position: 65% 50%; */
+      background-position: center;
+      /* background-size: auto 100px; */
+      /* cover 為等比例填滿並裁切 */
+      background-size: cover;
+      /* 固定方式 */
+      background-attachment: fixed;
+    }
+
+    .v2 {
+      width: 300px;
+      height: 300px;
+      /* 簡寫屬性，他可以代表一個複合值如下:
+      background-image: initial;
+      background-position-x: initial;
+      background-position-y: initial;
+      background-size: initial;
+      background-repeat: initial;
+      background-attachment: initial;
+      background-origin: initial;
+      background-clip: initial;
+      background-color: lightblue;
+      */
+      /* background: #f3f707 url('./pika.png') space no-repeat right bottom; */
+      /* background: #f3f707 url('./pika.png') no-repeat 0% center fixed; */
+      /* background: #f3f707 url('./pika.png') repeat-x 100% 100% / 100px; */
+      /* background: #f3f707 url('./pika.png') no-repeat 100% 100% / 50px; */
+      /* background: #f3f707 url('./pika.png') no-repeat center; */
+      /* background: #f3f707 url('./pika.png') no-repeat 0% 0%/ 50px; */
+      background: #f3f707 url('./pika.png') no-repeat center/cover;
+    }
+
+    .v3 {
+      width: 500px;
+      height: 500px;
+      /* background: lightgreen; */
+      /* background-image:
+        url("https://picsum.photos/500/100/?random=10"),
+        url("https://picsum.photos/500/300/?random=10"),
+        url("https://picsum.photos/500/100/?random=10");
+      background-repeat: no-repeat, no-repeat, no-repeat;
+      background-position: left top, left 100px, left 400px; */
+      background:
+        url("https://picsum.photos/500/100/?random=10") no-repeat left top,
+        url("https://picsum.photos/500/300/?random=10") no-repeat left center,
+        url("https://picsum.photos/500/100/?random=10") no-repeat left bottom;
+    }
+
+    img {
+      width: 500px;
+      height: 500px;
+      object-fit: cover;
+    }
+
+    .fakeImg {
+      width: 500px;
+      height: 500px;
+      background: url('https://fakeimg.pl/1000x500') center/cover;
+    }
+
+    .v4 {
+      width: 300px;
+      height: 300px;
+      /* background-image: linear-gradient(
+          to left top,
+          rgba(106, 98, 240, 1),
+          rgba(0, 212, 255, 1),
+          rgba(255, 154, 0, 1)
+          ); */
+      background-image:
+        linear-gradient(to right top,
+          rgba(0, 212, 255, 1),
+          transparent 55%),
+        linear-gradient(to right bottom,
+          rgba(255, 154, 0, 1),
+          transparent 55%),
+        linear-gradient(to left bottom,
+          rgba(0, 255, 76, 1),
+          transparent 55%),
+        linear-gradient(to left top,
+          rgba(106, 98, 240, 1),
+          transparent 55%);
+    }
+
+    .v5 {
+      width: 500px;
+      height: 300px;
+      background: radial-gradient(circle at 120% 120%, rgba(106, 98, 240, 1) 25%, rgba(0, 212, 255, 1) 50%, rgba(255, 154, 0, 1) 75%);
+    }
+
+    .v6 {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: conic-gradient(#fc0 0deg,
+          #fc0 180deg,
+          #59f 180deg,
+          #59f 360deg);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="v6"></div>
+  <div class="v5"></div>
+  <hr>
+  <div class="v4"></div>
+  <hr>
+  <div class="fakeImg"></div>
+  <hr>
+  <img src="https://fakeimg.pl/1000x500">
+  <hr>
+  <div class="v3"></div>
+  <hr>
+  <div class="v2"></div>
+  <hr>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam eveniet repellendus deserunt voluptas laudantium
+    quam doloribus temporibus sit commodi deleniti aliquid adipisci ex cum, explicabo esse quo placeat! Reiciendis ipsam
+    iste repudiandae maiores quisquam similique excepturi illum nemo, error ducimus quidem perspiciatis omnis laboriosam
+    doloremque quam nesciunt ab! Aliquid veritatis quas ea architecto modi blanditiis sit explicabo? Asperiores sapiente
+    libero accusamus qui molestiae dignissimos ducimus? Soluta cupiditate aut ex, sapiente eligendi earum sunt quam
+    officia fuga laudantium ad ab sint maiores debitis perspiciatis accusamus exercitationem beatae? Quos, soluta
+    corporis! Ab quasi quam earum? Eius voluptatem in consectetur laudantium dolore minima quo corrupti ut sint vel,
+    illo adipisci, blanditiis ipsum, a eveniet itaque repellat laboriosam voluptas aut quisquam repudiandae voluptatibus
+    cum quaerat nihil. Laborum harum sunt nesciunt accusantium suscipit. Ipsum eveniet beatae quis adipisci soluta
+    tempore officia! Saepe excepturi omnis possimus aliquid itaque, quidem iusto voluptas et velit, ullam vitae
+    obcaecati nulla amet labore dolore repudiandae deleniti? Rem enim delectus eos ut labore nobis sed deserunt vel ipsa
+    aspernatur quis, vero sint ex inventore recusandae rerum voluptatibus nemo autem voluptatum quod culpa aliquid sit
+    exercitationem fugiat. Adipisci nam maxime neque ea, nihil dolorem eaque assumenda illo exercitationem distinctio,
+    animi illum totam, et quod itaque voluptatum nemo atque quam deleniti dicta sint officia cumque. Aut recusandae
+    veritatis est velit a iste, autem neque veniam quo provident vel dicta nesciunt dolores officia, debitis, esse rerum
+    pariatur reprehenderit voluptas consectetur praesentium nam dignissimos non? Omnis debitis voluptatem officiis odio
+    dolorum eum, doloribus molestias aut magni cupiditate quasi, eligendi in deserunt reiciendis, autem officia
+    necessitatibus? Aperiam nesciunt repellendus, perferendis tempore unde, id, dolorem harum fuga consectetur nulla
+    iste repellat quibusdam dicta a culpa animi sunt assumenda cupiditate cum maxime et porro ducimus. Officia
+    laboriosam dolorum modi! Modi mollitia natus ea cumque perspiciatis ex accusamus nulla doloribus ratione odio
+    impedit necessitatibus, provident fugiat adipisci ducimus recusandae sapiente magnam excepturi sit nam sed iusto
+    obcaecati omnis unde! Assumenda, repellendus? Explicabo molestiae voluptatum accusamus ipsam laborum, numquam optio
+    consequuntur blanditiis nobis dolor molestias quisquam, iste necessitatibus impedit quas, temporibus vel quis
+    distinctio? Libero, rem autem? Laborum ut, dolores consequuntur reprehenderit iusto omnis, nemo repudiandae optio
+    adipisci deleniti eveniet quia? Animi laboriosam soluta voluptatibus nihil eligendi velit et ipsa consectetur, ullam
+    eveniet fugiat ab. Laudantium ratione deleniti architecto pariatur magni aut ipsam. Tenetur sapiente, voluptatum
+    magnam ut dolore perferendis at, incidunt iusto officiis adipisci rem necessitatibus, dignissimos assumenda omnis
+    dicta voluptates facere illo impedit quod consequatur unde. Quaerat mollitia vero minima consequatur recusandae
+    suscipit quod et numquam rem quo ipsam facere alias quisquam aperiam iste corrupti quis, tempore perferendis sequi
+    quibusdam in modi cum officia. Rem, quaerat in? Sed laudantium omnis, nulla dolor dicta optio qui laboriosam, vel
+    quasi aliquid doloribus aliquam exercitationem expedita adipisci distinctio officiis. Beatae laudantium pariatur
+    consequatur quos commodi alias maiores, cum incidunt esse ullam reprehenderit rem magnam. Tempora excepturi
+    temporibus corporis assumenda dolore doloribus at culpa rerum accusantium, voluptate nulla, porro cupiditate illo
+    explicabo minus impedit ea, aliquam consequuntur exercitationem vero animi iste dignissimos?</p>
+  <div class="v1" style="text-align: center; line-height: 300px">
+    <h1>hello world</h1>
+  </div>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam eveniet repellendus deserunt voluptas laudantium
+    quam doloribus temporibus sit commodi deleniti aliquid adipisci ex cum, explicabo esse quo placeat! Reiciendis ipsam
+    iste repudiandae maiores quisquam similique excepturi illum nemo, error ducimus quidem perspiciatis omnis laboriosam
+    doloremque quam nesciunt ab! Aliquid veritatis quas ea architecto modi blanditiis sit explicabo? Asperiores sapiente
+    libero accusamus qui molestiae dignissimos ducimus? Soluta cupiditate aut ex, sapiente eligendi earum sunt quam
+    officia fuga laudantium ad ab sint maiores debitis perspiciatis accusamus exercitationem beatae? Quos, soluta
+    corporis! Ab quasi quam earum? Eius voluptatem in consectetur laudantium dolore minima quo corrupti ut sint vel,
+    illo adipisci, blanditiis ipsum, a eveniet itaque repellat laboriosam voluptas aut quisquam repudiandae voluptatibus
+    cum quaerat nihil. Laborum harum sunt nesciunt accusantium suscipit. Ipsum eveniet beatae quis adipisci soluta
+    tempore officia! Saepe excepturi omnis possimus aliquid itaque, quidem iusto voluptas et velit, ullam vitae
+    obcaecati nulla amet labore dolore repudiandae deleniti? Rem enim delectus eos ut labore nobis sed deserunt vel ipsa
+    aspernatur quis, vero sint ex inventore recusandae rerum voluptatibus nemo autem voluptatum quod culpa aliquid sit
+    exercitationem fugiat. Adipisci nam maxime neque ea, nihil dolorem eaque assumenda illo exercitationem distinctio,
+    animi illum totam, et quod itaque voluptatum nemo atque quam deleniti dicta sint officia cumque. Aut recusandae
+    veritatis est velit a iste, autem neque veniam quo provident vel dicta nesciunt dolores officia, debitis, esse rerum
+    pariatur reprehenderit voluptas consectetur praesentium nam dignissimos non? Omnis debitis voluptatem officiis odio
+    dolorum eum, doloribus molestias aut magni cupiditate quasi, eligendi in deserunt reiciendis, autem officia
+    necessitatibus? Aperiam nesciunt repellendus, perferendis tempore unde, id, dolorem harum fuga consectetur nulla
+    iste repellat quibusdam dicta a culpa animi sunt assumenda cupiditate cum maxime et porro ducimus. Officia
+    laboriosam dolorum modi! Modi mollitia natus ea cumque perspiciatis ex accusamus nulla doloribus ratione odio
+    impedit necessitatibus, provident fugiat adipisci ducimus recusandae sapiente magnam excepturi sit nam sed iusto
+    obcaecati omnis unde! Assumenda, repellendus? Explicabo molestiae voluptatum accusamus ipsam laborum, numquam optio
+    consequuntur blanditiis nobis dolor molestias quisquam, iste necessitatibus impedit quas, temporibus vel quis
+    distinctio? Libero, rem autem? Laborum ut, dolores consequuntur reprehenderit iusto omnis, nemo repudiandae optio
+    adipisci deleniti eveniet quia? Animi laboriosam soluta voluptatibus nihil eligendi velit et ipsa consectetur, ullam
+    eveniet fugiat ab. Laudantium ratione deleniti architecto pariatur magni aut ipsam. Tenetur sapiente, voluptatum
+    magnam ut dolore perferendis at, incidunt iusto officiis adipisci rem necessitatibus, dignissimos assumenda omnis
+    dicta voluptates facere illo impedit quod consequatur unde. Quaerat mollitia vero minima consequatur recusandae
+    suscipit quod et numquam rem quo ipsam facere alias quisquam aperiam iste corrupti quis, tempore perferendis sequi
+    quibusdam in modi cum officia. Rem, quaerat in? Sed laudantium omnis, nulla dolor dicta optio qui laboriosam, vel
+    quasi aliquid doloribus aliquam exercitationem expedita adipisci distinctio officiis. Beatae laudantium pariatur
+    consequatur quos commodi alias maiores, cum incidunt esse ullam reprehenderit rem magnam. Tempora excepturi
+    temporibus corporis assumenda dolore doloribus at culpa rerum accusantium, voluptate nulla, porro cupiditate illo
+    explicabo minus impedit ea, aliquam consequuntur exercitationem vero animi iste dignissimos?</p>
+</body>
+
+</html>

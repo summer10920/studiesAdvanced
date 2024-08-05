@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .px {
+      font-size: 24px;
+    }
+
+    .em {
+      font-size: 1.5em;
+    }
+
+    .rem {
+      font-size: 1.5rem;
+    }
+  </style>
+</head>
+
+<!-- 
+  header 2rem
+  text 1rem
+
+chrome = 16px => 32px , 16px => 200%,100%
+other = 8px => 16px, 8px => 200%,100%
+
+  header 32px
+  text 16px
+
+chrome = 16px => 32px , 16px => 200%,100%
+other = 8px => 32px, 16px => 400%,200%
+-->
+
+<body>
+  <div style="font-size:1em">
+    <span>font = 16px</span>
+    <div style="font-size:2em;">
+      <span>font = 32px</span>
+      <div style="font-size:3em;">
+        <span>font = 32px*3</span>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <hr />
+  <div style="font-size:1rem">
+    <span>font = 16px</span>
+    <div style="font-size:2rem;">
+      <span>font = 16px * 2</span>
+      <div style="font-size:3rem;">
+        <span>font = 16px * 3</span>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <hr>
+  <div class="rem">Lorem ipsum dolor sit amet.</div>
+  <div class="em">Lorem ipsum dolor sit amet.</div>
+  <div class="px">Lorem ipsum dolor sit amet.</div>
+  <div>Lorem ipsum dolor sit amet.</div>
+</body>
+
+</html>

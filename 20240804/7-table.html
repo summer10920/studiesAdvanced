@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      /* margin: 0; */
+    }
+
+    table {
+      /* background: lightblue; */
+      /* margin: 0 auto; */
+      width: 200px;
+      border-spacing: 10px;
+      border-collapse: collapse;
+      /* empty-cells: hide; */
+      box-shadow: inset 4px 7px 13px 0px #000000a1,
+        4px 7px 13px 0px #000000a1;
+    }
+
+    td {
+      border: 1px solid red;
+      padding: 10px;
+      box-shadow: inset 0px 0px 5px 0px #0000ffa1;
+    }
+
+    /* tr:nth-child(3n) {
+      background: lightblue;
+    }
+
+    tr:nth-child(3n+1) {
+      background: lightcoral;
+    }
+
+    tr:nth-child(3n+2) {
+      background: lightgreen;
+    } */
+    tr:hover {
+      background: lightgray;
+    }
+
+    div {
+      width: 100px;
+      height: 100px;
+      background: lightblue;
+      box-shadow: 2px 2px 3px 0 #0005;
+    }
+
+    div:hover {
+      background: lightcoral;
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+  <hr>
+  <!-- table>(tr>td{text$$}*2)*5 -->
+  <table>
+    <tr>
+      <td>text01</td>
+      <td>text02</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>text01</td>
+    </tr>
+    <tr>
+      <td>text01</td>
+      <td>text02</td>
+    </tr>
+    <tr>
+      <td>text01</td>
+      <td>text02</td>
+    </tr>
+    <tr>
+      <td>text01</td>
+      <td>text02</td>
+    </tr>
+  </table>
+</body>
+
+</html>

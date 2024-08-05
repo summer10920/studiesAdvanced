@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      display: block;
+      background: lightcyan;
+      width: 100px;
+      height: 100px;
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid;
+    }
+
+    span {
+      display: inline;
+      background: lightcoral;
+      /* width: 100px;  無效果*/
+      /* height: 100px; 無效果*/
+      margin: 10px;
+      /* 上下無效果，只有左右 */
+      padding: 10px;
+      border: 1px solid;
+    }
+
+    .inlineBlock {
+      display: inline-block;
+      background: lightgoldenrodyellow;
+      width: 50px;
+      height: 50px;
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <div>block box 區塊容器 區塊盒子.</div> -->
+  <div>block box 區塊容器 區塊盒子.</div>
+  <span>inline box 行內容器 行內盒子</span>
+  <section class="inlineBlock">Inlne block</section>
+</body>
+
+</html>
