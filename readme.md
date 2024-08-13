@@ -30,6 +30,9 @@ IDE 環境安裝與設定、VSCode 軟體操作說明、網頁與伺服器基本
 ### 20240804
 文字相關外觀介紹含 font-size 與單位示範，段落樣式、行距高度。背景圖與背景色相關屬性介紹與疊加簡寫示範、背景漸層屬性、background 小節練習、List 清單外觀設定、表格相關操作屬性。Box Model （行內與區塊）觀念說明。
 
+### 202408011
+Box Model 觀念說明含 context 內容（寬高）、Margin 外距區域、Padding 內距區域、Border 框線 、Border-Radius 園角、max(min)-width 限定寬度、Box-sizing 盒子尺寸等示範。Position 定位方式含 Relative, absolution, fixed, sticky 相關示範說明。Position 小節練習。
+
 ## 檔案留存下載方說明
 
 ### 受訓中課程

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    div {
+      /* 指定寬，在這情況下是指內容寬*/
+      background: lightblue;
+      width: 300px;
+      height: 300px;
+    }
+
+    .v1 {
+      div {
+        background: lightblue;
+        width: 300px;
+        /* 指定寬，在這情況下是指內容寬*/
+        height: 300px;
+        /* display: inline; */
+        /*********************************** 外距 */
+        /* 四邊一起指定 */
+        /* margin: 10px; */
+        /* margin-left: 5px; */
+        /* margin: 10px 5px; */
+        /* margin: 10px 5px 8px; */
+        margin: 5px 8px 7px 10px;
+        /* margin-bottom: -10px; */
+        /*********************************** 內距 */
+        padding: 10px;
+        padding: 10px 5px;
+        padding: 10px 5px 8px;
+        padding: 10px 5px 8px 0;
+        /* 順時鐘指定 */
+        /* 
+          margin-left: 10px;
+          margin-top: 5px;
+          margin-bottom: 7px;
+          margin-right: 8px;
+        */
+      }
+
+      span {
+        background: lightgreen;
+      }
+    }
+
+    section.v2 {
+      background: lightpink;
+      width: 500px;
+      height: 200px;
+      /* margin-left: auto; */
+      margin: 10px auto;
+      /* block 內容置中 */
+    }
+
+    section.v3 {
+      background: lightgreen;
+      width: 500px;
+      height: 200px;
+      margin: 50px;
+    }
+
+    section.v4 {
+
+      /* overflow: auto; */
+      div {
+        margin: 50px;
+      }
+    }
+
+    section.v5 {
+      span {
+        /* background: lightcoral; */
+        /* margin: 10px; */
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  
+  <section class="v5">
+    <span>Lorem, ipsum dolor.</span>
+    <span>Lorem, ipsum dolor.</span>
+    <span>Lorem, ipsum dolor.</span>
+    <span>Lorem, ipsum dolor.</span>
+    <span>Lorem, ipsum dolor.</span>
+  </section>
+  <hr>
+  <hr>
+  <hr>
+  <section class="v4">
+    <div>hello world</div>
+  </section>
+  <hr>
+  <section class="v3"> hello world </section>
+  <section class="v2"> hello world </section>
+  <hr>
+  <section class="v1">
+    <!-- <h1>Lorem ipsum dolor sit amet.</h1> -->
+    <div>hello world Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae iste consectetur et doloribus ab.
+      Quia ratione consectetur cum quo voluptatibus?</div>
+    <span>Lorem ipsum dolor sit amet.</span>
+  </section>
+</body>
+
+</html>

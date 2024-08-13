@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      /* width: 500px; */
+      /* margin: 0 auto; */
+    }
+
+    section {
+      width: 500px;
+      background: black;
+      /* margin: 0 auto; */
+    }
+
+    p {
+      height: 30px;
+      background: lightgreen;
+
+      &.v1 {
+        width: 100px;
+        margin-left: auto;
+        /*ml=300px*/
+        margin-right: 100px;
+      }
+
+      &.v2{
+        width: 100px;
+        margin-left: 100px;
+        margin-right: 100px;
+      }
+      &.v3{
+        width: auto;
+        margin-left: 100px;
+        margin-right: 100px;
+      }
+      &.v4{
+        width: 300px;
+        margin-left: auto; /* 100px*/
+        margin-right: auto; /*100px*/
+      }
+      &.v5{
+        width: auto;/*400*/
+        margin-left: auto;/*0*/
+        margin-right: 100px;
+      }
+      &.v6{
+        width: auto;/*500*/
+        margin-left: auto;/*0*/
+        margin-right: auto;/*0*/
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <p class="v6">v6</p>
+  </section>
+  <section>
+    <p class="v5">v5</p>
+  </section>
+  <section>
+    <p class="v4">v4</p>
+  </section>
+  <section>
+    <p class="v3">v3</p>
+  </section>
+  <section>
+    <p class="v2">v2</p>
+  </section>
+  <section>
+    <p class="v1">v1</p>
+  </section>
+</body>
+
+</html>

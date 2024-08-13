@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    p {
+      max-width: 500px;
+      height: 250px;
+      background: lightblue;
+      border: 1px solid;
+
+      &:nth-child(1) {
+        overflow-y: auto;
+        color: red;
+      }
+
+      &:nth-child(2) {
+        overflow: hidden;
+        color: purple;
+      }
+
+      &:hover {
+        border-color: blue;
+        border-width: 5px;
+      }
+    }
+
+    section {
+      .info {
+        /* height: 2rem; */
+        color: red;
+      }
+
+      .info>small {
+        /* display: none; */
+        visibility: hidden;
+        /* opacity: 0; */
+      }
+
+      span {
+        background: lightcoral;
+      }
+    }
+
+    section:hover .info>small {
+      /* display: block; */
+      visibility: visible;
+      /* opacity: 1; */
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <h1> hello world </h1>
+    <div class="info"><small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, ratione?</small></div>
+  </section>
+  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis praesentium fuga velit tenetur est assumenda
+    veritatis accusamus voluptatem veniam obcaecati nobis, quas non delectus animi soluta facilis iusto quo suscipit
+    commodi eius dignissimos rerum enim saepe. Ducimus, ad doloribus, fugit repudiandae totam quae et voluptates
+    voluptate assumenda quo saepe, quasi sed blanditiis velit illum eum! Autem ullam dolorum esse exercitationem fuga,
+    id quod quidem eaque dolorem dolor quam laborum asperiores reiciendis temporibus, nemo delectus iure itaque
+    provident consequatur architecto? Adipisci aperiam quis ipsa reprehenderit non. Et mollitia harum, delectus sint
+    nostrum vel dolores? Necessitatibus corporis nihil blanditiis eum, tempore vel?</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, esse. Quidem inventore quasi, possimus voluptatum
+    et rerum laudantium sit exercitationem commodi ducimus repellendus voluptas. Labore quidem provident ut architecto,
+    aliquid adipisci, repellendus fugiat eligendi illo similique reprehenderit asperiores dignissimos possimus voluptate
+    consectetur natus, magni consequatur et quaerat placeat nihil perspiciatis.</p>
+</body>
+
+</html>

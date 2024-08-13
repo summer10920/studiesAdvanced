@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    section.v1 {
+      div {
+        width: 300px;
+        height: 300px;
+        background: lightgreen;
+        /* width style color */
+        border: 10px solid red;
+        /* border-right-style: double; */
+        border-style: double;
+        border-style: double solid dotted dashed;
+        border-width: 5px;
+        border-width: 5px 10px;
+        border-width: 5px 10px 20px;
+        border-color: darkcyan darkblue;
+      }
+
+      span {
+        background: lightcoral;
+        border: 1px solid;
+      }
+    }
+
+    section.v2 {
+      div {
+        width: 100px;
+        height: 100px;
+        background: lightcoral;
+        /* border: 10px solid; */
+        /* border-radius: 20px; */
+        /* border-radius: 5%; */
+        /* 總寬比50% 定是極限的圓形 */
+        border-radius: 44% 56% 56% 44% / 64% 49% 51% 36%;
+        box-shadow: 3px 3px 3px 3px #0003;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="v2">
+    <div>hello wolrd</div>
+  </section>
+  <hr>
+  <section class="v1">
+    <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam error laboriosam facere esse porro in, sapiente
+      rerum expedita ipsum id. Lorem ipsum dolor, <span>hello world</span>sit amet consectetur adipisicing elit.
+      Consequuntur, sunt.</div>
+  </section>
+</body>
+
+</html>

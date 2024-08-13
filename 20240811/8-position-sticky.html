@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: calc(100vh - 62px);
+      object-fit: cover;
+    }
+
+    nav {
+      background: darkseagreen;
+      text-align: center;
+      position: sticky;
+      /****
+      黏性定位: 在畫面內為static，在畫面外為fixed
+      ****/
+      top: 50px;
+      left: 0;
+      z-index: 1;
+
+      a {
+        text-decoration: none;
+        color: white;
+        font-size: 2rem;
+        display: inline-block;
+        padding: 0 20px;
+        margin: 10px 0;
+
+        /* &:not(:first-child){ */
+        &:nth-child(n+2) {
+          border-left: 2px solid white;
+        }
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <img src="https://picsum.photos/1920/1080/?random=10">
+  <nav>
+    <a href="#">關於我們</a>
+    <a href="#">產品介紹</a>
+    <a href="#">客戶案例</a>
+    <a href="#">線上購物</a>
+  </nav>
+  <img src="https://picsum.photos/1920/1080/?random=11">
+  <img src="https://picsum.photos/1920/1080/?random=12">
+  <img src="https://picsum.photos/1920/1080/?random=13">
+</body>
+
+</html>

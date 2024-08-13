@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /*********** rest browser init start ********/
+    body {
+      margin: 0;
+    }
+    
+    *{ /* 任何元素*/
+      box-sizing: border-box; /* width => content + padding + border */
+    }
+    /*********** rest browser init end ********/
+
+    div.v1 {
+      background: lightgreen;
+      width: 200px; /* content box width = 200*/
+      height: 200px;
+      padding: 50px;
+      margin: 50px;
+      border: 10px solid;
+      box-sizing: content-box; /* width => content box */
+    }
+    
+    div.v2 {
+      background: lightseagreen;
+      width: 200px; /* border box width =200*/
+      height: 200px;
+      padding: 50px;
+      margin: 50px;
+      border: 10px solid;
+      
+    }
+  </style>
+</head>
+
+<body>
+  <div class="v2">hello</div>
+  <div class="v1">hello</div>
+</body>
+
+</html>
