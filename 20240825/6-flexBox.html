@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    .flexBox {
+      background: lightgoldenrodyellow;
+      display: flex;
+      height: 400px;
+      /* 主軸與方向*/
+      flex-direction: row;
+      /* 主軸分配方式*/
+      justify-content: flex-start;
+      /* 交軸分配方式*/
+      align-items: center;
+      /* 多行許可 */
+      /* flex-wrap: wrap-reverse; */
+      /* flex-flow: row wrap; */
+      /*多行情況下有作用，可以控制多行分配方式(這個跟justify-content同樣效果，只是前者控制wraps，後者控制items)，如果用了這個對於align-items的效果可用但沒意義 */
+      /* align-content: center; */
+    }
+
+    .item {
+      width: 100px;
+      height: 100px;
+      background: lightblue;
+      border: 1px solid;
+    }
+
+    .self{
+      height: unset;
+      align-self: stretch;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="flexBox">
+    <div class="item">standalone</div>
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item self">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+    <div class="item">7</div>
+    <div class="item">8</div>
+  </div>
+</body>
+
+</html>

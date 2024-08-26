@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    .flexBox {
+      display: flex;
+      height: 500px;
+      background: lightgoldenrodyellow;
+      flex-flow: row nowrap;
+      align-items: center;
+    }
+
+    .flexItem {
+      width: 300px;
+      height: 50px;
+      /* margin: 10px; */
+      background: lightblue;
+      /* border: 1px solid; */
+      flex: 0 1 auto;
+      /*
+      flex-grow: 0; 膨脹係數
+      flex-shrink: 1; 收縮係數
+      flex-basis: auto; 基本空間
+      */
+      order: 0;
+      /* main軸的排列順序，越小越start */
+    }
+
+    .at2 {
+      background: lightcoral;
+      flex-basis: 200px;
+      /* margin-left:auto; */
+      /* flex-grow: 2; */
+      /* flex-shrink: 0; */
+      order: -1;
+    }
+
+    .at3 {
+      background: lightgreen;
+      /* flex-grow: 1; */
+      /* flex-shrink: 2; */
+      order: 2;
+    }
+
+    .at4 {
+      /* flex-grow: 1; */
+      /* flex-shrink: 2; */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="flexBox">
+    <div class="flexItem at1">1</div>
+    <div class="flexItem at2">2</div>
+    <div class="flexItem at3">3</div>
+    <div class="flexItem at4">4</div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 50px;
+      text-align: center;
+    }
+
+    .disc {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(45deg, white, #ddd);
+      border: 2px solid;
+      box-shadow: 3px 3px 3px 0px #0005;
+      border-radius: 5%;
+      display: inline-block;
+      position: relative;
+
+      span {
+        width: 20%;
+        height: 20%;
+        background: #000;
+        border-radius: 50%;
+        position: absolute;
+      }
+
+      .at1 {
+        top: 10%;
+        left: 10%;
+      }
+
+      .at3 {
+        top: 10%;
+        right: 10%;
+      }
+
+      .at4 {
+        top: 50%;
+        transform: translateY(-50%);
+        left: 10%;
+      }
+
+      .at5 {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        &.red {
+          background: red;
+        }
+      }
+
+      .at6 {
+        top: 40%;
+        right: 10%;
+      }
+
+      .at7 {
+        bottom: 10%;
+        left: 10%;
+      }
+
+      .at9 {
+        bottom: 10%;
+        right: 10%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 請使用 CSS 的 postion 屬性試著做出以下畫面，點符號利用 absolute 做出。每個骰子的尺寸為 200px，點符號尺寸為骰子的 0.2 倍大。 -->
+  <div class="disc">
+    <span class="at5 red"></span>
+  </div>
+  <div class="disc">
+    <span class="at1"></span>
+    <span class="at9"></span>
+  </div>
+  <div class="disc">
+    <span class="at1"></span>
+    <span class="at5"></span>
+    <span class="at9"></span>
+  </div>
+  <div class="disc">
+    <span class="at1"></span>
+    <span class="at3"></span>
+    <span class="at7"></span>
+    <span class="at9"></span>
+  </div>
+  <div class="disc">
+    <span class="at1"></span>
+    <span class="at3"></span>
+    <span class="at5"></span>
+    <span class="at7"></span>
+    <span class="at9"></span>
+  </div>
+  <div class="disc">
+    <span class="at1"></span>
+    <span class="at3"></span>
+    <span class="at4"></span>
+    <span class="at6"></span>
+    <span class="at7"></span>
+    <span class="at9"></span>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    section {
+      /* 規劃為floatBox，適時的消除float，使自身的高度合理，避免影響其他元素的排版 */
+      margin-bottom: 10px;
+
+      >* {
+        height: 100px;
+      }
+
+      &::after {
+        content: '';
+        display: block;
+        clear: both;
+      }
+    }
+
+    .v1 {
+      .side {
+        width: 20%;
+        background: bisque;
+        float: left;
+      }
+
+      .main {
+        width: 80%;
+        background: #aaa;
+        margin-left: 20%;
+      }
+    }
+
+    .v2 {
+      .side {
+        width: 20%;
+        background: bisque;
+        float: right;
+      }
+
+      .main {
+        width: 80%;
+        background: #aaa;
+      }
+    }
+
+    .v3 {
+      .side {
+        width: 20%;
+        background: bisque;
+        float: left;
+      }
+
+      .main {
+        width: 80%;
+        background: #aaa;
+        float: left;
+      }
+    }
+
+    .v4 {
+      .side {
+        width: 20%;
+        background: bisque;
+        float: left;
+      }
+
+      .main {
+        width: 80%;
+        background: #aaa;
+        float: right;
+      }
+    }
+
+    .v5 {
+      .side {
+        width: 20%;
+        background: bisque;
+        float: left;
+      }
+
+      .main {
+        width: 80%;
+        background: #aaa;
+        overflow: auto;
+      }
+    }
+
+    .v6 {
+      .side1 {
+        width: 20%;
+        background: bisque;
+        float: left;
+      }
+
+      .side2 {
+        width: 20%;
+        background: bisque;
+        float: right;
+      }
+
+      .main {
+        width: 60%;
+        background: #aaa;
+        margin: 0 20%;
+      }
+    }
+
+    .v7 {
+      .side1 {
+        width: 20%;
+        background: bisque;
+        float: left;
+      }
+
+      .main {
+        width: 60%;
+        background: #aaa;
+        float: left;
+      }
+
+      .side2 {
+        width: 20%;
+        background: bisque;
+        float: right;
+      }
+    }
+
+    .v8 {
+      .side1 {
+        width: 20%;
+        background: bisque;
+        float: left;
+      }
+
+      .main {
+        width: 60%;
+        background: #aaa;
+        float: left;
+      }
+
+      .side2 {
+        width: 20%;
+        background: bisque;
+        float: left;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="v1">
+    <div class="side">1</div>
+    <div class="main">2</div>
+  </section>
+  <section class="v2">
+    <div class="side">1</div>
+    <div class="main">2</div>
+  </section>
+  <section class="v3">
+    <div class="side">1</div>
+    <div class="main">2</div>
+  </section>
+  <section class="v4">
+    <div class="side">1</div>
+    <div class="main">2</div>
+  </section>
+  <section class="v5">
+    <div class="side">1</div>
+    <div class="main">2</div>
+  </section>
+  <section class="v6">
+    <div class="side1">sidebar1</div>
+    <div class="side2">sidebar2</div>
+    <div class="main">main</div>
+  </section>
+  <section class="v7">
+    <div class="side1">sidebar1</div>
+    <div class="main">main</div>
+    <div class="side2">sidebar2</div>
+  </section>
+  <section class="v8">
+    <div class="side1">sidebar1</div>
+    <div class="main">main</div>
+    <div class="side2">sidebar2</div>
+  </section>
+</body>
+
+</html>

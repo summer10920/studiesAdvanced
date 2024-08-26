@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 960px;
+      margin: 0 auto;
+      border: 1px solid #000;
+      /* overflow: hidden; */
+    }
+
+    .col {
+      box-sizing: border-box;
+      border: 5px outset #fa0;
+      width: 300px;
+      padding: 10px;
+      margin: 10px;
+      float: left;
+    }
+
+    .colorBox {
+      border: 1px solid #000;
+      width: 960px;
+      height: 50px;
+      margin: 0 auto;
+      background: yellowgreen;
+    }
+
+    .clearFloat {
+      clear: left;
+    }
+    .floatBox::after{
+      content: '';
+      display: block;
+      clear: both;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container floatBox">
+    <div class="col"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Id laboriosam modi fugiat dolore,
+      distinctio minus ducimus aliquid ratione. Nulla quis cupiditate voluptas pariatur eaque atque laudantium
+      necessitatibus ut autem. Sit!Lorem </div>
+    <div class="col"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Id laboriosam modi fugiat dolore,
+      distinctio minus ducimus aliquid ratione. Nulla quis cupiditate voluptas pariatur eaque atque laudantium
+      necessitatibus ut autem. Sit!Lorem </div>
+    <div class="col"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Id laboriosam modi fugiat dolore,
+      distinctio minus ducimus aliquid ratione. Nulla quis cupiditate voluptas pariatur eaque atque laudantium
+      necessitatibus ut autem. Sit!Lorem </div>
+    <!-- 從這裡開始不要有float的效果 -->
+    <!-- <div class="clearFloat"></div> -->
+  </div>
+  <div class="colorBox">探討問題用的</div>
+</body>
+
+</html>
