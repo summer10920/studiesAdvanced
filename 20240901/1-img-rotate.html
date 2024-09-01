@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    img {
+      border: 8px solid #f5f5f5;
+      box-shadow: 0 0 2px 2px #0003;
+    }
+
+    img:nth-child(2) {
+      transform: translate(10%, -15%) rotate(20deg);
+    }
+  </style>
+</head>
+
+<body>
+  <img src="https://picsum.photos/400/300/?random=10">
+  <img src="https://picsum.photos/400/300/?random=11">
+</body>
+
+</html>

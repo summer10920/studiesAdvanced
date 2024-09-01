@@ -6,6 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
+    /* 
+    transition-duration: 1s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    transition-property: all;
+    */
+
     body {
       margin: 0;
       height: 100vh;
@@ -14,31 +21,24 @@
       align-items: center;
     }
 
-    .box {
+    div {
       width: 100px;
       height: 100px;
       background: lightblue;
-      position: relative;
+      transition: all 2s ease 0s;
     }
 
-    .box::after {
-      content: 'transform';
-      position: absolute;
-      width: 200px;
-      height: 100px;
+    div:hover {
       background: lightcoral;
-      left: 0;
-      top: 0;
-      opacity: 0.5;
-      /* transform: translateY(100px) translateX(100px); */
-      /* transform: translate(100px); */
-      transform: translate(0, 100px);
+      border-radius: 50%;
+      width: 200px;
+      transform: rotate(45deg);
     }
   </style>
 </head>
 
 <body>
-  <div class="box">before</div>
+  <div></div>
 </body>
 
 </html>

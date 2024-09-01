@@ -22,17 +22,21 @@
     }
 
     .box::after {
-      content: 'transform';
+      content: 'before';
       position: absolute;
-      width: 200px;
+      width: 100px;
       height: 100px;
       background: lightcoral;
       left: 0;
       top: 0;
       opacity: 0.5;
-      /* transform: translateY(100px) translateX(100px); */
-      /* transform: translate(100px); */
-      transform: translate(0, 100px);
+      /* transform: scaleX(2) scaleY(2); */
+      /* transform: translateY(100px) scale(1, -1); */
+      /* transform: translateY(100px) rotate(30deg); */
+      /* transform: rotate(45deg); */
+      /* transform: scale(0.5); */
+      /* transform-origin: left top; */
+      transform: skew(-45deg);
     }
   </style>
 </head>
