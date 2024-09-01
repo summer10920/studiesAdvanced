@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* 當條件符合最小480px => 如果螢幕的寬度480px以上時 */
+    /* @media screen and (min-width:480px) {
+      body {
+        margin: 0;
+        background: lightblue;
+      }
+    }
+
+    @media (min-width:500px) and (max-width:700px) {
+      body {
+        background: lightcoral;
+      }
+    } */
+    /***************v1*****************/
+    /* @media (min-width:300px) {
+      body {
+        background: lightpink;
+      }
+    }
+
+    @media (min-width:500px) {
+      body {
+        background: lightblue;
+      }
+    }
+
+    @media (min-width:700px) {
+      body {
+        background: lightgreen;
+      }
+    }
+
+    @media (min-width:900px) {
+      body {
+        background: lightseagreen;
+      }
+    }
+
+    @media (min-width:1100px) {
+      body {
+        background: darkblue;
+      }
+    } */
+
+    /***************v2*****************/
+    @media (min-width:300px) and (max-width:499px) {
+      body {
+        background: lightpink;
+      }
+    }
+
+    @media (min-width:500px) and (max-width:699px) {
+      body {
+        background: lightblue;
+      }
+    }
+
+    @media (min-width:700px) and (max-width:899px) {
+      body {
+        background: lightgreen;
+      }
+    }
+
+    @media (min-width:900px) and (max-width:1099px) {
+      body {
+        background: lightseagreen;
+      }
+    }
+
+    @media (min-width:1100px) {
+      body {
+        background: darkblue;
+      }
+    }
+  </style>
+</head>
+
+<body>
+</body>
+
+</html>

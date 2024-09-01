@@ -10,10 +10,27 @@
       margin: 0;
       display: flex;
       height: 100vh;
-      justify-content: center;
+      flex-flow: row wrap;
+      justify-content: space-around;
       align-items: center;
       background: #333;
       color: white;
+    }
+
+    section {
+      flex: 0 0 45%;
+      display: flex;
+      justify-content: center;
+    }
+
+    @media (max-width:700px) {
+      body {
+        flex-flow: column nowrap;
+      }
+
+      section {
+        flex: 0 0 auto;
+      }
     }
 
     .base {
@@ -30,7 +47,7 @@
       animation-direction: 方向性;
       animation-fill-mode: 當 forwards 代表結束時要停在最後一格動畫;
       */
-      animation: demo1 3s linear 2 alternate forwards;
+      animation: demo1 3s linear infinite alternate forwards;
     }
 
     @keyframes demo1 {
@@ -46,11 +63,162 @@
         background: yellow;
       }
     }
+
+    .btn {
+      width: 100px;
+      height: 50px;
+      background: orange;
+      border-radius: 5px;
+      line-height: 50px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+
+      &::after {
+        content: '';
+        position: absolute;
+        background: linear-gradient(45deg, transparent 40%, #fff7 50%, transparent 60%);
+        left: -100%;
+        top: -100%;
+        right: -100%;
+        bottom: -100%;
+        animation: demo2 2s linear infinite;
+      }
+    }
+
+    @keyframes demo2 {
+      0% {
+        transform: translateX(-66.66%);
+      }
+
+      50% {
+        transform: translateX(-10%);
+      }
+
+      75% {
+        transform: translateX(20%);
+      }
+
+      100% {
+        transform: translateX(66.66%);
+      }
+    }
+
+    .load {
+      width: 100px;
+      position: relative;
+      text-align: center;
+
+      /* background: green;
+      animation: demo1 5s infinite alternate; */
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        width: 300px;
+        top: -2rem;
+        left: -100%;
+        /* right: -100%; */
+        bottom: 2rem;
+        border: 1px solid;
+      }
+
+      &::after {
+        animation: demo3 10s 1 forwards;
+      }
+    }
+
+    @keyframes demo3 {
+      0% {
+        /* right: 200%; */
+        width: 0px;
+      }
+
+      25%,
+      75% {
+        background: #500;
+      }
+
+      50% {
+        background: #f00;
+      }
+
+      100% {
+        /* right: -100%; */
+        width: 300px;
+        background: #0f0;
+      }
+    }
+
+    .rgb {
+      font-size: 5rem;
+      font-family: Arial, Helvetica, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1rem;
+      padding: 5px 0 5px 1rem;
+      border: 1px solid white;
+      animation: rgb 5s linear infinite, Beat 15s linear infinite;
+    }
+
+    @keyframes rgb {
+
+      0%,
+      100% {
+        text-shadow: 0px 0px 1rem #f00f, 0px 0px 5rem #f009;
+      }
+
+      33% {
+        text-shadow: 0px 0px 1rem #0f0f, 0px 0px 5rem #0f09;
+      }
+
+      66% {
+        text-shadow: 0px 0px 1rem #00f, 0px 0px 5rem #00f9;
+      }
+    }
+
+    @keyframes Beat {
+
+      0%,
+      100% {
+        box-shadow: 0px 0px 1rem #ff0000ff, 0px 0px 5rem #ff000099, inset 0px 0px 1rem #ff0000ff, inset 0px 0px 5rem #ff000099;
+      }
+
+      12.5% {
+        box-shadow: 0px 0px 1rem #ffFF00ff, 0px 0px 1rem #ffFF0099, inset 0px 0px 1rem #ffFF00ff, inset 0px 0px 1rem #ffFF0099;
+      }
+
+      33% {
+        box-shadow: 0px 0px 1rem #00ff00ff, 0px 0px 5rem #00ff0099, inset 0px 0px 1rem #00ff00ff, inset 0px 0px 5rem #00ff0099;
+      }
+
+      45.5% {
+        box-shadow: 0px 0px 1rem #00FFFFFF, 0px 0px 1rem #00FFFF99, inset 0px 0px 1rem #00FFFFFF, inset 0px 0px 1rem #00FFFF99;
+      }
+
+      66% {
+        box-shadow: 0px 0px 1rem #0000ffff, 0px 0px 5rem #0000ff99, inset 0px 0px 1rem #0000ffff, inset 0px 0px 5rem #0000ff99;
+      }
+
+      78.5% {
+        box-shadow: 0px 0px 1rem #FF00FFFF, 0px 0px 1rem #FF00FF99, inset 0px 0px 1rem #FF00FFFF, inset 0px 0px 1rem #FF00FF99;
+      }
+    }
   </style>
 </head>
 
 <body>
-  <div class="base">HELLO WORLD</div>
+  <section>
+    <div class="base">HELLO WORLD</div>
+  </section>
+  <section>
+    <div class="btn">Button</div>
+  </section>
+  <section>
+    <div class="load">loading</div>
+  </section>
+  <section>
+    <div class="rgb">Loki</div>
+  </section>
 </body>
 
 </html>

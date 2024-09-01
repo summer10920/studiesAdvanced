@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    table {
+      width: calc(100% - 20px);
+      margin: 10px;
+      line-height: 2rem;
+      border-bottom: 2px solid;
+    }
+
+    thead {
+      background: black;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background: lightgray;
+    }
+
+    td {
+      padding: 0 5px;
+    }
+
+    @media (max-width:720px) {
+      thead {
+        display: none;
+      }
+
+      tr {
+        /*card*/
+        display: block;
+        border: 1px solid;
+      }
+
+      td {
+        /*text line*/
+        display: block;
+        padding-left: 30%;
+        position: relative;
+
+        &::before {
+          font-weight: bold;
+          position: absolute;
+          left: 0;
+          width: 28%;
+          text-align: right;
+        }
+
+        &:nth-child(1)::before {
+          content: '服務站名：';
+        }
+
+        &:nth-child(2)::before {
+          content: '電話：';
+        }
+
+        &:nth-child(3)::before {
+          content: '傳真：';
+        }
+
+        &:nth-child(4)::before {
+          content: '地址：';
+        }
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>服務站名</th>
+        <th>電話</th>
+        <th>傳真</th>
+        <th>地址</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>北基宜花金馬分署</td>
+        <td>(02)8995-6399</td>
+        <td>(02)8995-6398</td>
+        <td>新北市新莊區中平路 439 號南棟 3 樓</td>
+      </tr>
+      <tr>
+        <td>基隆就業中心</td>
+        <td>(02)2422-5263</td>
+        <td>(02)2428-1514</td>
+        <td>基隆市中正區中正路 102 號</td>
+      </tr>
+      <tr>
+        <td>羅東就業中心</td>
+        <td>(03)954-2094</td>
+        <td>(03)957-6435</td>
+        <td>宜蘭縣羅東鎮中正北路 50 號 1、2 樓</td>
+      </tr>
+      <tr>
+        <td>基隆就業中心六堵分站</td>
+        <td>(02)2451-5020</td>
+        <td>(02)2452-8501</td>
+        <td>基隆市七堵區工建北路 1 之 2 號</td>
+      </tr>
+      <tr>
+        <td>花蓮就業中心</td>
+        <td>(03)832-3262</td>
+        <td>(03)835-6927</td>
+        <td>花蓮縣花蓮市國民三街 25 號</td>
+      </tr>
+      <tr>
+        <td>連江就業中心</td>
+        <td>(0836)23576</td>
+        <td>(0836)26304</td>
+        <td>連江縣南竿鄉介壽村 47-4 號</td>
+      </tr>
+      <tr>
+        <td>玉里就業中心</td>
+        <td>(03)888-2033</td>
+        <td>(03)888-6140</td>
+        <td>花蓮縣玉里鎮莊敬路 8 號 2 樓</td>
+      </tr>
+      <tr>
+        <td>金門就業中心</td>
+        <td>(082)31-1119</td>
+        <td>(082)31-1120</td>
+        <td>金門縣金城鎮民權路 173 號</td>
+      </tr>
+      <tr>
+        <td>頭城就業服務台</td>
+        <td>(03)977-1650</td>
+        <td>(03)977-1650</td>
+        <td>宜蘭縣頭城鎮開蘭路 1 號</td>
+      </tr>
+      <tr>
+        <td>員山就業服務台</td>
+        <td>(03)923-2880</td>
+        <td>(03)923-2880</td>
+        <td>宜蘭縣員山鄉員山路一段 322 號</td>
+      </tr>
+      <tr>
+        <td>蘇澳就業服務台</td>
+        <td>(03)996-5300</td>
+        <td>(03)996-5300</td>
+        <td>宜蘭縣蘇澳鎮蘇港路 215 號</td>
+      </tr>
+      <tr>
+        <td>礁溪就業服務台</td>
+        <td>(03)988-3234</td>
+        <td>(03)988-3234</td>
+        <td>宜蘭縣礁溪鄉中山路二段 3 號</td>
+      </tr>
+      <tr>
+        <td>瑞穗就業服務台</td>
+        <td>(03)887-0507</td>
+        <td>(03)887-0507</td>
+        <td>花蓮縣瑞穗鄉成功南路 19 號</td>
+      </tr>
+      <tr>
+        <td>壽豐就業服務台</td>
+        <td>(03)865-0885</td>
+        <td>(03)865-0885</td>
+        <td>花蓮縣壽豐鄉壽山路 26 號</td>
+      </tr>
+      <tr>
+        <td>冬山就業服務台</td>
+        <td>(03)959-6490</td>
+        <td>(03)959-6490</td>
+        <td>宜蘭縣冬山鄉冬山路 100 號</td>
+      </tr>
+      <tr>
+        <td>秀林就業服務台</td>
+        <td>(03)861-0803</td>
+        <td>(03)861-0803</td>
+        <td>花蓮縣秀林鄉秀林村 12 鄰 62 號</td>
+      </tr>
+      <tr>
+        <td>五結就業服務台</td>
+        <td>(03)950-9912</td>
+        <td>(03)950-9912</td>
+        <td>宜蘭縣五結鄉五結路二段 343 號</td>
+      </tr>
+      <tr>
+        <td>吉安就業服務台</td>
+        <td>(03)852-9886</td>
+        <td>(03)852-9886</td>
+        <td>花蓮縣吉安鄉吉安村吉安路二段 116 號</td>
+      </tr>
+      <tr>
+        <td>光復就業服務台</td>
+        <td>(03)870-0226</td>
+        <td>(03)870-0226</td>
+        <td>花蓮縣光復鄉中山路一段 216 巷 8 號</td>
+      </tr>
+      <tr>
+        <td>銀髮人才資源中心</td>
+        <td>(02)7730-8878</td>
+        <td>(02)2231-0109</td>
+        <td>新北市永和區自由街 64 號 1 樓</td>
+      </tr>
+      <tr>
+        <td>臺北青年職涯發展中心</td>
+        <td>(02)2977-0755</td>
+        <td>(02)2977-0765</td>
+        <td>新北市三重區重新路 4 段 12 號 3 樓</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+
+</html>
