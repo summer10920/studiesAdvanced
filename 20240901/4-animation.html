@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      background: #333;
+      color: white;
+    }
+
+    .base {
+      width: 100px;
+      height: 100px;
+      background: lightcoral;
+      /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+      /*
+      animation-name: 動畫名稱，需要指定一個keyframes，所有的故事規劃都在這裡;
+      animation-duration: 播放時間;
+      animation-timing-function: 播放節奏timing function;
+      animation-delay: 停留時間;
+      animation-iteration-count: 波放次數;
+      animation-direction: 方向性;
+      animation-fill-mode: 當 forwards 代表結束時要停在最後一格動畫;
+      */
+      animation: demo1 3s linear 2 alternate forwards;
+    }
+
+    @keyframes demo1 {
+      0% {
+        background: red;
+      }
+
+      50% {
+        background: green;
+      }
+
+      100% {
+        background: yellow;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="base">HELLO WORLD</div>
+</body>
+
+</html>

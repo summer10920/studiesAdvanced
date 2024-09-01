@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+    }
+
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: lightblue;
+      position: relative;
+
+      &::after {
+        content: '';
+        width: 100px;
+        height: 100px;
+        background-color: lightcoral;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform-origin: right top;
+        /* transition:
+          opacity 0.5s,
+          top 0.5s 0.5s,
+          width 0.5s 1s,
+          transform 3s 1.5s; */
+          transition: all 0.5s;
+      }
+    }
+
+    div:hover::after {
+      opacity: 0.5;
+      top: 100px;
+      width: 200px;
+      transform: rotate(90deg);
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+</body>
+
+</html>

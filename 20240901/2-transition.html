@@ -12,7 +12,6 @@
     transition-delay: 0s;
     transition-property: all;
     */
-
     body {
       margin: 0;
       height: 100vh;
@@ -25,14 +24,28 @@
       width: 100px;
       height: 100px;
       background: lightblue;
-      transition: all 2s ease 0s;
+      /* transition: border-radius 2s ease 0s; */
+      /* transition-duration: 5s;
+      transition-timing-function: ease;
+      transition-delay: 0s;
+      transition-property: all; */
+      /* 分開指定轉場 => 對三個對象 */
+      /* transition-property: background-color, transform, width;
+      transition-duration: 5s, 1.5s, 500ms;
+      transition-timing-function: ease, ease-in, linear;
+      transition-delay: 0s, 5s, 0s; */
+      /* 簡寫指定轉場 => 對三個對象 */
+      transition:
+        width 500ms linear 0s,
+        background-color 5s,
+        transform 1.5s ease-in 3s;
     }
-
+    
     div:hover {
-      background: lightcoral;
-      border-radius: 50%;
-      width: 200px;
-      transform: rotate(45deg);
+      background-color: lightcoral;
+      transform: rotate(90deg);
+      width: 500px;
+
     }
   </style>
 </head>
