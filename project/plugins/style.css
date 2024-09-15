@@ -1,0 +1,143 @@
+:root {
+  --galaxyColor: #282c34;
+}
+
+body {
+  font-family: "Roboto", Arial, "Noto Sans TC", Helvetica, sans-serif;
+  background: var(--galaxyColor);
+  color: #eee;
+
+  > nav {
+    z-index: 9999;
+  }
+}
+
+#lokiMenu {
+  a.nav-link {
+    letter-spacing: 0.25rem;
+    transition: 0.5s;
+    position: relative;
+
+    /* &:not(:first-child)::before {
+      content: "";
+      width: 0.25rem;
+      height: 1rem;
+      background: white;
+      position: absolute;
+      left: -0.125rem;
+      top: calc(50% - 0.5rem);
+    } */
+
+    &::after {
+      content: "";
+      width: 0%;
+      height: 0.125rem;
+      background: white;
+      bottom: 0;
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      transition: 0.5s;
+    }
+
+    &.active::after {
+      width: 80%;
+    }
+  }
+}
+
+#lokiSlider {
+  .carousel-item {
+    padding-bottom: 240px;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        to top,
+        var(--galaxyColor) 25%,
+        transparent 35%
+      );
+    }
+
+    img {
+      object-fit: cover;
+      filter: grayscale(50%) sepia(70%);
+    }
+
+    .carousel-caption {
+      padding-bottom: 120px;
+      z-index: 1;
+    }
+  }
+  .carousel-indicators button {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    margin: 0 10px;
+  }
+
+  button > * {
+    background: black;
+    width: 50px;
+    height: 50px;
+    font-size: 2rem;
+    line-height: 50px;
+  }
+}
+
+#lokiBonus {
+  /* background: white; */
+  padding: 80px 0;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' stroke-opacity='1' stroke='%23555f'%3e%3cg%3e%3cline y2='20' x2='20' y1='0' x1='0'/%3e%3cline y2='5' x2='15' y1='-5' x1='5'/%3e%3cline y2='15' x2='5' y1='5' x1='-5'/%3e%3c/g%3e%3c/svg%3e");
+}
+
+#lokiPallet {
+  .row > img {
+    object-fit: cover;
+  }
+
+  @media screen and (min-width: 768px) {
+    & {
+      article {
+        padding-top: 300px;
+
+        .col:nth-child(odd) {
+          transform: translateY(-50%);
+          padding-bottom: 150px;
+        }
+
+        .card-img-overlay {
+          transition: 0.5s;
+          /* transform: scale(0); */
+          transform: translateY(100%);
+        }
+
+        .card-img {
+          transition: 1s;
+        }
+
+        .card.shadow {
+          --bs-box-shadow: 0 0 5rem #fff5;
+        }
+
+        .card:hover {
+          .card-img-overlay {
+            /* transform: scale(1); */
+            transform: translateY(0%);
+          }
+
+          .card-img {
+            transform: scale(1.3);
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>洛奇露營聖地 - 度假好去處</title>
+  <link rel="shortcut icon" href="./media/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./plugins/bootstrap.min.css">
+  <link rel="stylesheet" href="./plugins/style.css">
+  <link rel="preconnect" href="./https://fonts.googleapis.com">
+  <link rel="preconnect" href="./https://fonts.gstatic.com" crossorigin>
+  <!-- <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&family=Noto+Sans+TC:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" />
+  <script src="plugins/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
+    integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous"
+    async></script>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#lokiMenu">
+  <nav class="navbar navbar-expand-md bg-dark-subtle position-fixed top-0 w-100">
+    <div class="container">
+      <a class="navbar-brand" href="#"><i class="fa-solid fa-campground me-2"></i>洛奇露營聖地</a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#lokiMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="lokiMenu">
+        <div class="navbar-nav ms-auto">
+          <a class="nav-link px-3" href="#lokiPallet">營位介紹</a>
+          <a class="nav-link px-3" href="#lokiPark">探索體驗</a>
+          <a class="nav-link px-3" href="#lokiService">遊客服務</a>
+          <a class="nav-link px-3" href="#lokiRule">營區守則</a>
+          <a class="nav-link px-3" href="#lokiContanct">聯絡我們</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <section id="lokiSlider" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
+    <div class="carousel-indicators">
+      <button data-bs-target="#lokiSlider" data-bs-slide-to="0" class="active"></button>
+      <button data-bs-target="#lokiSlider" data-bs-slide-to="1"></button>
+      <button data-bs-target="#lokiSlider" data-bs-slide-to="2"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item vh-100 active">
+        <img src="https://picsum.photos/1920/1200/?random=10" class="d-block w-100 h-100">
+        <div class="carousel-caption d-flex flex-column align-items-start text-start">
+          <h3>
+            <label class="badge text-bg-secondary">露營</label>
+            <label class="badge text-bg-danger">篝火</label>
+          </h3>
+          <h2 class="display-2 fw-bolder">體驗大自然的空氣</h2>
+          <p class="d-none d-md-block">遠離塵囂的夢想園地，也是一個讓家人朋友們能夠更親密、更快樂的童話村！ </p>
+        </div>
+      </div>
+      <div class="carousel-item vh-100">
+        <img src="https://picsum.photos/1920/1200/?random=11" class="d-block w-100 h-100">
+        <div class="carousel-caption d-flex flex-column align-items-start text-start">
+          <h3>
+            <label class="badge text-bg-warning">露營</label>
+            <label class="badge text-bg-success">篝火</label>
+          </h3>
+          <h2 class="display-2 fw-bolder">體驗大自然的空氣</h2>
+          <p class="d-none d-md-block">遠離塵囂的夢想園地，也是一個讓家人朋友們能夠更親密、更快樂的童話村！ </p>
+        </div>
+      </div>
+      <div class="carousel-item vh-100">
+        <img src="https://picsum.photos/1920/1200/?random=12" class="d-block w-100 h-100">
+        <div class="carousel-caption d-flex flex-column align-items-start text-start">
+          <h3>
+            <label class="badge text-bg-info">露營</label>
+            <label class="badge text-bg-primary">篝火</label>
+          </h3>
+          <h2 class="display-2 fw-bolder">體驗大自然的空氣</h2>
+          <p class="d-none d-md-block">遠離塵囂的夢想園地，也是一個讓家人朋友們能夠更親密、更快樂的童話村！ </p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev w-auto" data-bs-target="#lokiSlider" data-bs-slide="prev">
+      <!-- <span class="material-symbols-outlined fs-1"> arrow_circle_left </span> -->
+      <i class="fa-solid fa-caret-left"></i>
+    </button>
+    <button class="carousel-control-next w-auto" data-bs-target="#lokiSlider" data-bs-slide="next">
+      <!-- <span class="carousel-control-next-icon"></span> -->
+      <i class="fa-solid fa-caret-right"></i>
+    </button>
+  </section>
+  <section id="lokiBonus">
+    <div class="container">
+      <div class="row row-cols-4 g-0">
+        <img src="https://picsum.photos/300/300/?random=10">
+        <img src="https://picsum.photos/300/300/?random=11">
+        <img src="https://picsum.photos/400/300/?random=12">
+        <img src="https://picsum.photos/300/300/?random=13">
+      </div>
+    </div>
+  </section>
+  <section id="lokiPallet" class="container pt-5">
+    <header class="h2 border-start border-5 border-warning ps-3 my-5">營位介紹</header>
+    <article class="row row-cols-1 row-cols-md-2 g-5 gy-md-0 flex-row-reverse">
+      <div class="col">
+        <div class="card text-bg-dark overflow-hidden border-0 shadow">
+          <img src="https://fakeimg.pl/600x400" class="card-img">
+          <div
+            class="card-img-overlay bg-dark bg-opacity-50 d-flex flex-column justify-content-center align-content-center text-center">
+            <h3 class="card-title text-warning fw-bolder">Card title</h3>
+            <ul class="list-unstyled">
+              <li>每帳空間4X8公尺，獨立水槽與供電，共20帳</li>
+              <li>帳邊可停車！每帳限1台車，超過酌收至指定停車場費用 $100/車</li>
+              <li>每帳限四人，超出費用（五歲以上）酌收人頭費 $300</li>
+            </ul>
+            <h5 class="card-text">
+              <label class="badge rounded-pill text-bg-light">一宿 / $1500</label>
+              <label class="badge rounded-pill text-bg-dark">夜衝 / $800</label>
+            </h5>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-bg-dark overflow-hidden border-0 shadow">
+          <img src="https://picsum.photos/600/400/?random=11" class="card-img">
+          <div
+            class="card-img-overlay bg-dark bg-opacity-50 d-flex flex-column justify-content-center align-content-center text-center">
+            <h3 class="card-title text-warning fw-bolder">Card title</h3>
+            <ul class="list-unstyled">
+              <li>每帳空間4X8公尺，獨立水槽與供電，共20帳</li>
+              <li>帳邊可停車！每帳限1台車，超過酌收至指定停車場費用 $100/車</li>
+              <li>每帳限四人，超出費用（五歲以上）酌收人頭費 $300</li>
+            </ul>
+            <h5 class="card-text">
+              <label class="badge rounded-pill text-bg-light">一宿 / $1500</label>
+              <label class="badge rounded-pill text-bg-dark">夜衝 / $800</label>
+            </h5>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-bg-dark overflow-hidden border-0 shadow">
+          <img src="https://picsum.photos/600/400/?random=12" class="card-img">
+          <div
+            class="card-img-overlay bg-dark bg-opacity-50 d-flex flex-column justify-content-center align-content-center text-center">
+            <h3 class="card-title text-warning fw-bolder">Card title</h3>
+            <ul class="list-unstyled">
+              <li>每帳空間4X8公尺，獨立水槽與供電，共20帳</li>
+              <li>帳邊可停車！每帳限1台車，超過酌收至指定停車場費用 $100/車</li>
+              <li>每帳限四人，超出費用（五歲以上）酌收人頭費 $300</li>
+            </ul>
+            <h5 class="card-text">
+              <label class="badge rounded-pill text-bg-light">一宿 / $1500</label>
+              <label class="badge rounded-pill text-bg-dark">夜衝 / $800</label>
+            </h5>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-bg-dark overflow-hidden border-0 shadow">
+          <img src="https://picsum.photos/600/400/?random=13" class="card-img">
+          <div
+            class="card-img-overlay bg-dark bg-opacity-50 d-flex flex-column justify-content-center align-content-center text-center">
+            <h3 class="card-title text-warning fw-bolder">Card title</h3>
+            <ul class="list-unstyled">
+              <li>每帳空間4X8公尺，獨立水槽與供電，共20帳</li>
+              <li>帳邊可停車！每帳限1台車，超過酌收至指定停車場費用 $100/車</li>
+              <li>每帳限四人，超出費用（五歲以上）酌收人頭費 $300</li>
+            </ul>
+            <h5 class="card-text">
+              <label class="badge rounded-pill text-bg-light">一宿 / $1500</label>
+              <label class="badge rounded-pill text-bg-dark">夜衝 / $800</label>
+            </h5>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+  <section id="lokiPark" class="pt-5">
+    <header class="container">
+      <h2 class="border-start border-5 border-warning ps-3 my-5">探索體驗</h2>
+      <p>洛奇渡假村腹地面積生態豐富，擁有眾多的設施周邊供您滿足整天的玩樂。不只玩的快樂也放得輕鬆。請盡情享受我們的人間樂園，帶回流連忘返的快樂心情，為您旅途點綴豐富回憶。 </p>
+    </header>
+    <article class="container-fluid">
+      <div class="row row-cols-4 g-3">
+        <div class="col">
+          <img src="https://picsum.photos/600/600" class="card-img">
+          <div class="card-img-overlay">
+            <h5 class="card-title">Card title</h5>
+          </div>
+        </div>
+        <div class="col">
+          <img src="https://picsum.photos/400/400" class="card-img">
+          <div class="card-img-overlay">
+            <h5 class="card-title">Card title</h5>
+          </div>
+        </div>
+        <div class="col">
+          <img src="https://picsum.photos/700/450" class="card-img">
+          <div class="card-img-overlay">
+            <h5 class="card-title">Card title</h5>
+          </div>
+        </div>
+        <div class="col">
+          <img src="https://picsum.photos/600/500" class="card-img">
+          <div class="card-img-overlay">
+            <h5 class="card-title">Card title</h5>
+          </div>
+        </div>
+        <div class="col">
+          <img src="https://picsum.photos/600/800" class="card-img">
+          <div class="card-img-overlay">
+            <h5 class="card-title">Card title</h5>
+          </div>
+        </div>
+        <div class="col">
+          <img src="https://picsum.photos/600/400" class="card-img">
+          <div class="card-img-overlay">
+            <h5 class="card-title">Card title</h5>
+          </div>
+        </div>
+        <div class="col">
+          <img src="https://picsum.photos/600/400" class="card-img">
+          <div class="card-img-overlay">
+            <h5 class="card-title">Card title</h5>
+          </div>
+        </div>
+        <div class="col">
+          <img src="https://picsum.photos/600/400" class="card-img">
+          <div class="card-img-overlay">
+            <h5 class="card-title">Card title</h5>
+          </div>
+        </div>
+      </div>
+    </article>
+    <!-- <header class="h2 border-start border-5 border-warning ps-3 my-5">探索體驗</header> -->
+  </section>
+  <script src="plugins/custom.js"></script>
+</body>
+
+</html>
