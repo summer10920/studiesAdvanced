@@ -12,6 +12,10 @@ body {
   }
 }
 
+section:not(.lokiSlider){
+  padding-bottom: 120px;
+}
+
 #lokiMenu {
   a.nav-link {
     letter-spacing: 0.25rem;
@@ -140,4 +144,54 @@ body {
       }
     }
   }
+}
+
+#lokiPark {
+  background: url("https://picsum.photos/1920/1800/?random=10") #3338 no-repeat
+    center/cover fixed;
+  background-blend-mode: lighten;
+  overflow: hidden;
+
+  @media screen and (min-width: 768px) {
+    & .col {
+      transition: 0.3s;
+      &:hover {
+        transform: scale(1.2);
+        z-index: 99;
+
+        & > img {
+          filter: brightness(1);
+        }
+      }
+
+      & > img {
+        filter: brightness(0.5);
+        transition: 0.3s;
+      }
+    }
+
+    /* & .col {
+      transition: 0.3s;
+    }
+
+    & .col:hover {
+      transform: scale(1.2);
+      z-index: 99;
+    }
+
+    & .col > img {
+      filter: brightness(0.5);
+      transition: 0.3s;
+    }
+
+    & .col:hover > img {
+      filter: brightness(1);
+    } */
+  }
+}
+
+#lokiService {
+  background: url("https://picsum.photos/1920/1800/?random=10") #3338 no-repeat
+    center/cover fixed;
+  background-blend-mode: darken;
 }

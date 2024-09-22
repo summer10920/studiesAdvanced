@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    .container-field {
+      padding: 0 16px;
+    }
+
+    .navbar {
+      height: 80px;
+      background: lightcoral;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      nav {
+        background: lightblue;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        margin: 0 16px;
+        max-width: calc(100% - 200px - 100px);
+
+        a {
+          text-decoration: none;
+          flex: 0 1 auto;
+          text-wrap: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          border: 1px solid;
+          padding: 0 12px;
+        }
+      }
+
+      .icons {
+        display: flex;
+        width: 100px;
+        justify-content: space-between;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="navbar container-field">
+    <a href="#" class="nav-brand">
+      <img src="https://fakeimg.pl/200x60">
+    </a>
+    <nav>
+      <a href="#">Lorem sit amet.</a>
+      <a href="#">ipsum dolor sit amet.</a>
+      <a href="#">Lorem ipsum dolor sit amet.</a>
+      <a href="#"> sit amet.</a>
+      <a href="#">Lorem ipsum dolor sit amet.</a>
+    </nav>
+    <div class="icons">
+      <img src="https://fakeimg.pl/16x16">
+      <img src="https://fakeimg.pl/16x16">
+      <img src="https://fakeimg.pl/16x16">
+    </div>
+  </div>
+</body>
+
+</html>
