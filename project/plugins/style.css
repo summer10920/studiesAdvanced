@@ -12,7 +12,7 @@ body {
   }
 }
 
-section:not(.lokiSlider){
+section:not(.lokiSlider) {
   padding-bottom: 120px;
 }
 
@@ -194,4 +194,27 @@ section:not(.lokiSlider){
   background: url("https://picsum.photos/1920/1800/?random=10") #3338 no-repeat
     center/cover fixed;
   background-blend-mode: darken;
+}
+
+#lokiContact {
+  background: url("https://picsum.photos/1920/1080/?random=10") #000 no-repeat
+    center/cover fixed;
+  background-blend-mode: luminosity;
+
+  #ff-compose {
+    padding-top: 120px;
+  }
+
+  .ff-form {
+    backdrop-filter: blur(15px);
+    background: rgb(255, 193, 7, 0.45);
+    border-radius: 5px;
+  }
+
+  #ff-title-root {
+    margin: 3rem 0;
+    border-left: 5px solid white;
+    font-size: 2rem;
+    padding: 0 0 0 1rem;
+  }
 }
