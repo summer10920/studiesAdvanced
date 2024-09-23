@@ -33,6 +33,21 @@ IDE 環境安裝與設定、VSCode 軟體操作說明、網頁與伺服器基本
 ### 202408011
 Box Model 觀念說明含 context 內容（寬高）、Margin 外距區域、Padding 內距區域、Border 框線 、Border-Radius 園角、max(min)-width 限定寬度、Box-sizing 盒子尺寸等示範。Position 定位方式含 Relative, absolution, fixed, sticky 相關示範說明。Position 小節練習。
 
+### 202408025
+定位 Position 觀念介紹，包含 relative, absolution, fixed, sticky 相關說明。浮動元素 float 說明與排版技巧。彈性和 flexBox 說明與排版技巧。
+
+### 20240901
+變形 transform 說明，包含 rotate, translate, scale, skew 等示範說明。轉場 transition 說明與示範。動畫 animation 說明與示範。medial query 說明與示範。
+
+### 20240908
+Bootstrap CSS 元件庫安裝與介紹，包含通用類別、排版技巧、響應版面等說明。
+
+### 20240915
+一頁式網頁示範製作，上篇
+
+### 20240922
+一頁式網頁示範製作，下篇
+
 ## 檔案留存下載方說明
 
 ### 受訓中課程
