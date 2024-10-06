@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第一次的JS</title>
+</head>
+
+<body>
+  <h1>hello world</h1>
+  <script>
+    // 單行註解，該行忽略不計
+
+    /*
+      多行註解，
+      可以做一個範圍
+      性多行的忽略不計
+      直到指定符號出現
+    */
+
+    a = 100;  // '=' 指定運算子，將右側的值指定給左側的變數
+    b = 100;
+
+    a + b; // 200
+    console.error('Hello Loki', a + b);
+    console.warn('Hello Loki', a + b);
+    console.info('Hello Loki', a + b);
+
+    a = 200;
+    b = 200;
+    console.log('new Loki', a + b);
+
+    console.clear();
+
+    c = 'hello';
+    d = 'world';
+    console.log('hello world');
+    console.log(c + ' ' + d);
+    console.log(`${c} ${d}`);
+
+  </script>
+</body>
+
+</html>

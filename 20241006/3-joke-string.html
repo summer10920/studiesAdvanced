@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    title = "冷笑話";
+    title += ":";  // title = title+":";
+
+    who = "小明";
+    where = "超商";
+    why = "為什麼";
+    when = "繳費";
+    how = "坐著輪椅";
+
+    /*
+    * ==== 請試著善用變數組合出 console.log 顯示這句話 ====
+    * 冷笑話：為什麼小明去超商繳費後，小明出來卻要坐著輪椅？
+    * 冷笑話：為什麼小明去'超商繳費'後，小明出來卻要坐著輪椅？
+    * ==================================================
+    */
+    console.log(title + why + who + '去' + where + when + '後，' + who + '出來卻要' + how + '？');
+    // console.log('冷笑話：為什麼小明去\'超商繳費\'後，小明出來卻要坐著輪椅？');
+    // console.log(title + why + who + "去'" + where + when + "'後，" + who + "出來卻要" + how + "？");
+    console.log(`${title}${why}${who}去'${where}${when}'後，${who}出來卻要${how}？`);
+
+  </script>
+</body>
+
+</html>
