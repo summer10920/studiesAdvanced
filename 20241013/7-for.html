@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // for (初始動作;條件;結束動作) {}
+
+    // ex: hello 跑 5 次
+
+    let str = '';
+
+    for (let i = 0; i < 5; i++) {
+      // console.log('hello', i);
+      str += 'A';
+    }
+
+    console.log(str);
+
+    console.clear();
+    ///////////////////////
+
+    for (let i = 0; i < 5; i++) {
+      console.log(i);  // 0, 1, 2, 3, 4
+    }
+
+    console.clear();
+
+    // console 1, 4, 7, 10
+
+    for (let i = 1; i < 11; i += 3) {
+      console.log(i);
+    }
+    console.clear();
+    for (let i = 0; i < 4; i++) {
+      console.log(i * 3 + 1);
+    }
+    console.clear();
+
+    // console 1, 3, 5, 7, 9, 11
+    // for(let i=1;i<12;i+=2){
+    //   console.log(i);
+    // }
+    for (let i = 0; i < 6; i++) console.log(2 * i + 1);
+    console.clear();
+
+    // console 5, 10, 15, 20, 25
+    for (let n = 1; n <= 5; n++) console.log(5 * n);
+    console.clear();
+
+    // console 1, 2, 4, 8, 16, 32, 64
+    // for (let i = 1; i < 100; i *= 2) console.log(i);
+    // console.clear();
+
+    let count = 1; // 全域變數，透過變數暫存，缺點別處可以使用或修改這個 count
+    for (let i = 0; i < 7; i++) {
+      console.log(count);
+      count = count * 2;
+    }
+
+    ///////////////////////////////////
+    // 請使用 雙 for，一個控制i,一個控制j
+    // 想挑戰，如何只用一個for來完成
+
+    // for (let i = 2; i < 10; i++) {
+    //   if (i > 2) console.log('----------------');
+    //   for (let j = 1; j < 10; j++) {
+    //     console.log(`${i}*${j}=${i * j}`); // 2*9
+    //   }
+    // }
+    // console.clear();
+
+
+    // ${i}*${j}=${i*j}
+
+    // 2*1=2
+    // 2*2=4
+    // 2*3=6
+    // 2*4=8
+    // 2*5=10
+    // 2*6=12
+    // 2*7=14
+    // 2*8=16
+    // 2*9=18
+    // --------------------
+    // 3*1=3
+    // ...
+    // 3*9=27
+    // --------------------
+    // ...
+    // 9*9=81
+
+  </script>
+</body>
+
+</html>

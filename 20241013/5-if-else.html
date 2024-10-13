@@ -1,14 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <script>
-    
+    if (200 < 100) {
+      // 當 if 的 () 為 true，會執行這裡的{}代碼
+      console.log('is true');
+    } else {
+      // if 的 () 為 false，會執行這裡的{}代碼
+      console.log('is false');
+    }
+
+    console.clear();
+
+    a = 150;
+    if (a > 200) {
+      console.log('超過200');
+    }
+    else if (a > 100) {
+      console.log('超過100');
+    }
+    else {
+      console.log('100以下')
+    }
+
+
+    console.log('done');
+    console.clear();
+
+
+    // if (false) { console.log('true'); }
+    // else {
+    //   if (true) {
+    //     console.log('123'); F
+    //   }
+    //   else {
+    //     console.log('123');
+    //   }
+    // }
+
+    const
+      height = 190,
+      face = true,
+      cash = 50000;
+
+
+    if (height > 180 && face && cash > 10000) {
+      console.log('他是高富帥, 100分');
+    } else {
+      console.log('不是高富帥，0 ~ 99 分');
+    }
+
+    if (height > 180 || face || cash > 10000) {
+      console.log('高富帥至少有一個以上成立，60 ~ 100 分');
+    } else {
+      console.log('高富帥一個都沒有，59分以下');
+    }
+
+    // 高帥or一個要有，and一定要有錢。才願意交往
+    // if ((height > 180 || face) && (cash > 10000)) {
+    if ((cash > 10000) && ((height > 180) || face)) {
+      console.log('還滿意，可以試試交往。');
+    }
+    else {
+      console.log('謝謝，我們還是當朋友就好。');
+    }
+
+    /* if()內，不一定要放boolean，只要有值就可以當true，要小心使用
+      ex:
+      if(30) console.log('A')
+      if('AA') console.log('A')
+      
+      if(0) console.log('A')
+      if(null) console.log('A')
+      if(undefined) console.log('A')
+    */
+
+    console.clear();
+
+
+    let day = 7;  // 1 ~ 7
+
+    // let msg;
+    // if (day > 5) msg = '假日';
+    // else msg = '平日';
+
+    // 三元運算子
+    let msg = day > 5 ? '假日' : '平日';
+
+
+
+    // 某些情況可以偷雞的寫法，不建議現在學
+    // let meg;
+    // day > 5 ? (msg = '假日') : (msg = '平日');
+
+    console.log(msg);
+
   </script>
-  
 </body>
+
 </html>
