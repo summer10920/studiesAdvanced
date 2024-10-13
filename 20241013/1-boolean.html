@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>boolean 布林值</title>
+</head>
+
+<body>
+  <script>
+    a = 100;
+    b = 100;
+    c = 200;
+    str1 = 'AA';
+    str2 = 'AA';
+    str3 = 'BB';
+    strNum = '200';
+
+
+    //////////////////////// 相等與不相等，包含嚴謹方式，一律建議用嚴謹不然會被公司罵 ////////////////////
+    console.log(a == b);  // true
+    console.log(a != b);  // false
+
+    console.log(a == c);  // false
+    console.log(a != c);  // true ，不等於，使用 (!)否定 + (=)等號
+
+
+
+    console.log(c == strNum); // true，因為 == 是不嚴謹的比較，他不會考慮型別type
+    console.log(c === strNum); // false， 當使用 === 是進行完全等於比較，嚴謹的包含考慮型別type
+    console.log(c !== strNum);
+    /*
+      嚴謹的不等於考量，也就完全不等於，現在要考慮 =>　左邊包含型別，是否不等於右邊包含型別
+      200 of number !== '200' of string
+      數字200 完全不等於 字串200
+      為true
+     */
+    console.clear();
+
+
+    /////////////////////比較 ，比大小///////////////////////////////////////
+    d = 100;
+    e = 200;
+
+    console.log(d > e); // false
+    console.log(d < e); // true
+    console.log(d >= 100); // true
+    console.log(e <= 200);  //true
+
+    console.clear();
+
+
+    /////////////////////複合邏輯，將多個 boolean 組合起來的結果為何boolean //////////////////////////
+    /* &&  and ，都要 true，結果是true，只要一個false出現，結果就是false */
+    console.log(true && false && true);  // false
+    console.log(true && true && true);  // true
+
+    console.clear();
+
+
+    /* || or, 或者的意思，只要有一個true，結果就是true，只要碰到一個true，就結果確定就是true */
+    console.log(false || true || false); //true
+    console.log(false || false || false); //false
+
+    
+    // (true || false) && (false || true);
+    // ((true && true) || (false && false)) || false;
+
+
+
+
+
+  </script>
+</body>
+
+</html>
