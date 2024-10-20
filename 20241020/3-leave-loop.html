@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    for (let i = 0; i < 10; i++) {
+      if (i === 4) continue; // pass 跳過這回合，不再看接下來的todo
+      if (i == 7) break; // 破壞這個迴圈，直接結束for
+      console.log(i);
+    }
+
+    console.clear();
+
+    // return ，通常在fn，內，控制這個fn返回甚麼。當下fn的工作結束。
+
+    function parrot(str) {
+      // console.log('hello');
+      // return 'done';
+      // console.log('hello');
+
+      // if (str === undefined) {  // 簡單的寫法1
+
+      // 寫法2
+      //如果直接把變數當 boolean 去思考，有東西會是true
+      //反之 0, null, undefined, 空字串都是 false
+      // 布林值前面增加!有相反式的意思，例如 !false => true
+      
+      if (!str) {
+        console.log('...鸚鵡看著你甚麼也沒說');
+        return;
+      }
+
+      let j = 4;
+      while (j > 0) {
+        console.log('阿~~~阿~~~~~');
+        if (str === 'mute') return;
+        console.log(`${str}~~~~~~~~~`);
+        j--;
+      }
+    }
+
+
+  </script>
+</body>
+
+</html>

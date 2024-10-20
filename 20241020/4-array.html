@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let userName = 'Loki'; // value of str，一個值
+    let userAge = 12; // val of num，一個值
+
+    let myAryAA = new Array(); // 正式宣告，透過內建建構式(產生一個大型物件，裡面包含一些可用的原生鍊prototype)來完成。一般人偷懶不會用這下
+    let myAryAB = []; // 空陣列的語法糖果，暴力指定給變數
+    let myAryAC = new Array(1, 2, 'A', true);
+
+    let myAryB = ['A', true, 3]; // value of array，可以指定n個值，每個值有自己的index(索引)
+
+    // myAryB = ['B', true, 3];
+    // myAryB[0]
+
+    // 根據 push,pop, shift, unshift 來操作陣列增減長度與內容
+    // 自行操作不再示範, ex:  myAryB.push('B', true, 3);
+    // 工作上不太喜歡這樣用
+
+    let aryInit = [1, 2, 3]; // 預設值
+    let errCloneAry = aryInit; // 預設ary因為指定，它們的記憶體位置都一樣，這叫記憶體汙染
+
+    let realCloneAry = [...aryInit]; // ES6 解構與重購，將陣列拆開，重新組合新陣列，在指定給b
+
+    let a = [1, 2, 3];// 被複製的固定陣列
+    let b = [...a]; // 重構出一乾淨的陣列，指定給b
+    b.push('loki');
+    console.log(b); // B 與 a 是不同的陣列，它們的記憶體位置不同
+
+    let c = [...a, 'loki', ...b];
+
+    console.clear();
+
+    // a.push('C');
+    a = ['loki', ...a, 'C'];
+
+    ///////////////////////////////////////////////////
+
+    function hello() {
+      console.log('hello');
+    }
+
+    let minAry = ['A', 'B', 'C'];
+
+    // bigAry = [hello, minAry]; // 巢狀array，二(N)維陣列
+    let bigAry = [
+      ['A', 'B', 'C'],
+      [10, ['XX', 'YY'], 30]
+    ]; // 巢狀array，二(N)維陣列
+
+
+    // let ary1 = [1, 2, 3];
+    // ary1 = [...ary1, 4, 5, 6];
+    const ary2 = [1, 2, 3]; // 保護 變數有無重新指定(記憶體改變)
+    ary2.push('A');
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>

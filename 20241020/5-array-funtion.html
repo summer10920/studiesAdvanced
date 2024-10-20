@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let ary = [];
+    for (let i = 0; i < 5; i++) {
+      ary.push(`A${i * 3}`);
+    }
+
+    // 以前的方法，ES5
+    for (let idx = 0; idx < ary.length; idx++) {
+      console.log(ary[idx]);
+    }
+
+    console.clear();
+
+    //foreach method 1
+    function showMe(val, idx) {
+      console.log(`index=> ${idx}, value=> ${val}`);
+      // console.log(`index=> ${idx}`);
+    }
+    ary.forEach(showMe); //foreach 希望你提供一個fn，他會試著提供參數給你的fn
+
+    //foreach method 2
+    ary.forEach(function (val, idx) { // 省略宣告fn，直接匿名fn。一次性使用
+      console.log(`index=> ${idx}, value=> ${val}`);
+    });
+
+    //foreach method 3
+    ary.forEach((val, idx) => console.log(`index=> ${idx}, value=> ${val}`));
+
+    console.clear();
+
+    for (const item of ary) { // 遍歷物件循環提出指定物
+      console.log(item);
+    }
+
+    console.clear();
+
+    // filter，保留的return true，不要的return false
+    // 對陣列移除指定元素，可以用filter弄出新陣列再重新指定給自己
+    ary = ary.filter((val) => val !== 'A9');
+
+    console.clear();
+
+    // map映射，抽取每個元素特定處理，再return放回原位置
+
+    ary = ary.map((val) => val + '~~');
+
+
+    
+
+
+  </script>
+</body>
+
+</html>

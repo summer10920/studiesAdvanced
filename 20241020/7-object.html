@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 物件object，專拿來存資料，陣列拿來計算整理用的。
+    let stdA = {
+      name: 'loki',
+      age: 18,
+      gender: 'male',
+      alive: true,
+      say: () => console.log('time waits for no one.')
+    };
+
+    // const { name, age, gender, alive, say } = stdA;
+    // const stdB = { name, age, gender, alive, say }
+
+    // const stdB = { ...stdA };
+    // stdB.name = 'jack';
+    // stdB.age = 25;
+    // stdA = { ...stdB };
+
+    // stdA = {
+    //   ...stdA,
+    //   name: 'jack',
+    //   alive: false
+    // };
+
+    const mdy = {
+      name: 'jack',
+      alive: false
+    };
+
+    stdA = {
+      ...stdA,
+      ...mdy
+    };
+
+
+  </script>
+</body>
+
+</html>

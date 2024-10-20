@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    console.log(Math.round(3.56)); // 四捨五入
+    console.log(Math.ceil(3.2)); // 無條件進位
+    console.log(Math.floor(3.9)); // 無條件捨去
+    console.clear();
+
+    console.log(Math.random()); // 提供一個介於 0(包含) ~ 1(不包含) 之間的隨機浮點數
+    console.clear();
+    // ex  0 ~ 10 的隨機整數
+    for (let i = 0; i < 100; i++) { //產生10組
+      // let num = Math.random(); // 0.49129996649797425
+      // num *= 10; // 4.9129996649797425    //max = 9.9999
+      // num = Math.floor(num); //4     
+      // console.log(num);
+      console.log(Math.floor(Math.random() * 10));
+    }
+    // console.clear();
+
+    // ex:  產隨機整數 0 ~ 15  <=>> 0 ~ 0.99999
+    let rand0to15 = Math.floor(Math.random() * 16) + 0;
+
+    // ex 45 ~ 80 的隨機整數，一個就好
+    // ex (0+45) ~ (35+45) 的隨機整數，一個就好
+    // ex 0 ~ 35 的隨機整數，之後再加45，一個就好
+    // 0  ~ 不足1 => 0 ~ 不足 36
+    console.clear();
+
+    // let rand45to80 = Math.random();
+    // rand45to80 *= 36;
+    // rand45to80 = Math.floor(rand45to80) + 45;
+    let rand45to80 = Math.floor(Math.random() * 36) + 45;
+    // console.log(rand45to80);
+
+    // ------------------------------------------------------------------------------
+    // 發明一個 fn 名字為 rand(mix,max)  =>可指定參數 mix ~ max 之間的隨機整數
+    // 然後塞入到一個陣列長度10，裡面都是rand()產出的隨機整數。
+
+    // function rand(min, max) {
+    //   return;
+    // }
+    // const rand = function (min, max) {
+    //   return;
+    // }
+    // const rand = (min, max) => {
+    //   let rand45to80 = Math.floor(Math.random() * 36) + 45;
+    //   return rand45to80;
+    // }
+    const rand = (min, max) => { // 45, 80
+      // 理想狀態下，應防呆一下max跟min要有數字，max要比min大，否則不要繼續
+      let rand45to80 = Math.floor(Math.random() * (max - min + 1)) + min;
+      return rand45to80;
+    }
+
+    // method 1 
+    // const arr1 = [];
+    // for(let i = 0; i < 10; i++) {
+    //   arr1.push(rand(45, 80));
+    // }
+
+    // method 2
+    const arr2 = new Array(10);
+    for (let i = 0; i < arr.length; i++) {
+      arr[i] = rand(45, 80);
+    }
+
+    // method 3
+    const arr3 = Array.apply(null, new Array(10)).map((i) => rand(45, 80));
+    console.log(arr3);
+
+    // exam  產生 6個數字[不重複]，1 ~ 49
+
+
+
+  </script>
+</body>
+
+</html>

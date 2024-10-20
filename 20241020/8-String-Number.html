@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const str = 'hello world';
+    console.log(str.length);
+    const ary = ['A', 'A', 'A', 'A'];
+    console.log(ary.length);
+
+    console.clear();
+
+    const strNum = '100';
+    const realNum = 100;
+    console.log(strNum + 3 + realNum); //1003100
+    console.log(strNum + (3 + realNum)); //100103
+
+    console.log(Number(strNum)); // number 100
+    console.log(+strNum); // number 100
+
+    console.log(typeof String(realNum)); // string 100
+    console.log(typeof realNum.toString()); // string 100
+
+
+    let input = 300;
+    if (typeof input === 'string') input = +input; // 防呆作業::如果是字串，修正為數字，然後繼續
+    console.log(100 + input + 100);
+
+    // let input = '500';
+    // if (typeof (input) === 'string') input = +input;
+    // console.log(100 + input + 100);
+
+  </script>
+</body>
+
+</html>
