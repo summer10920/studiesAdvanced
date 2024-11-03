@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    setInterval(() => {
+      const now = new Date(); //時間物件
+      const diffTime = Math.floor((new Date(now.getFullYear() + 1, 0).getTime() - now.getTime()) / 1000);  // 單位總秒
+
+      const ss = diffTime % 60;
+      const mm = Math.floor(diffTime / 60) % 60;
+      const hh = Math.floor(diffTime / 60 / 60) % 24;
+      const dd = Math.floor(diffTime / 60 / 60 / 24);
+
+      console.clear();
+      console.log(`距離${now.getFullYear() + 1}年，剩下${dd}天${hh}時${mm}分${ss}秒`);
+    }, 1000);
+  </script>
+</body>
+
+</html>

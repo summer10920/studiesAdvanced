@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    let getEl = null; // 提升到全域變數
+
+    onload = function () {
+      // 當 window 載入完成(包含所有DOM資源)，執行指定的事情
+
+      // getEl = document.getElementById('demo'); // object
+      // // console.log(getEl,typeof getEl);ㄍ
+      // // console.log(getEl.innerHTML);
+      // // console.log(getEl.textContent);
+      // getEl.innerHTML = `
+      //   <li>Apple</li>
+      //   <li>Banana</li>
+      // `;
+      // getEl.textContent = `
+      //   <li>Cat</li>
+      //   <li>Dog</li>
+      // `;
+      // document.getElementById('loki').innerHTML = 'Loki';
+
+      // 主流的操作
+      // document.querySelector();
+      // document.querySelectorAll();
+
+    }
+
+
+  </script>
+</head>
+
+<body>
+  <h1 id="loki" title="is header element">hello world</h1>
+  <img src="https://picsum.photos/300/200/?random=10" class="myImg">
+  <ul id="demo">
+    <li class="list">item 1</li>
+    <li class="list hot">item 2</li>
+    <li class="list">item 3</li>
+    <li class="list">item 4</li>
+  </ul>
+  <form>
+    <input type="text" name="userName">
+    <input type="submit" value="submit">
+  </form>
+  <form>
+    <input type="text">
+    <input type="submit" value="submit">
+  </form>
+  <script>
+    // console.log('body end;');
+  </script>
+</body>
+
+</html>

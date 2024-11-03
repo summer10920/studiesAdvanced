@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // setTimeout(todo, time);
+
+    const timeTag1 = setTimeout(() => {
+      console.log('BOM 1!!');
+    }, 3000);
+
+    console.log('Done.');
+    clearTimeout(timeTag1);
+
+    /*************************************************/
+    function readyBom() {
+      setTimeout(() => {
+        console.log('combo~~~BOM!!');
+        readyBom();
+      }, 1000);
+    }
+
+  </script>
+</body>
+
+</html>

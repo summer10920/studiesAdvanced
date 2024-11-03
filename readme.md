@@ -3,7 +3,7 @@
 ## 課程名稱
 - [ ] [RWD 網頁設計（假日班）（泰山）第 01 期](https://ojt.wda.gov.tw/ClassSearch/Detail?PlanType=2&OCID=153575)
 - [ ] [RWD 網頁設計（假日班）（泰山）第 02 期](https://ojt.wda.gov.tw/ClassSearch/Detail?PlanType=2&OCID=153617)
-- [x] [JavaScript前端開發(假日班)(泰山)第01期](https://ojt.wda.gov.tw/ClassSearch/Detail?PlanType=2&OCID=153653)
+- [x] [JavaScript 前端開發（假日班）（泰山）第 01 期](https://ojt.wda.gov.tw/ClassSearch/Detail?PlanType=2&OCID=153653)
 <!-- - [ ] [PHP 程式設計（假日班）](https://ojt.wda.gov.tw/ClassSearch/Detail?OCID=146967&plantype=2) -->
 
 ## 訓練日期 
@@ -12,22 +12,23 @@
 - [x] 2024/10/06～2024/12/22，共計 80 小時
 
 ## 課程內容
-- JavaScript程式基礎(24小時)-開發環境設定、程式邏輯概念
-- jQuery函式庫操作(24小時)-函式庫介紹、實例演練
-- JavaScript實作應用(32小時)-常用套件介紹、動態網頁技術實作
+- JavaScript 程式基礎 (24 小時）-開發環境設定、程式邏輯概念
+- jQuery 函式庫操作 (24 小時）-函式庫介紹、實例演練
+- JavaScript 實作應用 (32 小時）-常用套件介紹、動態網頁技術實作
 
 ## 課程摘要
 
 ### 20241006
-IDE 環境安裝與設定、VSCode 軟體操作說明、網頁與伺服器基本觀念解說、JS 動態網頁技術觀念說明介紹、GIT 安裝與 GitHub 部屬設定。基本變數(使用臨時變數)與相關操作運算子介紹，包含數字、字串(含字串模板)等應用示範。
+IDE 環境安裝與設定、VSCode 軟體操作說明、網頁與伺服器基本觀念解說、JS 動態網頁技術觀念說明介紹、GIT 安裝與 GitHub 部屬設定。基本變數（使用臨時變數）與相關操作運算子介紹，包含數字、字串（含字串模板）等應用示範。
 
 ### 20241013
-布林值(包含相等與嚴謹方式、比較式、複合邏輯)之相關示範、自訂函式與參數使用示範、宣告變數(包含var, let, const)示範與使用注意、if 判斷與三元運算子、switch 語句示範與介紹。for迴圈介紹與示範，小節練習:使用for完成指定輸出與九九乘法。
+布林值（包含相等與嚴謹方式、比較式、複合邏輯）之相關示範、自訂函式與參數使用示範、宣告變數（包含 var, let, const) 示範與使用注意、if 判斷與三元運算子、switch 語句示範與介紹。for 迴圈介紹與示範，小節練習：使用 for 完成指定輸出與九九乘法。
 
 ### 20241020
-示範使用單一for與判斷完成指定輸出與九九乘法、while 與 do while 示範說明、迴圈離開方法、陣列介紹與原生鍊操作應用、箭頭函式介紹、物件介紹與應用、解構與重購說明、常用建構式 Constructor示範(含length, typeof, String, Number, Math, Date)。
+示範使用單一 for 與判斷完成指定輸出與九九乘法、while 與 do while 示範說明、迴圈離開方法、陣列介紹與原生鍊操作應用、箭頭函式介紹、物件介紹與應用、解構與重購說明、常用建構式 Constructor 示範（含 length, typeof, String, Number, Math, Date)。練習自訂函式  random 產生固定範圍整數。
 
-
+### 20241103
+示範大樂透 49 選 6 隨機選擇練習題、時間物件介紹與倒數日期練習題、BOM 與 DOM 基本觀念說明，包含 (alert, location, history, prompt, confirm, setTimeout, clearTimeout, setInterval, clearInterval)。
 
 ## 檔案留存下載方說明
 

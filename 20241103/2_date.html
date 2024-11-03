@@ -5,9 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  
 </head>
 
 <body>
+  <h1>hello world</h1>
   <script>
     const time = Date(); // 字串
     const now = new Date(); //時間物件
@@ -62,6 +64,23 @@
     hh = Math.floor(sec / 60 / 60) % 24;
     dd = Math.floor(sec / 60 / 60 / 24);
     console.log(`距離${now.getFullYear() + 1}年，剩下${dd}天${hh}時${mm}分${ss}秒`);
+
+    //-------------------------------------------------------------------
+    // console.clear();
+
+    const nowTime = new Date();
+
+    console.log(nowTime);
+    nowTime.setDate(nowTime.getDate()+100);
+    console.log(nowTime);
+    nowTime.setDate(nowTime.getDate()-200);
+    console.log(nowTime);
+
+    /***
+     * 
+     * 
+     * 
+     * ***/
 
   </script>
 </body>

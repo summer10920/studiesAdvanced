@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // setInterval(todo, replyTime);
+    let i = 0;
+    const getTag = setInterval(() => {
+      console.log('BOM 2!!');
+      i++;
+
+      if (i === 5) {
+        clearInterval(getTag);
+        open('https://google.com');
+      }
+    }, 1000);
+  </script>
+</body>
+
+</html>
