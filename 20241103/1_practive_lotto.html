@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // exam  產生 6個數字[不重複]，1 ~ 49
+    const rand = (min, max) => { // 隨機整數的機器
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    // method 1
+    // -----------------------------------------------------------------
+    let lottoPool = []; // 大球池
+    const getBall = []; // 選中的球
+    for (let i = 1; i < 50; i++) lottoPool.push(`(${i})`); // 大球池初始化 (01) ~ (49)
+
+    // 共6抽
+    for (let i = 1; i < 7; i++) {
+      const findIdx = rand(0, lottoPool.length - 1); // 決定哪個序號，序號換球
+      const findBall = lottoPool[findIdx]; // 找到球號 ex:(10) 複製存為變數
+
+      getBall.push(findBall); // 存入選中區 ex:(10)
+
+      //清除球池的指定球 ex:(10)，利用 filter 不要的球回傳 false
+      // checkBall 為檢查每次的球號，findBall 為指定球號
+      lottoPool = lottoPool.filter(function (checkBall) {
+        return checkBall !== findBall;
+      });
+    }
+
+    console.log(getBall.sort());
+
+    // method 2
+    // -----------------------------------------------------------------
+    let luckyPool = [];
+    let lottoMachine = new Array(49);
+    for (let i = 0; i < lottoMachine.length; i++)
+      lottoMachine[i] = String(i + 1).padStart(2, '0'); // 大球池初始化
+
+    for (let i = 0; i < 6; i++) {
+      const findIdx = rand(0, lottoMachine.length - 1); // 決定哪個序號，序號換球
+      // resolve 1, just get index 0, because splice always 1 element
+      // const getAry = lottoMachine.splice(findIdx, 1);
+      // luckyPool.push(getAry[0]);
+
+      // resolve 1 preference
+      // luckyPool.push(lottoMachine.splice(findIdx, 1)[0]);
+
+      // resolve 2, use array 合併
+      // const getAry = lottoMachine.splice(findIdx, 1);
+      // luckyPool = luckyPool.concat(getAry);
+      
+      // resolve 2 preference
+      luckyPool = luckyPool.concat(lottoMachine.splice(findIdx, 1));
+    }
+    console.log(luckyPool.sort(), lottoMachine);
+
+
+
+
+
+  </script>
+</body>
+
+</html>

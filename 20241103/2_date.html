@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const time = Date(); // 字串
+    const now = new Date(); //時間物件
+    const lastTime1 = new Date(2024, 11, 31, 23, 59, 59, 999);
+    const lastTime2 = new Date('2024-12-31T23:59:59.999');
+
+    // const monthStr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const monthStr = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
+    const dayStr = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+
+    let ans = null;
+    ans = now.getFullYear(); // 西年年
+    ans = monthStr[now.getMonth()]; // 月份 0 ~ 11，利用陣列來規劃各語系的月份文字
+    ans = now.getDate(); // 日期 1 ~ 31
+    ans = now.getHours();
+    ans = now.getMinutes();
+    ans = now.getSeconds();
+    ans = now.getMilliseconds();
+    ans = dayStr[now.getDay()]; // 0 ~ 6
+    ans = now.getTime(); // 時間戳記，單位是毫秒。將所有的時間換算成總毫秒
+
+    // 計算跨年倒數日時分秒，利用 JS 兩筆時間物件的 getTime 相差毫秒，推算 天時分秒
+    // ------------------------------------------------------------------------
+    const lastTime = new Date(now.getFullYear() + 1, 0);
+    let diffTime = lastTime.getTime() - now.getTime(); // 單位總豪秒
+    diffTime = Math.floor(diffTime / 1000);  // 單位總秒
+    // console.log(diffTime + '秒');
+
+    // let sec = 135;
+    // let mm = 0, ss = 0;
+
+    // mm = Math.floor(sec / 60);
+    // // ss = sec - 60 * mm;
+    // ss = sec % 60;
+    // console.log(`${mm}分${ss}秒`);
+
+    // let sec = 4215;
+    // let hh = 0, mm = 0, ss = 0;
+
+    // ss = sec % 60;
+    // mm = Math.floor(sec / 60) % 60;
+    // hh = Math.floor(Math.floor(sec / 60) / 60);.
+    // console.log(`${hh}時${mm}分${ss}秒`);
+
+    let sec = diffTime;
+    let dd = 0, hh = 0, mm = 0, ss = 0;
+
+    ss = sec % 60;
+    mm = Math.floor(sec / 60) % 60;
+    // hh = Math.floor(Math.floor(sec / 60) / 60) % 24;
+    // dd = Math.floor(Math.floor(Math.floor(sec / 60) / 60) / 24);
+    hh = Math.floor(sec / 60 / 60) % 24;
+    dd = Math.floor(sec / 60 / 60 / 24);
+    console.log(`距離${now.getFullYear() + 1}年，剩下${dd}天${hh}時${mm}分${ss}秒`);
+
+  </script>
+</body>
+
+</html>

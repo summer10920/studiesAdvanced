@@ -57,15 +57,16 @@
     // }
     const rand = (min, max) => { // 45, 80
       // 理想狀態下，應防呆一下max跟min要有數字，max要比min大，否則不要繼續
-      let rand45to80 = Math.floor(Math.random() * (max - min + 1)) + min;
-      return rand45to80;
+      // let count = Math.floor(Math.random() * (max - min + 1)) + min;
+      // return count;
+      return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
     // method 1 
-    // const arr1 = [];
-    // for(let i = 0; i < 10; i++) {
-    //   arr1.push(rand(45, 80));
-    // }
+    const arr1 = [];
+    for(let i = 0; i < 10; i++) {
+      arr1.push(rand(45, 80));
+    }
 
     // method 2
     const arr2 = new Array(10);
