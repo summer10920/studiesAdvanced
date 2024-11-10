@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .demo {
+      background: yellow;
+    }
+
+    .active {
+      color: red;
+      font-size: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="button" class="demo" value="onclick demo" id="demo" onclick="onlyDemoElement('這是 click 簡單操作')">
+  <hr>
+  <input type="button" value="onclick" id="loki" onclick="whatIs(this)">
+  <input type="button" value="onmousedown" onmousedown="whatIs(this)">
+  <input type="button" value="onmouseup" onmouseup="whatIs(this)">
+  <input type="button" value="onmouseover" onmouseover="whatIs(this)">
+  <input type="button" value="onmouseout" onmouseout="whatIs(this)">
+  <input type="text" value="onfocus" onfocus="whatIs(this)">
+  <input type="text" value="onblur" onblur="whatIs(this)">
+  <input type="text" value="onchange" onchange="whatIs(this)">
+  <select onchange="whatIs(this)">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+  </select>
+  <hr>
+  <input type="password" value="" onchange="chkPWD(this)"><small id="pwd-info"></small>
+  <hr>
+  <!-- <div id="fakeBtn" onclick="console.log(123)">123</div> -->
+  <div id="fakeBtn"></div>
+  <hr>
+  <div>你按下的鍵盤(<span id="codeName"></span>)號碼為：<span id="keyCode"></span></div>
+  <script>
+    /************* mouse event  ******************/
+    function onlyDemoElement(msg) {
+      // console.log(msg);
+      const node = document.getElementById('demo');
+      // console.log(node.value);
+      // console.log(node.style);
+      node.value = 'Hello world';
+
+      // method 1
+      // node.style.color = 'red';
+      // node.style.fontSize = '2rem';
+
+      // method 2
+      // node.style = 'color:red; font-size:2rem';
+      // node.style = `
+      //   color:red;
+      //   font-size:2rem;
+      // `;
+      // console.log(node.style);
+
+      // method 3
+      // node.className = 'demo active';
+      node.classList.add('active');
+      // node.classList.remove('demo');
+    }
+
+    const whatIs = function (node) {  // 透過 參數，把物件丟進來。在html的 element 上面 this 指向自己
+      // const node = document.getElementById('loki');
+      // const node = myLoki;
+
+      // const check = node.classList.contains('active');
+      // if (check) { // 已存在 active
+      //   node.classList.remove('active');
+      // }
+      // else {  // 不存在，增加 active 並更換 value
+      //   node.value = 'Hello Loki';
+      //   node.classList.add('active');
+      // }
+
+      // if (!node.classList.contains('active')) node.value = 'Hello Loki';
+      // node.classList.contains('active') ? node.classList.remove('active') : node.classList.add('active');
+
+      // node.value = 'Hello Loki';
+      node.classList.toggle('active');
+
+      // console.log(this);  /// js 這裡的 this 指向自己，也就 js 自己，也就整個 window
+    };
+
+    const chkPWD = function (htmlEl) {
+      // if (htmlEl.value.length < 8) {
+      //   document.querySelector('#pwd-info').innerHTML = '密碼太短，至少8個字元';
+      // } else {
+      //   document.querySelector('#pwd-info').innerHTML = '';  // css Selector = css 選擇器
+      // }
+
+      // boolean ? true to do : false to do;
+      // (htmlEl.value.length < 8) ?
+      //   document.querySelector('#pwd-info').innerHTML = '密碼太短，至少8個字元'
+      //   :
+      //   document.querySelector('#pwd-info').innerHTML = '';
+
+      document.querySelector('#pwd-info').innerHTML = (htmlEl.value.length < 8) ? '密碼太短，至少8個字元' : '';
+    };
+
+    const fakeBthTodo = function () {
+      const btn = document.querySelector('#fakeBtn');
+      btn.innerHTML = '假按鈕';
+      btn.style = `
+        background: lightblue;
+        box-shadow: 1px 2px 2px 1px #0000004d;
+        cursor: pointer;
+        display: inline-block;
+        padding: 2px 10px;
+      `;
+
+      // btn.onclick = function () {
+      //   btn.classList.toggle('active');
+      // }
+
+      // btn.onclick = whatIs(this); //err
+      // btn.onclick = whatIs(window); // same as, err
+      // btn.onclick = whatIs(btn); // 把 btn 丟給進去，去跑一樣的事情
+
+      // btn.onclick = () => { // err, 箭頭函式沒有辦法協助把物件(this)丟進去，所以發生了 this 又變回 window
+      //   console.log(this);  // btn 是物件， onclick 的 this 指向 btn
+      // }
+
+      btn.onclick = function () { // 匿名函式可以協助把物件本體(this)的定義，繼承到這個匿名函式內
+        // whatIs(btn);
+
+        // console.log(this);  // btn 是物件， onclick 的 this 指向 btn
+        whatIs(this);
+      }
+      // console.log(this);  // 宣告function,目前情況當下沒有this的定義，一律 this 都指向 window
+
+    }
+    fakeBthTodo();
+
+
+    document.oncontextmenu = function (event) { // 鎖右鍵選單(取消預定事件)
+      event.preventDefault(); // 要求取消事件預設行為
+    }
+
+    /************* keyboard event  ******************/
+    document.onkeydown = function (event) {
+      // console.log(event);
+      if (event.keyCode == 123) { // 如果 是 f5 ，不要取消(取消fn整個排定)
+        return;
+      }
+      event.preventDefault(); // 要求取消事件預設行為
+      document.querySelector('#codeName').innerHTML = event.code;
+      document.querySelector('#keyCode').innerHTML = event.keyCode;
+    }
+
+    /************* window event *******************/
+    onresize = function (e) {
+      // console.log(e);
+      // console.log(window.innerWidth);
+      console.log(document.querySelector('#loki').value);
+    }
+
+
+  </script>
+</body>
+
+</html>
