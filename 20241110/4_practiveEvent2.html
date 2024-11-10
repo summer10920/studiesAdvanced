@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="myBlock"
+    style="width:100px;height:100px;background-color: red;clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);"></div>
+  <hr />
+  <input type="button" value="正方形" />
+  <input type="button" value="圓形" />
+  <input type="button" value="三角形" />
+  <p>Color Code: <input type="text" /></p>
+  <script>
+    const zone = document.getElementById("myBlock");  // object,node
+
+    /***********改形狀事件*************/
+    document.querySelectorAll('input[type=button]').forEach(item => {
+      item.addEventListener('click', function () { trans(this.value); });
+    });
+    function trans(elValue) {
+      switch (elValue) {
+        case "正方形":
+          zone.style.clipPath = 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)';
+          break;
+        case "圓形":
+          zone.style.clipPath = 'circle(50% at 50% 50%)';
+          break;
+        case "三角形":
+          zone.style.clipPath = 'polygon(50% 0%, 0% 100%, 100% 100%)';
+          break;
+      }
+    }
+
+    /***********改顏色事件*************/
+    document.querySelector('input[type=text]').addEventListener('change', function () { color(this.value); });
+    function color(colorCode) {
+      zone.style.backgroundColor = colorCode;
+    }
+  </script>
+</body>
+
+</html>

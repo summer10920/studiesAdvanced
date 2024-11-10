@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <p id="demo">按這裡，由 DOM 觸發 JS</p>
+  <div class="group">
+    <h1>hello world</h1>
+  </div>
+  <script>
+    const demo = document.querySelector('#demo');
+
+    demo.addEventListener('click', () => {
+      const btn = document.createElement('button');
+      btn.textContent = '按鈕';
+      btn.style.color = 'red';
+      const myLink = document.createElement('a');
+      myLink.textContent = '連結';
+      myLink.style.background = 'black';
+      myLink.style.color = 'white';
+
+      // document.querySelector('body').appendChild(btn);
+      // document.querySelector('.group').appendChild(btn);
+      // document.body.appendChild(btn);
+      // document.body.append(btn, myLink);
+
+      document.querySelector('.group').prepend(myLink);
+      console.log(btn);
+
+      // document.querySelector('h1').remove(); // 刪除指定dom
+    });
+  </script>
+</body>
+
+</html>

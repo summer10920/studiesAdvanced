@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="myBlock" style="width:100px;height:100px;background-color: blue;"></div>
+  <hr />
+  <input type="button" value="正方形" onclick="trans('A')" />
+  <input type="button" value="圓形" onclick="trans('B')" />
+  <input type="button" value="三角形" onclick="trans('C')" />
+  <p>Color Code: <input type="text" onchange="color(this.value)" /></p>
+  <script>
+    const zone = document.getElementById("myBlock");  // object,node
+    let nowColor = zone.style.backgroundColor;
+    function trans(type) {
+      switch (type) {
+        case "A":
+          zone.style = `width:100px;height:100px;background-color:${nowColor};`;
+          break;
+        case "B":
+          zone.style = `width:100px;height:100px;border-radius: 50px;background-color:${nowColor};`;
+          break;
+        case "C":
+          zone.style = `
+            width:0;height:0;border-left: 50px solid transparent;border-right: 50px solid transparent;
+            border-bottom: 100px solid ${nowColor};
+          `;
+          break;
+      }
+    }
+
+    function color(colorCode) { //目前的顏色換掉,  btw:: 空字串可以當false
+      if (zone.style.backgroundColor) zone.style.backgroundColor = colorCode; // 方,圓 
+      else zone.style.borderBottom = `100px solid ${colorCode}`; // 三角
+      nowColor = colorCode;
+    }
+  </script>
+</body>
+
+</html>
