@@ -1,0 +1,146 @@
+.calendar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  /* max-width: 640px; */
+  border: 1px solid #38470b;
+  box-shadow: 0px 2px 6px #0000000a;
+  text-align: center;
+  font-size: 12px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  position: relative;
+}
+
+.calendar ul,
+.calendar li {
+  list-style: none;
+  padding: 0;
+}
+
+.calendar .delDay {
+  text-decoration: line-through;
+  color: rgba(56, 71, 11, 0.3);
+}
+
+.calendar .selectHead {
+  background: linear-gradient(
+    to right,
+    transparent 50%,
+    rgba(56, 71, 11, 0.2) 50%
+  );
+}
+
+.calendar .selectConnect {
+  background: rgba(56, 71, 11, 0.2);
+}
+
+.calendar .fullDay {
+  color: rgba(56, 71, 11, 0.3);
+  background: rgba(240, 72, 30, 0.3);
+  /* cursor: default; */
+}
+
+.calendar .holiday {
+  color: rgb(252, 90, 90);
+  /* font-weight: bold; */
+}
+
+.calendar .selectFoot {
+  background: linear-gradient(
+    to right,
+    rgba(56, 71, 11, 0.2) 50%,
+    transparent 50%
+  );
+}
+
+.calendar .leftCal,
+.calendar .rightCal {
+  flex: 0 1 300px;
+}
+
+.calendar .leftBar,
+.calendar .rightBar {
+  border-bottom: 1px solid rgba(56, 71, 11, 0.1);
+}
+
+.calendar .leftBar ul,
+.calendar .rightBar ul {
+  display: flex;
+  margin: 25px 0 10px;
+  color: rgba(56, 71, 11, 0.5);
+}
+
+.calendar .leftBar ul li,
+.calendar .rightBar ul li {
+  flex: 0 1 calc(100% / 7);
+}
+
+.calendar .ctrlBtn {
+  position: absolute;
+  top: 14px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.calendar .leftDayList,
+.calendar .rightDayList {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.calendar .leftDayList li,
+.calendar .rightDayList li {
+  flex: 0 1 calc(100% / 7);
+  margin-bottom: 6px;
+  line-height: 30px;
+  font-family: "Open Sans", sans-serif;
+  position: relative;
+  z-index: 0;
+}
+
+.calendar .leftDayList .selectDay,
+.calendar .rightDayList .selectDay {
+  cursor: pointer;
+}
+
+.calendar .leftDayList .selectDay:hover,
+.calendar .rightDayList .selectDay:hover,
+.calendar .selectHead,
+.calendar .selectFoot {
+  color: white;
+}
+
+.calendar .leftDayList .selectDay:hover::before,
+.calendar .rightDayList .selectDay:hover::before,
+.calendar .selectHead::before,
+.calendar .selectFoot::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 0 auto;
+  z-index: -1;
+  left: 0;
+  right: 0;
+}
+
+.calendar .leftDayList .selectDay:hover::before,
+.calendar .rightDayList .selectDay:hover::before {
+  background: #949c7c;
+}
+
+.calendar .selectHead::before,
+.calendar .selectFoot::before {
+  background: #38470b;
+}
+
+.offcanvas {
+  z-index: 9999;
+  color: #333;
+}

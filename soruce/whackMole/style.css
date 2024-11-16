@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .main {
+    width: 330px;
+
+    .content {
+      display: flex;
+      flex-wrap: wrap;
+
+      .cell {
+        width: 100px;
+        height: 100px;
+        border: 5px solid #777;
+        background-color: yellow;
+      }
+    }
+
+    .control {
+      margin-top: 20px;
+
+      .nav-bar {
+        display: flex;
+        justify-content: space-between;
+
+        #time,
+        #combo {
+          width: 30%;
+        }
+      }
+    }
+  }
+}

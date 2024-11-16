@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <title>Whack a Mole</title>
+</head>
+
+<body>
+  <div class="main">
+    <div class="content">
+      <img src="img/state.png" class="cell" title="state" onclick="getCombo(0)">
+      <img src="img/state.png" class="cell" title="state" onclick="getCombo(1)">
+      <img src="img/state.png" class="cell" title="state" onclick="getCombo(2)">
+      <img src="img/state.png" class="cell" title="state" onclick="getCombo(3)">
+      <img src="img/state.png" class="cell" title="state" onclick="getCombo(4)">
+      <img src="img/state.png" class="cell" title="state" onclick="getCombo(5)">
+      <img src="img/state.png" class="cell" title="state" onclick="getCombo(6)">
+      <img src="img/state.png" class="cell" title="state" onclick="getCombo(7)">
+      <img src="img/state.png" class="cell" title="state" onclick="getCombo(8)">
+    </div>
+    <div class="control">
+      <div class="nav-bar">
+        <span id="time">剩餘時間:60s</span>
+        <input type="button" value="遊戲開始">
+        <span id="combo">成績分數:0</span>
+      </div>
+      <hr>
+      <b>遊戲說明</b>
+      <p>按下遊戲開始之後，請利用電腦鍵盤數字1~9作為打地鼠動作。或也能支援手機畫面點選。</p>
+      <hr>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
