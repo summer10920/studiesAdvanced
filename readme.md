@@ -12,9 +12,9 @@
 - [x] 2024/10/06～2024/12/22，共計 80 小時
 
 ## 課程內容
-- JavaScript 程式基礎 (24 小時）-開發環境設定、程式邏輯概念
-- jQuery 函式庫操作 (24 小時）-函式庫介紹、實例演練
-- JavaScript 實作應用 (32 小時）-常用套件介紹、動態網頁技術實作
+- JavaScript 程式基礎 （24 小時）-開發環境設定、程式邏輯概念
+- jQuery 函式庫操作  (24 小時）-函式庫介紹、實例演練
+- JavaScript 實作應用  (32 小時）-常用套件介紹、動態網頁技術實作
 
 ## 課程摘要
 
@@ -28,7 +28,12 @@ IDE 環境安裝與設定、VSCode 軟體操作說明、網頁與伺服器基本
 示範使用單一 for 與判斷完成指定輸出與九九乘法、while 與 do while 示範說明、迴圈離開方法、陣列介紹與原生鍊操作應用、箭頭函式介紹、物件介紹與應用、解構與重購說明、常用建構式 Constructor 示範（含 length, typeof, String, Number, Math, Date)。練習自訂函式  random 產生固定範圍整數。
 
 ### 20241103
-示範大樂透 49 選 6 隨機選擇練習題、時間物件介紹與倒數日期練習題、BOM 與 DOM 基本觀念說明，包含 (alert, location, history, prompt, confirm, setTimeout, clearTimeout, setInterval, clearInterval)。
+示範大樂透 49 選 6 隨機選擇練習題、時間物件介紹與倒數日期練習題、BOM 基本觀念說明，包含 (alert, location, history, prompt, confirm, setTimeout, clearTimeout, setInterval, clearInterval)。範例練習：跨年倒計時器。 DOM 基本觀念，包含 getElementById, getElementsByClassName, getElementsByTagName, querySelector, querySelectorAll ，以及與 DOM 載入順序之時機說明注意示範。
+
+### 20241110
+事件處理機制說明，包含 HTML 屬性事件、JavaScript 事件處理機制、監聽事件機制。小題示範：按鈕事件新增指定 DOM 元素、按鈕事件操作 DOM 元素 css 外觀改變。
+
+### 20241117
 
 ## 檔案留存下載方說明
 
