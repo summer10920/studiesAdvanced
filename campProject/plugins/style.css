@@ -168,3 +168,18 @@ section:not(#lokiSlider, .offcanvas) {
   height: 100%;
   backdrop-filter: blur(10px);
 } */
+
+/****************Cookie Agree start **************/
+#lokiCookie {
+  padding: 30px 60px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #1b2a4dc7;
+  z-index: 99999;
+
+  display:none;
+  /* 若畫面成功則增加以上規則 */
+}
+/****************Cookie Agree start **************/
