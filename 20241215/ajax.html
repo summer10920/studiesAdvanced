@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <table width="100%">
+    <thead>
+      <tr>
+        <td>編號</td>
+        <td>動物名</td>
+        <td>重量</td>
+        <td>簡介</td>
+        <td>更新日期</td>
+        <td>操作</td>
+      </tr>
+      <tr>
+        <td colspan="6">
+          <hr>
+        </td>
+      </tr>
+    </thead>
+    <tbody></tbody>
+    <tfoot>
+      <tr>
+        <td colspan="6" style="text-align: center;">
+          <hr>
+          <button>載入更多</button>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+  <script>
+    // $(function () { // 好習慣都會等DOM都選染完成，不論代碼放在哪，另好處是變數都不是全域的，所以全域下讀取不到
+
+
+    // -------------------------------初始宣告區
+    let start = 0;
+    const loadBtn = $('tfoot button');
+    const selectAnimal = () => {
+      // $.ajax({
+      //   url: 'http://192.168.211.1/api.php?do=select',
+      //   type: 'POST',
+      //   data: { start: 0 },
+      //   dataType: 'html',
+      //   success: function (data) {
+      //     $('tbody').html(data);
+      //   }
+      // });
+
+      $.post('http://192.168.211.1/api.php?do=select', { start }, function (data) {
+        if (data !== 'fail') {
+          $('tbody').append(data);
+
+          // ---------------------------------------新html的事件區
+          //此時新生成的 mdyBtn, 沒有要求 click
+          $('.mdy').click(changeInputEl);
+
+          start += 10;
+        } else loadBtn.attr('disabled', true).text('沒有更多了');
+      }, 'html');
+    }
+
+    const changeAnimal = (e) => {
+      const saveBtn = $(e.target);
+      const data = saveBtn.parents('tr').find('input').serialize();
+
+      $.post(
+        'http://192.168.211.1/api.php?do=update',
+        data,
+        function (res) {
+          console.log('done');
+        })
+    }
+
+    // const changeInputEl = function () {
+    //   console.log(this);
+    // }
+    const changeInputEl = (e) => {
+      const currentMdyBtn = $(e.target);
+      const uncles = currentMdyBtn.parent().siblings();
+
+      currentMdyBtn.parents('tr').html(`
+        <td>
+          <input type="hidden" name="id" value="${uncles.eq(0).text()}">
+          ${uncles.eq(0).text()}
+        </td>
+        <td class="name">
+          <input name="name" value="${uncles.eq(1).text()}">
+        </td>
+        <td>
+          <input name="weight" value="${uncles.eq(2).text()}">
+        </td>
+        <td>
+          <input name="info" value="${uncles.eq(3).text()}">
+        </td>
+        <td>${uncles.eq(4).text()}</td>
+        <td>
+          <button class="save">儲存</button>
+        </td>
+      `).find('.save').click(changeAnimal);
+
+    }
+
+
+    // -------------------------------初始事件區
+    loadBtn.click(selectAnimal);
+
+
+    // -------------------------------初始第一次執行
+    selectAnimal();
+
+    // });
+  </script>
+</body>
+
+</html>

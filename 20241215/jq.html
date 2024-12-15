@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- ================== 1. css ready start ===================-->
+  <style>
+    /* * {
+      border: 1px solid;
+    } */
+    .hot {
+      color: red;
+    }
+
+    /* li:first-child {
+      background: lightblue;
+    }
+
+    li:last-child {
+      background: lightgreen;
+    }
+
+    li:nth-child(even) {
+      font-size: 2rem;
+    }
+
+    li:nth-child(3) {
+      background: lightcoral;
+    } */
+    #page:has(h1) {
+      border-color: purple;
+      border-width: 5px;
+    }
+  </style>
+  <!-- ================== 1. css done end ===================-->
+  <!-- ================== 2. js ready start ===================-->
+  <script src="./jquery-3.7.1.min.js"></script>
+  <script>
+    const showConsole = () => {
+      console.log('click');
+    };
+
+    // $(document).ready(function () { // 可以要求這些工作是在 document 準備好了時候才做
+    $(function () {  // 同上行，jq 提供速版
+
+      console.log('page end');
+      // console.log(document.getElementById('header'));
+
+      // ex: add class to #header
+      // document.querySelector('#header').classList.add('hot');   // js ver.
+      console.log($('#header'));
+      $('#header').addClass('hot');  // jq ver.
+      // jQuery('#header').addClass('hot'); // jq 另一種寫法
+
+      // document.querySelectorAll('li').forEach(node => {
+      //   console.log(node.innerHTML);
+      // });
+
+      // $('li').each((_, node) => { //senior developer會把不會用到的參數用_代替
+      //   console.log($(node).html());
+      // });
+
+      // $('#header').on('click', showConsole);
+      // $('#header').off('click', showConsole);  // 移除
+
+      $('#header').click(showConsole);
+      $('#header').click(() => console.log('test'));
+
+      // $('#header').hover(() => console.log('hover'));
+      $('#header').hover(function () { // 使用匿名fn，可以用this來取得被hover的物件
+        console.log($(this).text());
+      });
+
+      $('form').submit(function (e) {
+        e.preventDefault();
+        console.log('submit'); // 驗證表單有無效
+
+      })
+
+
+    });
+
+
+  </script>
+  <!-- ================== 2. js done end ===================-->
+</head>
+
+<body>
+  <div id="page">
+    <h1 id="header">MyjQueryDemo List</h1>
+    <h2>我的代辦事項</h2>
+    <ul>
+      <li id="one" class="hot"><b>買</b> 晚餐</li>
+      <li id="two" class="hot">練程式</li>
+      <li id="three" class="hot">打電動</li>
+      <li id="four">記得去洗澡</li>
+    </ul>
+    <p>我不改進願意，全家。</p>
+    <hr>
+    <div class="lokiDiv">
+      <input name="userName">
+      <input type="text" value="這是一個 input" name="userName">
+    </div>
+    <input type="checkbox" id="scales" name="scales" checked />
+    <input type="checkbox" id="horns" name="horns" />
+    <div style="font-size: 2rem; line-height: 4rem;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
+      nobis, minima esse dolorum corrupti debitis dicta provident ab tempora voluptate officiis consectetur odit cumque,
+      molestiae autem molestias incidunt. Laboriosam facere necessitatibus, adipisci inventore maiores soluta, in ipsa
+      consequuntur, animi sapiente magni quam dolores aliquam hic odit cupiditate quae ea quis eius eum esse alias. Sint
+      dicta officiis est molestias expedita facere odio nesciunt dolorum vitae, velit possimus consequatur consectetur,
+      cumque maiores eveniet sequi fugit consequuntur! Quia, saepe. Dolores natus impedit quisquam labore corrupti quam
+      a inventore, praesentium odit culpa tempora expedita? Nesciunt commodi consectetur eveniet reiciendis hic quidem
+      temporibus repellat excepturi ex sit ullam, ad nobis illum placeat esse veritatis laboriosam! Dicta, repellat!
+      Quisquam mollitia accusamus sit aliquid libero illum repellat corporis quos hic tempora ipsum sed, aliquam facilis
+      quis voluptate voluptatum eos a, quas inventore numquam provident possimus dolorem? Eaque natus nulla ut ea
+      aliquam tempora voluptate neque rem temporibus, ad fugit quidem quas optio tempore autem facilis libero esse?
+      Amet, molestiae corporis. Ipsa aut quos, optio, molestiae magnam cumque similique aspernatur quae accusantium
+      minima voluptatum! Praesentium veniam ipsam incidunt, ad magnam alias velit, fugiat voluptas beatae mollitia culpa
+      dolor itaque aperiam dolore enim quidem ipsa cupiditate minus maiores.</div>
+  </div>
+</body>
+
+</html>
