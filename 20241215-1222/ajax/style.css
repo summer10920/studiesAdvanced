@@ -1,0 +1,45 @@
+.insert-zone {
+  position: fixed;
+  background: #333333aa;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 50%;
+  color: white;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.insert-zone > form {
+  width: 100%;
+}
+
+.add-zone {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+
+  div {
+    background-color: #333;
+    color: white;
+    font-weight: bolder;
+    border-radius: 50%;
+    font-size: 30px;
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.5s;
+
+    &:hover {
+      background-color: #777;
+    }
+  }
+}

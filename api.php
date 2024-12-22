@@ -7,7 +7,7 @@ date_default_timezone_set('asia/Taipei');
 // 這裡用 switch 是因為還有其他 Ajax 提交，因此利用 GET 來做區分判斷處理。
 switch ($_GET['do']) {
   case 'select':
-    $sql = "SELECT * FROM ajax_animal limit " . $_POST['start'] . ",10";
+    $sql = "SELECT * FROM ajax_animal WHERE del != 1 limit " . $_POST['start'] . ",10";
     // $sql = "SELECT * FROM ajax_animal limit 0,10";
     $rows = $db->query($sql)->fetchAll();
     // print_r($_POST);
@@ -23,7 +23,7 @@ switch ($_GET['do']) {
             <td>' . $row['date'] . '</td>
             <td>
               <button class="mdy">修改</button>
-              <button onclick="del(this)">刪除</button>
+              <button onclick="deleteAnimal(this)">刪除</button>
             </td>
           </tr>
         ';
@@ -44,7 +44,7 @@ switch ($_GET['do']) {
     if ($result) echo "deleted";
     break;
   case 'insert':
-    $sql = "INSERT INTO ajax_animal VALUES(null,'" . $_POST['name'] . "','" . $_POST['weight'] . "','" . $_POST['info'] . "',NOW())";
+    $sql = "INSERT INTO ajax_animal VALUES(null,'" . $_POST['name'] . "','" . $_POST['weight'] . "','" . $_POST['info'] . "',NOW(), 0)";
     $result = $db->query($sql);
     if ($result) echo "inserted";
     break;

@@ -1,0 +1,50 @@
+#lokiLightBox {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#lokiLightBox.active {
+  display: flex;
+}
+
+#lokiLightBox .backdrop {
+  position: absolute;
+  background: hsla(0, 0%, 0%, 0.75);
+  backdrop-filter: blur(5px);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+#lokiLightBox .mainZone img {
+  max-width: 85%;
+  max-height: 70%;
+}
+
+#lokiLightBox .control {
+  position: absolute;
+  bottom: 40px;
+}
+
+#lokiLightBox .control img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border: 2px solid white;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+#lokiPark .col {
+  cursor: pointer;
+}

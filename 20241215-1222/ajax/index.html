@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="add-zone">
+    <div>＋</div>
+  </div>
+  <table width="100%">
+    <thead>
+      <tr>
+        <td>編號</td>
+        <td>動物名</td>
+        <td>重量</td>
+        <td>簡介</td>
+        <td>更新日期</td>
+        <td>操作 </td>
+      </tr>
+      <tr>
+        <td colspan="6">
+          <hr>
+        </td>
+      </tr>
+    </thead>
+    <tbody></tbody>
+    <tfoot>
+      <tr>
+        <td colspan="6" style="text-align: center;">
+          <hr>
+          <button>載入更多</button>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+  <div class="insert-zone" style="display: none;">
+    <!-- 
+      這裡不先寫好 HTML 是因為我們網頁不會重整，因此第二次進行新增時 HTML 子元素需要清掉
+      因此直接由 JavaScript 來設計較適宜
+    -->
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
