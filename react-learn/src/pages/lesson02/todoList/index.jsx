@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import style from './todoList.module.css';
+import TaskAdd from './taskAdd';
+import TaskList from './taskList';
 
 const initData = [
   {
@@ -34,18 +36,15 @@ const initData = [
   },
 ];
 
-let id = initData.length + 1;
-
 const TodoList = () => {
   const [list, setList] = useState(initData);
-  const [text, setText] = useState('');
 
   const handleAdd = (text) => {
     setList((data) => {
       return [
         ...data,
         {
-          id: id++,
+          id: list[list.length - 1].id + 1,
           text: text,
           checked: false,
         },
@@ -69,44 +68,9 @@ const TodoList = () => {
     <>
       <div className={style.header}>
         <h2>My To Do List</h2>
-        <input
-          type="text"
-          id="myInput"
-          placeholder="Title..."
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-        />
-        <span
-          className={style.addBtn}
-          onClick={() => {
-            if (text === '') return;
-            handleAdd(text);
-            setText('');
-          }}
-        >
-          Add
-        </span>
+        <TaskAdd onAdd={handleAdd} />
       </div>
-
-      <ul className={style.todoList}>
-        {list.map((item) => (
-          <li
-            key={item.id}
-            className={item.checked ? style.checked : null}
-            onClick={() =>
-              handleChecked({
-                ...item,
-                checked: !item.checked,
-              })
-            }
-          >
-            {item.text}
-            <span className={style.close} onClick={() => handleDelete(item.id)}>
-              ×
-            </span>
-          </li>
-        ))}
-      </ul>
+      <TaskList items={list} onDelete={handleDelete} onChecked={handleChecked} />
     </>
   );
 };
