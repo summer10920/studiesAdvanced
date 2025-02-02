@@ -1,0 +1,49 @@
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 300px;
+  background: #f4f4f4;
+  padding: 20px;
+  overflow-y: auto;
+
+  ul {
+    padding-left: 20px;
+
+    a {
+      font-weight: bold;
+      display: block;
+
+      &:hover {
+        color: #f65252;
+      }
+
+      &.active {
+        background: #4dacff;
+        color: white;
+      }
+    }
+  }
+}
+
+main {
+  padding: 20px;
+  position: relative;
+  min-height: 100vh;
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  footer {
+    background: #343434;
+    color: white;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}

@@ -1,0 +1,9 @@
+.btn {
+  display: inline;
+  border: 1px solid black;
+  padding: 0;
+  border-radius: 5px;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-left: 1rem;
+}

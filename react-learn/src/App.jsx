@@ -1,40 +1,23 @@
-import { useState } from 'react';
-import './App.css';
-import MyLogo from './component/MyLogo/MyLogo';
-import MyH1 from './component/MyH1/MyH1';
-import MyButton from './component/MyButton/MyButton';
-import MyForm from './component/MyForm/MyForm';
-import MyGallery from './component/MyGallery/MyGallery';
+import { Routes, Route } from 'react-router';
+import Layout from './template/layout';
+import Base from './pages/lesson01/base';
+import MyContext from './pages/lesson02/myContext';
+import MyListMenu from './pages/lesson02/myListMenu';
+import TodoList from './pages/lesson02/todoList';
 
 export default function App() {
-  const [count, setCount] = useState(0);
-  const [toShow, setToShow] = useState(true);
-
-  const h1Title = 'Vite + React';
-
-  const onPasswordSubmit = (e) => {
-    e.preventDefault();
-    console.log('submit');
-  };
-  const onPasswordChange = (e) => {
-    console.log(e.target.value);
-  };
-
   return (
-    <>
-      <MyLogo />
-      <MyH1>{h1Title}</MyH1>
-      <MyGallery toShow={toShow} setToShow={setToShow} />
-      <MyGallery {...{ toShow, setToShow }} />
-      <div className="card" style={{ color: 'red', background: 'black' }}>
-        <MyForm onLokiSubmit={onPasswordSubmit} onLokiChange={onPasswordChange} />
-        <MyButton>Click Me!</MyButton>
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-    </>
-  );
+    <Routes>
+      <Route element={<Layout />}>
+        <Route index element={<Base />} />
+        <Route path="base" element={<Base />} />
+        <Route path="lesson02">
+          <Route index element={<MyContext />} />
+          <Route path="my-context" element={<MyContext />} />
+          <Route path="my-list-menu" element={<MyListMenu />} />
+          <Route path="todo-list" element={<TodoList />} />
+        </Route>
+      </Route>
+    </Routes>
+  );   
 }
