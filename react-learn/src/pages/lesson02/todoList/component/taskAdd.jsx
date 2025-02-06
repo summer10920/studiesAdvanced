@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import style from './todoList.module.css';
+import style from '../todoList.module.css';
 
 const TaskAdd = ({ onAdd }) => {
   const [text, setText] = useState('');

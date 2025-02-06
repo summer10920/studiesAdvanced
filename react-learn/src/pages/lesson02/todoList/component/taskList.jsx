@@ -1,4 +1,4 @@
-import style from './todoList.module.css';
+import style from '../todoList.module.css';
 
 const TaskList = ({ items, onDelete, onChecked }) => {
   return (
