@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import style from '../todoList.module.css';
+import { useFacade } from '../context/todoContext';
 
-const TaskAdd = ({ onAdd }) => {
+const TaskAdd = () => {
+  // 沒有prop可用取得 fn
   const [text, setText] = useState('');
+  const { onAdd } = useFacade(); // 改用 custom hook 來取得 fn
 
   return (
     <>
