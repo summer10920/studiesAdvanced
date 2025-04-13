@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>表格</title>
+</head>
+
+<body>
+  <!-- table>tr>td*3{A$} -->
+  <table border="1" width="600" cellspacing="0" cellpadding="10">
+    <thead>
+      <tr>
+        <th>姓名</th>
+        <th>英文成績</th>
+        <th>數學成績</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Loki</td>
+        <td>100</td>
+        <td align="center">99</td>
+      </tr>
+      <tr>
+        <td>Jimmy</td>
+        <td>88</td>
+        <td>99</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th>平均</th>
+        <th>94</th>
+        <th>99</th>
+      </tr>
+    </tfoot>
+  </table>
+  <hr>
+  <hr>
+  <hr>
+  <table border="1" cellspacing="0" width="600" cellpadding="10">
+    <tbody>
+      <tr>
+        <td colspan="3">A1</td>
+        <!-- <td>A2</td> -->
+        <!-- <td>A3</td> -->
+        <td>A4</td>
+      </tr>
+      <tr>
+        <td>B1</td>
+        <td rowspan="2">B2</td>
+        <td>B3</td>
+        <td>B4</td>
+      </tr>
+      <tr>
+        <td>C1</td>
+        <!-- <td>C2</td> -->
+        <td colspan="2" rowspan="2">C3</td>
+        <!-- <td>C4</td> -->
+      </tr>
+      <tr>
+        <td>D1</td>
+        <td>D2</td>
+        <!-- <td>D3</td> -->
+        <!-- <td>D4</td> -->
+      </tr>
+    </tbody>
+  </table>
+</body>
+
+</html>

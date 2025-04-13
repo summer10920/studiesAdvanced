@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>表單</title>
+</head>
+
+<body>
+  <!-- <a href="../20250323/1_tag_header.html?acc=123&pwd=456">去某頁面</a> -->
+  <form action="../20250323/1_tag_header.html" method="post">
+    <!-- ??? 裡面放甚麼欄位，決定這個表單設計有哪些可以填寫 -->
+    <table border="0" cellpadding="5" align="center">
+      <thead>
+        <tr align="center">
+          <td colspan="2">
+            <h1>登入畫面</h1>
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td width="100" align="right">帳號:</td>
+          <td><input type="text" name="acc" placeholder="請輸入帳號" value="loki" autocomplete="off"></td>
+        </tr>
+        <tr>
+          <td align="right" valign="top">密碼:</td>
+          <td>
+            <!-- <input type="password" name="pwd" placeholder="請輸入密碼" required
+              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$">
+            <br> <small>密碼至少8個字元，包含大小寫字母和數字</small> -->
+          </td>
+        </tr>
+        <tr>
+          <td width="100" align="right"><label for="the-date">數字:</td>
+          <td><input id="the-date" type="number" name="acc" placeholder="請輸入帳號" value="2"  autofocus></td>
+        </tr>
+        <tr>
+          <td width="100" align="right">日期:</td>
+          <td><input type="date" name="date" placeholder="請輸入帳號" value="2025-01-01"></td>
+        </tr>
+        <tr>
+          <td width="100" align="right">性別:</td>
+          <td>
+            <input id="man" type="radio" name="gender" value="man"> <label for="man"><strong>男</strong></label>
+            <label><input type="radio" name="gender" value="woman"> 女</label>
+            <input type="radio" name="gender" value="unknown">不提供
+          </td>
+        </tr>
+        <tr>
+          <td width="100" align="right">興趣:</td>
+          <td>
+            <label><input type="checkbox" name="interest[]" value="game"> 遊戲</label>
+            <label><input type="checkbox" name="interest[]" value="book"> 看書</label>
+            <label><input type="checkbox" name="interest[]" value="sleep"> 睡覺</label>
+            <label><input type="checkbox" name="interest[]" value="camping"> 露營</label>
+            <label><input type="checkbox" name="interest[]" value="hiking"> 健走</label>
+          </td>
+        </tr>
+        <tr>
+          <td width="100" align="right">從何得知:</td>
+          <td>
+            <select name="source">
+              <option value="">請選擇...</option>
+              <option value="google">Google</option>
+              <option value="facebook">Facebook</option>
+              <option value="friend" selected>朋友介紹</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td width="100" align="right">上傳檔案:</td>
+          <td>
+            <input type="file" name="file">
+          </td>
+        </tr>
+        <tr>
+          <td width="100" align="right">備註:</td>
+          <td>
+            <textarea name="memo" cols="30" rows="5" disabled>
+    心靈楠雅當初經營不得不真是相信，類似取消高校小遊戲感興趣快速字幕閲讀者把你當然秘密多個，目前不願意，風險全身更新時間靜靜樂隊過程房地產有效集體知名垃圾整理不去，軍隊能源緊緊最終回應接受老公精靈流程學歷回頭一定聽說確保，幽默本類伺服器內容來的對象上班，森林。
+            </textarea>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr align="center">
+          <td colspan="2">
+            <input type="hidden" name="coupon" value="9453AX">
+            <br>
+            <hr>
+            <br>
+            <input type="reset" value="清除">
+            <input type="submit" value="送出">
+            <input type="button" value="跟表單無關" />
+            <button>送出</button>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </form>
+  <!-- <a href="http://www.google.com"><button>導向網站</button></a>
+  <button>導向網站</button> -->
+</body>
+
+</html>
