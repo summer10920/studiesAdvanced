@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* nav 的後代用空格*/
+    nav h6,
+    nav p {
+      color: red;
+    }
+
+    /* nav 子代用箭頭*/
+    p {
+      color: purple;
+    }
+
+    p {
+      color: blue;
+    }
+
+    h6[title=]~p.red {
+      color: lightblue
+    }
+
+    h6[title="456"] {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <h6 title="456">hello world</h6>
+  <h6 title="123" class="liteBlue">hello world</h6>
+  <p class="liteBlue">Lorem ipsum dolor sit amet.</p>
+  <h6>hello world</h6>
+  <p>Lorem ipsum dolor sit amet.</p>
+  <hr>
+  <nav>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <div>
+      <p>Lorem ipsum dolor sit amet.</p>
+      <h6>hello world</h6>
+      <div>
+        <p>Lorem ipsum dolor sit amet.</p>
+      </div>
+    </div>
+  </nav>
+</body>
+
+</html>

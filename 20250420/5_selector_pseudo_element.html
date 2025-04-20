@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>偽元素</title>
+  <style>
+    div.demo1 {
+      color: red;
+    }
+
+    div.demo1::before {
+      content: '';
+      color: white;
+      background-color: purple;
+      display: inline-block;
+      width: 1rem;
+      height: 1rem;
+      border-radius: 50%;
+      transform: scale(0.5) rotate(45deg) translateY(50%);
+    }
+
+    div.demo1::after {
+      content: '<' attr(title) '>';
+      color: white;
+      background-color: black;
+    }
+
+    .demo2 {
+      position: relative;
+      z-index: 9;
+      border: 1px solid black;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .demo2::before {
+      content: 'Loki';
+      color: aqua;
+      position: absolute;
+      transform: scaleY(-1) translateY(-60%);
+    }
+
+    .demo2::after {
+      content: '';
+      background: linear-gradient(transparent, #fff9 5%, white 50%);
+      width: 4rem;
+      height: 1rem;
+      position: absolute;
+      top: 60%;
+      left: 35%;
+      z-index: 5;
+    }
+
+    .demo3::first-letter {
+      color: red;
+      font-weight: bold;
+      font-size: 2rem;
+    }
+
+    .demo3::first-line {
+      text-decoration: dashed underline;
+    }
+
+    .demo3::selection {
+      background: lightblue;
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <p class="demo3">
+    先進姐姐一定收購隨時，有效材料記得不再加強照片業績，生存服裝看過站內瀏覽次數經歷消費者，學歷影音人氣申請成了來看是由音樂網站哪裡，第三培養轉帖台南出版社早已自由，本報新型認定落實股東身材藍色過去合作公告講話共享，犯罪不知之外專輯均為玄幻則是完全就好師傅慢。
+  </p>
+  <p class="demo3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, quos. Lorem ipsum dolor sit amet
+    consectetur adipisicing elit. Nisi consequuntur officiis totam perferendis rerum accusamus veritatis consequatur
+    nulla accusantium harum. Eum soluta alias iure voluptatum temporibus recusandae tempora nulla porro, repellendus et
+    tempore magni quibusdam doloremque saepe, distinctio ullam obcaecati corrupti sapiente illum quaerat vero molestiae
+    quod quo dignissimos. Ea esse officiis et minima! Totam, consequuntur recusandae quod praesentium quas quasi, illo
+    numquam iste quisquam cupiditate, at reprehenderit eveniet quam minus. Ad autem vel nesciunt distinctio nemo at,
+    quod dolores dicta possimus nihil odit nobis impedit ipsum unde modi qui omnis iusto vero laudantium laborum quidem
+    quo? Fuga sunt natus ex error quis doloremque unde ipsum reprehenderit qui numquam eius ea placeat, quos neque eum
+    nemo ut aperiam voluptatem eveniet, nihil reiciendis. Animi, adipisci earum blanditiis officiis ea eaque sint id
+    rerum nesciunt esse facilis veniam consequuntur consequatur ullam culpa nostrum ipsum modi beatae, eligendi fugiat,
+    aliquam recusandae. Quo sapiente ipsum, rerum itaque similique nobis laborum voluptatum consequuntur fugit maxime
+    modi ipsam animi beatae blanditiis corrupti quibusdam unde tenetur nemo qui nesciunt delectus esse. Molestias odio
+    voluptas explicabo quod doloribus adipisci error alias, inventore dolorem. Accusamus officia, vitae obcaecati quam
+    nam in quidem unde quod quos, quis iure nulla ullam?</p>
+  <hr>
+  <div class="demo2">Loki</div>
+  <hr>
+  <div class="demo1" title="HEY">Lorem ipsum dolor sit amet.</div>
+</body>
+
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>偽類選擇 Pseudo Classes Selector</title>
+  <style>
+    a {
+      color: blue;
+    }
+
+    /* a:link {
+      color: orange;
+    } */
+    /* a:visited {
+      color: purple;
+    } */
+    a:hover {
+      color: red;
+    }
+
+    /* a:active {
+      color: green;
+    } */
+    h1:hover {
+      color: red;
+    }
+
+    table.demo1 tr.odd {
+      background-color: lightblue;
+    }
+
+    /*偽類:否定選擇*/
+    table.demo1 tr:not(.odd) {
+      background-color: lightgoldenrodyellow;
+    }
+
+    /* 偽類:關係選擇 */
+    table.demo2 tr {
+      background-color: lightblue;
+    }
+
+    /* table.demo2 tr:nth-child(even) {
+      background-color: lightgoldenrodyellow;
+    } */
+    table.demo2 tr:nth-child(3n) {
+      background-color: lightgoldenrodyellow;
+    }
+
+    table.demo2 tr:nth-child(3n+1) {
+      background-color: lightgreen;
+    }
+
+    table.demo2 tr:nth-child(3n+2) {
+      background-color: lightpink;
+    }
+
+    /* h5:nth-child(2n){
+      background-color: red;
+    } */
+    h5:nth-of-type(2n) {
+      background-color: red;
+    }
+
+    h5:nth-last-of-type(1) {
+      background-color: black;
+      color: white;
+    }
+
+    h5:last-of-type {
+      background-color: purple;
+      color: white;
+    }
+
+    /* has 偽類選擇器，該元素持有指定的後代元素(選擇器條件) */
+    .demo4 section:has(.loki) {
+      background-color: lightgoldenrodyellow;
+    }
+
+    .demo5:hover {
+      background-color: red;
+    }
+
+    .demo5:focus {
+      background-color: yellow;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="text" name="" class="demo5">
+  <div class="demo4">
+    <section>
+      <div>
+        <h1>Lorem ipsum dolor sit amet.</h1>
+      </div>
+    </section>
+    <section>
+      <h1 class="loki">Lorem ipsum dolor sit amet.</h1>
+    </section>
+  </div>
+  <div class="demo3">
+    <!-- <p>Lorem ipsum dolor sit amet.</p> -->
+    <h5>H5 === Lorem ipsum dolor sit amet.</h5>
+    <h5>H5 === Lorem ipsum dolor sit amet.</h5>
+    <!-- <p>Lorem ipsum dolor sit amet.</p> -->
+    <h5>H5 === Lorem ipsum dolor sit amet.</h5>
+    <h5>H5 === Lorem ipsum dolor sit amet.</h5>
+    <h5>H5 === Lorem ipsum dolor sit amet.</h5>
+    <!-- <p>Lorem ipsum dolor sit amet.</p> -->
+    <!-- <p>Lorem ipsum dolor sit amet.</p> -->
+    <!-- <p>Lorem ipsum dolor sit amet.</p> -->
+  </div>
+  <hr>
+  <table border="1" width="300" cellspacing="0" class="demo2">
+    <tbody>
+      <tr>
+        <td>Loki</td>
+        <td>Loki</td>
+      </tr>
+      <tr>
+        <td>Loki</td>
+        <td>Loki</td>
+      </tr>
+      <tr>
+        <td>Loki</td>
+        <td>Loki</td>
+      </tr>
+      <tr>
+        <td>Loki</td>
+        <td>Loki</td>
+      </tr>
+      <tr>
+        <td>Loki</td>
+        <td>Loki</td>
+      </tr>
+      <tr>
+        <td>Loki</td>
+        <td>Loki</td>
+      </tr>
+      <tr>
+        <td>Loki</td>
+        <td>Loki</td>
+      </tr>
+      <tr>
+        <td>Loki</td>
+        <td>Loki</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <table border="1" width="300" cellspacing="0" class="demo1">
+    <tbody>
+      <tr>
+        <td>Loki</td>
+        <td>Loki</td>
+      </tr>
+      <tr class="odd">
+        <td>Loki</td>
+        <td>Loki</td>
+      </tr>
+      <tr>
+        <td>Loki</td>
+        <td>Loki</td>
+      </tr>
+      <tr class="odd">
+        <td>Loki</td>
+        <td>Loki</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <h1>Lorem ipsum dolor sit amet.</h1>
+  <hr>
+  <a href="http://www.goorrrgle.com">Google</a>
+  <hr>
+  <a class="loki" href="http://www.google.com">Google Loki</a>
+</body>
+
+</html>

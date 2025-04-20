@@ -1,0 +1,30 @@
+/* 先檢查import合併代碼，才開始查看所有樣式*/
+@import url('loki_header.css');
+@import url('loki_nav.css');
+@import url('loki_menu.css');
+@import url('loki_footer.css');
+
+
+/* 外部樣式表，HTML透過 link:css 拿取這份 */
+h1,
+h2 {
+  color: red;
+  font-size: 68px;
+  background-color: black;
+}
+
+
+/* h1 {
+  color: red;
+} */
+
+/* h2 {
+  color: green;
+} */
+
+/* h2 {
+  color: red;
+  font-size: 68px;
+  background-color: black;
+} */
+
