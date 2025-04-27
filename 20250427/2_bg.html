@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* .my-bg {
+      background-color: rgb(222, 255, 169);
+      background-image: url('ball.png');
+      background-size: 50px;
+    } */
+    .demo1 {
+      width: 300px;
+      height: 300px;
+      background-color: lightblue;
+      /* background-repeat: repeat-x; */
+      /* background-repeat: repeat no-repeat;  */
+      /* space round 通常是圖片尺寸比例無法填滿容器，不夠部分該怎麼呈現 */
+      /* background-image: url('https://fakeimg.pl/65x300/'); */
+      /* background-repeat: space no-repeat;  */
+      background-image: url('https://fakeimg.pl/200x100/');
+      background-repeat: no-repeat;
+      /* vale = [top,left,right,bottom,center], [%, -%], [px,-px] */
+      /* background-position: 0% 0%; */
+      /* background-position: 50% 70%; */
+      /* background-size: 50% 70%; */
+      background-position: center;
+      background-size: cover;
+    }
+
+    .demo2 {
+      width: 300px;
+      height: 300px;
+      /*
+      background-image: initial;
+      background-position-x: initial;
+      background-position-y: initial;
+      background-size: initial;
+      background-repeat: initial;
+      background-attachment: initial;
+      background-origin: initial;
+      background-clip: initial;
+      background-color: lightblue
+      */
+      background: #f37 url('https://fakeimg.pl/200x100/') no-repeat center / 50% 100px;
+    }
+
+    .demo3 {
+      background-color: lightblue;
+      width: 300px;
+      height: 300px;
+      background-image:
+        url("https://picsum.photos/100/100/?random=10"),
+        url("https://picsum.photos/50/50/?random=10");
+      background-repeat: no-repeat, repeat-x;
+      background-position: right bottom, left top;
+    }
+
+    .demo4 {
+      width: 300px;
+      height: 300px;
+      background:
+        url('https://picsum.photos/100/100/?random=10') no-repeat right bottom,
+        url('https://picsum.photos/100/100/?random=10') no-repeat left top,
+        lightgreen;
+    }
+
+    .demo5 {
+      width: 600px;
+      height: 300px;
+      background-image: linear-gradient(90deg, #2a7b9b 0%, #b54889 50%, #eddd53 100%);
+      background-image: radial-gradient(circle at 0% 0%, #2a7b9b 0%, #b54889 50%, #eddd53 70%);
+    }
+
+    .demo6 {
+      width: 300px;
+      height: 300px;
+      background-image: 
+      linear-gradient(165deg, #53a329, transparent 70%),
+      linear-gradient(255deg, #b54889, transparent 70%),
+      linear-gradient(345deg, #2a7b9b, transparent 70%),
+      linear-gradient(75deg, #eddd53, transparent 70%);
+    }
+  </style>
+</head>
+
+<body class="my-bg">
+  <div class="demo6"></div>
+  <div class="demo5"> </div>
+  <div class="demo4"></div>
+  <div class="demo3"></div>
+  <!-- 快速生圖，用 picsum 或 fakeimg 指令生成 -->
+  <div class="demo2"></div>
+  <div class="demo1"></div>
+</body>
+
+</html>

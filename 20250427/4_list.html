@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=directions_car" />
+  <style>
+    ul.demo1 {
+      list-style-type: decimal;
+      /* list-style-position: inside; */
+      list-style-image: url('ball-icon.png');
+    }
+
+    ol.demo2 {
+      /* list-style-type: disc; */
+      list-style-type: none;
+      padding-left: 15px;
+    }
+
+    ol.demo2>li::before {
+      content: 'directions_car';
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24;
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    } */
+    /* ////////////////////////////////////// */
+    /* ol.demo3 {
+      list-style-type: none;
+      padding-left: 15px;
+    }
+
+    ol.demo3>li::before {
+      content: '';
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      vertical-align: baseline;
+      border-radius: 50%;
+      margin-right: 0.5rem;
+    }
+
+    ol.demo3>li.red::before {
+      background: red;
+    }
+
+    ol.demo3>li.green::before {
+      background: green;
+    } */
+    ol.demo3 {
+      list-style-type: none;
+      padding-left: 15px;
+
+      li {
+        &::before {
+          content: '';
+          display: inline-block;
+          width: 12px;
+          height: 12px;
+          vertical-align: baseline;
+          border-radius: 50%;
+          margin-right: 0.5rem;
+        }
+
+        &[data-status="red"]::before {
+          background: red;
+        }
+
+        &[data-status="green"]::before {
+          background: green;
+        }
+      }
+    }
+
+    ul.demo4 {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0;
+      line-height: 50px;
+
+      li {
+        text-align: center;
+        display: inline-block;
+        font-size: 1rem;
+
+        a {
+          text-decoration: none;
+          color: white;
+          background: lightcoral;
+          display: inline-block;
+          width: 100px;
+          height: 50px;
+
+          &:hover {
+            color: darkcyan;
+            background: #ccc;
+          }
+        }
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ul.demo5>(li>a{$$$})*4 -->
+  <ul class="demo4">
+    <li><a href="#">001</a></li>
+    <li><a href="#">002</a></li>
+    <li><a href="#">003</a></li>
+    <li><a href="#">004</a></li>
+  </ul>
+  <ol style="list-style-type: cjk-decimal;">
+    <li>0001</li>
+    <li>0002</li>
+    <li>0003</li>
+    <li>0004</li>
+  </ol>
+  <hr>
+  <!-- ul>li*4{$$$AAAAA} -->
+  <ul class="demo1">
+    <li>001AAAAA</li>
+    <li>002AAAAA</li>
+    <li>003AAAAA</li>
+    <li>004AAAAA</li>
+  </ul>
+  <ol class="demo2">
+    <!-- <li><span class="material-symbols-outlined"> directions_car </span>002AAAAA</li> -->
+    <!-- <li><span class="material-symbols-outlined"> directions_car </span>003AAAAA</li> -->
+    <!-- <li><span class="material-symbols-outlined"> directions_car </span>004AAAAA</li> -->
+    <li>001AAAAA</li>
+    <li>002AAAAA</li>
+    <li>003AAAAA</li>
+    <li>004AAAAA</li>
+  </ol>
+  <ol class="demo3">
+    <li data-status="red">BBBBB</li>
+    <li data-status="green">BBBBB</li>
+    <li data-status="red">BBBBB</li>
+  </ol>
+</body>
+
+</html>

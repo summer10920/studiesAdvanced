@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      background: lightseagreen;
+      margin: 0;
+    }
+    table {
+      /* border: 1px solid; */
+      width: 500px;
+      border-spacing: 0;
+      border-collapse: collapse;
+      /*是否將td 的 border 疊在一起*/
+      /* empty-cells: hide; */
+      /* box-shadow: 4px 5px 12px 0px black, inset 3px 5px 9px 0px #a453ab; */
+      box-shadow: 4px 5px 12px 0px black;
+    }
+
+    tr {
+      background: lemonchiffon;
+    }
+
+    /*被hover的TR之兒子TD要啥色*/
+    tr:hover>td {
+      background: white;
+    }
+
+    td {
+      border: 5px solid #333;
+      width: 100px;
+      padding: 10px;
+
+      /* box-shadow: inset 0px 0 5px 1px red; */
+      /* background: red; */
+      &.purple {
+        background: purple;
+        color: white;
+      }
+    }
+
+    div.demo2 {
+      background: lightcoral;
+      width: 300px;
+      height: 300px;
+      color: red;
+      font-size: 3rem;
+
+      div {
+        background: lightblue;
+        width: 200px;
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="demo2"><div></div>
+  </div>
+  <hr>
+  <table>
+    <tr>
+      <td>lorem</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>lorem</td>
+      <td>lorem</td>
+    </tr>
+    <tr>
+      <td>lorem</td>
+      <td class="purple">lorem</td>
+    </tr>
+    <tr>
+      <td>lorem</td>
+      <td>lorem</td>
+    </tr>
+    <tr>
+      <td>lorem</td>
+      <td>lorem</td>
+    </tr>
+  </table>
+</body>
+
+</html>
