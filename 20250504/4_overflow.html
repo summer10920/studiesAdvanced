@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .demo {
+      border: 1px solid;
+      background: lightblue;
+      width: 300px;
+      transition: max-height 1s 0.5s;
+      max-height: 50px;
+      overflow-y: hidden;
+
+      &:hover {
+        max-height: 300px;
+        overflow-y: scroll;
+      }
+    }
+
+    .demo2 {
+      border: 1px solid;
+      background: lightblue;
+      width: 100px;
+      height: 100px;
+    }
+
+    .hide {
+      visibility: hidden;
+    }
+
+    .none {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="demo2 none">不顯示該元素，抹除此元素</div>
+  <div class="demo2 hide">看不見該元素，摸不到仍存在</div>
+  <div class="demo2">Hello world</div>
+  <hr>
+  <div class="demo"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae culpa alias voluptates veritatis
+    maiores perspiciatis quaerat dolorum dolores aut quas? Animi enim similique omnis quibusdam provident dolor ratione
+    asperiores ad eius quos aspernatur quasi at ipsa magnam necessitatibus deleniti quo porro, repellat aperiam iure
+    quidem dolorum ut non quia. Culpa atque quo voluptates, aspernatur voluptas sunt in neque, tempora minima dolorem
+    itaque velit eum impedit molestias cumque quod! Ipsum hic at esse est error. Fugit autem quasi maiores amet
+    repudiandae fugiat error sequi officia illo rerum placeat sunt minus consequuntur sed distinctio incidunt, accusamus
+    sapiente vel veniam magnam alias. Aspernatur consequatur sint molestiae debitis, deserunt incidunt iste accusamus in
+    vel quia culpa, itaque molestias vero fugit reprehenderit illo perspiciatis cum laudantium aut voluptatibus magnam.
+    Neque incidunt at nulla? Laboriosam, rem impedit beatae aspernatur at voluptas cumque quod quaerat. Quasi laborum
+    fugit at odit aperiam eligendi voluptates in, ratione autem laudantium, reprehenderit officia sequi voluptatum
+    tenetur maiores itaque quis veritatis consequatur cupiditate voluptate minima, tempora quos maxime ducimus.
+    Repellat, ad. Eum sequi praesentium, natus officiis deserunt aut voluptates inventore ad commodi neque
+    necessitatibus impedit obcaecati aspernatur eaque dolore, libero mollitia voluptatem, accusamus minus est amet
+    tempora quis iusto? Numquam, necessitatibus enim! </div>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>定位點 position</title>
+  <style>
+    body {
+      margin: 50px;
+      padding: 50px;
+      background: #ccc;
+      border: 1px solid #ff0;
+      /* flexbox 效果，使內容居中心 */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* height: calc(100vh - 204px); */
+      position: relative;
+      height: 200vh;
+      /* vh=> viewport height; */
+    }
+
+    .main {
+      padding: 100px;
+      background: #aaa;
+      border: 1px solid #f00;
+      position: relative;
+    }
+
+    .bigbox {
+      width: 300px;
+      /* height: 300px; */
+      border: 1px solid #000;
+      background: rgb(209, 248, 248);
+      /* font-size: 0; */
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .box {
+      /* font-size: 1rem; */
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      margin: 5px;
+      color: white;
+      background-color: darkcyan;
+      text-align: center;
+      line-height: 50px;
+    }
+
+    .relative {
+      background: lightcoral;
+      position: relative;
+      /* left: 10px; */
+      /* top: 10px; */
+      /* right: -100px; */
+      /* bottom: 10px; */
+      right: 100px;
+      bottom: -150px;
+      z-index: 1;
+    }
+
+    .absolute {
+      background: lightblue;
+      position: absolute;
+      /* left: 50%; */
+      /* left: 0;
+      bottom: 0; */
+      left: 50px;
+      bottom: 50px;
+      z-index: 10;
+    }
+
+    .fixed {
+      background: lightgreen;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main">
+    <div class="bigbox">
+      <div class="box">01</div>
+      <div class="box">02</div>
+      <div class="box">03</div>
+      <div class="box">04</div>
+      <div class="box">05</div>
+      <div class="box">06</div>
+      <div class="box relative">07</div>
+      <div class="box">08</div>
+      <div class="box">09</div>
+      <div class="box absolute">10</div>
+      <div class="box">11</div>
+      <div class="box">12</div>
+      <div class="box">13</div>
+      <div class="box">14</div>
+      <div class="box">15</div>
+      <div class="box">16</div>
+      <div class="box fixed">17</div>
+      <div class="box">18</div>
+      <div class="box">19</div>
+      <div class="box">20</div>
+    </div>
+  </div>
+</body>
+
+</html>

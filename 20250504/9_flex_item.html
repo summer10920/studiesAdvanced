@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .flex-container {
+      background: lightgoldenrodyellow;
+      height: 500px;
+      display: flex;
+    }
+
+    .flex-item {
+      background: lightblue;
+      border: 1px solid;
+      width: 100px;
+      height: 100px;
+      /* flex 個別空間參數 */
+      /* 
+      flex-grow: 0; 膨脹係數
+      flex-shrink: 1; 收縮係數
+      flex-basis: auto; 基本空間
+      */
+      flex: 0 1 auto;
+
+      &.c {
+        background: lightgreen;
+        /* flex-grow: 2; */
+        /* flex-shrink: 2; */
+        flex-grow: 1;
+        flex-basis: 50px;
+      }
+
+      &.e {
+        background: lightgreen;
+        /* flex-grow: 1; */
+        /* flex-shrink: 0; */
+        flex-basis: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="flex-container">
+    <div class="flex-item a">A</div>
+    <div class="flex-item b">B</div>
+    <div class="flex-item c">C</div>
+    <div class="flex-item d">D</div>
+    <div class="flex-item e">E</div>
+  </section>
+</body>
+
+</html>

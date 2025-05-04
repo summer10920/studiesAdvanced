@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .main {
+      background: lightblue;
+      width: 500px;
+      height: 500px;
+      position: relative;
+
+      .box {
+        background: lightcoral;
+        width: 100px;
+        height: 100px;
+        /* margin: 0 auto; */
+        position: absolute;
+        /* left: calc(50% - 50px);
+        top: calc(50% - 50px); */
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        /* 變形:用平移到退自己身體的一半*/
+        /* 但現代人很少用了，因為懶人都用 flexbox */
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main">
+    <div class="box"></div>
+  </div>
+</body>
+
+</html>

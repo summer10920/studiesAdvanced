@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    .flex-container {
+      background: lightgoldenrodyellow;
+      /* width: 450px; */
+      height: 500px;
+      display: flex;
+      /* 主軸的對齊方式 */
+      justify-content: flex-start;
+      /* 交軸的對齊方式 */
+      align-items: center;
+      /* 主軸的方向從哪邊開始 */
+      flex-direction: row;
+      flex-wrap: nowrap;
+      /* flex-flow: row wrap-reverse; */
+      align-content: space-evenly;
+    }
+
+    .flex-item {
+      background: lightblue;
+      border: 1px solid;
+      width: 100px;
+      /* height: 100px; */
+    }
+
+    .special-item {
+      /* 子項目的flex控制 */
+      align-self: flex-start;
+      /* 出場順序 ，數字越大越end */
+      order: 10;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="flex-container">
+    <div class="flex-item">ACCCCC ACCCCC ACCCCC</div>
+    <div class="flex-item">BCCCCC</div>
+    <!-- <div class="flex-item">Lorem ipsum dolor,  unde aspernatur voluptatibus magnam.</div> -->
+    <div class="flex-item">C</div>
+    <div class="flex-item special-item">SPECIAL</div>
+    <div class="flex-item" style="order:-5">D</div>
+    <div class="flex-item" style="order:9">E</div>
+    <div class="flex-item" style="order:7">F</div>
+  </section>
+</body>
+
+</html>

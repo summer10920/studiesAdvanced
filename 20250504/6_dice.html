@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      text-align: center;
+    }
+
+    .dice {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(45deg, white, #ccc);
+      border: 2px solid;
+      border-radius: 5%;
+      box-shadow: 3px 3px 10px 0px #00000070;
+      position: relative;
+      display: inline-block;
+
+      span {
+        width: 20%;
+        height: 20%;
+        background: black;
+        border-radius: 50%;
+        display: block;
+        position: absolute;
+
+        &.at1 {
+          top: 10%;
+          left: 10%;
+        }
+
+        &.at3 {
+          top: 10%;
+          right: 10%;
+        }
+
+        &.at4 {
+          top: 40%;
+          left: 10%;
+        }
+
+        &.at5 {
+          top: 40%;
+          left: 40%;
+        }
+
+        &.at6 {
+          top: 40%;
+          right: 10%;
+        }
+
+        &.at7 {
+          bottom: 10%;
+          left: 10%;
+        }
+
+        &.at9 {
+          bottom: 10%;
+          right: 10%;
+        }
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="container">
+    <div class="dice">
+      <span class="at5" style="background-color: red;"></span>
+    </div>
+    <div class="dice">
+      <span class="at1"></span>
+      <span class="at9"></span>
+    </div>
+    <div class="dice">
+      <span class="at1"></span>
+      <span class="at5"></span>
+      <span class="at9"></span>
+    </div>
+    <div class="dice">
+      <span class="at1"></span>
+      <span class="at3"></span>
+      <span class="at7"></span>
+      <span class="at9"></span>
+    </div>
+    <div class="dice">
+      <span class="at1"></span>
+      <span class="at3"></span>
+      <span class="at5"></span>
+      <span class="at7"></span>
+      <span class="at9"></span>
+    </div>
+    <div class="dice">
+      <span class="at1"></span>
+      <span class="at3"></span>
+      <span class="at4"></span>
+      <span class="at6"></span>
+      <span class="at7"></span>
+      <span class="at9"></span>
+    </div>
+  </section>
+</body>
+
+</html>
