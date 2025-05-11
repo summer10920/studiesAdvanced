@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .box {
+      width: 150px;
+      height: 150px;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &.before {
+        background-color: lightpink;
+      }
+
+      &.after {
+        background-color: lightblue;
+        /* transform 介紹 */
+        /* transform: translate(0, 50%); */
+        /* transform: scale(2, 3); */
+        /* transform: translate(0, 100%) scale(1.5); */
+        /* transform: rotate(45deg); */
+        /* transform: skew(20deg, 10deg); */
+        transform: rotate(45deg);
+        transform-origin: left bottom;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box before">Before</div>
+  <div class="box after">After</div>
+  <div class="box before">Before</div>
+</body>
+
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      background: #333;
+      color: white;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .base {
+      width: 100px;
+      height: 100px;
+      background: green;
+      position: relative;
+      animation: demo1 2s linear infinite;
+      /* 
+      animation-name: demo1;  動畫名稱
+      animation-duration: 2s;  持續時間
+      animation-timing-function: linear; 速度曲線
+      animation-delay: 0s; 延遲時間
+      animation-iteration-count: infinite; 重複次數
+      animation-direction: alternate; 動畫方向
+      animation-fill-mode: none; 動畫結束後的是否停留在最後一個animation影格
+       */
+    }
+
+    @keyframes demo1 {
+
+      0%,
+      100% {
+        background: red;
+        left: -100px;
+      }
+
+      25%,
+      75% {
+        background: blueviolet;
+      }
+
+      50% {
+        background: yellow;
+        left: 100px;
+      }
+
+      /* 75% {
+        background: blueviolet;
+      }
+
+      100% {
+        background: red;
+        left: -100px;
+      } */
+    }
+
+    .button {
+      width: 100px;
+      height: 50px;
+      background: orange;
+      border-radius: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: '';
+        background: #333;
+        position: absolute;
+        width: 300%;
+        height: 300%;
+        background: linear-gradient(145deg, transparent 45%, #fff8 50%, transparent 55%);
+        /* left: -150%; */
+        /* border: 1px solid red; */
+        transform: translate(calc(-100% / 3));
+        animation: demo2 1.5s cubic-bezier(0.2, 0.81, 0.77, 0.28) infinite;
+      }
+    }
+
+    @keyframes demo2 {
+      from {
+        left: -150%;
+      }
+
+      to {
+        left: 150%;
+      }
+    }
+
+    .loading {
+      position: relative;
+      width: 300px;
+      text-align: center;
+      padding-top: 30px;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        box-sizing: border-box;
+        width: 100%;
+        border: 1px solid #fff;
+        bottom: 20px;
+        left: 0;
+        top: 0;
+        height: 20px;
+      }
+
+      &::after {
+        /* width: 100%; */
+        animation: demo3 10s infinite;
+      }
+    }
+
+    @keyframes demo3 {
+
+      0%,
+      20% {
+        width: 0%;
+      }
+
+      50% {
+        background-color: red;
+      }
+
+      35%,
+      85% {
+        background-color: darkred;
+      }
+
+      100% {
+        width: 100%;
+        background-color: transparent;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="base">HELLO WORLD</div>
+  <div class="button">Button</div>
+  <div class="loading">Loading</div>
+</body>
+
+</html>
