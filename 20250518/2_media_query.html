@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @media screen and (max-width: 400px) {
+
+      /* 這個媒體查詢會在 "網頁模式" 且 "螢幕寬度小於或等於400px時套用" */
+      body {
+        background-color: lightblue;
+      }
+    }
+
+    /* @media screen and (min-width: 401px) { */
+    /* 這個媒體查詢會在 "網頁模式" 且 "螢幕寬度大於或等於401px時套用" */
+    @media (max-width: 200px), (min-width: 401px) {
+      /* 這個媒體查詢會在 "螢幕寬小於等於200" 或是 "螢幕寬大或等於401px時套用" */
+      body {
+        background-color: lightcoral;
+      }
+    }
+  </style>
+</head>
+
+<body>
+</body>
+
+</html>

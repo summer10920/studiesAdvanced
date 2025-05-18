@@ -1,0 +1,13 @@
+/* @media print {
+  .loki-screen {
+    display: none;
+  }
+} */
+
+.loki-screen {
+  display: none;
+}
+
+.loki-print {
+  display: block;
+}

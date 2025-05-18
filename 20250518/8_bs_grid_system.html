@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+    integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+    crossorigin="anonymous" />
+  <style>
+    body>div {
+
+      /* background-color: lightblue; */
+      /* border: 1px solid; */
+      /* margin-bottom: 20px; */
+      .row>div {
+        background: lightcoral;
+        border: 1px solid;
+        height: 100px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3"> Level 1: .col-sm-3 </div>
+      <div class="col-sm-9">
+        <div class="row">
+          <div class="col-8 col-sm-6"> Level 2: .col-8 .col-sm-6 </div>
+          <div class="col-4 col-sm-6"> Level 2: .col-4 .col-sm-6 </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="container">
+    <div class="row row-cols-2">
+      <div>Column</div>
+      <div>Column 50%</div>
+      <div>Column</div>
+      <div>Column</div>
+    </div>
+  </div>
+  <hr>
+  <div class="container">
+    <div class="row">
+      <div class="col" style="width: 100%;"></div>
+      <div style="width: 100%;background: lightcyan;"></div>
+      <div class="col" style="width: 100%;"></div>
+    </div>
+  </div>
+  <hr>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-auto">lorem ipsum</div>
+      <!-- <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-3"></div> -->
+      <div class="col-md-6 col-lg-3"></div>
+      <div class="col-md-6 col-lg-3"></div>
+      <div class="col-md-6 col-lg-3"></div>
+      <div class="col-md-6 col-lg-3"></div>
+      <div class="col-md-6 col-lg-3"></div>
+      <div class="col-md-6 col-lg-3"></div>
+      <div class="col-md-6 col-lg-3"></div>
+      <div class="col-md-6 col-lg-3"></div>
+    </div>
+  </div>
+</body>
+
+</html>
