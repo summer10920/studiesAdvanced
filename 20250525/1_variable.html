@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+    integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+    crossorigin="anonymous" />
+  <style>
+    * {
+      user-select: none;
+    }
+
+    :root {
+      --primary-color: lightgreen;
+      --text-color: darkblue;
+      --main-size: 20px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--primary-color);
+    }
+
+    .box {
+      --primary-color: red;
+      border: 1px solid black;
+      background-color: var(--primary-color);
+      width: 200px;
+      height: 200px;
+    }
+
+    .alert {
+      color: var(--text-color);
+    }
+
+    a {
+      pointer-events: none;
+      /* 滑鼠事件被設定無*/
+    }
+  </style>
+</head>
+
+<body>
+  For example, <code>&lt;section&gt;</code> should be wrapped as inline.
+  <h1>hello world</h1>
+  <a href="http://www.google.com">Google</a>
+  <h3>hello world</h3>
+  <div class="box" style="--primary-color:blue"></div>
+  <div class="alert">This is an alert message.</div>
+  <h1 style="color: var(--text-color)">hello world</h1>
+</body>
+
+</html>

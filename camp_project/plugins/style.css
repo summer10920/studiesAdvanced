@@ -1,0 +1,21 @@
+/* 注意，@import 必須寫在一開始，否則會報錯 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* 自訂寫在這 */
+body {
+  font-family: 'Roboto', 'Noto Sans TC', 'Open Sans', sans-serif;
+  background: #eee;
+}
+
+#lokiSlider {
+
+  img {
+    filter: grayscale(50%) sepia(50%);
+  }
+
+}
+
+.loki-ya {
+  font-size: 4rem;
+  color: red;
+}

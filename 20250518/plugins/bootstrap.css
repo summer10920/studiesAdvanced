@@ -8566,7 +8566,7 @@ textarea.form-control-lg {
 
 .text-reset {
   --bs-text-opacity: 1;
-  color: inherit !important;
+  color:   !important;
 }
 
 .text-opacity-25 {
