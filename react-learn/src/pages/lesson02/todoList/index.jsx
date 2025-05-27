@@ -1,7 +1,7 @@
 import style from './todoList.module.css';
 import TaskAdd from './component/taskAdd';
 import TaskList from './component/taskList';
-import {   } from './context/todoContext';
+import { TodoContext } from './context/todoContext';
 
 const TodoList = () => {
   return (
