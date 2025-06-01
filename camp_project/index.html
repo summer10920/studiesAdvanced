@@ -21,10 +21,31 @@
   <link rel="stylesheet" href="./plugins/style.css">
 </head>
 
-<body>
+<body data-bs-spy="scroll" data-bs-target="#lokiNav">
+  <!-- 選單 -->
+  <nav id="lokiMenu" class="navbar navbar-expand-md bg-gradient position-fixed top-0 w-100" data-bs-theme="dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="./media/favicon.ico" class="img-fluid">
+        <span>洛奇露營渡假村</span>
+      </a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#lokiNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="lokiNav">
+        <div class="navbar-nav ms-auto my-3 my-md-0 gap-2 gap-xl-5">
+          <a class="nav-link" href="#lokiPallet">營位介紹</a>
+          <a class="nav-link" href="#lokiPark">探索體驗</a>
+          <a class="nav-link" href="#lokiService">遊客服務</a>
+          <a class="nav-link" href="#lokiRule">營區守則</a>
+          <a class="nav-link" href="#lokiContact">聯絡我們</a>
+        </div>
+      </div>
+    </div>
+  </nav>
   <!-- 輪播圖 -->
-  <section id="lokiSlider" class="carousel slide carousel-fade">
-    <nav class="carousel-indicators">
+  <section id="lokiSlider" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
+    <nav class="carousel-indicators gap-3">
       <button data-bs-target="#lokiSlider" data-bs-slide-to="0" class="active"></button>
       <button data-bs-target="#lokiSlider" data-bs-slide-to="1"></button>
       <button data-bs-target="#lokiSlider" data-bs-slide-to="2"></button>
@@ -75,49 +96,83 @@
   </section>
   <!-- 營位介紹 -->
   <section id="lokiPallet" class="container py-5">
+    <div class="row row-cols-4 g-0 mt-5">
+      <img class="col object-fit-cover" src="https://picsum.photos/300/300/?random=10">
+      <img class="col object-fit-cover" src="https://picsum.photos/350/300/?random=11">
+      <img class="col object-fit-cover" src="https://picsum.photos/300/300/?random=12">
+      <img class="col object-fit-cover" src="https://picsum.photos/300/300/?random=13">
+    </div>
     <header class="h2 border-start border-5 border-warning ps-4 my-5"> 營位介紹 </header>
-    <article class="row row-cols-1 row-cols-md-2 g-5">
+    <article class="row row-cols-1 row-cols-md-2 g-5 flex-row-reverse">
       <div class="col">
-        <div class="card bg-dark text-white">
+        <div class="card bg-dark text-white overflow-hidden">
           <img src="https://picsum.photos/800/600/?random=10" class="card-img">
-          <div class="card-img-overlay">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-              content. This content is a little bit longer.</p>
-            <p class="card-text">Last updated 3 mins ago</p>
+          <div
+            class="card-img-overlay bg-dark bg-opacity-50 d-flex flex-column justify-content-center align-items-center text-center">
+            <h3 class="card-title text-warning fw-bolder">河畔 × A區</h3>
+            <ul class="list-unstyled">
+              <li>每帳空間4X8公尺，獨立水槽與供電，共20帳</li>
+              <li>帳邊可停車！每帳限1台車，超過酌收至指定停車場費用 $100/車</li>
+              <li>每帳限四人，超出費用（五歲以上）酌收人頭費 $300</li>
+            </ul>
+            <h3 class="card-text">
+              <label class="badge rounded-pill text-bg-light">一宿 / $1200</label>
+              <label class="badge rounded-pill text-bg-dark">夜衝 / $800</label>
+            </h3>
           </div>
         </div>
       </div>
       <div class="col">
-        <div class="card bg-dark text-white">
+        <div class="card bg-dark text-white overflow-hidden">
           <img src="https://picsum.photos/800/600/?random=11" class="card-img">
-          <div class="card-img-overlay">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-              content. This content is a little bit longer.</p>
-            <p class="card-text">Last updated 3 mins ago</p>
+          <div
+            class="card-img-overlay bg-dark bg-opacity-50 d-flex flex-column justify-content-center align-items-center text-center">
+            <h3 class="card-title text-warning fw-bolder">河畔 × B區</h3>
+            <ul class="list-unstyled">
+              <li>每帳空間4X8公尺，獨立水槽與供電，共20帳</li>
+              <li>帳邊可停車！每帳限1台車，超過酌收至指定停車場費用 $100/車</li>
+              <li>每帳限四人，超出費用（五歲以上）酌收人頭費 $300</li>
+            </ul>
+            <h3 class="card-text">
+              <label class="badge rounded-pill text-bg-light">一宿 / $1200</label>
+              <label class="badge rounded-pill text-bg-dark">夜衝 / $800</label>
+            </h3>
           </div>
         </div>
       </div>
       <div class="col">
-        <div class="card bg-dark text-white">
+        <div class="card bg-dark text-white overflow-hidden">
           <img src="https://picsum.photos/800/600/?random=12" class="card-img">
-          <div class="card-img-overlay">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-              content. This content is a little bit longer.</p>
-            <p class="card-text">Last updated 3 mins ago</p>
+          <div
+            class="card-img-overlay bg-dark bg-opacity-50 d-flex flex-column justify-content-center align-items-center text-center">
+            <h3 class="card-title text-warning fw-bolder">河畔 × C區</h3>
+            <ul class="list-unstyled">
+              <li>每帳空間4X8公尺，獨立水槽與供電，共20帳</li>
+              <li>帳邊可停車！每帳限1台車，超過酌收至指定停車場費用 $100/車</li>
+              <li>每帳限四人，超出費用（五歲以上）酌收人頭費 $300</li>
+            </ul>
+            <h3 class="card-text">
+              <label class="badge rounded-pill text-bg-light">一宿 / $1200</label>
+              <label class="badge rounded-pill text-bg-dark">夜衝 / $800</label>
+            </h3>
           </div>
         </div>
       </div>
       <div class="col">
-        <div class="card bg-dark text-white">
+        <div class="card bg-dark text-white overflow-hidden">
           <img src="https://picsum.photos/800/600/?random=13" class="card-img">
-          <div class="card-img-overlay">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-              content. This content is a little bit longer.</p>
-            <p class="card-text">Last updated 3 mins ago</p>
+          <div
+            class="card-img-overlay bg-dark bg-opacity-50 d-flex flex-column justify-content-center align-items-center text-center">
+            <h3 class="card-title text-warning fw-bolder">河畔 × D區</h3>
+            <ul class="list-unstyled">
+              <li>每帳空間4X8公尺，獨立水槽與供電，共20帳</li>
+              <li>帳邊可停車！每帳限1台車，超過酌收至指定停車場費用 $100/車</li>
+              <li>每帳限四人，超出費用（五歲以上）酌收人頭費 $300</li>
+            </ul>
+            <h3 class="card-text">
+              <label class="badge rounded-pill text-bg-light">一宿 / $1200</label>
+              <label class="badge rounded-pill text-bg-dark">夜衝 / $800</label>
+            </h3>
           </div>
         </div>
       </div>

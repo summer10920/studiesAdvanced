@@ -1,9 +1,10 @@
 /* 注意，@import 必須寫在一開始，否則會報錯 */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap');
 
-:root{
+:root {
   --loki-dark: #282c34;
   --loki-light: #eee;
+  --loki-gray: #8f97a9;
 }
 
 
@@ -14,7 +15,30 @@ body {
   color: var(--loki-light);
 }
 
+#lokiMenu {
+  background-color: #351445;
+  --bs-gradient: linear-gradient(235deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0));
+  z-index: 9999;
+
+  img {
+    width: 30px;
+  }
+
+  .active{
+    color:red;
+    background: white;
+  }
+}
+
 #lokiSlider {
+  .carousel-indicators {
+    button {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+    }
+  }
+
 
   img {
     filter: grayscale(50%) sepia(50%);
@@ -32,6 +56,7 @@ body {
         background: var(--loki-dark);
       }
     }
+
     .material-symbols-outlined {
       font-size: 3rem;
     }
@@ -44,7 +69,7 @@ body {
     h2 {
       background-clip: text;
       color: transparent;
-      background-image: linear-gradient(0deg, var(--loki-light) 50%, var(--loki-dark) 50%);
+      background-image: linear-gradient(180deg, var(--loki-light) 50%, var(--loki-gray) 50%);
     }
   }
 
@@ -63,5 +88,41 @@ body {
     right: 0;
     bottom: 0;
     opacity: 0.5;
+  }
+}
+
+
+@media (min-width: 768px) {
+  #lokiPallet {
+
+    /*階梯式 grid system */
+    article {
+      padding-top: 280px;
+
+      .col:nth-child(odd) {
+        transform: translateY(-50%);
+        padding-bottom: 150px;
+      }
+    }
+
+
+    .card-img-overlay {
+      transform: scale(0);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .card-img {
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .card:hover {
+      .card-img-overlay {
+        transform: scale(1);
+      }
+
+      .card-img {
+        transform: scale(1.2);
+      }
+    }
   }
 }
