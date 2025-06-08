@@ -116,6 +116,85 @@ body {
   background-blend-mode: overlay;
 }
 
+#lokiRule {
+  .loki-gallery {
+    width: 700px;
+    height: 500px;
+    margin: 0 auto;
+    position: relative;
+
+    ul {
+      position: absolute;
+      list-style: none;
+      display: block;
+      width: 80%;
+      max-width: 400px;
+      min-width: 225px;
+      height: 300px;
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      box-shadow: 0 0 5px black;
+
+      &:nth-child(odd) {
+        left: 10%;
+        top: 10%;
+        transform: rotate(5deg);
+      }
+
+      &:nth-child(even) {
+        right: 10%;
+        bottom: 10%;
+        transform: rotate(-15deg);
+      }
+
+      li {
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        position: absolute;
+        animation: slideImg 15s linear infinite;
+
+        &:nth-child(1) {
+          animation-delay: 0s;
+        }
+
+        &:nth-child(2) {
+          animation-delay: 5s;
+        }
+
+        &:nth-child(3) {
+          animation-delay: 10s;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          padding: 8px;
+          box-sizing: border-box;
+        }
+      }
+    }
+  }
+}
+
+@keyframes slideImg {
+
+  0%,
+  33%,
+  100% {
+    opacity: 0;
+  }
+
+  1.5%,
+  31.5% {
+    opacity: 1;
+  }
+}
+
+
+
 #lokiContact {
   background: url("https://picsum.photos/1920/1080/?random=10") #000 no-repeat center/cover;
   background-attachment: fixed;
