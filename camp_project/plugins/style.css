@@ -24,9 +24,24 @@ body {
     width: 30px;
   }
 
-  .active{
-    color:red;
-    background: white;
+  .nav-link {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 5px;
+      background-color: white;
+      width: 0%;
+      height: 2px;
+      transition: width 0.5s ease-in-out;
+    }
+
+    &:hover::after,
+    &.active::after {
+      width: 100%;
+    }
   }
 }
 
@@ -91,6 +106,11 @@ body {
   }
 }
 
+#lokiPark {
+  background: url("https://picsum.photos/1920/1200/?random=10") #3338 no-repeat center/cover fixed;
+  background-blend-mode: overlay;
+
+}
 
 @media (min-width: 768px) {
   #lokiPallet {
@@ -122,6 +142,27 @@ body {
 
       .card-img {
         transform: scale(1.2);
+      }
+    }
+  }
+
+
+  #lokiPark {
+    .col {
+      transition: transform 0.3s;
+
+      .card-img {
+        filter: brightness(0.7);
+        transition: filter 0.3s;
+      }
+
+      &:hover {
+        z-index: 10;
+        transform: scale(1.2);
+
+        .card-img {
+          filter: brightness(1);
+        }
       }
     }
   }
