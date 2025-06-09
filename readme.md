@@ -1,13 +1,13 @@
 # [泰山職訓] 本期完整隨課教材 - 檔案留存
 
 ## 課程名稱
-- [x] [RWD 網頁設計（假日班）（泰山）第 01 期](https://ojt.wda.gov.tw/ClassSearch/Detail?PlanType=2&OCID=160845)
-- [ ] [RWD 網頁設計（假日班）（泰山）第 02 期](https://ojt.wda.gov.tw/ClassSearch/Detail?PlanType=2&OCID=160854)
+- [ ] [RWD 網頁設計（假日班）（泰山）第 01 期](https://ojt.wda.gov.tw/ClassSearch/Detail?PlanType=2&OCID=160845)
+- [x] [RWD 網頁設計（假日班）（泰山）第 02 期](https://ojt.wda.gov.tw/ClassSearch/Detail?PlanType=2&OCID=160854)
 - [ ] [JavaScript前端開發(假日班)(泰山)第01期](https://ojt.wda.gov.tw/ClassSearch/Detail?PlanType=2&OCID=160871)
 
 ## 訓練日期 
-- [x] 2025/03/09～2025/05/25，共計 80 小時
-- [ ] 2025/06/08～2025/08/24，共計 80 小時
+- [ ] 2025/03/09～2025/05/25，共計 80 小時
+- [x] 2025/06/15～2025/09/07，共計 80 小時
 - [ ] 2025/09/14～2026/02/08，共計 120 小時
 
 ## 課程內容
