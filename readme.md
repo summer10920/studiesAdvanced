@@ -1,21 +1,23 @@
 # [泰山職訓] 本期完整隨課教材 - 檔案留存
 
 ## 課程名稱
-- [ ] [RWD 網頁設計（假日班）（泰山）第 01 期](https://ojt.wda.gov.tw/ClassSearch/Detail?PlanType=2&OCID=153575)
-- [ ] [RWD 網頁設計（假日班）（泰山）第 02 期](https://ojt.wda.gov.tw/ClassSearch/Detail?PlanType=2&OCID=153617)
-- [x] [JavaScript前端開發(假日班)(泰山)第01期](https://ojt.wda.gov.tw/ClassSearch/Detail?PlanType=2&OCID=153653)
-<!-- - [ ] [PHP 程式設計（假日班）](https://ojt.wda.gov.tw/ClassSearch/Detail?OCID=146967&plantype=2) -->
+- [x] [RWD 網頁設計（假日班）（泰山）第 01 期](https://ojt.wda.gov.tw/ClassSearch/Detail?PlanType=2&OCID=160845)
+- [ ] [RWD 網頁設計（假日班）（泰山）第 02 期](https://ojt.wda.gov.tw/ClassSearch/Detail?PlanType=2&OCID=160854)
+- [ ] [JavaScript前端開發(假日班)(泰山)第01期](https://ojt.wda.gov.tw/ClassSearch/Detail?PlanType=2&OCID=160871)
 
 ## 訓練日期 
-- [ ] 2024/03/17～2024/06/23，共計 80 小時
-- [ ] 2024/07/07～2024/09/22，共計 80 小時
-- [x] 2024/10/06～2024/12/22，共計 80 小時
+- [x] 2025/03/09～2025/05/25，共計 80 小時
+- [ ] 2025/06/08～2025/08/24，共計 80 小時
+- [ ] 2025/09/14～2026/02/08，共計 120 小時
 
 ## 課程內容
-- JavaScript程式基礎(24小時)-開發環境設定、程式邏輯概念
-- jQuery函式庫操作(24小時)-函式庫介紹、實例演練
-- JavaScript實作應用(32小時)-常用套件介紹、動態網頁技術實作
+- HTML 標籤語言 (16 小時）-開發環境設定、HTML 標籤介紹、表單應用
+- CSS 版面樣式 (32 小時）-認識 CSS3、選擇器使用、定位排版
+- Bootstrap 網頁應用 (32 小時）-RWD 網頁製作
 
+- JavaScript程式基礎(32小時)-開發環境設定、程式邏輯概念
+- JavaScript函式庫操作(32小時)-函式庫介紹、實例演練
+- 前端框架應用(56小時)-前端框架介紹、基礎操作、實例演練
 
 ## 檔案留存下載方說明
 
