@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Table</title>
+</head>
+
+<body>
+  <table border="1" cellspacing="5" cellpadding="10" width="700">
+    <thead>
+      <tr>
+        <th>第一欄</th>
+        <th>第二欄</th>
+        <th>第三欄</th>
+        <th>第四欄</th>
+        <th>第五欄</th>
+      </tr>
+    </thead>
+    <tbody align="right">
+      <tr>
+        <td width="200">A-123 456 456 456</td>
+        <td><strong><mark>A-2</mark></strong></td>
+        <td colspan="3">A-3</td>
+        <!-- <td colspan="2">A-4 & A-5</td> -->
+        <!-- <td>A-5</td> -->
+      </tr>
+      <tr>
+        <td rowspan="2">B-1</td>
+        <td>B-2</td>
+        <td colspan="2" rowspan="2">B-3</td>
+        <!-- <td>B-4</td> -->
+        <td>B-5</td>
+      </tr>
+      <tr>
+        <!-- <td>C-1</td> -->
+        <td>C-2</td>
+        <!-- <td>C-3</td> -->
+        <!-- <td>C-4</td> -->
+        <td>C-5</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th colspan="4" align="right">統計</th>
+        <!-- <th>footer-2</th>
+        <th>footer-3</th>
+        <th>footer-4</th>
+        -->
+        <th>$500</th>
+      </tr>
+    </tfoot>
+  </table>
+</body>
+
+</html>

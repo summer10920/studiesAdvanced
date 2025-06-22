@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>表單 form</title>
+</head>
+
+<body>
+  <fieldset>
+    <legend>會員資料修改</legend>
+    <!-- 表單元素 > 表單欄位元素 -->
+    <form method="post" action="http://localhost/20250622/form-api.php" enctype="multipart/form-data">
+    <!-- <form method="post" action="./form-submit.html" enctype="multipart/form-data"> -->
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td width="30%">帳號:</td>
+            <td>
+              <input type="hidden" name="user-id" value="c8763">
+              <input type="text" value="admin" disabled>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="text-pwd">密碼:</label>
+            </td>
+            <td><input id="text-pwd" type="password" name="pwd" placeholder="請輸入密碼" required></td>
+          </tr>
+          <tr>
+            <td>性別:</td>
+            <td>
+              <input id="gernder-man" type="radio" name="gender" value="man">
+              <label for="gernder-man">男性</label>
+              <label>
+                <input type="radio" name="gender" value="woman"> 女性 </label>
+              <input type="radio" name="gender" value="unknown" checked>
+              <label>不提供</label>
+            </td>
+          </tr>
+          <tr>
+            <td>滿18歲成人:</td>
+            <td>
+              <label><input type="radio" name="over18" value="true"> 是</label>
+              <label><input type="radio" name="over18" value="false"> 否</label>
+            </td>
+          </tr>
+          <tr>
+            <td>興趣:</td>
+            <td>
+              <label><input type="checkbox" name="hobby[]" value="reading"> 閱讀</label>
+              <label><input type="checkbox" name="hobby[]" value="sports"> 運動</label>
+              <label><input type="checkbox" name="hobby[]" value="music" checked> 音樂</label>
+            </td>
+          </tr>
+          <tr>
+            <td>居住地:</td>
+            <td>
+              <select name="city">
+                <option value="0">請選擇</option>
+                <option value="02-1" selected>台北市</option>
+                <option value="02-2">基隆市</option>
+                <option value="02-3">新北市</option>
+                <option value="03-1">桃園市</option>
+                <option value="03-2">宜蘭市</option>
+                <option value="03-3">宜蘭縣</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top"><label for="loki-message">附註:</label></td>
+            <td>
+              <textarea name="message" id="loki-message" rows="4"></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top"><label for="loki-message">上傳:</label></td>
+            <td>
+              <input type="file" name="attachment" accept="image/*">
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="2">
+              <hr>
+              <input type="submit" value="送出">
+              <input type="reset" value="重設">
+              <input type="button" value="按鈕">
+              <button>按鈕標籤放在這裡，瀏覽器預設會把它當作submit按鈕</button>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </form>
+  </fieldset>
+</body>
+
+</html>
