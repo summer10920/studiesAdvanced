@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>偽類別</title>
+  <style>
+    a {
+      color: yellowgreen;
+      text-decoration: none;
+    }
+
+    a:visited {
+      color: aqua;
+    }
+
+    a:link {
+      color: darkorange;
+    }
+
+    a:hover {
+      color: red;
+    }
+
+    a:active {
+      color: yellow;
+    }
+
+    div {
+      color: purple;
+    }
+
+    div:hover {
+      color: aquamarine
+    }
+
+    input:hover {
+      color: blue
+    }
+
+    input:focus {
+      color: green;
+    }
+
+    input:invalid {
+      background: #f003;
+    }
+
+    li:first-child,
+    li:last-child {
+      color: red;
+    }
+
+    li:nth-child(2),
+    li:nth-last-child(2) {
+      color: purple;
+    }
+
+    /* li:nth-child(2n+1) */
+    /* li:nth-child(odd), */
+    /* li:nth-child(even) */
+    li:nth-last-child(2n+1) {
+      background-color: gold;
+    }
+
+    table thead {
+      background-color: black;
+      color: white;
+    }
+
+    table tbody>tr:nth-child(2n) {
+      background-color: lightgoldenrodyellow;
+    }
+
+    header:first-of-type {
+      background-color: lightblue;
+    }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li>001</li>
+    <header>first</header>
+    <header class="loki-aaaa">first</header>
+    <header>first</header>
+    <header>first</header>
+  </ul>
+  <!-- table>(tr>td{No.$$}+td{Name$})*10 -->
+  <table border="1" cellpadding="5" cellspacing="0" width="100%">
+    <thead>
+      <tr>
+        <td>座號</td>
+        <td>姓名</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>No.01</td>
+        <td>Name1</td>
+      </tr>
+      <tr>
+        <td>No.02</td>
+        <td>Name2</td>
+      </tr>
+      <tr>
+        <td>No.03</td>
+        <td>Name3</td>
+      </tr>
+      <tr>
+        <td>No.04</td>
+        <td>Name4</td>
+      </tr>
+      <tr>
+        <td>No.05</td>
+        <td>Name5</td>
+      </tr>
+      <tr>
+        <td>No.06</td>
+        <td>Name6</td>
+      </tr>
+      <tr>
+        <td>No.07</td>
+        <td>Name7</td>
+      </tr>
+      <tr>
+        <td>No.08</td>
+        <td>Name8</td>
+      </tr>
+      <tr>
+        <td>No.09</td>
+        <td>Name9</td>
+      </tr>
+      <tr>
+        <td>No.10</td>
+        <td>Name10</td>
+      </tr>
+    </tbody>
+  </table>
+  <ul>
+    <li>001</li>
+    <li>002</li>
+    <li>003</li>
+    <li>004</li>
+    <li>005</li>
+    <li>006</li>
+    <li>007</li>
+    <li>008</li>
+    <li>009</li>
+    <li>010</li>
+  </ul>
+  <hr>
+  <input type="text" name="account" value="Loki Jiang" required>
+  <hr>
+  <div>Lorem ipsum dolor sit amet.</div>
+  <nav>
+    <a href="https://www.google.com/">goto 1</a>
+    <a href="https://www.momo.com/">goto 2</a>
+    <a>goto 3</a>
+  </nav>
+</body>
+
+</html>

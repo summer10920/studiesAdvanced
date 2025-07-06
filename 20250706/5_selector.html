@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      color: purple;
+    }
+
+    /* div {
+      color: red;
+    } */
+    main {
+      color: green;
+    }
+
+    main div {
+      /* 空格 = 後代子孫 */
+      color: orange;
+    }
+
+    main div.first.pink {
+      /*main 的子孫 要符合 div 且持有 .first 且持有 .pink */
+      color: pink;
+    }
+
+    article>div {
+      /* > = 子元素 */
+      color: blue !important;
+      /* 強制最高優先，避免做這件事 */
+    }
+
+    article#loki>div.yellow.really.want.this-color {
+      color: yellow !important;
+      /* 強制最高優先，避免做這件事，除非你真的沒辦法 */
+    }
+
+    input {
+      color: red;
+    }
+
+    input.purple,
+    input[title="special"] {
+      color: purple;
+    }
+  </style>
+</head>
+
+<body>
+  <input value="123">
+  <input class="purple" type="password" value="123">
+  <input title="loki" type="text" value="loki">
+  <input title="special" type="number" value="123">
+  <input type="mail" value="123@123">
+  <div>Lorem ipsum dolor sit amet.</div>
+  <main class="text-area">
+    <div class="pink first">Lorem ipsum dolor sit amet.</div>
+    <header>Lorem ipsum dolor sit amet.</header>
+    <article id="loki">
+      <div class="pink first">Lorem ipsum dolor sit amet.</div>
+      <div class="pink">Lorem ipsum dolor sit amet.</div>
+      <div class="yellow loki really want this-color" style="color:red">Lorem ipsum dolor sit amet.</div>
+      <header class="pink">Lorem ipsum dolor sit amet.</header>
+      <section>
+        <div>Lorem ipsum dolor sit amet.</div>
+      </section>
+    </article>
+  </main>
+</body>
+
+</html>

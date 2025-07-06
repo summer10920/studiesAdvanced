@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- <link rel="stylesheet" href="./assets/global-style.css"> -->
+  <style>
+    /* 元素name -> 選擇 selector */
+    div {
+      color: red;
+    }
+
+    /* className -> 選擇 selector */
+    .banana {
+      color: goldenrod;
+    }
+
+    .bg-dark {
+      background-color: black;
+    }
+
+    /* idName(整份html只出現一個idName) -> 選擇 selector */
+    .lemon,
+    #lemon,
+    #lemon2 {
+      color: green;
+    }
+
+    /*優先權觀念*/
+    .red {
+      /*音樂班*/
+      color: red;
+    }
+
+    #loki,
+    #max {
+      color: orange;
+    }
+
+    .red {
+      /*音樂班*/
+      color: darkred;
+    }
+
+    p {
+      /*所有學生*/
+      color: purple;
+    }
+  </style>
+</head>
+
+<body>
+  <p>Lorem ipsum dolor sit amet.</p>
+  <p class="red">Lorem ipsum dolor sit amet.</p>
+  <p id="loki">Lorem ipsum dolor sit amet.</p>
+  <p style="color:yellowgreen">Lorem ipsum dolor sit amet.</p>
+  <p id="max" class="red" style="color:blue">Lorem ipsum dolor sit amet.</p>
+  <p>Lorem ipsum dolor sit amet.</p>
+  <hr>
+  <hr>
+  <hr>
+  <hr>
+  <div style="color:blue">Lorem ipsum dolor sit amet.</div>
+  <div>Lorem ipsum dolor sit amet.</div>
+  <div class="banana">Lorem ipsum dolor sit amet.</div>
+  <div>Lorem ipsum dolor sit amet.</div>
+  <div class="banana bg-dark">Lorem ipsum dolor sit amet.</div>
+  <div>Lorem ipsum dolor sit amet.</div>
+  <div>Lorem ipsum dolor sit amet.</div>
+  <div class="bg-dark">Lorem ipsum dolor sit amet.</div>
+  <div>Lorem ipsum dolor sit amet.</div>
+  <div id="lemon2">Lorem ipsum dolor sit amet.</div>
+  <div id="lemon">Lorem ipsum dolor sit amet.</div>
+  <div class="lemon">Lorem ipsum dolor sit amet.</div>
+  <div class="lemon">Lorem ipsum dolor sit amet.</div>
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>偽元素</title>
+  <link rel="stylesheet" href="./assets/all-style.css">
+  <style>
+    .demo::before {
+      content: 'loki';
+      color: red;
+    }
+
+    .demo::after {
+      content: 'hello';
+      color: blue;
+    }
+
+    ul.loki {
+      list-style: none;
+      padding-left: 1rem;
+
+      >li {
+        display: flex;
+        align-items: center;
+
+        &::before {
+          content: '💚';
+          margin-right: 10px;
+          font-size: 0.5rem;
+        }
+      }
+    }
+
+    div.chat-card {
+      background-color: lightcoral;
+      padding: 10px;
+      position: relative;
+      border-radius: 10px;
+      max-width: 200px;
+      margin-bottom: 50px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background-color: lightcoral;
+        clip-path: polygon(100% 0, 0 0, 19% 100%);
+        left: 50%;
+        bottom: -20px;
+      }
+    }
+
+    div.sample2 {
+      background-color: lightcoral;
+      padding: 10px;
+      position: relative;
+      border-radius: 10px;
+      max-width: 200px;
+      margin-bottom: 50px;
+
+      &>.triangle {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background-color: lightcoral;
+        clip-path: polygon(100% 0, 0 0, 19% 100%);
+        left: 50%;
+        bottom: -20px;
+      }
+    }
+
+    p::first-letter {
+      font-size: 2rem;
+      color: red;
+      font-weight: bold;
+    }
+
+    p::first-line {
+      background-color: burlywood;
+    }
+
+    p::selection {
+      color: white;
+      background-color: black;
+    }
+
+    .color-danger {
+      color: darkred;
+    }
+  </style>
+</head>
+
+<body>
+  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis, laudantium obcaecati! Delectus enim rerum cumque
+    ratione ullam, animi, excepturi minus, illo quod quibusdam vitae doloribus amet odio reiciendis sint labore.</p>
+  <hr>
+  <div class="sample2">
+    <div class="triangle"></div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat, quisquam!
+  </div>
+  <hr>
+  <div class="chat-card">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat, quisquam!</div>
+  <ul class="loki color-danger">
+    <li>
+      <ul>
+        <li>test</li>
+      </ul>
+    </li>
+    <li>002</li>
+    <li>003</li>
+    <li>004</li>
+    <li>005</li>
+  </ul>
+  <div class="demo">Lorem, ipsum dolor.</div>
+</body>
+
+</html>

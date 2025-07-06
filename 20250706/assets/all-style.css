@@ -1,0 +1,7 @@
+/* css 樣式表，編寫的領域空間，css 語法，css 的註解 */
+@import url("./part1.css");
+@import url("./part2.css");
+
+.color-danger {
+  color: red;
+}
