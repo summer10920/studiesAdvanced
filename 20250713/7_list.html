@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .list-style-type {
+      list-style-type: cjk-earthly-branch;
+      list-style-position: outside;
+      list-style-image: url('./ball-icon.png');
+    }
+
+    .list-style-custom {
+      list-style: none;
+      padding-left: 10px;
+
+      li::before {
+        content: '';
+        display: inline-block;
+        width: 1rem;
+        height: 1rem;
+        background: url("./ball-icon.png") no-repeat center/cover;
+        margin-right: 5px;
+        vertical-align: middle;
+      }
+    }
+
+    .nested-list {
+      line-height: 1.6;
+
+      &>li {
+        margin-bottom: 8px;
+      }
+
+      & ul {
+        margin-top: 8px;
+        list-style-type: circle;
+
+        ul {
+          list-style-type: cjk-earthly-branch;
+        }
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <ul class="nested-list">
+    <li>
+      <div>前端技術 </div>
+      <ul>
+        <li>
+          <div>HTML</div>
+          <ul>
+            <li>語意化標籤</li>
+            <li>表單設計</li>
+          </ul>
+        </li>
+        <li>
+          <div>CSS</div>
+          <ul>
+            <li>選擇器</li>
+            <li>佈局技巧</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>後端技術 <ul>
+        <li>Node.js</li>
+        <li>PHP</li>
+      </ul>
+    </li>
+  </ul>
+  <ul class="list-style-custom">
+    <li>A001</li>
+    <li>A002</li>
+    <li>A003</li>
+    <li>A004</li>
+    <li>A005</li>
+    <li>A006</li>
+  </ul>
+  <ol class="list-style-type">
+    <li>B001</li>
+    <li>B002</li>
+    <li>B003</li>
+    <li>B004</li>
+    <li>B005</li>
+    <li>B006</li>
+  </ol>
+  <ul>
+    <li>A001</li>
+    <li>A002</li>
+    <li>A003</li>
+    <li>A004</li>
+    <li>A005</li>
+    <li>A006</li>
+  </ul>
+  <ol>
+    <li>B001</li>
+    <li>B002</li>
+    <li>B003</li>
+    <li>B004</li>
+    <li>B005</li>
+    <li>B006</li>
+  </ol>
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: "Microsoft JhengHei", sans-serif;
+      background-color: #f5f5f5;
+      padding: 20px;
+    }
+
+    table {
+      margin: 1rem auto;
+      border-collapse: separate;
+      border-spacing: 8px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    table td {
+      min-width: 200px;
+      width: 200px;
+      height: 200px;
+      border: 2px solid #ddd;
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+      box-sizing: border-box;
+      /* 預設是 content-box，空間計算會容易誤判*/
+      /* 
+      因為容器的寬度計算，不包含 border，導致我檢查後盒子空間竟然是2+200+2，所已背景圖的尺寸200沒辦法完全蓋上204，
+      這裡介紹使用的方法為調整 box-sizing 屬性為 border-box，這樣盒子空間的計算(200px)就會包含 border 的寬度，
+      關於 box-sizing 屬性，下次課程會詳細介紹
+      */
+    }
+
+    /* 在這裡完成各個格子的背景效果 */
+    .a {
+      background: crimson;
+    }
+
+    .b {
+      background: url("https://picsum.photos/50/50/?random=10") center/cover no-repeat;
+    }
+
+    .c {
+      background: url("https://picsum.photos/50/50/?random=10") repeat-x;
+    }
+
+    .d {
+      background: url("https://picsum.photos/50/50/?random=10") repeat-y;
+    }
+
+    .e {
+      background: url("https://picsum.photos/50/50/?random=10") no-repeat center;
+    }
+
+    .f {
+      background: lightgoldenrodyellow url("https://picsum.photos/50/50/?random=10") no-repeat center;
+    }
+
+    .g {
+      background:
+        url("https://picsum.photos/200/50/?random=10") top no-repeat,
+        url("https://picsum.photos/200/100/?random=10") center no-repeat,
+        url("https://picsum.photos/200/50/?random=10") bottom no-repeat;
+    }
+
+    .h {
+      background: linear-gradient(270deg, blue, black);
+    }
+
+    .i {
+      background: radial-gradient(black, white);
+    }
+  </style>
+</head>
+
+<body>
+  <table>
+    <tr>
+      <td class="a"></td>
+      <td class="b"></td>
+      <td class="c"></td>
+    </tr>
+    <tr>
+      <td class="d"></td>
+      <td class="e"></td>
+      <td class="f"></td>
+    </tr>
+    <tr>
+      <td class="g"></td>
+      <td class="h"></td>
+      <td class="i"></td>
+    </tr>
+  </table>
+</body>
+
+</html>

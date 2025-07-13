@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Font Size</title>
+  <style>
+    .fz-px {
+      font-size: 32px;
+      /* 解析度 px*/
+    }
+
+    .fz-em {
+      font-size: 2em;
+      /* 相對於父容器繼承下來的 font-size 的幾倍大 */
+    }
+
+    .fz-rem {
+      font-size: 2rem;
+      /* 相對於根元素 html 的 font-size 的幾倍大 */
+    }
+  </style>
+</head>
+
+<body>
+  <h1>em nesting</h1>
+  <section class="fz-px"> <!--32px-->
+    <div class="fz-em"> <!--2em => 2*32px-->  
+      <span>Lorem ipsum dolor sit. 64px</span>
+      <div class="fz-em">  <!--2em => 2*64px-->  
+        <span>Lorem ipsum dolor sit.128px</span>
+        <div class="fz-em"> Lorem ipsum dolor sit. 256px </div>
+      </div>
+  </section>
+  <hr>
+  <h1>rem nesting</h1>
+  <section class="fz-px"> <!--32px-->
+    <div class="fz-rem"> <!--2rem => 32px-->
+      <span>Lorem ipsum dolor sit.</span>
+      <div class="fz-rem">  <!--2rem => 32px-->
+        <span>Lorem ipsum dolor sit.</span>
+        <div class="fz-rem"> Lorem ipsum dolor sit. </div>
+      </div>
+  </section>
+  <hr>
+  <div class="fz-px">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, ad!</div>
+  <div class="fz-em">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, ad!</div>
+  <div class="fz-rem">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, ad!</div>
+  <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, ad!</div>
+</body>
+
+</html>

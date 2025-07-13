@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .demo {
+      width: 500px;
+      height: 500px;
+    }
+
+    .bg-color {
+      background-color: #2ed2cf;
+    }
+
+    .bg-img {
+      /* background-image: url("../20250615/demo_1.jpg"); */
+      background-image: url("https://picsum.photos/200/100/?random=10");
+    }
+
+    .bg-ctrl-1 {
+      background-repeat: space;
+    }
+
+    .bg-ctrl-2 {
+      background-repeat: round;
+    }
+
+    .bg-ctrl-3 {
+      background-repeat: no-repeat;
+      /* top, right, bottom, left, center */
+      /* background-position: right bottom;*/
+      /* background-position: center center; */
+      /* background-position: center; */
+      background-position: 50% 100%;
+      background-position: 50px 100%;
+    }
+
+    .bg-ctrl-4 {
+      background-repeat: no-repeat;
+      /* background-size: auto 50px; */
+      background-size: contain;
+      /* 使圖片等比例放大或縮小， */
+      background-position: center;
+      /* 使圖片等比例放大或縮小，直到整個蓋住容器 */
+      background-size: cover;
+    }
+
+    .bg-abbr {
+      /* 簡寫屬性，複合屬性，這個屬性他可以代表很多屬性與設定，也就是簡化編寫，順序可以隨便，唯獨 position(一定在前面) 跟 size 用 / 分開 */
+      background: #2ed2cf url("https://picsum.photos/200/100/?random=10") no-repeat center / cover;
+      /*
+      代表以下屬性
+      background-image: none;
+      background-position-x: initial;
+      background-position-y: initial;
+      background-size: initial;
+      background-repeat: initial;
+      background-attachment: initial;
+      background-origin: initial;
+      background-clip: initial;
+      background-color: initial; */
+    }
+
+    .bg-attachment {
+      /* background-attachment: fixed; */
+      background: url("https://picsum.photos/1920/1080/?random=10") center / cover fixed;
+      width: 100%;
+      height: 300px;
+    }
+
+    .bg-img-linear {
+      width: 100%;
+      height: 100px;
+      /* background-image: linear-gradient(to left, red, blue); */
+      /* background-image: linear-gradient(90deg, red 80%, blue 100%); */
+      background-image: linear-gradient(75deg, #b33982, #4f9c4e, #4691f2, #eddd53);
+    }
+
+    .bg-img-radial {
+      width: 100%;
+      height: 400px;
+      /* background-image: radial-gradient(circle at 30% center, #b33982, #4f9c4e, #4691f2, #eddd53); */
+      background-image: radial-gradient(circle at left center, #222 20%, #DDD 60%, #222 63%);
+    }
+
+    .three-img {
+      /* background-color: #2ed2cf;
+      background-image: url("https://picsum.photos/500/100/?random=10"), url("https://picsum.photos/500/200/?random=10");
+      background-repeat: no-repeat;
+      background-position: 0% center, 0% 0%; */
+      background: url("https://picsum.photos/500/100/?random=10") no-repeat 0% center,
+        url("https://picsum.photos/500/200/?random=10") no-repeat 0% 0%, #2ed2cf;
+    }
+
+    .four-linear {
+      background:
+        linear-gradient(45deg, #b33982, transparent 60%),
+        linear-gradient(135deg, #28b9e5, transparent 60%),
+        linear-gradient(225deg, #9dc830, transparent 60%),
+        linear-gradient(315deg, #d79845, transparent 60%);
+    }
+    .four-radial {
+      background:
+        radial-gradient(circle at 20% 20%, #b33982, transparent),
+        radial-gradient(circle at 80% 20%, #28b9e5, transparent),
+        radial-gradient(circle at 80% 80%, #9dc830, transparent),
+        radial-gradient(circle at 20% 80%, #d79845, transparent);
+    }
+    .bg-clip-on-text{
+      width: 100%;
+      height: 200px;
+      font-size: 4rem;
+      font-weight: bold;
+      background: linear-gradient(45deg, #b33982, #28b9e5, #9dc830, #d79845) text;
+      color:transparent;
+    }
+  </style>
+
+</head>
+
+<body style="background-color: #333;">
+  <div class="bg-clip-on-text">Lorem ipsum dolor sit amet.</div>
+  <div class="demo four-radial"></div>
+  <div class="demo four-linear"></div>
+  <div class="demo three-img"></div>
+  <div class="bg-img-radial"></div>
+  <div class="bg-img-linear"></div>
+  <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio, delectus culpa maiores, voluptates suscipit
+    possimus quas repudiandae mollitia maxime eius voluptate provident corporis cumque eligendi, quo vitae hic
+    exercitationem saepe iusto. Enim laboriosam omnis officiis libero illum, est beatae rem cumque inventore optio!
+    Quas, reprehenderit aliquid fugiat rerum illum laudantium nulla numquam praesentium nobis similique odio molestias
+    culpa facilis voluptate soluta sint pariatur laborum amet! Tempora ipsum debitis nostrum! Neque explicabo ab sunt,
+    similique laboriosam excepturi hic, atque beatae possimus ex, fugit suscipit illum illo nulla voluptates maiores
+    accusantium obcaecati rem et culpa. Itaque nostrum assumenda voluptates officiis maiores sit similique, id
+    voluptatem placeat debitis amet doloribus doloremque. Deserunt, itaque quaerat! Atque doloremque similique
+    voluptatem fuga obcaecati impedit. Fugit commodi corporis quaerat officiis veritatis deleniti alias illo. Corrupti,
+    quos veritatis. Doloribus atque labore eveniet recusandae molestiae, quod accusamus assumenda reiciendis ipsum
+    nesciunt aliquid tempora ab mollitia expedita aut sit quibusdam quos aliquam vero fugiat aspernatur quam! Rem
+    numquam consequatur eveniet rerum molestiae, corporis, debitis veritatis provident error distinctio quod animi
+    dolorem nisi vero aspernatur eligendi officia, voluptatum fugit. Non ipsam fugit facere similique doloribus id,
+    expedita fuga iure illo debitis dolore nostrum alias magnam tenetur aliquid modi, voluptas blanditiis laboriosam?
+  </div>
+  <div class="bg-attachment"></div>
+  <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio, delectus culpa maiores, voluptates suscipit
+    possimus quas repudiandae mollitia maxime eius voluptate provident corporis cumque eligendi, quo vitae hic
+    exercitationem saepe iusto. Enim laboriosam omnis officiis libero illum, est beatae rem cumque inventore optio!
+    Quas, reprehenderit aliquid fugiat rerum illum laudantium nulla numquam praesentium nobis similique odio molestias
+    culpa facilis voluptate soluta sint pariatur laborum amet! Tempora ipsum debitis nostrum! Neque explicabo ab sunt,
+    similique laboriosam excepturi hic, atque beatae possimus ex, fugit suscipit illum illo nulla voluptates maiores
+    accusantium obcaecati rem et culpa. Itaque nostrum assumenda voluptates officiis maiores sit similique, id
+    voluptatem placeat debitis amet doloribus doloremque. Deserunt, itaque quaerat! Atque doloremque similique
+    voluptatem fuga obcaecati impedit. Fugit commodi corporis quaerat officiis veritatis deleniti alias illo. Corrupti,
+    quos veritatis. Doloribus atque labore eveniet recusandae molestiae, quod accusamus assumenda reiciendis ipsum
+    nesciunt aliquid tempora ab mollitia expedita aut sit quibusdam quos aliquam vero fugiat aspernatur quam! Rem
+    numquam consequatur eveniet rerum molestiae, corporis, debitis veritatis provident error distinctio quod animi
+    dolorem nisi vero aspernatur eligendi officia, voluptatum fugit. Non ipsam fugit facere similique doloribus id,
+    expedita fuga iure illo debitis dolore nostrum alias magnam tenetur aliquid modi, voluptas blanditiis laboriosam?
+  </div>
+  <hr>
+  <div class="demo bg-abbr"></div>
+  <div class="demo bg-img bg-ctrl-4 bg-color"></div>
+  <hr>
+  <div class="demo bg-img bg-ctrl-3 bg-color"></div>
+  <hr>
+  <div class="demo bg-img bg-ctrl-1 bg-color"></div>
+  <hr>
+  <div class="demo bg-img bg-ctrl-2 bg-color"></div>
+  <!-- <div class="demo bg-color"></div> -->
+</body>
+
+</html>
