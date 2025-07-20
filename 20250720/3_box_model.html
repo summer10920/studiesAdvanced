@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .d-block {
+      display: block;
+      background-color: lightcoral;
+      width: 300px;
+      height: 300px;
+    }
+
+    .d-inline {
+      display: inline;
+      background-color: darkgoldenrod;
+      width: 300px;
+      height: 300px;
+    }
+
+    .d-inline-block {
+      display: inline-block;
+      background-color: lightgreen;
+      width: 100px;
+      height: 100px;
+    }
+
+    .fixed-inline-block-space {
+      font-size: 0;
+
+      * {
+        font-size: 1rem;
+      }
+    }
+
+    .block-box-model {
+      background-color: aqua;
+      width: 150px;
+      height: 150px;
+      border: 5px solid;
+      /* padding: 0 10px 20px 30px; */
+      /* padding: 0 10px 20px; */
+      /* padding: 5px 10px; */
+      padding: 10px;
+      /* margin: 0 10px 20px 30px; */
+      /* margin: 0 10px 20px; */
+      /* margin: 5px 10px; */
+      /* margin: 10px; */
+      /* margin: 10px ; */
+      /* margin-right: auto;
+      margin-left: auto; */
+      margin: 10px auto;
+    }
+
+    .inline-box-model {
+      background-color: darkorchid;
+      border: 1px solid;
+      padding: 0 10px;
+      margin: 100px 30px;
+      /* 上下無效 */
+    }
+
+    .d-none {
+      display: none;
+    }
+
+    .visible-hidden {
+      visibility: hidden;
+    }
+
+    .opacity-50 {
+      opacity: 0.5;
+    }
+
+    .border-box {
+      width: 200px;
+      height: 200px;
+      background-color: lightblue;
+      /* border: 5px solid lightgreen; */
+
+      /* border-width: 5px 10px 15px 20px;
+      border-style: solid dashed dotted double;
+      border-color: lightgreen red blue yellow; */
+      
+      border-right: 5px solid lightgreen;
+      border-bottom: 10px dotted red;
+
+      border:5px solid;
+      border-right: 0;
+
+      /* border-top-width: 3px;
+      border-right-width: 3px;
+      border-bottom-width: 3px;
+      border-left-width: 3px;
+
+      border-top-style: solid;
+      border-right-style: solid;
+      border-bottom-style: solid;
+      border-left-style: solid;
+
+      border-top-color: initial;
+      border-right-color: initial;
+      border-bottom-color: initial;
+      border-left-color: initial; */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="border-box"></div>
+  <hr>
+  <div class="block-box-model">Lorem ipsum dolor sit amet. Lorem <span class="inline-box-model">Loki</span> ipsum dolor
+    sit amet.</div>
+  <div class="block-box-model" style="margin-top:20px">Lorem ipsum dolor sit amet.</div>
+  <hr>
+  <nav class="fixed-inline-block-space">
+    <span class="d-inline">123</span><span class="d-inline">123</span><span class="d-inline">123</span><span
+      class="d-inline">123</span>
+    <div class="d-inline-block">lorem ipsum</div>
+    <div class="d-inline-block">lorem ipsum</div>
+    <div class="d-inline-block">lorem ipsum</div>
+    <div class="d-inline-block">lorem ipsum</div>
+  </nav>
+  <hr>
+  <div>
+    <div class="d-block">Lorem ipsum sit amet consectetur adipisicing elit. Illum, ipsum!</div>
+  </div>
+  <hr>
+  <span class="d-inline">Lorem ipsum ipsum!</span>
+  <span class="d-inline">Lorem ipsum ipsum!</span>
+  <span class="d-inline">Lorem ipsum ipsum!</span>
+  <span class="d-inline">Lorem ipsum ipsum!</span>
+</body>
+
+</html>

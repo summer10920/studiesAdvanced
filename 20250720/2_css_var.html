@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    :root {
+      /* 寫在這，所有的元素都可以使用(被選擇)，但優先權不會特別高 */
+      --color-primary: darkgoldenrod;
+      --color-secondary: lightcoral;
+      --color-white: yellow;
+      --font-size-1: 2rem;
+      --font-size-2: 1.5rem;
+      --font-size-3: 1.2rem;
+      --font-size-4: 1rem;
+      --font-size-5: 0.8rem;
+      --font-size-6: 0.75rem;
+      --space-1: 10px;
+      --space-2: 20px;
+      --space-3: 25px;
+      --space-4: 30px;
+      --space-5: 45px;
+      --bg-primary: white;
+    }
+    .dark{
+      --bg-primary: black;
+    }
+
+    /* *********************** */
+    body{
+      background-color: var(--bg-primary);
+    }
+
+
+    h1 {
+      --color-white: green;
+      color: var(--color-white);
+      background-color: var(--color-primary);
+      padding: var(--space-3);
+    }
+
+    h3 {
+      color: var(--color-white);
+      background-color: darkgoldenrod;
+    }
+
+    h6 {
+      color: lightcoral;
+      background-color: var(--color-primary);
+      font-size: var(--font-size-4);
+    }
+  </style>
+</head>
+
+<body>
+  <h1 style="--color-white: red">Lorem ipsum dolor sit amet.</h1>
+  <h2>Lorem ipsum dolor sit amet.</h2>
+  <h3>Lorem ipsum dolor sit amet.</h3>
+  <h4>Lorem ipsum dolor sit amet.</h4>
+  <h5>Lorem ipsum dolor sit amet.</h5>
+  <h6>Lorem ipsum dolor sit amet.</h6>
+</body>
+
+</html>

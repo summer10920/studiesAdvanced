@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    :root {
+      --at-1: 10% auto auto 10%;
+      --at-3: 10% 10% auto auto;
+      --at-4: 40% auto auto 10%;
+      --at-5: 40%;
+      --at-6: 40% 10% auto auto;
+      --at-7: auto auto 10% 10%;
+      --at-9: auto 10% 10% auto;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container--dice {
+      text-align: center;
+
+      >div {
+        /*骰子面*/
+        display: inline-block;
+        width: 200px;
+        height: 200px;
+        border: 2px solid;
+        border-radius: 20px;
+        background-image: linear-gradient(45deg, white, #bbb);
+        box-shadow: 2px 2px 5px 1px #0007;
+        position: relative;
+
+        i {
+          position: absolute;
+          width: 20%;
+          height: 20%;
+          border-radius: 50%;
+          background: black;
+        }
+
+        &:nth-child(1) {
+          i {
+            background: red;
+            inset: var(--at-5);
+          }
+        }
+
+        &:nth-child(2) {
+          i:nth-child(1) {
+            inset: var(--at-1);
+          }
+
+          i:nth-child(2) {
+            inset: var(--at-9);
+          }
+        }
+
+        &:nth-child(3) {
+          i:nth-child(1) {
+            inset: var(--at-1);
+          }
+
+          i:nth-child(2) {
+            inset: var(--at-5);
+          }
+
+          i:nth-child(3) {
+            inset: var(--at-9);
+          }
+        }
+
+        &:nth-child(4) {
+          i:nth-child(1) {
+            inset: var(--at-1);
+          }
+
+          i:nth-child(2) {
+            inset: var(--at-3);
+          }
+
+          i:nth-child(3) {
+            inset: var(--at-7);
+          }
+
+          i:nth-child(4) {
+            inset: var(--at-9);
+          }
+        }
+
+        &:nth-child(5) {
+          i:nth-child(1) {
+            inset: var(--at-1);
+          }
+
+          i:nth-child(2) {
+            inset: var(--at-3);
+          }
+
+          i:nth-child(3) {
+            inset: var(--at-5);
+          }
+
+          i:nth-child(4) {
+            inset: var(--at-7);
+          }
+
+          i:nth-child(5) {
+            inset: var(--at-9);
+          }
+        }
+
+        &:nth-child(6) {
+          i:nth-child(1) {
+            inset: var(--at-1);
+          }
+
+          i:nth-child(2) {
+            inset: var(--at-3);
+          }
+
+          i:nth-child(3) {
+            inset: var(--at-4);
+          }
+
+          i:nth-child(4) {
+            inset: var(--at-6);
+          }
+
+          i:nth-child(5) {
+            inset: var(--at-7);
+          }
+
+          i:nth-child(6) {
+            inset: var(--at-9);
+          }
+        }
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container--dice">
+    <div>
+      <i></i>
+    </div>
+    <div>
+      <i></i><i></i>
+    </div>
+    <div>
+      <i></i><i></i><i></i>
+    </div>
+    <div>
+      <i></i><i></i><i></i><i></i>
+    </div>
+    <div>
+      <i></i><i></i><i></i><i></i><i></i>
+    </div>
+    <div>
+      <i></i><i></i><i></i><i></i><i></i><i></i>
+    </div>
+  </main>
+</body>
+
+</html>

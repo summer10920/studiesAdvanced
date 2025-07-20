@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table {
+      /* border: 2px solid blue; */
+      border-spacing: 2px;
+      /*不是collapse條件下，可定義單元格之間的間距 */
+      border-collapse: collapse;
+      /* 定義邊框的分離模式 collapse 或 separate(預設) */
+      empty-cells: hide;
+      width: 500px;
+      box-shadow: 3px 4px 2px 3px #0007;
+    }
+
+    th,
+    td {
+      padding: 5px;
+    }
+
+    thead>tr {
+      background-color: red;
+    }
+
+    th {
+      text-align: left;
+      color: white;
+      text-shadow: 1px 1px 3px black;
+      /* border: 2px solid blue; */
+      /* border-right-color: white; */
+    }
+
+    th:nth-last-child(1) {
+      /* border-right-color: blue; */
+    }
+
+    td {
+      /* border: 2px solid blue; */
+    }
+
+    td:nth-last-child(1) {
+      text-align: right;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f003;
+    }
+
+    .hit {
+      color: red;
+      /* box-shadow: inset 0px 0px 2px 1px #0007; */
+    }
+  </style>
+</head>
+
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>姓名</th>
+        <th>部門</th>
+        <th>職位</th>
+        <th>薪資</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="hit">張小明</td>
+        <td>技術部</td>
+        <td>前端工程師</td>
+        <td>60,000</td>
+      </tr>
+      <tr>
+        <td>李美華</td>
+        <td class="hit">設計部</td>
+        <td></td>
+        <td>55,000</td>
+      </tr>
+      <tr>
+        <td>王大力</td>
+        <td>技術部</td>
+        <td class="hit">後端工程師</td>
+        <td>65,000</td>
+      </tr>
+      <tr>
+        <td>張小明</td>
+        <td>技術部</td>
+        <td>前端工程師</td>
+        <td class="hit">60,000</td>
+      </tr>
+      <tr>
+        <td>李美華</td>
+        <td>設計部</td>
+        <td></td>
+        <td>55,000</td>
+      </tr>
+      <tr>
+        <td>王大力</td>
+        <td>技術部</td>
+        <td>後端工程師</td>
+        <td>65,000</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+
+</html>

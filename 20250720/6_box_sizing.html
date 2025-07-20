@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* reset:設計師為了維持網頁的一致性，或者想要全站設定成一個基本樣式 */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body{
+      margin: 0;
+    }
+
+    .layout-demo {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #f8f9fa;
+
+      h3 {
+        margin: 30px 0 15px 0;
+        color: #333;
+      }
+    }
+
+    .container {
+      border: 2px solid #28a745;
+      padding: 10px;
+      margin-bottom: 20px;
+      background: white;
+      /* 使用 inline-block 技巧避免間格 */
+      font-size: 0;
+    }
+
+    .column {
+      display: inline-block;
+      width: 50%;
+      padding: 20px;
+      border: 1px solid #007bff;
+      background: #e3f2fd;
+      vertical-align: top;
+      font-size: 16px;
+      /* 恢復字體大小 */
+    }
+
+    /* 問題展示：content-box 模式 */
+    .content-box-demo {
+      border-color: #dc3545;
+      /* 紅色表示問題 */
+    }
+
+    .content-box-demo .column {
+      /* box-sizing: content-box; */
+      /* 實際寬度 = 50% + 20px×2 + 1px×2 = 50% + 42px */
+      /* 兩欄總寬度 = 100% + 84px，超出容器！ */
+    }
+
+    /* 解決方案：border-box 模式 */
+    .border-box-demo .column {
+      box-sizing: border-box;
+      /* 實際寬度 = 50%（包含 padding 和 border） */
+      /* 兩欄總寬度 = 100%，完美符合容器！ */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="layout-demo">
+    <h3>傳統盒子模型 - 版面破版</h3>
+    <div class="container content-box-demo">
+      <div class="column">
+        <h4>左欄</h4>
+        <p>設定寬度：50%<br> 實際佔用：50% + 42px</p>
+      </div>
+      <div class="column">
+        <h4>右欄</h4>
+        <p>設定寬度：50%<br> 實際佔用：50% + 42px</p>
+      </div>
+    </div>
+    <hr>
+    <h3>現代盒子模型 - 完美呈現</h3>
+    <div class="container border-box-demo">
+      <div class="column">
+        <h4>左欄</h4>
+        <p>設定寬度：50%<br> 實際佔用：50%</p>
+      </div>
+      <div class="column">
+        <h4>右欄</h4>
+        <p>設定寬度：50%<br> 實際佔用：50%</p>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

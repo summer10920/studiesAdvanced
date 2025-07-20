@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>width auto vs margin auto</title>
+  <style>
+    .container {
+      width: 500px;
+      background: lightgreen;
+      padding: 10px;
+    }
+
+    .test-box {
+      height: 50px;
+      background: #aaa;
+      margin-bottom: 10px;
+      /* 不同的練習會在這裡添加不同的屬性 */
+    }
+
+    .think-1 {
+      width: 100px;
+      margin-right: auto;
+    }
+
+    .think-2 {
+      width: 100px;
+      margin-left: auto;
+    }
+
+    .think-3 {
+      width: 100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .think-4 {
+      width: auto;
+      margin-left: auto;
+    }
+
+    .think-5 {
+      width: auto;
+      margin-right: auto;
+      margin-left: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="test-box think-1">靠左</div>
+    <div class="test-box think-2">靠右</div>
+    <div class="test-box think-3">至中</div>
+    <div class="test-box think-4">w:auto,ml:auto</div>
+    <div class="test-box think-5">w:auto,mx:auto</div>
+  </div>
+</body>
+
+</html>
