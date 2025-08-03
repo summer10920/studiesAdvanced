@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      width: 400px;
+      margin: 0 auto;
+      border: 2px solid #333;
+      padding: 20px;
+
+      overflow: hidden;
+    }
+
+    .float-container::after{
+      /* content: "";
+      display: block;
+      clear: both; */
+    }
+
+    .float-left {
+      float: left;
+      margin-right: 20px;
+    }
+
+    .float-right {
+      float: right;
+      margin-left: 20px;
+    }
+
+    .clear-float {
+      clear: both;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container float-container">
+    <h2>文繞圖範例</h2>
+    <img src="https://picsum.photos/150/150/?random=1" alt="示例圖片" class="float-left">
+    <p>這是一段示例文字，用來展示文繞圖的效果。當圖片設定為 float: right 時，文字會自動環繞在圖片周圍，形成美觀的排版效果。</p>
+    <!-- <div class="clear-float"></div> -->
+  </div>
+  
+  <div style="height: 400px;"></div>
+  <hr>
+  <hr>
+  <hr>
+  <hr>
+  <div class="container">
+    <h2>文繞圖範例</h2>
+    <img src="https://picsum.photos/150/150/?random=1" alt="示例圖片" class="float-left">
+    <p>這是一段示例文字，用來展示文繞圖的效果。當圖片設定為 float: right 時，文字會自動環繞在圖片周圍，形成美觀的排版效果。</p>
+    <p>這是一段示例文字，用來展示文繞圖的效果。當圖片設定為 float: right 時，文字會自動環繞在圖片周圍，形成美觀的排版效果。</p>
+    <p>這是一段示例文字，用來展示文繞圖的效果。當圖片設定為 float: right 時，文字會自動環繞在圖片周圍，形成美觀的排版效果。</p>
+    <img src="https://picsum.photos/150/150/?random=1" alt="示例圖片" class="float-right">
+    <p>Loki 這是一段示例文字，用來展示文繞圖的效果。當圖片設定為 float: right 時，文字會自動環繞在圖片周圍，形成美觀的排版效果。</p>
+    <p>這是一段示例文字，用來展示文繞圖的效果。當圖片設定為 float: right 時，文字會自動環繞在圖片周圍，形成美觀的排版效果。</p>
+    <p>這是一段示例文字，用來展示文繞圖的效果。當圖片設定為 float: right 時，文字會自動環繞在圖片周圍，形成美觀的排版效果。</p>
+    <p>這種技術在文章排版、部落格文章或新聞網站中非常常見，能夠有效利用空間並提升視覺效果。</p>
+  </div>
+</body>
+
+</html>

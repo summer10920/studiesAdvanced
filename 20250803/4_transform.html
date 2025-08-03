@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .mirror-img {
+      background: url("https://picsum.photos/300/200/?random=10") no-repeat;
+      width: 300px;
+      height: 300px;
+      position: relative;
+      overflow: hidden;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+      }
+
+      &::before {
+        opacity: 0.3;
+        top: 177px;
+        left: 0;
+        width: 100%;
+        height: 200px;
+        background:
+          url("https://picsum.photos/300/200/?random=10") no-repeat;
+        transform: scaleY(-0.75);
+      }
+
+      &::after {
+        top: 202px;
+        left: 0;
+        width: 100%;
+        height: 200px;
+        background:
+          linear-gradient(to bottom, transparent, white 50%);
+      }
+    }
+
+    div.box {
+      width: 200px;
+      height: 200px;
+      background-color: lightblue;
+      border: 1px solid;
+      font-size: 3rem;
+      font-weight: bold;
+    }
+
+    .tsf {
+      background-color: lightcoral;
+      /* transform: translateX(-50%) translateY(-50%); */
+      /* transform: translate(-50%, -50%); */
+      /* transform: scale(1.5, 1.2); */
+      /* transform: scale(1.5, 1.2); */
+      /* transform: scale(0.5); */
+      /* transform: translate(-50%, -50%) scale(1, -1); */
+      transform: rotate(45deg);
+      transform-origin: 40% 10%;
+      /* transform: skew(45deg, 15deg); */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="mirror-img">
+  </div>
+  <div class="box">Loki</div>
+  <div class="box tsf">Loki</div>
+  <div class="box">Loki</div>
+</body>
+
+</html>

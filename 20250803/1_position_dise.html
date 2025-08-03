@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      text-align: center;
+    }
+
+    .disc {
+      display: inline-block;
+      width: 200px;
+      height: 200px;
+      border: 2px solid;
+      border-radius: 10px;
+      background: linear-gradient(45deg, white, #ddd);
+      box-shadow: 3px 3px 10px 0px #0009;
+      position: relative;
+    }
+
+    .point {
+      position: absolute;
+      width: 20%;
+      height: 20%;
+      background-color: #555;
+      border-radius: 50%;
+      box-shadow: inset 3px 3px 10px 0 #000b;
+    }
+
+    .at1 {
+      left: 10%;
+      top: 10%;
+    }
+
+    .at3 {
+      right: 10%;
+      top: 10%;
+    }
+
+    .at4 {
+      left: 10%;
+      top: 40%;
+    }
+
+    .at5 {
+      left: 40%;
+      top: 40%;
+    }
+
+    .at6 {
+      right: 10%;
+      top: 40%;
+    }
+
+    .at7 {
+      left: 10%;
+      bottom: 10%;
+    }
+
+    .at9 {
+      right: 10%;
+      bottom: 10%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="disc">
+      <div class="point at5" style="background-color: red;"></div>
+    </div>
+    <div class="disc">
+      <div class="point at1"></div>
+      <div class="point at9"></div>
+    </div>
+    <div class="disc">
+      <div class="point at1"></div>
+      <div class="point at5"></div>
+      <div class="point at9"></div>
+    </div>
+    <div class="disc">
+      <div class="point at1"></div>
+      <div class="point at3"></div>
+      <div class="point at7"></div>
+      <div class="point at9"></div>
+    </div>
+    <div class="disc">
+      <div class="point at1"></div>
+      <div class="point at3"></div>
+      <div class="point at5"></div>
+      <div class="point at7"></div>
+      <div class="point at9"></div>
+    </div>
+    <div class="disc">
+      <div class="point at1"></div>
+      <div class="point at3"></div>
+      <div class="point at4"></div>
+      <div class="point at6"></div>
+      <div class="point at7"></div>
+      <div class="point at9"></div>
+    </div>
+  </div>
+</body>
+
+</html>

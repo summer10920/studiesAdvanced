@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .flex-container-1 {
+      background-color: lightgoldenrodyellow;
+      height: 600px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      /* flex-flow: row wrap; */
+      align-content: flex-start;
+      justify-content: flex-start;
+      align-items: flex-start;
+      /* gap: 10px; */
+      row-gap: 10px;
+      column-gap: 20px;
+
+      .flex-item {
+        width: 100px;
+        /* height: 100px; */
+        background-color: lightblue;
+        border: 1px solid;
+        font-size: 3rem;
+      }
+    }
+
+    .flex-container-2 {
+      background-color: lightgray;
+      height: 600px;
+      display: flex;
+      align-items: center;
+
+      .flex-item {
+        width: 100px;
+        height: 100px;
+        background-color: lightblue;
+        border: 1px solid;
+        font-size: 3rem;
+      }
+
+      .flex-loki {
+        align-self: flex-end;
+        order: 3;
+      }
+    }
+
+    .flex-container-3 {
+      background-color: lightpink;
+      height: 800px;
+      /* width: 800px; */
+      display: flex;
+      align-items: center;
+
+      .flex-item {
+        width: 250px;
+        height: 200px;
+        background-color: lightblue;
+        border: 1px solid;
+        font-size: 3rem;
+        flex: 0 1 auto;
+      }
+
+      .flex-loki {
+        /* flex-basis: 25%; */
+        /* flex-grow: 2; */
+        /* flex-shrink: 1; */
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="flex-container-3">
+    <div class="flex-item" style="flex-shrink: 2">A</div>
+    <div class="flex-item" style="flex-shrink: 0">A</div>
+    <div class="flex-item" style="flex-shrink: 1">A</div>
+  </div>
+  <hr>
+  <div style="height: 400px"></div>
+  <div class="flex-container-2">
+    <div class="flex-item">1</div>
+    <div class="flex-item flex-loki">2</div>
+    <div class="flex-item">3</div>
+    <div class="flex-item" style="order:5">4</div>
+    <div class="flex-item">5</div>
+  </div>
+  <hr>
+  <div style="height: 400px"></div>
+  <hr>
+  <div class="flex-container-1">
+    <div class="flex-item">1</div>
+    <div class="flex-item">2</div>
+    <div class="flex-item">2</div>
+    <div class="flex-item">2</div>
+    <div class="flex-item">2</div>
+    <div class="flex-item">3</div>
+  </div>
+</body>
+
+</html>
