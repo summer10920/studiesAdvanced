@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      box-sizing: border-box;
+      margin: 0;
+      min-height: 100vh;
+      padding: 40px 0;
+      background: #333;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .base {
+      width: 100px;
+      height: 100px;
+      background: blue;
+      /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+      /* animation: demo1 2s; */
+      animation-name: demo1;
+      /* 腳本名稱 */
+      animation-duration: 4s;
+      /* 持續時間 */
+      animation-timing-function: ease-in;
+      /* 時間函數 */
+      animation-delay: 0s;
+      /* 延遲時間 */
+      animation-iteration-count: infinite;
+      /* 重複次數, 無限次為 infinite */
+      animation-direction: normal;
+      /*播放方向，normal效果 0->100, 0->100, ....*/
+      /*播放方向，reverse效果 100->0, 100->0, ....*/
+      /*播放方向，alternate效果 0->100->0->100 ....*/
+      /*播放方向，alternate-reverse效果 100->0->100->0 ....*/
+      animation-fill-mode: forwards;
+      /* 動畫結束後的狀態，none為不改變，forwards為最後一幀的狀態，backwards為第一幀的狀態 */
+    }
+
+    @keyframes demo1 {
+      0% {
+        background: red;
+      }
+
+      25%,
+      75% {
+        background: green;
+      }
+
+      50% {
+        background: yellow;
+      }
+    }
+
+    .btn {
+      width: 100px;
+      height: 50px;
+      background: orange;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 300%;
+        height: 300%;
+        background: linear-gradient(to right bottom, transparent 30%, #fff9 50%, transparent 70%);
+        border-radius: 5px;
+        transition: all 0.3s ease-in-out;
+        animation: demo2 2s infinite;
+        left: -300%;
+      }
+    }
+
+    @keyframes demo2 {
+      to {
+        left: 100%;
+      }
+    }
+
+    .loading {
+      position: relative;
+      width: 100px;
+      text-align: center;
+      background: red;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        border: 1px solid #fff;
+        left: -100%;
+        right: -100%;
+        top: -2rem;
+        bottom: 2rem;
+      }
+
+      &::after {
+        background-color: red;
+        animation: demo3 5s infinite linear;
+      }
+    }
+
+    @keyframes demo3 {
+      0% {
+        right: 200%;
+      }
+
+      25%,
+      75% {
+        background-color: red;
+      }
+
+      50% {
+        background-color: transparent;
+      }
+
+      100% {
+        right: -100%;
+      }
+    }
+
+    .rgb {
+      font-size: 5rem;
+      font-weight: bold;
+      font-family: Arial, Helvetica, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1rem;
+      border: 1px solid #fff;
+      padding: 5px 0 5px 1rem;
+      animation: rgb 5s linear infinite, boxRainbow 10s linear infinite;
+    }
+
+    @keyframes rgb {
+
+      0%,
+      100% {
+        text-shadow: 0px 0px 1rem #ff0000ff, 0px 0px 5rem #ff000099;
+      }
+
+      33% {
+        text-shadow: 0px 0px 1rem #00ff00ff, 0px 0px 5rem #00ff0099;
+      }
+
+      66% {
+        text-shadow: 0px 0px 1rem #0000ffff, 0px 0px 5rem #0000ff99;
+      }
+    }
+
+    @keyframes boxRainbow {
+
+      0%,
+      100% {
+        box-shadow: 0px 0px 1rem #ff0000ff, 0px 0px 5rem #ff000099, inset 0px 0px 1rem #ff0000ff, inset 0px 0px 5rem #ff000099;
+      }
+
+      12.5% {
+        box-shadow: 0px 0px 1rem #ffFF00ff, 0px 0px 1rem #ffFF0099, inset 0px 0px 1rem #ffFF00ff, inset 0px 0px 1rem #ffFF0099;
+      }
+
+      33% {
+        box-shadow: 0px 0px 1rem #00ff00ff, 0px 0px 5rem #00ff0099, inset 0px 0px 1rem #00ff00ff, inset 0px 0px 5rem #00ff0099;
+      }
+
+      45.5% {
+        box-shadow: 0px 0px 1rem #00FFFFFF, 0px 0px 1rem #00FFFF99, inset 0px 0px 1rem #00FFFFFF, inset 0px 0px 1rem #00FFFF99;
+      }
+
+      66% {
+        box-shadow: 0px 0px 1rem #0000ffff, 0px 0px 5rem #0000ff99, inset 0px 0px 1rem #0000ffff, inset 0px 0px 5rem #0000ff99;
+      }
+
+      78.5% {
+        box-shadow: 0px 0px 1rem #FF00FFFF, 0px 0px 1rem #FF00FF99, inset 0px 0px 1rem #FF00FFFF, inset 0px 0px 1rem #FF00FF99;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="base">HELLO WORLD</div>
+  <div class="btn">Button</div>
+  <div class="loading">Loading</div>
+  <div class="rgb">Loki</div>
+</body>
+
+</html>

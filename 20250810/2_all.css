@@ -1,0 +1,25 @@
+div {
+  height: 100px;
+}
+
+
+@media print {
+
+  /* for print */
+  div {
+    width: 200px;
+    /* height: 100px; */
+    font-size: 3rem;
+    background: lightblue;
+  }
+}
+
+@media screen {
+
+  /* for browser screen */
+  div {
+    width: 100px;
+    /* height: 100px; */
+    background: lightcoral;
+  }
+}
