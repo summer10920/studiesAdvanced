@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"></script>
+  <style>
+    :root {
+      --bs-primary-rgb: 174, 0, 255;
+    }
+
+    .loki-gradient {
+      --bs-gradient: linear-gradient(180deg, rgba(89, 0, 255, 1), rgba(255, 255, 255, 0.5));
+    }
+
+    .bg-orange {
+      background-color: var(--bs-orange);
+    }
+
+    /* 
+    .loki-opacity-65 {
+      --bs-bg-opacity: 0.75;
+    } */
+    .box-100x100 {
+      width: 100px;
+      height: 100px;
+    }
+
+    .box-100x100-border {
+      width: 150px;
+      height: 100px;
+      border: 5px solid #000;
+    }
+  </style>
+</head>
+
+<body class="bg-dark m-5">
+  <p><a href="#" class="link-danger text-decoration-none">Danger link</a></p>
+  <p><a href="#" class="text-danger text-decoration-none">Danger link</a></p>
+
+  <hr>
+  <div class="box-100x100 bg-info border border-primary border-4 rounded-4"></div>
+  <hr>
+  <div class="box-100x100-border bg-info border-warning rounded-pill"></div>
+  <hr>
+  <div class="p-3 mb-2 bg-primary bg-gradient loki-gradient">Lorem ipsum dolor sit amet.</div>
+  <div class="p-3 mb-2 bg-primary bg-gradient text-white bg-opacity-10">Lorem ipsum dolor sit amet.</div>
+  <div class="p-3 mb-2 bg-primary">Lorem ipsum dolor sit amet.</div>
+  <div class="p-3 mb-2 bg-orange text-primary">Lorem ipsum dolor sit amet.</div>
+  <hr>
+  <div class="p-3 mb-2 bg-secondary text-light">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores,
+    ullam, in ipsam, fuga rerum ratione porro consequuntur excepturi accusantium nihil ipsa? Eaque harum, beatae autem
+    quis quae tempora assumenda perspiciatis modi magni neque velit voluptatem molestias quod cumque dolor facere ipsum.
+    Consequatur minus ab consectetur quaerat soluta nostrum recusandae neque.</div>
+  <div class="p-3 mb-2 bg-success">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores, ullam, in
+    ipsam, fuga rerum ratione porro consequuntur excepturi accusantium nihil ipsa? Eaque harum, beatae autem quis quae
+    tempora assumenda perspiciatis modi magni neque velit voluptatem molestias quod cumque dolor facere ipsum.
+    Consequatur minus ab consectetur quaerat soluta nostrum recusandae neque.</div>
+  <div class="p-3 mb-2 bg-danger">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores, ullam, in ipsam,
+    fuga rerum ratione porro consequuntur excepturi accusantium nihil ipsa? Eaque harum, beatae autem quis quae tempora
+    assumenda perspiciatis modi magni neque velit voluptatem molestias quod cumque dolor facere ipsum. Consequatur minus
+    ab consectetur quaerat soluta nostrum recusandae neque.</div>
+  <div class="p-3 mb-2 bg-warning">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores, ullam, in
+    ipsam, fuga rerum ratione porro consequuntur excepturi accusantium nihil ipsa? Eaque harum, beatae autem quis quae
+    tempora assumenda perspiciatis modi magni neque velit voluptatem molestias quod cumque dolor facere ipsum.
+    Consequatur minus ab consectetur quaerat soluta nostrum recusandae neque.</div>
+  <div class="p-3 mb-2 bg-info">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores, ullam, in ipsam,
+    fuga rerum ratione porro consequuntur excepturi accusantium nihil ipsa? Eaque harum, beatae autem quis quae tempora
+    assumenda perspiciatis modi magni neque velit voluptatem molestias quod cumque dolor facere ipsum. Consequatur minus
+    ab consectetur quaerat soluta nostrum recusandae neque.</div>
+  <div class="p-3 mb-2 bg-light">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores, ullam, in ipsam,
+    fuga rerum ratione porro consequuntur excepturi accusantium nihil ipsa? Eaque harum, beatae autem quis quae tempora
+    assumenda perspiciatis modi magni neque velit voluptatem molestias quod cumque dolor facere ipsum. Consequatur minus
+    ab consectetur quaerat soluta nostrum recusandae neque.</div>
+  <div class="p-3 mb-2 bg-dark text-white">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores, ullam,
+    in ipsam, fuga rerum ratione porro consequuntur excepturi accusantium nihil ipsa? Eaque harum, beatae autem quis
+    quae tempora assumenda perspiciatis modi magni neque velit voluptatem molestias quod cumque dolor facere ipsum.
+    Consequatur minus ab consectetur quaerat soluta nostrum recusandae neque.</div>
+  <div class="p-3 mb-2 bg-body">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores, ullam, in ipsam,
+    fuga rerum ratione porro consequuntur excepturi accusantium nihil ipsa? Eaque harum, beatae autem quis quae tempora
+    assumenda perspiciatis modi magni neque velit voluptatem molestias quod cumque dolor facere ipsum. Consequatur minus
+    ab consectetur quaerat soluta nostrum recusandae neque.</div>
+  <div class="p-3 mb-2 bg-white">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores, ullam, in ipsam,
+    fuga rerum ratione porro consequuntur excepturi accusantium nihil ipsa? Eaque harum, beatae autem quis quae tempora
+    assumenda perspiciatis modi magni neque velit voluptatem molestias quod cumque dolor facere ipsum. Consequatur minus
+    ab consectetur quaerat soluta nostrum recusandae neque.</div>
+  <div class="p-3 mb-2 bg-transparent">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores, ullam, in
+    ipsam, fuga rerum ratione porro consequuntur excepturi accusantium nihil ipsa? Eaque harum, beatae autem quis quae
+    tempora assumenda perspiciatis modi magni neque velit voluptatem molestias quod cumque dolor facere ipsum.
+    Consequatur minus ab consectetur quaerat soluta nostrum recusandae neque.</div>
+</body>
+
+</html>
