@@ -24,7 +24,31 @@
   <link rel="stylesheet" href="./plugins/style.css">
 </head>
 
-<body>
+<body data-bs-spy="scroll" data-bs-target="#lokiMenu">
+  <nav class="navbar navbar-expand-lg bg-dark bg-gradient fixed-top" data-bs-theme="dark"
+    style="--bs-dark-rgb:105,120,129">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="./">
+        <span class="fa-stack">
+          <i class="fa-solid fa-circle fa-stack-2x"></i>
+          <i class="fa-solid fa-campground fa-stack-1x text-dark"></i>
+        </span>
+        <span>洛奇營地渡假村</span>
+      </a>
+      <button class="navbar-toggler text-bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#lokiMenu">
+        <i class="fa-solid fa-ellipsis-vertical"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="lokiMenu">
+        <div class="navbar-nav ms-auto gap-0 gap-lg-4 ps-5 ps-lg-0">
+          <a class="nav-link" href="#lokiPallet">營位介紹</a>
+          <a class="nav-link" href="#lokiPark">探索體驗</a>
+          <a class="nav-link" href="#lokiService">遊客服務</a>
+          <a class="nav-link" href="#lokiRule">營區守則</a>
+          <a class="nav-link" href="#lokiContact">聯絡我們</a>
+        </div>
+      </div>
+    </div>
+  </nav>
   <section id="lokiSlider" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#lokiSlider" data-bs-slide-to="0" class="active"></button>
@@ -40,7 +64,7 @@
             <label class="badge text-bg-secondary">病毒</label>
           </h3>
           <h2 class="display-2 fw-bolder">拉近人的溫暖</h2>
-          <p class="d-none d-md-block">發現一座充滿能量的秘密營地，探索山林賦予的自在</p>
+          <p class="d-none d-sm-block">發現一座充滿能量的秘密營地，探索山林賦予的自在</p>
         </div>
       </div>
       <div class="carousel-item vh-100">
@@ -51,7 +75,7 @@
             <label class="badge text-bg-danger">保持</label>
           </h3>
           <h2 class="display-2 fw-bolder">體驗大自然的空氣</h2>
-          <p class="d-none d-md-block">遠離塵囂的夢想園地，也是一個讓家人朋友們能夠更親密、更快樂的童話村！</p>
+          <p class="d-none d-sm-block">遠離塵囂的夢想園地，也是一個讓家人朋友們能夠更親密、更快樂的童話村！</p>
         </div>
       </div>
       <div class="carousel-item vh-100">
@@ -62,7 +86,7 @@
             <label class="badge bg-info">不明</label>
           </h3>
           <h2 class="display-2 fw-bolder">山間裡裸湯</h2>
-          <p class="d-none d-md-block">被山包圍的裸湯，讓毛細孔全開，同時享受湯浴和森林浴，雙重享受，雙重療癒。</p>
+          <p class="d-none d-sm-block">被山包圍的裸湯，讓毛細孔全開，同時享受湯浴和森林浴，雙重享受，雙重療癒。</p>
         </div>
       </div>
     </div>
@@ -72,6 +96,90 @@
     <button class="carousel-control-next w-auto" type="button" data-bs-target="#lokiSlider" data-bs-slide="next">
       <i class="fa-solid fa-caret-right"></i>
     </button>
+  </section>
+  <section id="lokiPallet" class="container">
+    <div class="row row-cols-4 g-0">
+      <img src="https://picsum.photos/300/300/?random=10">
+      <img src="https://picsum.photos/300/300/?random=11">
+      <img src="https://picsum.photos/300/300/?random=12">
+      <img src="https://picsum.photos/300/300/?random=13">
+    </div>
+    <header class="h2 border-start border-5 border-warning ps-3 my-5">營位介紹</header>
+    <article class="row flex-row-reverse row-cols-1 row-cols-lg-2 g-3 g-lg-5">
+      <div class="col">
+        <div class="card text-bg-dark">
+          <img src="https://picsum.photos/800/600/?random=10" class="card-img">
+          <div
+            class="card-img-overlay bg-dark bg-opacity-50 d-flex flex-column justify-content-center align-items-center text-center">
+            <h3 class="card-title text-warning fw-bolder">河畔 × A區</h3>
+            <ul class="list-unstyled">
+              <li>每帳空間4X8公尺，獨立水槽與供電，共20帳</li>
+              <li>帳邊可停車！每帳限1台</li>
+              <li>超過酌收至指定停車場費用 $100</li>
+              <li>每帳限四人，超出費用（五歲以上）酌收人頭費 $300</li>
+            </ul>
+            <h4 class="card-text bg-opacity-100">
+              <span class="badge rounded-pill text-bg-light">一宿 / $1200</span>
+              <span class="badge rounded-pill text-bg-dark">夜衝 / $800</span>
+            </h4>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-bg-dark">
+          <img src="https://picsum.photos/800/600/?random=11" class="card-img">
+          <div
+            class="card-img-overlay bg-dark bg-opacity-50 d-flex flex-column justify-content-center align-items-center text-center">
+            <h3 class="card-title text-warning fw-bolder">河畔 × A區</h3>
+            <ul class="list-unstyled">
+              <li>每帳空間4X8公尺，獨立水槽與供電，共20帳</li>
+              <li>帳邊可停車！每帳限1台，超過酌收至指定停車場費用 $100</li>
+              <li>每帳限四人，超出費用（五歲以上）酌收人頭費 $300</li>
+            </ul>
+            <h4 class="card-text bg-opacity-100">
+              <span class="badge rounded-pill text-bg-light">一宿 / $1200</span>
+              <span class="badge rounded-pill text-bg-dark">夜衝 / $800</span>
+            </h4>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-bg-dark">
+          <img src="https://picsum.photos/800/600/?random=12" class="card-img">
+          <div
+            class="card-img-overlay bg-dark bg-opacity-50 d-flex flex-column justify-content-center align-items-center text-center">
+            <h3 class="card-title text-warning fw-bolder">河畔 × A區</h3>
+            <ul class="list-unstyled">
+              <li>每帳空間4X8公尺，獨立水槽與供電，共20帳</li>
+              <li>帳邊可停車！每帳限1台，超過酌收至指定停車場費用 $100</li>
+              <li>每帳限四人，超出費用（五歲以上）酌收人頭費 $300</li>
+            </ul>
+            <h4 class="card-text bg-opacity-100">
+              <span class="badge rounded-pill text-bg-light">一宿 / $1200</span>
+              <span class="badge rounded-pill text-bg-dark">夜衝 / $800</span>
+            </h4>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-bg-dark">
+          <img src="https://picsum.photos/800/600/?random=13" class="card-img">
+          <div
+            class="card-img-overlay bg-dark bg-opacity-50 d-flex flex-column justify-content-center align-items-center text-center">
+            <h3 class="card-title text-warning fw-bolder">河畔 × A區</h3>
+            <ul class="list-unstyled">
+              <li>每帳空間4X8公尺，獨立水槽與供電，共20帳</li>
+              <li>帳邊可停車！每帳限1台，超過酌收至指定停車場費用 $100</li>
+              <li>每帳限四人，超出費用（五歲以上）酌收人頭費 $300</li>
+            </ul>
+            <h4 class="card-text bg-opacity-100">
+              <span class="badge rounded-pill text-bg-light">一宿 / $1200</span>
+              <span class="badge rounded-pill text-bg-dark">夜衝 / $800</span>
+            </h4>
+          </div>
+        </div>
+      </div>
+    </article>
   </section>
 </body>
 

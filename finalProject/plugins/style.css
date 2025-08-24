@@ -4,8 +4,27 @@ body {
   color: #fff;
 }
 
+@media (max-width: 575px) {
+  #lokiSlider .carousel-item .carousel-caption {
+    left: 16px;
+    right: 16px;
+
+    h2 {
+      letter-spacing: 2px;
+    }
+  }
+}
 
 #lokiSlider {
+  .carousel-indicators {
+    gap: 10px;
+
+    >button {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+    }
+  }
 
   .carousel-item {
     padding-bottom: 240px;
@@ -21,6 +40,7 @@ body {
 
       h2 {
         text-shadow: 0px -3px 3px black;
+        letter-spacing: 10px;
       }
     }
 
@@ -33,9 +53,7 @@ body {
       right: 0;
       bottom: 0;
     }
-
   }
-
 
   button>i {
     font-size: 2.5rem;
@@ -44,8 +62,46 @@ body {
     height: 50px;
     line-height: 50px;
   }
+}
 
 
 
+@media (min-width: 992px) {
+  #lokiPallet article {
+    padding-top: 290px;
 
+    >.col:nth-child(odd) {
+      transform: translateY(-50%);
+      padding-bottom: 160px;
+    }
+
+    .card {
+      overflow: hidden;
+
+      img {
+        transform: scale(1.15) rotate(5deg);
+        transition: 0.3s;
+      }
+
+      .card-img-overlay {
+        transform: scale(0);
+        transition: 0.3s;
+      }
+
+      &:hover {
+        img {
+          transform: scale(1.3) rotate(0deg);
+        }
+
+        .card-img-overlay {
+          transform: scale(1);
+        }
+      }
+    }
+  }
+}
+
+
+section:not(#lokiSlider) {
+  padding-top: 110px;
 }
