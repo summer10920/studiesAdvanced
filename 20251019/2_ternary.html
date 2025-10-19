@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>三元運算子</title>
+</head>
+
+<body>
+  <script>
+    const age = 14;
+    const message = (age >= 18) ? '你已成年' : '你未成年';
+    // const message = false ? '你已成年' : '你未成年';
+    // const message = '你已成年';
+    console.log(message);
+
+    console.clear();
+
+    const grade = 95;
+    const level =
+      (grade >= 90)
+        ?
+        (grade >= 95)
+          ? 'A++'
+          : 'A+'
+        : (grade >= 80)
+          ? 'A'
+          : '不是A';
+    // const level2 = (grade >= 80) ? 'A' : '不是A';
+    console.log(level);
+    console.log(`小明的成績是${(grade >= 90) ? (grade >= 95) ? 'A++' : 'A+' : (grade >= 80) ? 'A' : '不是A'}`);
+
+
+
+    console.log('---------------------');
+    // 跳脫字元
+    console.log("老闆說:\"今年一定會加薪!\"，我很疑惑");
+    console.log("路徑為 C:\\Users");
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Hello World</h1>
+  <script>
+    // let vs const (ES6)
+    //------------------------------
+    // let a = 100; // 宣告變數 a，並賦值為 100 數字
+    let a;
+    a = 100;
+
+    let b = 'Loki'; // 宣告變數 b，並賦值為 Loki 字串
+    a = 200;
+    b = 300;
+
+    const c = 500; //宣告常數 c ( 不可修改，可保護此變數不會被某行代碼修改到)，並賦值為 500 數字
+
+    let num = 100;
+
+    let studentNewName = 'loki';
+    studentNewName = 'max';
+
+    console.log('a =', a);
+    console.log('b =', b);
+    console.log('c =', c);
+    console.log('num =', num);
+    console.log('studentNewName =', studentNewName);
+
+    // var (舊式宣告變數方式，不建議使用，他不會保護你的變數)
+    //-----------------------------
+    console.clear();
+
+    // var d = 400; // 舊式宣告變數方式，不建議使用
+    // console.log('d =', d);  // devA 
+
+    // var d = 'loki';
+    // console.log('d =', d);  // devB
+
+    // console.log('d =', d);  // devA 
+
+    // 全域下的臨時變數 (Global Variable)，不特意宣告，直接賦值產生一個全域(所有的的程式碼都能讀寫)變數
+    // -----------------------------
+    e = 600; // 直接賦值給一個沒有宣告過的變數，會自動成為全域變數 (不建議使用)
+    e = 700; // 任何程式碼都可以隨意地讀取與修改，不建議使用
+    console.log('e =', e);
+
+    // 作用域 (Scope)
+    //-----------------------------
+    console.clear();
+
+    let gVar = 'I am global'; // 全域變數
+
+    { //區域性，{}為區域範圍
+      let gVar = '我自己的冰箱';
+      let lVar = 'I am local'; // 區域變數
+      console.log('區域內讀取全域變數 gVar =', gVar);
+      console.log('區域內讀取區域變數 lVar =', lVar);
+    }
+
+    console.log(gVar);
+    console.log(lVar);
+
+  </script>
+</body>
+
+</html>

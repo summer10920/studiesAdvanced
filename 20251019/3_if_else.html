@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const age = 17;
+
+    // 單行特性可以省略{}
+    // ------------------------------
+    // if (true) console.log('yes');
+    // else console.log('no');
+
+    // 上面可改用三元設計
+    // ------------------------------
+    // true ? console.log('yes') : console.log('no');
+
+    // 三元 + 字串模板
+    // ------------------------------
+    // console.log(true ? 'yes' : 'no');
+    // console.log(`i said: ${true ? 'yes' : 'no'}`);
+
+    // 多重條件判斷
+    // ------------------------------
+    // if (age >= 18) {
+    //   console.log('限制級');
+    // } else {
+    //   if (age >= 12) {
+    //     console.log('輔導級');
+    //   } else {
+    //     if (age >= 6) {
+    //       console.log('保護級');
+    //     } else {
+    //       console.log('普遍級');
+    //     }
+    //   }
+    // }
+
+    // 因為單行特性可以省略大括號，前面的代碼可以精簡成以下
+    if (age >= 18) console.log('限制級');
+    else if (age >= 12) console.log('輔導級');
+    else if (age >= 6) console.log('保護級');
+    else console.log('普遍級');
+
+    console.log('結束');
+  </script>
+</body>
+
+</html>

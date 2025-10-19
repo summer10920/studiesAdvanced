@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // question 1
+    // --------------------------------
+    const score = 75;
+    let level;
+
+    if (typeof score === 'number' && 0 <= score && score <= 100) {
+
+      if (90 <= score) level = 'A';
+      else if (80 <= score) level = 'B';
+      else if (70 <= score) level = 'C';
+      else if (60 <= score) level = 'D';
+      else level = 'F';
+      console.log(`分數 ${score} 的等級是：${level}`);
+
+    }
+    else console.log('分數異常，不是數字或者不介於 0 ~ 100 之間無法計算');
+
+    // question 2
+    // --------------------------------
+    const year = 2400;
+    console.log(`${year} 年是閏年：${(year % 4 === 0) && (year % 100 !== 0) || (year % 400 === 0)}`);
+
+    // question 3
+    // --------------------------------
+    const height = 170;
+    const weight = 70;
+    const bmi = (weight / (height / 100) ** 2).toFixed(1); // toFixed 精準到小數點第幾位
+    let status = '肥胖';
+
+    switch (true) {
+      case bmi < 18.5:
+        status = '過輕';
+        break;
+      case bmi <= 24.9:
+        status = '正常';
+        break;
+      case bmi <= 29.9:
+        status = '過重';
+        break;
+    }
+
+    console.log(`身高 ${height}cm，體重 ${weight}kg，BMI ${bmi}，體重狀態：${status}`);
+
+  </script>
+</body>
+
+</html>

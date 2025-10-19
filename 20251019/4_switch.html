@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    /*
+    const permission = 2;  // 0:deny,1:read, 2:write
+
+    // 判定指定的內容，符合哪一個 case 值進入對應的區塊執行
+    // 模擬前台網頁的內容
+    switch (permission) {
+      case 0:  //0 ===2
+        console.log('無效拜訪請重新登入');
+        break;
+      case 2: //2 === 2
+        console.log('開啟後台選單按鈕');
+      case 1:
+        console.log('載入前台資料中...');
+      // default:
+      //   // code block
+      //   console.log('未定義');
+      //   console.log('未定義');
+      //   console.log('未定義');
+      //   break;
+
+    }
+
+    */
+
+    const age = 2;
+    switch (true) {
+      case age >= 18:
+        console.log('限制級');
+        break;
+      case (age >= 12):
+        console.log('輔導級');
+        break;
+      case (age >= 6):
+        console.log('保護級');
+        break;
+      default:
+        console.log('普遍級');
+        break;
+    }
+
+
+
+  </script>
+</body>
+
+</html>

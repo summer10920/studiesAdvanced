@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // for 迴圈
+    //------------------------------
+    for (let i = 0; i < 10; i++) {  // flag 初始化執行第一次指令; 每次for都檢查是否要進入{}; 每次{}結束做甚麼事情
+      // 要求重複{}內的代碼幾次
+      console.log('a');
+    }
+    console.log('end');
+
+    let sumA = 0;  // 1 + 2 + 3 + ... + 5
+    for (let i = 1; i < 6; i++) {
+      sumA += i;  // sum = sum + i
+    }
+    let sumB = 1;  // 1 + 2 + 3 + ... + 5
+    for (let i = 2; i < 6; i++) {
+      sumB += i;  // sum = sum + i
+    }
+    console.log('sum=', sumA, sumB);
+
+    console.clear();
+
+    let i = 0;
+    while (i < 10) {
+      console.log('hello');
+      if (i % 2 === 0) console.log('i is even', i);
+      i++;
+    }
+
+    console.clear();
+
+    // do-while
+    let j = 10;
+    do {
+      console.log('hi', j);
+      j -= 5;
+    } while (j > 0);
+
+    console.clear();
+
+    for (let k = 1; k < 11; k++) {
+      if (k === 3) continue;  // 跳過本次迴圈，進入下一次迴圈
+      console.log('k=', k);
+      if (k === 8) break;     // 結束整個迴圈
+    }
+
+    console.clear();
+
+    for (let i = 2; i < 10; i++) {
+      // console.log(`------${i} start-------`);
+      let iMixStr = '';
+      for (let j = 1; j < 10; j++) {
+        iMixStr += `${i} x ${j} = ${i * j}\n`;
+      }
+      console.log(iMixStr);
+      // console.log(`------${i} end-------`);
+    }
+
+    console.clear();
+
+    // 使用 for 迴圈印出 1 到 100 的奇數
+
+    // for (let i = 1; i <= 100; i++) {
+    //   // run 100 times
+    //   if (i % 2 !== 0) console.log(i);
+    // }
+
+    // for (let i = 1; i <= 100; i++) {
+    //   // run 100 times
+    //   if (i % 2 === 0) continue;
+    //   console.log(i);
+    // }
+
+    for (let i = 1; i <= 100; i += 2) {
+      // run 50 times
+      console.log(i);
+    }
+    console.clear();
+
+    // 使用 while 迴圈計算 1 到 100 的總和
+
+    // let total = 0;
+    // let n = 1;
+    let total = 0, n = 1;
+
+    while (n <= 100) {
+      total += n;
+      n++;
+    }
+
+    console.log(total);
+
+    console.clear();
+
+    // 使用雙重迴圈印出一個 5×5 的星號方陣 , hard code
+    // ⭐⭐⭐⭐⭐\n
+    // ⭐⭐⭐⭐⭐\n
+    // ⭐⭐⭐⭐⭐\n
+    // ⭐⭐⭐⭐⭐\n
+    // ⭐⭐⭐⭐⭐
+
+    let starNum = 6;
+    let finalAnswer = '';
+
+    for (let i = 0; i < starNum; i++) {
+      for (let j = 0; j < starNum; j++) finalAnswer += '⭐';
+      if (i === (starNum - 1)) break;
+      finalAnswer += '\n';
+    }
+
+    console.log(finalAnswer);
+
+
+
+
+
+  </script>
+</body>
+
+</html>
