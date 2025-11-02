@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const name = 'loki';
+    console.log(`使用者名稱：${name}`);
+
+    show1();  // 執行 FN
+    function show1() {  // 宣告 FN，Browser 每次執行都先讀取 FN 宣告，才會開始跑 script 代碼，因此不會受宣告順序影響
+      console.log("歡迎來到我們的網站！");
+      console.log("=============================");
+    }
+
+    console.clear();
+
+    function show2(name = 'World') { // fn 宣告時可以要求參數，可定義初始化
+      console.log(`Hello! ${name}`);
+      console.log("=============================");
+    }
+
+    show2('Loki');
+    show2('Kitty');
+    show2();
+
+    console.clear();
+
+    // 計算兩數總和的函式，提供兩個數字當參數，將計算結果印出
+    function sum(a = null, b = null) {
+      if (typeof a === 'number' && typeof b === 'number')
+        console.log(`計算 ${a} + ${b} 的結果是：${a + b}`);
+      else
+        console.log('參數不足，無法計算');
+    }
+
+    sum(10, 20);
+    sum(20, 20, 30); // 多餘參數不會被使用
+    sum(20);
+    sum(0, 20);
+
+    console.clear();
+
+
+    /**  =JSDOC= 計算陣列中所有數字的總和
+     * @param {Array} ary 傳入一個陣列，內含數字
+     * @returns {number} 回傳計算後的總和
+     */
+
+    function calcTotal(ary) {
+      let sum = 0;
+      for (const num of ary) {
+        // if (typeof num !== 'number') continue; // 脫離數字
+        if (typeof num !== 'number') return NaN; // 直接回傳 NaN
+        sum += num;
+      };
+
+      console.log('done');
+
+      return sum; // 將結果回傳給呼叫處
+    }
+
+    const myTotal = calcTotal([10, 20, 'STR', 40, 50]);
+    console.log(`計算結果是：${myTotal}`);
+
+    console.clear();
+
+    function sub(a, b = 0) {
+      console.log(`計算 ${a} - ${b} 的結果是：${a - b}`);
+    }
+
+    sub(20); // 情況一
+    sub(20, 10); // 情況二
+
+    console.clear();
+
+    // --------------------箭頭函式-----------------------
+
+    // const subArrow = (a, b = 0) => {
+    //   console.log(`計算 ${a} - ${b} 的結果是：${a - b}`);
+    // };
+    // const subArrow = (a, b = 0) => console.log(`${a - b}`);
+    // subArrow(10, 8);
+    // const subArrow = (a, b = 0) => {
+    //   return a - b;
+    // };
+
+    // const subArrow = (a, b = 0) => a - b;
+    // console.log(subArrow(10, 8));
+
+    // const square = (n) => {
+    //   return n ** 2;
+    // }
+    // const square = n => n ** 2;
+    // console.log(square(3));
+
+    const sayHi = () => console.log(123);
+
+    console.clear();
+
+    // --------------------匿名函式(傳統FN的快寫版)-----------------------
+
+    // const addSum = function (a, b) { // 這個變數 addSum 裡面放著一個匿名函式，可以稱呼這個內容為函式表達式
+    //   return a + b;
+    //   // console.log(a + b);
+    // };
+    const addSum = function (a, b) {
+      return a + b;
+    };
+    // console.log(addSum(10, 20));
+
+
+    const sayYes = function (v) {
+      console.log('yes', v);
+    };
+
+    sayYes('H');
+
+    // const max = '123'; // 多餘，為何不直接輸出123需要額外用變數
+    // console.log(max); // 多餘
+    console.log('123');
+
+    // IIFE Immediately Invoked Function Expression 立即執行函式表達式
+    (function (v) {
+      console.log('yes', v);
+    })('H');
+
+    (function () {
+      console.log('yes');
+    })();
+
+    (() => console.log('ya'))();
+
+    console.clear();
+
+    //-----------fn(callbackFn)應用在陣列的prototype---------------------
+    let nameAry = ['Loki', 'Max', 'July'];
+
+
+    // function printEl(v, i) {
+    //   console.log(v, i);
+    // }
+    // nameAry.forEach(printEl);
+
+    /* 
+    148 行的動作分解:
+    forEach 根據 nameAry 陣列，批次迴圈不斷的呼叫 printEl
+
+    run 1-> printEl('Loki',0, nameAry);
+    run 2-> printEl('Max', 1, nameAry);
+    run 3-> printEl('July',2, nameAry);
+    */
+
+    // nameAry.forEach(function (element, index) {
+    //   console.log(element, index);
+    // });
+
+    // nameAry.forEach((v, i) => console.log(v, i));
+    nameAry.forEach(v => console.log(v));
+    // nameAry.forEach((v, i, ary) => console.log(v, i, ary));
+
+
+    console.clear();
+
+    const fnAdd = (a, b) => a + b;
+    const fnSub = (a, b) => a - b;
+    const calc = (a, b, fn) => console.log(fn(a, b));
+
+    calc(10, 5, fnAdd);
+    calc(10, 5, fnSub);
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>

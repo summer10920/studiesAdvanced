@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // const student1Name = 'loki';
+    // const student1EnCount = 60;
+    // const student1MtCount = 99;
+    // const student2Name = 'max';
+    // const student2EnCount = 60;
+    // const student2MtCount = 99;
+
+    // const student1 = ['loki', 60, 99];
+    // const student2 = ['max', 60, 99];
+
+    const std1 = {
+      name: 'loki',
+      age: 25,
+      score: {
+        en: 60,
+        mt: 99
+      },
+      isMale: true,
+      hobbies: ['reading', 'gaming', 'coding'],
+      // address: {
+      //   // city: 'taipei',
+      //   zipCode: '10101',
+      //   country: 'taiwan',
+      //   street: 'taipei road'
+      // },
+      greet: function () {
+        console.log('hello');
+      }
+    }
+
+    const getValue1 = std1.name;
+    const getValue2 = std1['name'];
+    const getValue3 = std1['hobbies'][1];
+    const getValue4 = std1.hobbies[1];
+
+    const keyName = 'age';
+
+    std1.name = 'max';
+    std1.keyName = 50; // 這裡的keyName不是變數(value 為 age)，是object key
+
+    std1['age'] = 30;  // find key (age) by string, it's success
+    std1[keyName] = 40; // find key (age) by variable, it's success
+
+    // if (std1.address && std1.address.city) {
+    //   const cityUC = std1.address.city.toUpperCase();
+    //   console.log(`WELCOME TO ${cityUC}`);
+    // } else {
+    //   console.log(`WELCOME`);
+    // }
+
+    // const cityUC = std1.address?.city?.toUpperCase();
+    // console.log(cityUC ? `WELCOME TO ${cityUC}` : `WELCOME`);
+
+    // 如果 ||，只要可以視為false的都會往後跑(讀取 default)
+    // 如果 ??，只有 null 跟 undefined 會往後跑(讀取 default)
+    // let cityUC = std1.address?.city?.toUpperCase() ?? 'TAIWAN';
+    // console.log(`WELCOME TO ${cityUC}`);
+    console.log(`WELCOME TO ${std1.address?.city?.toUpperCase() ?? 'TAIWAN'}`);
+
+    console.clear();
+
+
+    //--------------loop in object------------------
+    const std2 = {
+      name: "小華",
+      age: 22,
+      major: "資訊工程",
+      grade: "大三"
+    };
+
+
+    for (const key in std2) {
+      // console.log(std2[key]);
+      // console.log(`Value: ${std2[key]}`);
+      console.log(`Key: ${key}, Value: ${std2[key]}`);
+    }
+
+    console.clear();
+
+    Array.isArray(std2); // false
+    const keyAry = Object.keys(std2); //  ['name', 'age', 'major', 'grade']
+
+    for (const key of keyAry) {
+      console.log(`Key: ${key}, Value: ${std2[key]}`);
+    }
+
+    console.clear();
+
+
+    Object.values(std2); // ['小華', 22, '資訊工程', '大三']
+    const entryAry = Object.entries(std2); // [['name', '小華'], ['age', 22], ['major', '資訊工程'], ['grade', '大三']]
+
+    for (const minAry of entryAry) {
+      console.log(`Key: ${minAry[0]}, Value: ${minAry[1]}`);
+    }
+
+    console.clear();
+
+    'age' in std2; // true
+
+    if ('age' in std2) { console.log('key => ags in std2') }
+  </script>
+</body>
+
+</html>

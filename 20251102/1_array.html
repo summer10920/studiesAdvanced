@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const a1 = 2;
+    const a2 = 2;
+    const a3 = 3;
+    const ary1 = [false, 'loki', 3];
+    const ary2 = [];
+    const ary3 = new Array();
+    const ary4 = new Array(3);
+    const ary5 = new Array(3, 4, 5);
+    const ary6 = new Array('3');
+    const ary7 = [3];
+    //----------------------------------
+
+    const bry1 = [1, 2, 3];
+    const bry2 = [1, 2, 3];
+    const bry3 = bry1; // array是一種特別的物件，此寫法將記憶體參考位置指給 bry3，因此如果詢問 bry3 === bry1 會 true
+
+    // --------------------------------
+    const cry1 = ["蘋果", "香蕉", "橘子", 145, 130, 80];
+    let cry2 = ["aa", "bb", "cc", 145, 130, 80];
+
+    /* todo trying
+    
+    cry1[1]='蝦米' // success , 
+    // 因為 cry1 是記憶體位置仍不變，修改的是該記憶體位置內容的另一個導向位置，因此可以修改內容
+    cry2[1]='蝦米' // success
+
+    cry1=[1,2,3] // failure
+    cry2=[1,2,3] // success
+    */
+
+
+    //---------------迴圈，如何循序讀出所有陣列內容的值-----------------
+    const dry1 = ["蘋果", "香蕉", "橘子", 145, 130, 80];
+
+    for (let i = 0; i < dry1.length; i++) {
+      // console.log(dry1[i]);
+      console.log(`在陣列 dry1 的第 ${i} 個值是 ${dry1[i]}`);
+    }
+
+    console.clear();
+
+
+    // method1:指定fn
+    // function myPrint(value){
+    //   console.log(value);
+    // }
+    // dry1.forEach(myPrint);
+
+    // method2:匿名函式
+    // dry1.forEach(function(value){
+    //   console.log(value);
+    // });
+
+    // method3:箭頭函式
+    dry1.forEach((val, idx) => {
+      // console.log(val,idx);
+      console.log(`在陣列 dry1 的第 ${idx} 個值是 ${val}`);
+    });
+
+    console.clear();
+
+    for (const val of dry1) {
+      // console.log(val);
+      // console.log(dry1.indexOf(val));
+      console.log(`在陣列 dry1 的第 ${dry1.indexOf(val)} 個值是 ${val}`);
+    }
+
+
+    console.clear();
+
+
+    //-----------prototype (push, pop, shift, unshift)-----------
+    const ery1 = ["蘋果", "香蕉", "橘子", 145, 130, 80];
+
+    const num80 = ery1.pop();   // 刪除陣列最後一個值，並回傳該值
+    ery1.push("西瓜"); // 在陣列尾端新增一個值
+    const apple = ery1.shift(); // 刪除陣列第一個值，並回傳該值
+    ery1.unshift("芭樂"); // 在陣列頭端新增一個值
+
+    // console.log(ery1); //  ['芭樂', '香蕉', '橘子', 145, 130, '西瓜']
+
+    const ansIs3 = ery1.indexOf(145); // return index number
+    const hasBanana = ery1.includes("香蕉"); // return boolean
+    const aryToStr = ery1.toString(); // return string
+    const aryToStrWithJoin = ery1.join(", "); // return string with join separator
+
+    ery1.splice(3, 2, '葡萄', '桃子');
+
+    console.log(ery1); //  ['芭樂', '香蕉', '橘子', '葡萄', '桃子', '西瓜']
+
+    const aryFruitHas1 = ery1.slice(1, 2);  // ['香蕉']
+    const aryFruitHas3 = ery1.slice(2, 5); // ['橘子', '葡萄', '桃子']
+    const aryFruitHas4 = ery1.slice(2); // ['橘子', '葡萄', '桃子', '西瓜']
+
+    const aryFruitConcat = aryFruitHas3.concat(aryFruitHas4, aryFruitHas1); //['橘子', '葡萄', '桃子', '橘子', '葡萄', '桃子', '西瓜', '香蕉']
+
+    console.clear();
+    //----------------nested array-----------------------
+    const fry1 = ['aaa', ery1, true];
+    const fry2 = [aryFruitHas1, aryFruitHas3, aryFruitHas4];
+
+    const fry3 = [['香蕉'], ['葡萄', '桃子'], ['桃子', '西瓜']];
+    const watermelon = fry3[2][1]; // '西瓜'
+    fry3[2].splice(1, 0, '鳳梨');
+    fry3.splice(1, 0, '鳳梨');
+
+
+  </script>
+</body>
+
+</html>
