@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    //------------------------Set-------------------------------------
+    const mySet = new Set(); // set 可以幫你管理不重複的值
+    mySet.add(50);
+    mySet.add(10);
+    mySet.add(5);
+    mySet.add(50);
+    mySet.add(10);
+    mySet.add(1);
+
+    mySet.delete(10);
+
+    mySet.has(5); // true
+    mySet.has(100); // false
+
+    mySet.forEach(val => console.log(val));
+
+    // const coinAry = Array.from(mySet);
+
+    const dataAry = [5, 10, 100, 5, 20, 10, 30, 50, 20, 5, 50];// 將陣列整理為不重複的數字，並排續
+
+    // const ans = new Set(dataAry);
+    // const newDataAry = Array.from(ans);
+    // const sortDataAry = newDataAry.sort((a, b) => a - b);
+    // console.log(sortDataAry);
+
+    console.log(Array.from(new Set(dataAry)).sort((a, b) => a - b));
+
+
+    console.clear();
+
+    //------------------------Map-------------------------------------
+    const myMap = new Map(); // key-value 組合
+    myMap.set('name', '小華');
+    myMap.set('age', 18);
+    myMap.set('name', '小明');
+    myMap.set('scope', { en: 100, ch: 95, math: 98 });
+
+    console.log(myMap.get('name')); // 小明
+    myMap.delete('age');
+
+    myMap.forEach((val, key) => console.log(key, val));
+
+    const myObj = Object.fromEntries(myMap);
+    console.log(myObj);
+
+    console.clear();
+
+    //-----------------------Math (random) 0 ~ 0.99999 --------------------------------------
+    const rand1 = Math.random(); // 0 ~ 0.9999999999....
+
+    /* 請產生隨機 1 ~ 10 整數 */
+    const rand0to9dot9 = Math.random() * 10; // 0 ~ 9.9999999
+    const rand0to9 = Math.floor(rand0to9dot9); // 0 ~ 9
+    const rand1to10 = rand0to9 + 1; // 1 ~ 10
+
+    const r1to10 = Math.floor(Math.random() * 10) + 1;
+
+    // const r13to42 = ???;
+    // const r0to29 + 13
+
+    // Math.random()  // 0 ~ 0.9999999 === 0 ~ 1 的浮點數(不含1)
+    // Math.random() * 10  // 0 ~ 9.9999999 === 0 ~ 10 的 float (不含10)
+    // Math.random() * 30  // 0 ~ 29.9999999 === 0 ~ 30 的 float (不含30)
+
+    // const r0to29 = Math.floor(Math.random() * 30); // 0 ~ 29
+    // const r13to42 = r0to29 + 13; // 13 ~ 42
+    const r13to42 = Math.floor(Math.random() * 30) + 13; // 13 ~ 42
+
+    function myRand(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min; // 42-13
+    }
+
+    // console.log(myRand(13, 42));
+    console.log(myRand(5, 7));
+
+
+
+  </script>
+</body>
+
+</html>

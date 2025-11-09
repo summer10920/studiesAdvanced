@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const ary1 = ['A', 'B', 'C', 'D', 'E'];
+    const ary2 = ['甲', '乙'];
+    ary1.includes('C');  // true
+    ary1.includes('F'); // false
+
+    //----------------forEach----------------
+
+    // function fnEachConsole(val, idx) {
+    //   console.log(`the index ${idx} is ${val}`);
+    // }
+    // function fnEachConsole(val, idx, ary) {
+    //   console.log(`the each is ${val}`);
+    // }
+    const fnEachConsole = (val, idx, ary) => {
+      console.log(`the each is ${val}`);
+    }
+
+    // fnEachConsole('A', 0, ary1);
+    // fnEachConsole('B', 1, ary1);
+    // fnEachConsole('C', 2, ary1);
+    // fnEachConsole('D', 3, ary1);
+    // fnEachConsole('E', 4, ary1);
+
+    ary1.forEach(fnEachConsole);
+    ary2.forEach(fnEachConsole);
+
+    console.clear();
+
+    ary1.forEach(function (val) {
+      console.log(val);
+    });
+    ary2.forEach(val => console.log(val));
+
+
+    console.clear();
+
+    // ---------------- map:批次讀取值，可以試圖轉換並返回，最終會返回新陣列
+    const ary3 = ary1.map(function (oldVal) {
+      if (oldVal === 'B' || oldVal === 'D') return oldVal;
+      return `name is ${oldVal}`; // 返回 newVal
+      console.log(oldVal);
+    });
+
+
+    //----------------過濾，要留下得想辦法回傳 true
+    const aryScope = [80, 55, 60, 70, 99, 45, 30, 100];
+    const aryPass = aryScope.filter(function (val) {
+      return val >= 60;
+    });
+
+    //------------- find，第一個符合條件(TRUE)返回該值
+    const findFirstUnPass = aryScope.find(function (val) {
+      // return val < 10;
+      return val < 60;
+    });
+
+    //------------some:任一值有符合條件就返回 true
+    const hasUnPass = aryScope.some(function (val) {
+      // return val < 10;
+      return val < 60;
+    });
+    //------------- every:全部值都符合條件才返回 true
+    const allPass = aryScope.every(function (val) {
+      // return val >= 10;
+      return val >= 60;
+    });
+
+    //------------ reduce:累加器 ----------------------
+    //求全班平均分數
+
+    //--- method 1
+    // let total = 0;
+
+    // for (let i = 0; i < aryScope.length; i++) {
+    //   total += aryScope[i];
+    // }
+
+    // const avg = total / aryScope.length;
+
+    //--- method 2
+    // let total = 0;
+    // aryScope.forEach(val => total += val);
+    // const avg = total / aryScope.length;
+
+
+    //--- method 3
+    const total = aryScope.reduce(function (acc, cur) {
+      // console.log(acc, cur); //  [[0, 80],[80,55],[135,60],...]
+      return acc + cur; // next acc
+    }, 0);
+    const avg = total / aryScope.length;
+
+</script>
+</body>
+
+</html>

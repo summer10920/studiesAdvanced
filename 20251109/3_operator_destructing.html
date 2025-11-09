@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const ary1 = ['A', 'B', 'C'];
+
+    // const ary2 = ['A', 'B', 'C', 'D', 'E'];
+    // const ary2 = ary1; // 把 ary1 的陣列定義 指派給 ary2，導致 ary2 有相同陣列定義，他們是同樣的陣列(包記憶體位置)
+    // ary2.push('D', 'E');  // failure
+
+    // const ary2 = [];
+    // ary1.forEach(val => ary2.push(val));
+    // ary2.push('D', 'E');
+
+    // ary2= ['A','B','C']+['D','E']
+    // ary2 = ary1.concat(['D', 'E']);
+
+    // ary2 = ary1.slice();
+    // ary2.push('D', 'E');
+
+    // ary2 = Array.from(ary1);
+
+    // ary2 = [...ary1];
+    // ary2.push('D', 'E');
+
+    // ary2 = [...ary1, 'D', 'E'];
+    // ary2 = ['D', ...ary1, 'E'];
+
+
+    const aryDE = ['D', 'E'];
+
+    // const ary3 = ary1.concat(aryDE); // 合併為新陣列
+
+    ary3 = [...ary1, ...aryDE]; // 合併新陣列
+
+    const obj1 = { name: 'loki', age: 18 };
+    // const obj2 = { ...obj1 };
+    // obj2.name = 'max';
+
+    // const obj2 = {
+    //   name: 'loki',
+    //   age: 18,
+    //   name: 'max',
+    //   age: 20,
+    // }
+
+    // const obj2 = { name: 'max', ...obj1 };
+    const obj2 = { ...obj1, name: 'max', address: 'taipei' };
+
+
+    const obj3 = {
+      name: 'loki',
+      scope: {
+        en: 100,
+        mt: 99
+      }
+    }
+
+    // const obj4 = { ...obj3 }; // 淺拷貝關係，第二層物件沒有被拷貝(展開)為新物件，所以他們的scope 指向同一個物件
+
+    const obj4 = {
+      ...obj3,  // name, scope(原物件位置)
+      scope: { ...obj3.scope } // 利用覆蓋，重新將新物件(展開後)重新指派給 scope
+    }; //第二層物件跟著再一次淺拷貝(展開)為新物件
+
+
+    const nestAry1 = ['A', ['b', 'c']];
+    // const nestAry2 = [...nestAry1]; // 淺拷貝，第二層陣列沒有被拷貝(展開)為新陣列
+
+    // const nestAry2 = [
+    //   ...nestAry1,
+    //   [...nestAry1[1]] // 邏輯錯誤，這樣陣列變3組
+    // ];
+
+    const [fst, sec] = nestAry1; // 解構賦值
+    const nestAry2 = [
+      fst,
+      [...sec] // 第二層陣列被拷貝(展開)為新陣列
+    ];
+
+    const ary5 = [10, 20, 30];
+    const [w, , x] = ary5;
+    const [y, , z] = ary5;
+
+    let [m, n, o = null, p = null] = [1, 2, 3];
+
+    // const [aa, ...rest, bb] = [100, 200, 300, 400, 500]; // error:rest 必須是最後一個
+    const [aa, bb, ...rest] = [100, 200, 300, 400, 500];
+
+    const person = { name: "小明", age: 18, city: "台北", job: "學生" };
+
+    const { name, age, ...restObj } = person;
+
+    const { city: address } = restObj; // 解構賦值並重新命名
+
+    const { job = '老師', gender = '未知' } = person;
+
+    //-------------------------------------------
+
+    function user1(name, age) {
+      console.log(name, age);
+    }
+    function user2(obj) {
+      console.log(obj.name, obj.age);
+    }
+
+    const userInfo = { name: 'loki', age: 18 };
+    user2(userInfo);
+
+    function user3({ name, age }) {
+      console.log(name, age);
+    }
+
+    function user4({ name, age, job = '未知' }) {
+      console.log(name, age, job);
+    }
+
+    function user5(name, age, job = '未知') {
+      console.log(name, age, job);
+    }
+
+    let a = 1, b = 2;
+
+    // const tmp = b;
+    // b = a;
+    // a = tmp;
+    // console.log(a, b);
+
+    [a, b] = [2, 1]; // a=2, b=1
+    console.log(a, b); // 2 1
+
+
+    console.clar();
+    //-------------------------------------
+    
+
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const calculator = {
+      name: 'loki',
+      add: function (a, b) {
+        return a + b;
+      },
+      multiply: (a, b) => a * b
+    };
+
+    //-------------------------------------------------
+    let name = 'loki'; // 全域變數
+    let count = 0;
+
+    function testScope() {
+      let name = 'max'; // 區域變數
+      let age = 18;
+
+      count++;
+      console.log(name, age);
+    }
+
+
+    function testScope2() {
+      const name = 'toyota';
+      count--;
+      console.log(name);
+      // console.log(age); // error
+    }
+    // console.log(name, age);
+
+    if (true) {
+      // let name = 'kitty';
+      name = 'kitty';
+
+      console.log('if scope:', name);
+    }
+
+    function tryReturn() {
+      // 合法使用全域變數進行修改，那為何要返回值到外部(全域)進行修改
+      return 3;
+    }
+
+    count = tryReturn();  // count = 3
+
+    console.clear();
+    //--------------------閉包----------------------------------------
+    function outerFunction() {
+      const message = "Hello from outer function";
+
+      function innerFunction() {
+        const name = 'loki';
+        console.log(message); // 存取外部(全域)變數
+      }
+
+      // innerFunction();
+      return innerFunction;
+    }
+
+    // outerFunction();
+    // const myFunction = outerFunction();
+    const myFunction = outerFunction();
+    myFunction(); // 輸出：Hello from outer function
+
+    // 必包:就是讓一內部函式可以記住並存取當時它定義時的外部函式的作用域，即使這個外部函式執行完畢不存在，但該內部函式還是可以對外部函式的作用域存取(已經記住記憶體位置)。
+
+    // 證明，每次呼叫 FN 都是新的資源與新記憶體分配
+    function createA() {
+      let a = 0;
+      a++;
+      console.log(a);
+    }
+
+    // createA(); // 1 , 新的記憶體分配
+    {
+      let a = 0;
+      a++;
+      console.log(a);
+      name = 3;
+    }
+
+    // createA(); // 1 , 新的記憶體分配
+    {
+      let a = 0;
+      a++;
+      console.log(a);
+    };
+
+
+    console.clear();
+
+    //-------------必包計數器-----------------------------
+    function createCounter() {
+      let countCC = 0; // createCounter的區間變數，對inc, getCount 來說是外部變數
+
+      function inc() {
+        countCC++;
+        console.log(`計數：${countCC}`);
+      }
+
+      function dec() {
+        countCC--;
+        console.log(`計數：${countCC}`);
+      }
+
+      function getCount() {
+        return countCC;
+      }
+
+      return { inc, dec, getCount };
+    }
+
+    const counter = createCounter(); // 利用必包設計一個具備三種工具的可執行物件
+    counter.inc(); // 計數：1
+    counter.inc(); // 計數：2
+    counter.dec(); // 計數：1
+    counter.getCount(); // return 1
+
+
+    const counter2 = createCounter(); // 利用必包設計一個具備三種工具的可執行物件
+    counter2.dec(); // 計數：-1
+    counter2.getCount(); // return -1
+
+    console.clear();
+    //--------------this:當下環境的指向------------------------
+    console.log(this); // window
+    window.console.log(123);
+    this.console.log(123);
+
+    console.clear();
+
+    function thisWord() {
+      console.log(this, this.word);
+    }
+
+    word = 'A';
+
+    obj = {
+      word: 'B',
+      ask: thisWord,
+      second: {
+        word: 'C',
+        ask: thisWord
+      }
+    }
+
+    const person = {
+      name: '小明',
+      age: 25,
+      sayHello() {
+        console.log(`你好，我是 ${this.name}，今年 ${this.age} 歲`);
+      },
+      birthday: function () {
+        this.age++;
+        console.log(`生日快樂！現在 ${this.age} 歲了`);
+      },
+      checkThisAge: function () {
+        console.log(this.age);  // 這裡用的this是一種方便，當我們呼叫checkThis時，this會指向當前物件
+      },
+      arrowThis: () => {
+        console.log(this);
+      }
+    };
+
+    console.log(person.age);
+    person.checkThisAge();
+
+
+  </script>
+</body>
+
+</html>
