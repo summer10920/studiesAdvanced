@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <a href="https://www.google.com.tw" target="_blank" id="myLink">Go to Google</a>
+  <script>
+    /*
+    if (confirm('你滿18嗎')) {
+      alert('welcome');
+      console.log('done');
+    } else {
+      // window.history.go(-1);
+      location.assign('https://www.google.com.tw');
+    }
+    console.log('finish');
+    */
+
+
+    // setTimeout  // 延遲執行,延遲多久之後才執行這指令
+
+    console.log('start');
+
+    const timerID = setTimeout(function () {
+      console.log('timeout done');
+    }, 10000);
+
+    console.log(timerID);
+
+    console.log('end');
+
+    clearTimeout(timerID); // 每次生成 setTimeout 都會回傳一個 ID，可以用這 ID 來取消這個延遲執行
+
+    // setInterval // 重複執行，間隔幾秒
+
+    // const intervalID = setInterval(() => {
+    //   console.log('interval done' + intervalID);
+    // }, 1000);
+
+    let count = 0;
+
+    const clearID = setInterval(() => {
+      count++;
+      if (count > 5) {
+        console.log('時間到，停止計時！');
+        clearInterval(clearID);
+
+        console.log('3秒後關閉此視窗');
+        setTimeout(() => close(), 3000);
+        open('https://www.google.com.tw', '_blank');
+
+        return;
+      }
+
+      console.log(`計秒開始！${count} 秒鐘....`);
+    }, 1000);
+
+
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>

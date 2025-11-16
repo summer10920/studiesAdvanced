@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function divide(a, b) {
+      // if (b === 0) {
+      //   console.error('除數不能為零');
+      //   return null;
+      // }
+      // console.log('計算中...');
+      // return a / b;
+
+      let ans = '';
+      try {
+        if (b === 0) throw new Error('除數不能為零');
+        ans = a / b;
+      } catch (error) {
+        console.error(error.message);
+        ans = null;
+      } finally {
+        return ans;
+      }
+    }
+
+
+    console.log(divide(10, 3));
+
+    console.log(divide(10, 0));
+
+
+  </script>
+</body>
+
+</html>

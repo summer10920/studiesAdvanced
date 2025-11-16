@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    請寫一個 JavaScript 函式，產生 1~46 之間隨機且不重複的 6 個號碼，並將結果由小到大排序，回傳一個陣列。
+  
+    輸出範例：[3, 8, 15, 22, 34, 45]
+    提示：可用 Math.random()、Set、Array、sort() 等方法
+    */
+
+    /* method 1
+    const lotto = [];
+    for (let i = 0; i < 6; i++) {
+      const rand1to46 = Math.floor(Math.random() * 46) + 1;  // 1 ~ 46
+      lotto.includes(rand1to46) ? i-- : lotto.push(rand1to46);
+    }
+    lotto.sort((a, b) => a - b);
+    console.log(lotto);
+    */
+
+    /* method 2
+    const lotto = [];
+    while (lotto.length < 6) {
+      const rand1to46 = Math.floor(Math.random() * 46) + 1;  // 1 ~ 46
+      if (!lotto.includes(rand1to46)) lotto.push(rand1to46);
+    }
+    lotto.sort((a, b) => a - b);
+    console.log(lotto);
+    */
+
+    /* method 3
+    const lotto = [];
+    while (lotto.length < 6) {
+      const rand1to46 = Math.floor(Math.random() * 46) + 1;  // 1 ~ 46  
+      if (!lotto.includes(rand1to46)) lotto.push(rand1to46);
+    }
+    lotto.sort((a, b) => a - b);
+    console.log(lotto);
+    */
+
+    /* method 4
+    const lottoSet = new Set();
+    while (lottoSet.size < 6) lottoSet.add(Math.floor(Math.random() * 46) + 1);
+    console.log(Array.from(lottoSet).sort((a, b) => a - b));
+    */
+
+    // method 5-1
+    // const pool = [], selected = [];
+    // for (let i = 1; i <= 46; i++) pool.push(i);
+
+    // method 5-2, use from => Array.from(參數物件, mapFunction)
+    const pool = Array.from({ length: 46 }, (_, i) => i + 1), selected = [];
+
+    // for (let i = 0; i < 6; i++) {
+    //   let takeIndex = Math.floor(Math.random() * 46); // 0 ~ 45
+    //   selected.push(pool[takeIndex]);
+    //   pool.splice(takeIndex, 1);
+    // }
+
+    while (selected.length < 6) {
+      // let takeIndex = Math.floor(Math.random() * pool.length);
+      // selected.push(pool[takeIndex]);
+      // pool.splice(takeIndex, 1);
+
+      // let takeIndex = Math.floor(Math.random() * pool.length);
+      // selected.push(...pool.splice(takeIndex, 1));
+
+      selected.push(...pool.splice(Math.floor(Math.random() * pool.length), 1));
+    }
+    // console.log(selected.sort((a, b) => a - b));
+
+    //------------------------------------
+
+    // const pool2 = Array.from({ length: 46 }, (_, i) => i + 1);
+    // const selected2 = Array.from({ length: 6 }, () => {
+    //   const targetPool2Index = Math.floor(Math.random() * pool2.length);
+    //   const getBool = pool2.splice(targetPool2Index, 1)[0];
+    //   return getBool;
+    // });
+    // console.log(selected2.sort((a, b) => a - b));
+
+    const pool2 = Array.from({ length: 46 }, (_, i) => i + 1);
+    console.log(Array.from({ length: 6 }, () => pool2.splice(Math.floor(Math.random() * pool2.length), 1)[0]).sort((a, b) => a - b));
+
+
+  </script>
+</body>
+
+</html>
