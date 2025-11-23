@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1 id="myTitle" class="h1Class" title="這是標題" data-loki="這是自訂屬性">主標題</h1>
+  <a href="http://www.google.com" target="_blank" id="myLink" title="Google">Google</a>
+  <hr>
+  <input type="text" name="inputField" value="預設值">
+  <input type="checkbox" name="myCheckbox">
+  <input type="checkbox" name="myCheckbox" checked>
+  <hr>
+  <div class="container loki"> hello world </div>
+  <!--  -->
+  <!--  -->
+  <script>
+
+    (() => {
+      // IIFE, Immediately Invoked Function Expression 立即執行函式表達式(箭頭函式)
+
+      const elH1 = document.querySelector('#myTitle');
+      // 透過 DOM (JS) property 屬性 來取得屬性值
+      console.log(elH1.id);
+      console.log(elH1.className);
+      // 這是JS 指令 class 有特殊意義，這改用 className 替代定義 html 元素上的 class 屬性
+      console.log(elH1.title);
+      console.log(elH1.dataset.loki); // 這是自訂屬性，在JS內直接稱呼為 dataset
+
+      // 透過 getAttribute() 方法 來捕捉 HTML代碼 上的屬性值
+      console.log(elH1.getAttribute('id'));
+      console.log(elH1.getAttribute('class'));
+      console.log(elH1.getAttribute('title'));
+      console.log(elH1.getAttribute('data-loki'));
+
+      //---------------------------------------------------------------
+      elH1.className = 'new-class';
+      elH1.setAttribute('class', 'new-attr');
+
+      // elH1.className = '';
+      elH1.removeAttribute('class');
+
+      console.log(elH1.hasAttribute('class'));
+    })();
+
+
+    console.clear();
+
+    // 隨操作改變，後者表單元素不變(初始HTML定義，本來就不會隨user操作改變)
+    document.querySelector('input').getAttribute('value'); // 捕捉HTML上的字串
+    document.querySelector('input').value; // 捕捉該元素的value屬性值(建議)
+
+    const div = document.querySelector('.container');
+
+    // div.className = div.className + ' new';
+    div.classList.add('new', 'test');
+    div.classList.remove('loki', 'test');
+
+    div.classList.toggle('toggle-class',);
+    div.classList.toggle('toggle-class', true); // 第二參數，是強制有(true)或沒有(false)
+
+    div.classList.contains('loki'); //false, 不存在了
+    div.classList.contains('new'); // true, 還在
+
+
+
+
+  </script>
+</body>
+
+</html>

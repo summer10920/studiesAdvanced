@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    small {
+      color: red;
+      font-size: 12px;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <button>點我</button>
+  <hr>
+  <form>
+    <div>
+      <label>帳號:</label>
+      <input type="text" name="username">
+      <small>密碼長度不足</small>
+    </div>
+    <div>
+    </div>
+    <label>密碼:</label>
+    <input type="password" name="password">
+  </form>
+  <script>
+    let count = 0;
+    const btn = document.querySelector('button');
+
+    // function clickEvent() {
+    //   if (count >= 2) {
+    //     alert('就叫你不要點了!');
+    //     return;
+    //   }
+    //   alert('不要點了');
+    //   count++;
+    //   console.log('點擊事件發生了');
+    // }
+    // btn.onclick = clickEvent;
+
+    btn.onclick = function () {
+      if (count >= 2) {
+        alert('就叫你不要點了!');
+        return;
+      }
+      alert('不要點了');
+      count++;
+      console.log('點擊事件發生了');
+
+      // console.log('第二個事件處理器');
+    }
+
+    // overwrite, 所以你不能有兩個 onclick 事件處理器
+    // btn.onclick = function () {
+    //   console.log('第二個事件處理器');
+    // }
+
+
+    const inputUserName = document.querySelector('input[name="username"]');
+    inputUserName.onblur = function () {
+      const userName = this.value;
+      document.querySelector('small').style.display = userName.length < 5 ? 'inline' : 'none';
+    }
+
+
+  </script>
+</body>
+
+</html>

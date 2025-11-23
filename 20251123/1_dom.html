@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM的第一次操作</title>
+  <style>
+    /* #red { */
+    /* .text.red { */
+    .text:nth-child(2) {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 網頁內容多個元素組成 -->
+  <h1 id="myTitle">主標題</h1>
+  <h1>副標題</h1>
+  <div id="container">
+    <p class="text">第一段文字</p>
+    <p class="text red" id="red">第二段文字</p>
+    <p class="text">第二段文字</p>
+    <p class="text">第二段文字</p>
+    <p class="text">第二段文字</p>
+    <button id="btn">點擊我</button>
+  </div>
+  <hr>
+  <input type="text" name="inputField" value="預設值">
+  <!--  -->
+  <!-- 在這裡會定義一個script標籤，在這裡寫JS腳本，讓瀏覽器去執行 -->
+  <script>
+    function phase1() {
+
+
+      /* 這裡開始是JS語法，可發現註解長不太一樣 */
+
+      // 透過id取得特定單一元素 (傳統)
+      const elTitle = document.getElementById('myTitle');
+      console.log(elTitle);
+
+
+      // 透過 CSS 選擇器取得特定單一元素 (現代)
+      document.querySelector('#red');
+      document.querySelector('.text.red');
+      document.querySelector('.text:nth-child(2)');
+
+
+      // 透過 CSS 選擇器取得元素集合 NodeList (現代)
+      const elQueryAll = document.querySelectorAll('.text');
+      console.log(elQueryAll);
+
+      //---------------------------------------------------------------
+
+      // 透過 Tag Name 取得 HTMLCollection 元素集合(少用)
+      const elTag = document.getElementsByTagName('h1');
+      console.log(elTag);
+
+      // 透過 Class Name 取得 HTMLCollection 元素集合(少用)
+      const elClass = document.getElementsByClassName('text');
+      console.log(elClass);
+
+      // 透過元素屬性 Name 取得 HTMLCollection 元素集合(更很少)
+      const elAttrName = document.getElementsByName('inputField')
+      console.log(elAttrName);
+    }
+    phase1();
+
+    function phase2() {
+      //---------------------------------------------------------------
+      console.clear();
+      const elH1 = document.getElementById('myTitle');
+      console.log('文字內容', elH1.textContent);
+      elH1.textContent = '透過JS改變的主標題';
+
+      console.log(elH1.innerHTML);
+      // elH1.innerHTML = '透過JS改變的 <span style="color:blue">主標題</span>';
+      elH1.innerHTML = '<mark>透過JS改變的</mark>';
+
+      const elContainer = document.getElementById('container');
+      // elContainer.innerHTML = '<p>hello word</p>';
+      // elContainer.textContent = '<p>hello word</p>';
+
+      // elContainer.innerHTML = elContainer.innerHTML + '<p>hello world</p>';
+      // elContainer.innerHTML = `${elContainer.innerHTML}<p>Hello World</p>`;
+      elContainer.innerHTML += '<p>Hello World</p>';
+    }
+    phase2();
+
+
+  </script>
+</body>
+
+</html>

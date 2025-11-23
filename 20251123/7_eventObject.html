@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div.btn1 {
+      width: 200px;
+      height: 200px;
+      background-color: lightblue;
+    }
+
+    #draggable {
+      position: fixed;
+      left: 100px;
+      top: 100px;
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="btn1" onclick="clickEvent(event)">點我</div>
+  <a href="http://www.google.com">google</a>
+  <button id="btn2">點我</button>
+  <hr>
+  <input type="text" id="pwd" autocomplete="false">
+  <div id="error-message"></div>
+  <hr>
+  <div id="draggable">Drag me</div>
+  <script>
+    (() => {
+
+
+      function clickEvent(e) {
+        const randClr = () => Math.floor(Math.random() * 128) + 128;
+        e.target.style.backgroundColor = `rgb(${randClr()} ${randClr()} ${randClr()})`;
+        console.log(e.ctrlKey);
+      }
+
+
+      const link = document.querySelector('a');
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        console.log(e.target);
+        console.log('你點擊了連結，但被取消了預設行為');
+        console.log(e);
+      });
+
+
+      // document.addEventListener('keydown', (e) => {
+      //   if (e.keyCode !== 123) e.preventDefault(); // 取消預設行為
+
+      //   console.log(e.target);
+      //   console.log(e.key, e.code, e.keyCode);
+      //   // console.log(`你按下了 ${e.key} 鍵`);
+      // });
+
+      document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+      });
+
+      document.addEventListener('selectstart', (e) => {
+        e.preventDefault(); // 取消預設行為
+        e
+      });
+
+    })();
+
+    (() => {
+      const moveBox = document.getElementById('draggable');
+
+      let isDragging = false; // flag 表示是否正在拖曳
+      let initMouseX, initMouseY, initElementX, initElementY;
+
+      moveBox.addEventListener('mousedown', function (event) {
+        isDragging = true;
+        initMouseX = event.clientX;
+        initMouseY = event.clientY;
+        initElementX = moveBox.offsetLeft;
+        initElementY = moveBox.offsetTop;
+
+        // 阻止文字選取
+        event.preventDefault();
+      });
+
+      document.addEventListener('mousemove', function (event) {
+        // console.log('isDragging', isDragging);
+        if (!isDragging) return;
+
+        const mouseMoveX = event.clientX - initMouseX;
+        const mouseMoveY = event.clientY - initMouseY;
+
+        moveBox.style.left = (initElementX + mouseMoveX) + 'px';
+        moveBox.style.top = (initElementY + mouseMoveY) + 'px';
+      });
+
+      document.addEventListener('mouseup', function (event) {
+        isDragging = false;
+      });
+
+    })();
+
+    const pwd = document.querySelector('#pwd');
+    const errMsg = document.querySelector('#error-message');
+    const pwdRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[^A-Za-z0-9]).{8,}$/;
+    // 至少 1 個大寫 + 1 個小寫 + 1 個特殊符號 + 長度 ≥ 8
+
+    errMsg.style = 'color:red;';
+
+    pwd.addEventListener('change', function (e) {
+      const pwdValue = e.target.value.trim();
+      // if (!pwdRegex.test(pwdValue)) {
+      //   errMsg.textContent = '密碼需包含至少 1 個大寫字母、1 個小寫字母、1 個特殊符號，且長度至少 8 個字元';
+
+      // } else {
+      //   errMsg.textContent = '';
+      // }
+
+      errMsg.textContent =
+        !pwdRegex.test(pwdValue) ?
+          '密碼需包含至少 1 個大寫字母、1 個小寫字母、1 個特殊符號，且長度至少 8 個字元' :
+          '';
+    })
+
+
+
+  </script>
+</body>
+
+</html>

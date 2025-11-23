@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    small {
+      color: red;
+      font-size: 12px;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <button id="btn">點我</button>
+  <button id="lokiRemove">移除</button>
+  <script>
+    let count = 0;
+    const btn = document.querySelector('#btn');
+
+    function clickEvent() {
+      if (count >= 2) {
+        alert('就叫你不要點了!');
+        btn.removeEventListener('click', clickEvent);
+        return;
+      }
+      alert('不要點了');
+      count++;
+      console.log('點擊事件發生了');
+    }
+
+    btn.addEventListener('click', clickEvent);
+    btn.addEventListener('click', function () {
+      console.log('第二個事件處理器');
+    }, { once: true });
+
+    const removeBtn = document.querySelector('#lokiRemove');
+
+    removeBtn.addEventListener('click', function () {
+      btn.removeEventListener('click', clickEvent);
+    });
+
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>

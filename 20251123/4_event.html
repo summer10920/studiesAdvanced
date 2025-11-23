@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: lightblue;
+    }
+
+    small {
+      color: red;
+      font-size: 12px;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <!--  -->
+  <button onclick="clickEvent()">點我</button>
+  <hr>
+  <!-- <div onclick="checkEventHandle('onclick')">On Click</div> -->
+  <!-- <div onmouseover="checkEventHandle('onmouseover')">On Mouse Over</div> -->
+  <!-- <div onmouseenter="checkEventHandle('onmouseenter')">On Mouse Enter</div> -->
+  <!-- <div onmouseleave="checkEventHandle('onmouseleave')">On Mouse Leave</div> -->
+  <!-- <div onmouseout="checkEventHandle('onmouseout')">On Mouse Out</div> -->
+  <div onmousedown="checkEventHandle('onmousedown')">On Mouse Down</div>
+  <hr>
+  <input
+    type="text"
+    onclick="checkEventHandle('onclick')"
+    onmouseover="checkEventHandle('onmouseover')"
+    onchange="checkEventHandle('onchange',this.value)"
+    oninput="checkEventHandle('oninput',this.value)"
+  >
+  <hr>
+  <form action=""> 帳號: <input
+      type="text"
+      name="username"
+      onblur="checkUserName(this.value)"
+    >
+    <small>密碼長度不足</small>
+    <br>
+    <br> 密碼: <input
+      type="password"
+      name="password"
+    >
+  </form>
+  <!--  -->
+  <script>
+    let count = 0;
+    function clickEvent() {
+      if (count >= 2) {
+        alert('就叫你不要點了!');
+        return;
+      }
+      alert('不要點了');
+      count++;
+      console.log('點擊事件發生了');
+    }
+
+    function checkEventHandle(str, value) {
+      console.log(str, value);
+      // console.log(`${str}:事件發生了`);
+    }
+
+    function checkUserName(value) {
+      document.querySelector('small').style.display = value.length < 5 ? 'inline' : 'none';
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      border: 2px solid #007bff;
+      background-color: #e3f2fd;
+      padding: 60px 40px;
+    }
+
+    .outer {
+      border: 2px solid #28a745;
+      background-color: #d4edda;
+      padding: 60px 40px;
+    }
+
+    .inner {
+      border: 2px solid #dc3545;
+      background-color: #f8d7da;
+      padding: 60px 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>事件傳播觀察（捕獲與冒泡）</h1>
+  <p>點擊最內層的紅色區域，在瀏覽器控制台觀察完整的事件傳播過程</p>
+  <div class="container" id="container">
+    <div class="outer" id="outer">
+      <div class="inner" id="inner">
+        <p>點擊這裡觀察事件冒泡</p>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <button id="clearConsole">清除 Console</button>
+  <script>
+    // 為每個層級綁定點擊事件（冒泡階段）
+    document.getElementById('container').addEventListener('click', function (event) {
+      console.log('🟦 Container 接收到點擊事件（冒泡階段）');
+      console.log('   目標元素：', event.target.id);
+      console.log('   當前元素：', event.currentTarget.id);
+      console.log('   事件階段：', event.eventPhase === 3 ? '冒泡' : '其他');
+      console.log('---');
+    });
+
+    document.getElementById('outer').addEventListener('click', function (event) {
+      event.stopPropagation(); // 阻止事件冒泡
+      console.log('🟩 Outer 接收到點擊事件（冒泡階段）');
+      console.log('   目標元素：', event.target.id);
+      console.log('   當前元素：', event.currentTarget.id);
+      console.log('   事件階段：', event.eventPhase === 3 ? '冒泡' : '其他');
+      console.log('---');
+
+
+    });
+
+    document.getElementById('inner').addEventListener('click', function (event) {
+      event.stopPropagation(); // 阻止事件冒泡
+      console.log('🟥 Inner 接收到點擊事件（目標階段）');
+      console.log('   目標元素：', event.target.id);
+      console.log('   當前元素：', event.currentTarget.id);
+      console.log('   事件階段：', event.eventPhase === 2 ? '目標' : '其他');
+      console.log('---');
+    });
+
+    document.addEventListener('click', function (event) {
+      console.log('🌐 Document 接收到點擊事件（冒泡階段）');
+      console.log('   目標元素：', event.target.id);
+      console.log('   當前元素：', event.currentTarget.nodeName);
+      console.log('   事件階段：', event.eventPhase === 3 ? '冒泡' : '其他');
+      console.log('---');
+    });
+
+    // ※ 第三個參數 true 表示在捕獲階段觸發
+    // ---------------------------------------------------------------------
+
+    // // 為每個層級綁定點擊事件（捕獲階段）
+    // document.getElementById('container').addEventListener('click', function (event) {
+    //   console.log('🔵 Container 接收到點擊事件（捕獲階段）');
+    //   console.log('   目標元素：', event.target.id);
+    //   console.log('   當前元素：', event.currentTarget.id);
+    //   console.log('   事件階段：', event.eventPhase === 1 ? '捕獲' : '其他');
+    //   console.log('---');
+    // }, true); // 第三個參數 true 表示在捕獲階段觸發
+
+    // document.getElementById('outer').addEventListener('click', function (event) {
+    //   console.log('🟢 Outer 接收到點擊事件（捕獲階段）');
+    //   console.log('   目標元素：', event.target.id);
+    //   console.log('   當前元素：', event.currentTarget.id);
+    //   console.log('   事件階段：', event.eventPhase === 1 ? '捕獲' : '其他');
+    //   console.log('---');
+    // }, true); // 第三個參數 true 表示在捕獲階段觸發
+
+    // document.getElementById('inner').addEventListener('click', function (event) {
+    //   console.log('🔴 Inner 接收到點擊事件（捕獲階段）');
+    //   console.log('   目標元素：', event.target.id);
+    //   console.log('   當前元素：', event.currentTarget.id);
+    //   console.log('   事件階段：', event.eventPhase === 1 ? '捕獲' : '其他');
+    //   console.log('---');
+    // }, true); // 第三個參數 true 表示在捕獲階段觸發
+
+    // 清除 Console 按鈕
+    document.getElementById('clearConsole').addEventListener('click', function () {
+      console.clear();
+    });
+  </script>
+</body>
+
+</html>

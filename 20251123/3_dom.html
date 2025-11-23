@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      /* font-size: 60px;
+      color: red;
+      background-color: black;
+      padding: 40px;
+      font-family: monospace;
+      text-transform: uppercase; */
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <h1 class="container"
+    style="font-size: 60px; color: red; background-color: black; padding: 40px; font-family: monospace; text-transform: uppercase;">
+    hello world </h1> -->
+  <h1 class="container" style="background-color: red ;width: 300px;height: 300px;border-radius: 10%;">hello world </h1>
+  <script>
+    const div = document.querySelector('.container');
+
+    // div.setAttribute('style', 'font-size: 60px; color: red; background-color: black; padding: 40px; font-family: monospace; text-transform: uppercase;');
+
+    // div.style = 'font-size: 60px; color: red; background: black; padding: 40px; font-family: monospace; text-transform: uppercase;';
+
+    // div.style.cssText = `
+    //   font-size: 60px;
+    //   color: red;
+    //   background-color: black;
+    //   padding: 40px;
+    //   font-family: monospace;
+    //   text-transform: uppercase;
+    // `;
+
+
+    // div.style.fontSize = '60px';
+    // div.style.color = 'red';
+    // div.style.backgroundColor = 'black';
+    // div.style.padding = '40px';
+    // div.style.fontFamily = 'monospace';
+    // div.style.textTransform = 'uppercase';
+
+    // div.style.setProperty('font-size', '60px');
+    // div.style.setProperty('color', 'red');
+    // div.style.setProperty('background-color', 'black');
+    // div.style.setProperty('padding', '40px');
+    // div.style.setProperty('font-family', 'monospace');
+    // div.style.setProperty('text-transform', 'uppercase');
+
+
+    // const loki = { a: 1, b: 2 }
+    // Object.assign(loki, { b: 1, c: 1 });
+
+    Object.assign(div.style, {
+      fontSize: '60px',
+      color: 'red',
+      backgroundColor: 'black',
+      padding: '40px',
+      fontFamily: 'monospace',
+      textTransform: 'uppercase'
+    });
+
+
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>
