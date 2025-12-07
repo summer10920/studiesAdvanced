@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .form-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      margin: 0 auto;
+
+      button {
+        padding: 8px 16px;
+        border: 1px solid #ccc;
+        background: #f5f5f5;
+        cursor: pointer;
+      }
+
+      input {
+        width: 40px;
+        height: 40px;
+        border: none;
+        background: none;
+        cursor: pointer;
+      }
+    }
+
+    #preview-block {
+      background-color: red;
+      margin: 0 auto;
+      width: 100px;
+      height: 100px;
+
+      &.square {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+      }
+
+      &.circle {
+        clip-path: circle(50% at 50% 50%);
+      }
+
+      &.triangle {
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      }
+
+      &.star {
+        clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <form class="form-container">
+    <button type="button" value="square">正方形</button>
+    <button type="button" value="circle">圓形</button>
+    <button type="button" value="triangle">三角形</button>
+    <button type="button" value="star">星星</button>
+    <input type="color" value="#ff0000" />
+  </form>
+  <hr />
+  <div id="preview-block" class="square"></div>
+  <script>
+    // method 1
+    // ---------------------------------------------------------------
+    // const zone = document.getElementById("preview-block");
+
+    // document.querySelectorAll("button").forEach((button) => {
+    //   button.addEventListener("click", (e) => {
+    //     zone.className = e.target.value;
+    //   });
+    // });
+
+    // document.querySelector("input[type='color']").addEventListener("input", (e) => {
+    //   zone.style.backgroundColor = e.target.value;
+    // });
+
+    // method 2 (事件委派 Event Delegation)
+    // ---------------------------------------------------------------
+    // const myForm = document.querySelector(".form-container");
+    // const zone = document.getElementById("preview-block");
+
+    // myForm.addEventListener("click", (e) => {
+    //   if (e.target.tagName === 'BUTTON') {
+    //     zone.className = e.target.value;
+    //   }
+    // });
+
+    // document.querySelector("input[type='color']").addEventListener("input", (e) => {
+    //   zone.style.backgroundColor = e.target.value;
+    // });
+
+    // method crazy 2
+    // ---------------------------------------------------------------
+    const z = document.getElementById("preview-block");
+    document.querySelector(".form-container").addEventListener("click", e => e.target.tagName === 'BUTTON' && (z.className = e.target.value));
+    document.querySelector("input[type='color']").addEventListener("input", e => z.style.backgroundColor = e.target.value);
+
+  </script>
+</body>
+
+</html>

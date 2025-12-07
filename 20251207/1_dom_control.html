@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1 id="isH1">hello world</h1>
+  <ol>
+    <li>這是第一行</li>
+    <li>這是第二行</li>
+  </ol>
+  <hr>
+  <script>
+    const card = document.createElement('div');
+    card.textContent = 'Hello Loki';
+    card.style = "color: red; background-color: #f0f0f0; height:50px; font-size: 24px; padding: 10px;";
+    card.id = 'isLoki';
+
+    const aLink = document.createElement('a');
+    aLink.textContent = 'Go to Google';
+    aLink.href = 'https://www.google.com';
+    aLink.target = '_blank';
+
+    card.append(aLink);
+    // document.body.append(card, aLink);
+    // document.querySelector('#isLoki').append(aLink);
+
+    document.body.append(card);
+
+    //--------------------------------
+    const liEl = document.createElement('li');
+    liEl.textContent = '這是新一行';
+
+    document.querySelector('ol').prepend(liEl);
+
+    const liEl2 = liEl.cloneNode(true);
+    liEl2.textContent = '這是另一行';
+    document.querySelector('ol').prepend(liEl2);
+
+    document.body.append(document.querySelector('ol').cloneNode(true));
+
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>

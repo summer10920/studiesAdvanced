@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1 onclick="console.log(123)">員工旅遊參加意願表</h1>
+  <form method="post">
+    <fieldset>
+      <legend>員工資訊</legend>
+      <label for="username">姓名:</label>
+      <input type="text" id="username" name="username">
+      <span>　</span>
+      <label for="uid">身分證字號:</label>
+      <input type="uid" id="uid" name="uid"><br><br>
+    </fieldset>
+    <fieldset>
+      <legend>參加意願</legend>
+      <input type="radio" id="attend_yes" name="attend" value="yes">
+      <label for="attend_yes">願意參加</label>
+      <span>　</span>
+      <input type="radio" id="attend_no" name="attend" value="no">
+      <label for="attend_no">不願意參加</label>
+    </fieldset>
+    <fieldset id="companionInfo" style="display: none;">
+      <legend>攜伴資訊</legend>
+      <button type="button" id="addCompanion">新增攜伴</button><br><br>
+    </fieldset>
+    <hr>
+    <input type="submit" value="Submit">
+  </form>
+  <script>
+
+
+    //新增一組攜伴欄位的函式
+    const addOne = () => {
+      //　由ＪＳ建立攜伴欄位
+      const companionDiv = document.createElement('div');
+      companionDiv.innerHTML = `
+      <label for="pUser[]">姓名:</label>
+      <input type="text" id="pUser[]" name="pUser[]">
+      <span>　</span>
+      <label for="pId[]">身分證字號:</label>
+      <input type="text" id="pId[]" name="pId[]">
+      <span>　</span>
+      <input type="button" value="X">
+      <br><br>
+    `;
+
+      //為新建立的攜伴欄位綁定刪除事件
+      const removeBtn = companionDiv.querySelector('input[type="button"]');
+      removeBtn.addEventListener('click', function () {
+        companionDiv.remove();
+      });
+
+      document.querySelector('#companionInfo').append(companionDiv);
+    }
+
+    // 互動參加意願，決定是否顯攜伴資訊區塊
+    document.querySelector('#attend_yes').addEventListener('change', function () {
+      document.querySelector('#companionInfo').style.display = 'block';
+    });
+    document.querySelector('#attend_no').addEventListener('change', function () {
+      document.querySelector('#companionInfo').style.display = 'none';
+    });
+
+    // 預設新增一組
+    addOne();
+
+    // 點擊新增攜伴，複製攜伴欄位並插入
+    document.querySelector('#addCompanion').addEventListener('click', function () {
+      addOne();
+    });
+
+
+    //－－－－－－－－－－－－－－－－
+    // 這裡只是示範 dom 操作元素，沒有規劃好表單的送出所需要的綁定，考慮是資料結構應該像以下這樣:
+
+    // const formData = {
+    //   userName: 'loki',
+    //   uid: 'c1234',
+    //   companions: [
+    //     {
+    //       userName: 'loki',
+    //       uid: 'c1234',
+    //     },
+    //     {
+    //       userName: 'loki',
+    //       uid: 'c1234',
+    //     },
+    //   ]
+    // };
+
+    document.querySelector('form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      // console.log(Object.fromEntries(new FormData(e.target).entries()));
+      const fd = new FormData(e.target);
+      const data = {};
+
+      fd.forEach((value, key) => {
+        // 偵測陣列欄位: key 結尾有 [] ，例如 pUser[]
+        if (key.endsWith("[]")) {
+          const realKey = key.slice(0, -2); // 去掉 []
+          if (!data[realKey]) data[realKey] = [];
+          data[realKey].push(value);
+        } else {
+          data[key] = value;
+        }
+      });
+
+      console.log(data);
+
+
+    });
+
+
+
+  </script>
+</body>
+
+</html>

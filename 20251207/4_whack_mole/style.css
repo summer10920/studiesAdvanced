@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  gap: 10px;
+
+  .imgs-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+
+    img {
+      border: 5px solid #6bd1eb;
+      cursor: pointer;
+      width: 100px;
+      height: 100px;
+      -webkit-user-drag: none;
+      user-select: none;
+      touch-action: manipulation;
+
+      &[src*='state'] {
+        background: yellow;
+      }
+
+      &[src*='on'] {
+        background: red;
+      }
+
+      &[src*='off'] {
+        background: green;
+      }
+    }
+  }
+
+  .control {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .info {
+    padding: 10px 0;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+  }
+}
