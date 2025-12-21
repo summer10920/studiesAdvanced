@@ -3,6 +3,7 @@
 // dayjs 初始化
 dayjs.extend(dayjs_plugin_localeData);
 dayjs.extend(dayjs_plugin_isSameOrBefore);
+dayjs.extend(dayjs_plugin_isBetween);
 
 //全域變數宣告區 - 任何的初始變數與套件宣告都放置於此
 //-------------------------------------------------------------
@@ -57,6 +58,7 @@ const calenderService = () => {
       title: '',
       thisDate: theDay.add(1, 'month')
     },
+    chooseDates = [null, null],
     changeMonth = (num) => {
       theDay = theDay.add(num, 'month');
       objL.thisDate = theDay;
@@ -68,7 +70,47 @@ const calenderService = () => {
     },
     selectHandler = (node) => {
       // 負責處理使用者點擊可選日期的動作
-      console.log(node.textContent);
+      switch (true) {
+        case !chooseDates[0] && !chooseDates[1]:
+          // 當前沒有選擇任何日期 => [null, null] => first click => to [date, null]
+          chooseDates[0] = node;
+          node.classList.add('selectHead');
+          break;
+
+        case chooseDates[0] && !chooseDates[1]:
+          // 先檢查當下第一格日期是否和點擊的日期是否相同，成立就不要做任何事情，直接 return
+          if (chooseDates[0] === node) return;
+
+          // 當下只有選第一個日期 => [date, null] => second click => to [date,date]
+          chooseDates[1] = node;
+
+          // 如果第二日期比第一個日期還早，除了交換兩日還要調整 class
+          if (dayjs(chooseDates[0].dataset.date).isAfter(dayjs(chooseDates[1].dataset.date))) {
+            chooseDates[0].classList.replace('selectHead', 'selectFoot');
+            chooseDates[1].classList.add('selectHead');
+            [chooseDates[0], chooseDates[1]] = [chooseDates[1], chooseDates[0]];
+
+          } else node.classList.add('selectFoot');
+
+          // 此時[date,date]，要算中間的 selectConnect
+          document.querySelectorAll('.selectDay').forEach(n => dayjs(n.dataset.date).isBetween(chooseDates[0].dataset.date, chooseDates[1].dataset.date) && n.classList.add('selectConnect'));
+          break;
+
+        default:
+          // 都有日期 => [date, date] => third click => to [newDate, null]
+          chooseDates[0].classList.remove('selectHead');
+          chooseDates[1].classList.remove('selectFoot');
+          // remove selectConnect
+          document.querySelectorAll('.selectConnect').forEach(node => {
+            node.classList.remove('selectConnect');
+          });
+
+          chooseDates[0] = node;
+          chooseDates[1] = null;
+          node.classList.add('selectHead');
+          break;
+      }
+
     },
     listMaker = (obj) => {
       // 負責將指定的obj，利用obj.thisDate產生對應的listBox與title並覆蓋原本obj
@@ -154,15 +196,6 @@ const calenderService = () => {
       document.querySelectorAll('.selectDay').forEach(node => {
         node.addEventListener('click', () => selectHandler(node));
       });
-
-
-      // const loki = document.createElement('div');
-      // loki.id = 'lokiDebug';
-      // loki.innerHTML = `<strong>Debug Info:</strong>`;
-      // // console.log(theDay);
-      // loki.myDateObj = theDay;
-
-      // document.querySelector('.calendar').appendChild(loki);
 
     }
 
