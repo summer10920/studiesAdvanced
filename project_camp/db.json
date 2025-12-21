@@ -72,7 +72,7 @@
   },
   "booked": [
     {
-      "date": "2025-12-12",
+      "date": "2025-12-25",
       "sellout": {
         "aArea": 1,
         "bArea": 1,
@@ -81,16 +81,16 @@
       }
     },
     {
-      "date": "2025-12-13",
+      "date": "2025-12-27",
       "sellout": {
-        "aArea": 2,
+        "aArea": 10,
         "bArea": 2,
         "cArea": 2,
         "dArea": 2
       }
     },
     {
-      "date": "2025-12-14",
+      "date": "2025-12-29",
       "sellout": {
         "aArea": 3,
         "bArea": 3,
@@ -99,16 +99,7 @@
       }
     },
     {
-      "date": "2025-12-15",
-      "sellout": {
-        "aArea": 10,
-        "bArea": 8,
-        "cArea": 10,
-        "dArea": 10
-      }
-    },
-    {
-      "date": "2025-12-16",
+      "date": "2025-12-30",
       "sellout": {
         "aArea": 10,
         "bArea": 10,

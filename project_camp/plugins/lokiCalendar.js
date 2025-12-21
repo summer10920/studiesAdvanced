@@ -17,10 +17,10 @@ let
     normalCount: 0,
     holidayCount: 0,
     pallet: {
-      aArea: { title: '河畔 × A 區', storeCount: 0, sellInfo: '<div>123</div>', sumPrice: 100, orderCount: 1 },
-      bArea: { title: '山間 × B 區', storeCount: 6, sellInfo: '<div>222</div>', sumPrice: 200, orderCount: 3 },
-      cArea: { title: '平原 × C 區', storeCount: 7, sellInfo: '<div>333</div>', sumPrice: 300, orderCount: 5 },
-      dArea: { title: '車屋 × D 區', storeCount: 8, sellInfo: '<div>444</div>', sumPrice: 400, orderCount: 7 }
+      aArea: { title: '河畔 × A 區', storeCount: 10, sellInfo: '', sumPrice: 0, orderCount: 1 },
+      bArea: { title: '山間 × B 區', storeCount: 10, sellInfo: '', sumPrice: 0, orderCount: 3 },
+      cArea: { title: '平原 × C 區', storeCount: 10, sellInfo: '', sumPrice: 0, orderCount: 5 },
+      dArea: { title: '車屋 × D 區', storeCount: 10, sellInfo: '', sumPrice: 0, orderCount: 7 }
     }
   };
 
@@ -218,14 +218,45 @@ const calenderService = () => {
         node.addEventListener('click', () => selectHandler(node));
 
         // // 試圖從chooseDates 補上該有的 selectHead, selectFoot, selectConnect class
-        // dayjs(node.dataset.date).isBetween(chooseDates[0]?.dataset.date, chooseDates[1]?.dataset.date) && node.classList.add('selectConnect');
-        // if (chooseDates[0]?.dataset.date === node.dataset.date) node.classList.add('selectHead');
-        // if (chooseDates[1]?.dataset.date === node.dataset.date) node.classList.add('selectFoot');
+        dayjs(node.dataset.date).isBetween(chooseDates[0]?.dataset.date, chooseDates[1]?.dataset.date) && node.classList.add('selectConnect');
+        if (chooseDates[0]?.dataset.date === node.dataset.date) node.classList.add('selectHead');
+        if (chooseDates[1]?.dataset.date === node.dataset.date) node.classList.add('selectFoot');
       });
 
     },
     tableMarker = () => {
-      console.log(chooseDates);
+      // 初始化 tableData 預設的可賣情況
+      tableData.normalCount = 0;
+      tableData.holidayCount = 0;
+      for (const key in tableData.pallet) {
+        tableData.pallet[key].storeCount = pallet[key].total; // 將db.json 中的各營位總數初始化到最大可賣數
+        tableData.pallet[key].sellInfo = '';
+        tableData.pallet[key].sumPrice = 0;
+      }
+      const [startDate, endDate] = chooseDates.map(item => dayjs(item.dataset.date));
+      let current = startDate;
+      while (current.isBefore(endDate, 'day')) { // 根據選定的範圍抽批次取出YYYY-MM-DD值
+        const curFormat = current.format('YYYY-MM-DD');
+        // const isHoliday = current.day() === 0 || current.day() === 6 || nationalHoliday.includes(curFormat);
+        const isHoliday = (current.day() + 1) % 7 < 2 || nationalHoliday.includes(curFormat);
+        for (const key in tableData.pallet) {  // key=aArea, bArea, cArea, dArea
+          const hasOrder = booked.find(item => item.date === curFormat); //資料庫若有訂單，試圖更新該營位的可賣數
+          if (hasOrder) {
+            //可賣數更新:當天的該營位剩餘可賣數 = 該營位總數 - 當日該營位已賣數
+            const currentStoreCount = pallet[key].total - hasOrder.sellout[key];
+            tableData.pallet[key].storeCount = Math.min(tableData.pallet[key].storeCount, currentStoreCount);
+          }
+          // 若有可售數，那就更新可賣資訊
+          if (tableData.pallet[key].storeCount) {
+            const price = isHoliday ? pallet[key].holidayPrice : pallet[key].normalPrice;
+            tableData.pallet[key].sellInfo += `<div>${curFormat}(${price})</div>`;
+            tableData.pallet[key].sumPrice += price;
+          }
+        }
+        isHoliday ? tableData.holidayCount++ : tableData.normalCount++;
+        current = current.add(1, 'day');
+      }
+      tablePrint();
     },
     tablePrint = () => {
       document.querySelectorAll('form select').forEach(select => { // 批次處理四種營位資訊
@@ -244,6 +275,9 @@ const calenderService = () => {
         // 更新庫存數
         palletInfoDiv.previousElementSibling.querySelector('span').innerText = storeCount;
       });
+
+      const { totalPrice, normalCount, holidayCount } = tableData;
+      document.querySelector('form h3').innerText = `$${totalPrice} / ${normalCount}晚平日，${holidayCount}晚假日`;
     };
 
   return {
