@@ -10,7 +10,19 @@ dayjs.extend(dayjs_plugin_isBetween);
 let
   nationalHoliday = [],
   pallet = {},
-  booked = [];
+  booked = [],
+  tableData = {
+    // 訂房的表格資料
+    totalPrice: 0,
+    normalCount: 0,
+    holidayCount: 0,
+    pallet: {
+      aArea: { title: '河畔 × A 區', storeCount: 0, sellInfo: '<div>123</div>', sumPrice: 100, orderCount: 1 },
+      bArea: { title: '山間 × B 區', storeCount: 6, sellInfo: '<div>222</div>', sumPrice: 200, orderCount: 3 },
+      cArea: { title: '平原 × C 區', storeCount: 7, sellInfo: '<div>333</div>', sumPrice: 300, orderCount: 5 },
+      dArea: { title: '車屋 × D 區', storeCount: 8, sellInfo: '<div>444</div>', sumPrice: 400, orderCount: 7 }
+    }
+  };
 
 
 
@@ -25,6 +37,9 @@ async function init() {
   ({ nationalHoliday, pallet, booked } = data);
 
   const service = calenderService();  // 規劃成閉包，回傳一個物件方法
+
+  // 左半部的萬年曆
+  // ------------------------------------------------------------
   service.print(); // 透過這個物件操作閉包內的方法去執行內部功能
 
   // 規劃左右 click 事件，去觸發日期改變，再算一次
@@ -36,6 +51,10 @@ async function init() {
     e.preventDefault();
     service.add();
   });
+
+  //右半部的表格清單
+  // ------------------------------------------------------------
+  service.tableRefresh();
 }
 
 init(); // 擱置一下，待會等await觸發再回來處理
@@ -94,6 +113,8 @@ const calenderService = () => {
 
           // 此時[date,date]，要算中間的 selectConnect
           document.querySelectorAll('.selectDay').forEach(n => dayjs(n.dataset.date).isBetween(chooseDates[0].dataset.date, chooseDates[1].dataset.date) && n.classList.add('selectConnect'));
+
+          tableMarker();
           break;
 
         default:
@@ -195,14 +216,35 @@ const calenderService = () => {
 
       document.querySelectorAll('.selectDay').forEach(node => {
         node.addEventListener('click', () => selectHandler(node));
+
+        // // 試圖從chooseDates 補上該有的 selectHead, selectFoot, selectConnect class
+        // dayjs(node.dataset.date).isBetween(chooseDates[0]?.dataset.date, chooseDates[1]?.dataset.date) && node.classList.add('selectConnect');
+        // if (chooseDates[0]?.dataset.date === node.dataset.date) node.classList.add('selectHead');
+        // if (chooseDates[1]?.dataset.date === node.dataset.date) node.classList.add('selectFoot');
       });
 
-    }
+    },
+    tableMarker = () => {
+      console.log(chooseDates);
+    },
+    tablePrint = () => {
+      document.querySelectorAll('form select').forEach(select => { // 批次處理四種營位資訊
+        const { storeCount, sellInfo } = tableData.pallet[select.name]; // 透過名稱找到指定物件並解構
 
-  // function changeMonth(num) {
-  //   console.log('changeMonth', num);
-  // }
+        // 產生 option
+        let optionsList = '';
+        for (let i = 0; i <= storeCount; i++) optionsList += `<option value="${i}">${i}</option>`;
+        select.innerHTML = optionsList;
+        select.disabled = !storeCount;
 
+        // 更新DIV資訊
+        const palletInfoDiv = select.parentElement.previousElementSibling;
+        palletInfoDiv.innerHTML = storeCount ? sellInfo : '';
+
+        // 更新庫存數
+        palletInfoDiv.previousElementSibling.querySelector('span').innerText = storeCount;
+      });
+    };
 
   return {
     print: () => listPrint(),
@@ -213,7 +255,8 @@ const calenderService = () => {
     sub: () => {
       changeMonth(-1);
       // will sub 1 month
-    }
+    },
+    tableRefresh: () => tablePrint()
   }
 }
 
