@@ -4,9 +4,15 @@ body {
   color: #eee;
 }
 
-body > nav {
+body>nav {
   z-index: 999;
+  transition: background-color 1s;
+
+  &.init {
+    background-color: #0003 !important;
+  }
 }
+
 #lokiMenu a.nav-link,
 #lokiMenu a.navbar-brand {
   letter-spacing: 0.1rem;
@@ -28,7 +34,8 @@ body > nav {
 
 #lokiSlider .carousel-item {
   padding-bottom: 240px;
-  background: #282c34; /*轉場問題加底圖*/
+  background: #282c34;
+  /*轉場問題加底圖*/
 }
 
 #lokiSlider .carousel-caption {
@@ -50,7 +57,7 @@ body > nav {
   bottom: 0;
 }
 
-#lokiSlider button > i {
+#lokiSlider button>i {
   font-size: 2rem;
   width: 50px;
   height: 50px;
@@ -62,20 +69,22 @@ body > nav {
   z-index: 1;
 }
 
-#lokiPallet .row > img {
+#lokiPallet .row>img {
   object-fit: cover;
 }
 
 @media screen and (min-width: 768px) {
-  #lokiPallet article > .col:nth-child(odd) {
+  #lokiPallet article>.col:nth-child(odd) {
     transform: translateY(-50%);
     padding-bottom: 150px;
   }
+
   #lokiPallet article {
     padding-top: calc((50% - 24px) * 0.375 + 75px);
     margin-bottom: -150px;
   }
-  #lokiPallet article > .col:nth-last-child(1) {
+
+  #lokiPallet article>.col:nth-last-child(1) {
     margin-bottom: -150px;
   }
 
@@ -83,6 +92,7 @@ body > nav {
     transform: scale(0);
     transition: 0.3s;
   }
+
   #lokiPallet .card:hover .card-img-overlay {
     transform: scale(1);
   }
@@ -90,29 +100,36 @@ body > nav {
   #lokiPallet .card-img {
     transition: 0.3s;
   }
+
   #lokiPallet .card:hover .card-img {
     transform: scale(1.3);
   }
+
   #lokiPark .col {
     transition: 0.3s;
   }
+
   #lokiPark .col:hover {
     transform: scale(1.15);
     z-index: 99;
   }
+
   #lokiPark .col .card-img {
     filter: brightness(0.7);
     transition: 0.3s;
   }
+
   #lokiPark .col:hover .card-img {
     filter: brightness(1);
   }
 }
+
 #lokiPark {
   background: url("../media/imgs/parkBG.jpg") #3338 no-repeat center/cover;
   background-attachment: fixed;
   background-blend-mode: lighten;
 }
+
 #lokiPark .card-title {
   opacity: 1 !important;
 }
@@ -161,10 +178,14 @@ section:not(#lokiSlider, .offcanvas) {
   object-fit: cover;
 }
 
-/* #lokiLightBox{
+/****************Cookie Agree*****/
+#lokiCookie {
+  padding: 30px 60px;
   position: fixed;
-  background: hsla(0, 0%, 100%, 0.1);
-  width: 100%;
-  height: 100%;
-  backdrop-filter: blur(10px);
-} */
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #1b2a4dc7;
+  z-index: 99999;
+
+}
