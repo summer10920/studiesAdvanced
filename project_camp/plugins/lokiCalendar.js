@@ -17,10 +17,10 @@ let
     normalCount: 0,
     holidayCount: 0,
     pallet: {
-      aArea: { title: '河畔 × A 區', storeCount: 10, sellInfo: '', sumPrice: 0, orderCount: 1 },
-      bArea: { title: '山間 × B 區', storeCount: 10, sellInfo: '', sumPrice: 0, orderCount: 3 },
-      cArea: { title: '平原 × C 區', storeCount: 10, sellInfo: '', sumPrice: 0, orderCount: 5 },
-      dArea: { title: '車屋 × D 區', storeCount: 10, sellInfo: '', sumPrice: 0, orderCount: 7 }
+      aArea: { title: '河畔 × A 區', storeCount: 10, sellInfo: '', sumPrice: 0, orderCount: 0 },
+      bArea: { title: '山間 × B 區', storeCount: 10, sellInfo: '', sumPrice: 0, orderCount: 0 },
+      cArea: { title: '平原 × C 區', storeCount: 10, sellInfo: '', sumPrice: 0, orderCount: 0 },
+      dArea: { title: '車屋 × D 區', storeCount: 10, sellInfo: '', sumPrice: 0, orderCount: 0 }
     }
   };
 
@@ -55,6 +55,42 @@ async function init() {
   //右半部的表格清單
   // ------------------------------------------------------------
   service.tableRefresh();
+
+  //規劃USER互動事件 - 選擇帳數時候
+  // ------------------------------------------------------------
+  const allSelect = document.querySelectorAll('form select');
+
+  // 當任何的SELECT改變時
+  allSelect.forEach(select => {
+    select.addEventListener('change', (e) => {
+      // console.log(tableData.pallet);
+      tableData.totalPrice = 0;
+
+      // 試圖再從四個SELECT抓出VALUE跟當下的小計相乘後加入總計totalPrice，也記錄orderCount
+      allSelect.forEach(s => {
+        // console.log(parseInt(s.value), tableData.pallet[s.name].sumPrice);
+        const orderCount = parseInt(s.value);
+        tableData.totalPrice += orderCount * tableData.pallet[s.name].sumPrice;
+        tableData.pallet[s.name].orderCount = orderCount;
+      });
+
+      //最後，隨著使用者每次的變化，將最新的總計更新到畫面上
+      const { totalPrice, normalCount, holidayCount } = tableData;
+      document.querySelector('form h3').innerText = `$${totalPrice} / ${normalCount}晚平日，${holidayCount}晚假日`;
+    });
+  });
+
+
+  // 規劃 offcanvas 的開關(按下預約按鈕時)
+  // ------------------------------------------------------------
+  const bookingCanvas = new bootstrap.Offcanvas('.offcanvas')
+  document.querySelector('#selectPallet button').addEventListener('click', () => {
+    bookingCanvas.show();
+  })
+
+
+
+
 }
 
 init(); // 擱置一下，待會等await觸發再回來處理
