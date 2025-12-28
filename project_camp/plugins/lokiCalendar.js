@@ -61,6 +61,7 @@ async function init() {
   const allSelect = document.querySelectorAll('form select');
 
   // 當任何的SELECT改變時
+  document.querySelector('#selectPallet button').disabled = true; // 預設按鈕為不可點
   allSelect.forEach(select => {
     select.addEventListener('change', (e) => {
       // console.log(tableData.pallet);
@@ -76,20 +77,38 @@ async function init() {
 
       //最後，隨著使用者每次的變化，將最新的總計更新到畫面上
       const { totalPrice, normalCount, holidayCount } = tableData;
-      document.querySelector('form h3').innerText = `$${totalPrice} / ${normalCount}晚平日，${holidayCount}晚假日`;
+      document.querySelector('form h3').textContent = `$${totalPrice} / ${normalCount}晚平日，${holidayCount}晚假日`;
+
+      // 如果價格是0，不給預約
+      document.querySelector('#selectPallet button').disabled = !totalPrice;
     });
   });
 
 
   // 規劃 offcanvas 的開關(按下預約按鈕時)
   // ------------------------------------------------------------
-  const bookingCanvas = new bootstrap.Offcanvas('.offcanvas')
+  const bookingCanvas = new bootstrap.Offcanvas('.offcanvas');
   document.querySelector('#selectPallet button').addEventListener('click', () => {
+    // 刷新預約單的資訊(ol>li*有預定的營位)
+    let liStr = '';
+    for (const key in tableData.pallet) {
+      const { title, sellInfo, orderCount } = tableData.pallet[key];
+      if (!orderCount) continue; //跳過沒有訂的營位
+
+      liStr += `
+      <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">${title}</div>
+          <div>${sellInfo}</div>
+        </div>
+        <span class="badge bg-warning rounded-pill">x <span class="fs-6">${orderCount}</span>帳</span>
+      </li>`;
+    }
+
+    document.querySelector('.offcanvas .h5').textContent = document.querySelector('form h3').textContent;
+    document.querySelector('.offcanvas ol').innerHTML = liStr;
     bookingCanvas.show();
   })
-
-
-
 
 }
 
@@ -309,11 +328,11 @@ const calenderService = () => {
         palletInfoDiv.innerHTML = storeCount ? sellInfo : '';
 
         // 更新庫存數
-        palletInfoDiv.previousElementSibling.querySelector('span').innerText = storeCount;
+        palletInfoDiv.previousElementSibling.querySelector('span').textContent = storeCount;
       });
 
       const { totalPrice, normalCount, holidayCount } = tableData;
-      document.querySelector('form h3').innerText = `$${totalPrice} / ${normalCount}晚平日，${holidayCount}晚假日`;
+      document.querySelector('form h3').textContent = `$${totalPrice} / ${normalCount}晚平日，${holidayCount}晚假日`;
     };
 
   return {
