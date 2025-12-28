@@ -156,6 +156,7 @@ async function init() {
         method: 'POST', body: formData,
       });
 
+      // console.log(res);
       if (!res.ok) throw new Error('送出訂單失敗');
 
       const { id } = await res.json();
@@ -167,12 +168,7 @@ async function init() {
       console.error('送出訂單失敗：', err);
       alert('系統發生錯誤，請稍後再試');
     }
-
-
   });
-
-
-
 }
 
 init(); // 擱置一下，待會等await觸發再回來處理
@@ -341,10 +337,20 @@ const calenderService = () => {
 
         if (startDateStr && endDateStr && dayjs(curDateStr).isBetween(startDateStr, endDateStr))
           node.classList.add('selectConnect');
-        if (startDateStr === curDateStr) node.classList.add('selectHead');
-        if (endDateStr === curDateStr) node.classList.add('selectFoot');
+        if (startDateStr === curDateStr) {
+          // 由於原本的html因為重新生成，舊的node已經不存在了，所以要重新將新的node塞回去，才能讓selectHandler動作可以執行 remove className
+          chooseDates[0] = node;
+          node.classList.add('selectHead');
+        }
+        if (endDateStr === curDateStr) {
+          // 同理由塞回去
+          chooseDates[1] = node;
+          node.classList.add('selectFoot');
+        }
       });
 
+
+      console.log(chooseDates);
     },
     tableMarker = () => {
       // 初始化 tableData 預設的可賣情況
