@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello World</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <!-- Don't use this in production: -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <!-- <script>
+    function App() {
+      const name = 'Loki';
+      const [clicked, setClicked] = React.useState(false); // 初始 false
+      if (clicked) return React.createElement(
+        React.Fragment,
+        null,
+        React.createElement(
+          'button',
+          { onClick: () => setClicked(false) },
+          'Click here!!'
+        ),
+        React.createElement(
+          'h1',
+          null,
+          'You clicked the button!'
+        )
+      );
+      return React.createElement(
+        React.Fragment,
+        null,
+        React.createElement(
+          'button',
+          { onClick: () => setClicked(true) },
+          'Click here!!'
+        ),
+        React.createElement(
+          'h1',
+          null,
+          'Hello, ',
+          name,
+          '!'
+        )
+      );
+    }
+
+    /*React 18 way*/
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(React.createElement(App)); // no jsx 
+
+  </script> -->
+  <script type="text/babel">
+    function App() {
+      console.log(123);
+      const name = 'Loki';
+
+      /* 狀態管理: 當有狀態改變它需要重新觸發該元件再執行一次
+      * 返回最新的 value & 提供一個函式工具，來讓你觸發 value 更新，這個內容更新會重新執行 App 函式
+      * 因為 App 函式重新執行，導致 render 畫面return 產生新畫面 (Virtual DOM diffing & 更新真實 DOM)
+      */
+
+      const [clicked, setClicked] = React.useState(false); // 初始 false
+
+      console.log(clicked);
+      // let clicked = false;
+      // const setClicked = () => { clicked = !clicked };
+
+      if (clicked) return (
+        <>
+          <button onClick={() => setClicked(false)}>Click here!!</button>
+          <h1>You clicked the button!</h1>
+        </>
+      );
+      return (
+        <>
+          <button onClick={() => setClicked(true)}>Click here!!</button>
+          <h1>Hello, {name}!</h1>
+        </>
+      );
+    }
+
+    /*React 18 way*/
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+
+  </script>
+</body>
+
+</html>
