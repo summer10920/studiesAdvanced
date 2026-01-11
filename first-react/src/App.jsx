@@ -6,17 +6,27 @@ import './App.css';
 function App() {
   const [count, setCount] = useState(0);
 
+  // jsx 可規劃為變數
+  const imgVite = <img src={viteLogo} className="logo" alt="Vite logo" />;
+  const imgReact = <img src={reactLogo} className="logo react" alt="React logo" />;
+  const myBr = <br />;
+
+  // string 也可規劃為變數
+  const h1Title = 'Vite + React';
+  const MyTitle = <h1 data-id="title">{h1Title}</h1>;
+
   return (
     <>
       <div>
         <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
+          {imgVite}
         </a>
+        {myBr}
         <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
+          {imgReact}
         </a>
       </div>
-      <h1>Vite + React</h1>
+      {MyTitle}
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
         <p>
