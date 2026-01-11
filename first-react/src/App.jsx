@@ -3,29 +3,23 @@ import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
 
-const alts = {
-  vite: 'Vite logo',
-  react: 'React logo',
-};
-
 function ImgVite(props) {
-  // console.log('ImgVite props:', props);
-  return <img src={viteLogo} className="logo" alt={props.alt} />;
+  return <img src={props.src} className="logo" alt={props.alt} />;
 }
 function LinkVite() {
   return (
     <a href="https://vite.dev" target="_blank">
-      <ImgVite alt={alts.vite} name={'vite'} />
+      <ImgVite alt="Vite logo" src={viteLogo} />
     </a>
   );
 }
-function ImgReact() {
-  return <img src={reactLogo} className="logo react" alt={alts.react} />;
+function ImgReact({ mySrc, myAlt }) {
+  return <img src={mySrc} className="logo react" alt={myAlt} />;
 }
 function LinkReact() {
   return (
     <a href="https://react.dev" target="_blank">
-      <ImgReact />
+      <ImgReact mySrc={reactLogo} myAlt="React logo" />
     </a>
   );
 }
@@ -65,6 +59,7 @@ function App() {
     <>
       <Loki onClick={handleClick} />
       <Loki onClick={alertClick} />
+      <hr />
       <LinkLogos />
       {MyTitle}
       <div className="card" style={{ color: 'red', backgroundColor: 'black' }}>
