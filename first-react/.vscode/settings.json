@@ -1,0 +1,11 @@
+{
+  "files.autoSave": "afterDelay",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit" // 儲存時自動修復 ESLint 錯誤
+  },
+  "eslint.validate": [
+    "javascript", // 驗證 .js 檔案
+    "javascriptreact" // 驗證 .jsx 檔案
+  ],
+  "eslint.useFlatConfig": true
+}
