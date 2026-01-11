@@ -8,13 +8,14 @@ const alts = {
   react: 'React logo',
 };
 
-function ImgVite() {
-  return <img src={viteLogo} className="logo" alt={alts.vite} />;
+function ImgVite(props) {
+  // console.log('ImgVite props:', props);
+  return <img src={viteLogo} className="logo" alt={props.alt} />;
 }
 function LinkVite() {
   return (
     <a href="https://vite.dev" target="_blank">
-      <ImgVite />
+      <ImgVite alt={alts.vite} name={'vite'} />
     </a>
   );
 }
@@ -29,7 +30,7 @@ function LinkReact() {
   );
 }
 
-function MyLogo() {
+function LinkLogos() {
   const myBr = <br />;
   return (
     <div>
@@ -40,6 +41,12 @@ function MyLogo() {
   );
 }
 
+// 示範如何把一個fn指定動作丟給小元件
+
+function Loki({ onClick }) {
+  return <button onClick={onClick}>Loki Component</button>;
+}
+
 function App() {
   const [count, setCount] = useState(0);
 
@@ -47,9 +54,18 @@ function App() {
   const h1Title = 'Vite + React';
   const MyTitle = <h1 data-id="title">{h1Title}</h1>;
 
+  const handleClick = () => {
+    console.log('Loki button clicked!');
+  };
+  const alertClick = () => {
+    alert('Loki button alert!');
+  };
+
   return (
     <>
-      <MyLogo />
+      <Loki onClick={handleClick} />
+      <Loki onClick={alertClick} />
+      <LinkLogos />
       {MyTitle}
       <div className="card" style={{ color: 'red', backgroundColor: 'black' }}>
         <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
