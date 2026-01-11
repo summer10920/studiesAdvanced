@@ -1,11 +1,15 @@
 {
   "files.autoSave": "afterDelay",
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit" // 儲存時自動修復 ESLint 錯誤
-  },
   "eslint.validate": [
     "javascript", // 驗證 .js 檔案
     "javascriptreact" // 驗證 .jsx 檔案
   ],
-  "eslint.useFlatConfig": true
+  "eslint.useFlatConfig": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit" // 儲存時自動修復 ESLint 錯誤
+  },
+  "editor.formatOnSave": true, // 儲存時自動格式化
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  } // 使用 Prettier 格式化
 }

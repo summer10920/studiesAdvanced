@@ -12,6 +12,7 @@ export default defineConfig([ // 使用 ESLint 9.39.1 的 Flat Config API 定義
       js.configs.recommended,// ESLint 官方推薦的 JavaScript 規則
       reactHooks.configs.flat.recommended,// React Hooks 的推薦規則（避免錯誤使用 Hooks）
       reactRefresh.configs.vite,// React Refresh（Vite / Fast Refresh）相關規則
+      'prettier',// Prettier 規則，避免與 Prettier 格式化衝突
     ],
     languageOptions: {// 語言與執行環境相關設定
       ecmaVersion: 2020,// 指定 ECMAScript 語法版本（支援到 ES2020）
@@ -24,10 +25,6 @@ export default defineConfig([ // 使用 ESLint 9.39.1 的 Flat Config API 定義
     },
     rules: {// 自訂規則設定
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],// 禁止未使用的變數，但允許以大寫或底線開頭的變數（例如常數或 enum）
-      semi: ['error', 'always'], // 強制要求使用分號結尾
-      'no-extra-semi': 'error', // 禁止多餘的分號
     },
   },
-
-
 ]);
