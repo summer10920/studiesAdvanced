@@ -3,13 +3,45 @@ import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
 
+const alts = {
+  vite: 'Vite logo',
+  react: 'React logo',
+};
+
+function ImgVite() {
+  return <img src={viteLogo} className="logo" alt={alts.vite} />;
+}
+function LinkVite() {
+  return (
+    <a href="https://vite.dev" target="_blank">
+      <ImgVite />
+    </a>
+  );
+}
+function ImgReact() {
+  return <img src={reactLogo} className="logo react" alt={alts.react} />;
+}
+function LinkReact() {
+  return (
+    <a href="https://react.dev" target="_blank">
+      <ImgReact />
+    </a>
+  );
+}
+
+function MyLogo() {
+  const myBr = <br />;
+  return (
+    <div>
+      <LinkVite />
+      {myBr}
+      <LinkReact />
+    </div>
+  );
+}
+
 function App() {
   const [count, setCount] = useState(0);
-
-  // jsx 可規劃為變數
-  const imgVite = <img src={viteLogo} className="logo" alt="Vite logo" />;
-  const imgReact = <img src={reactLogo} className="logo react" alt="React logo" />;
-  const myBr = <br />;
 
   // string 也可規劃為變數
   const h1Title = 'Vite + React';
@@ -17,17 +49,9 @@ function App() {
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          {imgVite}
-        </a>
-        {myBr}
-        <a href="https://react.dev" target="_blank">
-          {imgReact}
-        </a>
-      </div>
+      <MyLogo />
       {MyTitle}
-      <div className="card">
+      <div className="card" style={{ color: 'red', backgroundColor: 'black' }}>
         <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
