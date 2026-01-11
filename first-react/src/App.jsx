@@ -3,40 +3,35 @@ import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
 
-function ImgVite(props) {
-  return <img src={props.src} className="logo" alt={props.alt} />;
+function ImgLogo({ src, alt }) {
+  return <img src={src} className="logo" alt={alt} />;
 }
-function LinkVite() {
+
+function LinkItem({ logoItem }) {
+  const { url, imgUrl, altText } = logoItem;
   return (
-    <a href="https://vite.dev" target="_blank">
-      <ImgVite alt="Vite logo" src={viteLogo} />
-    </a>
-  );
-}
-function ImgReact({ mySrc, myAlt }) {
-  return <img src={mySrc} className="logo react" alt={myAlt} />;
-}
-function LinkReact() {
-  return (
-    <a href="https://react.dev" target="_blank">
-      <ImgReact mySrc={reactLogo} myAlt="React logo" />
+    <a href={url} target="_blank">
+      <ImgLogo src={imgUrl} alt={altText} />
     </a>
   );
 }
 
 function LinkLogos() {
-  const myBr = <br />;
+  const logoItems = [
+    { id: 1, url: 'https://vite.dev', imgUrl: viteLogo, altText: 'Vite logo' },
+    { id: 2, url: 'https://react.dev', imgUrl: reactLogo, altText: 'React logo' },
+  ];
+
   return (
     <div>
-      <LinkVite />
-      {myBr}
-      <LinkReact />
+      {logoItems.map((item) => (
+        <LinkItem logoItem={item} key={item.id} />
+      ))}
     </div>
   );
 }
 
 // 示範如何把一個fn指定動作丟給小元件
-
 function Loki({ onClick }) {
   return <button onClick={onClick}>Loki Component</button>;
 }
