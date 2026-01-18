@@ -1,5 +1,5 @@
-import LinkItem from './LinkItem';
-import reactLogo from '../assets/react.svg';
+import LinkItem from './components/LinkItem';
+import reactLogo from '@assets/react.svg';
 import viteLogo from '/vite.svg';
 
 export default function LinkLogos() {

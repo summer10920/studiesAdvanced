@@ -1,11 +1,7 @@
 import { useState } from 'react';
 import './App.css';
-import LinkLogos from './components/LinkLogos';
-
-// 示範如何把一個fn指定動作丟給小元件
-function Loki({ onClick }) {
-  return <button onClick={onClick}>Loki Component</button>;
-}
+import LinkLogos from './features/LinkLogos';
+import { Loki } from './_shared/util';
 
 function App() {
   const [count, setCount] = useState(0);

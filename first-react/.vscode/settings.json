@@ -9,5 +9,6 @@
     "source.fixAll.eslint": "explicit" // 儲存時自動修復 ESLint 錯誤
   },
   "editor.formatOnSave": true, // 儲存時自動格式化
-  "editor.defaultFormatter": "esbenp.prettier-vscode" // 使用 Prettier 作為預設格式化工具
+  "editor.defaultFormatter": "esbenp.prettier-vscode", // 使用 Prettier 作為預設格式化工具
+  "javascript.updateImportsOnFileMove.enabled": "prompt",
 }
