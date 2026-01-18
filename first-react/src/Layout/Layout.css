@@ -1,6 +1,8 @@
 .layout {
   display: flex;
   min-height: 100vh;
+  gap: 1rem;
+  background-color: #f7fafc;
 }
 
 /* 側邊選單樣式 */
@@ -9,7 +11,8 @@
   background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
   color: white;
   padding: 2rem 1rem;
-  position: fixed;
+  position: sticky;
+  top: 0;
   height: 100vh;
   overflow-y: auto;
   box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
@@ -58,10 +61,10 @@
 
 /* 主要內容區域 */
 .content {
-  margin-left: 280px;
+  margin: 0 auto;
+  max-width: 1024px;
   flex: 1;
   padding: 2rem;
-  background-color: #f7fafc;
   min-height: 100vh;
 }
 
