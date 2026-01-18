@@ -1,18 +1,9 @@
 import MyButton from '../../_shared/MyButton';
 
-const MyForm = () => {
-  const handleSubmit = (e) => {
-    e.preventDefault(); // 阻止表單預設提交行為
-    console.log('submit');
-  };
-
-  const handelChangeText = (e) => {
-    console.log(e.target.value);
-  };
-
+const MyForm = ({ onSubmit, onChange }) => {
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" placeholder="請輸入內容" onChange={handelChangeText} />
+    <form onSubmit={onSubmit}>
+      <input type="text" placeholder="請輸入內容" onChange={onChange} />
       <MyButton>提交</MyButton>
       <hr />
     </form>

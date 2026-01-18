@@ -19,10 +19,19 @@ function App() {
     alert('Loki button alert!');
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault(); // 阻止表單預設提交行為
+    console.log('submit');
+  };
+
+  const handelChangeText = (e) => {
+    console.log(e.target.value);
+  };
+
   return (
     <>
       <MyButton>Click Me!!</MyButton>
-      <MyForm />
+      <MyForm onSubmit={handleSubmit} onChange={handelChangeText} />
       <hr />
       <EventObjectDemo />
       <hr />
