@@ -4,6 +4,7 @@ import LinkLogos from './features/LinkLogos';
 import { Loki, EventDemo, EventObjectDemo } from './_shared/util';
 import MyButton from './_shared/MyButton';
 import MyForm from './features/MyForm';
+import LokiState from './features/FirstState';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -30,6 +31,8 @@ function App() {
 
   return (
     <>
+      <LokiState />
+      <hr />
       <MyButton>Click Me!!</MyButton>
       <MyForm onSubmit={handleSubmit} onChange={handelChangeText} />
       <hr />
