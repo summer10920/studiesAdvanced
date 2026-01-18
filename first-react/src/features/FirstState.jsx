@@ -3,7 +3,7 @@ import { useState } from 'react';
 export default function FirstState() {
   const [count, setCount] = useState(0); // 初始值為 0
 
-  console.log('rendered 渲染', count);
+  // console.log('rendered 渲染', count);
 
   // const updateCount = () => {
   //   setCount(count + 1); // 指定0+1給 count

@@ -5,9 +5,11 @@ import { Loki, EventDemo, EventObjectDemo } from './_shared/util';
 import MyButton from './_shared/MyButton';
 import MyForm from './features/MyForm';
 import LokiState from './features/FirstState';
+import MyGallery from './features/MyGallery';
 
 function App() {
   const [count, setCount] = useState(0);
+  const [showTitle, setShowTitle] = useState(true);
 
   // string 也可規劃為變數
   const h1Title = 'Vite + React';
@@ -31,6 +33,9 @@ function App() {
 
   return (
     <>
+      <MyGallery showTitle={showTitle} setShowTitle={setShowTitle} />
+      <MyGallery {...{ showTitle, setShowTitle }} />
+      <hr />
       <LokiState />
       <hr />
       <MyButton>Click Me!!</MyButton>
