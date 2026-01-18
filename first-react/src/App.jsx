@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import './App.css';
 import LinkLogos from './features/LinkLogos';
-import { Loki } from './_shared/util';
+import { Loki, EventDemo, EventObjectDemo } from './_shared/util';
+import MyButton from './_shared/MyButton';
+import MyForm from './features/MyForm';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -19,6 +21,13 @@ function App() {
 
   return (
     <>
+      <MyButton>Click Me!!</MyButton>
+      <MyForm />
+      <hr />
+      <EventObjectDemo />
+      <hr />
+      <EventDemo />
+      <hr />
       <Loki onClick={handleClick}>
         <ul>
           <li>123</li>
