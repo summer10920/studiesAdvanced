@@ -1,6 +1,7 @@
 import LinkItem from './components/LinkItem';
 import reactLogo from '@assets/react.svg';
 import viteLogo from '/vite.svg';
+import { ImgLogo } from '../../_shared/util';
 
 export default function LinkLogos() {
   const logoItems = [
@@ -11,7 +12,9 @@ export default function LinkLogos() {
   return (
     <div>
       {logoItems.map((item) => (
-        <LinkItem logoItem={item} key={item.id} />
+        <LinkItem url={item.url} key={item.id}>
+          <ImgLogo src={item.imgUrl} alt={item.altText} />
+        </LinkItem>
       ))}
     </div>
   );

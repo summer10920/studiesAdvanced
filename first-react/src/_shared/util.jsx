@@ -3,6 +3,7 @@ export function ImgLogo({ src, alt }) {
 }
 
 // 示範如何把一個fn指定動作丟給小元件
-export function Loki({ onClick }) {
-  return <button onClick={onClick}>Loki Component</button>;
+export function Loki({ onClick, children }) {
+  // console.log('Loki children:', children);
+  return <button onClick={onClick}>{children || 'Default Context'}</button>;
 }

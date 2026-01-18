@@ -1,12 +1,7 @@
-import { ImgLogo } from '../../../_shared/util';
-
-export default function LinkItem({ logoItem }) {
-  const { url, imgUrl, altText } = logoItem;
+export default function LinkItem({ url, children }) {
   return (
-    <>
-      <a href={url} target="_blank">
-        <ImgLogo src={imgUrl} alt={altText} />
-      </a>
-    </>
+    <a href={url} target="_blank">
+      {children}
+    </a>
   );
 }

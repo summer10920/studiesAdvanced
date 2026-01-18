@@ -19,7 +19,12 @@ function App() {
 
   return (
     <>
-      <Loki onClick={handleClick} />
+      <Loki onClick={handleClick}>
+        <ul>
+          <li>123</li>
+          <li>456</li>
+        </ul>
+      </Loki>
       <Loki onClick={alertClick} />
       <hr />
       <LinkLogos />
