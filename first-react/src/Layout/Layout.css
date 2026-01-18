@@ -1,0 +1,79 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* 側邊選單樣式 */
+.sidebar {
+  width: 280px;
+  background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2rem 1rem;
+  position: fixed;
+  height: 100vh;
+  overflow-y: auto;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    margin: 0 0 2rem 0;
+    font-size: 1.5rem;
+    text-align: center;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  }
+
+  nav {
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 1rem;
+      border-radius: 8px;
+      transition: all 0.3s;
+      font-weight: 500;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        transform: translateX(5px);
+      }
+
+      &.active {
+        background-color: rgba(255, 255, 255, 0.2);
+        font-weight: bold;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}
+
+/* 主要內容區域 */
+.content {
+  margin-left: 280px;
+  flex: 1;
+  padding: 2rem;
+  background-color: #f7fafc;
+  min-height: 100vh;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .content {
+    margin-left: 0;
+  }
+}
