@@ -20,22 +20,29 @@
 .nav-links {
   display: flex;
   gap: 1rem;
-}
 
-.nav-link {
-  padding: 0.5rem 1.5rem;
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  transition: all 0.3s;
-  font-weight: 500;
+  .nav-link {
+    padding: 0.5rem 1.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s;
+    font-weight: 500;
 
-  &:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: translateY(-2px);
+    &:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    &.active {
+      background: white;
+      color: #333;
+    }
   }
 }
+
+
 
 .lesson02-content {
   background: white;

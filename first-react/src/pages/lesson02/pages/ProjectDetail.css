@@ -1,0 +1,154 @@
+.project-detail {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.btn-back {
+  padding: 0.5rem 1rem;
+  background: #e2e8f0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  transition: all 0.3s;
+
+  &:hover {
+    background: #cbd5e0;
+  }
+}
+
+.project-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid #e2e8f0;
+
+  h1 {
+    margin: 0 0 0.5rem 0;
+    color: #667eea;
+  }
+}
+
+.project-icon {
+  font-size: 5rem;
+}
+
+.project-desc {
+  color: #666;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.section {
+  margin-bottom: 2rem;
+
+  h2 {
+    color: #333;
+    margin-bottom: 1rem;
+  }
+}
+
+.tech-list {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.tech-badge {
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+
+  li {
+    padding: 0.75rem;
+    background: #f7fafc;
+    border-left: 4px solid #667eea;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+  }
+}
+
+.link-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-demo,
+.btn-github {
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.btn-demo {
+  background: #667eea;
+  color: white;
+
+  &:hover {
+    background: #5568d3;
+    transform: translateY(-2px);
+  }
+}
+
+.btn-github {
+  background: #333;
+  color: white;
+
+  &:hover {
+    background: #000;
+    transform: translateY(-2px);
+  }
+}
+
+.nav-projects {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-nav {
+  padding: 0.75rem 1.5rem;
+  background: #f0f4ff;
+  color: #667eea;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s;
+
+  &:hover {
+    background: #667eea;
+    color: white;
+  }
+}
+
+.not-found {
+  text-align: center;
+  padding: 3rem;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: #667eea;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
