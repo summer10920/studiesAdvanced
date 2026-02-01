@@ -14,7 +14,7 @@ export default function App() {
 
         {/* 各課程路由 */}
         <Route path="lesson01" element={<Lesson01 />} />
-        <Route path="lesson02" element={<Lesson02 />} />
+        <Route path="lesson02/*" element={<Lesson02 />} />
         <Route path="lesson03" element={<Lesson03 />} />
       </Route>
     </Routes>
