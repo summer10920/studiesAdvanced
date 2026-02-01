@@ -1,11 +1,11 @@
-.global-not-found {
+.globalNotFound {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 60vh;
 }
 
-.error-content {
+.errorContent {
   text-align: center;
   padding: 3rem;
 
@@ -30,7 +30,7 @@
   }
 }
 
-.error-code {
+.errorCode {
   font-size: 8rem;
   margin: 0;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -39,15 +39,15 @@
   background-clip: text;
 }
 
-.error-actions {
+.errorActions {
   display: flex;
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-.btn-back,
-.btn-home {
+.btnBack,
+.btnHome {
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
   font-size: 1rem;
@@ -57,7 +57,7 @@
   cursor: pointer;
 }
 
-.btn-back {
+.btnBack {
   background: #e2e8f0;
   color: #333;
   border: none;
@@ -68,7 +68,7 @@
   }
 }
 
-.btn-home {
+.btnHome {
   background: #667eea;
   color: white;
   display: inline-block;
