@@ -34,13 +34,14 @@ export default function Contact() {
     return newErrors;
   };
 
-  // 處理輸入變化
+  // 處理輸入變化，將form 資料存到 state
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
+
     // 清除該欄位的錯誤訊息
     if (errors[name]) {
       setErrors((prev) => ({
@@ -58,8 +59,20 @@ export default function Contact() {
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
-      return;
+      return; // 因為 return 提前結束函式，所以不會繼續往下執行
     }
+
+    // <!-- 在真實應用中，這裡會是發送表單資料到後端的邏輯 -->
+    // fetch('https://jsonplaceholder.typicode.com/posts', {
+    //   method: 'POST',
+    //   body: JSON.stringify(formData),
+    //   headers: {
+    //     'Content-type': 'application/json; charset=UTF-8',
+    //   },
+    // })
+    //   .then((response) => response.json())
+    //   .then((json) => console.log(json))
+    //   .catch((error) => console.log(error));
 
     // 模擬發送成功
     alert(`訊息已送出！\n 姓名：${formData.name}\nEmail：${formData.email}`);
