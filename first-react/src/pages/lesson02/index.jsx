@@ -1,5 +1,6 @@
 import { Routes, Route, Navigate, Link, NavLink, Outlet } from 'react-router';
 import './index.css';
+import NotFound from '../NotFound/NotFound';
 
 // 子頁面元件（稍後建立）
 import ProjectList from './pages/ProjectList';
@@ -34,6 +35,8 @@ export default function Lesson02() {
           <Route path="projects/:myId" element={<ProjectDetail />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
+
+          <Route path="*" element={<Navigate to="/lesson02" replace />} />
         </Routes>
       </div>
     </div>

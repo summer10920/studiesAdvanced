@@ -3,6 +3,7 @@ import Layout from './Layout';
 import Lesson01 from './pages/lesson01';
 import Lesson02 from './pages/lesson02';
 import Lesson03 from './pages/lesson03';
+import NotFound from './pages/NotFound/NotFound';
 
 export default function App() {
   return (
@@ -16,6 +17,8 @@ export default function App() {
         <Route path="lesson01" element={<Lesson01 />} />
         <Route path="lesson02/*" element={<Lesson02 />} />
         <Route path="lesson03" element={<Lesson03 />} />
+
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   );
