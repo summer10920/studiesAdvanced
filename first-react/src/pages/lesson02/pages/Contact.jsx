@@ -84,24 +84,24 @@ export default function Contact() {
     }
 
     // <!-- 在真實應用中，這裡會是發送表單資料到後端的邏輯 -->
-    // fetch('https://jsonplaceholder.typicode.com/posts', {
-    //   method: 'POST',
-    //   body: JSON.stringify(formData),
-    //   headers: {
-    //     'Content-type': 'application/json; charset=UTF-8',
-    //   },
-    // })
-    //   .then((response) => response.json())
-    //   .then((json) => console.log(json))
-    //   .catch((error) => console.log(error));
+    fetch('https://jsonplaceholder.typicode.com/posts', {
+      method: 'POST',
+      body: JSON.stringify(formData),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        // 模擬發送成功
+        // alert(`訊息已送出！\n 姓名：${formData.name}\nEmail：${formData.email}`);
 
-    // 模擬發送成功
-    alert(`訊息已送出！\n 姓名：${formData.name}\nEmail：${formData.email}`);
-
-    // 🌟 使用 navigate 導航到作品列表
-    navigate('/lesson02/projects', {
-      state: { message: '感謝您的聯絡，我會盡快回覆！' },
-    });
+        // 🌟 使用 navigate 導航到作品列表
+        navigate('/lesson02/projects', {
+          state: { message: '感謝您的聯絡，我會盡快回覆！' },
+        });
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
