@@ -41,13 +41,34 @@ export default function Contact() {
       ...prev,
       [name]: value,
     }));
+  };
 
-    // 清除該欄位的錯誤訊息
-    if (errors[name]) {
-      setErrors((prev) => ({
-        ...prev,
-        [name]: '',
-      }));
+  const singleValidate = (e) => {
+    const { name, value } = e.target;
+
+    switch (name) {
+      case 'name':
+        if (!value.trim()) setErrors((prev) => ({ ...prev, name: '請輸入姓名' }));
+        else setErrors((prev) => ({ ...prev, name: '' }));
+        break;
+      case 'email':
+        if (!value.trim()) {
+          setErrors((prev) => ({ ...prev, email: '請輸入電子郵件' }));
+        } else if (!/\S+@\S+\.\S+/.test(value)) {
+          setErrors((prev) => ({ ...prev, email: '電子郵件格式不正確' }));
+        } else {
+          setErrors((prev) => ({ ...prev, email: '' }));
+        }
+        break;
+      case 'message':
+        if (!value.trim()) {
+          setErrors((prev) => ({ ...prev, message: '請輸入訊息內容' }));
+        } else if (value.trim().length < 10) {
+          setErrors((prev) => ({ ...prev, message: '訊息內容至少需要 10 個字' }));
+        } else {
+          setErrors((prev) => ({ ...prev, message: '' }));
+        }
+        break;
     }
   };
 
@@ -97,6 +118,7 @@ export default function Contact() {
             name="name"
             value={formData.name}
             onChange={handleChange}
+            onBlur={singleValidate}
             className={errors.name ? 'error' : ''}
           />
           {errors.name && <span className="error-message">{errors.name}</span>}
@@ -110,6 +132,7 @@ export default function Contact() {
             name="email"
             value={formData.email}
             onChange={handleChange}
+            onBlur={singleValidate}
             className={errors.email ? 'error' : ''}
           />
           {errors.email && <span className="error-message">{errors.email}</span>}
@@ -123,13 +146,18 @@ export default function Contact() {
             rows="5"
             value={formData.message}
             onChange={handleChange}
+            onBlur={singleValidate}
             className={errors.message ? 'error' : ''}
           />
           {errors.message && <span className="error-message">{errors.message}</span>}
         </div>
 
         <div className="form-actions">
-          <button type="submit" className="btn-submit">
+          <button
+            type="submit"
+            className="btn-submit"
+            disabled={Object.values(formData).includes('') || Object.values(errors).join('')}
+          >
             送出訊息
           </button>
           <button type="button" onClick={() => navigate('/lesson02/projects')} className="btn-cancel">

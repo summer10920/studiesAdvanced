@@ -67,6 +67,16 @@
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s;
+
+  &:disabled {
+    background: #a0aec0;
+    cursor: not-allowed;
+    transform: none;
+
+    &:hover {
+      background: #a0aec0;
+    }
+  }
 }
 
 .btn-submit {
