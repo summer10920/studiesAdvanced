@@ -1,5 +1,6 @@
 import styles from './todoList.module.css';
 import { useState } from 'react';
+import TaskAdd from './TaskAdd';
 
 // 🌟 初始資料
 const initData = [
@@ -13,16 +14,9 @@ const initData = [
 export default function TodoExample() {
   // 宣告使用 HOOK 都是在元件內
   const [todoList, setTodoList] = useState(initData);
-  const [inputValue, setInputValue] = useState('');
 
-  const handleAdd = () => {
-    if (!inputValue.trim()) return;
-
-    setTodoList((state) => [
-      ...state,
-      { id: state.length ? state[state.length - 1].id + 1 : 1, text: inputValue, checked: false },
-    ]);
-    setInputValue('');
+  const handleAdd = (text) => {
+    setTodoList((state) => [...state, { id: state.length ? state[state.length - 1].id + 1 : 1, text, checked: false }]);
   };
 
   const handleDelete = (id) => {
@@ -38,19 +32,7 @@ export default function TodoExample() {
       <h1>Todo List：useReducer 範例</h1>
 
       {/* 輸入區域 */}
-      <div className={styles.header}>
-        <h2>我的待辦清單</h2>
-        <input
-          type="text"
-          placeholder="輸入新的待辦事項..."
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          onKeyDown={(e) => e.key === 'Enter' && handleAdd()}
-        />
-        <span className={styles.addBtn} onClick={() => handleAdd()}>
-          新增
-        </span>
-      </div>
+      <TaskAdd onAdd={handleAdd} />
 
       {/* 待辦列表 */}
       <ul className={styles.todoList}>
