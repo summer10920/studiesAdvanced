@@ -37,7 +37,7 @@
 
     /* 已完成的項目 */
     &.checked {
-      background: #6c757d;
+      background: #c1cdd8;
       color: #fff;
       text-decoration: line-through;
 

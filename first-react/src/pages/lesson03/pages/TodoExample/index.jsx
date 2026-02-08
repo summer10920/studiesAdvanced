@@ -16,11 +16,17 @@ export default function TodoExample() {
   const [inputValue, setInputValue] = useState('');
 
   const handleAdd = () => {
+    if (!inputValue.trim()) return;
+
     setTodoList((state) => [
       ...state,
       { id: state.length ? state[state.length - 1].id + 1 : 1, text: inputValue, checked: false },
     ]);
     setInputValue('');
+  };
+
+  const handleDelete = (id) => {
+    setTodoList((state) => state.filter((item) => item.id !== id));
   };
 
   return (
@@ -35,6 +41,7 @@ export default function TodoExample() {
           placeholder="輸入新的待辦事項..."
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
+          onKeyDown={(e) => e.key === 'Enter' && handleAdd()}
         />
         <span className={styles.addBtn} onClick={() => handleAdd()}>
           新增
@@ -46,6 +53,9 @@ export default function TodoExample() {
         {todoList.map((item) => (
           <li key={item.id} className={item.checked ? styles.checked : ''}>
             {item.text}
+            <span className={styles.close} onClick={() => handleDelete(item.id)}>
+              ×
+            </span>
           </li>
         ))}
       </ul>
