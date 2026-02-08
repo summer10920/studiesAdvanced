@@ -1,0 +1,48 @@
+.lesson03_container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.lesson03_nav {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+
+  h2 {
+    margin: 0 0 1rem 0;
+    color: #333;
+  }
+}
+
+.nav_links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.nav_link {
+  padding: 0.5rem 1rem;
+  background: white;
+  border: 2px solid #dee2e6;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #495057;
+  font-weight: 500;
+  transition: all 0.2s;
+
+  &:hover {
+    background: #e9ecef;
+    border-color: #adb5bd;
+    transform: translateY(-1px);
+  }
+}
+
+.lesson03_content {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  min-height: 500px;
+}
