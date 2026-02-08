@@ -1,0 +1,46 @@
+.menuItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    color: #3b82f6;
+  }
+}
+
+.toggleBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #dee2e6;
+  background: white;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #495057;
+  transition: all 0.2s;
+  margin-left: 1rem;
+
+  &:hover {
+    background: #3b82f6;
+    color: white;
+    border-color: #3b82f6;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.submenu {
+  margin-left: 1.5rem;
+  padding-left: 1rem;
+  border-left: 2px solid #e9ecef;
+  list-style: none;
+}

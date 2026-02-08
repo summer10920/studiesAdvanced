@@ -1,0 +1,75 @@
+.menu-example {
+  padding: 1rem;
+}
+
+.example-intro {
+  background: #f0f7ff;
+  padding: 1rem 1.5rem;
+  border-left: 4px solid #3b82f6;
+  border-radius: 4px;
+  margin: 1.5rem 0;
+  color: #1e40af;
+
+  p {
+    margin: 0.5rem 0;
+  }
+}
+
+.menu-list {
+  background: white;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  list-style: none;
+}
+
+.explanation {
+  background: #fff8e1;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #ffc107;
+  margin-top: 2rem;
+
+  h3 {
+    margin-top: 0;
+    color: #f57c00;
+  }
+
+  ul {
+    margin: 1rem 0;
+    color: #e65100;
+    line-height: 1.8;
+  }
+
+  li {
+    margin: 0.75rem 0;
+  }
+
+  strong {
+    color: #e65100;
+  }
+
+  code {
+    background: #ffe082;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Monaco', 'Menlo', monospace;
+    font-size: 14px;
+    color: #e65100;
+  }
+}
+
+.formula {
+  background: #ffe082;
+  padding: 1rem;
+  border-radius: 6px;
+  text-align: center;
+  margin-top: 0.5rem;
+
+  code {
+    background: transparent;
+    font-size: 16px;
+    font-weight: 600;
+  }
+}

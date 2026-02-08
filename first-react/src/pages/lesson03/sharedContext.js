@@ -21,7 +21,7 @@ export const themes = {
 export const ThemeContext = createContext(themes.light);
 
 // FontSize（巢狀選單字級）
-// export const FontSizeContext = createContext(3);
+export const FontSizeContext = createContext(3);
 
 // Todo（狀態與操作分離）
 // export const TodoStateContext = createContext(null);
