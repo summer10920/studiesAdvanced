@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ThemeContext, themes } from '../../sharedContext';
-import ThemedButton from './ThemedButton';
+import Toolbar from './Toolbar';
 import './index.css';
 
 export default function ThemeExample() {
@@ -52,17 +52,6 @@ export default function ThemeExample() {
           <li>中間層元件（Toolbar）不需要處理 Props</li>
         </ol>
       </div>
-    </div>
-  );
-}
-
-// 中間層元件：不需要處理 theme 相關的 Props
-function Toolbar() {
-  return (
-    <div className="toolbar">
-      <h3>🛠️ Toolbar 元件（中間層）</h3>
-      <p className="note">這個元件不需要知道 theme 的存在</p>
-      <ThemedButton />
     </div>
   );
 }

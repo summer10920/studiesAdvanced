@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate, Link, Outlet } from 'react-router';
+import { Routes, Route, Navigate, Link } from 'react-router';
 import styles from './lesson03.module.css';
 
 // 子頁面元件（稍後建立）
