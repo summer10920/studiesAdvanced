@@ -1,5 +1,5 @@
 import styles from './todoList.module.css';
-import { TodoDispatchContext, TodoStateContext } from './store/reducerContext';
+import { TodoDispatchContext, TodoStateContext } from './TodoProviders';
 import { useContext } from 'react';
 
 export default function TaskList() {

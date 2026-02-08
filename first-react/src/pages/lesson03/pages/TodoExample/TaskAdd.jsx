@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import styles from './todoList.module.css';
 import { useState } from 'react';
-import { TodoDispatchContext } from './store/reducerContext';
+import { TodoDispatchContext } from './TodoProviders';
 
 export default function TaskAdd() {
   const [inputValue, setInputValue] = useState('');
