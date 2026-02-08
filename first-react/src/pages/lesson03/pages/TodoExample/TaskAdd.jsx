@@ -1,12 +1,11 @@
-import { useContext } from 'react';
 import styles from './todoList.module.css';
 import { useState } from 'react';
-import { TodoDispatchContext } from './TodoProviders';
+import { useTodoDispatch } from './TodoProviders';
 
 export default function TaskAdd() {
   const [inputValue, setInputValue] = useState('');
 
-  const { dispatchAdd } = useContext(TodoDispatchContext);
+  const { dispatchAdd } = useTodoDispatch();
 
   const handleSubmit = () => {
     if (!inputValue.trim()) return;

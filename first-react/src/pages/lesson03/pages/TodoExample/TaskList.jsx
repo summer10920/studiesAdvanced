@@ -1,10 +1,9 @@
 import styles from './todoList.module.css';
-import { TodoDispatchContext, TodoStateContext } from './TodoProviders';
-import { useContext } from 'react';
+import { useTodoDispatch, useTodoState } from './TodoProviders';
 
 export default function TaskList() {
-  const { dispatchDelete, dispatchToggleChecked } = useContext(TodoDispatchContext);
-  const todoList = useContext(TodoStateContext);
+  const { dispatchDelete, dispatchToggleChecked } = useTodoDispatch();
+  const todoList = useTodoState();
 
   return (
     <ul className={styles.todoList}>
