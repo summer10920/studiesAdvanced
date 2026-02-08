@@ -1,4 +1,4 @@
-import { ADD_TODO, DELETE_TODO, TOGGLE_CHECKED } from './store/action';
+import { ADD_TODO, DELETE_TODO, TOGGLE_CHECKED } from './action';
 
 export const initState = [
   { id: 1, text: '去健身房', checked: false },
