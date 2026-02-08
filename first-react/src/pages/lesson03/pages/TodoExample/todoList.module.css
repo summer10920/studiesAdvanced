@@ -1,0 +1,132 @@
+/* 列表容器 */
+.todoList {
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+  max-width: 600px;
+
+  /* 列表項目 */
+  li {
+    position: relative;
+    padding: 16px 48px 16px 48px;
+    background: #f9f9f9;
+    font-size: 18px;
+    cursor: pointer;
+    user-select: none;
+    border-bottom: 1px solid #e9ecef;
+    transition: all 0.2s;
+
+    &:first-child {
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+
+    &:last-child {
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      border-bottom: none;
+    }
+
+    &:nth-child(even) {
+      background: #ffffff;
+    }
+
+    &:hover {
+      background: #e9ecef;
+    }
+
+    /* 已完成的項目 */
+    &.checked {
+      background: #6c757d;
+      color: #fff;
+      text-decoration: line-through;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 16px;
+        top: 50%;
+        transform: translateY(-50%) rotate(45deg);
+        width: 8px;
+        height: 16px;
+        border-color: #fff;
+        border-style: solid;
+        border-width: 0 3px 3px 0;
+      }
+    }
+  }
+}
+
+/* 刪除按鈕 */
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #6c757d;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background: #dc3545;
+    color: white;
+  }
+}
+
+/* 輸入區域 */
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2rem;
+  border-radius: 8px;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+
+  h2 {
+    margin: 0 0 1rem 0;
+    font-size: 28px;
+  }
+
+  input {
+    width: calc(75% - 8px);
+    padding: 12px;
+    border: none;
+    border-radius: 6px 0 0 6px;
+    font-size: 16px;
+    outline: none;
+
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+    }
+  }
+}
+
+/* 新增按鈕 */
+.addBtn {
+  display: inline-block;
+  width: 25%;
+  padding: 12px;
+  background: #28a745;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 0 6px 6px 0;
+  transition: all 0.2s;
+  user-select: none;
+
+  &:hover {
+    background: #218838;
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
