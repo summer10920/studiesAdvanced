@@ -29,6 +29,10 @@ export default function TodoExample() {
     setTodoList((state) => state.filter((item) => item.id !== id));
   };
 
+  const handleToggleChecked = (id) => {
+    setTodoList((state) => state.map((item) => (item.id === id ? { ...item, checked: !item.checked } : item)));
+  };
+
   return (
     <div className="todo-example">
       <h1>Todo List：useReducer 範例</h1>
@@ -51,9 +55,15 @@ export default function TodoExample() {
       {/* 待辦列表 */}
       <ul className={styles.todoList}>
         {todoList.map((item) => (
-          <li key={item.id} className={item.checked ? styles.checked : ''}>
+          <li key={item.id} className={item.checked ? styles.checked : ''} onClick={() => handleToggleChecked(item.id)}>
             {item.text}
-            <span className={styles.close} onClick={() => handleDelete(item.id)}>
+            <span
+              className={styles.close}
+              onClick={(e) => {
+                e.stopPropagation(); // 阻止事件冒泡，避免觸發切換完成狀態
+                handleDelete(item.id);
+              }}
+            >
               ×
             </span>
           </li>
