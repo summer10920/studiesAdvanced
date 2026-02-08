@@ -1,6 +1,6 @@
-import styles from './todoList.module.css';
 import { useState } from 'react';
 import TaskAdd from './TaskAdd';
+import TaskList from './TaskList';
 
 // 🌟 初始資料
 const initData = [
@@ -35,22 +35,7 @@ export default function TodoExample() {
       <TaskAdd onAdd={handleAdd} />
 
       {/* 待辦列表 */}
-      <ul className={styles.todoList}>
-        {todoList.map((item) => (
-          <li key={item.id} className={item.checked ? styles.checked : ''} onClick={() => handleToggleChecked(item.id)}>
-            {item.text}
-            <span
-              className={styles.close}
-              onClick={(e) => {
-                e.stopPropagation(); // 阻止事件冒泡，避免觸發切換完成狀態
-                handleDelete(item.id);
-              }}
-            >
-              ×
-            </span>
-          </li>
-        ))}
-      </ul>
+      <TaskList todoList={todoList} onDelete={handleDelete} onToggleChecked={handleToggleChecked} />
     </div>
   );
 }
