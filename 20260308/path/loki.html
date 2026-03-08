@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <!-- 
+  這裡都是給瀏覽器用的資訊，
+  包含網站標題要叫甚麼、網站的描述、關鍵字等等，
+  這些資訊不會直接顯示在網頁上，
+  但對於搜尋引擎優化（SEO）和網站的功能性非常重要。
+  -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>洛奇ㄟ神秘筆記</title>
+</head>
+<img>
+<!-- 主體內容，這裡是網頁上會直接顯示給使用者看的部分。你可以在這裡放置文字、圖片、影片、連結等等，讓你的網站變得豐富多彩。 -->
+<p>HELLO WORLD</p>
+<a href="https://www.google.com">Google 網址</a>
+<hr>
+<a href="https://www.google.com" target="_blank">Google 網址</a>
+<!-- picsum 是一個提供隨機圖片的網站，透過改變網址中的數字參數，可以獲取不同的圖片。以下是一些示例： -->
+<!-- 絕對路徑 -->
+<img src="https://picsum.photos/300/200/?random=10">
+<hr>
+<!-- 相對路徑 -->
+<img src="./1.jpg" width="200" height="200">
+<!-- "./" 代表當前目錄 -->
+<img src="./1.jpg">
+<!-- "../" 代表上一層目錄 -->
+<img src="../2.jpg">
+<!-- "/" 代表根目錄 -->
+<img src="/20260308/2.jpg">
+<img src="/20260308/path/1.jpg">
+<img src="../neighbor/3.jpg">
+<!-- 如果在子目錄下的相對 -->
+<img src="./child/4.jpg">
+<img src="child/4.jpg" alt="這是張精靈在打工的網路梗圖" title="網路梗圖">
+<!-- 如果不存在會發生甚麼事 -->
+<img src="./5.jpg" alt="打工圖">
+<hr>
+<!-- 除了圖片之外，某元素也會使用相對路徑，例如連結（<a>）元素的 href 屬性。以下是一些示例： -->
+<a href="./child/child.html">子目錄下的網頁</a>
+</body>
+
+</html>
