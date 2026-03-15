@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>項目清單列表</title>
+</head>
+
+<body>
+  <h2>無序號 un-order list 清單列表，包住 list item</h2>
+  <!--emmet 速寫:  ul>li*3{項目00$} -->
+  <ul>
+    <li>項目1</li>
+    <li>項目2</li>
+    <li>項目3</li>
+  </ul>
+  <!-- ul>(li>a[href="#"]{連結$})*3 -->
+  <ul>
+    <li>拜訪網址<a href="#">連結1</a>前往</li>
+    <li><a href="#">連結2</a></li>
+    <li><a href="#">連結3</a></li>
+  </ul>
+  <h2>有序號 order list 清單列表，包住 list item</h2>
+  <ol>
+    <li>項目1</li>
+    <li>項目2</li>
+    <li>項目3</li>
+  </ol>
+  <ol type="i">
+    <li>項目1</li>
+    <li>項目2</li>
+    <li>項目3</li>
+  </ol>
+  <ol start="3">
+    <li>項目1</li>
+    <li>項目2</li>
+    <li>項目3</li>
+    <li>項目3</li>
+    <li>項目3</li>
+  </ol>
+  <h2>巢狀清單示範</h2>
+  <ul>
+    <li>
+      <div>法規一</div>
+      <ul>
+        <li>
+          <div>第一條</div>
+          <ul>
+            <li>項目1</li>
+            <li>項目2</li>
+            <li>項目3</li>
+          </ul>
+        </li>
+        <li>項目2</li>
+        <li>項目3</li>
+      </ul>
+    </li>
+    <li>項目2</li>
+    <li>項目3</li>
+  </ul>
+  <h2>dl, dt, dd</h2>
+  <!-- 基本描述清單 -->
+  <h3>常見問題</h3>
+  <dl>
+    <dt>如何開始學習網頁設計？</dt>
+    <dd>建議從 HTML 基礎開始，逐步學習 CSS 和 JavaScript。</dd>
+    <dt>需要什麼開發工具？</dt>
+    <dd>推薦使用 VSCode 編輯器，搭配 Chrome 瀏覽器進行開發。</dd>
+    <dt>學習期間大約多久？</dt>
+    <dd>
+      <div>依個人學習狀況而定：</div>
+      <ul>
+        <li>基礎入門：1-2 個月</li>
+        <li>進階應用：3-6 個月</li>
+        <li>專業程度：1-2 年</li>
+      </ul>
+    </dd>
+  </dl>
+</body>
+
+</html>
