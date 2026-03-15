@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <table border="1" cellspacing="0" cellpadding="5" width="80%">
+    <caption>成績表</caption>
+    <thead>
+      <tr>
+        <th width="50%">姓名</th>
+        <th>英文成績</th>
+        <th>數學成績</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>張曉明</td>
+        <td align="right" colspan="2">25</td>
+      </tr>
+      <tr>
+        <td rowspan="2">李小華</td>
+        <td align="right">85</td>
+        <td align="right">90</td>
+      </tr>
+      <tr>
+        <td align="right">99</td>
+        <td align="right">99</td>
+      </tr>
+      <tr>
+        <td>陳小美</td>
+        <td align="right">99</td>
+        <td align="right">99</td>
+      </tr>
+      <tr>
+        <td>陳小美</td>
+        <td align="right">99</td>
+        <td align="right">99</td>
+      </tr>
+      <tr>
+        <td>陳小美</td>
+        <td align="right">99</td>
+        <td align="right">99</td>
+      </tr>
+      <tr>
+        <td>陳小美</td>
+        <td align="right" colspan="2" rowspan="2">100</td>
+        <!-- <td align="right">100</td> -->
+      </tr>
+      <tr>
+        <td>陳小美</td>
+        <!-- <td align="right">100</td> -->
+        <!-- <td align="right">100</td> -->
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th>平均</th>
+        <td align="right">55</td>
+        <td align="right">85</td>
+      </tr>
+    </tfoot>
+  </table>
+  <hr>
+  <!-- 無障礙存取範例 -->
+  <table border="1" style="border-collapse: collapse;">
+    <caption>員工聯絡資訊表</caption>
+    <thead>
+      <tr>
+        <th scope="col">員工編號</th>
+        <th scope="col">姓名</th>
+        <th scope="col">部門</th>
+        <th scope="col">分機</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">001</th>
+        <td>張志明</td>
+        <td>資訊部</td>
+        <td>1234</td>
+      </tr>
+      <tr>
+        <th scope="row">002</th>
+        <td>李小美</td>
+        <td>行銷部</td>
+        <td>5678</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+
+</html>
