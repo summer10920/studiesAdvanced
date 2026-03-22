@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <form action="./submit.html" method="post" enctype="multipart/form-data">
+    <fieldset>
+      <div>
+        <legend>帳號設定</legend>
+        <label>
+          <span>使用者帳號:</span>
+          <input type="text" name="acc" value="admin" disabled>
+        </label>
+      </div>
+      <div>
+        <label>
+          <span>密碼:</span>
+          <input type="password" name="pwd" placeholder="請修改密碼">
+        </label>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>個人介紹</legend>
+      <div>
+        <span>性別:</span>
+        <label> <input type="radio" name="gender" value="male">男</label>
+        <label> <input type="radio" name="gender" value="female">女</label>
+        <label> <input type="radio" name="gender" value="other" checked>其他</label>
+      </div>
+      <div>
+        <span>興趣:</span>
+        <label><input type="checkbox" name="hobby[]" value="movie">看電影</label>
+        <label><input type="checkbox" name="hobby[]" value="music" checked>聽音樂</label>
+        <label><input type="checkbox" name="hobby[]" value="travel" checked>旅遊</label>
+      </div>
+      <div>
+        <span>居住地:</span>
+        <select name="city">
+          <option value="">請選擇</option>
+          <option value="taipei" selected>台北市</option>
+          <option value="taichung">台中市</option>
+          <option value="kaohsiung" disabled>高雄市</option>
+        </select>
+      </div>
+      <div>
+        <label>
+          <span>生日:</span>
+          <input type="date" name="birth" min="1911-01-01">
+        </label>
+      </div>
+      <div>
+        <label>
+          <span>照片上傳:</span>
+          <input type="file" name="photo" accept="image/*">
+        </label>
+      </div>
+      <div>關於我:</div>
+      <textarea name="intro" rows="5" placeholder="請輸入自我介紹"></textarea>
+    </fieldset>
+    <!-- <fieldset>
+      <legend>自我介紹</legend>
+    </fieldset> -->
+    <br>
+    <input type="submit" value="提交">
+  </form>
+  <!-- --------------------------------------------------------------------part3 -->
+  <!-- <form action="./submit.html" method="get">
+    <div>
+      <label>
+        <span>使用者帳號:(4~12字元)</span>
+        <input type="text" name="account" id="input_account" required minlength="4" maxlength="12">
+      </label>
+      <label>
+        <span>使用者帳號:(請用英文加數字組合4~12字元)</span>
+        <input type="text" name="account" id="input_account" required pattern="^[a-z][a-z0-9]{3,11}$">
+      </label>
+    </div>
+    <div>
+      <label>
+        <span> 姓名:</span>
+        <input type="text" name="username">
+      </label>
+    </div>
+    <div>
+      <label>
+        <span> 信箱:</span>
+        <input type="email" name="username" required>
+      </label>
+    </div>
+    <hr>
+    <input type="submit" value="提交">
+  </form> -->
+  <!-- --------------------------------------------------------------------part2 -->
+  <!-- <form action="./submit.html" method="get">
+    <div>
+      <label for="input_account">使用者帳號:</label>
+      <input type="text" name="account" id="input_account" value="admin" readonly>
+    </div>
+    <div>
+      <label>
+        <span> 姓名:</span>
+        <input type="text" name="username" placeholder="請輸入中文姓名">
+      </label>
+    </div>
+    <hr>
+    <input type="submit" value="提交">
+  </form> -->
+  <!-- --------------------------------------------------------------------part1 -->
+  <!-- <form action="./search.html" method="post">
+    <span> 搜尋文章 </span>
+    <input type="text" name="query">
+    <input type="submit" value="搜尋">
+  </form> -->
+</body>
+
+</html>
