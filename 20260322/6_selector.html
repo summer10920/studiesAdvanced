@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS 選擇器</title>
+  <style>
+    /* 用元素名稱來做選擇 */
+    h1 {
+      color: red;
+    }
+
+    /* 用className .來做選擇 */
+    .txt-purple {
+      color: purple;
+    }
+
+    .txt-green {
+      color: green;
+    }
+
+    .bg-lightblue {
+      background-color: lightblue;
+    }
+
+    /* 用id #來做選擇, 這種 selector 比較少見,基於id不重複很難重複使用 */
+    #head-blue1,
+    .txt-blue {
+      color: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>主標題</h1>
+  <h2 id="head-blue1">使用 id 來做選擇套用</h2>
+  <p class="txt-purple bg-lightblue">這是第一個段落，用來測試 CSS 的 color 屬性。</p>
+  <p class="txt-green">這是第二個段落，我們會用它來學習不同的選擇器。</p>
+  <div>這是一個 div 區塊元素。</div>
+  <div class="txt-purple">這是一個 div 區塊元素。</div>
+  <div class="txt-green">這是一個 div 區塊元素。</div>
+  <div class="bg-lightblue">這是一個 div 區塊元素。</div>
+  <div>這是一個 div 區塊元素。</div>
+  <div class="txt-blue">這是一個 div 區塊元素。</div>
+  <span>這是一個 span 行內元素。</span>
+</body>
+
+</html>

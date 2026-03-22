@@ -8,19 +8,22 @@
 </head>
 
 <body>
+  <form action="./search"><label>搜尋:<input type="text" name="query"></label><button>搜尋</button></form>
+  <hr>
   <form action="./submit.html" method="post" enctype="multipart/form-data">
     <fieldset>
       <div>
         <legend>帳號設定</legend>
         <label>
           <span>使用者帳號:</span>
-          <input type="text" name="acc" value="admin" disabled>
+          <span>admin</span>
+          <input type="text" name="acc" value="admin" hidden>
         </label>
       </div>
       <div>
         <label>
           <span>密碼:</span>
-          <input type="password" name="pwd" placeholder="請修改密碼">
+          <input type="password" name="pwd" placeholder="請修改密碼" required>
         </label>
       </div>
     </fieldset>
@@ -61,12 +64,18 @@
       </div>
       <div>關於我:</div>
       <textarea name="intro" rows="5" placeholder="請輸入自我介紹"></textarea>
+      <br>
+      <label for="satisfaction">滿意度（1-10）：</label>
+      <input type="range" id="satisfaction" name="satisfaction" min="0" max="10" step="0.01">
     </fieldset>
     <!-- <fieldset>
       <legend>自我介紹</legend>
     </fieldset> -->
     <br>
-    <input type="submit" value="提交">
+    <!-- <input type="reset" value="重置"> -->
+    <!-- <input type="submit" value="提交"> -->
+    <button type="reset">重置</button>
+    <button type="submit">提交</button>
   </form>
   <!-- --------------------------------------------------------------------part3 -->
   <!-- <form action="./submit.html" method="get">
