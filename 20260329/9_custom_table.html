@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      border: 1px solid #7f8c8d;
+
+      tr {
+        td {
+          border: 1px solid #7f8c8d;
+        }
+
+        &:nth-child(3n+1)>td:nth-child(3n+1),
+        &:nth-child(3n+2)>td:nth-child(3n+2),
+        &:nth-child(3n+3)>td:nth-child(3n+3) {
+          background-color: lightblue;
+        }
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <table>
+    <tbody>
+      <tr>
+        <td style="vertical-align: top">國文</td>
+        <td>數學<br>數學<br>數學</td>
+        <td>英文</td>
+      </tr>
+      <tr>
+        <td>國文</td>
+        <td>數學</td>
+        <td>英文</td>
+      </tr>
+      <tr>
+        <td>國文</td>
+        <td>數學</td>
+        <td>英文</td>
+      </tr>
+      <tr>
+        <td>國文</td>
+        <td>數學</td>
+        <td>英文</td>
+      </tr>
+      <tr>
+        <td>國文</td>
+        <td>數學</td>
+        <td>英文</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+
+</html>

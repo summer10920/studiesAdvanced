@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    a:link {
+      color: #007bff;
+      /* 未訪問的連結 */
+      text-decoration: none;
+      background-color: red;
+    }
+    
+
+    a:visited {
+      color: #6f42c1;
+      background-color: green;
+      /* 已訪問的連結 */
+    }
+
+    /* 連結的四種基本狀態（順序很重要！） */
+    a:hover {
+      color: #0056b3;
+      /* 滑鼠懸停時 */
+      text-decoration: underline;
+      background-color: blue;
+    }
+
+    a:active {
+      color: #003d82;
+      background-color: purple;
+      /* 點擊瞬間 */
+    }
+  </style>
+</head>
+
+<body>
+  <a href="https://www.google.com">連結</a>
+</body>
+
+</html>

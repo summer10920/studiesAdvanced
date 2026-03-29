@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .ls1 {
+      p {
+        width: 300px;
+        background-color: gainsboro;
+      }
+
+      p:nth-child(1) {
+        text-align: left;
+      }
+
+      p:nth-child(2) {
+        text-align: center;
+      }
+
+      p:nth-child(3) {
+        text-align: right;
+      }
+
+      ul>li {
+        &:nth-child(1) {
+          text-decoration: overline;
+        }
+
+        &:nth-child(2) {
+          text-decoration: none;
+        }
+
+        &:nth-child(3) {
+          text-decoration: underline;
+        }
+
+        &:nth-child(4) {
+          text-decoration: line-through;
+        }
+      }
+    }
+
+    .ls2 {
+      p:nth-child(1) {
+        text-indent: 2em;
+      }
+
+      p:nth-child(2) {
+        text-transform: capitalize;
+      }
+
+      p:nth-child(3) {
+        text-transform: uppercase;
+      }
+
+      p:nth-child(4) {
+        text-transform: lowercase;
+      }
+    }
+
+    .ls3 {
+      text-shadow:
+        -3px -3px 0px #24ece7, 3px 3px 0px #f72b52;
+      font-weight: bold;
+      color: white;
+      background-color: black;
+      font-size: 2rem;
+      text-align: center;
+      font-family: monospace, serif;
+      text-transform: uppercase;
+      letter-spacing: 0.5rem;
+    }
+
+    .ls4 {
+      word-spacing: 0.5rem;
+      line-height: 2;
+    }
+
+    .ls5 p {
+      width: 200px;
+
+      &:nth-child(-n+2) {
+        background-color: lightgray;
+        white-space: nowrap;
+        /* overflow: auto; */
+        /* overflow: scroll; */
+        /* overflow-x: scroll; */
+        /* overflow-y: scroll; */
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      &:nth-child(n+3) {
+        background-color: lightblue;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+    }
+
+    .ls6 {
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: lightgray;
+        font-size: 1.5em;
+        text-align: center;
+        line-height: 100px;
+      }
+
+      p span {
+        &:nth-child(1) {
+          font-size: 0.5em;
+          background-color: lightblue;
+          vertical-align: top;
+        }
+
+        &:nth-child(2) {
+          font-size: 1em;
+          background-color: lightblue;
+        }
+
+        &:nth-child(3) {
+          font-size: 1.5em;
+          background-color: lightblue;
+        }
+
+        &:nth-child(4) {
+          font-size: 2em;
+          background-color: lightblue;
+        }
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="ls6">
+    <p>
+      <span>lorem</span><span>lorem</span><span>lorem</span><span>lorem</span>
+    </p>
+    <div>Loki</div>
+  </section>
+  <section class="ls5">
+    <p>Lorem ipsum dolor sit atttmet consectetur adipisicing elit. Aperiam minus at et quod ea, eveniet blanditiis ut
+      est enim atque?</p>
+    <p>西安不多半年坐在把握握本文家電形勢看過魔法高度曾經，寶寶古代，某個有了令人舉報，辦法腦袋如果你，房產。</p>
+    <p>Lorem ipsum dolor sit atttmet consectetur adipisicing elit. Aperiam minus at et quod ea, eveniet blanditiis ut
+      est enim atque?</p>
+    <p>西安不多半年坐在把握握本文家電形勢看過魔法高度曾經，寶寶古代，某個有了令人舉報，辦法腦袋如果你，房產。</p>
+  </section>
+  <section class="ls4">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam minus at et quod ea, eveniet blanditiis ut est
+      enim atque?</p>
+    <p>西安不多半年坐在把握本文家電形勢看過魔法高度曾經，寶寶古代，某個有了令人舉報，辦法腦袋如果你，房產。</p>
+  </section>
+  <section class="ls3">
+    <p>Lorem<br>混抖音</p>
+  </section>
+  <section class="ls2">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi harum consectetur eligendi numquam deserunt atque
+      ipsa nemo dignissimos rem dicta!</p>
+    <p>每個單字第一個字母大寫: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi harum consectetur eligendi numquam
+      deserunt atque ipsa nemo dignissimos rem dicta!</p>
+    <p>全大寫: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi harum consectetur eligendi numquam deserunt
+      atque ipsa nemo dignissimos rem dicta!</p>
+    <p>全小寫:Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi harum consectetur eligendi numquam deserunt
+      atque ipsa nemo dignissimos rem dicta!</p>
+  </section>
+  <section class="ls1">
+    <ul>
+      <li>Lorem ipsum dolor sit amet.</li>
+      <li>Lorem ipsum dolor sit amet.</li>
+      <li>Lorem ipsum dolor sit amet.</li>
+      <li>Lorem ipsum dolor sit amet.</li>
+    </ul>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi harum consectetur eligendi numquam deserunt atque
+      ipsa nemo dignissimos rem dicta!</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi harum consectetur eligendi numquam deserunt atque
+      ipsa nemo dignissimos rem dicta!</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi harum consectetur eligendi numquam deserunt atque
+      ipsa nemo dignissimos rem dicta!</p>
+  </section>
+</body>
+
+</html>
