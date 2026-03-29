@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 後代選擇 */
+    nav ul {
+      color: red;
+    }
+
+    section p {
+      color: blue;
+    }
+
+    /* 子代選擇 */
+    section>p {
+      color: green;
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <p>兒子段落</p>
+    <div>
+      <h1>標題一</h1>
+      <div>
+        <p>這是段落一。</p>
+        <p>這是段落二。</p>
+      </div>
+      <p>這是段落三。</p>
+    </div>
+  </section>
+  <nav>
+    <ul class="red">
+      <li>不是超連結</li>
+      <li><a href="#">首頁</a></li>
+      <li><a href="#">關於我們</a></li>
+      <li><a href="#">聯絡我們</a></li>
+    </ul>
+  </nav>
+  <ul class="black">
+    <li>段落一</li>
+    <li>段落二</li>
+    <li>段落三</li>
+  </ul>
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <title>後代選擇器示範</title>
+  <style>
+    /* 導航區域的連結 */
+    nav a {
+      color: #3498db;
+    }
+
+    nav li {
+      color: red;
+    }
+
+    main article p {
+      color: green;
+    }
+
+    /* class 選擇 + 另一個 tag 選擇 => 優先高 */
+    /* 10 + 1 = 11 */
+    .card p {
+      color: purple;
+    }
+
+    /* tage 選擇 + 另一個 class 選擇 => 優先低 */
+    /* 1 + 1 = 2 */
+    main p {
+      color: darkgoldenrod;
+    }
+
+    main h2 {
+      color: #2c3e50;
+    }
+
+    /* 側邊欄區域 */
+    aside p {
+      color: #7f8c8d;
+    }
+
+    aside .widget-title {
+      color: #9b59b6;
+    }
+
+    /* 頁尾區域 */
+    footer p {
+      color: #95a5a6;
+    }
+
+    footer .social-links a {
+      color: #e74c3c;
+    }
+
+    /* 卡片內容 */
+    .card .title {
+      color: #e74c3c;
+    }
+
+    .card .meta {
+      color: #7f8c8d;
+    }
+
+    /* 表單內容 */
+    form label {
+      color: #34495e;
+    }
+
+    form input {
+      color: #2c3e50;
+    }
+
+    form .help-text {
+      color: #7f8c8d;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li><a href="#">首頁</a></li>
+      <li><a href="#">關於我們</a></li>
+      <li><a href="#">聯絡我們</a></li>
+    </ul>
+  </nav>
+  <hr>
+  <main>
+    <h2>主要內容</h2>
+    <p>P, 這是主要內容區域的段落。</p>
+    <article>
+      <p>P, 這是文章內的段落。</p>
+    </article>
+    <div class="card">
+      <h3 class="title">卡片標題</h3>
+      <p>P, 卡片內容段落。</p>
+      <div class="meta">發布時間：2024-01-01</div>
+    </div>
+  </main>
+  <hr>
+  <aside>
+    <h3 class="widget-title">側邊欄標題</h3>
+    <p>側邊欄段落內容。</p>
+  </aside>
+  <footer>
+    <p>版權資訊</p>
+    <div class="social-links">
+      <a href="#">Facebook</a>
+      <a href="#">Twitter</a>
+    </div>
+  </footer>
+</body>
+
+</html>

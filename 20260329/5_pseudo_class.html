@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 偽類選擇器 */
+    a:link {
+      color: red;
+    }
+
+    a:visited {
+      color: blue;
+    }
+
+    a:hover {
+      color: green;
+    }
+
+    a:active {
+      color: yellow;
+    }
+
+    button:disabled,
+    button[disabled] {
+      background-color: black;
+      color: #ecf0f1;
+      cursor: not-allowed;
+    }
+
+    div:hover {
+      background-color: #bdc3c7;
+    }
+
+    input:focus {
+      color: red;
+    }
+
+    li:first-child {
+      color: red;
+    }
+
+    li:last-child {
+      color: blue;
+    }
+
+    /* li:nth-child(even) { */
+    /* li:nth-child(odd) { */
+    li:nth-child(2n+3) {
+      background-color: lightblue;
+    }
+
+    /* 
+    table {
+      border-collapse: collapse;
+      border: 1px solid #7f8c8d;
+    }
+
+    table tr:nth-child(even) {
+      background-color: lightblue;
+    }
+
+    table td {
+      border: 1px solid #7f8c8d;
+    } */
+    table {
+      border-collapse: collapse;
+      border: 1px solid #7f8c8d;
+
+      tr {
+        &:nth-child(even) {
+          background-color: lightblue;
+        }
+
+        td {
+          border: 1px solid #7f8c8d;
+        }
+      }
+    }
+
+    /* section p:first-child {
+      color: red;
+    }
+
+    section p:first-of-type {
+      background-color: blue;
+    } */
+    section p {
+      &:first-child {
+        color: red;
+      }
+
+      &:first-of-type {
+        background-color: blue;
+      }
+    }
+
+    section h1:not(.blk) {
+      color: red;
+    }
+
+    /* section h1.blk {
+      color: unset;
+    } */
+  </style>
+</head>
+
+<body>
+  <section>
+    <h1>Lorem ipsum dolor sit amet.</h1>
+    <h1 class="blk">Lorem ipsum dolor sit amet.</h1>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Lorem ipsum dolor sit amet.</p>
+  </section>
+  <hr>
+  <table>
+    <tbody>
+      <tr>
+        <td>國文</td>
+        <td>數學</td>
+        <td>英文</td>
+      </tr>
+      <tr>
+        <td>國文</td>
+        <td>數學</td>
+        <td>英文</td>
+      </tr>
+      <tr>
+        <td>國文</td>
+        <td>數學</td>
+        <td>英文</td>
+      </tr>
+      <tr>
+        <td>國文</td>
+        <td>數學</td>
+        <td>英文</td>
+      </tr>
+      <tr>
+        <td>國文</td>
+        <td>數學</td>
+        <td>英文</td>
+      </tr>
+    </tbody>
+  </table>
+  <ul>
+    <li>項目1</li>
+    <li>項目2</li>
+    <li>項目3</li>
+    <li>項目4</li>
+    <li>項目5</li>
+    <li>項目5</li>
+    <li>項目5</li>
+    <li>項目5</li>
+    <li>項目5</li>
+  </ul>
+  <hr>
+  <input type="text">
+  <div>mouse hover</div>
+  <button disabled>按鈕</button>
+  <button>按鈕</button>
+  <button>按鈕</button>
+  <hr>
+  <a href="http://www.google.com">Google</a>
+  <a href="http://www.momo.com.tw">momo</a>
+  <a href="http://www.pchome.com.tw">PChome</a>
+  <a>不具備連結的元素</a>
+</body>
+
+</html>

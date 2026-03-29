@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 屬性選擇器 */
+    input[type="text"],
+    input[name="acc"] {
+      color: red;
+    }
+
+    input[type="password"] {
+      color: blue;
+    }
+
+    input[type] {
+      color: green;
+    }
+
+    a {
+      color: black;
+    }
+
+    a[href^="http"] {
+      color: purple;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="text" name="acc" value="123">
+  <input type="password" name="pwd" value="123">
+  <a href="http://demo.com">Demo</a>
+  <a href="http://example.com">Example</a>
+  <a href="./0_studentQA.html">Test</a>
+</body>
+
+</html>

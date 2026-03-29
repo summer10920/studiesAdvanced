@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <form>
+    <div>
+      <input type="text" name="username" value="admin">
+    </div>
+    <div>
+      <input type="password" name="password" value="123456"><button type="button">顯示密碼</button>
+    </div>
+    <div>
+      <input type="submit" value="登入">
+    </div>
+  </form>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const btn = document.querySelector("button");
+      const passwordInput = document.querySelector('input[name="password"]');
+
+      btn.addEventListener("click", function () {
+        if (passwordInput.type === "password") {
+          passwordInput.type = "text";
+          btn.textContent = "隱藏密碼";
+        } else {
+          passwordInput.type = "password";
+          btn.textContent = "顯示密碼";
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
