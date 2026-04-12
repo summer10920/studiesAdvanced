@@ -8,31 +8,43 @@
   <style>
     div.ls1 {
       width: 700px;
-      height: 700px;
+      height: 300px;
       /* 背景顏色 */
       background-color: lightpink;
       background-image: url('./fulilan.png');
       /* background-repeat: repeat; */
       /* background-repeat: repeat-y; */
       /* background-repeat: repeat-x; */
+      /* background-repeat: no-repeat repeat; */
       /* background-repeat: space; */
       /* background-repeat: round; */
       /* background-repeat: round space; */
+      /* background-repeat: round no-repeat; */
       background-repeat: no-repeat;
-      /* background-position: center; */
-      /* background-position: bottom right; */
-      /* background-position: 50% 200px; */
       background-position: left top;
+      /* background-position: bottom right; */
+      /* background-position: 25% 200px; */
+      /* background-position: left top; */
+      background-position: top;
       /* background-size: auto; */
-      /* background-size: cover; */
+      background-size: cover;
       /* background-size: contain; */
-      background-size: 50% 50%;
+      /* background-size: 95% 75%; */
+      /* background-size: 100px 200px; */
+    }
+
+    img {
+      width: 700px;
+      height: 300px;
+      object-fit: cover;
+      object-position: top;
     }
   </style>
 </head>
 
 <body>
   <div class="ls1"></div>
+  <img src="./fulilan.png">
   <hr>
   <span style="background-color: red;">AAA</span>
 </body>

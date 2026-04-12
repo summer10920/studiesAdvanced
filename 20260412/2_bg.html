@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div.ls1 {
+      width: 700px;
+      height: 700px;
+      /* background: #fc3 url('../20260329/fulilan.png') no-repeat left / 50% 100%; */
+      background: #fc3 url('../20260329/fulilan.png') no-repeat 0% / 50%;
+      /* 
+      background-color: rgb(255, 204, 51); 
+      background-image: url(../20260329/fulilan.png);
+      background-repeat: no-repeat;
+      background-attachment: scroll;
+      background-position: 0% center;
+      background-size: 50% 50%;
+      */
+    }
+
+    div.ls2 {
+      width: 700px;
+      height: 700px;
+      /* method 1 */
+      /* background-image:
+        url("https://picsum.photos/200/200/?random=10"),
+        url("https://picsum.photos/400/300/?random=10");
+      background-repeat: no-repeat, repeat-y;
+      background-position: left top, right top;
+      background-size: 10px 10px, 50px 50px; */
+      /* method 2 */
+      background:
+        url("https://picsum.photos/200/200/?random=10") no-repeat left top / 10%,
+        url("https://picsum.photos/400/300/?random=10") repeat-y right top / 50%,
+        lightpink;
+    }
+
+    div.ls3 {
+      width: 100%;
+      height: 700px;
+      /* background-color: lightgreen;
+      background-image: linear-gradient(#2a7b9b7e, #e04917, #eddd53); */
+      /* background: lightgreen linear-gradient(#2a7b9b7e, #e04917, #eddd53); */
+      background: lightgreen radial-gradient(circle at 10% 50%, transparent 10%, #eddd53 15%);
+    }
+
+    div.ls4 {
+      width: 400px;
+      height: 250px;
+      font-size: 6rem;
+      font-weight: bold;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #e21d6c);
+      color: transparent;
+      background-clip: text;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="ls4">HELLO WORLD</div>
+  <hr>
+  <div class="ls3"></div>
+  <hr>
+  <div class="ls2"></div>
+  <hr>
+  <div class="ls1"></div>
+</body>
+
+</html>
