@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .block {
+      display: block;
+    }
+
+    .inline {
+      display: inline;
+    }
+
+    div.ls1 {
+      width: 200px;
+      height: 200px;
+      background: lightblue;
+    }
+
+    span {
+      width: 200px;
+      height: 200px;
+      background: lightcoral;
+      font-size: 2rem;
+      line-height: 2;
+      /* display: none; */
+    }
+
+    .container {
+      font-size: 0;
+
+      .inline-block {
+        display: inline-block;
+        width: 200px;
+        height: 200px;
+        background: lightcoral;
+        font-size: 1rem;
+      }
+
+      a {
+        font-size: 1rem;
+      }
+    }
+
+    .flex {
+      display: flex;
+
+      span {
+        width: 200px;
+        height: 200px;
+        background: lightcoral;
+      }
+    }
+
+    .ls2 {
+      width: 200px;
+      height: 200px;
+      background: lightgray;
+      /* display: none; */
+      /* visibility: hidden; */
+      /* opacity: 0.5; */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="ls2"> hello world </div>
+  <hr>
+  <hr>
+  <hr>
+  <div class="ls1">Lorem</div>
+  <div class="ls1">Lorem</div>
+  <div class="ls1">Lorem</div>
+  <span>Lorem</span><span>Lorem</span><span>Lorem</span>
+  <hr>
+  <div class="container">
+    <div class="inline-block">Lorem</div><a href="#">link</a>
+    <div class="inline-block">Lorem</div>
+    <div class="inline-block">Lorem</div>
+  </div>
+  <hr>
+  <div class="flex">
+    <span>Lorem</span>
+    <span>Lorem</span>
+    <span>Lorem</span>
+  </div>
+</body>
+
+</html>

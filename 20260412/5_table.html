@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table.ls1 {
+      width: 100%;
+      max-width: 500px;
+      min-width: 220px;
+      text-align: center;
+      /* border: 1px solid red; */
+      border-collapse: collapse;
+
+      /* border-spacing: 10px; */
+      /* box-shadow:
+        inset -13px 9px 5px 5px #ff000054,
+        0 0px 0px 4px #00000054; */
+      /* empty-cells: hide; */
+      th,
+      td {
+        border: 1px solid black;
+        padding: 5px;
+      }
+
+      /* tr {
+        background: lightgoldenrodyellow;
+      } */
+      thead {
+        background: lightblue;
+      }
+
+      tbody {
+        tr:nth-child(odd) {
+          background: lightgoldenrodyellow;
+        }
+      }
+
+      .text-right {
+        /* text-align: right; */
+      }
+
+      td:last-child {
+        text-align: right;
+      }
+    }
+
+    .demo {
+      width: 300px;
+      height: 300px;
+      background: lightblue;
+      box-shadow: inset 4px 4px 5px 4px #0003;
+    }
+
+    table.ls2 {
+      width: 100%;
+      max-width: 500px;
+      min-width: 220px;
+      text-align: center;
+      border-collapse: collapse;
+      background: lightgoldenrodyellow url("./ball-icon.png") no-repeat right bottom;
+
+      th,
+      td {
+        border: 1px solid black;
+        padding: 5px;
+      }
+
+      thead {
+        background: lightblue;
+      }
+
+      tbody {
+        tr:nth-child(odd) {
+          background: linear-gradient(45deg, #f003, #00f);
+        }
+      }
+
+      td:last-child {
+        text-align: right;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <table class="ls2">
+    <thead>
+      <tr>
+        <th>姓名</th>
+        <th>部門</th>
+        <th>職位</th>
+        <th>薪資</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>張小明</td>
+        <td></td>
+        <td>前端工程師</td>
+        <td class="text-right">60,000</td>
+      </tr>
+      <tr>
+        <td>李美華</td>
+        <td>設計部</td>
+        <td>UI/UX 設計師</td>
+        <td class="text-right">55,000</td>
+      </tr>
+      <tr>
+        <td>王大力</td>
+        <td>技術部</td>
+        <td>後端工程師</td>
+        <td class="text-right">65,000</td>
+      </tr>
+      <tr>
+        <td>王大力</td>
+        <td>技術部</td>
+        <td>後端工程師</td>
+        <td class="text-right">65,000</td>
+      </tr>
+      <tr>
+        <td>王大力</td>
+        <td>技術部</td>
+        <td>後端工程師</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>王大力</td>
+        <td>技術部</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>王大力</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <table class="ls1">
+    <thead>
+      <tr>
+        <th>姓名</th>
+        <th>部門</th>
+        <th>職位</th>
+        <th>薪資</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>張小明</td>
+        <td></td>
+        <td>前端工程師</td>
+        <td class="text-right">60,000</td>
+      </tr>
+      <tr>
+        <td>李美華</td>
+        <td>設計部</td>
+        <td>UI/UX 設計師</td>
+        <td class="text-right">55,000</td>
+      </tr>
+      <tr>
+        <td>王大力</td>
+        <td>技術部</td>
+        <td>後端工程師</td>
+        <td class="text-right">65,000</td>
+      </tr>
+      <tr>
+        <td>王大力</td>
+        <td>技術部</td>
+        <td>後端工程師</td>
+        <td class="text-right">65,000</td>
+      </tr>
+      <tr>
+        <td>王大力</td>
+        <td>技術部</td>
+        <td>後端工程師</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>王大力</td>
+        <td>技術部</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>王大力</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <div class="demo"></div>
+</body>
+
+</html>

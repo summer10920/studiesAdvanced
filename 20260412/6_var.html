@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="init.css">
+  <style>
+    .card {
+      width: 500px;
+      height: 300px;
+      background-color: var(--primary-color);
+      padding: var(--context-padding);
+      margin: 20px;
+      border-radius: 10px;
+
+      h2 {
+        --loki: red;
+        font-size: 2rem;
+        color: var(--header-color);
+        background-color: var(--loki);
+      }
+
+      p {
+        line-height: 1.6;
+      }
+
+      button {
+        float: right;
+        background: lightgoldenrodyellow;
+        border: none;
+        padding: var(--context-padding);
+        cursor: pointer;
+      }
+    }
+
+    .list {
+      h2 {
+        font-size: 2rem;
+        color: var(--header-color);
+      }
+
+      p {
+        line-height: 1.6;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="lis">
+  </div>
+  <div class="card">
+    <h2 style="--loki:purple">Lorem ipsum dolor sit amet.</h2>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse recusandae, odio minima qui incidunt possimus.
+      Reiciendis voluptates beatae odio debitis maxime sequi tenetur odit. Dicta deleniti temporibus debitis ut quaerat.
+    </p>
+    <button>按鈕</button>
+  </div>
+  <div class="list">
+    <h2>Lorem ipsum dolor sit amet.</h2>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse recusandae, odio minima qui incidunt possimus.
+      Reiciendis voluptates beatae odio debitis maxime sequi tenetur odit. Dicta deleniti temporibus debitis ut quaerat.
+    </p>
+  </div>
+</body>
+
+</html>

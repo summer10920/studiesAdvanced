@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+}
+
+
+:root {
+  --primary-color: lightblue;
+  --header-color: lightcoral;
+  --context-padding: 10px 20px;
+
+
+}
