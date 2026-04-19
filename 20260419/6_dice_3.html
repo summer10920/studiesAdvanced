@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .dice-container {
+      text-align: center;
+
+      >div {
+        /* dice */
+        display: inline-block;
+        width: 200px;
+        height: 200px;
+        background: linear-gradient(45deg, white, #ccc);
+        border: 2px solid;
+        border-radius: 20px;
+        box-shadow: 5px 5px 10px 0px #0008;
+        position: relative;
+
+        >div {
+          /* dot */
+          width: 20%;
+          height: 20%;
+          background: var(--bg, black);
+          border-radius: 50%;
+          position: absolute;
+          left: var(--l);
+          top: var(--t);
+        }
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="dice-container">
+    <div>
+      <div style="--l:40%;--t:40%;--bg:red"></div>
+    </div>
+    <div>
+      <div style="--l:10%;--t:10%"></div>
+      <div style="--l:70%;--t:70%"></div>
+    </div>
+    <div>
+      <div style="--l:10%;--t:10%"></div>
+      <div style="--l:40%;--t:40%"></div>
+      <div style="--l:70%;--t:70%"></div>
+    </div>
+    <div>
+      <div style="--l:10%;--t:10%"></div>
+      <div style="--l:70%;--t:10%"></div>
+      <div style="--l:10%;--t:70%"></div>
+      <div style="--l:70%;--t:70%"></div>
+    </div>
+    <div>
+      <div style="--l:10%;--t:10%"></div>
+      <div style="--l:70%;--t:10%"></div>
+      <div style="--l:40%;--t:40%"></div>
+      <div style="--l:10%;--t:70%"></div>
+      <div style="--l:70%;--t:70%"></div>
+    </div>
+    <div>
+      <div style="--l:10%;--t:10%"></div>
+      <div style="--l:70%;--t:10%"></div>
+      <div style="--l:10%;--t:40%"></div>
+      <div style="--l:70%;--t:40%"></div>
+      <div style="--l:10%;--t:70%"></div>
+      <div style="--l:70%;--t:70%"></div>
+    </div>
+  </div>
+</body>
+
+</html>

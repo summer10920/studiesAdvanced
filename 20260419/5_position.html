@@ -22,6 +22,7 @@
       padding: 100px;
       background: #aaa;
       border: 1px solid #f00;
+      position: relative;
 
       .bigbox {
         width: 300px;
@@ -30,6 +31,7 @@
         display: flex;
         flex-wrap: wrap;
 
+        /* transform: scale(1); */
         .box {
           width: 50px;
           height: 50px;
@@ -41,10 +43,38 @@
         }
 
         .relative {
+          /* 關係圖層 */
           position: relative;
           background-color: lightcoral;
-          left: 0;
-          /* top: 10px; */
+          left: 50px;
+          top: 10px;
+          z-index: 5;
+        }
+
+        .absolute {
+          /* 
+          相對"於誰"的圖層
+          會一路向上尋找
+          誰持有 position (不包含 static) 作為參考定位
+          但是遇到持有 transform 的元素會強制留住在此
+          */
+          position: absolute;
+          background-color: lightblue;
+          left: 50%;
+          top: 40%;
+        }
+
+        .fixed {
+          /* 
+          固定圖層
+          相對"整個畫面"的圖層
+          但是遇到持有 transform 的元素會強制留住在此
+          */
+          position: fixed;
+          background-color: lightgreen;
+          left: 47%;
+          top: 45%;
+          z-index: 1;
         }
       }
     }
