@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    .demo1 {
+      background: darkblue;
+      color: white;
+      width: 300px;
+      height: 300px;
+    }
+
+    .container {
+      width: 500px;
+      background: #333;
+
+      div {
+        height: 30px;
+        background: lightblue;
+      }
+
+      .test-box-1 {
+        width: 100px;
+        margin-left: auto;
+        /* 300p */
+        margin-right: 100px;
+      }
+
+      .test-box-2 {
+        width: 100px;
+        margin-left: 100px;
+        margin-right: 100px;
+        /* 因為預設靠左，剩餘空間都在右邊，看起Mr像是300*/
+      }
+
+      .test-box-3 {
+        width: auto;
+        /* 500-100-100=300 */
+        margin-left: 100px;
+        margin-right: 100px;
+      }
+
+      .test-box-4 {
+        width: 300px;
+        margin-left: auto;
+        /* 100 */
+        margin-right: auto;
+        /* 100 */
+      }
+
+      .test-box-5 {
+        width: auto;
+        /* 400 */
+        margin-left: auto;
+        /* 0 */
+        margin-right: 100px;
+      }
+
+      .test-box-6 {
+        width: auto;
+        /* 500 */
+        margin-left: auto;
+        /* 0 */
+        margin-right: auto;
+        /* 0 */
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+    <div class="test-box-1">求 ml auto 值</div>
+    <hr>
+    <div class="test-box-2">求 ml, mr 狀況</div>
+    <hr>
+    <div class="test-box-3">求 w auto 值</div>
+    <hr>
+    <div class="test-box-4">求 ml, mr auto 值</div>
+    <hr>
+    <div class="test-box-5">求 w auto, ml auto 值</div>
+    <hr>
+    <div class="test-box-6">求 w auto, mr auto, ml auto 值</div>
+  </main>
+  <!-- <hr>
+  <hr>
+  <div class="demo1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad enim incidunt molestiae optio dolorum
+    magni quod ut? Ea, repellendus eveniet.</div>
+  <div class="demo2">Hello World</div>
+  <div class="demo3">Hello World</div> -->
+</body>
+
+</html>
