@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    .container {
+      max-width: 500px;
+      padding: 10px;
+      /* margin-bottom: 20px; */
+      border: 1px solid #007bff;
+      background: lightgreen;
+      /* 使用 inline-block 技巧避免間格 */
+      font-size: 0;
+
+      .column {
+        display: inline-block;
+        padding: 20px;
+        border: 1px solid #007bff;
+        background: #e3f2fd;
+        /* 恢復字體大小 */
+        font-size: 1rem;
+      }
+
+      &.content-box-demo .column {
+        /* 
+        box-sizing 指定 width, height 是對應哪個 box model
+        因為我們指定到 content-box, 所以如果我們定義 50% => 250px
+        content-box 需佔用 250PX
+        又因為 
+        padding 占用 = 20+20
+        border 占用 1+1
+        所以畫面空間需要 250+40+2=292
+        原本以為跟隔壁可以平均一半拿250空間，因為實際上都需要292 一定會炸掉換行
+        */
+        box-sizing: content-box;
+        /* width: 50%; */
+        width: calc(50% - 40px - 2px);
+      }
+
+      &.border-box-demo .column {
+        /* 
+        如果我們指定所謂 box sizing 是從 border box 開始計算
+        也就是現在的 width 分配 border + padding + content
+         */
+        box-sizing: border-box;
+        width: 50%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h3>現代盒子模型 - 完美呈現</h3>
+  <div class="container border-box-demo">
+    <div class="column">
+      <h4>左欄</h4>
+      <p>設定寬度：50%<br> 實際佔用：50%</p>
+    </div>
+    <div class="column">
+      <h4>右欄</h4>
+      <p>設定寬度：50%<br> 實際佔用：50%</p>
+    </div>
+  </div>
+  <h3>傳統盒子模型 - 版面破版</h3>
+  <div class="container content-box-demo">
+    <div class="column">
+      <h4>左欄</h4>
+      <p>設定寬度：50%<br> 實際佔用：50% + 42px</p>
+    </div>
+    <div class="column">
+      <h4>右欄</h4>
+      <p>設定寬度：50%<br> 實際佔用：50% + 42px</p>
+    </div>
+  </div>
+</body>
+
+</html>
