@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      max-width: 600px;
+      width: auto;
+      /* height: 600px; */
+      border: 1px solid black;
+      padding: 10px;
+
+      /* overflow: auto; */
+      img {
+        float: right;
+        margin: 0 20px 20px;
+      }
+
+      span {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        float: left;
+        margin: 0 20px 20px;
+      }
+    }
+
+    .clearfix::before,
+    .clearfix::after {
+      content: "";
+      clear: both;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container clearfix">
+    <h2>矛盾湖口紡織未經道路發佈時間一對，為何。</h2>
+    <img src="https://picsum.photos/200/200/?random=10">
+    <span>Lorem</span>
+    <!-- <div class="clearBoth"></div> -->
+  </div>
+  <!-- <div class="clearfix"> -->
+  <img src="https://picsum.photos/200/200/?random=10" style="float:right">
+  <!-- </div> -->
+  <div class="container clearfix">
+    <h2>矛盾湖口紡織未經道路發佈時間一對，為何。</h2>
+    <img src="https://picsum.photos/200/200/?random=10">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, deserunt illo voluptatum vero dolorem dolore!
+      Reprehenderit vel mollitia praesentium aliquam quisquam quas perferendis ipsum laboriosam. Itaque exercitationem
+      perspiciatis sit ipsa.</p>
+    <p class="clearBoth">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, deserunt illo voluptatum vero
+      dolorem dolore! Reprehenderit vel mollitia praesentium aliquam quisquam quas perferendis ipsum laboriosam. Itaque
+      exercitationem perspiciatis sit ipsa.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, deserunt illo voluptatum vero dolorem dolore!
+      Reprehenderit vel mollitia praesentium aliquam quisquam quas perferendis ipsum laboriosam. Itaque exercitationem
+      perspiciatis sit ipsa.</p>
+  </div>
+  <hr>
+  <div class="container">
+    <h2>矛盾湖口紡織未經道路發佈時間一對，為何。</h2>
+    <img src="https://picsum.photos/200/200/?random=10">
+    <span>Lorem</span>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, deserunt illo voluptatum vero dolorem dolore!
+      Reprehenderit vel mollitia praesentium aliquam quisquam quas perferendis ipsum laboriosam. Itaque exercitationem
+      perspiciatis sit ipsa.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, deserunt illo voluptatum vero dolorem dolore!
+      Reprehenderit vel mollitia praesentium aliquam quisquam quas perferendis ipsum laboriosam. Itaque exercitationem
+      perspiciatis sit ipsa.</p>
+  </div>
+</body>
+
+</html>
