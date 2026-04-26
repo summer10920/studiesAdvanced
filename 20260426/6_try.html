@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .page-layout {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .page-header {
+      background: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .page-main {
+      display: flex;
+      flex: 1;
+      gap: 20px;
+      padding: 20px;
+      background: #ecf0f1;
+    }
+
+    .page-sidebar {
+      flex: 0 0 200px;
+      background: #34495e;
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .page-content {
+      flex: 1;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .page-ads {
+      flex: 0 0 150px;
+      background: #f39c12;
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .page-footer {
+      background: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* 響應式設計 */
+    @media (max-width: 768px) {
+      .page-main {
+        flex-direction: column;
+      }
+
+      .page-sidebar,
+      .page-ads {
+        flex: none;
+        order: 2;
+      }
+
+      .page-content {
+        order: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-layout">
+    <header class="page-header">
+      <h1>FlexBox 聖杯布局</h1>
+    </header>
+    <main class="page-main">
+      <aside class="page-sidebar">
+        <h3>側邊欄</h3>
+        <p>固定寬度 200px</p>
+      </aside>
+      <section class="page-content">
+        <h2>主要內容</h2>
+        <p>這是主要內容區域，會自動佔滿剩餘空間。FlexBox 讓聖杯布局變得極其簡單，不需要複雜的 float 或 positioning 技巧。</p>
+        <p>無論側邊欄內容多少，主要內容都會自動調整寬度。</p>
+      </section>
+      <aside class="page-ads">
+        <h4>廣告區</h4>
+        <p>固定寬度 150px</p>
+      </aside>
+    </main>
+    <footer class="page-footer">
+      <p>© 2024 FlexBox 示例</p>
+    </footer>
+  </div>
+</body>
+
+</html>
