@@ -19,6 +19,7 @@
       &.active .loki {
         background-color: lightgreen;
         left: 1000px;
+        transform: rotate(180deg);
       }
     }
 
@@ -41,8 +42,9 @@
       &.loki {
         position: relative;
         left: 0;
+        transform: rotate(0);
         /* transition-timing-function: ease; */
-        transition: all 5s ease;
+        transition: all 500ms ease;
       }
     }
   </style>

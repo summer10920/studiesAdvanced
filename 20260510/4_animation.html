@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background: #333;
+      margin: 0;
+      color: white;
+      display: flex;
+      justify-content: space-around;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    div.base {
+      width: 100px;
+      height: 100px;
+      /* background: green; */
+      /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+      /* animation: demo1 2s ease 0s 2 alternate forwards; */
+      /* 持續時間 */
+      /* animation-duration: 1s; */
+      /* 時間曲線 */
+      /* animation-timing-function: ease; */
+      /* 延遲時間 */
+      /* animation-delay: 0s; */
+      /* 重複次數 */
+      /* animation-iteration-count: infinite; */
+      /* 方向 */
+      /* animation-direction: alternate; */
+      /* 動畫結束時的狀態如何決定 */
+      /* animation-fill-mode: both; */
+      /* 動畫名稱 */
+      /* animation-name: demo1; */
+      animation: demo1 2s infinite;
+    }
+
+    @keyframes demo1 {
+
+      /* from {
+        background: red;
+      }
+
+      to {
+        background: yellow;
+      } */
+      from,
+      to {
+        background: red;
+      }
+
+      50% {
+        background: yellow;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="base">HELLO WORLD</div>
+</body>
+
+</html>
