@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .left,
+    .right {
+      flex: 1;
+      min-width: 0;
+      padding: 1rem;
+    }
+
+    .left {
+      background: #fbc531;
+      display: flex;
+      align-items: center;
+    }
+
+    .right {
+      background: #4e91f9;
+      color: #fff;
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        flex-direction: row;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="left">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem fugiat est eum? Explicabo laborum
+      sed sequi atque voluptate natus earum tempore quod. Modi, impedit ipsam omnis soluta accusantium nesciunt dolorem.
+    </div>
+    <img src="https://picsum.photos/800/600/?random=10" class="right">
+</body>
+
+</html>

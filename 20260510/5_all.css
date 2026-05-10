@@ -1,0 +1,17 @@
+div {
+  width: 200px;
+  height: 200px;
+  background: lightcoral;
+}
+/* 
+@media print {
+  div {
+    background: lightblue;
+    border: 1px solid black;
+    font-size: 16px;
+  }
+
+  h1 {
+    display: none;
+  }
+} */
