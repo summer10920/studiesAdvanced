@@ -7,3 +7,8 @@ div {
 h1 {
   display: none;
 }
+
+@page {
+  size: A4 landscape;
+  margin: 0;
+}
