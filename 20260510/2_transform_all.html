@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .transform-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 1024px;
+      height: 600px;
+      margin: 2rem auto;
+      justify-items: center;
+      align-items: center;
+    }
+
+    .grid-item {
+      border: 1px solid #000;
+      padding: 1rem;
+      border-radius: 10px;
+    }
+
+    .transform-base {
+      border: 1px solid #000;
+      width: 100px;
+      height: 100px;
+      background: #4e91f9;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      border-radius: 12px;
+      margin: 0 auto;
+      box-shadow: 0 2px 8px #0002;
+      /* 不加 transition，純粹展示 transform */
+    }
+
+    .transform-translate {
+      transform: translate(20px, 10px);
+    }
+
+    .transform-scale {
+      transform: scale(1.3, 0.7);
+    }
+
+    .transform-rotate {
+      transform: rotate(25deg);
+    }
+
+    .transform-skew {
+      transform: skew(20deg, 0deg);
+    }
+
+    .transform-origin {
+      transform-origin: left bottom;
+      transform: rotate(-30deg);
+    }
+
+    .transform-label {
+      text-align: center;
+      margin-top: 0.5rem;
+      color: #333;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+    }
+
+    .advanced-matrix {
+      transform: matrix(1, 0.2, 0.2, 1, 20, 10);
+    }
+
+    .advanced-perspective-box {
+      transform: perspective(120px) rotateY(30deg);
+    }
+
+    .advanced-translate3d {
+      transform: translate3d(20px, 10px, 30px);
+    }
+
+    .advanced-scale3d {
+      transform: scale3d(1.2, 0.8, 1.5);
+    }
+
+    .advanced-rotate3d {
+      transform: rotate3d(1, 1, 0, 45deg);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="transform-grid">
+    <div class="grid-item">
+      <div class="transform-base">預設</div>
+      <div class="transform-label">無 transform</div>
+    </div>
+    <div class="grid-item">
+      <div class="transform-base transform-translate">translate</div>
+      <div class="transform-label">平移</div>
+    </div>
+    <div class="grid-item">
+      <div class="transform-base transform-scale">scale</div>
+      <div class="transform-label">縮放</div>
+    </div>
+    <div class="grid-item">
+      <div class="transform-base transform-rotate">rotate</div>
+      <div class="transform-label">旋轉</div>
+    </div>
+    <div class="grid-item">
+      <div class="transform-base transform-skew">skew</div>
+      <div class="transform-label">傾斜</div>
+    </div>
+    <div class="grid-item">
+      <div class="transform-base transform-origin">origin</div>
+      <div class="transform-label">變形原點</div>
+    </div>
+    <div class="grid-item">
+      <div class="transform-base advanced-matrix">matrix</div>
+      <div class="advanced-label">矩陣變形</div>
+    </div>
+    <div class="grid-item">
+      <div class="transform-base advanced-perspective-box">perspective</div>
+      <div class="advanced-label">3D 透視</div>
+    </div>
+    <div class="grid-item">
+      <div class="transform-base advanced-translate3d">translate3d</div>
+      <div class="advanced-label">3D 平移</div>
+    </div>
+    <div class="grid-item">
+      <div class="transform-base advanced-scale3d">scale3d</div>
+      <div class="advanced-label">3D 縮放</div>
+    </div>
+    <div class="grid-item">
+      <div class="transform-base advanced-rotate3d">rotate3d</div>
+      <div class="advanced-label">3D 旋轉</div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      /* align-items: center; */
+      height: 100vh;
+      gap: 10px;
+
+      &:hover .loki,
+      &.active .loki {
+        background-color: lightgreen;
+        left: 1000px;
+      }
+    }
+
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: lightblue;
+
+      /* transition: all 5s ease; */
+      /* transition-duration: 1s;
+      transition-timing-function: ease;
+      transition-delay: 0s;
+      transition-property: width, background-color; */
+      &.effect:hover {
+        transition: width 2s 1s ease, background-color 1s 0s ease;
+        background-color: lightcoral;
+        width: 400px;
+      }
+
+      &.loki {
+        position: relative;
+        left: 0;
+        /* transition-timing-function: ease; */
+        transition: all 5s ease;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box effect"></div>
+  <div class="box loki"></div>
+</body>
+
+</html>

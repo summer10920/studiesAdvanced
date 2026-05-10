@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      background: lightblue;
+      margin: 10px;
+    }
+
+    .trans,
+    .box:hover {
+      border: 1px solid;
+      background: lemonchiffon;
+      /* translate 一個值只代表X軸*/
+      /* transform: translate(50px); */
+      /* transform: translateX(50px) translateY(50px); */
+      /* transform: scale(1.5); */
+      /* transform: scale(0.5); */
+      /* transform: scale(0); */
+      /* transform: scale(-1); */
+      transform: scale(2, 1);
+      /* transform: scale(-1, 1); */
+      /* transform: scaleX(-1) scaleY(1); */
+      /* transform: rotate(45deg); */
+      /* transform: skew(0deg, 0deg); */
+    }
+
+    .origin {
+      transform: rotate(45deg);
+      transform-origin: -100px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box trans origin">視覺上的變化，不影響原本的布局空間</div>
+  <div class="box">視覺上的變化，不影響原本的布局空間</div>
+  <button class="origin">點擊我</button>
+  <div class="box">視覺上的變化，不影響原本的布局空間</div>
+</body>
+
+</html>
