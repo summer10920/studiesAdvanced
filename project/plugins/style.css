@@ -1,11 +1,13 @@
 body {
-  font-family: "Roboto", Arial, Helvetica, "Noto Sans TC", sans-serif;
+  font-family: "Roboto", Arial, "Noto Sans TC", sans-serif;
+  background: #282c34;
 }
 
-
 #lokiSlider {
-
   .carousel-item {
+    padding-bottom: 240px;
+    background: #282c34;
+
     &::after {
       content: '';
       background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10'%3e%3cg opacity='0.5' stroke-width='1' stroke='%23000' fill='none'%3e%3cline y2='10' x2='10' y1='0' x1='0'/%3e%3cline y2='15' x2='5' y1='5' x1='-5'/%3e%3cline y2='5' x2='15' y1='-5' x1='5'/%3e%3c/g%3e%3c/svg%3e");
@@ -19,7 +21,14 @@ body {
     img {
       filter: grayscale(50%) sepia(80%);
     }
+
+    .carousel-caption {
+      z-index: 1;
+      padding-bottom: 120px;
+    }
   }
+
+
 
   &>button>i {
     width: 50px;
