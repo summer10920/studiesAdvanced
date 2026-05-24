@@ -35,19 +35,19 @@
 
 <body class="text-white">
   <!-- 主選單 -->
-  <nav class="navbar navbar-expand-md" style="background-color: #4f3c51;" data-bs-theme="dark">
+  <nav class="navbar navbar-expand-md fixed-top" style="background-color: #4f3c51;" data-bs-theme="dark">
     <div class="container">
       <a class="navbar-brand" href="#"><i class="fa-solid fa-fire me-2"></i>洛奇營地渡假村</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#lokiMenu">
-        <span class="navbar-toggler-icon"></span>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#lokiMenu">
+        <i class="fa-solid fa-ellipsis-vertical"></i>
       </button>
       <div class="collapse navbar-collapse" id="lokiMenu">
         <div class="navbar-nav ms-auto gap-md-4 my-3 my-md-0">
-          <a class="nav-link" href="#">營位介紹</a>
-          <a class="nav-link" href="#">探索體驗</a>
-          <a class="nav-link" href="#">遊客服務</a>
-          <a class="nav-link" href="#">營區守則</a>
-          <a class="nav-link" href="#">聯絡我們</a>
+          <a class="nav-link" href="#lokiPallet">營位介紹</a>
+          <a class="nav-link" href="#lokiPark">探索體驗</a>
+          <a class="nav-link" href="#lokiService">遊客服務</a>
+          <a class="nav-link" href="#lokiRule">營區守則</a>
+          <a class="nav-link" href="#lokiContact">聯絡我們</a>
         </div>
       </div>
     </div>
@@ -101,15 +101,20 @@
       <i class="fa-solid fa-caret-right fa-2xl bg-dark rounded-start"></i>
     </button>
   </section>
-  <!-- 營位介紹 -->
-  <section id="lokiPallet" class="container py-5">
-    <div class="row row-cols-4 g-0 mb-5">
+  <!-- 圖片裝飾 -->
+  <section class="container pt-5">
+    <div class="row row-cols-4 g-0">
       <img src="https://picsum.photos/600/400/?random=10" class="img-fluid object-fit-cover col">
       <img src="https://picsum.photos/500/400/?random=10" class="img-fluid object-fit-cover col">
       <img src="https://picsum.photos/400/400/?random=10" class="img-fluid object-fit-cover col">
       <img src="https://picsum.photos/1000/400/?random=10" class="img-fluid object-fit-cover col">
     </div>
-    <header class="h2 border-start border-5 border-warning ps-3 mb-5">營位介紹</header>
+  </section>
+  <!-- 營位介紹 -->
+  <section id="lokiPallet" class="container py-5">
+    <header class="pt-5">
+      <h2 class="border-start border-5 border-warning ps-3 mb-5 ">營位介紹</h2>
+    </header>
     <article class="row row-cols-1 row-cols-md-2 g-3 g-md-5">
       <div class="col">
         <div class="card text-bg-dark overflow-hidden">
@@ -183,7 +188,7 @@
   </section>
   <!-- 探索體驗 -->
   <section id="lokiPark" class="pt-5">
-    <header class="mb-5 container">
+    <header class="mb-5 container pt-5">
       <h2 class="border-start border-5 border-warning ps-3">探索體驗</h2>
       <p class="w-75 mx-auto py-5">洛奇渡假村腹地面積生態豐富，擁有眾多的設施周邊供您滿足整天的玩樂。不只玩的快樂也放得輕鬆。請盡情享受我們的人間樂園，帶回流連忘返的快樂心情，為您旅途點綴豐富回憶。
       </p>
@@ -291,7 +296,7 @@
   </section>
   <!-- 遊客服務 -->
   <section id="lokiService" class="pt-5">
-    <header class="container">
+    <header class="container pt-5">
       <h2 class="border-start border-5 border-warning ps-3 mb-5">遊客服務</h2>
     </header>
     <article class="container">
