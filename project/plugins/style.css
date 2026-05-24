@@ -50,6 +50,51 @@ body {
   background-blend-mode: darken;
 }
 
+#lokiContact {
+  background: url("https://picsum.photos/1920/1080/?random=11") #000 no-repeat center/cover fixed;
+  background-blend-mode: luminosity;
+
+  #ff-compose {
+    padding-top: 120px;
+    padding-bottom: 120px;
+
+    #ff-title-root.ff-title {
+      margin: 10px 0;
+    }
+
+    .ff-form {
+      backdrop-filter: blur(10px);
+      background: rgb(255, 193, 7, 0.3);
+      border-radius: 5px;
+    }
+
+    .ff-submit {
+      background: #ffc107;
+      border: none;
+      color: #333;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .ff-button-bar a {
+      visibility: hidden;
+    }
+
+    #ff-title-root {
+      margin: 3rem 0;
+      border-left: 5px solid white;
+      font-size: 2rem;
+      padding: 0 0 0 1rem;
+    }
+  }
+
+
+}
+
+
+
+
+
 
 @media screen and (min-width: 768px) {
   #lokiPallet {
