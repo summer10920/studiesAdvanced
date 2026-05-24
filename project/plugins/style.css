@@ -37,6 +37,11 @@ body {
   }
 }
 
+#lokiPark {
+  background: url("https://picsum.photos/1920/1800/?random=10") #3338 no-repeat center/cover fixed;
+  background-blend-mode: darken;
+}
+
 @media screen and (min-width: 768px) {
   #lokiPallet {
     article {
@@ -67,6 +72,21 @@ body {
             transform: scale(1);
           }
         }
+
+      }
+    }
+  }
+
+  #lokiPark {
+    .col {
+      transition: 0.3s;
+      filter: brightness(0.5);
+
+      &:hover {
+        transform: scale(1.2);
+        /* transform: translateY(-40px); */
+        z-index: 1;
+        filter: brightness(1);
 
       }
     }
