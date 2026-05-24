@@ -47,6 +47,28 @@ body {
         padding-bottom: 100px;
       }
 
+      .card {
+        .card-img {
+          transform: scale(1);
+          transition: transform 0.3s;
+        }
+
+        .card-img-overlay {
+          transform: scale(0);
+          transition: transform 0.3s;
+        }
+
+        &:hover {
+          .card-img {
+            transform: scale(1.2);
+          }
+
+          .card-img-overlay {
+            transform: scale(1);
+          }
+        }
+
+      }
     }
   }
 }
