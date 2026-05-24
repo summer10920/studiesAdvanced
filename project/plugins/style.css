@@ -37,10 +37,19 @@ body {
   }
 }
 
-#lokiPark {
+#lokiPark,
+#lokiService {
   background: url("https://picsum.photos/1920/1800/?random=10") #3338 no-repeat center/cover fixed;
+}
+
+#lokiPark {
+  background-blend-mode: lighten;
+}
+
+#lokiService {
   background-blend-mode: darken;
 }
+
 
 @media screen and (min-width: 768px) {
   #lokiPallet {
