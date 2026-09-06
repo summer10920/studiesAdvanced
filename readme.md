@@ -2,9 +2,9 @@
 
 ## 課程名稱
 
-- [x] [RWD 網頁設計（假日班）（泰山）第 01 期](https://ojt.wda.gov.tw/ClassSearch/Detail?OCID=167775&plantype=2)
+- [ ] [RWD 網頁設計（假日班）（泰山）第 01 期](https://ojt.wda.gov.tw/ClassSearch/Detail?OCID=167775&plantype=2)
 - [ ] [RWD 網頁設計（假日班）（泰山）第 02 期](https://ojt.wda.gov.tw/ClassSearch/Detail?OCID=167791&plantype=2)
-- [ ] [JavaScript前端開發(假日班)(泰山)第01期](https://ojt.wda.gov.tw/ClassSearch/Detail?OCID=167808&plantype=2)
+- [x] [JavaScript前端開發(假日班)(泰山)第01期](https://ojt.wda.gov.tw/ClassSearch/Detail?OCID=167808&plantype=2)
 
 ## 訓練日期
 

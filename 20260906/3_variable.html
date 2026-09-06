@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 臨時變數，可隨地讀取改變(不建議這樣寫)
+    num1 = 50 * 3 + 30;
+
+    function test(tip) {
+      // let 是可變的區塊變數，只在這個區塊裡面有效也可改變，出了區塊就消失了
+      let num2 = 50 * 3 + 30;
+      num2 = num2 + tip; // 價格額外多了小費
+      return num2;
+    }
+
+    let num3 = 1000;
+
+
+    // const 是不可變的區塊變數，只在這個區塊裡面有效也可改變，出了區塊就消失了
+    const num4 = 50 * 3 + 30;
+
+
+    
+
+
+
+
+  </script>
+</body>
+
+</html>
