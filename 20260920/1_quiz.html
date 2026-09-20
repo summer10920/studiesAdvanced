@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <pre>
+    練習 2：閏年判斷
+    判斷一個年份是否為閏年：
+
+    能被 4 整除但不能被 100 整除
+    或者能被 400 整除
+    規劃一變數year如果賦值2000，經判斷後 console 顯示2020 年是閏年：true。
+  </pre>
+  <script>
+    const year = 2020;
+    const isLeap = ((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0);
+    console.log(`${year} 年是閏年：${isLeap}`);
+  </script>
+  <hr>
+  <pre>
+    練習 3：BMI 體重狀態
+    BMI（身體質量指數）計算公式：BMI = 體重 (kg) ÷ 身高 (m)²
+
+    例如：身高 170cm（1.7m），體重 65kg
+    BMI = 65 ÷ (1.7 × 1.7) = 65 ÷ 2.89 = 22.5
+
+    根據身高與體重，計算 BMI 值並判斷體重狀態：
+
+    過輕：&lt; 18.5
+    正常：18.5 - 24.9
+    過重：25 - 29.9
+    肥胖：>= 30
+    規劃兩變數 height（身高，單位：cm）、weight（體重，單位：kg），
+    如果賦值 170、70，經計算 BMI 並判斷後 console 顯示 
+    身高 170cm，體重 70kg，BMI 24.2，體重狀態：正常。
+  </pre>
+  <script>
+    console.clear();
+
+    const height = 170;
+    const weight = 70;
+    const bmi = (weight / (height / 100) ** 2).toFixed(2); // toFixed(2) 保留小數點後兩位
+
+    let result;
+    switch (true) {
+      case bmi < 18.5: result = '過輕'; break;
+      case bmi <= 24.9: result = '正常：18'; break;
+      case bmi <= 29.9: result = '過重'; break;
+      default: result = '肥胖'; break;
+    }
+
+    console.log(`身高 ${height}cm，體重 ${weight}kg，BMI ${bmi}，體重狀態：${result}。`);
+  </script>
+</body>
+
+</html>

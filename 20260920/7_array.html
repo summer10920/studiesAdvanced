@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const animals = ['cat', 'dog', 'mouse'];
+    // animals[animals.length] = 'fish';
+    // animals[animals.length] = 'rabbit';
+    // animals[animals.length] = 'fish';
+
+    // 陣列存取方式，可透過　push()、pop()、shift()、unshift()
+    // 且會改變陣列本身
+    const getLast = animals.pop();
+    const getFirst = animals.shift();
+    animals.push('fish');
+    animals.push('rabbit');
+    animals.unshift('fish');
+
+    console.log(getFirst, getLast, animals);
+    console.clear();
+
+    // include() 檢查指定內容是否在陣列內
+    // indexOf() 調查指定內容在索引幾號
+    // lastIndexOf() 同上，但從尾巴開始找
+    // reverse() 將當前陣列反轉
+    // sort() 將當前陣列排序
+    // join() 將當前陣列轉成字串, 並且可指定分隔符號
+
+
+    console.log(`<li>${animals.join('</li>\n<li>')}</li>`);
+
+  </script>
+</body>
+
+</html>

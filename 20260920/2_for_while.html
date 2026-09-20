@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FOR迴圈</title>
+</head>
+
+<body>
+  <h2>FOR迴圈</h2>
+  <script>
+    // 初始執行一次, 條件判斷, 迴圈結束時執行
+    for (let i = 0; i < 10; i++) {
+      console.log(i);
+    }
+    console.log('done');
+
+    let sum = 0; // 1+2+3+4+....+10=55
+    // sum = 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10;
+    for (let i = 1; i < 11; i++) {
+      // sum = sum + i;
+      sum += i;
+    }
+    console.log(sum);
+  </script>
+  <h2>WHILE迴圈</h2>
+  <script>
+    console.clear();
+
+    // 初始執行一次, 條件判斷, 迴圈結束時執行
+    let i = 0;
+    while (i < 10) {
+      console.log(i);
+      i++;
+    }
+
+    // 印出 0 ~ 100 的 5 的倍數
+    let j = 0;
+    while (j <= 100) {
+      if (j % 5 === 0) console.log(j);
+      j++;
+    }
+  </script>
+  <h2>do while</h2>
+  <script>
+    console.clear();
+
+    // 先做一次，結束時檢查是否有資格再做一次
+    let k = 10;
+    do {
+      console.log('請輸入密碼', k);
+      k++;
+    } while (k < 3);
+  </script>
+</body>
+
+</html>

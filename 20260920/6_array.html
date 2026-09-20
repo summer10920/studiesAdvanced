@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>陣列</title>
+</head>
+
+<body>
+  <script>
+    // const fruit1 = 'apple';
+    // const fruit2 = 'banana';
+    // const fruit3 = 'cherry';
+    // console.log('i buy ' + fruit1 + ' and ' + fruit2 + ' and ' + fruit3 + '.');
+
+    // 陣列,型別為(object)特殊的物件, 可以指定多個內容作為一個變數
+    // const fruits = []; // 空陣列,
+    const fruits = ['apple', 'banana', 'cherry', 'grape']; // 宣告陣列, 並且指定多個內容
+    const ary = [100, 'Loki', false, 4, 5];
+
+    const myAry = new Array('apple', 200); // 透過特定的建構函式產生陣列
+
+    // console.log(fruits[0]);
+    // console.log('i buy ' + fruits[0] + ' and ' + fruits[1] + ' and ' + fruits[2] + '.');
+    console.clear();
+    fruits[2] = 'orange';  // 修改陣列內容
+    console.log(fruits); // 結果為 ['apple', 'banana', 'orange', 'grape']
+    console.log(fruits.length); // 長度不變
+
+    console.clear();
+
+    const students = ['Loki', 'Thor', 'Iron Man', 'Captain', 'America', 'Captain Marvel', 'Max'];
+
+    // 初學者用的
+    for (let i = 0; i < students.length; i++) {
+      // console.log(students[0]);
+      console.log(students[i]);
+    }
+    console.clear();
+
+    // 常用, 比FOR迴圈比較簡潔
+    for (let item of students) {
+      console.log(item);
+    }
+    console.clear();
+
+    // 較常用, 直接使用 array method 來實現 
+    students.forEach(function (item) {
+      console.log(item);
+    });
+
+  </script>
+</body>
+
+</html>

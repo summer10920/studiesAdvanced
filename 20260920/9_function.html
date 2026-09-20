@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Function</title>
+</head>
+
+<body>
+  <script>
+    // 宣告函式命名為 staticBMI
+    function staticBMI() {
+      const height = 170;
+      const weight = 70;
+      const bmi = (weight / (height / 100) ** 2).toFixed(2); // toFixed(2) 保留小數點後兩位
+
+      let result;
+      switch (true) {
+        case bmi < 18.5: result = '過輕'; break;
+        case bmi <= 24.9: result = '正常：18'; break;
+        case bmi <= 29.9: result = '過重'; break;
+        default: result = '肥胖'; break;
+      }
+      console.log(`身高 ${height}cm，體重 ${weight}kg，BMI ${bmi}，體重狀態：${result}。`);
+    }
+
+    // 呼叫函式
+    // staticBMI();
+
+    // 函式支援參數傳遞
+    function dynamicBMI(height, weight, userName = '訪客') {  // 可指定預設值(當無值時)
+      if (height === undefined || weight === undefined) {
+        return `請輸入${userName}的身高與體重`;
+      } else {
+        const bmi = (weight / (height / 100) ** 2).toFixed(2); // toFixed(2) 保留小數點後兩位
+
+        let result;
+        switch (true) {
+          case bmi < 18.5: result = '過輕'; break;
+          case bmi <= 24.9: result = '正常'; break;
+          case bmi <= 29.9: result = '過重'; break;
+          default: result = '肥胖'; break;
+        }
+        return `${userName}的身高 ${height}cm，體重 ${weight}kg\n其 BMI ${bmi}，體重狀態：${result}。`;
+      }
+    }
+
+    // console.log(dynamicBMI(170, 50, '小明'));
+    // console.log(dynamicBMI(150, 50, 'Loki'));
+    // console.log(dynamicBMI(170, 50, 'Max'));
+    // console.log(dynamicBMI(190, '小華'));
+
+    // function dynamicBMI2(userInfo) {
+    //   // method 1
+    //   // const height = userInfo.height;
+    //   // const weight = userInfo.weight;
+    //   // const userName = userInfo.name || '訪客';
+
+    //   // method 2
+    //   // const myObj = userInfo;
+    //   const { height, weight, name: userName = '訪客' } = userInfo; // 解構賦值
+
+
+    function dynamicBMI2({ height, weight, name: userName = '訪客' }) {
+
+      if (!Number.isFinite(height) || !Number.isFinite(weight)) return `請輸入${userName}的身高與體重`;
+
+      const bmi = (weight / (height / 100) ** 2).toFixed(2); // toFixed(2) 保留小數點後兩位
+      let result;
+      switch (true) {
+        case bmi < 18.5: result = '過輕'; break;
+        case bmi <= 24.9: result = '正常'; break;
+        case bmi <= 29.9: result = '過重'; break;
+        default: result = '肥胖'; break;
+      }
+      return `${userName}的身高 ${height}cm，體重 ${weight}kg\n其 BMI ${bmi}，體重狀態：${result}。`;
+    }
+
+    // const user1 = { weight: 50, height: 170 };
+    console.log(dynamicBMI2({ name: undefined, weight: 50, height: 170, }));
+
+    console.clear();
+
+
+    function loki(attr = '參數預設值') {  // attr 是一個由FUNCTION 產生的變數，他的值從外部傳遞時決定，如果沒有傳遞，看是否用自己定義的值
+      console.log('嘿嘿嘿', attr);
+    }
+    loki(123);
+
+  </script>
+</body>
+
+</html>

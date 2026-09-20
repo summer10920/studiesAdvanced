@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>巢狀迴圈</title>
+</head>
+
+<body>
+  <h1>九九乘法表</h1>
+  <script>
+    // think 1
+    // ----------------------------
+    //     let msg = `
+    // 2 x 1 = 2
+    // 2 x 2 = 4
+    // 2 x 3 = 6
+    // 2 x 4 = 8
+    // 2 x 5 = 10
+    // 2 x 6 = 12
+    // 2 x 7 = 14
+    // 2 x 8 = 16
+    // 2 x 9 = 18
+    // 3 x 1 = 2
+    // 3 x 2 = 4
+    // 3 x 3 = 6
+    // 3 x 4 = 8
+    // 3 x 5 = 10
+    // 3 x 6 = 12
+    // 3 x 7 = 14
+    // 3 x 8 = 16
+    // 3 x 9 = 18
+    //     `;
+    //     console.log(msg);
+
+    // think 2
+    // ----------------------------
+    // for (let i = 1; i <= 9; i++) {
+    //   result += `2 x ${i} = ${2 * i}\n`;
+    // }
+    //   result += '---------------------\n';
+
+    // for (let i = 1; i <= 9; i++) {
+    //   result += `3 x ${i} = ${3 * i}\n`;
+    // }
+    //   result += '---------------------\n';
+
+    // for (let i = 1; i <= 9; i++) {
+    //   result += `4 x ${i} = ${4 * i}\n`;
+    // }
+    //   result += '---------------------\n';
+
+    // for (let i = 1; i <= 9; i++) {
+    //   result += `5 x ${i} = ${5 * i}\n`;
+    // }
+    // for (let i = 1; i <= 9; i++) {
+    //   result += `6 x ${i} = ${6 * i}\n`;
+    // }
+    // for (let i = 1; i <= 9; i++) {
+    //   result += `7 x ${i} = ${7 * i}\n`;
+    // }
+    // for (let i = 1; i <= 9; i++) {
+    //   result += `8 x ${i} = ${8 * i}\n`;
+    // }
+    // for (let i = 1; i <= 9; i++) {
+    //   result += `9 x ${i} = ${9 * i}\n`;
+    // }
+
+    // think 3, try it!!
+    // ----------------------------
+    let result = '';
+    for (let j = 2; j <= 9; j++) {
+      for (let i = 1; i <= 9; i++) result += `${j} x ${i} = ${j * i}\n`;
+      result += '---------------------\n';
+    }
+    console.log(result);
+  </script>
+</body>
+
+</html>
