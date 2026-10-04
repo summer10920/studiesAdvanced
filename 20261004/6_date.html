@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const nowStr = Date(); // 當前(電腦)的日期與時間固定字串
+    console.log(nowStr); // 普通字串
+    console.log(Date.now()); // 回傳當前的時間戳記，單位為毫秒
+
+    const now = new Date(); // 建立一個新的日期物件，是一個特別的時間物件
+    // const birthday = new Date('2000-08-15 05:10:20'); // +8 的方式指定時間
+    // const birthday = new Date(2000, 7, 15, 5, 10, 20); // +8 的方式指定年、月、日、時、分、秒
+    const birthday = new Date('2000-10-04T00:00:00Z'); //   UTC ISO 8601 標準格式 (+0) 
+
+    console.log(typeof nowStr, typeof now);
+    console.log(birthday);
+
+    console.log(now);
+
+    const MonthTW = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
+    const MonthEN = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const DayJP = ['日曜日', '月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日'];
+    const DayTW = ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+    console.log(MonthTW[now.getMonth()]); // 0 ~ 11
+    console.log(MonthEN[now.getMonth()]); // 0 ~ 11
+    console.log(DayJP[now.getDay()]); // 0 ~ 6
+    console.log(DayTW[now.getDay()]); // 0 ~ 6
+
+    /**
+     * getFullYear()：取得年份
+     * getMonth()：取得月份（0~11）
+     * getDate()：取得日期（1~31）
+     * getDay()：取得星期（0~6，0 代表星期日）
+     * getHours()：取得小時
+     * getMinutes()：取得分鐘
+     * getSeconds()：取得秒數
+     * getTime()：取得自 1970/1/1 00:00:00 UTC 以來的「時間戳記」（Timestamp，單位為毫秒，millisecond）
+     * toLocaleString()：格式化日期字串，會根據瀏覽器用戶的地區（Locale）自動顯示對應的日期與時間格式
+     */
+
+    //  假設給你2個日期，你能算出他們大概差幾天嗎?
+    const date1 = new Date('2023-10-01');
+    const date2 = new Date('2023-10-04');
+
+    // const date1Time = date1.getTime(); // 轉換為可當作計算的時間戳記
+    // const date2Time = date2.getTime(); // 轉換為可當作計算的時間戳記
+    // const diff = date2Time - date1Time; // 取得時間差，單位為毫秒
+    const diff = date2 - date1;
+
+    const diffDays = diff / 1000 / 60 / 60 / 24;
+
+    console.log(diffDays, '天');
+    console.clear();
+
+    const theDate = new Date();// 產生靜止的時間物件
+    console.log(theDate);
+
+    // theDate.setFullYear(2028);
+    // theDate.setDate(25);
+    // console.log(theDate);
+
+    // // Q: 把時間調到28天後
+    // theDate.setDate(theDate.getDate() + 28);
+    // console.log(theDate);
+    
+    // Q: 把時間調到4天前
+    theDate.setDate(theDate.getDate() - 4);
+    console.log(theDate);
+
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>

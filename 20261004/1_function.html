@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>匿名函式</title>
+</head>
+
+<body>
+  <script>
+    // 一般的函式宣告方式
+    console.log(hello1('loki'));
+
+    function hello1(name) {
+      return `Hello, ${name}!`;
+    }
+
+
+    // 匿名函式的宣告方式, hello2 是一個函式變數(函式表達式)，值為一個匿名函式
+    const hello2 = function (name) {
+      return `Hello, ${name}!`;
+    };
+
+    console.log(hello2('max'));
+
+
+    // 面試觀念題:IIFE (Immediately Invoked Function Expression) 立即執行函式
+    (function (name) {
+      // return `Hello, ${name}!`;
+      console.log(`Hello, ${name}!`);
+    })('Max');
+
+    console.clear();
+
+
+    const ary = [1, 2, 3, 4, 5];
+    // 陣列有一個 forEach 方法，它接受一個函式，批次的將每次的值傳給函式，看你如何去利用
+    function showValue(atr) {
+      console.log(`value is ${atr}`);
+    }
+    ary.forEach(showValue);
+    console.clear();
+
+    // 建議這樣寫比較快，通常是一次性動作
+    ary.forEach(function (value) {
+      console.log(`value is ${value}`);
+    });
+
+
+
+
+  </script>
+</body>
+
+</html>

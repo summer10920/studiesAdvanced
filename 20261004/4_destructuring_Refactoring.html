@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>解構與重購</title>
+</head>
+
+<body>
+  <script>
+    // 展開運算子(Spread Operator) ES6 的新語法，將陣列或物件展開
+    const arr1 = [1, 2, 3];
+    const arr2 = [4, ...arr1, 6];
+    arr1.push(5);
+    console.log(arr1, arr2);
+
+    const initObj = {
+      name: '訪客',
+      age: 18,
+      gender: 'female',
+      birthday: '2000-01-01'
+    };
+
+    const newObj = {
+      ...initObj,
+      name: 'Loki',
+    };
+
+    console.clear();
+
+
+    //解構(Destructuring) ES6 的新語法，將陣列或物件解構
+    const arr3 = [30, 40, 50, 60, 70, 80, 90];
+    const a = arr3[0];
+    const b = arr3[1];
+    const c = arr3[2];
+    console.log(a, b, c);
+
+    // const [aa, bb, cc] = arr3;
+    // console.log(aa, bb, cc);
+
+    // const [aa, , bb] = arr3;
+    // console.log(aa, bb);
+
+    const [aa, , bb, ...rest] = arr3;
+    console.log(aa, bb, rest);
+    console.clear();
+
+
+    const person = { userName: "小明", age: 18, city: "台北", birth: "1999", job: "學生" };
+    // const { userName, ...other } = person;
+    // console.log(userName, other);
+    const { userName: account, birth = '1991', ...other } = person;
+    console.log(account, birth, other);
+    console.clear();
+
+
+    let user = {
+      info: { id: 1, username: "loki" },
+      scores: [90, 80, 70]
+    };
+    let {
+      info: { username },
+      scores: [first, second]
+    } = user;
+    console.log(username); // loki
+    console.log(first, second); // 90 80
+
+
+  </script>
+</body>
+
+</html>

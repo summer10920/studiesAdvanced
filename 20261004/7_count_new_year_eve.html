@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>計算距離今年跨年還有多少天</h1>
+  <script>
+    /**
+     * 請寫一個 JavaScript 程式，計算並將結果用 console.log 輸出
+     * "距離今年跨年還有 ${day} 天 ${hr} 小時 ${min} 分 ${sec} 秒。"
+     * 提示：可用 Date 物件、時間相減、毫秒轉換等技巧
+     */
+
+    function countNewYearEve() {
+      let day = 0, hr = 0, min = 0, sec = 0;
+      const now = new Date();
+      const newYear = new Date(`${now.getFullYear() + 1}-01-01 00:00:00`);
+      const diff = Math.floor((newYear - now) / 1000); // 單位為 7632261 秒
+
+      sec = diff % 60; // 試圖將秒數都轉換為分鐘，無法轉換就是剩下的秒數
+      min = Math.floor(diff / 60) % 60; // 試圖將min都轉換為hour, 無法轉換就是剩下的min
+      hr = Math.floor(diff / 60 / 60) % 24; // 試圖將 hour 都轉換為 day, 無法轉換就是剩下的hour
+      day = Math.floor(diff / 60 / 60 / 24);
+
+      // const tmp = Math.floor(diff / 60 / 60 / 24); // 進位到 day 了 2119
+      return `距離今年跨年還有 ${day} 天 ${hr} 小時 ${min} 分 ${sec} 秒。`;
+    };
+
+
+    console.log(countNewYearEve());
+  </script>
+</body>
+
+</html>

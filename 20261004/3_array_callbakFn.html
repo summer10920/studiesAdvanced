@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>會用到回調函式的prototype</h1>
+  <script>
+    const arr = ['A', 'B', 'C', 'D', 'E'];
+    // arr.forEach(function (value, index, array) {
+    //   console.log(value, index, array);
+    // });
+
+    // 批次讀取每一個元素
+    arr.forEach((value, index, array) => console.log(value, index, array));
+    console.clear();
+
+    // 批次將 元素 映射轉換，最後返回一個新array
+    // const newArr = arr.map((val) => {
+    //   return val + val;
+    // });
+    const newArr = arr.map(val => val + val);
+    console.table(newArr);
+    console.table(arr);
+    console.clear();
+
+    // 批次過濾，需要每次迴圈 return boolean 是否要留著，最後返回新array
+    const people = [
+      { name: 'loki', age: 18 },
+      { name: 'max', age: 20 },
+      { name: 'jack', age: 15 },
+      { name: 'jane', age: 25 },
+    ];
+
+    // const canSmoke = people.filter(person => person.age >= 20);
+    const canSmoke = people.filter(({ age }) => age >= 20);
+    console.log(canSmoke);
+    console.clear();
+
+
+    // 尋找第一個符合條件的元素
+    const findAAdult = people.find(person => person.age >= 20);
+    console.log(findAAdult);
+    console.clear();
+
+
+    // 組合技, 利用陣列的特性一次性完成多個動作
+    const whoCanSmoke = people
+      .filter(({ age }) => age >= 20)
+      .map(({ name }) => name)
+      .join(', ');
+    console.log(`${whoCanSmoke} can smoke`);
+    console.clear();
+
+
+    /**
+     * reduce(fn, init) 累加, 通常很特殊的需求會用到進階技巧
+     * callbackFn(accumulator, currentValue, currentIndex, array)
+     * fn 通常會寫 (前一次拿到的return 值, 從陣列取出的元素) => 處理方式, 初始值
+    */
+
+    const sum = [1, 2, 3, 4, 5].reduce((acc, cur) => acc + cur, 0);
+    console.log(sum);
+    console.clear();
+
+    const aaa = people.reduce((acc, cur) => {
+      if (cur.age >= 20) acc.push(cur.name);
+      return acc;
+    }, []).join(', ');
+
+    const bbb = people.reduce((acc, cur) => (cur.age >= 20) ? `${acc}, ${cur.name}` : acc, '');
+    console.log(aaa, bbb);
+
+
+  </script>
+</body>
+
+</html>

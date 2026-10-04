@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 一般函式變數的宣告方式
+    const max = function (num) {
+      console.log(num);
+    };
+
+    // max(100);
+
+
+    // 箭頭函式 ES6 的新語法，箭頭函式的寫法更簡潔
+    // const loki = (num) => {
+    //   console.log(num);
+    // };
+
+    // const loki = (num, num2) => console.log(num, num2);
+
+    // const loki = num => console.log(num * 2);
+
+    const loki = num => num * num;
+
+    console.log(loki(3));
+
+    console.clear();
+
+
+    console.log((num => num * num)(3));
+  </script>
+</body>
+
+</html>

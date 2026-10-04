@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // Math 物件是 JavaScript 的內建物件，提供數學運算的功能
+    console.log(Math.PI);
+    console.log(Math.E);
+
+    // 四捨五入
+    console.log(Math.round(3.5));
+    console.log(Math.round(3.4));
+
+    // 無條件捨去
+    console.log(Math.floor(3.9));
+
+    // 無條件進位
+    console.log(Math.ceil(3.1));
+
+    // 次方與平方根
+    console.log(Math.pow(2, 3));
+    console.log(Math.sqrt(9));
+
+    // 絕對值
+    console.log(Math.abs(-10));
+
+    // 最大值與最小值
+    console.log(Math.max(1, 2, 3, 4, 5));
+    console.log(Math.min(1, 2, -3, 4, 5));
+
+    console.clear();
+    // 亂數, Math.random() 會回傳一個 0~1 的浮點數，包含 0 不包含 1
+
+    // 產生一個 1~10 的整數??
+    // 0 ~ 0.99999
+    console.log(Math.random());
+
+    // 0 ~ 9.99999
+    Math.random() * 10;
+
+    // 0 ~ 9
+    Math.floor(Math.random() * 10);
+
+    // 1 ~ 10
+    Math.floor(Math.random() * 10) + 1;
+
+
+    // 20 ~ 60 => (0 ~ 40) + 20
+    // 0 ~ 0.多 *41 => 0 ~ 40.多
+    Math.floor(Math.random() * 41) + 20;
+
+    // 37 ~ 42 => (0 ~ 5) + 37
+    // 0 ~ 0.多 *6 => 0 ~ 5.多
+    Math.floor(Math.random() * 6) + 37;
+
+    // 嘗試是規劃一個 function，傳入 min 與 max，回傳一個 min~max 的整數
+    function getRandomInt(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    for (let i = 0; i < 10; i++) {
+      console.log(getRandomInt(5, 10));
+    }
+
+    console.clear();
+
+    /**
+     * 請寫一個 JavaScript 函式，
+     * 產生 1 ~ 49 之間隨機且不重複的 6 個號碼，
+     * 並將結果由小到大排序，回傳一個陣列。
+     * 
+     * - 輸出範例：[3, 8, 15, 22, 34, 45]
+     * - 提示：可用 Math.random()、Set、Array、sort() 等方法
+     */
+
+    function lottoA() {
+      /* 想法一
+       * 試著不斷從 1 ~ 49 產生一個數字記起來，直到記住6個不重複的數字，
+       * 但機率論來說重複命中率的問題(每次都是1/49機率)? 這不是真正的模擬抽球。
+       * 但如果只是模擬電腦選號就沒差，目標是產生不重複，而不是模擬抽球行為
+       */
+      const lottoSet = new Set();
+      // while (lottoSet.size < 6) lottoSet.add(getRandomInt(1, 49));
+      while (lottoSet.size < 6)
+        lottoSet.add(Math.floor(Math.random() * 49) + 1);
+      return (Array.from(lottoSet)).sort((a, b) => a - b);
+    }
+    console.log(lottoA());
+    console.clear();
+
+
+    function lottoB() {
+      /* 想法二
+       * 真的模擬抽球行為，有49個球，每抽一次就少一顆
+       */
+
+      // const balls = [];
+      // for (let i = 1; i <= 49; i++) {
+      //   balls.push(i);
+      // }
+
+      const ballsPool = Array.from({ length: 49 }, (v, i) => i + 1);
+      const getBalls = [];
+
+      // for (let i = 0; i < 6; i++) {
+      // const index = Math.floor(Math.random() * ballsPool.length); // 隨機從 0 ~ 48 索引找到某個 value;
+
+      // method 1
+      // getBalls.push(ballsPool[index]); // 將該 value 推入 getBalls 陣列
+      // ballsPool.splice(index, 1); // 將該 value 從 ballsPool 移除，避免重複抽到
+
+      // method 2
+      // getBalls.push(ballsPool.splice(index, 1)[0]);
+
+      // method 3
+      // getBalls.push(...ballsPool.splice(index, 1));
+      // }
+
+      // method 4
+      while (getBalls.length < 6)
+        getBalls.push(...ballsPool.splice(Math.floor(Math.random() * ballsPool.length), 1));
+      return getBalls.sort((a, b) => a - b);
+    }
+
+    console.log(lottoB());
+
+
+  </script>
+</body>
+
+</html>
