@@ -17,6 +17,9 @@ importers:
       vite:
         specifier: ^8.3.0
         version: 8.3.4(jiti@2.7.0)
+      vite-plugin-html-inject:
+        specifier: ^1.1.2
+        version: 1.1.2
 
 packages:
 
@@ -448,6 +451,9 @@ packages:
     resolution: {integrity: sha512-wXR/dYpcqKmfWpEdZjiKJOwCNFndD0DMnrW/cYjVGttEkBfVgcLFHoNrlj47mjOVic9yyNu65alsgF4NQyTa2g==}
     engines: {node: '>=12.0.0'}
 
+  vite-plugin-html-inject@1.1.2:
+    resolution: {integrity: sha512-4DWANEcAw73H5JLWTAI4EvXdSyoGqGq/Is9fTRjpF+SJLor58LNdqB+YYnK3FOLwx6LMTAn4z1hkiRyc52lYLg==}
+
   vite@8.3.4:
     resolution: {integrity: sha512-IftLE8phJhdNRIGNEV4JCCvfNScoZQVfcXaN8TQropWGJtOHcu+iAB9pHcuGvmEb/kddw0LBe/jS8ztdC6xdiQ==}
     engines: {node: ^20.19.0 || >=22.12.0}
@@ -792,6 +798,8 @@ snapshots:
     dependencies:
       fdir: 6.5.0(picomatch@4.0.7)
       picomatch: 4.0.7
+
+  vite-plugin-html-inject@1.1.2: {}
 
   vite@8.3.4(jiti@2.7.0):
     dependencies:
