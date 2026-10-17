@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>容器查詢</title>
+  </head>
+  <body>
+    <!-- TODO: 選讀「容器查詢 @container」。外框加上 @container，並讓它可以橫向拖曳（resize-x）。
+         卡片預設直向。父層寬到容器的 @md（28rem，不是視窗的 md）時改成橫排，圖片改成固定寬。
+         視窗可以維持很寬；排版只跟這個框走。 -->
+    <h1>拖右邊，改的是這張卡的寬度</h1>
+    <p>視窗可以很寬。排版看的是下面這個可拉伸的框。</p>
+    <div>
+      <article>
+        <img src="https://picsum.photos/id/1016/800/500" alt="湖" />
+        <div>
+          <h2>花蓮山海</h2>
+          <p>框還窄時圖在上。框寬到容器的 @md 時，圖改到左邊。</p>
+        </div>
+      </article>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

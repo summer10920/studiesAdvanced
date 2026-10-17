@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>傳統 CSS 與 utility</title>
+    <style>
+      /* TODO: 講義「原子化 utility 對比傳統 CSS」。
+         只給左邊 .trip-card 用：最大寬度、圓角、白底、陰影、圖片高 10rem、內文留白、青綠色連結。
+         這段 style 是對照用的，不要做成第二套設計系統。 */
+    </style>
+  </head>
+  <body>
+    <!-- TODO: 頁面底與標題用 utility。兩張卡並排；窄螢幕改直向。 -->
+    <h1>同一張行程卡，兩種寫法</h1>
+    <div>
+      <article class="trip-card">
+        <img src="https://picsum.photos/id/1015/800/500" alt="山間步道" />
+        <div class="body">
+          <h2>手寫 CSS</h2>
+          <p>樣式在 head 的 style，class 是元件名字。</p>
+          <a href="#book">看行程</a>
+        </div>
+      </article>
+      <!-- TODO: 右邊不要用 .trip-card。圓角、白底、陰影、圖片裁切、內距、按鈕色全部寫在 class 上。 -->
+      <article>
+        <img src="https://picsum.photos/id/1016/800/500" alt="湖邊" />
+        <div>
+          <h2>Tailwind utility</h2>
+          <p>同一組視覺，屬性寫在標籤的 class 上。</p>
+          <a href="#book">看行程</a>
+        </div>
+      </article>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

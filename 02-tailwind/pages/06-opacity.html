@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>透明度</title>
+  </head>
+  <body>
+    <!-- TODO: 講義「透明度」。頁面底用 bg-amber-100，半透明才看得出來。
+         做不透明、/75、/50 三塊青綠底。再做一塊白底約 70%、框約 40%。
+         最後一行只把字變淡。不要用外層 opacity- 把整塊連字一起淡掉。 -->
+    <h1>斜線後面是不透明度</h1>
+    <p>頁面底是琥珀色。方塊越透明，底下的黃越透出來。</p>
+    <div>
+      <div>bg-teal-700 不透明</div>
+      <div>bg-teal-700/75</div>
+      <div>bg-teal-700/50</div>
+      <div>白底 70%，框 40%</div>
+      <p>這行字變淡，整行一起變淡。</p>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

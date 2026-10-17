@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>狀態與轉場</title>
+  </head>
+  <body>
+    <!-- TODO: 講義「狀態、group 與 transition」。
+         連結：hover 換底色，focus-visible 加外框，transition 約 200ms。
+         卡片父層加 group 與 overflow-hidden。滑過整張卡時圖片 scale、標題變色、陰影變深。
+         核取方塊 peer 與 sr-only，標籤在它後面。勾選後標籤換底，下一句從 hidden 變成顯示。 -->
+    <h1>滑過、聚焦、整組一起變</h1>
+    <a href="#go">用鍵盤 Tab 到我</a>
+    <article>
+      <img src="https://picsum.photos/id/1015/800/500" alt="山景" />
+      <div>
+        <h2>滑過整張卡，標題與圖片一起變</h2>
+        <p>group 放在父層，group-hover: 放在子層。</p>
+      </div>
+    </article>
+    <div>
+      <input id="agree" type="checkbox" />
+      <label for="agree">我已閱讀行前說明</label>
+      <p>勾選後這行才出現。</p>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

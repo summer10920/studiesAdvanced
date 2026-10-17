@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>自訂斷點</title>
+  </head>
+  <body>
+    <!-- TODO: 講義「自訂斷點」。先在 src/style.css 的 @theme 加上 --breakpoint-tablet 與 --breakpoint-3xl。
+         兩欄用 tablet: 而不是再定義一個 sm。預設一欄，過了 tablet 才並排。
+         最下面那句預設隱藏，3xl: 才顯示。不要用 initial 拿掉內建斷點。 -->
+    <h1>tablet: 設在 52rem</h1>
+    <p>比 md（48rem）再寬一點才變成兩欄。3xl（120rem）那句只有非常寬的視窗看得到。</p>
+    <div>
+      <article>
+        <h2>左欄</h2>
+        <p>52rem 以前跟右欄上下排。</p>
+      </article>
+      <article>
+        <h2>右欄</h2>
+        <p>過了 tablet 才並排。</p>
+      </article>
+    </div>
+    <p>視窗到 3xl 了。一般筆電的視窗拉不滿這條，把瀏覽器縮放調小才容易看到。</p>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>掃描與動態 class</title>
+  </head>
+  <body>
+    <!-- TODO: 講義「只輸出用到的」。第一段的背景 class 必須是原始碼裡完整的 bg-teal-700。 -->
+    <h1>完整字串才會被掃到</h1>
+    <p>這句的 class 在檔案裡是完整的 bg-teal-700，背景是青綠。</p>
+    <!-- TODO: 第二段只寫框線。不要在 class 裡出現完整的 bg-rose-700。 -->
+    <p id="joined">這句的背景 class 是程式把字接起來的。框還在，背景不會變成另一個顏色。</p>
+    <script>
+      const family = "rose";
+      // TODO: 用 classList.add 把 bg-、family、-700 接成一個 class 加到 #joined。掃描器看不到那個完整字串。
+    </script>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
