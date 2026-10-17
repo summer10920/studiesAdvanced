@@ -12,6 +12,7 @@
   --color-brand-800: #115e59;
   --color-brand-900: #134e4a;
   --color-brand-950: #042f2e;
+  --spacing-18: 4.5rem;
   --breakpoint-tablet: 52rem;
   --breakpoint-3xl: 120rem;
 }

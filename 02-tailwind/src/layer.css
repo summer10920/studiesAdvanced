@@ -1,0 +1,6 @@
+@import "./style.css";
+
+/* TODO: 講義「@layer 與 @utility」。
+   .kicker 放進 @layer components：小字、字重 500、字距略開、var(--color-teal-700)。
+   .chip 用 @utility：全圓角、左右 0.75rem、上下 0.25rem、0.75rem 字級、淺青底、深青字。
+   前綴接得上的是 @utility，不是 @layer components。 */

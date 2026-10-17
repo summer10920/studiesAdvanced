@@ -1,0 +1,6 @@
+/* TODO: 講義「@apply」。先寫 @reference "./style.css"，再把實心按鈕收成 .btn-solid。
+   只收兩顆連結會重複的那一串。標題與說明留在 HTML 的 class 上。 */
+@reference "./style.css";
+
+.btn-solid {
+}

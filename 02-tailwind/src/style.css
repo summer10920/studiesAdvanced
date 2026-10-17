@@ -2,6 +2,7 @@
 
 @theme {
   /* TODO: 講義「用 @theme 自訂品牌色」。補 --color-brand-50 到 --color-brand-950，讓 bg-brand-*、text-brand-* 可用。
+     換你試試再加 --spacing-18: 4.5rem，讓 p-18 可用。
      講義「自訂斷點」再補 --breakpoint-tablet（52rem）與 --breakpoint-3xl（120rem）。不要覆蓋內建的 teal、stone。 */
 }
 
