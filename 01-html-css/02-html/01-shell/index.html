@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML 練習目錄</title>
+  </head>
+  <body>
+    <!-- TODO: 講義 02-html「檔案一覽」。用 Live Server 開這份 index.html。
+         左邊是選單，右邊用 iframe（name="demo"）顯示各練習。不要改資料夾名稱。 -->
+    <header id="site-header">
+      <p>洛奇旅行 · 練習頁</p>
+      <nav>
+        <ul>
+          <!-- TODO: 每一項加上 target="demo"，href 指到對應練習的 index.html -->
+          <li><a href="../02-box/index.html">盒子</a></li>
+          <li><a href="../03-layout/index.html">版面</a></li>
+          <li><a href="../04-headings/index.html">標題與段落</a></li>
+          <li><a href="../05-links/index.html">連結</a></li>
+          <li><a href="../06-text/index.html">文字</a></li>
+          <li><a href="../07-lists/index.html">清單</a></li>
+          <li><a href="../08-media/index.html">多媒體</a></li>
+          <li><a href="../09-table/index.html">表格</a></li>
+          <li><a href="../10-form/index.html">表單</a></li>
+          <li><a href="../11-a11y/index.html">無障礙（選讀）</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <iframe name="demo" src="../02-box/index.html" title="示範內容"></iframe>
+    </main>
+  </body>
+</html>

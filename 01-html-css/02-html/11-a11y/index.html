@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>無障礙（選讀）</title>
+  </head>
+  <body>
+    <!-- TODO: 講義 02-html「選讀：無障礙（a11y）」。
+         語言與標題大綱、圖片替代文字、表單欄位要有名字、連結與按鈕分開、
+         資料表要有表頭、鍵盤走得過整頁。ARIA 只在原生元素不夠時才補。 -->
+    <h1>無障礙檢查</h1>
+    <p><a href="#main">跳到主內容</a></p>
+    <main id="main">
+      <img src="https://picsum.photos/id/1016/640/360" alt="" width="640" height="360" />
+      <form action="#" method="get">
+        <p>
+          <label for="a11y-name">姓名</label>
+          <input id="a11y-name" name="name" />
+        </p>
+        <p><button type="submit">送出</button></p>
+      </form>
+      <table>
+        <caption>待補</caption>
+        <tr>
+          <th>欄位</th>
+          <td>待補</td>
+        </tr>
+      </table>
+      <!-- TODO: 補一個「去別的網址」的連結，和一顆「只在本頁做事」的按鈕，兩者不要混用。 -->
+    </main>
+  </body>
+</html>

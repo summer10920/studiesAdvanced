@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>盒子：block 與 inline</title>
+  </head>
+  <body>
+    <!-- TODO: 講義 02-html「區塊與行內」。看出 div（block）與 span（inline）的差別。
+         需要看邊界時可暫時加框線，這一節先不要另寫 CSS 檔。 -->
+    <h1>block 與 inline</h1>
+    <p>每個元素都是一顆盒子。請把下面兩段補完，並在瀏覽器描述它們怎麼佔位置。</p>
+    <section>
+      <h2>inline：span</h2>
+      <p>這句中間有一個 <span>待填文字</span>，它應該跟前後的字排在同一行。</p>
+      <!-- TODO: 再放兩個相鄰的 span，確認它們不會各自獨佔一行。 -->
+    </section>
+    <section>
+      <h2>block：div</h2>
+      <div>
+        <p>這顆 div 應獨佔一行。</p>
+        <!-- TODO: 裡面再套一層 div。 -->
+      </div>
+      <!-- TODO: 再放一顆 div，確認它從新的一行開始。 -->
+    </section>
+  </body>
+</html>

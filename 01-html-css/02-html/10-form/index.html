@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>表單</title>
+  </head>
+  <body>
+    <!-- TODO: 講義 02-html「表單」。這份是報名表 #booking-form，對到專題 BookingForm。
+         要涵蓋：form、label 關聯、驗證屬性、各種 input、select／optgroup／datalist、
+         radio、checkbox、textarea、button、fieldset／legend、progress、meter。 -->
+    <h1>報名</h1>
+    <form id="booking-form" action="#" method="get">
+      <fieldset>
+        <legend>報名資料</legend>
+        <p>
+          <label for="guest-name">姓名</label>
+          <input id="guest-name" name="name" />
+        </p>
+        <p>
+          <label for="guest-email">Email</label>
+          <input id="guest-email" name="email" />
+        </p>
+        <p>
+          <label for="guest-people">人數</label>
+          <input id="guest-people" name="people" />
+        </p>
+        <p>
+          <label for="tour-select">行程</label>
+          <select id="tour-select" name="tourId">
+            <option value="">請選擇</option>
+          </select>
+        </p>
+        <p>
+          <label for="guest-note">備註</label>
+          <textarea id="guest-note" name="note"></textarea>
+        </p>
+        <!-- TODO: 依講義補上其餘型別（password、url、tel、search、range、date、time、
+             datetime-local、month、week、color、file）、radio、checkbox、datalist、
+             hidden、progress、meter，以及送出與重設按鈕。每個欄位都要對得上 label。 -->
+      </fieldset>
+    </form>
+  </body>
+</html>

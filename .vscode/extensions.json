@@ -1,0 +1,17 @@
+{
+  "recommendations": [
+    "ritwickdey.LiveServer",
+    "bradlc.vscode-tailwindcss",
+    "esbenp.prettier-vscode",
+    "dsznajder.es7-react-js-snippets",
+    "dbaeumer.vscode-eslint",
+    "christian-kohler.path-intellisense",
+    "steoates.autoimport",
+    "kisstkondoros.vscode-gutter-preview",
+    "KevinYang.ctlorem",
+    "htmlhint.vscode-htmlhint",
+    "vincaslt.highlight-matching-tag",
+    "mhutchie.git-graph",
+    "MS-CEINTL.vscode-language-pack-zh-hant"
+  ]
+}
