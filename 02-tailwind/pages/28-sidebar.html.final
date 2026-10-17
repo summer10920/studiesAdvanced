@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>側欄</title>
+  </head>
+  <body class="bg-stone-100 text-stone-900">
+    <load src="../partials/nav.html" p28="page" />
+    <div class="mx-auto max-w-6xl px-4 py-6 lg:grid lg:grid-cols-4 lg:gap-6">
+      <aside class="mb-6 rounded-xl bg-teal-800 p-4 text-white lg:col-span-1 lg:mb-0">
+        <p class="text-sm font-medium">目的地</p>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li>台北</li>
+          <li>花蓮</li>
+          <li>台南</li>
+        </ul>
+      </aside>
+      <main class="@container/main min-w-0 lg:col-span-3">
+        <h1 class="text-2xl font-bold">側欄在窄螢幕時在上面</h1>
+        <p class="mt-2 text-sm text-stone-600">並排看視窗的 lg。卡片橫排看 main 自己的寬度。</p>
+        <article class="mt-4 flex flex-col gap-4 rounded-xl bg-white p-4 shadow-sm @md/main:flex-row">
+          <img
+            class="h-32 w-full rounded-lg object-cover @md/main:w-40"
+            src="https://picsum.photos/id/1015/800/500"
+            alt="山景"
+          />
+          <div>
+            <h2 class="text-lg font-semibold">花蓮山海</h2>
+            <p class="mt-1 text-sm text-stone-600">
+              視窗已經到 lg 時，主欄仍可能窄於容器的 @md（28rem），圖就還在上面。
+            </p>
+          </div>
+        </article>
+      </main>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

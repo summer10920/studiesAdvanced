@@ -7,9 +7,9 @@
   </head>
   <body>
     <load src="../partials/nav.html" p21="page" />
-    <!-- TODO: 講義「container 與 mx-auto、px」。先在 src/style.css 寫好 @utility container。
+    <!-- TODO: 講義「版心與 max-w-*」。先在 src/style.css 寫好 @utility container。
          上半那塊加上 class container。下半不要用 container 這個名字，改成 mx-auto、max-w-6xl、px-4，較寬時再加左右留白。
-         頁面外圍用灰底，兩塊版心用不同底色，才看得出寬度停在哪裡。 -->
+         下半最後一段再用 max-w-3xl，只縮那一段說明。頁面外圍用灰底，兩塊版心用不同底色，才看得出寬度停在哪裡。 -->
     <div>
       <p>class="container"</p>
       <h1>白底停在版心裡，外面仍是灰</h1>
@@ -18,7 +18,7 @@
     <div>
       <p>mx-auto max-w-6xl px-4</p>
       <h2>不取名字時，三個 class 做同一件事</h2>
-      <p>max-w-6xl 是 72rem。水平置中靠 mx-auto，左右留白靠 px-4。</p>
+      <p>max-w-6xl 是 72rem，管的是整條版心。這段說明再用 max-w-3xl 收到 48rem。</p>
     </div>
     <script type="module" src="/src/main.js"></script>
   </body>

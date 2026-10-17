@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>側欄</title>
+  </head>
+  <body>
+    <load src="../partials/nav.html" p28="page" />
+    <!-- TODO: 講義「側欄」，分兩步。
+         1. 外層用 mx-auto max-w-6xl px-4。窄螢幕直排；lg 以上改成四欄格子，側欄佔一欄、主文佔三欄。
+         2. main 加上 @container/main 與 min-w-0。卡片預設直排，主欄寬到容器的 @md 才改橫排，圖片改固定寬。
+            並排看視窗，卡片橫排看 main，不要用 lg:flex-row。 -->
+    <div>
+      <aside>
+        <p>目的地</p>
+        <ul>
+          <li>台北</li>
+          <li>花蓮</li>
+          <li>台南</li>
+        </ul>
+      </aside>
+      <main>
+        <h1>側欄在窄螢幕時在上面</h1>
+        <p>並排看視窗的 lg。卡片橫排看 main 自己的寬度。</p>
+        <article>
+          <img src="https://picsum.photos/id/1015/800/500" alt="山景" />
+          <div>
+            <h2>花蓮山海</h2>
+            <p>視窗已經到 lg 時，主欄仍可能窄於容器的 @md（28rem），圖就還在上面。</p>
+          </div>
+        </article>
+      </main>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

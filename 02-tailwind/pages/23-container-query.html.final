@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>容器查詢</title>
+  </head>
+  <body class="bg-stone-100 p-6 text-stone-900">
+    <load src="../partials/nav.html" p23="page" />
+    <h1 class="text-2xl font-bold">拖右邊，改的是這張卡的寬度</h1>
+    <p class="mt-2 max-w-prose text-sm text-stone-600">視窗可以很寬。排版看的是下面這個可拉伸的框。</p>
+    <div class="@container mt-6 w-72 resize-x overflow-auto rounded-xl border border-stone-300 bg-white p-4">
+      <article class="flex flex-col gap-4 @md:flex-row">
+        <img class="h-32 w-full rounded-lg object-cover @md:w-40" src="https://picsum.photos/id/1016/800/500" alt="湖" />
+        <div>
+          <h2 class="text-lg font-semibold">花蓮山海</h2>
+          <p class="mt-1 text-sm text-stone-600">框還窄時圖在上。框寬到 @md（28rem）圖改到左邊。</p>
+        </div>
+      </article>
+    </div>
+    <div class="@container/page mt-10 max-w-3xl rounded-xl bg-stone-200 p-4">
+      <p class="text-sm text-stone-600">外層叫 page。裡面再放一個較窄、可橫向拖的 card。</p>
+      <div class="@container/card mt-4 w-64 resize-x overflow-auto rounded-lg bg-white p-4">
+        <h2 class="text-base font-semibold @lg/card:text-2xl">標題只看 card</h2>
+        <p class="mt-2 text-sm text-stone-600">@lg/card: 要 card 自己到 32rem 才放大。寫成 @lg: 會對到最近的容器。</p>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

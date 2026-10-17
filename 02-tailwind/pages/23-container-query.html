@@ -7,9 +7,11 @@
   </head>
   <body>
     <load src="../partials/nav.html" p23="page" />
-    <!-- TODO: 選讀：容器查詢。外框加上 @container，並讓它可以橫向拖曳（resize-x）。
-         卡片預設直向。父層寬到容器的 @md（28rem，不是視窗的 md）時改成橫排，圖片改成固定寬。
-         視窗可以維持很寬；排版只跟這個框走。 -->
+    <!-- TODO: 講義「容器查詢」，分兩步。
+         1. 第一個外框加 @container，並讓它可以橫向拖曳（resize-x）。卡片預設直向。
+            父層寬到容器的 @md（28rem，不是視窗的 md）時改成橫排，圖片改成固定寬。
+         2. 第二組是具名容器：外層 @container/page，內層窄框 @container/card，也可以橫向拖。
+            標題用 @lg/card: 才放大。不要寫成沒有名字的 @lg:，否則會跟著最近的容器。 -->
     <h1>拖右邊，改的是這張卡的寬度</h1>
     <p>視窗可以很寬。排版看的是下面這個可拉伸的框。</p>
     <div>
@@ -20,6 +22,13 @@
           <p>框還窄時圖在上。框寬到容器的 @md 時，圖改到左邊。</p>
         </div>
       </article>
+    </div>
+    <div>
+      <p>外層叫 page。裡面再放一個較窄、可橫向拖的 card。</p>
+      <div>
+        <h2>標題只看 card</h2>
+        <p>@lg/card: 要 card 自己到 32rem 才放大。寫成 @lg: 會對到最近的容器。</p>
+      </div>
     </div>
     <script type="module" src="/src/main.js"></script>
   </body>

@@ -3,16 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>任意值與 important</title>
+    <title>任意值</title>
   </head>
   <body>
     <load src="../partials/nav.html" p26="page" />
-    <!-- TODO: 講義「任意值與 important」。卡片寬度用方括號寫 22rem，白底、圓角、陰影、內距。
-         第一句同時有 text-stone-500 與 text-teal-800!，青綠色要壓過 stone。 -->
+    <!-- TODO: 講義「任意值」。卡片寬度用方括號寫 22rem，白底、圓角、陰影、內距。
+         選讀「important」：最後一句同時寫 text-stone-500 與 text-teal-800!，青綠色要壓過 stone。 -->
     <h1>刻度沒有的寬度</h1>
     <div>
-      <p>這行是青綠，而且要壓過 stone。</p>
+      <p>這張卡的寬度是刻度沒有的 22rem。</p>
       <p>w-[22rem] 是 22rem，介在 max-w-xs 與 max-w-sm 之間，刻度沒有這一格。</p>
+      <p>這行是青綠，而且要壓過 stone。</p>
     </div>
     <script type="module" src="/src/main.js"></script>
   </body>
