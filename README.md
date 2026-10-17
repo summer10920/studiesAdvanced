@@ -21,16 +21,13 @@ cd studiesAdvanced
 
 ## 建議的 VS Code 套件
 
-用 VS Code 打開**這個根目錄**。編輯器會讀 `.vscode/extensions.json` 並建議安裝。請至少裝這四個：
+用 VS Code 打開**這個根目錄**（`studiesAdvanced` 這一層，不要只開子資料夾）。根目錄的 `.vscode/settings.json`、`.vscode/placeholder.code-snippets` 與 `.prettierrc` 會自動套用：存檔排版、占位圖片段都不用再抄到個人設定。
 
-| 套件 | 用途 |
-| --- | --- |
-| Live Server | 預覽 `01-html-css/` 的靜態頁 |
-| Tailwind CSS IntelliSense | Tailwind class 補完與色票 |
-| Prettier | 存檔時排版 |
-| ES7 React snippets | React 元件片段 |
+編輯器會讀 `.vscode/extensions.json` 並建議安裝。
 
-同一份清單還有講義「工具」篇列出的 ESLint、HTMLHint、Git Graph、Path Intellisense、繁體中文語系包等。建議視窗出現時一次裝完。
+**必裝：** Live Server、Prettier、Tailwind CSS IntelliSense、ES7+ React snippets、Git Graph、繁體中文語言包。
+
+**建議：** ESLint、Path Intellisense、Image Preview、GitHub Copilot（免費方案）。
 
 ## 講義對到資料夾
 
@@ -38,21 +35,22 @@ cd studiesAdvanced
 | --- | --- | --- | --- |
 | 00 計畫 | 課表與專題契約 | （沒有練習資料夾，讀講義即可） | — |
 | 01 工具 | VS Code、Git、fork | 倉庫根目錄 | 裝套件、完成 clone |
-| 02 HTML | 語意標籤、表單、無障礙 | `01-html-css/02-html/` | Live Server |
-| 03 CSS | 選擇器、盒模型、Flex、Grid、RWD | `01-html-css/03-css/` | Live Server |
+| 02 HTML | 語意標籤、表單、無障礙 | `01-html-css-js/02-html/` | Live Server |
+| 03 CSS | 選擇器、盒模型、Flex、Grid、RWD | `01-html-css-js/03-css/` | Live Server |
 | 04 Tailwind | utilities、RWD、深色模式 | `02-tailwind/` | `pnpm dev` |
-| 05 JavaScript 基礎 | 變數、函式、陣列 | （稍後加入） | — |
-| 06 DOM | 選取元素與事件 | （稍後加入） | — |
-| 07 非同步 | fetch、async | （稍後加入） | — |
-| 08 React 基礎 | 元件、props、state、列表 | `03-react/` | `pnpm dev` |
-| 09 React 進階 | effect、表單、路由 | `03-react/` | `pnpm dev` |
-| 10 結業專案 | 洛奇旅行 | `04-project/` | 規格之後才補進該資料夾 |
+| 05 Tailwind 公式表 | class 對照 | （沒有練習資料夾，查講義即可） | — |
+| 06 JavaScript 基礎 | 變數、函式、陣列 | （稍後加入） | — |
+| 07 DOM | 選取元素與事件 | （稍後加入） | — |
+| 08 非同步 | fetch、async | （稍後加入） | — |
+| 09 React 基礎 | 元件、props、state、列表 | `03-react/` | `pnpm dev` |
+| 10 React 進階 | effect、表單、路由 | `03-react/` | `pnpm dev` |
+| 11 結業專案 | 洛奇旅行 | `04-project/` | 規格之後才補進該資料夾 |
 
 `02-html` 與 `03-css` 裡每個子資料夾都是該節的**起點**（結構、占位內容、中文 TODO），不是講義上的完成版。各資料夾的 `README.md` 有對照表。
 
 ### 各資料夾怎麼跑
 
-**HTML／CSS。** 不需要 Node。用 VS Code 打開 `01-html-css/`，對 `index.html` 按 Live Server 的 **Go Live**。圖片使用 picsum 與 placehold 的網址。
+**HTML／CSS。** 不需要 Node。VS Code 維持開著倉庫根目錄，在檔案總管對目標的 `index.html` 右鍵 **Open with Live Server**。圖片使用 picsum 與 placehold 的網址。
 
 **Tailwind 與 React。** 需要 Node 24 與 pnpm。還沒有 pnpm 時，在終端機執行 `corepack enable`，然後開一個新終端機。
 
@@ -60,6 +58,7 @@ cd studiesAdvanced
 cd 02-tailwind   # 或 03-react
 pnpm install
 pnpm dev
+cd ..            # 回到倉庫根目錄
 ```
 
 `pnpm build` 產出 `dist/`，`pnpm preview` 預覽建置結果。`node_modules/` 與 `dist/` 已在 `.gitignore`，刪掉之後用 `pnpm install` 裝得回來。

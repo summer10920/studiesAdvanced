@@ -21,6 +21,7 @@
 | `pages/13-background.html` | 背景圖層 | 背景圖層 |
 | `pages/14-selectors-extra.html` | 屬性比對與 :is()、:where()、:has()（選讀） | 屬性比對與 :is()、:where()、:has() |
 | `pages/15-layer.html` | 自訂屬性與 @layer（選讀） | 自訂屬性與 @layer |
+| `pages/29-font.html` | 命名與字型檔（選讀） | 命名與字型檔 |
 | `pages/16-box.html` | 盒子模型 | 盒子模型 |
 | `pages/17-display.html` | display | display |
 | `pages/18-position.html` | 定位與 z-index | 定位與 z-index |

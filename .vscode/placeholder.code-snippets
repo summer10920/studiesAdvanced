@@ -1,0 +1,14 @@
+{
+  "placehold.co 占位圖": {
+    "scope": "html,javascriptreact,javascript,vue",
+    "prefix": "placehold",
+    "body": "<img src=\"https://placehold.co/${1:600}x${2:400}\" alt=\"${3:占位}\" />",
+    "description": "插入 placehold.co 色塊占位圖"
+  },
+  "picsum.photos 占位圖": {
+    "scope": "html,javascriptreact,javascript,vue",
+    "prefix": "picsum",
+    "body": "<img src=\"https://picsum.photos/${1:600}/${2:400}\" alt=\"${3:占位}\" />",
+    "description": "插入 picsum.photos 照片占位圖"
+  }
+}
