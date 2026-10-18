@@ -3,19 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>掃描與動態 class</title>
+    <title>只輸出用到的 class</title>
   </head>
   <body>
     <load src="../partials/nav.html" p04="page" />
-    <!-- TODO: 講義「只輸出用到的 class」。第一段的背景 class 必須是原始碼裡完整的 bg-teal-700。 -->
-    <h1>完整字串才會被掃到</h1>
-    <p>這句的 class 在檔案裡是完整的 bg-teal-700，背景是青綠。</p>
-    <!-- TODO: 第二段只寫框線。不要在 class 裡出現完整的 bg-rose-700。 -->
-    <p id="joined">這句的背景 class 是程式把字接起來的。框還在，背景不會變成另一個顏色。</p>
-    <script>
-      const family = "rose";
-      // TODO: 用 classList.add 把 bg-、family、-700 接成一個 class 加到 #joined。掃描器看不到那個完整字串。
-    </script>
+    <!-- TODO: 講義「只輸出用到的 class」。頁面淺石底、留白、深字。
+         標題 text-2xl、加粗。
+         兩張卡的外層：上外距、橫排、可換行、中間留縫。
+         每張卡：寬度撐滿但最大約 24rem、大圓角、淺框、白底、內距。
+         卡內標題較大、字重 600。日期說明上外距、小字、石色。
+         第一顆標籤必須在 class 裡寫完整的 bg-teal-700：上外距、行內區塊、全圓、左右與上下內距、小字、字重 500、白字。
+         第二顆標籤先只寫框線與石色字，不要寫背景 class。
+         最後一行說明：上外距、限制行長、小字、石色。 -->
+    <h1>這一梯的報名狀態</h1>
+    <div>
+      <article>
+        <h2>太魯閣三日</h2>
+        <p>4/12 出發 · 尚有名額</p>
+        <p>可報名</p>
+      </article>
+      <article>
+        <h2>清水斷崖一日</h2>
+        <p>4/18 出發 · 候補中</p>
+        <p>候補中</p>
+      </article>
+    </div>
+    <p>第二顆標籤先不要寫背景。用 F12 在 Elements 加上 bg-rose-700，再對照存檔後的結果。</p>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

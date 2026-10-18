@@ -4,32 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>命名</title>
-    <style>
-      /* TODO: 延伸練習。原題：名字會越加越長。上半段故意用很長的自訂 class，把尺寸、顏色、圓角塞進名字。
-         下半段不要再加新的選擇器。 */
-    </style>
   </head>
   <body>
     <load src="../partials/nav.html" p02="page" />
-    <section>
-      <h1>名字要描述外觀時，會越加越長</h1>
-      <!-- TODO: 這顆連結與這張卡沿用 style 裡的長 class。 -->
-      <a href="#tours">手寫的長名字</a>
-      <article>
-        <h2>精選行程卡</h2>
-        <p>class 把尺寸、顏色、圓角、使用情境全部塞進一個名字。</p>
-      </article>
-    </section>
-    <section>
-      <h2>同一件事拆成看字面就懂的碎片</h2>
-      <!-- TODO: 連結用 inline-block、圓角、青綠底、左右與上下內距、白字、陰影。
-           卡片用最大寬度、圓角、邊框、白底、內距。不要再發明 .btn-primary-… 這種名字。 -->
-      <a href="#tours">報名這梯</a>
-      <article>
-        <h2>台北城市漫遊</h2>
-        <p>三天。圓角、邊框、留白各自一個 class。</p>
-      </article>
-    </section>
+    <!-- TODO: 講義「屬性與值」。頁面淺石底、留白。
+         卡片：最大寬度、大圓角、淺框、白底、內距、淺陰影。
+         眉題：較小字級、字重 500、青綠色。text- 一個管字級、一個管顏色。
+         標題：上外距很小、text-3xl 管字的大小、加粗、深石色。
+         內文：上外距、text-base 管字級、較鬆行高、石色字。
+         價錢：上外距、text-2xl 管大小、字重 600、深青綠。
+         連結：上外距、行內區塊、圓角、青綠背景、左右與上下內距、小字、字重 500、白字。 -->
+    <article>
+      <p>2026 春季梯</p>
+      <h1>花蓮太魯閣三日</h1>
+      <p>第一天進太魯閣，第二天走清水斷崖，第三天在七星潭解散。含兩晚住宿與早餐。</p>
+      <p>NT$16,800</p>
+      <a href="#dates">看這梯日期</a>
+    </article>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Preflight</title>
+  </head>
+  <body>
+    <load src="../partials/nav.html" p29="page" />
+    <!-- TODO: 講義「選讀：Preflight」。頁面淺石底、留白、深字。
+         頁首標題加大加粗，下面留外距。說明限制行長、小字、石色，下面再留外距。
+         兩張卡橫排、可換行、中間留縫、頂端對齊。
+         兩張卡都是寬度 20rem、不超出父層、大圓角、4px 石色框、白底、內距。框算在寬度裡面。
+         左邊不要寫上外距，也不要寫 space-y，讓眉題、標題、摘要、清單、圖片、按鈕貼在一起。
+         右邊同一份內容，父層加上 space-y-4。右邊圖片再加固定高度與 object-cover。
+         眉題小字、字重 500、青綠色。標題較大、字重 600。摘要小字、石色。
+         清單圓點、左內距、小字、石色。
+         圖片寬度 100%、圓角。按鈕圓角、青綠底、左右與上下內距、小字、字重 500、白字。不要另外指定按鈕字型。 -->
+    <h1>預設外距被拿掉之後</h1>
+    <p>左邊那張卡沒有另外加上外距。右邊用父層把同一份內容撐開。</p>
+    <div>
+      <section>
+        <p>花蓮小團</p>
+        <h2>太魯閣三日</h2>
+        <p>清晨進峽谷，下午到海邊。</p>
+        <ul>
+          <li>太魯閣步道</li>
+          <li>七星潭</li>
+        </ul>
+        <img src="https://picsum.photos/id/1016/800/500" alt="七星潭海岸" />
+        <button type="button">我要報名</button>
+      </section>
+      <section>
+        <p>花蓮小團</p>
+        <h2>太魯閣三日</h2>
+        <p>清晨進峽谷，下午到海邊。</p>
+        <ul>
+          <li>太魯閣步道</li>
+          <li>七星潭</li>
+        </ul>
+        <img src="https://picsum.photos/id/1016/800/500" alt="七星潭海岸" />
+        <button type="button">我要報名</button>
+      </section>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

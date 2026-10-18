@@ -5,30 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>傳統 CSS 與 utility</title>
     <style>
-      /* TODO: 延伸練習，對照公式表自己補。原題：傳統 CSS 與 utility。
-         只給左邊 .trip-card 用：最大寬度、圓角、白底、陰影、圖片高 10rem、內文留白、青綠色連結。
-         這段 style 是對照用的，不要做成第二套設計系統。 */
+      /* TODO: 講義「utility-first」。只服務左邊 .trip-card，不要做成第二套設計系統。
+         卡片：最大寬度 24rem、超出圓角的部分裁掉、圓角 1rem、白底、陰影。
+         圖片：區塊、高 11rem、寬 100%、object-fit: cover。
+         .body 內距 1.25rem。
+         .meta 較小字級、字重 500、字距略開、青綠色。
+         h2 上外距 0.5rem、字級 1.25rem、字重 600、外距歸零後再補上外距。
+         .summary 上外距 0.5rem、字級 0.875rem、行高 1.5rem、石色。
+         .price 上外距 0.75rem、字級 1.125rem、字重 600、深青綠。
+         a 上外距 1rem、行內區塊、圓角 0.5rem、青綠底、左右 1rem、上下 0.5rem、白字、拿掉底線。 */
     </style>
   </head>
   <body>
     <load src="../partials/nav.html" p01="page" />
-    <!-- TODO: 頁面底與標題用 utility。兩張卡並排；窄螢幕改直向。 -->
+    <!-- TODO: 頁面用淺石底、四邊留白、深字。標題加大加粗，下面留外距。說明限制行長、小字、石色。
+         外層讓兩張卡橫排，放不下就換行，中間留縫。 -->
     <h1>同一張行程卡，兩種寫法</h1>
+    <p>左右兩張是同一趟花蓮小團。左邊外觀收在 style，右邊把同一組外觀拆到標籤上。</p>
     <div>
       <article class="trip-card">
-        <img src="https://picsum.photos/id/1015/800/500" alt="山間步道" />
+        <img src="https://picsum.photos/id/1015/800/500" alt="太魯閣步道" />
         <div class="body">
-          <h2>手寫 CSS</h2>
-          <p>樣式在 head 的 style，class 是元件名字。</p>
+          <p class="meta">花蓮 · 3 天</p>
+          <h2>太魯閣與七星潭</h2>
+          <p class="summary">清晨走峽谷步道，下午到七星潭看海。含兩晚住宿。</p>
+          <p class="price">NT$16,800</p>
           <a href="#book">看行程</a>
         </div>
       </article>
-      <!-- TODO: 右邊不要用 .trip-card。圓角、白底、陰影、圖片裁切、內距、按鈕色全部寫在 class 上。 -->
+      <!-- TODO: 右邊不要用 trip-card。圓角、白底、陰影、裁切、圖片高度、內距、眉題、標題、摘要、價錢、按鈕全部寫在 class 上，外觀跟左邊一樣。 -->
       <article>
-        <img src="https://picsum.photos/id/1016/800/500" alt="湖邊" />
+        <img src="https://picsum.photos/id/1016/800/500" alt="七星潭海岸" />
         <div>
-          <h2>Tailwind utility</h2>
-          <p>同一組視覺，屬性寫在標籤的 class 上。</p>
+          <p>花蓮 · 3 天</p>
+          <h2>太魯閣與七星潭</h2>
+          <p>清晨走峽谷步道，下午到七星潭看海。含兩晚住宿。</p>
+          <p>NT$16,800</p>
           <a href="#book">看行程</a>
         </div>
       </article>

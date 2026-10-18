@@ -7,18 +7,29 @@
   </head>
   <body>
     <load src="../partials/nav.html" p11="page" />
-    <!-- TODO: 講義「按鈕」。四顆橫向排列、可換行、垂直置中。
-         實心用 a：深底白字，滑過再深一階，鍵盤聚焦加外框。線框用 button：白底、深色框。
-         文字按鈕滑過才加底線。已額滿加上 disabled 與 cursor-not-allowed，顏色改 stone。
+    <!-- TODO: 講義「按鈕」。頁面淺石底、留白、深字。
+         區塊置中、限制寬度、大圓角、白底、內距、淺陰影。
+         眉題小字、字重 500、青綠色。標題上外距很小、加大、加粗。
+         說明上外距、小字、石色。
+         價錢上外距、大字、字重 600、深青綠。「/ 人」改小字、一般字重、石色。
+         按鈕列上外距、橫排、可換行、垂直置中、彼此留縫。
+         立即預訂用 a：本身橫向對齊、圓角、深青綠底、左右與上下內距、字重 500、白字。滑過再深一階。鍵盤聚焦畫 2px 外框並離邊，框色用更深的青綠。
+         加入比較用 button：圓角、青綠框、白底、同樣的內距與字重、青綠字，滑過淺青綠底。
+         退改規則用 button：圓角、內距、字重、青綠字。底線與字分開，滑過才出現底線。
+         候補已滿：cursor-not-allowed、圓角、stone 底、內距、字重、stone 字，並加上 disabled。
          不要用 div 假裝按鈕。 -->
-    <h1>三種按鈕</h1>
-    <div>
-      <a href="#tours">實心連結</a>
-      <button type="button">線框按鈕</button>
-      <button type="button">文字按鈕</button>
-      <button type="button" disabled>已額滿</button>
-    </div>
-    <p>連結用 a，本頁動作用 button。停用的按鈕加 disabled，顏色改灰。</p>
+    <section>
+      <p>花蓮 · 太魯閣三日</p>
+      <h1>4/12 星期日出發</h1>
+      <p>含兩晚住宿與早餐。名額 12 人，目前剩餘 3 席。</p>
+      <p>NT$16,800 <span>/ 人</span></p>
+      <div>
+        <a href="#book">立即預訂</a>
+        <button type="button">加入比較</button>
+        <button type="button">退改規則</button>
+        <button type="button" disabled>候補已滿</button>
+      </div>
+    </section>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

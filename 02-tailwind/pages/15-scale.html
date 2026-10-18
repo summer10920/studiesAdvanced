@@ -3,41 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>間距、尺寸、字體</title>
+    <title>間距刻度</title>
   </head>
   <body>
     <load src="../partials/nav.html" p15="page" />
-    <!-- TODO: 延伸練習，對照公式表 Spacing、Sizing、Typography。原題：間距、尺寸與字體。上方三塊樣本：size-4 的方塊、w-16 h-8 的方塊、帶 p-4 的字。
-         方塊底端對齊。說明用 mt-4 與 max-w-md 推開。
-         下方依序排 text-xs、text-sm、text-base、text-lg、text-2xl、text-4xl，以及 font-sans 與 font-mono。
-         不要在同一個軸上又寫 gap 又寫 space-y。 -->
-    <section>
-      <h1>間距以 0.25rem 為一格</h1>
+    <!-- TODO: 講義「間距單位」。頁面淺石底、p-6、深字。
+         卡片最大寬度、大圓角、白底、p-6、淺陰影。
+         標題 text-2xl、加粗。
+         說明 mt-2、小字、石色。這顆用外距，不要再加 gap。
+         標籤列 mt-4、橫排、可換行、gap-3、小字。三顆標籤：圓形、淺青綠底、左右 px-3、上下 py-1、深青綠字。
+         清單 mt-4、space-y-3、小字、行高放鬆、石色。每一列：圓角、淺石底、px-4、py-3。
+         不要在同一顆元素上又寫 gap 又寫 space-y。
+         連結 mt-6、行內區塊、圓角、青綠底、px-4、py-2、小字、字重 500、白字。 -->
+    <article>
+      <h1>第一天 · 花蓮市區</h1>
+      <p>車站東門集合，走完市區再北上七星潭。</p>
       <div>
-        <div>
-          <div></div>
-          <p>size-4</p>
-        </div>
-        <div>
-          <div></div>
-          <p>w-16 h-8</p>
-        </div>
-        <div>
-          <div>p-4 內距</div>
-        </div>
+        <span>集合 08:30</span>
+        <span>車站東門</span>
+        <span>含午餐</span>
       </div>
-      <p>外距把這段推離上一塊。最大寬度限制行長。</p>
-    </section>
-    <section>
-      <p>text-xs 註記</p>
-      <p>text-sm 輔助</p>
-      <p>text-base 內文</p>
-      <p>text-lg</p>
-      <p>text-2xl font-semibold</p>
-      <p>text-4xl 標題</p>
-      <p>font-sans 無襯線</p>
-      <p>font-mono 12,800</p>
-    </section>
+      <ul>
+        <li>上午：松園別館散步</li>
+        <li>中午：公正街包子</li>
+        <li>下午：七星潭看海</li>
+      </ul>
+      <a href="#day1">看集合地圖</a>
+    </article>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

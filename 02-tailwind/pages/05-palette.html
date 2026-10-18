@@ -7,33 +7,31 @@
   </head>
   <body>
     <load src="../partials/nav.html" p05="page" />
-    <!-- TODO: 延伸練習，色階對照公式表 color。原題：預設色票。上一列列出 teal 的 50、100、200、300、400、500、600、700、800、900、950。
-         淺底配深字，700 以上改白字。amber-500 太亮，不要配白字。 -->
-    <h1>teal 的色階</h1>
-    <p>數字越小越淺。50 當底，700 以上當字或實心按鈕。</p>
-    <ul>
-      <li>50 最淺底</li>
-      <li>100</li>
-      <li>200</li>
-      <li>300</li>
-      <li>400</li>
-      <li>500 中間</li>
-      <li>600</li>
-      <li>700 按鈕常用</li>
-      <li>800</li>
-      <li>900</li>
-      <li>950 最深</li>
-    </ul>
-    <h2>幾個色族的 500</h2>
-    <ul>
-      <li>red</li>
-      <li>amber</li>
-      <li>emerald</li>
-      <li>sky</li>
-      <li>indigo</li>
-      <li>rose</li>
-      <li>stone</li>
-    </ul>
+    <!-- TODO: 講義「色階與透明度」。頁面用 teal-50 當底、留白、最深青綠當字色。
+         卡片置中、限制寬度、裁切、大圓角、白底、陰影。
+         圖片外層 relative。圖片高約 13rem、寬 100%、object-cover。
+         「剩餘 4 席」貼在照片底部、左右貼齊：bg-teal-900/70、左右與上下內距、小字、白字。
+         內層子項上下留縫、內距。
+         標籤列可換行並留縫。「花蓮 · 一日」用圓形標籤、teal-100 底、teal-800 字、極小字、字重 500。
+         標題 text-2xl、加粗。
+         摘要小字、行高放鬆，字色 text-teal-900/80。
+         報名連結：行內區塊、圓角、teal-700 底、左右與上下內距、小字、字重 500、白字。
+         雨備那行：圓角、amber-100 底、內距、小字、amber-950 字。不要用 amber-500 配白字。 -->
+    <article>
+      <div>
+        <img src="https://picsum.photos/id/1015/800/500" alt="清水斷崖海岸" />
+        <p>剩餘 4 席</p>
+      </div>
+      <div>
+        <div>
+          <p>花蓮 · 一日</p>
+        </div>
+        <h1>清水斷崖日出</h1>
+        <p>清晨從花蓮市區出發，在觀景台等第一道陽光。回程經七星潭，下午解散。</p>
+        <a href="#book">報名這梯</a>
+        <p>雨備：若風浪過大，改走七星潭步道。</p>
+      </div>
+    </article>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
