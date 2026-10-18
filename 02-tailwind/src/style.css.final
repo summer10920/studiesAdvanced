@@ -13,6 +13,7 @@
   --color-brand-900: #134e4a;
   --color-brand-950: #042f2e;
   --spacing-18: 4.5rem;
+  --font-sans: "Noto Sans TC", ui-sans-serif, system-ui, sans-serif;
   --breakpoint-tablet: 52rem;
   --breakpoint-3xl: 120rem;
 }
