@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1 id="title"><mark>我的</mark>網頁</h1>
+  <div id="container">
+    <!-- <p class="text red">第一段文字</p>
+    <p class="text">第二段文字</p>
+    <p>第三段文字</p> -->
+  </div>
+  <hr>
+  <fieldset>
+    <legend>表單介紹</legend>
+    <form>
+      <input id='acc' type="text" name="account" placeholder="使用者名稱">
+      <input type="text" name="password" placeholder="密碼">
+      <button id="btn">點擊我</button>
+    </form>
+  </fieldset>
+  <script>
+    const myH1 = document.querySelector('#title');
+    // myH1.textContent;
+    // myH1.innerHTML;
+    myH1.textContent = '改<mark>過</mark>的文字';
+    myH1.innerHTML = '改<mark>過</mark>的文字';
+    document.querySelector('#container').innerHTML = `
+    <div>這是第一段</div>
+    <div>這<mark>是</mark>第二段</div>
+    `;
+    document.querySelector('#container').innerHTML += '<div>這是第三段</div>';
+
+    myH1.id = 'id-loki';
+    myH1.className = 'cls-loki';
+
+    const loki = document.querySelector('#acc');
+    loki.getAttribute('value');
+    loki.setAttribute('value', 'userName'); // 慢
+    loki.value = '使用者名稱'; // 快
+
+    loki.value = ''; // 指定 value 為空字串
+    loki.value = null; // 指定 value 為 null
+    // loki.removeAttribute('value'); // 移除該html屬性,
+
+
+
+
+  </script>
+</body>
+
+</html>

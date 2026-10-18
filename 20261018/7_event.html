@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button onclick="showMessage(this,event)">點擊我</button>
+  <!-- <input type="text" name="acc" onchange="handleChange(this.value)"> -->
+  <input type="text" name="acc" onchange="handleChange(event.target.value)">
+  <hr>
+  <button id="lsBtn">點擊我</button>
+  <input type="text" name="pwd">
+  <script>
+
+    let count = 0;
+    function showMessage(who, event) {
+      console.log(who);
+      console.log(event);
+      count++;
+      console.log("按鈕被點擊了！", count);
+    }
+
+    function handleChange(val) {
+      console.log(val);
+      console.log(document.querySelector('input[name=acc]').value);
+      // console.log("輸入值改變為：" + value);
+    }
+
+    // ----------------------------------------------------------
+    // document.querySelector('[name=pwd]').onchange = function () {
+    //   console.log(this.value);
+    // };
+
+    // document.querySelector('[name=pwd]').onchange = function (e) {
+    //   console.log(e.target.value);
+    // };
+    document.querySelector('[name=pwd]').onchange = (e) => {
+      console.log(e.target.value);
+    };
+
+    // ----------------------------------------------------------建議
+    // function heyClick(e) {
+    //   console.log('hey', e.target);
+    // }
+    const heyClick = (e) => {
+      console.log('hey', e.target);
+    }
+
+    document.querySelector('#lsBtn').addEventListener('click', heyClick);
+    document.querySelector('#lsBtn').addEventListener('click', (e) => {
+      console.log('hello', e.target);
+    });
+
+    // ----------- 取消事件?
+    document.querySelector('[name=pwd]').onchange = null;
+    document.querySelector('#lsBtn').removeEventListener('click', heyClick);
+
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>

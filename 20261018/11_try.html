@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .form-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      margin: 0 auto;
+
+      button {
+        padding: 8px 16px;
+        border: 1px solid #ccc;
+        background: #f5f5f5;
+      }
+
+      input {
+        width: 40px;
+        height: 40px;
+        border: none;
+        background: none;
+        cursor: pointer;
+      }
+    }
+
+    #preview-block {
+      /* background-color: red; */
+      margin: 0 auto;
+      width: 100px;
+      height: 100px;
+
+      &.square {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+      }
+
+      &.circle {
+        clip-path: circle(50% at 50% 50%);
+      }
+
+      &.triangle {
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      }
+
+      &.star {
+        clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <form class="form-container">
+    <button type="button" value="square">正方形</button>
+    <button type="button" value="circle">圓形</button>
+    <button type="button" value="triangle">三角形</button>
+    <button type="button" value="star">星星</button>
+    <input type="color" value="#ff0000" />
+  </form>
+  <hr />
+  <div id="preview-block" class="square" style="background-color:#ff0000"></div>
+  <script>
+    // todo...
+    // 讓 input 的值可以改變 preview-block 的背景顏色 (update style.backgroundColor)
+    // 讓 button 的值可以改變 preview-block 的形狀 (change className)
+  </script>
+</body>
+
+</html>

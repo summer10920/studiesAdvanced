@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // setTimeout - 延遲執行
+    // const timeoutId = setTimeout(function () {
+    //   console.log('3 秒後執行');
+    // }, 3000);
+    // clearTimeout(timeoutId);
+
+    // setInterval - 重複執行
+
+    let count = 0;
+    const intervalId = setInterval(() => {
+      console.log(`hey~~${count}`);
+      count++;
+      (count === 5) && clearInterval(intervalId);
+    }, 1000);
+
+
+    let count2 = 0;
+
+    function doOnce() {
+      console.log('只執行一次');
+      count2++;
+      if (count2 < 5) setTimeout(doOnce, 1000);
+    }
+    doOnce();
+
+
+
+
+
+  </script>
+</body>
+
+</html>

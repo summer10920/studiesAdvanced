@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1 id="title">我的網頁</h1>
+  <div id="container">
+    <p class="text">第一段文字</p>
+    <p class="text">第二段文字</p>
+    <p>第三段文字</p>
+  </div>
+
+  <fieldset>
+    <legend>表單介紹</legend>
+    <form>
+      <input type="text" name="account" value="使用者名稱">
+      <input type="text" name="password" value="密碼">
+      <button id="btn">點擊我</button>
+    </form>
+  </fieldset>
+  <script>
+    // 在這裡練習 DOM 操作
+    console.log(document.getElementById('btn'));
+    console.log(document.getElementsByClassName('text'));
+    console.log(document.getElementsByTagName('p'));
+    console.log(document.getElementsByName('account'));
+
+    console.clear();
+
+    // 在現代技術上，推崇此寫法 使用 css 選擇器來統一操作
+    console.log(document.querySelector('#btn'));
+    // console.log(document.querySelector('.text'));
+    console.log(document.querySelectorAll('.text'));
+    // console.log(document.querySelector('p'));
+    console.log(document.querySelectorAll('p'));
+    console.log(document.querySelector('[name=account]'));
+
+    console.clear();
+
+    // const elH1 = document.getElementById('title');
+    // console.log(elH1.textContent);
+    // setTimeout(() => elH1.textContent = '改過的文字', 3000);
+
+    const elH1 = document.querySelector('#title');
+    console.log(elH1.textContent);
+    // setTimeout(() => elH1.textContent = '改過的文字', 3000);
+    elH1.textContent = '改過的文字'; // 改 html context
+    elH1.style.color = 'red'; // 改 html style 屬性物件, 再從物件指定 color 值
+    elH1.addEventListener('click', () => console.log('被點擊了'));
+    // 加入事件監聽, 事件名稱為 click, 觸發動作
+
+
+    const elsText = document.querySelectorAll('.text');
+    elsText.forEach((el) => {
+      el.style.color = 'green';
+      el.textContent = '改過的段落';
+    });
+
+
+    
+
+
+
+  </script>
+</body>
+
+</html>

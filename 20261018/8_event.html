@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body onkeydown="handleKeyDown(event)">
+  <button onclick="handleClick(event)">點擊我</button>
+  <input type="text" onchange="handleChange(event)">
+  <!-- <input type="text" onkeydown="handleKeyDown(event)"> -->
+  <a href="https://example.com" onclick="handleLink(event)">前往外部連結（阻止跳轉）</a>
+  <hr>
+  <div id="keyIn" style="word-wrap:break-word"></div>
+  <script>
+    // HTML 屬性方式需要手動傳遞 event 參數
+    function handleClick(event) {
+      console.log("事件類型：" + event.type); // click
+      console.log("目標元素：" + event.target.tagName); // button
+      console.log("滑鼠位置：" + event.clientX + ", " + event.clientY); // 座標
+      console.log("是否按下 Ctrl：" + event.ctrlKey); // false
+      console.log("是否按下 Ctrl：" + event.shiftKey); // false
+      console.log("是否按下 Ctrl：" + event.altKey); // false
+    }
+
+    function handleChange(event) {
+      console.log("輸入值：" + event.target.value);
+      console.log("事件類型：" + event.type);
+    }
+
+    let keyIn = '';
+
+    function handleKeyDown(event) {
+      // 只允許英文、數字、Backspace
+      if (event.key === 'Backspace') {
+        keyIn = keyIn.slice(0, -1);
+      } else if (/^[a-zA-Z0-9 _'-]$/.test(event.key)) { // 正規表達式
+        keyIn += event.key;
+      } else {
+        event.preventDefault();
+        // preventDefault() 阻止預設行為, 
+        // ex:F11 全螢幕, 但透過這行我們要求瀏覽器取消原本的預設行為
+        return; // 其他按鍵不做任何動作
+      }
+
+      document.querySelector('#keyIn').innerHTML = keyIn;
+    }
+
+    function handleLink(event) {
+      event.preventDefault();
+      console.log("已阻止連結跳轉，改為執行自訂邏輯（例如開啟 modal）");
+    }
+  </script>
+</body>
+
+</html>

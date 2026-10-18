@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>hello world 1</h1>
+  <h2>hello world 2</h2>
+  <h3>hello world 3</h3>
+  <hr>
+  <div class="d1">
+    <ul class="u1 red">
+      <li class="l1 red">
+        <div>hello 1</div>
+        <ul class="u2 red">
+          <li class="i2 red">hey 1</li>
+          <li>hey 2</li>
+        </ul>
+      </li>
+      <li>hello 2</li>
+      <li>hello 3</li>
+    </ul>
+  </div>
+  <script>
+    const h1 = document.querySelector('h1');
+    const card = document.createElement('div');
+
+
+
+    Object.assign(card.style, {
+      width: '200px',
+      height: '100px',
+      backgroundColor: 'lightblue',
+      color: 'white'
+    });
+
+    // method 1
+    // card.innerHTML = `
+    //   <div>hello world</div>
+    //   <a href="https://example.com">前往外部連結</a>
+    //   <button>點擊我</button>
+    // `;
+
+    // method 1 to change
+    // document.querySelector('button').textContent = '改變文字';
+    // card.querySelector('button').textContent = '改變文字';
+
+    // method 2
+    const text = document.createElement('div');
+    text.textContent = 'hello world';
+    const link = document.createElement('a');
+    link.href = 'https://example.com';
+    link.textContent = '前往外部連結';
+    const btn = document.createElement('button');
+    btn.textContent = '點擊我';
+    card.append(text, link, btn);
+
+    // method 2 to change
+    btn.textContent = '改變文字';
+
+
+
+    // document.body.append(card);
+    // document.body.prepend(card);
+    // document.querySelector('h2').before(card);
+    // document.querySelector('h2').remove();
+    // document.querySelector('h2').replaceWith(card);
+    // card.remove();
+    document.querySelector('h2').after(card);
+    document.querySelector('h3').after(card.cloneNode(true));
+
+
+    //---------遍歷與定位-------------
+    // btn.parentElement;
+    // btn.closest('div')
+    const loki = document.querySelector('.i2');
+    loki.parentElement;
+    loki.closest('.red');
+    loki.closest('div');
+
+    const parent = document.querySelector('.u1')
+
+
+
+
+  </script>
+</body>
+
+</html>

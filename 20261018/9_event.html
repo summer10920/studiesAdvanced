@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #draggable {
+      position: absolute;
+      left: 100px;
+      top: 100px;
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="draggable">Drag me</div>
+  <script>
+    createDraggableElement(document.getElementById('draggable'));
+
+    function createDraggableElement(element) {
+      let isDragging = false;
+      let initMouseX, initMouseY, initElementX, initElementY;
+
+      element.addEventListener('mousedown', function (event) {
+        isDragging = true;
+        initMouseX = event.clientX;
+        initMouseY = event.clientY;
+        initElementX = element.offsetLeft;
+        initElementY = element.offsetTop;
+
+        // 阻止文字選取
+        event.preventDefault();
+      });
+
+      document.addEventListener('mousemove', function (event) {
+        if (!isDragging) return;
+
+        const mouseMoveX = event.clientX - initMouseX;
+        const mouseMoveY = event.clientY - initMouseY;
+
+        element.style.left = (initElementX + mouseMoveX) + 'px';
+        element.style.top = (initElementY + mouseMoveY) + 'px';
+      });
+
+      document.addEventListener('mouseup', function (event) {
+        isDragging = false;
+      });
+    }
+  </script>
+</body>
+
+</html>

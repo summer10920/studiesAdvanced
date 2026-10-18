@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .red {
+      color: red;
+    }
+
+    .text {
+      background: #ccc;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 id="title"><mark>我的</mark>網頁</h1>
+  <div id="container">
+    <p class="text red">第一段文字</p>
+    <p class="text">第二段文字</p>
+    <p>第三段文字</p>
+    <input type="text" hidden>
+    <input type="checkbox" checked>
+  </div>
+  <script>
+    const loki = document.querySelector('.text');
+    // loki.classList.remove('red');
+    // loki.classList.remove('text');
+    loki.classList.remove('red', 'text');
+    loki.classList.add('red');
+    loki.classList.add('red');
+    loki.classList.add('red');
+    loki.classList.add('red');
+    loki.classList.toggle('red');
+
+    loki.className = 'red text';
+    loki.className = '';
+
+
+
+
+  </script>
+</body>
+
+</html>
