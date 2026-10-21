@@ -3,20 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Flexbox</title>
+    <title>Flex</title>
     <link rel="stylesheet" href="20-flex.css" />
   </head>
   <body>
-    <h1>Flex</h1>
-    <h2>方向</h2>
-    <div class="pair">
-      <div class="row"><span class="box">1</span><span class="box">2</span><span class="box">3</span></div>
-      <div class="col"><span class="box">1</span><span class="box">2</span><span class="box">3</span></div>
-    </div>
-    <h2>換行</h2>
-    <div class="rail nowrap"><span class="stop">台北</span><span class="stop">新北</span><span class="stop">宜蘭</span><span class="stop">花蓮</span></div>
-    <div class="rail wrap"><span class="stop">台北</span><span class="stop">新北</span><span class="stop">宜蘭</span><span class="stop">花蓮</span></div>
-    <h2>導覽列</h2>
+    <!-- TODO: 講義「Flexbox」。頂列 space-between、交叉軸置中。卡片列 wrap、gap，每張 flex: 1 1 14rem，而且自己是直向 Flex，連結用 margin-top: auto 推到底。換你試試：改成 nowrap 再把視窗拉窄。 -->
+    <h1>沿一個方向排</h1>
     <header class="bar">
       <strong>洛奇旅行</strong>
       <nav>
@@ -24,20 +16,16 @@
         <a href="#about">關於</a>
       </nav>
     </header>
-    <h2>伸縮</h2>
-    <div class="shares"><span class="grow">1</span><span class="grow2">2</span><span class="grow">1</span></div>
-    <div class="code"><span>左</span><span class="stuck">中間不縮</span><span>右</span></div>
-    <h2>行程卡</h2>
     <div class="trips">
       <article class="trip">
-        <h3>京都三日</h3>
-        <p>待補介紹。</p>
-        <a class="go" href="#kyoto">看行程</a>
+        <h2>京都三日</h2>
+        <p>清水寺與嵐山。</p>
+        <a href="#kyoto">看行程</a>
       </article>
       <article class="trip">
-        <h3>大阪美食</h3>
-        <p>待補介紹，這張字比較多，用來把按鈕對齊到底部。</p>
-        <a class="go" href="#osaka">看行程</a>
+        <h2>大阪美食</h2>
+        <p>這張字比較多，用來把連結推到卡片底部。</p>
+        <a href="#osaka">看行程</a>
       </article>
     </div>
   </body>

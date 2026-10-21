@@ -3,13 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>表單</title>
+    <title>報名京都三日遊</title>
   </head>
   <body>
-    <!-- TODO: 講義 02-html「表單」。這份是報名表 #booking-form，對到專題 BookingForm。
-         要涵蓋：form、label 關聯、驗證屬性、各種 input、select／optgroup／datalist、
-         radio、checkbox、textarea、button、fieldset／legend、progress、meter。 -->
-    <h1>報名</h1>
+    <!-- TODO: 講義「表單」。同一頁依小節補完，不要寫 JavaScript。
+         form 的 id 是 booking-form，action="#" method="get"。
+         「表單容器（form）」：送出後停在這一頁；hidden 帶 source。
+         「表單標籤與關聯（label）」：for 對 id，或把控制項包進 label。placeholder 不能代替標籤。
+         「表單控制項通用屬性與驗證」：姓名 required、maxlength="20"。團號 readonly。已額滿梯次 disabled。
+         「基本輸入元素（input）」：email、tel、number、date、file，以及密碼、網址、搜尋、range、時間、月份、週、顏色。
+         「選擇元素」：交通 radio 共用 name="traffic"。加購 checkbox 共用 name="extra"。行程 select 用 optgroup。城市用 datalist。
+         「文字區域（textarea）」：備註。
+         「按鈕元素」：submit、reset、button 三種都要寫 type。
+         「表單組織（fieldset、legend）」：報名資料一組，交通再圈一組。
+         「progress 與 meter」：放在欄位下面，它們不是會送出的欄位。 -->
+    <h1>報名京都三日遊</h1>
+    <p>送出後仍停在這一頁，網址後面會出現欄位名稱與內容。</p>
     <form id="booking-form" action="#" method="get">
       <fieldset>
         <legend>報名資料</legend>
@@ -17,27 +26,7 @@
           <label for="guest-name">姓名</label>
           <input id="guest-name" name="name" />
         </p>
-        <p>
-          <label for="guest-email">Email</label>
-          <input id="guest-email" name="email" />
-        </p>
-        <p>
-          <label for="guest-people">人數</label>
-          <input id="guest-people" name="people" />
-        </p>
-        <p>
-          <label for="tour-select">行程</label>
-          <select id="tour-select" name="tourId">
-            <option value="">請選擇</option>
-          </select>
-        </p>
-        <p>
-          <label for="guest-note">備註</label>
-          <textarea id="guest-note" name="note"></textarea>
-        </p>
-        <!-- TODO: 依講義補上其餘型別（password、url、tel、search、range、date、time、
-             datetime-local、month、week、color、file）、radio、checkbox、datalist、
-             hidden、progress、meter，以及送出與重設按鈕。每個欄位都要對得上 label。 -->
+        <!-- TODO: 依上面的註解把其餘欄位、選項與三顆按鈕補完。 -->
       </fieldset>
     </form>
   </body>

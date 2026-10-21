@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>斷點</title>
+    <link rel="stylesheet" href="30-css-breakpoint.css" />
+  </head>
+  <body>
+    <!-- TODO: 講義「斷點由窄到寬」。窄畫面連結各佔一行。min-width: 40rem 時，版面改成兩欄，標題列改成橫向兩端對齊，連結改成 inline-block。換你試試：再加 64rem，側欄改成 18rem，新查詢寫在下面。 -->
+    <div class="layout">
+      <header>
+        <h1>洛奇旅行</h1>
+        <nav>
+          <a href="#tours">行程</a>
+          <a href="#tips">須知</a>
+        </nav>
+      </header>
+      <main id="tours">
+        <h2>行程</h2>
+        <p>窄的時候導覽在標題下面，一項一行。</p>
+      </main>
+      <aside id="tips">
+        <h2>須知</h2>
+        <p>夠寬時這欄才排到旁邊。</p>
+      </aside>
+    </div>
+  </body>
+</html>

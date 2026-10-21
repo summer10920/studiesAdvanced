@@ -7,13 +7,12 @@
     <link rel="stylesheet" href="13-background.css" />
   </head>
   <body>
+    <!-- TODO: 講義「背景圖層」。分別做純底色、160 度漸層、同一張圖的 cover 與 contain、兩層背景（漸層在上、圓點在下）。照片用 picsum，不要把圖檔放進資料夾。換你試試：cover 與 contain 對調，說明文字也對調。 -->
     <h1>背景</h1>
-    <div class="swatch">色塊</div>
-    <div class="shade">漸層</div>
-    <div class="photo cover">cover</div>
-    <div class="photo contain">contain</div>
-    <div class="tile">重複</div>
-    <div class="hero">主視覺</div>
-    <!-- 圖片網址例：https://picsum.photos/id/1018/1200/600 、https://placehold.co/120x120 -->
+    <div class="swatch">只有底色。</div>
+    <div class="shade">線性漸層也是一層背景圖。</div>
+    <div class="photo cover">cover：蓋滿，多的被裁掉。<br /><br /><br /></div>
+    <div class="photo contain">contain：整張都在，旁邊露出底色。<br /><br /><br /></div>
+    <div class="hero">漸層寫在前面，所以蓋在圓點上面。<br /><br /></div>
   </body>
 </html>

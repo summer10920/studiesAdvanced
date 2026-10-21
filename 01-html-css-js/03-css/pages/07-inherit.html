@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="07-inherit.css" />
   </head>
   <body>
-    <h1>繼承</h1>
+    <!-- TODO: 講義「什麼會繼承」。.story 設磚紅字與淺底。 .price 自己寫深青綠，覆蓋繼承。換你試試：拿掉 .price 的顏色，看它回到磚紅。不要給段落自己的背景。 -->
+    <h1>沒寫的屬性會不會跟父層</h1>
     <article class="story">
-      <h2>京都三日</h2>
-      <p>內文應跟上文章的文字色。</p>
-      <p class="price">價格想用另一個顏色。</p>
+      <h2>繼承</h2>
+      <p>這段沒寫顏色，所以跟 article 的磚紅。底色是父層透出來的，不是這段自己的背景。</p>
+      <p class="price">這段自己寫了顏色，不再跟父層。</p>
     </article>
-    <p>文章外面的段落。</p>
+    <p>article 外面這段不跟那塊磚紅。</p>
   </body>
 </html>

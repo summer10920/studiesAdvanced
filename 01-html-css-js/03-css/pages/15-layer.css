@@ -1,8 +1,4 @@
-/* TODO: 講義 03-css「自訂屬性與 @layer」
-   這是空的樣式表。請依該節把規則寫在這裡，再用 Live Server 重新整理。
-   對照時打開 F12 → Elements → Styles。被劃掉的宣告代表沒有套上。
-   這一節會用到：
-   - --token 宣告與 var()
-   - @layer 的先後
-   - 還沒正式講變數也可以先認 @layer
+/* TODO: 講義「選讀：自訂屬性與 @layer」
+   先寫 @layer reset, theme; 再分別放規則。
+   不要用 important。
 */

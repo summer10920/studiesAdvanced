@@ -3,29 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>表格</title>
+    <title>出團資料</title>
   </head>
   <body>
-    <!-- TODO: 講義 02-html「表格」：基本結構、合併儲存格、語意（caption、thead、tbody、tfoot、th 的 scope）。
-         這一頁是資料表，不是用來切版面。 -->
-    <h1>行程表</h1>
-    <table>
-      <caption>待補表題</caption>
+    <!-- TODO: 講義「表格」。這一頁是資料，不是拿來切左右欄。每張表加 border="1" 只為了看見格線。
+         「表格的基本結構與外觀屬性」：大阪一日，caption、thead、tbody，欄名 th 加 scope="col"。外觀舊屬性不要再加。
+         「儲存格合併」：京都行程，第一天用 rowspan 跨兩列，套裝那一列用 colspan。
+         團體報名的表頭兩列：團名與導遊 rowspan，人數 colspan。被合併掉的格子不要再寫一顆 td。
+         「語意化表格結構與輔助工具」：價目表含 tfoot，列名 th 加 scope="row"。 -->
+    <h1>出團資料</h1>
+    <table border="1">
+      <caption>待補表名</caption>
       <thead>
         <tr>
-          <th>名稱</th>
-          <th>地點</th>
-          <th>天數</th>
+          <th>時段</th>
+          <th>景點</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>待補</td>
           <td>待補</td>
-          <td>待補</td>
         </tr>
       </tbody>
-      <!-- TODO: colspan／rowspan 各做一列；表頭加上 scope；需要的話補 tfoot。 -->
     </table>
   </body>
 </html>

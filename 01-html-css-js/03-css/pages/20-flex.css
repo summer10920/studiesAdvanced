@@ -1,11 +1,4 @@
-/* TODO: 講義 03-css「Flexbox」
-   這是空的樣式表。請依該節把規則寫在這裡，再用 Live Server 重新整理。
-   對照時打開 F12 → Elements → Styles。被劃掉的宣告代表沒有套上。
-   這一節會用到：
-   - flex-direction
-   - flex-wrap
-   - justify-content、align-items
-   - gap
-   - flex-grow、flex-basis
-   - 讓卡片按鈕貼齊底部
+/* TODO: 講義「Flexbox」
+   方向、換行、對齊寫在父層。flex 三個數字寫在項目上。
+   縫用 gap，不要用外距硬湊。
 */

@@ -7,21 +7,25 @@
     <link rel="stylesheet" href="17-display.css" />
   </head>
   <body>
-    <h1>display</h1>
+    <!-- TODO: 講義「display」。做 block、行內的邊框、inline-block 的三日標籤、none / hidden / opacity 0 三列，以及圖片改 block 去掉底縫。換你試試：第一列的 2 改成 visibility: hidden。 -->
+    <h1>盒子怎麼參加排版</h1>
     <h2>block</h2>
-    <div class="block">甲</div>
-    <div class="block">乙</div>
+    <div class="block">第一張獨佔一行。</div>
+    <div class="block">第二張從下一行開始。</div>
     <h2>inline</h2>
-    <p class="line"><span class="item">甲</span><span class="item">乙</span></p>
+    <p class="line">行程有<span class="item">甲</span>與<span class="item">乙</span>兩站。</p>
     <h2>inline-block</h2>
-    <p class="days"><span class="day">一</span><span class="day">二</span><span class="day">三</span></p>
-    <h2>拿掉元素</h2>
-    <p>前<span class="cell">甲</span><span class="cell gone">乙</span><span class="cell">丙</span>後</p>
-    <p>前<span class="cell">甲</span><span class="cell hold">乙</span><span class="cell">丙</span>後</p>
-    <p>前<span class="cell">甲</span><span class="cell ghost">乙</span><span class="cell">丙</span>後</p>
-    <h2>圖片</h2>
-    <p><img class="photo" src="https://picsum.photos/id/1015/240/160" alt="河谷" width="240" height="160" /></p>
-    <p><img class="photo middle" src="https://placehold.co/240x160?text=tour" alt="占位圖" width="240" height="160" /></p>
-    <p><img class="photo block" src="https://picsum.photos/id/1016/240/160" alt="山路" width="240" height="160" /></p>
+    <p>
+      <span class="day">三日</span>
+      <span class="day">四日</span>
+      <span class="day">五日</span>
+    </p>
+    <h2>三種隱藏</h2>
+    <p><span class="cell">1</span><span class="cell gone">2</span><span class="cell">3</span></p>
+    <p><span class="cell">1</span><span class="cell hold">2</span><span class="cell">3</span></p>
+    <p><span class="cell">1</span><span class="cell ghost">2</span><span class="cell">3</span></p>
+    <h2>圖片底縫</h2>
+    <p><img class="photo" alt="" src="https://picsum.photos/id/1015/120/80" /> 行內圖片底下有一條縫。</p>
+    <p><img class="photo block" alt="" src="https://picsum.photos/id/1015/120/80" /> 改成 block 就沒有縫。</p>
   </body>
 </html>

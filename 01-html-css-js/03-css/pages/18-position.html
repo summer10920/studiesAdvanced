@@ -7,40 +7,22 @@
     <link rel="stylesheet" href="18-position.css" />
   </head>
   <body>
-    <h1>定位</h1>
-    <h2>相對位移</h2>
-    <div class="shift">我位移了，原來的空位還在。</div>
-    <div class="next">下一個區塊。</div>
-    <h2>徽章</h2>
-    <article class="tour">
+    <!-- TODO: 講義「定位與 z-index」。卡片 relative，徽章 absolute 在右上。兩塊色塊重疊，z-index 較大的在上面。白盒 overflow: auto 並做出 sticky。右下角 fixed。換你試試：徽章改到左下。 -->
+    <h1>座標跟誰比</h1>
+    <article class="card">
       <span class="badge">熱門</span>
-      <h3>花蓮山海</h3>
-      <p>三天兩夜。</p>
+      <h2>京都三日</h2>
+      <p>徽章對準這張卡片，不是整頁。</p>
     </article>
-    <h2>黏住小標</h2>
-    <div class="scroller">
-      <section class="day">
-        <h3>第一天</h3>
-        <p>待補。</p>
-        <p>待補。</p>
-      </section>
-      <section class="day">
-        <h3>第二天</h3>
-        <p>待補。</p>
-        <p>待補。</p>
-      </section>
-    </div>
-    <h2>堆疊</h2>
     <div class="pile">
-      <div class="sheet a">甲</div>
-      <div class="sheet b">乙</div>
-      <div class="sheet c">丙</div>
+      <span class="layer low">下層</span>
+      <span class="layer high">上層</span>
     </div>
-    <h2>各自的層疊情境</h2>
-    <div class="contexts">
-      <div class="ctx ctx-a"><span class="kid">A</span></div>
-      <div class="ctx ctx-b"><span class="kid">B</span></div>
+    <div class="scroller">
+      <p class="sticky">這行會黏在這個盒子的上緣</p>
+      <p>往下捲這塊白盒，標題黏住，直到盒子捲完。</p>
+      <p>父層結束後，黏性也結束。</p>
     </div>
-    <p><a class="ask" href="#top">詢問</a></p>
+    <p class="pin">固定在視窗右下</p>
   </body>
 </html>

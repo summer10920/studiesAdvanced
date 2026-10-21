@@ -3,16 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>四欄權重</title>
+    <title>權重</title>
     <link rel="stylesheet" href="06-specificity.css" />
   </head>
   <body>
-    <h1>權重</h1>
-    <p>元素。</p>
-    <p class="note">有 class。</p>
-    <p id="one" class="note">id 與 class。</p>
-    <p id="two" class="note">另一個 id。</p>
-    <p class="chip">徽章</p>
-    <p class="force">想覆寫的那段</p>
+    <!-- TODO: 講義「四欄權重」。p、.note、#one 依序用石板、琥珀、深青綠。行內那段已寫在標籤上。 .chip 寫兩次，留下較下面的 #115e59。 .force 先灰再玫瑰紅，玫瑰紅加 important。換你試試：拿掉 important，改用 id sale 留下玫瑰紅。 -->
+    <h1>誰贏</h1>
+    <p>只有元素選擇器：石板色。</p>
+    <p class="note">加上 class：琥珀色。</p>
+    <p id="one" class="note">同時有 id 與 class：深青綠。</p>
+    <p id="two" class="note" style="color: #9f1239">行內樣式：玫瑰紅。</p>
+    <p class="chip">同權重寫了兩次，留下較下面的深青綠。</p>
+    <p class="force">這段用了 important，留下玫瑰紅。</p>
   </body>
 </html>

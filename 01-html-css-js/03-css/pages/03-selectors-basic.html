@@ -3,15 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>元素、class 與 id</title>
+    <title>基本選擇器</title>
     <link rel="stylesheet" href="03-selectors-basic.css" />
   </head>
   <body>
-    <h1>選擇器</h1>
-    <p>一般段落。</p>
-    <p class="tour">行程甲</p>
-    <p class="tour">行程乙</p>
-    <p class="tour soldout">已額滿的行程</p>
-    <p id="featured">主打行程</p>
+    <!-- TODO: 講義「元素、class 與 id」。p 石板色 #475569，.tour 深青綠 #0f766e，.soldout 刪除線，.tour.soldout（中間無空格）灰色 #64748b，#featured 字重 700。換你試試：加 .hot 與 .tour.hot，第二段行程改成同時有 tour 與 hot，顏色 #9f1239。 -->
+    <h1>選擇器決定規則打到誰</h1>
+    <p>元素選擇器：這段是石板色。</p>
+    <p class="tour">class：行程用字。同一個 class 可以再出現一次。</p>
+    <p class="tour">另一段行程，顏色跟上面那行相同。</p>
+    <p class="tour soldout">兩個 class 都在：字是灰的，而且有刪除線。</p>
+    <p id="featured">id：全頁這一個，字重較粗。</p>
   </body>
 </html>

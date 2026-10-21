@@ -1,9 +1,4 @@
-/* TODO: 講義 03-css「偽類與偽元素」
-   這是空的樣式表。請依該節把規則寫在這裡，再用 Live Server 重新整理。
-   對照時打開 F12 → Elements → Styles。被劃掉的宣告代表沒有套上。
-   這一節會用到：
-   - :link、:visited、:hover、:focus
-   - :first-child、:nth-child
-   - ::before、::after
-   - 表單的 :focus、:placeholder-shown
+/* TODO: 講義「偽類與偽元素」
+   連結四態不要調換順序。::before 要寫 content。
+   這一節不要用邊框與內距。
 */

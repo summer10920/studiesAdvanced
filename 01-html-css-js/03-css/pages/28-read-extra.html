@@ -3,31 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>選讀：容器查詢與可補間變數</title>
+    <title>容器查詢</title>
     <link rel="stylesheet" href="28-read-extra.css" />
   </head>
   <body>
-    <!-- TODO: 選讀「容器查詢」與「把變數註冊成可補間」。 -->
-    <div class="board">
-      <div class="slot narrow">
-        <article class="card">
-          <div class="photo">
-            <img src="https://placehold.co/480x270?text=narrow" alt="窄欄占位圖" />
-          </div>
-          <p>窄的時候圖片在上。</p>
-        </article>
-      </div>
-      <div class="slot wide">
-        <article class="card">
-          <div class="photo">
-            <img src="https://picsum.photos/id/1036/640/360" alt="寬欄風景" />
-          </div>
-          <p>容器夠寬時改成圖文並排。</p>
-        </article>
-      </div>
-    </div>
-    <div class="theme">
-      <button class="go" type="button">變數補間</button>
+    <!-- TODO: 選讀「依容器寬度改排版」。.slot 設 container-type: inline-size，寬度先限制在 22rem。容器寬度達到 24rem 時，卡片改成橫排，圖片改成 8rem 寬。 -->
+    <div class="slot">
+      <article class="card">
+        <img src="https://picsum.photos/id/1016/640/360" alt="湖" />
+        <p>這個框還窄時，圖在上面。框自己夠寬才改成並排。</p>
+      </article>
     </div>
   </body>
 </html>

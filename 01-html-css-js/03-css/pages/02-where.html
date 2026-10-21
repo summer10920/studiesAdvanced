@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>三種寫法</title>
+    <title>CSS 寫在哪</title>
     <link rel="stylesheet" href="02-where.css" />
   </head>
   <body>
-    <!-- TODO: 同一句話用三種方式上不同顏色，並在註解寫出你比較後留哪一種。 -->
-    <h1>三種寫法</h1>
-    <p>這段維持預設。</p>
-    <p class="from-page">這段準備用檔案裡的 style 元素。</p>
-    <p class="from-file">這段準備用 02-where.css。</p>
+    <!-- TODO: 講義「三種寫法」。第一段用標籤上的 style 寫顏色 #9f1239。在 head 加 style，讓 .from-page 成為 #b45309。02-where.css 讓 .from-file 成為 #115e59 且字重 700。換你試試：拿掉行內 style，改 class from-inline，顏色改寫進外部檔。 -->
+    <h1>三種地方都可以寫</h1>
+    <p>這行的顏色寫在開始標籤上。</p>
+    <p class="from-page">這行的顏色寫在這頁的 style。</p>
+    <p class="from-file">這行的顏色寫在外部樣式表。</p>
   </body>
 </html>

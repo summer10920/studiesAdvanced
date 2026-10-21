@@ -3,18 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>進階選擇器（選讀）</title>
+    <title>進階選擇器</title>
     <link rel="stylesheet" href="14-selectors-extra.css" />
   </head>
   <body>
-    <!-- TODO: 選讀。趕進度可先跳過，這一頁留著。 -->
-    <h1>進階選擇器</h1>
-    <h2>檔案連結</h2>
-    <p><a href="kyoto.pdf">行程 PDF</a></p>
-    <p class="card">可報名</p>
-    <p class="card soldout">已額滿</p>
-    <div class="field">
-      <label>Email <input type="email" /></label>
-    </div>
+    <!-- TODO: 選讀「屬性比對與 :is()、:where()、:has()」。https 開頭的連結深青綠，.pdf 結尾玫瑰紅。h1 與 h2 用 :where 設字重。卡片在核取方塊被勾起時換淺青底。 -->
+    <h1>屬性、is、where、has</h1>
+    <p><a href="https://example.com">站外</a></p>
+    <p><a href="guide.pdf">行程 PDF</a></p>
+    <article class="card">
+      <h2>含早餐</h2>
+      <label><input type="checkbox" /> 這張卡片被勾起時換底色</label>
+    </article>
   </body>
 </html>

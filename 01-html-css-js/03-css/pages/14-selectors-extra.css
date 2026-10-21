@@ -1,9 +1,4 @@
-/* TODO: 講義 03-css「屬性比對與 :is()、:where()、:has()」
-   這是空的樣式表。請依該節把規則寫在這裡，再用 Live Server 重新整理。
-   對照時打開 F12 → Elements → Styles。被劃掉的宣告代表沒有套上。
-   這一節會用到：
-   - [href$=".pdf"] 這類屬性比對
-   - :is()
-   - :where() 權重為零
-   - :has()
+/* TODO: 講義「選讀：屬性比對與 :is()、:where()、:has()」
+   開頭用 ^= ，結尾用 $= 。
+   勾起時用 .card:has(:checked)，不要寫腳本。
 */

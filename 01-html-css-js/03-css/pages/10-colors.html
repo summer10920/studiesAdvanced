@@ -7,16 +7,18 @@
     <link rel="stylesheet" href="10-colors.css" />
   </head>
   <body>
-    <h1>顏色</h1>
+    <!-- TODO: 講義「顏色寫法」。清單分別用名稱、六碼、rgb、帶 50% 透明的 rgb、hsl。 .tag 的背景用 currentColor。斜紋用 repeating-linear-gradient，.frost 用 70% 淺底。換你試試：兩處透明度改成 100%。 -->
+    <h1>同一套顏色，很多種寫法</h1>
     <ul>
-      <li class="named">具名</li>
-      <li class="hex">hex</li>
-      <li class="hex8">hex 含透明度</li>
-      <li class="rgb">rgb</li>
-      <li class="mix">混合</li>
-      <li class="hsl">hsl</li>
+      <li class="named">名稱 teal</li>
+      <li class="hex">六碼色票</li>
+      <li class="rgb">rgb 空格寫法</li>
+      <li class="mix">同一色，一半透明</li>
+      <li class="hsl">hsl，亮度在第三個數</li>
     </ul>
-    <p>標籤 <span class="tag">熱門</span></p>
-    <div class="stripe"><p class="frost">壓在色帶上的字</p></div>
+    <p class="tag">這行的底跟字同一色</p>
+    <div class="stripe">
+      <p class="frost">半透明的底會透出底下的斜紋。</p>
+    </div>
   </body>
 </html>

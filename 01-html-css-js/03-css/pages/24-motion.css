@@ -1,9 +1,4 @@
-/* TODO: 講義 03-css「動畫自己播放」
-   這是空的樣式表。請依該節把規則寫在這裡，再用 Live Server 重新整理。
-   對照時打開 F12 → Elements → Styles。被劃掉的宣告代表沒有套上。
-   這一節會用到：
-   - transform 不推動鄰居
-   - transition 連接兩個狀態
-   - @keyframes 與 animation
-   - prefers-reduced-motion
+/* TODO: 講義「變形不推動鄰居」
+   用 transform，不要用 margin 去推鄰居。
+   四格用 Flex 排成一列。
 */

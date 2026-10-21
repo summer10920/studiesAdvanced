@@ -7,50 +7,21 @@
     <link rel="stylesheet" href="21-grid.css" />
   </head>
   <body>
-    <h1>Grid</h1>
-    <h2>軌道</h2>
-    <div class="tracks">
-      <div class="cell">1</div>
-      <div class="cell">2</div>
-      <div class="cell wide">3 跨欄</div>
-    </div>
-    <div class="safe">
-      <div class="cell">窄螢幕也要放得下</div>
-      <div class="cell">第二格</div>
-    </div>
-    <h2>版面</h2>
-    <div class="shell">
-      <header>頁首</header>
-      <nav>選單</nav>
-      <main>主文</main>
-      <aside>側欄</aside>
-      <footer>頁尾</footer>
-    </div>
-    <h2>卡片</h2>
-    <div class="cards">
-      <article class="card">
-        <img src="https://picsum.photos/id/1015/640/360" alt="河谷" />
-        <h3>京都</h3>
-        <p>三日。</p>
-        <a class="go" href="#kyoto">看行程</a>
+    <!-- TODO: 講義「Grid」。auto-fit 與 minmax(12rem, 1fr)，gap 1rem。第一張 grid-column: span 2。換你試試：最小寬度改成 20rem。 -->
+    <h1>欄與列一起排</h1>
+    <div class="trips">
+      <article class="feature">
+        <h2>京都三日</h2>
+        <p>這一張跨兩欄。</p>
       </article>
-      <article class="card">
-        <img src="https://picsum.photos/id/1016/640/360" alt="山路" />
-        <h3>大阪</h3>
-        <p>美食。</p>
-        <a class="go" href="#osaka">看行程</a>
+      <article>
+        <h2>大阪</h2>
+        <p>一格。</p>
       </article>
-      <article class="card">
-        <img src="https://placehold.co/640x360?text=nara" alt="奈良占位圖" />
-        <h3>奈良</h3>
-        <p>半日。</p>
-        <a class="go" href="#nara">看行程</a>
+      <article>
+        <h2>濟州</h2>
+        <p>一格。</p>
       </article>
-    </div>
-    <h2>對齊</h2>
-    <div class="align">
-      <div class="cell">一般</div>
-      <div class="cell pin">對齊到終點</div>
     </div>
   </body>
 </html>

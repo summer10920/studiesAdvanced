@@ -7,23 +7,24 @@
     <link rel="stylesheet" href="05-selectors-pseudo.css" />
   </head>
   <body>
-    <h1>偽類</h1>
-    <p>看<a href="#days">行程天數</a>。</p>
+    <!-- TODO: 講義「偽類與偽元素」。連結四態依 link、visited、hover、active 的順序改顏色，focus-visible 再改一階。奇數 li 深青綠，第二項較粗。p:first-child 與 p:first-of-type 都寫，看誰打得中。價格用 ::before 加上 NT$。信箱欄、提示字、停用欄各改顏色。換你試試：奇數改偶數，裝飾改成「約 NT$」。 -->
+    <h1>狀態、位置、裝飾</h1>
+    <p><a href="#days">把滑鼠放上來，再用 Tab 走進來</a></p>
     <ul class="days" id="days">
-      <li>第一天</li>
-      <li>第二天</li>
-      <li>第三天</li>
-      <li>第四天</li>
+      <li>奇數項</li>
+      <li>第二項較粗</li>
+      <li>奇數項</li>
+      <li>第四項</li>
     </ul>
     <section class="pitfall">
-      <h2>注意</h2>
-      <p>偽元素要有 content 才看得到。</p>
+      <h2>不是第一個小孩</h2>
+      <p>這段是深青綠。第一個小孩是標題，所以段落不是第一個小孩。</p>
     </section>
-    <p class="price">NT$12800</p>
+    <p class="price">12800</p>
     <p>
-      <input type="email" placeholder="Email" />
+      <input type="email" placeholder="you@example.com" />
       <input type="text" placeholder="姓名" />
-      <input type="text" />
+      <input type="text" value="已額滿" disabled />
     </p>
   </body>
 </html>

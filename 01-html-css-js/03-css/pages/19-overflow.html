@@ -7,18 +7,14 @@
     <link rel="stylesheet" href="19-overflow.css" />
   </head>
   <body>
-    <h1>overflow</h1>
-    <h2>溢出</h2>
-    <div class="frame"><div class="spill">這塊比外框寬</div></div>
-    <h2>裁切</h2>
-    <div class="clip"><div class="band">橫向色帶</div></div>
-    <h2>捲動</h2>
-    <div class="scroll-box">
-      <p>第一段。</p>
-      <p>第二段。</p>
-      <p>第三段。</p>
+    <!-- TODO: 講義「overflow」。兩塊同高，一塊 hidden、一塊 auto。最下面一行 nowrap + hidden + ellipsis。換你試試：第一塊改成 auto。 -->
+    <h1>超出盒子時</h1>
+    <div class="box clip">
+      <p>這段比盒子高。hidden 會裁掉下面的句子，不出現捲軸。洛奇旅行的說明在這裡被切掉。</p>
     </div>
-    <h2>省略</h2>
-    <p class="title">很長的行程名稱會在一行裡被省略</p>
+    <div class="box scroll">
+      <p>這段同樣比較高。auto 在裝不下時出現捲軸，句子可以捲出來讀完。洛奇旅行的說明在這裡還在。</p>
+    </div>
+    <p class="one-line">這一行很長時不要換行，尾端改成省略號。京都、大阪、濟州、花蓮都排在同一行。</p>
   </body>
 </html>

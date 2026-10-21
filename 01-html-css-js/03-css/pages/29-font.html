@@ -3,18 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>命名與字型檔（選讀）</title>
+    <title>命名與字型檔</title>
     <link rel="stylesheet" href="29-font.css" />
   </head>
   <body>
-    <!-- TODO: 選讀「命名與字型檔」。class 用 BEM，字型寫在 29-font.css 的 @font-face。沒有 woff2 時仍要能用系統堆疊讀完。 -->
-    <article class="tour-card">
-      <h2 class="tour-card__title">待補行程名</h2>
-      <p>待補一句介紹。</p>
-    </article>
-    <article class="tour-card tour-card--soldout">
-      <h2 class="tour-card__title">已額滿</h2>
-      <p>待補。</p>
+    <!-- TODO: 選讀「命名與字型檔」。用 BEM：card__title、card__price、card__price--soldout。@font-face 註冊 Tour，檔案可以不存在，堆疊後面要有系統字。售完那行灰色加刪除線。 -->
+    <article class="card">
+      <h1 class="card__title">京都三日</h1>
+      <p class="card__price">NT$12,800</p>
+      <p class="card__price card__price--soldout">NT$12,800</p>
     </article>
   </body>
 </html>

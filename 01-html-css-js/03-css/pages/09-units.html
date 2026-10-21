@@ -3,20 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>長度</title>
+    <title>單位</title>
     <link rel="stylesheet" href="09-units.css" />
   </head>
   <body>
-    <h1>長度</h1>
-    <p>比較字級時先改 html 的字級，看 rem 是否一起變。</p>
+    <!-- TODO: 講義「長度」。html 字級 16px 只為了對數字。做出 1.25em 父層與 2em 子層、1.25rem 父層與 2rem 子層、16rem 軌道與 50% 的一半、36ch 行寬、4vw 標題。換你試試：em 子層改成 2rem。 -->
+    <h1>單位</h1>
+    <p>這頁把根字級設成 16px，只為了讓 Computed 好對。</p>
     <div class="em-box">
-      <p class="em-child">em</p>
+      父層 1.25em
+      <p class="em-child">子層 2em，相對父層，約 40px。</p>
     </div>
     <div class="rem-box">
-      <p class="rem-child">rem</p>
+      父層 1.25rem
+      <p class="rem-child">子層 2rem，相對根元素，約 32px。</p>
     </div>
-    <div class="meter"><span class="half">一半</span></div>
-    <p class="measure">一段有最大寬度的內文。</p>
-    <p class="vw-title">隨視窗變寬的標題</p>
+    <div class="meter">
+      <div class="half">父層一半寬</div>
+    </div>
+    <p class="measure">這段最寬約 36 個 0 的寬度。中文不會剛好 36 個字，行寬仍收得住。</p>
+    <p class="vw-title">這行會跟著視窗寬度變</p>
   </body>
 </html>

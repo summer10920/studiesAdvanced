@@ -3,31 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>無障礙（選讀）</title>
+    <title>報名京都三日遊</title>
   </head>
   <body>
-    <!-- TODO: 講義 02-html「選讀：無障礙（a11y）」。
-         語言與標題大綱、圖片替代文字、表單欄位要有名字、連結與按鈕分開、
-         資料表要有表頭、鍵盤走得過整頁。ARIA 只在原生元素不夠時才補。 -->
-    <h1>無障礙檢查</h1>
-    <p><a href="#main">跳到主內容</a></p>
-    <main id="main">
+    <!-- TODO: 講義「選讀：無障礙」。同一頁依小節補完。不要加 onclick，也不要為了示範先寫 ARIA。
+         「選讀：語言與標題大綱」：html 保持 lang="zh-Hant"。一頁一個 h1，下面用 h2，不要跳級。
+         「選讀：圖片的替代文字」：內容圖寫看得出場景的 alt；裝飾圖用空的 alt。
+         「選讀：表單欄位要有名字」：姓名用 label 的 for 對上 input 的 id。placeholder 不能代替標籤。
+         「選讀：連結去別處，按鈕在本頁做事」：去別頁用有 href 的 a，文字寫目的地。本頁試算用 button type="button"。
+         「選讀：資料表要有表頭」：價目表要有 caption、thead，欄名與列名加上 scope。
+         「選讀：鍵盤走得過整頁」：只按 Tab，要能走到欄位、按鈕和連結。
+         「選讀：ARIA 是補充元素說明，不是必要動作」：試算維持按鈕，不要改成 div 再補 aria-label。 -->
+    <header>
+      <p>洛奇旅行</p>
+    </header>
+    <main>
+      <h1>報名京都三日遊</h1>
+      <h2>注意事項</h2>
+      <p>待補一段注意事項。</p>
       <img src="https://picsum.photos/id/1016/640/360" alt="" width="640" height="360" />
       <form action="#" method="get">
         <p>
-          <label for="a11y-name">姓名</label>
-          <input id="a11y-name" name="name" />
+          <label for="guest-name">姓名</label>
+          <input id="guest-name" name="name" type="text" />
         </p>
-        <p><button type="submit">送出</button></p>
+        <p><button type="submit">送出報名</button></p>
       </form>
-      <table>
+      <table border="1">
         <caption>待補</caption>
         <tr>
           <th>欄位</th>
           <td>待補</td>
         </tr>
       </table>
-      <!-- TODO: 補一個「去別的網址」的連結，和一顆「只在本頁做事」的按鈕，兩者不要混用。 -->
     </main>
   </body>
 </html>

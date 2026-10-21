@@ -3,24 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>組合關係</title>
+    <title>組合選擇器</title>
     <link rel="stylesheet" href="04-selectors-combine.css" />
   </head>
   <body>
-    <h1>組合</h1>
+    <!-- TODO: 講義「組合關係」。article 裡任何 p 深青綠；article 的直接小孩 .direct 較粗；h2 後面的 p 石板色；.stops 裡從第二個 li 起加刪除線。換你試試：標題後面只有緊鄰的第一段變石板色，波浪符號改成加號。 -->
+    <h1>關係寫在選擇器中間</h1>
     <article>
-      <p class="direct">文章裡的第一段。</p>
+      <p class="direct">這段是 article 的直接小孩，所以較粗，也有深色。</p>
       <div>
-        <p>再包一層的段落。</p>
+        <p>後代仍打得到這段，直接子層打不到，所以不會變粗。</p>
       </div>
     </article>
-    <h2>停留站</h2>
-    <p>站名之前的說明。</p>
-    <p>另一段說明。</p>
+    <h2>相鄰與後面的兄弟</h2>
+    <p>這個標題後面的段落會改成石板色。</p>
+    <p>這段也在標題後面，同樣改色。</p>
     <ul class="stops">
       <li>台北</li>
-      <li>花蓮</li>
-      <li>台東</li>
+      <li>這一項起才有刪除線</li>
+      <li>濟州</li>
     </ul>
   </body>
 </html>
