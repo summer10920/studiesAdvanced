@@ -1,6 +1,6 @@
 # JavaScript 練習
 
-對應講義「JavaScript 基礎：值、函式、陣列與模組」（`lokiTech-15day-06-js-basics`）與「JavaScript：BOM、DOM 與事件」（`lokiTech-15day-07-js-dom`）。pages/ 裡每一頁是該節的起點，完成的寫法在講義裡。
+對應講義「JavaScript 基礎：值、函式、陣列與模組」（`lokiTech-15day-06-js-basics`）、「JavaScript：BOM、DOM 與事件」（`lokiTech-15day-07-js-dom`）與「JavaScript：非同步、Fetch 與瀏覽器儲存」（`lokiTech-15day-08-js-async`）。pages/ 裡每一頁是該節的起點，完成的寫法在講義裡。
 
 第 06 天的課堂 demo 把程式寫在同一份 HTML 的 script，方便對照，結果看 DevTools 的 Console。`pages/01-js-inline.html` 本來就是內嵌。外部檔是實務做法，`pages/02-js-console.html` 仍用 src 載入同名 js，用來對路徑。
 
@@ -17,6 +17,8 @@
 蓄力的完成版是 `141-js-charge.html.final`。待辦清單的完成版是 `147-js-todo.html.final`。
 
 打地鼠的完成版是 `148-js-mole.html.final`。模組腳本 `90-js-module.html` 仍載入同名 js，用來對照載入時機。
+
+第 08 天從 `pages/149-js-order.html` 開始。抓清單的完成版是 `181-js-items.html.final`。待辦留在瀏覽器的完成版是 `186-js-todo-keep.html.final`。讀取用的 JSON 在 `pages/data/`。
 
 - `pages/01-js-inline.html`：程式寫在頁面的 script 裡
 - `pages/02-js-console.html`：用 console.log 看結果
@@ -165,3 +167,45 @@
 - `pages/146-js-render.html`：狀態與重繪
 - `pages/147-js-todo.html`：綜合練習：待辦清單（`.html.final` 為完成版）
 - `pages/148-js-mole.html`：打地鼠（`.html.final` 為完成版）
+- `pages/149-js-order.html`：執行順序
+- `pages/150-js-stack.html`：選讀：呼叫堆疊與單執行緒
+- `pages/151-js-queue.html`：選讀：瀏覽器代為等待與任務佇列
+- `pages/152-js-block.html`：選讀：長時間運算會卡住畫面
+- `pages/153-js-micro.html`：選讀：微任務優先
+- `pages/154-js-callback.html`：callback 寫法
+- `pages/155-js-nest.html`：巢狀地獄
+- `pages/156-js-promise.html`：三種狀態
+- `pages/157-js-then.html`：then、catch、finally
+- `pages/158-js-chain.html`：鏈式傳值
+- `pages/159-js-error.html`：集中錯誤處理
+- `pages/160-js-flat.html`：改寫巢狀地獄
+- `pages/161-js-all.html`：Promise.all 與 allSettled
+- `pages/162-js-race.html`：Promise.race 與 any
+- `pages/163-js-wrap.html`：選讀：計時器與圖片
+- `pages/164-js-async.html`：async 函式與 await
+- `pages/165-js-try.html`：try、catch、finally
+- `pages/166-js-parallel.html`：依序等待與 Promise.all
+- `pages/167-js-for-await.html`：迴圈裡的 await
+- `pages/168-js-json-rule.html`：語法規則與常見錯誤
+- `pages/169-js-json.html`：JSON.parse 與 JSON.stringify
+- `pages/170-js-json-read.html`：從文字還原資料
+- `pages/171-js-json-text.html`：把資料收成文字
+- `pages/172-js-http.html`：請求與回應的組成
+- `pages/173-js-status.html`：狀態碼分類
+- `pages/174-js-fetch.html`：fetch 與 response.json
+- `pages/175-js-ok.html`：檢查 response.ok
+- `pages/176-js-query.html`：查詢參數
+- `pages/177-js-post.html`：POST 送 JSON
+- `pages/178-js-rest.html`：PUT、PATCH、DELETE 與 REST
+- `pages/179-js-form.html`：FormData 送出表單
+- `pages/180-js-loading.html`：三種狀態的重繪
+- `pages/181-js-items.html`：綜合練習：抓清單與新增（`.html.final` 為完成版）
+- `pages/182-js-abort.html`：選讀：取消與逾時
+- `pages/183-js-cors.html`：選讀：同源政策與 CORS
+- `pages/184-js-storage.html`：localStorage 與 sessionStorage
+- `pages/185-js-storage-json.html`：存物件要轉 JSON
+- `pages/186-js-todo-keep.html`：綜合練習：待辦清單重新整理後還在（`.html.final` 為完成版）
+- `pages/187-js-cookie.html`：選讀：Cookie
+- `pages/188-js-auth.html`：選讀：Session 與 Token
+- `pages/data/items.json`：清單樣本
+- `pages/data/users.json`：使用者樣本

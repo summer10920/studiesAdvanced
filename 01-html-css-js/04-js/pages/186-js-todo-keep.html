@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>待辦清單重新整理後還在</title>
+    <style>
+      body { font-family: system-ui, sans-serif; margin: 1.5rem; }
+      form { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+      input, button { font: inherit; }
+      li { margin: 0.4rem 0; }
+      li.done span { text-decoration: line-through; }
+      li button { margin-left: 0.35rem; }
+    </style>
+  </head>
+  <body>
+    <form id="editor" novalidate>
+      <input id="title" name="title" required />
+      <button type="submit">新增</button>
+    </form>
+    <ul id="list"></ul>
+    <!-- TODO: 講義「待辦清單重新整理後還在」。第二步讀寫 localStorage 的 todo-keep。完成寫法見 186-js-todo-keep.html.final。 換你試試：把第二筆標題改成「交作業」。Console 應變成讀講義,交作業。重新整理後也還是這筆，因為它寫在程式裡。 -->
+    <script>
+      // TODO: 講義「待辦清單重新整理後還在」。第二步讀寫 localStorage 的 todo-keep。完成寫法見 186-js-todo-keep.html.final。 換你試試：把第二筆標題改成「交作業」。Console 應變成讀講義,交作業。重新整理後也還是這筆，因為它寫在程式裡。
+      const state = {
+        nextId: 3,
+        items: [
+          { id: 1, title: '讀講義', done: false },
+          { id: 2, title: '改練習檔', done: true },
+        ],
+      };
+
+      const list = document.querySelector('#list');
+      const form = document.querySelector('#editor');
+
+      const render = () => {
+        list.replaceChildren();
+        state.items.forEach((item) => {
+          const li = document.createElement('li');
+          if (item.done) li.classList.add('done');
+          const span = document.createElement('span');
+          span.textContent = item.title;
+          const toggle = document.createElement('button');
+          toggle.type = 'button';
+          toggle.dataset.action = 'toggle';
+          toggle.dataset.id = String(item.id);
+          toggle.textContent = item.done ? '改回未完成' : '標成完成';
+          const remove = document.createElement('button');
+          remove.type = 'button';
+          remove.dataset.action = 'remove';
+          remove.dataset.id = String(item.id);
+          remove.textContent = '刪除';
+          li.append(span, toggle, remove);
+          list.append(li);
+        });
+      };
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+        const data = new FormData(form);
+        const title = String(data.get('title'));
+        state.items.push({ id: state.nextId, title, done: false });
+        state.nextId += 1;
+        form.querySelector('#title').value = '';
+        render();
+      });
+
+      list.addEventListener('click', (event) => {
+        const button = event.target.closest('button');
+        if (!button || !list.contains(button)) return;
+        const id = Number(button.dataset.id);
+        const item = state.items.find((row) => row.id === id);
+        if (!item) return;
+        if (button.dataset.action === 'toggle') item.done = !item.done;
+        if (button.dataset.action === 'remove') {
+          state.items = state.items.filter((row) => row.id !== id);
+        }
+        render();
+      });
+
+      render();
+      console.log(state.items.map((item) => item.title).join(','));
+    </script>
+  </body>
+</html>

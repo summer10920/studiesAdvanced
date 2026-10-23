@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>抓清單與新增</title>
+    <style>
+      body { font-family: system-ui, sans-serif; margin: 1.5rem; }
+      button, input { font: inherit; }
+      form { display: flex; gap: 0.5rem; margin: 0.75rem 0; }
+      li { margin: 0.35rem 0; }
+    </style>
+  </head>
+  <body>
+    <p id="status"></p>
+    <form id="editor" novalidate>
+      <input name="name" required placeholder="名稱" />
+      <input name="price" required placeholder="價格" />
+      <button type="submit">新增</button>
+    </form>
+    <ul id="list"></ul>
+    <!-- TODO: 講義「抓清單與新增」。第二步補上載入狀態，送出時 POST 到假 API，再推進狀態。完成寫法見 181-js-items.html.final。 換你試試：在每一列後面改印 item.name 到 Console。長度那一行留著，下面應依序是筆、紙、尺。 -->
+    <script>
+      // TODO: 講義「抓清單與新增」。第二步補上載入狀態，送出時 POST 到假 API，再推進狀態。完成寫法見 181-js-items.html.final。 換你試試：在每一列後面改印 item.name 到 Console。長度那一行留著，下面應依序是筆、紙、尺。
+      const statusEl = document.querySelector('#status');
+      const list = document.querySelector('#list');
+
+      const main = async () => {
+        const response = await fetch('data/items.json');
+        const items = await response.json();
+        statusEl.textContent = '完成';
+        items.forEach((item) => {
+          const li = document.createElement('li');
+          li.textContent = item.name + ' ' + item.price;
+          list.append(li);
+        });
+        console.log(items.length);
+      };
+
+      main();
+    </script>
+  </body>
+</html>
