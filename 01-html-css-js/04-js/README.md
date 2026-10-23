@@ -1,0 +1,89 @@
+# JavaScript 練習
+
+對應講義「JavaScript 基礎：值、函式、陣列與模組」（`lokiTech-15day-06-js-basics`）。`pages/` 裡每一頁是該節的起點，完成的寫法在講義裡。多數頁面只負責載入同名的 `.js`，結果看 DevTools 的 Console。`pages/01-js-inline.html` 的程式寫在 HTML 裡，沒有另開 js。選讀頁可以先跳過。
+
+用 VS Code 開啟 `01-html-css-js/`。對 `04-js/index.html` 用 Live Server 開啟。寬螢幕左邊是選單，窄螢幕改成上方選單。多步的完成版是同名 `.js.final`；模組那一頁另有 `.html.final`，資料在 `82-js-module-data.js`。
+
+- `pages/01-js-inline.html`：程式寫在頁面的 script 裡
+- `pages/02-js-console.html`：用 console.log 看結果
+- `pages/03-js-comment.html`：註解留給讀程式的人
+- `pages/04-js-dialog.html`：選讀：alert、confirm 與 prompt
+- `pages/05-js-name.html`：宣告變數與命名
+- `pages/06-js-let.html`：let 與 const 的差別
+- `pages/07-js-scope.html`：區塊作用域
+- `pages/08-js-types.html`：數字、字串與布林
+- `pages/09-js-convert.html`：型別轉換
+- `pages/10-js-special.html`：null、undefined 與 NaN
+- `pages/11-js-string-basic.html`：建立與存取
+- `pages/12-js-template.html`：模板字串
+- `pages/13-js-prototype.html`：原型
+- `pages/14-js-string.html`：查詢與判斷
+- `pages/15-js-pad.html`：擷取與轉換
+- `pages/16-js-arith.html`：算術與賦值
+- `pages/17-js-compare.html`：比較時型別要相同
+- `pages/18-js-logic.html`：邏輯運算子與短路求值
+- `pages/19-js-nullish.html`：條件運算子與預設值
+- `pages/20-js-if.html`：if、else if、else
+- `pages/21-js-switch.html`：switch 對上一個值
+- `pages/22-js-switch-group.html`：switch 合併多個 case
+- `pages/23-js-for.html`：for 把天數數完
+- `pages/24-js-while.html`：while、break 與 continue
+- `pages/25-js-do.html`：選讀：do...while
+- `pages/26-js-nested.html`：選讀：巢狀迴圈
+- `pages/27-js-function.html`：宣告與呼叫
+- `pages/28-js-params.html`：參數與引數
+- `pages/29-js-return.html`：return 與回傳值
+- `pages/30-js-guard.html`：提早 return
+- `pages/31-js-default-param.html`：預設參數
+- `pages/32-js-rest.html`：選讀：其餘參數
+- `pages/33-js-anonymous.html`：匿名函式
+- `pages/34-js-arrow.html`：箭頭函式
+- `pages/35-js-callback.html`：函式當作參數
+- `pages/36-js-closure.html`：選讀：閉包
+- `pages/37-js-array.html`：建立、索引與 length
+- `pages/38-js-mutate.html`：新增與刪除元素
+- `pages/39-js-const-ref.html`：const 與參考
+- `pages/40-js-search.html`：搜尋與判斷
+- `pages/41-js-map.html`：forEach 與 map
+- `pages/42-js-filter.html`：filter（`.js.final` 為完成版）
+- `pages/43-js-reduce.html`：reduce
+- `pages/44-js-sort.html`：排序與組合
+- `pages/45-js-chain.html`：方法串接
+- `pages/46-js-set.html`：選讀：Set
+- `pages/47-js-object.html`：建立與存取屬性
+- `pages/48-js-object-update.html`：新增修改與刪除屬性
+- `pages/49-js-method.html`：方法
+- `pages/50-js-optional.html`：可選串連
+- `pages/51-js-keys.html`：靜態方法
+- `pages/52-js-entries.html`：走訪欄位
+- `pages/53-js-map.html`：選讀：Map
+- `pages/54-js-this.html`：選讀：方法呼叫時的 this
+- `pages/55-js-tours.html`：綜合練習
+- `pages/56-js-math.html`：數學常數與基本運算
+- `pages/57-js-round.html`：取整數與四捨五入
+- `pages/58-js-random.html`：最大值、最小值與亂數
+- `pages/59-js-lotto.html`：綜合練習：大樂透產生器
+- `pages/60-js-utc.html`：UTC 與時區
+- `pages/61-js-timestamp.html`：時間戳記
+- `pages/62-js-date-call.html`：new Date 與 Date 的差異
+- `pages/63-js-date.html`：建立指定日期
+- `pages/64-js-date-get.html`：讀取日期與時間
+- `pages/65-js-date-set.html`：設定日期與時間
+- `pages/66-js-date-format.html`：日期格式化與計算
+- `pages/67-js-countdown.html`：綜合練習：跨年倒數
+- `pages/74-js-error-type.html`：錯誤類型
+- `pages/75-js-error-message.html`：讀懂錯誤訊息
+- `pages/76-js-debug.html`：除錯技巧
+- `pages/77-js-try.html`：try 與 catch 的基本結構
+- `pages/78-js-finally.html`：finally
+- `pages/79-js-throw.html`：主動拋出錯誤
+- `pages/80-js-custom-error.html`：自訂錯誤
+- `pages/81-js-validate.html`：輸入驗證
+- `pages/68-js-array-destructure.html`：選讀：陣列解構
+- `pages/69-js-destructure.html`：選讀：物件解構
+- `pages/70-js-param-destructure.html`：選讀：函式參數解構
+- `pages/71-js-array-spread.html`：選讀：陣列展開
+- `pages/72-js-spread.html`：選讀：物件展開
+- `pages/73-js-spread-call.html`：選讀：函式呼叫時展開
+- `pages/82-js-module.html`：選讀：具名匯出與匯入（`.html.final`、`.js.final` 為完成版）
+- `pages/83-js-default.html`：選讀：預設匯出

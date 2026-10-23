@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript 練習</title>
+    <link rel="stylesheet" href="css/site.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="menu">
+        <p class="brand">洛奇旅行 · JavaScript 練習</p>
+        <nav aria-label="練習選單">
+          <ul>
+            <li class="group">程式寫在哪、結果看在哪</li>
+            <li><a href="pages/01-js-inline.html" target="content">程式寫在頁面的 script 裡</a></li>
+            <li><a href="pages/02-js-console.html" target="content">用 console.log 看結果</a></li>
+            <li><a href="pages/03-js-comment.html" target="content">註解留給讀程式的人</a></li>
+            <li><a href="pages/04-js-dialog.html" target="content">選讀：alert、confirm 與 prompt</a></li>
+            <li class="group">用名字記住一個值</li>
+            <li><a href="pages/05-js-name.html" target="content">宣告變數與命名</a></li>
+            <li><a href="pages/06-js-let.html" target="content">let 與 const 的差別</a></li>
+            <li><a href="pages/07-js-scope.html" target="content">區塊作用域</a></li>
+            <li class="group">值的種類與轉型</li>
+            <li><a href="pages/08-js-types.html" target="content">數字、字串與布林</a></li>
+            <li><a href="pages/09-js-convert.html" target="content">型別轉換</a></li>
+            <li><a href="pages/10-js-special.html" target="content">null、undefined 與 NaN</a></li>
+            <li class="group">字串</li>
+            <li><a href="pages/11-js-string-basic.html" target="content">建立與存取</a></li>
+            <li><a href="pages/12-js-template.html" target="content">模板字串</a></li>
+            <li><a href="pages/13-js-prototype.html" target="content">原型</a></li>
+            <li><a href="pages/14-js-string.html" target="content">查詢與判斷</a></li>
+            <li><a href="pages/15-js-pad.html" target="content">擷取與轉換</a></li>
+            <li class="group">運算與條件</li>
+            <li><a href="pages/16-js-arith.html" target="content">算術與賦值</a></li>
+            <li><a href="pages/17-js-compare.html" target="content">比較時型別要相同</a></li>
+            <li><a href="pages/18-js-logic.html" target="content">邏輯運算子與短路求值</a></li>
+            <li><a href="pages/19-js-nullish.html" target="content">條件運算子與預設值</a></li>
+            <li><a href="pages/20-js-if.html" target="content">if、else if、else</a></li>
+            <li><a href="pages/21-js-switch.html" target="content">switch 對上一個值</a></li>
+            <li><a href="pages/22-js-switch-group.html" target="content">switch 合併多個 case</a></li>
+            <li class="group">把同一件事做很多次</li>
+            <li><a href="pages/23-js-for.html" target="content">for 把天數數完</a></li>
+            <li><a href="pages/24-js-while.html" target="content">while、break 與 continue</a></li>
+            <li><a href="pages/25-js-do.html" target="content">選讀：do...while</a></li>
+            <li><a href="pages/26-js-nested.html" target="content">選讀：巢狀迴圈</a></li>
+            <li class="group">把計算收成函式</li>
+            <li><a href="pages/27-js-function.html" target="content">宣告與呼叫</a></li>
+            <li><a href="pages/28-js-params.html" target="content">參數與引數</a></li>
+            <li><a href="pages/29-js-return.html" target="content">return 與回傳值</a></li>
+            <li><a href="pages/30-js-guard.html" target="content">提早 return</a></li>
+            <li><a href="pages/31-js-default-param.html" target="content">預設參數</a></li>
+            <li><a href="pages/32-js-rest.html" target="content">選讀：其餘參數</a></li>
+            <li><a href="pages/33-js-anonymous.html" target="content">匿名函式</a></li>
+            <li><a href="pages/34-js-arrow.html" target="content">箭頭函式</a></li>
+            <li><a href="pages/35-js-callback.html" target="content">函式當作參數</a></li>
+            <li><a href="pages/36-js-closure.html" target="content">選讀：閉包</a></li>
+            <li class="group">陣列</li>
+            <li><a href="pages/37-js-array.html" target="content">建立、索引與 length</a></li>
+            <li><a href="pages/38-js-mutate.html" target="content">新增與刪除元素</a></li>
+            <li><a href="pages/39-js-const-ref.html" target="content">const 與參考</a></li>
+            <li><a href="pages/40-js-search.html" target="content">搜尋與判斷</a></li>
+            <li><a href="pages/41-js-map.html" target="content">forEach 與 map</a></li>
+            <li><a href="pages/42-js-filter.html" target="content">filter</a></li>
+            <li><a href="pages/43-js-reduce.html" target="content">reduce</a></li>
+            <li><a href="pages/44-js-sort.html" target="content">排序與組合</a></li>
+            <li><a href="pages/45-js-chain.html" target="content">方法串接</a></li>
+            <li><a href="pages/46-js-set.html" target="content">選讀：Set</a></li>
+            <li class="group">物件</li>
+            <li><a href="pages/47-js-object.html" target="content">建立與存取屬性</a></li>
+            <li><a href="pages/48-js-object-update.html" target="content">新增修改與刪除屬性</a></li>
+            <li><a href="pages/49-js-method.html" target="content">方法</a></li>
+            <li><a href="pages/50-js-optional.html" target="content">可選串連</a></li>
+            <li><a href="pages/51-js-keys.html" target="content">靜態方法</a></li>
+            <li><a href="pages/52-js-entries.html" target="content">走訪欄位</a></li>
+            <li><a href="pages/53-js-map.html" target="content">選讀：Map</a></li>
+            <li><a href="pages/54-js-this.html" target="content">選讀：方法呼叫時的 this</a></li>
+            <li><a href="pages/55-js-tours.html" target="content">綜合練習</a></li>
+            <li class="group">內建物件</li>
+            <li><a href="pages/56-js-math.html" target="content">數學常數與基本運算</a></li>
+            <li><a href="pages/57-js-round.html" target="content">取整數與四捨五入</a></li>
+            <li><a href="pages/58-js-random.html" target="content">最大值、最小值與亂數</a></li>
+            <li><a href="pages/59-js-lotto.html" target="content">綜合練習：大樂透產生器</a></li>
+            <li><a href="pages/60-js-utc.html" target="content">UTC 與時區</a></li>
+            <li><a href="pages/61-js-timestamp.html" target="content">時間戳記</a></li>
+            <li><a href="pages/62-js-date-call.html" target="content">new Date 與 Date 的差異</a></li>
+            <li><a href="pages/63-js-date.html" target="content">建立指定日期</a></li>
+            <li><a href="pages/64-js-date-get.html" target="content">讀取日期與時間</a></li>
+            <li><a href="pages/65-js-date-set.html" target="content">設定日期與時間</a></li>
+            <li><a href="pages/66-js-date-format.html" target="content">日期格式化與計算</a></li>
+            <li><a href="pages/67-js-countdown.html" target="content">綜合練習：跨年倒數</a></li>
+            <li class="group">錯誤處理與除錯</li>
+            <li><a href="pages/74-js-error-type.html" target="content">錯誤類型</a></li>
+            <li><a href="pages/75-js-error-message.html" target="content">讀懂錯誤訊息</a></li>
+            <li><a href="pages/76-js-debug.html" target="content">除錯技巧</a></li>
+            <li><a href="pages/77-js-try.html" target="content">try 與 catch 的基本結構</a></li>
+            <li><a href="pages/78-js-finally.html" target="content">finally</a></li>
+            <li><a href="pages/79-js-throw.html" target="content">主動拋出錯誤</a></li>
+            <li><a href="pages/80-js-custom-error.html" target="content">自訂錯誤</a></li>
+            <li><a href="pages/81-js-validate.html" target="content">輸入驗證</a></li>
+            <li class="group">選讀：解構與展開</li>
+            <li><a href="pages/68-js-array-destructure.html" target="content">陣列解構</a></li>
+            <li><a href="pages/69-js-destructure.html" target="content">物件解構</a></li>
+            <li><a href="pages/70-js-param-destructure.html" target="content">函式參數解構</a></li>
+            <li><a href="pages/71-js-array-spread.html" target="content">陣列展開</a></li>
+            <li><a href="pages/72-js-spread.html" target="content">物件展開</a></li>
+            <li><a href="pages/73-js-spread-call.html" target="content">函式呼叫時展開</a></li>
+            <li class="group">選讀：ES Module</li>
+            <li><a href="pages/82-js-module.html" target="content">具名匯出與匯入</a></li>
+            <li><a href="pages/83-js-default.html" target="content">預設匯出</a></li>
+          </ul>
+        </nav>
+      </aside>
+      <main class="stage">
+        <iframe name="content" src="pages/02-js-console.html" title="練習內容"></iframe>
+      </main>
+    </div>
+  </body>
+</html>

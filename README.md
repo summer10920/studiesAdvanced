@@ -39,18 +39,18 @@ cd studiesAdvanced
 | 03 CSS | 選擇器、盒模型、Flex、Grid、RWD | `01-html-css-js/03-css/` | Live Server |
 | 04 Tailwind | utilities、RWD、深色模式 | `02-tailwind/` | `pnpm dev` |
 | 05 Tailwind 公式表 | class 對照 | （沒有練習資料夾，查講義即可） | — |
-| 06 JavaScript 基礎 | 變數、函式、陣列 | （稍後加入） | — |
+| 06 JavaScript 基礎 | 變數、函式、陣列、模組 | `01-html-css-js/04-js/` | Live Server |
 | 07 DOM | 選取元素與事件 | （稍後加入） | — |
 | 08 非同步 | fetch、async | （稍後加入） | — |
 | 09 React 基礎 | 元件、props、state、列表 | `03-react/` | `pnpm dev` |
 | 10 React 進階 | effect、表單、路由 | `03-react/` | `pnpm dev` |
 | 11 結業專案 | 洛奇旅行 | `04-project/` | 規格之後才補進該資料夾 |
 
-`02-html` 與 `03-css` 裡每個子資料夾都是該節的**起點**（結構、占位內容、中文 TODO），不是講義上的完成版。各資料夾的 `README.md` 有對照表。
+`02-html`、`03-css` 與 `04-js` 裡每個子資料夾都是該節的**起點**（結構、占位內容、中文 TODO），不是講義上的完成版。各資料夾的 `README.md` 有對照表。
 
 ### 各資料夾怎麼跑
 
-**HTML／CSS。** 不需要 Node。VS Code 維持開著倉庫根目錄，在檔案總管對目標的 `index.html` 右鍵 **Open with Live Server**。圖片使用 picsum 與 placehold 的網址。
+**HTML／CSS／JavaScript 基礎。** 不需要 Node。VS Code 維持開著倉庫根目錄，在檔案總管對目標的 `index.html` 右鍵 **Open with Live Server**。JavaScript 那一組的結果在瀏覽器 Console。圖片使用 picsum 與 placehold 的網址。
 
 **Tailwind 與 React。** 需要 Node 24 與 pnpm。還沒有 pnpm 時，在終端機執行 `corepack enable`，然後開一個新終端機。
 

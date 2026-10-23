@@ -1,0 +1,7 @@
+const scores = [88, 92, 76, 95, 61];
+
+const passed = scores.filter((score) => score >= 80);
+
+console.log(passed);
+console.log(scores);
+console.log(scores.length);
