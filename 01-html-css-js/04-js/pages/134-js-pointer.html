@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>滑鼠座標</title>
+    <style>
+      #pad { position: relative; height: 160px; background: #ccfbf1; }
+      #dot { position: absolute; width: 12px; height: 12px; border-radius: 50%; background: #0f766e; left: 0; top: 0; }
+    </style>
+  </head>
+  <body>
+    <p id="pos">在方塊上移動滑鼠</p>
+    <div id="pad"><span id="dot"></span></div>
+    <!-- TODO: 講義「滑鼠座標」。mousemove 顯示 client 與 offset，click 把圓點移到 offset。 -->
+    <script>
+      // TODO: 講義「滑鼠座標」。
+      // #pad 的 mousemove：#pos 顯示 clientX, clientY / offsetX, offsetY。
+      // click：把 #dot 的 left、top 設成 offsetX、offsetY 像素。
+      // 換你試試：mousemove 再補上 pageX 與 pageY。
+    </script>
+  </body>
+</html>

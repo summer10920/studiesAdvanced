@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>待辦清單</title>
+    <style>
+      body { font-family: system-ui, sans-serif; margin: 1.5rem; }
+      form { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+      input, button { font: inherit; }
+      li { margin: 0.4rem 0; }
+      li.done span { text-decoration: line-through; }
+      li button { margin-left: 0.35rem; }
+    </style>
+  </head>
+  <body>
+    <form id="editor" novalidate>
+      <input id="title" name="title" required />
+      <button type="submit">新增</button>
+    </form>
+    <ul id="list"></ul>
+    <!-- TODO: 講義「待辦清單」。第一步只依 state 畫清單。第二步送出時新增、點擊時切換或刪除。完成寫法見 147-js-todo.html.final。換你試試：空白標題不要新增。 -->
+    <script>
+      // 第一步：用 state.items 畫出清單。
+      // 第二步：送出表單時新增，點清單時切換完成或刪除。
+      // 完成寫法見 147-js-todo.html.final。
+      // 換你試試：去掉空白後若標題是空的，不要新增。
+
+      const state = {
+        nextId: 3,
+        items: [
+          { id: 1, title: '讀講義', done: false },
+          { id: 2, title: '改練習檔', done: true },
+        ],
+      };
+
+      const list = document.querySelector('#list');
+
+      const render = () => {
+        list.replaceChildren();
+        state.items.forEach((item) => {
+          const li = document.createElement('li');
+          if (item.done) li.classList.add('done');
+          const span = document.createElement('span');
+          span.textContent = item.title;
+          const toggle = document.createElement('button');
+          toggle.type = 'button';
+          toggle.dataset.action = 'toggle';
+          toggle.dataset.id = String(item.id);
+          toggle.textContent = item.done ? '改回未完成' : '標成完成';
+          const remove = document.createElement('button');
+          remove.type = 'button';
+          remove.dataset.action = 'remove';
+          remove.dataset.id = String(item.id);
+          remove.textContent = '刪除';
+          li.append(span, toggle, remove);
+          list.append(li);
+        });
+      };
+
+      render();
+    </script>
+  </body>
+</html>

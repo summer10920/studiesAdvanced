@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>選讀：打地鼠</title>
+    <style>
+      body { font-family: system-ui, sans-serif; margin: 1.5rem; }
+      button { font: inherit; }
+      .board { display: grid; grid-template-columns: repeat(3, 4.5rem); gap: 0.5rem; margin: 1rem 0; }
+      .hole { width: 4.5rem; height: 4.5rem; border: 2px solid #0f766e; background: #fef9c3; }
+      .hole.up { background: #ef4444; }
+      .hole.hit { background: #22c55e; }
+    </style>
+  </head>
+  <body>
+    <p>剩餘 <span id="time">20</span> 秒，分數 <span id="score">0</span></p>
+    <button type="button" id="start">開始</button>
+    <div id="board" class="board">
+      <button type="button" class="hole" data-index="0"></button>
+      <button type="button" class="hole" data-index="1"></button>
+      <button type="button" class="hole" data-index="2"></button>
+      <button type="button" class="hole" data-index="3"></button>
+      <button type="button" class="hole" data-index="4"></button>
+      <button type="button" class="hole" data-index="5"></button>
+      <button type="button" class="hole" data-index="6"></button>
+      <button type="button" class="hole" data-index="7"></button>
+      <button type="button" class="hole" data-index="8"></button>
+    </div>
+    <script>
+      const STAY_MS = 800;
+      const SPAWN_MS = 700;
+
+      const state = {
+        holes: ['idle', 'idle', 'idle', 'idle', 'idle', 'idle', 'idle', 'idle', 'idle'],
+        score: 0,
+        timeLeft: 20,
+        playing: false,
+        clockId: 0,
+        spawnId: 0,
+        hideIds: {},
+      };
+
+      const render = () => {
+        document.querySelector('#score').textContent = String(state.score);
+        document.querySelector('#time').textContent = String(state.timeLeft);
+        document.querySelectorAll('.hole').forEach((hole) => {
+          const index = Number(hole.dataset.index);
+          hole.classList.remove('up', 'hit');
+          if (state.holes[index] !== 'idle') hole.classList.add(state.holes[index]);
+        });
+        document.querySelector('#start').disabled = state.playing;
+      };
+
+      const clearTimers = () => {
+        clearInterval(state.clockId);
+        clearInterval(state.spawnId);
+        Object.keys(state.hideIds).forEach((key) => {
+          clearTimeout(state.hideIds[key]);
+        });
+        state.hideIds = {};
+      };
+
+      const spawn = () => {
+        const idleIndexes = [];
+        state.holes.forEach((status, index) => {
+          if (status === 'idle') idleIndexes.push(index);
+        });
+        if (idleIndexes.length === 0) return;
+        const index = idleIndexes[Math.floor(Math.random() * idleIndexes.length)];
+        state.holes[index] = 'up';
+        state.hideIds[index] = setTimeout(() => {
+          if (state.holes[index] === 'up') state.holes[index] = 'idle';
+          render();
+        }, STAY_MS);
+        render();
+      };
+
+      const hit = (index) => {
+        if (!state.playing || state.holes[index] !== 'up') return;
+        clearTimeout(state.hideIds[index]);
+        state.holes[index] = 'hit';
+        state.score += 1;
+        render();
+        state.hideIds[index] = setTimeout(() => {
+          state.holes[index] = 'idle';
+          render();
+        }, 300);
+      };
+
+      const end = () => {
+        state.playing = false;
+        clearTimers();
+        state.holes = ['idle', 'idle', 'idle', 'idle', 'idle', 'idle', 'idle', 'idle', 'idle'];
+        render();
+      };
+
+      const tick = () => {
+        state.timeLeft -= 1;
+        if (state.timeLeft <= 0) {
+          state.timeLeft = 0;
+          end();
+          return;
+        }
+        render();
+      };
+
+      const start = () => {
+        if (state.playing) return;
+        clearTimers();
+        state.score = 0;
+        state.timeLeft = 20;
+        state.playing = true;
+        state.holes = ['idle', 'idle', 'idle', 'idle', 'idle', 'idle', 'idle', 'idle', 'idle'];
+        state.clockId = setInterval(tick, 1000);
+        state.spawnId = setInterval(spawn, SPAWN_MS);
+        spawn();
+      };
+
+      document.querySelector('#board').addEventListener('click', (event) => {
+        const hole = event.target.closest('.hole');
+        if (!hole || !event.currentTarget.contains(hole)) return;
+        hit(Number(hole.dataset.index));
+      });
+
+      document.querySelector('#start').addEventListener('click', start);
+      render();
+    </script>
+  </body>
+</html>

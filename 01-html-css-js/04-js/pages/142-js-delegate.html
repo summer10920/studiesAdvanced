@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>事件委派</title>
+  </head>
+  <body>
+    <ul id="list">
+      <li><button type="button" data-id="1">一</button></li>
+      <li><button type="button" data-id="2">二</button></li>
+    </ul>
+    <p id="status"></p>
+    <!-- TODO: 講義「事件委派」。監聽綁在 #list，用 closest 找 button，並印出 event.target 的標籤名。換你試試：加第三顆按鈕。 -->
+    <script>
+      // TODO: 講義「事件委派」。
+      // click 綁在 #list。用 closest('button') 取得按鈕。
+      // 沒有按鈕，或按鈕不在清單裡，就 return。
+      // 有的話把 dataset.id 寫進 #status，並印出 event.target.tagName。
+      // 換你試試：HTML 再加一顆 data-id="3"，不要新增監聽。
+    </script>
+  </body>
+</html>

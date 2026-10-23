@@ -1,6 +1,10 @@
 # CSS 練習
 
-對應講義「CSS 基礎：選擇器、盒模型、Flex、Grid、RWD」（`lokiTech-15day-03-css`）。`pages/` 裡每一頁是該節的起點，完成的寫法在講義裡。HTML 留結構，樣式寫在同名的 `.css`。選讀頁可以先跳過。
+對應講義「CSS 基礎：選擇器、盒模型、Flex、Grid、RWD」（`lokiTech-15day-03-css`）。`pages/` 裡每一頁是該節的起點，完成的寫法在講義裡。
+
+外部檔是實務做法。為了閱讀方便，課堂 demo 把樣式寫在同一份 HTML 的 `style` 裡。選讀頁可以先跳過。
+
+「三種寫法」仍用外部樣式表，用來練習 link 的路徑。那一頁是 `pages/02-where.html`，規則在 `pages/02-where.css`。
 
 用 VS Code 開啟 `01-html-css-js/`。對 `03-css/index.html` 用 Live Server 開啟。寬螢幕左邊是選單，窄螢幕改成上方選單。圖片用 [picsum.photos](https://picsum.photos/) 與 [placehold.co](https://placehold.co/)，不要把圖檔放進倉庫。
 

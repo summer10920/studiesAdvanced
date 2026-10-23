@@ -1,7 +1,0 @@
-// TODO: 講義「參數與引數」
-// printPair(left, right) 依序印出兩個參數
-// 呼叫 printPair(10, 20)、printPair(10)、printPair(10, 20, 30)
-// bump(value) 把參數加 1 再印出
-// 外面 let value 為 5，呼叫 bump 後再印外面的 value
-// left 在函式外的 log 保持註解
-// 換你試試：外面的 value 改成 9

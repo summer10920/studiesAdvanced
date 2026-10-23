@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>方向鍵移動</title>
+    <style>
+      #field { position: relative; width: 240px; height: 160px; background: #ccfbf1; }
+      #box { position: absolute; width: 32px; height: 32px; background: #0f766e; left: 0; top: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="field"><div id="box"></div></div>
+    <p id="status">0, 0</p>
+    <!-- TODO: 講義「方向鍵移動」。第一步四個方向鍵改位置。完成寫法見 139-js-arrow.html.final。換你試試：碰到邊界要停住。 -->
+    <script>
+      // 第一步：方向鍵移動方塊，先不擋邊界。
+      // 完成寫法見 139-js-arrow.html.final。
+      // 換你試試：碰到 #field 邊緣就停住。
+
+      const box = document.querySelector('#box');
+      const status = document.querySelector('#status');
+      let x = 0;
+      let y = 0;
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowRight') x += 16;
+        if (event.key === 'ArrowLeft') x -= 16;
+        if (event.key === 'ArrowDown') y += 16;
+        if (event.key === 'ArrowUp') y -= 16;
+        if (!event.key.startsWith('Arrow')) return;
+        event.preventDefault();
+        box.style.left = `${x}px`;
+        box.style.top = `${y}px`;
+        status.textContent = `${x}, ${y}`;
+        console.log(status.textContent);
+      });
+    </script>
+  </body>
+</html>

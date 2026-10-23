@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>空白鍵蓄力</title>
+  </head>
+  <body>
+    <p id="power">力道 0</p>
+    <script>
+      let start = 0;
+      const power = document.querySelector('#power');
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key !== ' ' || event.repeat) return;
+        event.preventDefault();
+        start = event.timeStamp;
+        power.textContent = '蓄力中';
+        console.log('蓄力中');
+      });
+
+      document.addEventListener('keyup', (event) => {
+        if (event.key !== ' ' || !start) return;
+        const force = Math.max(0, Math.round(event.timeStamp - start));
+        start = 0;
+        power.textContent = `力道 ${force}`;
+        console.log(power.textContent);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>選讀：捕獲與冒泡</title>
+    <style>
+      #outer { padding: 1rem; background: #ccfbf1; }
+      button { margin-right: 0.4rem; }
+    </style>
+  </head>
+  <body>
+    <div id="outer">
+      <button type="button" id="inner">內層</button>
+      <button type="button" id="stop">停止冒泡</button>
+    </div>
+    <p id="status"></p>
+    <!-- TODO: 講義「選讀：捕獲與冒泡」。點內層時 Console 依序是外捕獲、內層、外冒泡。停止鍵打斷冒泡。換你試試：內層也 stopPropagation。 -->
+    <script>
+      // TODO: 講義「選讀：捕獲與冒泡」。
+      // #outer 捕獲階段寫「外捕獲」並印出，冒泡階段寫「外冒泡」並印出。
+      // #inner 寫「內層」並印出。#stop 先 stopPropagation 再寫「停止」並印出。
+      // 換你試試：#inner 的監聽也呼叫 stopPropagation，外冒泡不再出現。
+    </script>
+  </body>
+</html>

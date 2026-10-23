@@ -1,7 +1,0 @@
-// TODO: 講義「錯誤類型」
-// SyntaxError：括號沒配對的那一行保持註解，否則整份腳本無法執行
-// ReferenceError：使用尚未宣告的名字，try 接住後印 name 與 message
-// TypeError：數字呼叫 toUpperCase
-// RangeError：new Array(-1)
-// 最後印「三種錯誤都接住了」
-// 換你試試：再包一個 try，對 null 呼叫 toFixed(0)

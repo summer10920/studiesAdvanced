@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>打字小遊戲</title>
+  </head>
+  <body>
+    <p id="letter">A</p>
+    <p id="score">0</p>
+    <p id="hint"></p>
+    <!-- TODO: 講義「打字小遊戲」。第一步按對加分並換字母。完成寫法見 140-js-type.html.final。換你試試：按錯時提示。 -->
+    <script>
+      // 第一步：按對字母就加分並換下一個。按錯先不提示。
+      // 完成寫法見 140-js-type.html.final。
+      // 換你試試：按錯時 #hint 顯示「再試一次」，按對就清空。
+
+      const letters = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
+      const letter = document.querySelector('#letter');
+      const score = document.querySelector('#score');
+      let points = 0;
+
+      const nextLetter = () => {
+        letter.textContent = letters[Math.floor(Math.random() * letters.length)];
+      };
+
+      nextLetter();
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key.length !== 1) return;
+        if (event.key.toUpperCase() === letter.textContent) {
+          points += 1;
+          score.textContent = String(points);
+          console.log(points);
+          nextLetter();
+        }
+      });
+    </script>
+  </body>
+</html>

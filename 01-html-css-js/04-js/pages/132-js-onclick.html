@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>選讀：onclick</title>
+  </head>
+  <body>
+    <button type="button" id="old" onclick="fromHtml()">HTML 屬性</button>
+    <button type="button" id="prop">屬性指派</button>
+    <button type="button" id="modern">addEventListener</button>
+    <p id="status">尚未點</p>
+    <!-- TODO: 選讀「onclick」。HTML 屬性呼叫全域函式；#prop 連續指派兩次 onclick；#modern 用 addEventListener 登記兩份。 -->
+    <script>
+      // TODO: 選讀「onclick」。
+      // function fromHtml 把 #status 設成「來自 HTML 屬性」。
+      // #prop.onclick 先指派「第一個函式」，再指派「只剩第二個」。
+      // #modern 用 addEventListener 登記兩份，分別 console.log「第一份」與「第二份」。
+      // 換你試試：再把 #prop.onclick 設成 null。
+    </script>
+  </body>
+</html>

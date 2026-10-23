@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>打字小遊戲</title>
+  </head>
+  <body>
+    <p id="letter">A</p>
+    <p id="score">0</p>
+    <p id="hint"></p>
+    <script>
+      const letters = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
+      const letter = document.querySelector('#letter');
+      const score = document.querySelector('#score');
+      const hint = document.querySelector('#hint');
+      let points = 0;
+
+      const nextLetter = () => {
+        letter.textContent = letters[Math.floor(Math.random() * letters.length)];
+        hint.textContent = '';
+      };
+
+      nextLetter();
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key.length !== 1) return;
+        if (event.key.toUpperCase() === letter.textContent) {
+          points += 1;
+          score.textContent = String(points);
+          console.log(points);
+          nextLetter();
+        } else {
+          hint.textContent = '再試一次';
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>方向鍵移動</title>
+    <style>
+      #field { position: relative; width: 240px; height: 160px; background: #ccfbf1; }
+      #box { position: absolute; width: 32px; height: 32px; background: #0f766e; left: 0; top: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="field"><div id="box"></div></div>
+    <p id="status">0, 0</p>
+    <script>
+      const box = document.querySelector('#box');
+      const field = document.querySelector('#field');
+      const status = document.querySelector('#status');
+      let x = 0;
+      let y = 0;
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowRight') x += 16;
+        if (event.key === 'ArrowLeft') x -= 16;
+        if (event.key === 'ArrowDown') y += 16;
+        if (event.key === 'ArrowUp') y -= 16;
+        if (!event.key.startsWith('Arrow')) return;
+        event.preventDefault();
+        const maxX = field.clientWidth - box.offsetWidth;
+        const maxY = field.clientHeight - box.offsetHeight;
+        x = Math.min(maxX, Math.max(0, x));
+        y = Math.min(maxY, Math.max(0, y));
+        box.style.left = `${x}px`;
+        box.style.top = `${y}px`;
+        status.textContent = `${x}, ${y}`;
+        console.log(status.textContent);
+      });
+    </script>
+  </body>
+</html>

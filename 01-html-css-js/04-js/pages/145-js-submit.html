@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>送出與檢查</title>
+  </head>
+  <body>
+    <form id="editor" novalidate>
+      <input name="title" required />
+      <button type="submit">送出</button>
+    </form>
+    <p id="result"></p>
+    <!-- TODO: 講義「送出與檢查」。preventDefault、checkValidity、FormData。換你試試：加上 minlength="2"。 -->
+    <script>
+      // TODO: 講義「送出與檢查」。
+      // submit 時 preventDefault。
+      // checkValidity 失敗就 reportValidity，#result 寫「還沒通過檢查」。
+      // 通過則用 FormData 取出 title 寫進 #result。
+      // 換你試試：輸入框加上 minlength="2"。
+    </script>
+  </body>
+</html>
