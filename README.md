@@ -42,9 +42,10 @@ cd studiesAdvanced
 | 06 JavaScript 基礎 | 變數、函式、陣列、模組 | `01-html-css-js/04-js/` | Live Server |
 | 07 DOM | 選取元素與事件 | （稍後加入） | — |
 | 08 非同步 | fetch、async | （稍後加入） | — |
-| 09 React 基礎 | 元件、props、state、列表 | `03-react/` | `pnpm dev` |
-| 10 React 進階 | effect、表單、路由 | `03-react/` | `pnpm dev` |
-| 11 結業專案 | 洛奇旅行 | `04-project/` | 規格之後才補進該資料夾 |
+| 09 React 基礎 | 元件、props、state、列表與表單 | `03-react/` | `pnpm dev` |
+| 10 React 進階 | effect、共用狀態 | `03-react/` | `pnpm dev` |
+| 11 React Router | 路由、選單、參數 | `04-react-router/` | `pnpm dev` |
+| 12 結業專案 | 洛奇旅行 | `05-project/` | 規格之後才補進該資料夾 |
 
 `02-html`、`03-css` 與 `04-js` 裡每個子資料夾都是該節的**起點**（結構、占位內容、中文 TODO），不是講義上的完成版。各資料夾的 `README.md` 有對照表。
 
@@ -55,7 +56,7 @@ cd studiesAdvanced
 **Tailwind 與 React。** 需要 Node 24 與 pnpm。還沒有 pnpm 時，在終端機執行 `corepack enable`，然後開一個新終端機。
 
 ```bash
-cd 02-tailwind   # 或 03-react
+cd 02-tailwind   # 或 03-react、04-react-router
 pnpm install
 pnpm dev
 cd ..            # 回到倉庫根目錄

@@ -1,0 +1,40 @@
+import { useState } from 'react';
+import { useNavigate, useSearchParams } from 'react-router';
+
+export default function FormPage() {
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const itemId = searchParams.get('itemId') ?? '';
+  const [name, setName] = useState('');
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+    navigate('/items');
+  };
+
+  return (
+    <form onSubmit={onSubmit} className="grid max-w-sm gap-3">
+      <label className="grid gap-1">
+        編號
+        <input
+          readOnly
+          name="itemId"
+          value={itemId}
+          className="rounded border bg-stone-100 px-2 py-1"
+        />
+      </label>
+      <input
+        value={name}
+        onChange={(event) => setName(event.target.value)}
+        className="rounded border px-2 py-1"
+        placeholder="名稱"
+      />
+      <button
+        type="submit"
+        className="rounded bg-teal-800 px-3 py-1 text-white"
+      >
+        送出並回到清單
+      </button>
+    </form>
+  );
+}

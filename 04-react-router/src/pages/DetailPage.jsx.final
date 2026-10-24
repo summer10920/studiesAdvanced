@@ -1,0 +1,39 @@
+import { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router';
+
+export default function DetailPage() {
+  const { id } = useParams();
+  const [status, setStatus] = useState('loading');
+  const [item, setItem] = useState(null);
+
+  useEffect(() => {
+    const load = async () => {
+      try {
+        const response = await fetch('/data/items.json');
+        if (!response.ok) throw new Error(String(response.status));
+        const items = await response.json();
+        setItem(items.find((row) => String(row.id) === id) ?? null);
+        setStatus('ready');
+      } catch {
+        setStatus('error');
+      }
+    };
+    load();
+  }, [id]);
+
+  if (status === 'loading') return <p>載入中</p>;
+  if (status === 'error') return <p>讀取失敗</p>;
+  if (!item) return <p>找不到這筆</p>;
+
+  return (
+    <article>
+      <h1 className="text-2xl font-bold">{item.name}</h1>
+      <p className="mt-2">{item.price}</p>
+      <p className="mt-4">
+        <Link className="text-teal-800 underline" to={'/new?itemId=' + item.id}>
+          填這筆
+        </Link>
+      </p>
+    </article>
+  );
+}

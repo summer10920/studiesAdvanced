@@ -1,0 +1,25 @@
+import { Route, Routes } from 'react-router';
+import Layout from './components/Layout.jsx';
+import HomePage from './pages/HomePage.jsx';
+import ListPage from './pages/ListPage.jsx';
+import DetailPage from './pages/DetailPage.jsx';
+import SearchPage from './pages/SearchPage.jsx';
+import FormPage from './pages/FormPage.jsx';
+import WherePage from './pages/WherePage.jsx';
+import NotFoundPage from './pages/NotFoundPage.jsx';
+
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route path="items" element={<ListPage />} />
+        <Route path="items/:id" element={<DetailPage />} />
+        <Route path="search" element={<SearchPage />} />
+        <Route path="new" element={<FormPage />} />
+        <Route path="where" element={<WherePage />} />
+      </Route>
+      <Route path="*" element={<NotFoundPage />} />
+    </Routes>
+  );
+}

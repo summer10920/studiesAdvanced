@@ -1,0 +1,36 @@
+// TODO: 講義「Provider」。換你試試：再加一個按鈕把主題設回淺色。Banner 要跟著回去。
+import { createContext, useContext, useState } from 'react';
+
+const ThemeContext = createContext('淺色');
+
+function Banner() {
+  const theme = useContext(ThemeContext);
+  return <p>主題 {theme}</p>;
+}
+
+function Layout() {
+  return (
+    <div className="rounded border border-stone-200 p-3">
+      <Banner />
+    </div>
+  );
+}
+
+export default function ContextDemo() {
+  const [theme, setTheme] = useState('淺色');
+
+  return (
+    <ThemeContext.Provider value={theme}>
+      <section className="grid gap-3">
+        <button
+          type="button"
+          className="w-fit rounded bg-teal-800 px-3 py-1 text-white"
+          onClick={() => setTheme('深色')}
+        >
+          改成深色
+        </button>
+        <Layout />
+      </section>
+    </ThemeContext.Provider>
+  );
+}

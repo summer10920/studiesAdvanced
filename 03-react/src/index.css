@@ -1,4 +1,6 @@
+@import 'tailwindcss';
+
 body {
   margin: 0;
-  font-family: system-ui, "PingFang TC", "Microsoft JhengHei", sans-serif;
+  font-family: system-ui, 'PingFang TC', 'Microsoft JhengHei', sans-serif;
 }

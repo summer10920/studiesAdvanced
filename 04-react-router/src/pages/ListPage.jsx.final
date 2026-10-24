@@ -1,0 +1,30 @@
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router';
+
+export default function ListPage() {
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    const load = async () => {
+      const response = await fetch('/data/items.json');
+      if (!response.ok) return;
+      setItems(await response.json());
+    };
+    load();
+  }, []);
+
+  return (
+    <section>
+      <h1 className="text-2xl font-bold">清單</h1>
+      <ul className="mt-3 grid gap-2">
+        {items.map((item) => (
+          <li key={item.id}>
+            <Link className="text-teal-800 underline" to={'/items/' + item.id}>
+              {item.name} {item.price}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
