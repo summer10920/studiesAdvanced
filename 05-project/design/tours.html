@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>行程 · 洛奇旅行</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet" />
+    <style>
+      h1 { font-size: 3rem; }
+      h2 { font-size: 1.25rem; }
+      p { font-size: 1rem; }
+    </style>
+  </head>
+  <body class="flex min-h-screen flex-col bg-mist font-sans text-base text-ink antialiased">
+    <load src="./partials/header.html" tours="page" />
+    <main class="mx-auto w-full max-w-6xl px-4 pt-12 pb-20 sm:px-6 sm:pt-16 sm:pb-28">
+      <h1 class="text-balance font-serif text-5xl font-semibold leading-tight text-ink">找一趟想走的路</h1>
+      <p class="mt-4 max-w-prose text-base leading-relaxed text-moss">依地點或天數縮小範圍。這頁的篩選只改畫面上的卡片，沒有打到伺服器。</p>
+      <form id="tour-filter" class="mt-12 grid grid-cols-1 gap-4 border-b border-tide pb-6 sm:grid-cols-[1fr_1fr_auto] sm:items-end" action="#" method="get">
+        <div>
+          <label class="block text-base font-medium text-ink" for="place">地點</label>
+          <select id="place" class="mt-1.5 min-h-11 w-full border border-tide bg-paper px-3 text-base text-ink" name="place">
+            <option value="">全部</option>
+            <option value="台北">台北</option>
+            <option value="花蓮">花蓮</option>
+            <option value="台南">台南</option>
+            <option value="嘉義">嘉義</option>
+            <option value="屏東">屏東</option>
+            <option value="金門">金門</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-base font-medium text-ink" for="days">天數</label>
+          <select id="days" class="mt-1.5 min-h-11 w-full border border-tide bg-paper px-3 text-base text-ink" name="days">
+            <option value="">不限</option>
+            <option value="2">2 天</option>
+            <option value="3">3 天</option>
+            <option value="4">4 天</option>
+          </select>
+        </div>
+        <div class="flex gap-2">
+          <button class="inline-flex min-h-11 items-center bg-pine px-4 text-base font-medium text-white hover:bg-pine-deep" type="submit">套用</button>
+          <button class="inline-flex min-h-11 items-center border border-pine bg-paper px-4 text-base font-medium text-pine hover:bg-foam" type="reset">清除</button>
+        </div>
+      </form>
+      <p id="tour-empty" class="mt-8 hidden max-w-prose text-base leading-relaxed text-moss">沒有符合的行程。清除篩選再看一次。</p>
+      <div class="mt-10 grid grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+        <article class="flex flex-col border-b border-tide pb-8" data-tour data-place="台北" data-days="3">
+          <img class="aspect-[4/3] w-full object-cover" src="https://picsum.photos/id/1018/800/500" alt="台北河岸與城市天際" />
+          <div class="flex flex-1 flex-col pt-4">
+            <p class="flex gap-4 text-base text-moss"><span>台北</span><span>3 天</span></p>
+            <h2 class="mt-2 font-serif text-xl font-semibold leading-tight text-ink">台北城市漫遊</h2>
+            <p class="mt-2 text-base leading-relaxed text-moss">迪化街、大稻埕河岸，最後一晚住在老屋改建的旅社。</p>
+            <div class="mt-4 font-serif text-xl tabular-nums text-ink">NT$12,800 <span class="font-sans text-base font-normal text-moss">/ 人</span></div>
+            <a class="mt-3 w-fit text-base font-medium text-pine underline decoration-tide underline-offset-4 hover:text-ink" href="tour.html">看詳情</a>
+          </div>
+        </article>
+        <article class="flex flex-col border-b border-tide pb-8" data-tour data-place="花蓮" data-days="4">
+          <img class="aspect-[4/3] w-full object-cover" src="https://picsum.photos/id/1016/800/500" alt="花蓮海岸與山線" />
+          <div class="flex flex-1 flex-col pt-4">
+            <p class="flex gap-4 text-base text-moss"><span>花蓮</span><span>4 天</span></p>
+            <h2 class="mt-2 font-serif text-xl font-semibold leading-tight text-ink">花蓮山海</h2>
+            <p class="mt-2 text-base leading-relaxed text-moss">清水斷崖看海，晚上回壽豐的小旅店，隔天再進太魯閣。</p>
+            <div class="mt-4 font-serif text-xl tabular-nums text-ink">NT$18,600 <span class="font-sans text-base font-normal text-moss">/ 人</span></div>
+            <a class="mt-3 w-fit text-base font-medium text-pine underline decoration-tide underline-offset-4 hover:text-ink" href="tour.html">看詳情</a>
+          </div>
+        </article>
+        <article class="flex flex-col border-b border-tide pb-8" data-tour data-place="台南" data-days="2">
+          <img class="aspect-[4/3] w-full object-cover" src="https://picsum.photos/id/1036/800/500" alt="台南巷弄" />
+          <div class="flex flex-1 flex-col pt-4">
+            <p class="flex gap-4 text-base text-moss"><span>台南</span><span>2 天</span></p>
+            <h2 class="mt-2 font-serif text-xl font-semibold leading-tight text-ink">台南古都</h2>
+            <p class="mt-2 text-base leading-relaxed text-moss">早上走孔廟一帶，下午把時間留給小吃，不趕下一站。</p>
+            <div class="mt-4 font-serif text-xl tabular-nums text-ink">NT$9,800 <span class="font-sans text-base font-normal text-moss">/ 人</span></div>
+            <a class="mt-3 w-fit text-base font-medium text-pine underline decoration-tide underline-offset-4 hover:text-ink" href="tour.html">看詳情</a>
+          </div>
+        </article>
+        <article class="flex flex-col border-b border-tide pb-8" data-tour data-place="嘉義" data-days="3">
+          <img class="aspect-[4/3] w-full object-cover" src="https://picsum.photos/id/1019/800/500" alt="阿里山雲霧與森林" />
+          <div class="flex flex-1 flex-col pt-4">
+            <p class="flex gap-4 text-base text-moss"><span>嘉義</span><span>3 天</span></p>
+            <h2 class="mt-2 font-serif text-xl font-semibold leading-tight text-ink">阿里山雲海</h2>
+            <p class="mt-2 text-base leading-relaxed text-moss">上山看日出，下午沿森林步道慢慢走，不住在太吵的店。</p>
+            <div class="mt-4 font-serif text-xl tabular-nums text-ink">NT$15,200 <span class="font-sans text-base font-normal text-moss">/ 人</span></div>
+            <a class="mt-3 w-fit text-base font-medium text-pine underline decoration-tide underline-offset-4 hover:text-ink" href="tour.html">看詳情</a>
+          </div>
+        </article>
+        <article class="flex flex-col border-b border-tide pb-8" data-tour data-place="屏東" data-days="4">
+          <img class="aspect-[4/3] w-full object-cover" src="https://picsum.photos/id/1015/800/500" alt="墾丁海岸" />
+          <div class="flex flex-1 flex-col pt-4">
+            <p class="flex gap-4 text-base text-moss"><span>屏東</span><span>4 天</span></p>
+            <h2 class="mt-2 font-serif text-xl font-semibold leading-tight text-ink">墾丁海岸</h2>
+            <p class="mt-2 text-base leading-relaxed text-moss">白沙灣待一個下午，晚上在恆春舊城附近吃飯。</p>
+            <div class="mt-4 font-serif text-xl tabular-nums text-ink">NT$16,800 <span class="font-sans text-base font-normal text-moss">/ 人</span></div>
+            <a class="mt-3 w-fit text-base font-medium text-pine underline decoration-tide underline-offset-4 hover:text-ink" href="tour.html">看詳情</a>
+          </div>
+        </article>
+        <article class="flex flex-col border-b border-tide pb-8" data-tour data-place="金門" data-days="3">
+          <img class="aspect-[4/3] w-full object-cover" src="https://picsum.photos/id/1040/800/500" alt="金門閩式建築" />
+          <div class="flex flex-1 flex-col pt-4">
+            <p class="flex gap-4 text-base text-moss"><span>金門</span><span>3 天</span></p>
+            <h2 class="mt-2 font-serif text-xl font-semibold leading-tight text-ink">金門聚落</h2>
+            <p class="mt-2 text-base leading-relaxed text-moss">走閩式老厝與坑道，傍晚回金城吃一頓海鮮。</p>
+            <div class="mt-4 font-serif text-xl tabular-nums text-ink">NT$14,200 <span class="font-sans text-base font-normal text-moss">/ 人</span></div>
+            <a class="mt-3 w-fit text-base font-medium text-pine underline decoration-tide underline-offset-4 hover:text-ink" href="tour.html">看詳情</a>
+          </div>
+        </article>
+      </div>
+    </main>
+    <load src="./partials/footer.html" />
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

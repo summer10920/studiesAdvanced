@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>台北城市漫遊 · 洛奇旅行</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet" />
+    <style>
+      h1 { font-size: 3rem; }
+      h2 { font-size: 1.875rem; }
+      p { font-size: 1rem; }
+    </style>
+  </head>
+  <body class="flex min-h-screen flex-col bg-mist font-sans text-base text-ink antialiased">
+    <load src="./partials/header.html" tours="page" />
+    <main class="mx-auto w-full max-w-6xl px-4 pt-10 pb-20 sm:px-6 sm:pt-14 sm:pb-28">
+      <p class="text-base"><a class="font-medium text-pine underline decoration-tide underline-offset-4 hover:text-ink" href="tours.html">回行程列表</a></p>
+      <article class="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:items-start lg:gap-12">
+        <img class="aspect-[4/3] w-full object-cover" src="https://picsum.photos/id/1018/1200/800" alt="台北河岸與城市天際" />
+        <div>
+          <p class="flex gap-4 text-base text-moss"><span>台北</span><span>3 天</span></p>
+          <h1 class="mt-3 text-balance font-serif text-5xl font-semibold leading-tight text-ink">台北城市漫遊</h1>
+          <dl class="mt-8 grid grid-cols-3 gap-4 border-y border-tide py-4 text-base">
+            <div>
+              <dt class="text-moss">地點</dt>
+              <dd class="mt-1 font-medium text-ink">台北</dd>
+            </div>
+            <div>
+              <dt class="text-moss">天數</dt>
+              <dd class="mt-1 font-medium tabular-nums text-ink">3</dd>
+            </div>
+            <div>
+              <dt class="text-moss">價錢</dt>
+              <dd class="mt-1 font-medium tabular-nums text-ink">NT$12,800</dd>
+            </div>
+          </dl>
+          <h2 class="mt-12 font-serif text-3xl font-semibold leading-tight text-ink">行程介紹</h2>
+          <p class="mt-3 max-w-prose text-base leading-relaxed text-moss">週五晚在台北車站集合，先沿著迪化街走到大稻埕。第二天白天空出一個上午，下午再搭船看河岸。最後一晚住在老屋改建的旅社，含早餐與一趟夜間導覽，最多 8 人。</p>
+          <div class="mt-10 font-serif text-3xl tabular-nums text-ink">NT$12,800 <span class="font-sans text-base font-normal text-moss">/ 人</span></div>
+          <a class="mt-4 inline-flex min-h-11 items-center bg-pine px-5 text-base font-medium text-white hover:bg-pine-deep" href="booking.html?tourId=1">我要報名</a>
+        </div>
+      </article>
+    </main>
+    <load src="./partials/footer.html" />
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

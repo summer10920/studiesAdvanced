@@ -1,0 +1,24 @@
+<!-- SiteHeader -->
+<header id="site-header" class="sticky top-0 z-50 border-b border-tide bg-mist text-ink">
+  <div class="relative mx-auto flex w-full max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
+    <a class="font-serif text-xl font-semibold tracking-tight text-ink" href="index.html">洛奇旅行</a>
+    <button
+      id="nav-toggle"
+      class="inline-flex min-h-11 items-center border border-tide bg-paper px-3 text-sm font-medium text-ink md:hidden"
+      type="button"
+      aria-expanded="false"
+      aria-controls="site-nav"
+    >
+      選單
+    </button>
+    <nav
+      id="site-nav"
+      class="absolute inset-x-0 top-full z-50 mt-px hidden flex-col gap-1 border border-tide bg-paper p-3 shadow-[0_16px_28px_-20px_rgba(16,46,41,0.55)] md:static md:mt-0 md:flex md:w-auto md:flex-row md:items-center md:gap-1 md:border-0 md:bg-transparent md:p-0 md:shadow-none"
+      aria-label="主要"
+    >
+      <a class="inline-flex min-h-11 items-center px-3 text-sm text-ink hover:bg-foam aria-[current=page]:bg-pine aria-[current=page]:text-white" href="index.html" aria-current="{=$home}">首頁</a>
+      <a class="inline-flex min-h-11 items-center px-3 text-sm text-ink hover:bg-foam aria-[current=page]:bg-pine aria-[current=page]:text-white" href="tours.html" aria-current="{=$tours}">行程</a>
+      <a class="inline-flex min-h-11 items-center px-3 text-sm text-ink hover:bg-foam aria-[current=page]:bg-pine aria-[current=page]:text-white" href="booking.html" aria-current="{=$booking}">報名</a>
+    </nav>
+  </div>
+</header>

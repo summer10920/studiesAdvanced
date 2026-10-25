@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>報名 · 洛奇旅行</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body class="flex min-h-screen flex-col bg-mist font-sans text-base text-ink antialiased">
+    <load src="./partials/header.html" booking="page" />
+    <main class="mx-auto w-full max-w-xl px-4 pt-12 pb-20 sm:px-6 sm:pt-16 sm:pb-28">
+      <h1 class="text-balance font-serif text-5xl font-semibold leading-tight text-ink">填寫報名資料</h1>
+      <p class="mt-4 max-w-prose text-base leading-relaxed text-moss">從行程頁帶過來的編號會出現在 tourId。送出只停在這一頁，沒有後端。</p>
+      <form id="booking-form" class="mt-12 space-y-5" action="#" method="post">
+        <div>
+          <label class="block text-base font-medium text-ink" for="tour-id">行程編號</label>
+          <input id="tour-id" class="mt-1.5 min-h-11 w-full border border-tide bg-foam px-3 text-base text-moss" name="tourId" type="text" value="1" readonly />
+        </div>
+        <div>
+          <label class="block text-base font-medium text-ink" for="name">姓名</label>
+          <input id="name" class="mt-1.5 min-h-11 w-full border border-tide bg-paper px-3 text-base text-ink" name="name" type="text" autocomplete="name" required />
+        </div>
+        <div>
+          <label class="block text-base font-medium text-ink" for="email">Email</label>
+          <input id="email" class="mt-1.5 min-h-11 w-full border border-tide bg-paper px-3 text-base text-ink" name="email" type="email" autocomplete="email" required />
+        </div>
+        <div>
+          <label class="block text-base font-medium text-ink" for="people">人數</label>
+          <input id="people" class="mt-1.5 min-h-11 w-full border border-tide bg-paper px-3 text-base text-ink tabular-nums" name="people" type="number" min="1" max="8" value="1" required />
+        </div>
+        <button class="inline-flex min-h-11 w-full items-center justify-center bg-pine px-4 text-base font-medium text-white hover:bg-pine-deep" type="submit">送出報名</button>
+        <p id="booking-status" class="hidden border border-tide bg-foam px-3 py-3 text-base leading-relaxed text-ink" role="status">已留在這一頁。設計稿沒有把報名送出去。</p>
+      </form>
+    </main>
+    <load src="./partials/footer.html" />
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

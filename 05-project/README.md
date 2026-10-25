@@ -14,3 +14,5 @@
 `/admin` 只在本機做行程的增刪改。行程欄位是 `id`、`title`、`place`、`days`、`price`、`image`、`intro`。報名欄位是 `tourId`、`name`、`email`、`people`。json-server 只在本機；佈上 GitHub Pages 後改讀專案裡的 JSON。
 
 畫面元件沿用前面的作業：`SiteHeader`、`Hero`、`TourList`／`TourCard`、`TourDetail`、`BookingForm`、`SiteFooter`。路由從 `react-router` 引入。
+
+靜態版型在 [`design/`](design/README.md)。先 `pnpm install`、`pnpm dev` 對版面，再改寫成 React。

@@ -1,0 +1,82 @@
+@import 'tailwindcss';
+
+/* 洛奇旅行
+   墨潮 #102E29 · 海松 #1A6558 · 深松 #12483F · 晨霧 #F3F6F4 · 潮線 #E7F3EE · 淺浪 #D5E6DF
+   顯示 Noto Serif TC（標題、價格）／內文 Noto Sans TC（導覽、表單、表格）
+   版面：風景先落地，左對齊像步行筆記；前台說服與閱讀，後台掃描。
+   原則：記憶點只放在首屏風景與襯線大標。相關的靠緊，區塊之間留白更大。 */
+
+@theme {
+  --font-sans: 'Noto Sans TC', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Noto Serif TC', ui-serif, serif;
+  --color-ink: #102e29;
+  --color-moss: #2c4a43;
+  --color-pine: #1a6558;
+  --color-pine-deep: #12483f;
+  --color-mist: #f3f6f4;
+  --color-foam: #e7f3ee;
+  --color-tide: #d5e6df;
+  --color-alert: #8c3a32;
+}
+
+@layer base {
+  html {
+    scrollbar-color: #1a6558 #e7f3ee;
+  }
+
+  h1 {
+    font-size: 3rem;
+    line-height: 1.15;
+  }
+
+  h2 {
+    font-size: 1.875rem;
+    line-height: 1.25;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    line-height: 1.3;
+  }
+
+  ::selection {
+    background-color: #d5e6df;
+    color: #102e29;
+  }
+
+  :focus-visible {
+    outline: 2px solid #102e29;
+    outline-offset: 3px;
+  }
+
+  footer :focus-visible {
+    outline-color: #e7f3ee;
+  }
+
+  input,
+  textarea,
+  select {
+    accent-color: #1a6558;
+    caret-color: #1a6558;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: #2c4a43;
+  }
+
+  input:user-invalid,
+  textarea:user-invalid,
+  select:user-invalid {
+    border-color: #8c3a32;
+    background-color: #f8f3f2;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      transition: none !important;
+    }
+  }
+}
