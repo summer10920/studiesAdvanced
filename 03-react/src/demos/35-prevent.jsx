@@ -1,4 +1,3 @@
-// TODO: 講義「preventDefault」。換你試試：送出時改把訊息設成「已收到」加上名稱。仍要先取消預設動作。
 import { useState } from 'react';
 
 export default function PreventDemo() {

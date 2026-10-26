@@ -1,4 +1,3 @@
-// TODO: 講義「聚焦輸入框」。換你試試：再加一顆按鈕，按下把輸入框的值清空。用 `inputRef.current.value = ''`，不要加狀態。
 import { useRef } from 'react';
 
 export default function RefDemo() {

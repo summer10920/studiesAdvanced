@@ -1,4 +1,3 @@
-// TODO: 講義「在元件裡使用」。換你試試：拿掉第二個 `NameList`。畫面應只剩一行名稱，網路也只該剩下一輪讀取。
 import { useLocalItems } from '../hooks/useLocalItems.js';
 
 function NameList() {

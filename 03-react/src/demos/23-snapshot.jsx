@@ -1,4 +1,3 @@
-// TODO: 講義「狀態快照」。換你試試：在 `console.log` 後面再印一次 `count + 1`。畫面仍是「快照次數 1」，Console 第二行應是 1。
 import { useState } from 'react';
 
 export default function SnapshotDemo() {

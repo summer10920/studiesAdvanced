@@ -1,4 +1,3 @@
-// TODO: 講義「無限迴圈」。換你試試：按鈕改成把行程設成京都紅葉散步，按鈕文字一併改成「改成京都紅葉散步」。按一次後，分頁標題應是京都紅葉散步，而且只換一次。
 import { useEffect, useState } from 'react';
 
 export default function LoopDemo() {

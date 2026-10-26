@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getItems } from '../api/items-api.js';
+import { getItems } from '../api/fake-api.js';
 
 export function useLocalItems() {
   const [status, setStatus] = useState('loading');

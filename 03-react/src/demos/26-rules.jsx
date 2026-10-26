@@ -1,4 +1,3 @@
-// TODO: 講義「Hooks 規則」。換你試試：把 `setStock(0)` 改成更新函式，讓庫存減 1。按兩次應變成補貨中。Hook 仍留在最上面。
 import { useState } from 'react';
 
 export default function RulesDemo() {

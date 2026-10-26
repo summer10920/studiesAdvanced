@@ -1,4 +1,3 @@
-// TODO: 講義「陣列修改」。換你試試：同一顆按鈕把花蓮山海三日的標題也改成「花蓮山海五日」。價格仍是 16800。
 import { useState } from 'react';
 
 const initial = [

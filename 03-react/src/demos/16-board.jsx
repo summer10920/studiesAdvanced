@@ -1,4 +1,3 @@
-// TODO: 講義「named export」。換你試試：再加一張卡片，名稱京都紅葉散步、價格 42800。引入那一行留著。
 import { Card } from './15-card.jsx';
 
 export default function BoardDemo() {

@@ -1,4 +1,3 @@
-// TODO: 講義「陣列刪除」。換你試試：刪除改成只留被點到的那一筆，其他筆都拿掉。按花蓮山海三日之後，清單只剩花蓮山海三日。
 import { useState } from 'react';
 
 const initial = [

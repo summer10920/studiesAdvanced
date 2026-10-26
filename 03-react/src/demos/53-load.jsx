@@ -1,4 +1,3 @@
-// TODO: 講義「載入與錯誤」。換你試試：網址改成 `/data/missing.json`。畫面應變成讀取失敗，而不是空清單。
 import { useEffect, useState } from 'react';
 
 export default function LoadDemo() {

@@ -1,4 +1,3 @@
-// TODO: 講義「textarea」。換你試試：加一顆按鈕，按下把備註設成空字串。字數應變成 0。
 import { useState } from 'react';
 
 export default function AreaDemo() {

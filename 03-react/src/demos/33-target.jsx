@@ -1,4 +1,3 @@
-// TODO: 講義「事件物件」。換你試試：Console 除了事件種類，再印出按鈕文字。畫面的那段文字維持不變。
 import { useState } from 'react';
 
 export default function TargetDemo() {

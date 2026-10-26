@@ -1,21 +1,23 @@
-// TODO: 講義「API 模組」。換你試試：按「新增」清表單時，標題從空字串改成「新行程」。地點、天數、價格仍是空的。送出前輸入框裡應看得到「新行程」。
 import { useEffect, useState } from 'react';
 import {
   createItem,
   deleteItem,
   getItems,
   updateItem,
-} from '../api/items-api.js';
+} from '../api/fake-api.js';
 
+// 空白表單：新增與清表單共用
 const emptyForm = { title: '', place: '', days: '', price: '' };
 
 export default function ItemsDemo() {
+  // 清單、表單、正在編輯的 id、載入訊息
   const [items, setItems] = useState([]);
   const [message, setMessage] = useState('載入中');
   const [ready, setReady] = useState(false);
   const [form, setForm] = useState(emptyForm);
   const [editingId, setEditingId] = useState(null);
 
+  // 進畫面讀清單一次；清除時中止這次請求
   useEffect(() => {
     const controller = new AbortController();
     const load = async () => {
@@ -32,6 +34,7 @@ export default function ItemsDemo() {
     return () => controller.abort();
   }, []);
 
+  // 表單欄位、清成新增、帶入編輯
   const onChange = (event) => {
     const { name, value } = event.target;
     setForm((current) => ({ ...current, [name]: value }));
@@ -52,6 +55,7 @@ export default function ItemsDemo() {
     });
   };
 
+  // 刪除成功後改本機清單
   const onDelete = async (id) => {
     try {
       await deleteItem(id);
@@ -63,6 +67,7 @@ export default function ItemsDemo() {
     }
   };
 
+  // 送出：新增或更新；成功後改本機清單並清表單
   const onSubmit = async (event) => {
     event.preventDefault();
     const id = editingId;
@@ -89,6 +94,7 @@ export default function ItemsDemo() {
     }
   };
 
+  // 載入中先擋；左邊卡片＋新增，右邊共用表單
   if (!ready) return <p>{message}</p>;
 
   return (

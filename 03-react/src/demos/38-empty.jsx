@@ -1,4 +1,3 @@
-// TODO: 講義「空清單」。換你試試：條件改成價格小於 20000。說明應消失，改出現台北城市漫遊與花蓮山海三日。
 const tours = [
   { id: 'taipei', title: '台北城市漫遊', price: 12800 },
   { id: 'hualien', title: '花蓮山海三日', price: 15900 },

@@ -1,4 +1,3 @@
-// TODO: 講義「函式元件」。換你試試：標題改成「你好，React」。下面那句留著，父層仍是同一個 section。
 export default function Hello() {
   return (
     <section>

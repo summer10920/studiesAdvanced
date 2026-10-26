@@ -1,4 +1,3 @@
-// TODO: 講義「搭配 Context」。換你試試：`TodoList` 在沒有待辦時顯示「沒有待辦」。新增後那句話要消失。
 import { createContext, useContext, useReducer } from 'react';
 
 const TodoContext = createContext(null);

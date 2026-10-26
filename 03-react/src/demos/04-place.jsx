@@ -1,4 +1,3 @@
-// TODO: 講義「狀態的位置」。換你試試：把 `showPrice` 改成 `false`。兩張卡片都只留名稱，卡片元件的參數不要刪。
 function Card({ title, price, showPrice }) {
   return (
     <article className="rounded border border-stone-200 bg-white p-4">

@@ -1,4 +1,3 @@
-// TODO: 講義「不觸發渲染的值」。換你試試：只累計按兩次再按顯示。畫面應是 2，Console 是 1 與 2。
 import { useRef, useState } from 'react';
 
 export default function RefCountDemo() {

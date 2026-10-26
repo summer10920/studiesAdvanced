@@ -1,4 +1,3 @@
-// TODO: 講義「兄弟元件」。換你試試：再加一顆按鈕回報京都紅葉散步。摘要要能顯示京都紅葉散步。`Summary` 不用改。
 import { useState } from 'react';
 
 function Picker({ onPick }) {

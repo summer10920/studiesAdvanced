@@ -1,4 +1,3 @@
-// TODO: 講義「DELETE」。換你試試：改刪 id 2。成功時訊息仍是已刪除加上狀態碼。
 import { useState } from 'react';
 
 export default function DeleteDemo() {

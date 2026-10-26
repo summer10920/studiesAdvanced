@@ -1,4 +1,3 @@
-// TODO: 講義「第一次執行」。換你試試：在 setup 裡多印一行固定字串「已掛上」。按下加一之後，Console 不該再出現這一行。
 import { useEffect, useState } from 'react';
 
 export default function EffectMount() {

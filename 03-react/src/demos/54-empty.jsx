@@ -1,4 +1,3 @@
-// TODO: 講義「空資料」。換你試試：網址改回 `/data/items.json`。應改看到三個標題，而不是沒有資料。
 import { useEffect, useState } from 'react';
 
 export default function EmptyLoadDemo() {

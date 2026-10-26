@@ -1,4 +1,3 @@
-// TODO: 講義「POST」。換你試試：標題改成「第二則」。狀態碼仍應是 201，畫面不必顯示標題也沒關係。
 import { useState } from 'react';
 
 export default function PostDemo() {

@@ -1,4 +1,3 @@
-// TODO: 講義「巢狀物件」。換你試試：同一顆按鈕把路名也改成「民生路」。城市仍是台南，名稱仍是阿光。
 import { useState } from 'react';
 
 export default function NestedDemo() {

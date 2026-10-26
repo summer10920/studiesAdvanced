@@ -1,4 +1,3 @@
-// TODO: 講義「Fragment」。換你試試：在段落下面再加一個段落，文字是「仍然沒有外框」。簡寫留著。
 export default function FragmentDemo() {
   return (
     <>

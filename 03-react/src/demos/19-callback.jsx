@@ -1,4 +1,3 @@
-// TODO: 講義「函式型 props」。換你試試：再加一顆選項，名稱是京都紅葉散步。按下之後，上面那一行應變成「選到 京都紅葉散步」。
 import { useState } from 'react';
 
 function Choice({ title, onPick }) {

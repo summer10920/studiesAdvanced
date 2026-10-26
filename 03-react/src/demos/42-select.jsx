@@ -1,4 +1,3 @@
-// TODO: 講義「select」。換你試試：加一個選項，value 是 `taichung`，文字是台中。選了之後代碼那一行應是 taichung。
 import { useState } from 'react';
 
 export default function SelectDemo() {

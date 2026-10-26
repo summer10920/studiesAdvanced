@@ -1,4 +1,3 @@
-// TODO: 講義「radio」。換你試試：加一顆「團」，值是 `group`。點了之後，下面一行應是 group。
 import { useState } from 'react';
 
 export default function RadioDemo() {

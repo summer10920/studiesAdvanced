@@ -1,4 +1,3 @@
-// TODO: 講義「||：缺內容時補預設」。換你試試：把 place 改成「花蓮」。地點那一行應變成花蓮，備註仍是含早餐。
 export default function OrDemo() {
   const place = '';
   const note = '含早餐';

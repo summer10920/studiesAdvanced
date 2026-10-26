@@ -1,4 +1,3 @@
-// TODO: 講義「拆分元件」。先看拆分前；講義有拆分後。換你試試：在拆分後的檔案再排一張卡片，名稱是京都紅葉散步、價格是 42800。標題與說明那兩個元件留著。
 export default function TreeDemo() {
   return (
     <section>

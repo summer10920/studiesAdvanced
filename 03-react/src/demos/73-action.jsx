@@ -1,4 +1,3 @@
-// TODO: 講義「form action」。換你試試：再讀一個欄位 `price`，訊息改成標題加上空白與價格。
 import { useState } from 'react';
 
 export default function ActionDemo() {

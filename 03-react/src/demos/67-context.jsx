@@ -1,4 +1,3 @@
-// TODO: 講義「Provider」。換你試試：再加一個按鈕把主題設回淺色。Banner 要跟著回去。
 import { createContext, useContext, useState } from 'react';
 
 const ThemeContext = createContext('淺色');

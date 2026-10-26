@@ -1,4 +1,3 @@
-// TODO: 講義「children」。換你試試：在段落下面再放一行「第二段仍在外框裡」。`Panel` 的實作不要改。
 function Panel({ children }) {
   return (
     <section className="rounded border border-stone-200 bg-white p-4">

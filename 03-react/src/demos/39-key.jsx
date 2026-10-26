@@ -1,4 +1,3 @@
-// TODO: 講義「key」。換你試試：把 `key` 暫時改成 `index`，在花蓮山海三日那一列打字再刪掉台北城市漫遊。 看完文字黏到哪一列之後，改回 `item.id`。
 import { useState } from 'react';
 
 function Row({ label }) {

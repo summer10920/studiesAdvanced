@@ -1,4 +1,3 @@
-// TODO: 講義「陣列新增」。換你試試：再加一顆按鈕，按下去把備忘變成空陣列。加一則的按鈕留著。
 import { useState } from 'react';
 
 export default function AddDemo() {

@@ -1,4 +1,3 @@
-// TODO: 講義「useActionState」。換你試試：動作改成只回傳這一次的標題，不要串上一筆。第二次送出應蓋掉第一筆。
 import { useActionState } from 'react';
 
 const send = async (previous, formData) => {

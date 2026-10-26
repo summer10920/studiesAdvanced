@@ -1,4 +1,3 @@
-// TODO: 講義「批次更新」。換你試試：按鈕裡把件數改成 5，名稱改成京都紅葉散步。按下後 Console 應多一行「渲染 京都紅葉散步 5」，而且只有這一次新增。
 import { useState } from 'react';
 
 export default function BatchDemo() {

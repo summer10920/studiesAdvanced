@@ -1,4 +1,3 @@
-// TODO: 講義「待辦清單」。換你試試：完成檔改成 `useReducer`，做出新增、切換完成與刪除。不明的 type 要回傳原狀態。
 import { useState } from 'react';
 
 export default function ReducerDemo() {

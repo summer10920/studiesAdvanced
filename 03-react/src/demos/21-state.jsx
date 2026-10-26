@@ -1,4 +1,3 @@
-// TODO: 講義「宣告狀態」。換你試試：再加一顆按鈕，按下去把次數設回 0。加一那顆留著。
 import { useState } from 'react';
 
 export default function CountDemo() {

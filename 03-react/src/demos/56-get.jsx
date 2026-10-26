@@ -1,4 +1,3 @@
-// TODO: 講義「GET」。換你試試：改讀 id 為 2 的文章。按下後標題應換成另一篇，而不是第一篇。
 import { useState } from 'react';
 
 export default function GetDemo() {

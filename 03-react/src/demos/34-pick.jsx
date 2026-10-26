@@ -1,4 +1,3 @@
-// TODO: 講義「帶參數」。換你試試：再加一顆按鈕，按下把選取設成京都紅葉散步。`handlePick` 不要複製第二份。
 import { useState } from 'react';
 
 export default function PickDemo() {

@@ -1,4 +1,3 @@
-// TODO: 講義「物件欄位」。換你試試：同一顆按鈕除了改城市，也把名稱改成「阿明」。
 import { useState } from 'react';
 
 export default function ObjectDemo() {

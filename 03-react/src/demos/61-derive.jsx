@@ -1,10 +1,13 @@
-// TODO: 講義「渲染時計算」。換你試試：單價改成 15900。兩人時應顯示共 31800。不要為總價加 `useState`。
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function DeriveDemo() {
   const [count, setCount] = useState(2);
   const price = 12800;
-  const total = price * count;
+  const [total, setTotal] = useState(price * count);
+
+  useEffect(() => {
+    setTotal(price * count);
+  }, [count]);
 
   return (
     <section>

@@ -1,4 +1,3 @@
-// TODO: 講義「useOptimistic」。換你試試：等待改成 800 毫秒。送出後應仍立刻看到新名稱，只是實際狀態晚一點才跟上。
 import { useOptimistic, useState } from 'react';
 
 export default function OptimisticDemo() {

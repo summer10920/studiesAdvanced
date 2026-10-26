@@ -1,4 +1,3 @@
-// TODO: 講義「PUT」。換你試試：標題改成「已改標題」，並在 Console 再印一次 `response.ok`。應是 true。
 import { useState } from 'react';
 
 export default function PutDemo() {

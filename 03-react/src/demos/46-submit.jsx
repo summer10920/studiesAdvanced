@@ -1,4 +1,3 @@
-// TODO: 講義「submit」。換你試試：名稱是空的時候不要更新訊息，改把訊息設成「請填名稱」。有名稱時仍送出原本那句。
 import { useState } from 'react';
 
 export default function SubmitDemo() {

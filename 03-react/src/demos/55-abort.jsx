@@ -1,4 +1,3 @@
-// TODO: 講義「AbortController」。換你試試：在 catch 裡，AbortError 時改印出「已取消」，不要改狀態。切換示範時 Console 應看得到這一行。
 import { useEffect, useState } from 'react';
 
 export default function AbortDemo() {

@@ -1,4 +1,3 @@
-// TODO: 講義「表達式」。換你試試：人數改成 3。標題仍是名稱。應顯示多人 38400。
 export default function ExprDemo() {
   const name = '台北城市漫遊';
   const price = 12800;

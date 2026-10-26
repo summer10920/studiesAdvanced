@@ -1,4 +1,3 @@
-// TODO: 講義「抽出讀取」。換你試試：清單每一列只留名稱，價格拿掉。Hook 的回傳不要改。
 import { useLocalItems } from '../hooks/useLocalItems.js';
 
 export default function HookDemo() {

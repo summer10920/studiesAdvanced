@@ -1,4 +1,3 @@
-// TODO: 講義「checkbox」。換你試試：起始值改成 `true`。打開頁面時應已勾選，文字是要早餐。
 import { useState } from 'react';
 
 export default function CheckDemo() {

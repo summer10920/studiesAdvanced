@@ -1,4 +1,3 @@
-// TODO: 講義「多欄位物件」。換你試試：物件再加一個鍵 `unit`，起始是空字串，並加一個對應的輸入框。打「天」時，下面一行也要看得到。
 import { useState } from 'react';
 
 export default function FieldsDemo() {

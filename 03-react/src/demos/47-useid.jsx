@@ -1,4 +1,3 @@
-// TODO: 講義「useId」。換你試試：讓價格也受控，狀態放在 `price`，起始是空字串。 標籤的 `htmlFor` 仍用 `priceId`。
 import { useId, useState } from 'react';
 
 export default function UseIdDemo() {

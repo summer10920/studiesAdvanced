@@ -1,4 +1,3 @@
-// TODO: 講義「依賴陣列」。換你試試：按鈕改成把關鍵字設成京都紅葉散步。按下後應先清除舊字，再查詢京都紅葉散步。
 import { useEffect, useState } from 'react';
 
 export default function DepsDemo() {

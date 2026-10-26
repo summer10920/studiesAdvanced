@@ -1,4 +1,3 @@
-// TODO: 講義「input」。換你試試：起始值改成台北城市漫遊。打開頁面時輸入框裡就有台北城市漫遊，下面一行也是台北城市漫遊。
 import { useState } from 'react';
 
 export default function InputDemo() {

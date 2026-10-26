@@ -1,4 +1,3 @@
-// TODO: 講義「父層持有」。換你試試：起始文字改成花蓮山海三日。父層那一行與輸入框都要是花蓮山海三日。
 import { useState } from 'react';
 
 function Editor({ value, onChange }) {

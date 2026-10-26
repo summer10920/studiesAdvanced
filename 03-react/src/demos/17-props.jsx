@@ -1,4 +1,3 @@
-// TODO: 講義「解構」。換你試試：再傳一個屬性 `unit`，值是「天」。卡片在價格後面顯示這個單位。
 function Product({ title, price }) {
   return (
     <article className="rounded border border-stone-200 bg-white p-4">

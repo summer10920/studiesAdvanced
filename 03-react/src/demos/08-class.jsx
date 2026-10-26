@@ -1,4 +1,3 @@
-// TODO: 講義「className」。換你試試：把 `active` 改成 `false`。第一行應變成「已停用」，按鈕改成淺底。
 export default function ClassDemo() {
   const active = true;
   const buttonClass = active
