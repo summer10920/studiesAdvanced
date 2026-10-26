@@ -58,7 +58,7 @@ import GetDemo from './demos/56-get.jsx';
 import PostDemo from './demos/57-post.jsx';
 import PutDemo from './demos/58-put.jsx';
 import DeleteDemo from './demos/59-delete.jsx';
-import ItemsDemo from './demos/60-api.jsx';
+import ItemsDemo from './demos/60-items-demo.jsx';
 import DeriveDemo from './demos/61-derive.jsx';
 import ClickFetchDemo from './demos/62-click.jsx';
 import HookDemo from './demos/63-hook.jsx';
