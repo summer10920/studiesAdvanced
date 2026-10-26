@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getLocalItems } from '../api/items.js';
+import { getItems } from '../api/items-api.js';
 
 export function useLocalItems() {
   const [status, setStatus] = useState('loading');
@@ -9,7 +9,7 @@ export function useLocalItems() {
     const controller = new AbortController();
     const load = async () => {
       try {
-        setItems(await getLocalItems(controller.signal));
+        setItems(await getItems(controller.signal));
         setStatus('ready');
       } catch (error) {
         if (error.name === 'AbortError') return;

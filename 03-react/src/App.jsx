@@ -58,7 +58,7 @@ import GetDemo from './demos/56-get.jsx';
 import PostDemo from './demos/57-post.jsx';
 import PutDemo from './demos/58-put.jsx';
 import DeleteDemo from './demos/59-delete.jsx';
-import ApiDemo from './demos/60-api.jsx';
+import ItemsDemo from './demos/60-api.jsx';
 import DeriveDemo from './demos/61-derive.jsx';
 import ClickFetchDemo from './demos/62-click.jsx';
 import HookDemo from './demos/63-hook.jsx';
@@ -135,7 +135,7 @@ const demos = [
   { id: '57', title: 'POST', Component: PostDemo },
   { id: '58', title: 'PUT', Component: PutDemo },
   { id: '59', title: 'DELETE', Component: DeleteDemo },
-  { id: '60', title: 'API 模組', Component: ApiDemo },
+  { id: '60', title: 'API 模組', Component: ItemsDemo },
   { id: '61', title: '渲染時計算', Component: DeriveDemo },
   { id: '62', title: '事件裡的請求', Component: ClickFetchDemo },
   { id: '63', title: '抽出讀取', Component: HookDemo },
