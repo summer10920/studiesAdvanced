@@ -1,22 +1,26 @@
-// TODO: 講義「無限迴圈」。換你試試：按鈕改成把關鍵字設回台北城市漫遊。從「台北城市漫遊!」按一次，Console 應再記一行台北城市漫遊，而且只記一行。
+// TODO: 講義「無限迴圈」。換你試試：按鈕改成把行程設成京都紅葉散步，按鈕文字一併改成「改成京都紅葉散步」。按一次後，分頁標題應是京都紅葉散步，而且只換一次。
 import { useEffect, useState } from 'react';
 
 export default function LoopDemo() {
-  const [keyword, setKeyword] = useState('台北城市漫遊');
+  const [place, setPlace] = useState('台北城市漫遊');
 
   useEffect(() => {
-    console.log('記錄', keyword);
-  }, [keyword]);
+    const previous = document.title;
+    document.title = place;
+    return () => {
+      document.title = previous;
+    };
+  }, [place]);
 
   return (
     <section>
-      <p>關鍵字 {keyword}</p>
+      <p>分頁標題 {place}</p>
       <button
         type="button"
         className="rounded bg-teal-800 px-3 py-1 text-white"
-        onClick={() => setKeyword((value) => value + '!')}
+        onClick={() => setPlace('花蓮山海三日')}
       >
-        加一個驚嘆號
+        改成花蓮山海三日
       </button>
     </section>
   );

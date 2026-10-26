@@ -1,4 +1,4 @@
-// TODO: 講義「第一次執行」。換你試試：在效果裡多印一行計數。清除那行留著。按下加一之後，Console 仍不該再增加。
+// TODO: 講義「第一次執行」。換你試試：在 setup 裡多印一行固定字串「已掛上」。按下加一之後，Console 不該再出現這一行。
 import { useEffect, useState } from 'react';
 
 export default function EffectMount() {

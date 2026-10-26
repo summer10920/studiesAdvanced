@@ -1,4 +1,4 @@
-// TODO: 講義「漏寫依賴」。換你試試：暫時把依賴改成空陣列，執行 `pnpm lint`，讀警告裡的 count。看完再改回 `[count]`。
+// TODO: 講義「漏寫依賴」。換你試試：把依賴改成 [count]。按下加一後 Console 應跟著印出新的次數。改完再執行 pnpm lint，這一則少依賴的警告會消失。
 import { useEffect, useState } from 'react';
 
 export default function LintDemo() {
@@ -6,7 +6,7 @@ export default function LintDemo() {
 
   useEffect(() => {
     console.log('次數', count);
-  }, [count]);
+  }, []);
 
   return (
     <section>

@@ -13,7 +13,7 @@ export default function DepsDemo() {
 
   return (
     <section>
-      <p>關鍵字 {keyword}</p>
+      <p>查詢字 {keyword}</p>
       <button
         type="button"
         className="rounded bg-teal-800 px-3 py-1 text-white"
