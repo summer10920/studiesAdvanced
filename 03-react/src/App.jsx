@@ -62,9 +62,12 @@ import ItemsDemo from './demos/60-items-demo.jsx';
 import DeriveDemo from './demos/61-derive.jsx';
 import ClickFetchDemo from './demos/62-click.jsx';
 import HookDemo from './demos/63-hook.jsx';
+import ToggleDemo from './demos/63b-toggle.jsx';
+import FilterHookDemo from './demos/64b-filter.jsx';
 import TwiceDemo from './demos/64-twice.jsx';
 import LiftDemo from './demos/65-lift.jsx';
 import SiblingsDemo from './demos/66-siblings.jsx';
+import DrillDemo from './demos/66b-drill.jsx';
 import ContextDemo from './demos/67-context.jsx';
 import DefaultDemo from './demos/68-default.jsx';
 import RefDemo from './demos/69-ref.jsx';
@@ -139,10 +142,13 @@ const demos = [
   { id: '61', title: '渲染時計算', Component: DeriveDemo },
   { id: '62', title: '事件裡的請求', Component: ClickFetchDemo },
   { id: '63', title: '抽出讀取', Component: HookDemo },
-  { id: '64', title: '在元件裡使用', Component: TwiceDemo },
+  { id: '63b', title: '傳入引數', Component: ToggleDemo },
+  { id: '64b', title: '引數放進依賴', Component: FilterHookDemo },
+  { id: '64', title: '各呼叫各一份狀態', Component: TwiceDemo },
   { id: '65', title: '父層持有', Component: LiftDemo },
   { id: '66', title: '兄弟元件', Component: SiblingsDemo },
-  { id: '67', title: 'Provider', Component: ContextDemo },
+  { id: '66b', title: '層層傳遞', Component: DrillDemo },
+  { id: '67', title: '用 Context 改善', Component: ContextDemo },
   { id: '68', title: '預設值', Component: DefaultDemo },
   { id: '69', title: '聚焦輸入框', Component: RefDemo },
   { id: '70', title: '不觸發渲染的值', Component: RefCountDemo },

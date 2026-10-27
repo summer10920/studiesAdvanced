@@ -7,10 +7,18 @@ function Banner() {
   return <p>主題 {theme}</p>;
 }
 
+function Panel() {
+  return (
+    <div className="rounded border border-dashed border-stone-300 p-3">
+      <Banner />
+    </div>
+  );
+}
+
 function Layout() {
   return (
     <div className="rounded border border-stone-200 p-3">
-      <Banner />
+      <Panel />
     </div>
   );
 }
