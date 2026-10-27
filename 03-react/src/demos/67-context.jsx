@@ -1,27 +1,6 @@
-import { createContext, useContext, useState } from 'react';
-
-const ThemeContext = createContext('淺色');
-
-function Banner() {
-  const theme = useContext(ThemeContext);
-  return <p>主題 {theme}</p>;
-}
-
-function Panel() {
-  return (
-    <div className="rounded border border-dashed border-stone-300 p-3">
-      <Banner />
-    </div>
-  );
-}
-
-function Layout() {
-  return (
-    <div className="rounded border border-stone-200 p-3">
-      <Panel />
-    </div>
-  );
-}
+import { useState } from 'react';
+import { ThemeContext } from '../context/ThemeContext.js';
+import Layout from './theme/Layout.jsx';
 
 export default function ContextDemo() {
   const [theme, setTheme] = useState('淺色');

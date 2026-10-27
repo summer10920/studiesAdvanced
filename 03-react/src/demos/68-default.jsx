@@ -1,11 +1,4 @@
-import { createContext, useContext } from 'react';
-
-const ThemeContext = createContext('淺色');
-
-function Banner() {
-  const theme = useContext(ThemeContext);
-  return <p>主題 {theme}</p>;
-}
+import Banner from './theme/Banner.jsx';
 
 export default function DefaultDemo() {
   return <Banner />;
