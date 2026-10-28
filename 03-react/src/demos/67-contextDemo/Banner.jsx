@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { ThemeContext } from '../../context/ThemeContext.js';
+import { ThemeContext } from './ThemeContext.js';
 
 export default function Banner() {
   const theme = useContext(ThemeContext);

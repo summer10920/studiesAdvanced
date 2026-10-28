@@ -69,6 +69,7 @@ import LiftDemo from './demos/65-lift.jsx';
 import SiblingsDemo from './demos/66-siblings.jsx';
 import DrillDemo from './demos/66b-drill.jsx';
 import ContextDemo from './demos/67-context.jsx';
+import ContextSplitDemo from './demos/67-contextDemo/index.jsx';
 import DefaultDemo from './demos/68-default.jsx';
 import RefDemo from './demos/69-ref.jsx';
 import RefCountDemo from './demos/70-ref-count.jsx';
@@ -149,6 +150,7 @@ const demos = [
   { id: '66', title: '兄弟元件', Component: SiblingsDemo },
   { id: '66b', title: '層層傳遞', Component: DrillDemo },
   { id: '67', title: '用 Context 改善', Component: ContextDemo },
+  { id: '67b', title: '拆成多個檔案', Component: ContextSplitDemo },
   { id: '68', title: '預設值', Component: DefaultDemo },
   { id: '69', title: '聚焦輸入框', Component: RefDemo },
   { id: '70', title: '不觸發渲染的值', Component: RefCountDemo },
