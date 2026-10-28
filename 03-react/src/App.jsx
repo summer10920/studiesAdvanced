@@ -73,6 +73,8 @@ import ContextSplitDemo from './demos/67-contextDemo/index.jsx';
 import DefaultDemo from './demos/68-default.jsx';
 import RefDemo from './demos/69-ref.jsx';
 import RefCountDemo from './demos/70-ref-count.jsx';
+import ReducerCountDemo from './demos/71-reducer-count.jsx';
+import ReducerStateDemo from './demos/71-reducer-state.jsx';
 import ReducerDemo from './demos/71-reducer.jsx';
 import ProviderDemo from './demos/72-provider.jsx';
 import ActionDemo from './demos/73-action.jsx';
@@ -154,7 +156,9 @@ const demos = [
   { id: '68', title: '預設值', Component: DefaultDemo },
   { id: '69', title: '聚焦輸入框', Component: RefDemo },
   { id: '70', title: '不觸發渲染的值', Component: RefCountDemo },
-  { id: '71', title: '待辦清單', Component: ReducerDemo },
+  { id: '71', title: '計數（useReducer）', Component: ReducerCountDemo },
+  { id: '71b', title: '待辦（useState）', Component: ReducerStateDemo },
+  { id: '71c', title: '待辦（useReducer）', Component: ReducerDemo },
   { id: '72', title: '搭配 Context', Component: ProviderDemo },
   { id: '73', title: 'form action', Component: ActionDemo },
   { id: '74', title: 'useActionState', Component: ActionStateDemo },

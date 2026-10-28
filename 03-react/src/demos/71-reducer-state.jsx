@@ -1,27 +1,27 @@
-import { useReducer } from 'react';
+import { useState } from 'react';
 
-const reducer = (todos, action) => {
-  switch (action.type) {
-    case 'add':
-      return [...todos, { id: action.id, title: action.title, done: false }];
-    case 'toggle':
-      return todos.map((todo) =>
-        todo.id === action.id ? { ...todo, done: !todo.done } : todo,
-      );
-    case 'remove':
-      return todos.filter((todo) => todo.id !== action.id);
-    default:
-      return todos;
-  }
-};
-
-export default function ReducerDemo() {
-  const [todos, dispatch] = useReducer(reducer, [
+export default function ReducerStateDemo() {
+  const [todos, setTodos] = useState([
     { id: 1, title: '台北城市漫遊', done: false },
   ]);
 
   const onAdd = () => {
-    dispatch({ id: Date.now(), title: '新待辦', type: 'add' });
+    setTodos((items) => [
+      ...items,
+      { id: Date.now(), title: '新待辦', done: false },
+    ]);
+  };
+
+  const onToggle = (id) => {
+    setTodos((items) =>
+      items.map((todo) =>
+        todo.id === id ? { ...todo, done: !todo.done } : todo,
+      ),
+    );
+  };
+
+  const onRemove = (id) => {
+    setTodos((items) => items.filter((todo) => todo.id !== id));
   };
 
   return (
@@ -39,7 +39,7 @@ export default function ReducerDemo() {
             <button
               type="button"
               className="rounded bg-stone-100 px-2"
-              onClick={() => dispatch({ type: 'toggle', id: todo.id })}
+              onClick={() => onToggle(todo.id)}
             >
               {todo.done ? '完成' : '未完成'}
             </button>
@@ -47,7 +47,7 @@ export default function ReducerDemo() {
             <button
               type="button"
               className="rounded bg-stone-200 px-2"
-              onClick={() => dispatch({ type: 'remove', id: todo.id })}
+              onClick={() => onRemove(todo.id)}
             >
               刪除
             </button>
