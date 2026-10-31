@@ -1,6 +1,6 @@
 # React
 
-對應講義 React 基礎（`lokiTech-15day-09-react-basics`）與 React 進階（`lokiTech-15day-10-react-advanced`）。路由在 `04-react-router`。Vite + React，元件是 JavaScript（`.jsx`），不上 TypeScript。
+對應講義 React 基礎（`lokiTech-15day-09-react-basics`）與 React 進階（`lokiTech-15day-10-react-advanced`）。路由課把這個資料夾複製成 `04-react-router`，再在那一份安裝 `react-router`。Vite + React，元件是 JavaScript（`.jsx`），不上 TypeScript。
 
 需要 Node.js 24 與 pnpm。在這個資料夾：
 
