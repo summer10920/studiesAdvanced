@@ -1,4 +1,4 @@
-import Banner from './67-contextDemo/Banner.jsx';
+import Banner from './71-contextDemo/Banner.jsx';
 
 export default function DefaultDemo() {
   return <Banner />;

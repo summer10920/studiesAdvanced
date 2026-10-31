@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router';
+import { useParams } from 'react-router';
+import { getItems } from '../api/fake-api.js';
 
 export default function DetailPage() {
   const { id } = useParams();
@@ -9,9 +10,7 @@ export default function DetailPage() {
   useEffect(() => {
     const load = async () => {
       try {
-        const response = await fetch('/data/items.json');
-        if (!response.ok) throw new Error(String(response.status));
-        const items = await response.json();
+        const items = await getItems();
         setItem(items.find((row) => String(row.id) === id) ?? null);
         setStatus('ready');
       } catch {
@@ -27,12 +26,9 @@ export default function DetailPage() {
 
   return (
     <article>
-      <h1 className="text-2xl font-bold">{item.name}</h1>
-      <p className="mt-2">{item.price}</p>
-      <p className="mt-4">
-        <Link className="text-teal-800 underline" to={'/new?itemId=' + item.id}>
-          填這筆
-        </Link>
+      <h1 className="text-2xl font-bold">{item.title}</h1>
+      <p className="mt-2">
+        {item.place} {item.days} 天 {item.price}
       </p>
     </article>
   );

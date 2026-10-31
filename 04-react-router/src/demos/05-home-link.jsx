@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 
-export default function HomePage() {
+export default function HomeLinkPage() {
   return (
     <section>
       <h1 className="text-2xl font-bold">首頁</h1>

@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import Hello from './demos/01-hello.jsx';
-import DownDemo from './demos/02-down.jsx';
-import TreeDemo from './demos/03-tree.jsx';
-import PlaceDemo from './demos/04-place.jsx';
-import FragmentDemo from './demos/05-fragment.jsx';
-import ExprDemo from './demos/06-expr.jsx';
+import ExprDemo from './demos/02-expr.jsx';
+import DownDemo from './demos/03-down.jsx';
+import TreeDemo from './demos/04-tree.jsx';
+import PlaceDemo from './demos/05-place.jsx';
+import FragmentDemo from './demos/06-fragment.jsx';
 import StyleDemo from './demos/07-style.jsx';
 import ClassDemo from './demos/08-class.jsx';
 import EarlyDemo from './demos/09-early.jsx';
@@ -62,32 +62,33 @@ import ItemsDemo from './demos/60-items-demo.jsx';
 import DeriveDemo from './demos/61-derive.jsx';
 import ClickFetchDemo from './demos/62-click.jsx';
 import HookDemo from './demos/63-hook.jsx';
-import ToggleDemo from './demos/63b-toggle.jsx';
-import FilterHookDemo from './demos/64b-filter.jsx';
-import TwiceDemo from './demos/64-twice.jsx';
-import LiftDemo from './demos/65-lift.jsx';
-import SiblingsDemo from './demos/66-siblings.jsx';
-import DrillDemo from './demos/66b-drill.jsx';
-import ContextDemo from './demos/67-context.jsx';
-import ContextSplitDemo from './demos/67-contextDemo/index.jsx';
-import DefaultDemo from './demos/68-default.jsx';
-import RefDemo from './demos/69-ref.jsx';
-import RefCountDemo from './demos/70-ref-count.jsx';
-import ReducerCountDemo from './demos/71-reducer-count.jsx';
-import ReducerStateDemo from './demos/71-reducer-state.jsx';
-import ReducerDemo from './demos/71-reducer.jsx';
-import ProviderDemo from './demos/72-provider.jsx';
-import ActionDemo from './demos/73-action.jsx';
-import ActionStateDemo from './demos/74-action-state.jsx';
-import OptimisticDemo from './demos/75-optimistic.jsx';
+import ToggleDemo from './demos/64-toggle.jsx';
+import FilterHookDemo from './demos/65-filter.jsx';
+import TwiceDemo from './demos/66-twice.jsx';
+import LiftDemo from './demos/67-lift.jsx';
+import SiblingsDemo from './demos/68-siblings.jsx';
+import DrillDemo from './demos/69-drill.jsx';
+import ContextDemo from './demos/70-context.jsx';
+import ContextSplitDemo from './demos/71-contextDemo/index.jsx';
+import DefaultDemo from './demos/72-default.jsx';
+import RefDemo from './demos/73-ref.jsx';
+import RefCountDemo from './demos/74-ref-count.jsx';
+import ReducerCountDemo from './demos/75-reducer-count.jsx';
+import ReducerStateDemo from './demos/76-reducer-state.jsx';
+import ReducerDemo from './demos/77-reducer.jsx';
+import TodoPropsDemo from './demos/78-propsDemo/index.jsx';
+import ProviderDemo from './demos/79-providerDemo/index.jsx';
+import ActionDemo from './demos/80-action.jsx';
+import ActionStateDemo from './demos/81-action-state.jsx';
+import OptimisticDemo from './demos/82-optimistic.jsx';
 
 const demos = [
   { id: '01', title: '函式元件', Component: Hello },
-  { id: '02', title: '由父層傳入', Component: DownDemo },
-  { id: '03', title: '拆分元件', Component: TreeDemo },
-  { id: '04', title: '狀態的位置', Component: PlaceDemo },
-  { id: '05', title: 'Fragment', Component: FragmentDemo },
-  { id: '06', title: '表達式', Component: ExprDemo },
+  { id: '02', title: '表達式', Component: ExprDemo },
+  { id: '03', title: '由父層傳入', Component: DownDemo },
+  { id: '04', title: '拆分元件', Component: TreeDemo },
+  { id: '05', title: '狀態的位置', Component: PlaceDemo },
+  { id: '06', title: 'Fragment', Component: FragmentDemo },
   { id: '07', title: 'style 物件', Component: StyleDemo },
   { id: '08', title: 'className', Component: ClassDemo },
   { id: '09', title: '提早 return', Component: EarlyDemo },
@@ -145,24 +146,25 @@ const demos = [
   { id: '61', title: '渲染時計算', Component: DeriveDemo },
   { id: '62', title: '事件裡的請求', Component: ClickFetchDemo },
   { id: '63', title: '抽出讀取', Component: HookDemo },
-  { id: '63b', title: '傳入引數', Component: ToggleDemo },
-  { id: '64b', title: '引數放進依賴', Component: FilterHookDemo },
-  { id: '64', title: '各呼叫各一份狀態', Component: TwiceDemo },
-  { id: '65', title: '父層持有', Component: LiftDemo },
-  { id: '66', title: '兄弟元件', Component: SiblingsDemo },
-  { id: '66b', title: '層層傳遞', Component: DrillDemo },
-  { id: '67', title: '用 Context 改善', Component: ContextDemo },
-  { id: '67b', title: '拆成多個檔案', Component: ContextSplitDemo },
-  { id: '68', title: '預設值', Component: DefaultDemo },
-  { id: '69', title: '聚焦輸入框', Component: RefDemo },
-  { id: '70', title: '不觸發渲染的值', Component: RefCountDemo },
-  { id: '71', title: '計數（useReducer）', Component: ReducerCountDemo },
-  { id: '71b', title: '待辦（useState）', Component: ReducerStateDemo },
-  { id: '71c', title: '待辦（useReducer）', Component: ReducerDemo },
-  { id: '72', title: '搭配 Context', Component: ProviderDemo },
-  { id: '73', title: 'form action', Component: ActionDemo },
-  { id: '74', title: 'useActionState', Component: ActionStateDemo },
-  { id: '75', title: 'useOptimistic', Component: OptimisticDemo },
+  { id: '64', title: '傳入引數', Component: ToggleDemo },
+  { id: '65', title: '引數放進依賴', Component: FilterHookDemo },
+  { id: '66', title: '各呼叫各一份狀態', Component: TwiceDemo },
+  { id: '67', title: '父層持有', Component: LiftDemo },
+  { id: '68', title: '兄弟元件', Component: SiblingsDemo },
+  { id: '69', title: '層層傳遞', Component: DrillDemo },
+  { id: '70', title: '用 Context 改善', Component: ContextDemo },
+  { id: '71', title: '拆成多個檔案', Component: ContextSplitDemo },
+  { id: '72', title: '預設值', Component: DefaultDemo },
+  { id: '73', title: '聚焦輸入框', Component: RefDemo },
+  { id: '74', title: '不觸發渲染的值', Component: RefCountDemo },
+  { id: '75', title: '計數（useReducer）', Component: ReducerCountDemo },
+  { id: '76', title: '待辦（useState）', Component: ReducerStateDemo },
+  { id: '77', title: '待辦（useReducer）', Component: ReducerDemo },
+  { id: '78', title: '拆成元件用 props', Component: TodoPropsDemo },
+  { id: '79', title: '改用 Context', Component: ProviderDemo },
+  { id: '80', title: 'form action', Component: ActionDemo },
+  { id: '81', title: 'useActionState', Component: ActionStateDemo },
+  { id: '82', title: 'useOptimistic', Component: OptimisticDemo },
 ];
 
 export default function App() {

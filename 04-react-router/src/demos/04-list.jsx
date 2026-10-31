@@ -1,14 +1,17 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
+import { getItems } from '../api/fake-api.js';
 
 export default function ListPage() {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
     const load = async () => {
-      const response = await fetch('/data/items.json');
-      if (!response.ok) return;
-      setItems(await response.json());
+      try {
+        setItems(await getItems());
+      } catch {
+        setItems([]);
+      }
     };
     load();
   }, []);
@@ -20,7 +23,7 @@ export default function ListPage() {
         {items.map((item) => (
           <li key={item.id}>
             <Link className="text-teal-800 underline" to={'/items/' + item.id}>
-              {item.name} {item.price}
+              {item.title} {item.place} {item.price}
             </Link>
           </li>
         ))}

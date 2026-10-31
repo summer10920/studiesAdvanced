@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router';
+import { getItems } from '../api/fake-api.js';
 
 export default function SearchPage() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -9,14 +10,16 @@ export default function SearchPage() {
 
   useEffect(() => {
     const load = async () => {
-      const response = await fetch('/data/items.json');
-      if (!response.ok) return;
-      setItems(await response.json());
+      try {
+        setItems(await getItems());
+      } catch {
+        setItems([]);
+      }
     };
     load();
   }, []);
 
-  const visible = items.filter((item) => item.name.includes(keyword));
+  const visible = items.filter((item) => item.title.includes(keyword));
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -30,7 +33,7 @@ export default function SearchPage() {
           value={draft}
           onChange={(event) => setDraft(event.target.value)}
           className="rounded border px-2 py-1"
-          placeholder="名稱"
+          placeholder="標題"
         />
         <button
           type="submit"
@@ -42,7 +45,7 @@ export default function SearchPage() {
       <ul className="mt-4 grid gap-2">
         {visible.map((item) => (
           <li key={item.id}>
-            {item.name} {item.price}
+            {item.title} {item.place} {item.price}
           </li>
         ))}
       </ul>
