@@ -61,12 +61,34 @@
     <button type="button" value="star">星星</button>
     <input type="color" value="#ff0000" />
   </form>
+  <input type="text" value="#ff0000" />
   <hr />
-  <div id="preview-block" class="square" style="background-color:#ff0000"></div>
+  <div id="preview-block" class="circle" style="background-color:#ff0000"></div>
   <script>
-    // todo...
-    // 讓 input 的值可以改變 preview-block 的背景顏色 (update style.backgroundColor)
-    // 讓 button 的值可以改變 preview-block 的形狀 (change className)
+    const previewBlock = document.getElementById('preview-block');
+
+    /*** step1: 讓 button 的值可以改變 preview-block 的形狀 (change className) ***/
+    // 批次的找出所有按鈕, 綁定 click 事件, 按了就把值改成 preview-block 的 className
+    document.querySelectorAll('.form-container button').forEach(btn => {
+      btn.addEventListener('click', (e) => previewBlock.className = e.target.value);
+    });
+
+    /*** step2: 讓 input 的值可以改變 preview-block 的背景顏色 (update style.backgroundColor) ***/
+    document.querySelector('.form-container input').addEventListener('input', (e) => {
+      console.log(e.target.value);
+      previewBlock.style.backgroundColor = e.target.value;
+    });
+
+    document.querySelector('input[type="text"]').addEventListener('click', e => {
+      console.log(e.target.value);
+      console.log(this === window);
+      console.log(this === document.querySelector('input[type="text"]'));
+    });
+
+
+
+
+
   </script>
 </body>
 
