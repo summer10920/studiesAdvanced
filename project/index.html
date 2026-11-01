@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="IE=edge"
+  >
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <title>洛奇營地渡假村 - 溫泉露營</title>
+  <!-- favicon.ico -->
+  <link
+    rel="shortcut icon"
+    href="media/favicon.ico"
+    type="image/x-icon"
+  >
+  <!-- google font -->
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&family=Roboto&display=swap"
+    rel="stylesheet"
+  >
+  <!-- bootstrap -->
+  <link
+    rel="stylesheet"
+    href="plugins/bootstrap.min.css"
+  >
+  <script src="plugins/bootstrap.bundle.min.js"></script>
+  <!-- fontAwesome -->
+  <script
+    src="https://kit.fontawesome.com/fa483230ea.js"
+    crossorigin="anonymous"
+  ></script>
+  <!-- masonry -->
+  <script src="plugins/masonry.pkgd.min.js"></script>
+  <!-- custom -->
+  <link
+    rel="stylesheet"
+    href="plugins/style.css"
+  >
+  <link
+    rel="stylesheet"
+    href="plugins/lokiCalendar.css"
+  >
+</head>
+
+<body
+  data-bs-spy="scroll"
+  data-bs-target="#lokiMenu"
+>
+  <nav class="navbar navbar-expand-lg text-bg-dark navbar-dark position-fixed top-0 w-100">
+    <div class="container">
+      <a
+        class="navbar-brand"
+        href="#"
+      ><i class="fa-solid fa-campground"></i> 洛奇營地渡假村</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#lokiMenu"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="collapse navbar-collapse"
+        id="lokiMenu"
+      >
+        <div class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <a
+            class="nav-link mx-3"
+            href="#lokiPallet"
+          >營位介紹</a>
+          <a
+            class="nav-link mx-3"
+            href="#lokiPark"
+          >探索體驗</a>
+          <a
+            class="nav-link mx-3"
+            href="#lokiService"
+          >遊客服務</a>
+          <a
+            class="nav-link mx-3"
+            href="#lokiRule"
+          >營區守則</a>
+          <a
+            class="nav-link mx-3"
+            href="#lokiReserve"
+          >線上預約</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- 測試廣告輪播判斷 Bootstrap 是否正常運行 -->
+  <section
+    id="lokiSlider"
+    class="carousel slide carousel-fade"
+    data-bs-interval="3000"
+    data-bs-ride="carousel"
+  >
+    <div class="carousel-indicators">
+      <button
+        type="button"
+        data-bs-target="#lokiSlider"
+        data-bs-slide-to="0"
+        class="active"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#lokiSlider"
+        data-bs-slide-to="1"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#lokiSlider"
+        data-bs-slide-to="2"
+      ></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item vh-100 active">
+        <img
+          src="media/imgs/slider01.jpg"
+          class="d-block h-100 w-100"
+        >
+        <div class="carousel-caption d-flex justify-content-end align-items-start flex-column">
+          <h3 class="d-none d-md-block">
+            <label class="badge bg-secondary">露營</label>
+            <label class="badge bg-danger">篝火</label>
+          </h3>
+          <h2 class="display-2 fw-bolder">拉近人的溫暖</h2>
+          <p class="d-none d-md-block">發現一座充滿能量的秘密營地，探索山林賦予的自在</p>
+        </div>
+      </div>
+      <div class="carousel-item vh-100">
+        <img
+          src="media/imgs/slider02.jpeg"
+          class="d-block h-100 w-100"
+        >
+        <div class="carousel-caption d-flex justify-content-end align-items-start flex-column">
+          <h3 class="d-none d-md-block">
+            <label class="badge bg-success">山景</label>
+            <label class="badge text-bg-light">芬多精</label>
+          </h3>
+          <h2 class="display-2 fw-bolder">體驗大自然的空氣</h2>
+          <p class="d-none d-md-block">遠離塵囂的夢想園地，也是一個讓家人朋友們能夠更親密、更快樂的童話村！</p>
+        </div>
+      </div>
+      <div class="carousel-item vh-100">
+        <img
+          src="media/imgs/slider03.jpg"
+          class="d-block h-100 w-100"
+        >
+        <div class="carousel-caption d-flex justify-content-end align-items-start flex-column">
+          <h3 class="d-none d-md-block">
+            <label class="badge bg-info">溫泉</label>
+            <label class="badge bg-warning">日光浴</label>
+          </h3>
+          <h2 class="display-2 fw-bolder">山間裡裸湯</h2>
+          <p class="d-none d-md-block">被山包圍的裸湯，讓毛細孔全開，同時享受湯浴和森林浴，雙重享受，雙重療癒。</p>
+        </div>
+      </div>
+    </div>
+    <button
+      class="carousel-control-prev w-auto"
+      type="button"
+      data-bs-target="#lokiSlider"
+      data-bs-slide="prev"
+    >
+      <i class="fa-solid fa-angle-left"></i>
+    </button>
+    <button
+      class="carousel-control-next w-auto"
+      type="button"
+      data-bs-target="#lokiSlider"
+      data-bs-slide="next"
+    >
+      <i class="fa-solid fa-angle-right"></i>
+    </button>
+  </section>
+  <section
+    id="lokiPallet"
+    class="container pt-5"
+  >
+    <div class="row row-cols-4 g-0">
+      <img
+        class="col img-fluid"
+        src="media/imgs/palletHeader01.jpg"
+      >
+      <img
+        class="col img-fluid"
+        src="media/imgs/palletHeader02.jpg"
+      >
+      <img
+        class="col img-fluid"
+        src="media/imgs/palletHeader03.jpg"
+      >
+      <img
+        class="col img-fluid"
+        src="media/imgs/palletHeader04.jpg"
+      >
+    </div>
+    <header class="h2 my-5 border-start border-5 border-secondary ps-3">營位介紹</header>
+    <article class="row row-cols-1 row-cols-md-2 flex-row-reverse g-4 gx-md-4 gy-md-0 overflow-hidden">
+      <div class="col">
+        <div class="card text-bg-dark overflow-hidden border-0 shadow">
+          <img
+            src="media/imgs/pallet01.jpeg"
+            class="card-img"
+          >
+          <div
+            class="card-img-overlay text-center bg-opacity-50 bg-dark d-flex flex-column justify-content-center align-items-center"
+          >
+            <h3 class="card-title text-warning fw-bolder">河畔 × A區</h3>
+            <ul class="list-unstyled">
+              <li>每帳空間4X8公尺，獨立水槽與供電，共20帳</li>
+              <li>帳邊可停車！每帳限1台車，超過酌收至指定停車場費用 $100/車</li>
+              <li>每帳限四人，超出費用（五歲以上）酌收人頭費 $300</li>
+            </ul>
+            <h5 class="card-text">
+              <label class="badge rounded-pill text-bg-light">一宿 / $1000</label>
+              <label class="badge rounded-pill text-bg-dark">國定假日 / $1500</label>
+            </h5>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-bg-dark overflow-hidden border-0 shadow">
+          <img
+            src="media/imgs/pallet02.jpg"
+            class="card-img"
+          >
+          <div
+            class="card-img-overlay text-center bg-opacity-50 bg-dark d-flex flex-column justify-content-center align-items-center"
+          >
+            <h3 class="card-title text-warning fw-bolder">山間 × B區</h3>
+            <ul class="list-unstyled">
+              <li>每帳空間4X8公尺，獨立水槽與供電，共12帳</li>
+              <li>帳邊可停車！每帳限1台車，超過酌收至指定停車場費用 $100/車</li>
+              <li>每帳限四人，超出費用（五歲以上）酌收人頭費 $300</li>
+            </ul>
+            <h5 class="card-text">
+              <label class="badge rounded-pill text-bg-light">一宿 / $1100</label>
+              <label class="badge rounded-pill text-bg-dark">國定假日 / $1600</label>
+            </h5>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-bg-dark overflow-hidden border-0 shadow">
+          <img
+            src="media/imgs/pallet03.jpg"
+            class="card-img"
+          >
+          <div class="card-img-overlay text-center bg-opacity-50 bg-dark d-flex flex-column justify-content-center">
+            <h3 class="card-title text-warning fw-bolder">平原 × C區</h3>
+            <ul class="list-unstyled">
+              <li>每帳空間4X8公尺，獨立水槽與供電，共12帳</li>
+              <li>帳邊不可停車！需停靠專用停車場，超過1車需酌收至指定停車場費用 $100/車</li>
+              <li>每帳限四人，超出費用（五歲以上）酌收人頭費 $300</li>
+            </ul>
+            <h5 class="card-text">
+              <label class="badge rounded-pill text-bg-light">一宿 / $1200</label>
+              <label class="badge rounded-pill text-bg-dark">國定假日 / $1700</label>
+            </h5>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-bg-dark overflow-hidden border-0 shadow">
+          <img
+            src="media/imgs/pallet04.jpg"
+            class="card-img"
+          >
+          <div class="card-img-overlay text-center bg-opacity-50 bg-dark d-flex flex-column justify-content-center">
+            <h3 class="card-title text-warning fw-bolder">車屋 × D區</h3>
+            <ul class="list-unstyled">
+              <li>免搭帳輕鬆入帳，雙人獨立筒床與獨立衛浴水電，共14帳</li>
+              <li>屋旁不可停車！需停靠專用停車場，超過1車需酌收至指定停車場費用 $100/車</li>
+              <li>每屋上限三人，超出費用（五歲以上）酌收人頭費 $300</li>
+            </ul>
+            <h5 class="card-text">
+              <label class="badge rounded-pill text-bg-light">一宿 / $2000</label>
+              <label class="badge rounded-pill text-bg-dark">國定假日 / $2500</label>
+            </h5>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+  <section
+    id="lokiPark"
+    class="overflow-hidden container-fluid pt-5"
+  >
+    <header class="my-5 container">
+      <h2 class="border-start border-5 border-secondary ps-3">探索體驗</h2>
+      <div class="text-center w-75 mx-auto py-5">
+        洛奇渡假村腹地面積生態豐富，擁有眾多的設施周邊供您滿足整天的玩樂。不只玩的快樂也放得輕鬆。請盡情享受我們的人間樂園，帶回流連忘返的快樂心情，為您旅途點綴豐富回憶。</div>
+    </header>
+    <article class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-2 g-md-0">
+      <div class="col">
+        <img
+          src="media/imgs/park01.jpg"
+          class="card-img"
+        >
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <h5 class="card-title text-bg-warning opacity-75 rounded-pill px-3 py-2">登星山景步道</h5>
+        </div>
+      </div>
+      <div class="col">
+        <img
+          src="media/imgs/park02.jpg"
+          class="card-img"
+        >
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <h5 class="card-title text-bg-warning opacity-75 rounded-pill px-3 py-2">泛舟漂漂河</h5>
+        </div>
+      </div>
+      <div class="col">
+        <img
+          src="media/imgs/park03.jpg"
+          class="card-img"
+        >
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <h5 class="card-title text-bg-warning opacity-75 rounded-pill px-3 py-2">飯店式營本部</h5>
+        </div>
+      </div>
+      <div class="col">
+        <img
+          src="media/imgs/park04.jpg"
+          class="card-img"
+        >
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <h5 class="card-title text-bg-warning opacity-75 rounded-pill px-3 py-2">美人碳酸溫泉</h5>
+        </div>
+      </div>
+      <div class="col">
+        <img
+          src="media/imgs/park05.jpg"
+          class="card-img"
+        >
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <h5 class="card-title text-bg-warning opacity-75 rounded-pill px-3 py-2">生態溪蝦嚮導</h5>
+        </div>
+      </div>
+      <div class="col">
+        <img
+          src="media/imgs/park06.jpg"
+          class="card-img"
+        >
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <h5 class="card-title text-bg-warning opacity-75 rounded-pill px-3 py-2">團康活動營火</h5>
+        </div>
+      </div>
+      <div class="col">
+        <img
+          src="media/imgs/park07.jpg"
+          class="card-img"
+        >
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <h5 class="card-title text-bg-warning opacity-75 rounded-pill px-3 py-2">日光浴平台</h5>
+        </div>
+      </div>
+      <div class="col">
+        <img
+          src="media/imgs/park08.jpg"
+          class="card-img"
+        >
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <h5 class="card-title text-bg-warning opacity-75 rounded-pill px-3 py-2">免費足湯腳療</h5>
+        </div>
+      </div>
+      <div class="col">
+        <img
+          src="media/imgs/park09.jpg"
+          class="card-img"
+        >
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <h5 class="card-title text-bg-warning opacity-75 rounded-pill px-3 py-2">親子探險遊戲</h5>
+        </div>
+      </div>
+      <div class="col">
+        <img
+          src="media/imgs/park10.jpg"
+          class="card-img"
+        >
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <h5 class="card-title text-bg-warning opacity-75 rounded-pill px-3 py-2">五星級衛浴設施</h5>
+        </div>
+      </div>
+    </article>
+  </section>
+  <section
+    id="lokiService"
+    class="overflow-hidden text-white pt-5"
+  >
+    <article class="container">
+      <header class="h2 my-5 border-start border-5 border-white ps-3">遊客服務</header>
+      <div class="row row-cols-1 row-cols-md-3 gy-3">
+        <div class="col">
+          <div class="card h-100 text-bg-dark rounded-0 shadow-lg py-3">
+            <div class="card-header text-center">
+              <h3 class="card-title">設備租借</h3>
+              <img
+                src="media/imgs/service01.jpg"
+                class="rounded-circle border border-secondary border-3 m-3"
+              >
+            </div>
+            <div class="card-body">
+              <h6 class="card-subtitle mb-2 text-info">價目表</h6>
+              <ul class="ps-4">
+                <li class="py-1 d-flex justify-content-between align-items-start">
+                  <div>
+                    <div class="px-2 text-bg-info">Snow Peak003 四人帳</div>
+                    <p class="mb-1 px-2">300X300 cm、附釘&槌&繩</p>
+                  </div>
+                  <span class="badge bg-info rounded-pill">NT 1200</span>
+                </li>
+                <li class="py-1 d-flex justify-content-between align-items-start">
+                  <div>
+                    <div class="px-2 text-bg-info">Comma雙人床墊</div>
+                    <p class="mb-1 px-2">132X198 cm、免費打氣</p>
+                  </div>
+                  <span class="badge bg-info rounded-pill">NT 250</span>
+                </li>
+                <li class="py-1 d-flex justify-content-between align-items-start">
+                  <div>
+                    <div class="px-2 text-bg-info">大川椅</div>
+                    <p class="mb-1 px-2">速可搭免組裝</p>
+                  </div>
+                  <span class="badge bg-info rounded-pill">NT 80</span>
+                </li>
+                <li class="py-1 d-flex justify-content-between align-items-start">
+                  <div>
+                    <div class="px-2 text-bg-info">客廳帳</div>
+                    <p class="mb-1 px-2">四面邊布需另租 $500</p>
+                  </div>
+                  <span class="badge bg-info rounded-pill">NT 500</span>
+                </li>
+                <li class="py-1 d-flex justify-content-between align-items-start">
+                  <div>
+                    <div class="px-2 text-bg-info">動力延長線</div>
+                    <p class="mb-1 px-2">15米</p>
+                  </div>
+                  <span class="badge bg-info rounded-pill">NT 50</span>
+                </li>
+                <li class="py-1 d-flex justify-content-between align-items-start">
+                  <div>
+                    <div class="px-2 text-bg-info">LED 露營燈條</div>
+                    <p class="mb-1 px-2">10米、可調光</p>
+                  </div>
+                  <span class="badge bg-info rounded-pill">NT 100</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 text-bg-dark rounded-0 shadow-lg py-3">
+            <div class="card-header text-center">
+              <h3 class="card-title">會館設施</h3>
+              <img
+                src="media/imgs/service02.jpg"
+                class="rounded-circle border border-secondary border-3 m-3"
+              >
+            </div>
+            <div class="card-body">
+              <h6 class="card-subtitle mb-2 text-warning d-flex justify-content-between align-items-start"> 山間裡裸湯 <span
+                  class="badge bg-warning rounded-pill"
+                >NT 200</span>
+              </h6>
+              <p class="ps-4">
+                碳酸氫鹽泉，透過身體皮膚促進血液迴圈。加速新陳代謝，其礦物質可刺激自律神經、內分泌及免疫系統，在溫泉中沐浴時，身體將浸泡在天然礦物質中，礦物質將促進血液循環和氧氣流量增加，促進新陳代謝。</p>
+              <h6 class="card-subtitle mb-2 text-warning d-flex justify-content-between align-items-start"> 泛舟漂漂河 <span
+                  class="badge bg-warning rounded-pill"
+                >NT 200</span>
+              </h6>
+              <p class="ps-4">利用溪水/溯溪漂流的方式，一覽山澳獨特山水景色，並享受沁涼溪水。最專業的四對一教練配比人數，全程教練陪同，玩得安全更玩得盡興，由體驗親子交流、團隊互助的漂流樂趣.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 text-bg-dark rounded-0 shadow-lg py-3">
+            <div class="card-header text-center">
+              <h3 class="card-title">美味饗宴</h3>
+              <img
+                src="media/imgs/service03.jpg"
+                class="rounded-circle border border-secondary border-3 m-3"
+              >
+            </div>
+            <div class="card-body">
+              <h6 class="card-subtitle mb-2 text-success d-flex justify-content-between align-items-start"> 烤肉組合/5人份
+                <span class="badge bg-success rounded-pill">NT 200</span>
+              </h6>
+              <ul class="list-group px-4 mb-3">
+                <li class="py-1">櫻桃鴨菲力300g</li>
+                <li class="py-1">塔香雞腿肉350g</li>
+                <li class="py-1">岩燒豬里肌肉400g</li>
+                <li class="py-1">古早味炭烤香腸5條</li>
+                <li class="py-1">特製客家鹹豬肉150g</li>
+                <li class="py-1">和風雪花培根片10片</li>
+                <li class="py-1">薄鹽鯖魚一份</li>
+                <li class="py-1">香烤基隆天婦羅5片</li>
+                <li class="py-1">金黃冰心地瓜5條</li>
+                <li class="py-1">燒烤蔬菜盒一份</li>
+                <li class="py-1">白玉百頁10個</li>
+                <li class="py-1">手工吐司1小條</li>
+                <li class="py-1">拋棄式烤爐1組、木炭2斤、餐具全套組1組</li>
+                <li class="py-1">特調燒烤烤肉醬1份、精緻佐料包1份</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+  <section
+    id="lokiRule"
+    class="container pt-5"
+  >
+    <header class="h2 my-5 border-start border-5 border-secondary ps-3">營區守則</header>
+    <article class="row row-cols-1 row-cols-md-2 flex-row-reverse gy-3">
+      <div class="col">
+        <img
+          src="media/imgs/rule01.jpg"
+          class="img-thumbnail img-fluid"
+        >
+      </div>
+      <div
+        class="accordion col accordion-flush"
+        id="lokiAccordion"
+      >
+        <div class="accordion-item mb-3 overflow-auto rounded-5 shadow-sm">
+          <h2
+            class="accordion-header accordion-button btn"
+            data-bs-toggle="collapse"
+            data-bs-target="#lokiItem1"
+          ><i class="fa-regular fa-circle-question me-2"></i>營地營業進場時間</h2>
+          <div
+            id="lokiItem1"
+            class="accordion-collapse collapse show"
+            data-bs-parent="#lokiAccordion"
+          >
+            <div class="accordion-body">
+              <p>非連假 : 入場時間10:00 / 退場時間12:00</p>
+              <p>連假 : 入場時間12:00 / 退場時間12:00</p>
+              <ul>
+                <li>預訂(星期五)二天一夜露營，請於星期六上午10:00前離場，以提供星期六訂位者使用，造成不便敬請見諒。</li>
+                <li>連續假日營地紮營時間為中午12點至隔日中午12點，以供下位紮營者使用。</li>
+                <li>本營地為了維護晚間安寧品質並避免打擾其他露客，全面不開放進場夜衝，盡請見諒。</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item my-3 overflow-auto rounded-5 shadow-sm">
+          <h2
+            class="accordion-header accordion-button collapsed btn"
+            data-bs-toggle="collapse"
+            data-bs-target="#lokiItem2"
+          ><i class="fa-regular fa-circle-question me-2"></i>裸湯開放時間 </h2>
+          <div
+            id="lokiItem2"
+            class="accordion-collapse collapse"
+            data-bs-parent="#lokiAccordion"
+          >
+            <div class="accordion-body">
+              <p>男女分浴日式庭園裸湯，以獨特山景、花草環繞著戶外湯池，男湯、女湯定期更換 。</p>
+              <p>＊注意事項：</p>
+              <ul>
+                <li>開放時間：平日11:00~22:00 假日09:00~23:00。</li>
+                <li>假日定義：週六、週日、連續假日及國定假日。</li>
+                <li>使用觀景溫泉需年滿16歲以上（必要時請出示證件）。</li>
+                <li>觀景風呂限會員及住宿客加價使用。</li>
+              </ul>
+              <p>（如遇養護或特殊狀況，依現場營業情況調整。） </p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item mt-3 overflow-auto rounded-5 shadow-sm">
+          <h2
+            class="accordion-header accordion-button collapsed btn"
+            data-bs-toggle="collapse"
+            data-bs-target="#lokiItem3"
+          ><i class="fa-regular fa-circle-question me-2"></i>預定露營前解約日 </h2>
+          <div
+            id="lokiItem3"
+            class="accordion-collapse collapse"
+            data-bs-parent="#lokiAccordion"
+          >
+            <div class="accordion-body">
+              <p> 雨天不露營之辦法：遇雨天不露營者請勿先行訂位，建議於出遊當天，您可以接受的天氣、路況，再以電話聯繫營主訂位，以免造成雙方之間的困擾。</p>
+              <p>14天內退訂比例（不做延期請多包涵），退款訂單手續費酌收50元。</p>
+              <ul>
+                <li>14日之前: 100%（全退）</li>
+                <li>10~13日: 70%</li>
+                <li>7~9日: 50%</li>
+                <li>4~6日: 40%</li>
+                <li>2~3日: 0%（非天候因素，不予退還）</li>
+                <li>前一日: 0%（非天候因素，不予退還）</li>
+                <li>當日: 0% （非天候因素，不予退還）</li>
+              </ul>
+              <p></p>
+              <p>天候因素僅限於：當日發布颱風（陸警）、豪雨特報、大雨特報則全額退費。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+  <section
+    id="lokiReserve"
+    class="pt-5"
+  >
+    <article class="container">
+      <header class="h2 my-5 border-start border-5 border-white ps-3">立即預約</header>
+      <div class="card text-dark">
+        <div class="card-body row g-4">
+          <div class="col-lg-4">
+            <div class="calendar pt-3 bg-light">
+              <div class="ctrlBtn">
+                <a
+                  href="#prevCtrl"
+                  class=" link-dark fs-4"
+                ><i class="fa-solid fa-circle-chevron-left"></i></a>
+                <a
+                  href="#nextCtrl"
+                  class=" link-dark fs-4"
+                ><i class="fa-solid fa-circle-chevron-right"></i></a>
+              </div>
+              <div class="leftCal">
+                <div class="leftBar">
+                  <h4> October 2022 </h4>
+                  <ul>
+                    <li>Mo</li>
+                    <li>Tu</li>
+                    <li>We</li>
+                    <li>Th</li>
+                    <li>Fr</li>
+                    <li>Sa</li>
+                    <li>Su</li>
+                  </ul>
+                </div>
+                <ul class="leftDayList">
+                  <li class="JsCal"></li>
+                  <li class="JsCal"></li>
+                  <li class="JsCal"></li>
+                  <li class="JsCal"></li>
+                  <li class="JsCal"></li>
+                  <li class="delDay JsCal">1</li>
+                  <li class="delDay JsCal">2</li>
+                  <li class="delDay JsCal">3</li>
+                  <li class="delDay JsCal">4</li>
+                  <li class="delDay JsCal">5</li>
+                  <li class="emptyDay JsCal">6</li>
+                  <li class="emptyDay JsCal">7</li>
+                  <li class="emptyDay JsCal holiday">8</li>
+                  <li class="emptyDay JsCal holiday">9</li>
+                  <li class="emptyDay JsCal holiday">10</li>
+                  <li class="emptyDay JsCal">11</li>
+                  <li class="emptyDay JsCal">12</li>
+                  <li class="emptyDay JsCal">13</li>
+                  <li class="emptyDay JsCal">14</li>
+                  <li class="emptyDay JsCal holiday">15</li>
+                  <li class="emptyDay JsCal holiday">16</li>
+                  <li class="emptyDay JsCal">17</li>
+                  <li class="emptyDay JsCal">18</li>
+                  <li class="emptyDay JsCal">19</li>
+                  <li class="emptyDay JsCal">20</li>
+                  <li class="emptyDay JsCal">21</li>
+                  <li class="emptyDay JsCal holiday">22</li>
+                  <li class="emptyDay JsCal holiday">23</li>
+                  <li class="emptyDay JsCal">24</li>
+                  <li class="emptyDay JsCal">25</li>
+                  <li class="emptyDay JsCal">26</li>
+                  <li class="emptyDay JsCal">27</li>
+                  <li class="emptyDay JsCal">28</li>
+                  <li class="emptyDay JsCal holiday">29</li>
+                  <li class="emptyDay JsCal holiday">30</li>
+                  <li class="emptyDay JsCal">31</li>
+                </ul>
+              </div>
+              <div class="rightCal">
+                <div class="rightBar">
+                  <h4> November 2022 </h4>
+                  <ul>
+                    <li>Mo</li>
+                    <li>Tu</li>
+                    <li>We</li>
+                    <li>Th</li>
+                    <li>Fr</li>
+                    <li>Sa</li>
+                    <li>Su</li>
+                  </ul>
+                </div>
+                <ul class="rightDayList">
+                  <li class="JsCal"></li>
+                  <li class="emptyDay JsCal">1</li>
+                  <li class="emptyDay JsCal">2</li>
+                  <li class="emptyDay JsCal">3</li>
+                  <li class="emptyDay JsCal">4</li>
+                  <li class="fullDay JsCal holiday">5</li>
+                  <li class="fullDay JsCal holiday">6</li>
+                  <li class="emptyDay JsCal">7</li>
+                  <li class="emptyDay JsCal">8</li>
+                  <li class="emptyDay JsCal">9</li>
+                  <li class="emptyDay JsCal">10</li>
+                  <li class="emptyDay JsCal">11</li>
+                  <li class="emptyDay JsCal holiday">12</li>
+                  <li class="emptyDay JsCal holiday">13</li>
+                  <li class="emptyDay JsCal">14</li>
+                  <li class="emptyDay JsCal">15</li>
+                  <li class="emptyDay JsCal selectHead">16</li>
+                  <li class="emptyDay JsCal selectConnect">17</li>
+                  <li class="emptyDay JsCal selectConnect">18</li>
+                  <li class="fullDay JsCal holiday selectConnect">19</li>
+                  <li class="emptyDay JsCal holiday selectFoot">20</li>
+                  <li class="emptyDay JsCal">21</li>
+                  <li class="emptyDay JsCal">22</li>
+                  <li class="emptyDay JsCal">23</li>
+                  <li class="emptyDay JsCal">24</li>
+                  <li class="emptyDay JsCal">25</li>
+                  <li class="emptyDay JsCal holiday">26</li>
+                  <li class="emptyDay JsCal holiday">27</li>
+                  <li class="emptyDay JsCal">28</li>
+                  <li class="emptyDay JsCal">29</li>
+                  <li class="emptyDay JsCal">30</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <form
+            id="selectPallet"
+            class="col-lg-8"
+          >
+            <h3>$0 / 0晚平日，0晚假日</h3>
+            <table class="table table-striped">
+              <thead class="table-dark">
+                <tr>
+                  <td scope="col">#</td>
+                  <td scope="col">營位分區</td>
+                  <td scope="col">日期 /每帳價格</td>
+                  <td scope="col">帳數</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">
+                    <img src="media/imgs/pallet01.jpeg">
+                  </th>
+                  <td name="pallet">
+                    <div>河畔 × A區</div>
+                    <label class="fw-light badge bg-warning">剩餘 <span class="fs-6">10</span> 組</label>
+                  </td>
+                  <td>
+                    <div>2022-11-03 ($600)</div>
+                    <div>2022-11-04 ($1000)</div>
+                  </td>
+                  <td>
+                    <select
+                      class="form-select form-select-sm"
+                      name="aArea"
+                    >
+                      <option value="0">0</option>
+                      <option value="1">1</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <img src="media/imgs/pallet02.jpg">
+                  </th>
+                  <td name="pallet">
+                    <div>山間 × B區</div>
+                    <label class="fw-light badge bg-warning">剩餘 <span class="fs-6">10</span> 組</label>
+                  </td>
+                  <td>
+                    <div>2022-11-03 ($600)</div>
+                    <div>2022-11-04 ($1000)</div>
+                    <div>2022-11-05 ($1000)</div>
+                    <div>2022-11-06 ($1000)</div>
+                  </td>
+                  <td>
+                    <select
+                      class="form-select form-select-sm"
+                      name="bArea"
+                    >
+                      <option value="0">0</option>
+                      <option value="1">1</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <img src="media/imgs/pallet03.jpg">
+                  </th>
+                  <td name="pallet">
+                    <div>平原 × C區</div>
+                    <label class="fw-light badge bg-warning">剩餘 <span class="fs-6">10</span> 組</label>
+                  </td>
+                  <td>
+                    <div>2022-11-03 ($600)</div>
+                    <div>2022-11-04 ($1000)</div>
+                    <div>2022-11-05 ($1000)</div>
+                    <div>2022-11-06 ($1000)</div>
+                  </td>
+                  <td>
+                    <select
+                      class="form-select form-select-sm"
+                      name="cArea"
+                    >
+                      <option value="0">0</option>
+                      <option value="1">1</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <img src="media/imgs/pallet04.jpg">
+                  </th>
+                  <td name="pallet">
+                    <div>車屋 × D區</div>
+                    <label class="fw-light badge bg-warning">剩餘 <span class="fs-6">10</span> 組</label>
+                  </td>
+                  <td>
+                    <div>2022-11-03 ($600)</div>
+                    <div>2022-11-04 ($1000)</div>
+                    <div>2022-11-05 ($1000)</div>
+                    <div>2022-11-06 ($1000)</div>
+                  </td>
+                  <td>
+                    <select
+                      class="form-select form-select-sm"
+                      name="dArea"
+                    >
+                      <option value="0">0</option>
+                      <option value="1">1</option>
+                    </select>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <button
+              type="button"
+              class="btn btn-dark d-block mx-auto px-5"
+            >立即預約</button>
+          </form>
+        </div>
+      </div>
+    </article>
+  </section>
+  <footer class="text-bg-dark">
+    <div class="bg-light bg-opacity-25 overflow-hidden position-relative">
+      <img
+        src="media/camp.svg"
+        class="position-absolute start-0 top-0"
+        style="max-width:400px"
+      >
+      <div class="container py-5 lh-lg position-relative">
+        <div class="row g-5">
+          <div class="col-md-6 col-lg-4">
+            <h5>洛奇營地渡假村</h5>
+            <ul class="fa-ul">
+              <li><span class="fa-li"><i class="fa-solid fa-location-dot"></i></span>243 新北市泰山區貴子里致遠新村55之1號 </li>
+              <li><span class="fa-li"><i class="fa-solid fa-phone"></i></span>02-2901-8274</li>
+              <li><span class="fa-li"><i class="fa-solid fa-print"></i></span>02-2908-4773 </li>
+              <li><span class="fa-li"><i class="fa-solid fa-envelope"></i></span>service@toyugi.com.tw</li>
+            </ul>
+            <a
+              class="btn btn-primary rounded-circle d-inline-flex justify-content-center align-items-center mx-1 fs-5"
+              style="width:2.5rem;height:2.5rem"
+              link="#"
+            ><i class="fa-brands fa-facebook-f"></i></a>
+            <a
+              class="btn btn-danger rounded-circle d-inline-flex justify-content-center align-items-center mx-1 fs-5"
+              style="width:2.5rem;height:2.5rem"
+              link="#"
+            ><i class="fa-brands fa-youtube"></i></a>
+            <a
+              class="btn btn-success rounded-circle d-inline-flex justify-content-center align-items-center mx-1 fs-4"
+              style="width:2.5rem;height:2.5rem"
+              link="#"
+            ><i class="fa-brands fa-line"></i></a>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <h5>自行開車</h5>
+            <p> 高速公路五股交流道下（往新莊、泰山），經新五路至新北大道右轉，直行至貴子路口右轉，貴子路直行至明志路左轉。於明志路繼續前行約 100 公尺右轉工專路，即可抵達明科技大學。 </p>
+            <p> 由台北車站走忠孝橋，直行高架道路，下到平面道路之後直行至貴子路口右轉，貴子路直行至明志路左轉，於明志路繼續前行約 100 公尺右轉工專路，即可抵達明科技大學。 明志科大「汽車」停車費 30
+              元/小時，請儘量搭乘大眾交通工具或機車（免停車費）。 </p>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="ratio ratio-1x1">
+              <iframe
+                class="border border-5 border-secondary rounded-circle"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.7020090599085!2d121.41729491546742!3d25.04418494403601!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a7bed3dc9b59%3A0x57e6439a2db0fa2a!2zMjQz5paw5YyX5biC5rOw5bGx5Y2A5rOw5bGx6IG36KiT5Lit5b-D!5e0!3m2!1szh-TW!2stw!4v1665497547856!5m2!1szh-TW!2stw"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-muted py-3 text-center">
+      <small class="container"> 泰山職業訓練中心課程教材編譯，本圖片素材引用來源自 <a href="https://www.snowpeak.co.jp/">snow peak JP</a>
+        並僅作為學術用途。 <br>Copyright © 2022 <span class="text-white">洛奇數位設計</span>. all rights reserved </small>
+    </div>
+  </footer>
+  <script src="plugins/custom.js"></script>
+  <script src="plugins/lokiCalendar.js"></script>
+  <section
+    class="offcanvas offcanvas-start"
+    data-bs-backdrop="static"
+  >
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">訂位確認</h5>
+      <button
+        class="btn-close"
+        data-bs-dismiss="offcanvas"
+      ></button>
+    </div>
+    <form
+      id="orderForm"
+      class="offcanvas-body  needs-validation"
+      novalidate
+    >
+      <div class="card mb-3">
+        <ol class="list-group list-group-flush list-group-numbered">
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">河畔 × A區 </div>
+              <div>
+                <div>2022-12-06(1000)</div>
+                <div>2022-12-07(1000)</div>
+              </div>
+            </div>
+            <span class="badge bg-warning rounded-pill">x <span class="fs-6">2</span>帳</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">山間 × B區 </div>
+              <div>
+                <div>2022-12-06(1000)</div>
+                <div>2022-12-07(1000)</div>
+              </div>
+            </div>
+            <span class="badge bg-warning rounded-pill">x <span class="fs-6">2</span>帳</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">平原 × C區 </div>
+              <div>
+                <div>2022-12-06(1000)</div>
+                <div>2022-12-07(1000)</div>
+              </div>
+            </div>
+            <span class="badge bg-warning rounded-pill">x <span class="fs-6">2</span>帳</span>
+          </li>
+        </ol>
+        <div class="card-header h5"> $12000 / 0晚平日，2晚假日 <h5 class="card-title">$12000 / 0晚平日，2晚假日</h5>
+        </div>
+        <div class="card-body">
+          <div class="mb-3">
+            <label
+              for="lokiUser"
+              class="form-label"
+            >訪客姓名</label>
+            <input
+              type="text"
+              class="form-control form-control-sm"
+              name="userName"
+              id="lokiUser"
+              required
+            >
+          </div>
+          <div class="mb-3">
+            <label
+              for="lokiPhone"
+              class="form-label"
+            >聯絡手機</label>
+            <input
+              type="phone"
+              class="form-control form-control-sm"
+              id="lokiPhone"
+              name="userPhone"
+              required
+            >
+          </div>
+          <div class="mb-3">
+            <label
+              for="lokiMail"
+              class="form-label"
+            >Email 電子信箱</label>
+            <input
+              type="email"
+              class="form-control form-control-sm"
+              id="lokiMail"
+              name="userMail"
+              required
+            >
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <button
+          type="submit"
+          class="btn btn-dark w-100"
+        >提交訂單</button>
+        <small>此預約系統僅預約功能，並不會對您進行收費</small>
+      </div>
+    </form>
+  </section>
+</body>
+
+</html>

@@ -1,0 +1,170 @@
+body {
+  font-family: "Roboto", "Noto Sans TC", "Open Sans", Helvetica, Arial;
+  background: #282c34;
+  color: #eee;
+}
+
+body > nav {
+  z-index: 999;
+}
+#lokiMenu a.nav-link,
+#lokiMenu a.navbar-brand {
+  letter-spacing: 0.1rem;
+  transition: 0.5s;
+}
+
+#lokiMenu a.nav-link::before {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  background: white;
+  border-radius: 50%;
+}
+
+#lokiMenu a.nav-link.active {
+  transform: scale(1.2);
+  transform-origin: left;
+}
+
+#lokiSlider .carousel-item {
+  padding-bottom: 240px;
+  background: #282c34; /*轉場問題加底圖*/
+}
+
+#lokiSlider .carousel-caption {
+  padding-bottom: 120px;
+}
+
+#lokiSlider img {
+  object-fit: cover;
+  /* filter: grayscale(50%) sepia(80%); */
+}
+
+#lokiSlider .carousel-item::after {
+  content: "";
+  position: absolute;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10'%3e%3cg opacity='0.5' stroke-width='1' stroke='%23000' fill='none'%3e%3cline y2='10' x2='10' y1='0' x1='0'/%3e%3cline y2='15' x2='5' y1='5' x1='-5'/%3e%3cline y2='5' x2='15' y1='-5' x1='5'/%3e%3c/g%3e%3c/svg%3e");
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+#lokiSlider button > i {
+  font-size: 2rem;
+  width: 50px;
+  height: 50px;
+  background: #000;
+  line-height: 50px;
+}
+
+#lokiSlider .carousel-caption {
+  z-index: 1;
+}
+
+#lokiPallet .row > img {
+  object-fit: cover;
+}
+
+@media screen and (min-width: 768px) {
+  #lokiPallet article > .col:nth-child(odd) {
+    transform: translateY(-50%);
+    padding-bottom: 150px;
+  }
+  #lokiPallet article {
+    padding-top: calc((50% - 24px) * 0.375 + 75px);
+    margin-bottom: -150px;
+  }
+  #lokiPallet article > .col:nth-last-child(1) {
+    margin-bottom: -150px;
+  }
+
+  #lokiPallet .card-img-overlay {
+    transform: scale(0);
+    transition: 0.3s;
+  }
+  #lokiPallet .card:hover .card-img-overlay {
+    transform: scale(1);
+  }
+
+  #lokiPallet .card-img {
+    transition: 0.3s;
+  }
+  #lokiPallet .card:hover .card-img {
+    transform: scale(1.3);
+  }
+  #lokiPark .col {
+    transition: 0.3s;
+  }
+  #lokiPark .col:hover {
+    transform: scale(1.15);
+    z-index: 99;
+  }
+  #lokiPark .col .card-img {
+    filter: brightness(0.7);
+    transition: 0.3s;
+  }
+  #lokiPark .col:hover .card-img {
+    filter: brightness(1);
+  }
+}
+#lokiPark {
+  background: url("../media/imgs/parkBG.jpg") #3338 no-repeat center/cover;
+  background-attachment: fixed;
+  background-blend-mode: lighten;
+}
+#lokiPark .card-title {
+  opacity: 1 !important;
+}
+
+section:not(#lokiSlider, .offcanvas) {
+  padding-bottom: 120px;
+}
+
+#lokiService {
+  background: url("../media/imgs/parkBG.jpg") #0008 no-repeat center/cover;
+  background-attachment: fixed;
+  background-blend-mode: darken;
+}
+
+#lokiService img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+#lokiReserve {
+  background: url("../media/imgs/contactBG.jpg") #000 no-repeat center/cover;
+  background-attachment: fixed;
+  background-blend-mode: luminosity;
+}
+
+#lokiReserve .card {
+  backdrop-filter: blur(10px);
+  /* background: rgb(255, 193, 7, 0.3); */
+  background: #fffd;
+  border-radius: 5px;
+}
+
+/* #lokiReserve #ff-title-root {
+  margin: 3rem 0;
+  border-left: 5px solid white;
+  font-size: 2rem;
+  padding: 0 0 0 1rem;
+} */
+
+/* ******************************** */
+
+#lokiReserve img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+/* #lokiLightBox{
+  position: fixed;
+  background: hsla(0, 0%, 100%, 0.1);
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px);
+} */

@@ -5,19 +5,35 @@ const startBtn = document.querySelector(".control>button");
 const animals = document.querySelectorAll(".imgs-box>img");
 
 // 遊戲參數設定
-const GAME_TIME = 30; // 遊戲時間
+const GAME_TIME = 60; // 遊戲時間
 const SHOW_RANGE = [2, 4]; // 最小曝光時間 ~ 最大曝光時間
 const IMG = {
   red: "./img/on.png",
   green: "./img/off.png",
   yellow: "./img/state.png",
 };
-const MAX_COMBO = 20; // 得分機會次數
+const MAX_COMBO = 100; // 得分機會次數
 let score = 0; // 遊戲分數
+
+const codeMap = {
+  Numpad1: 6,
+  Numpad2: 7,
+  Numpad3: 8,
+  Numpad4: 3,
+  Numpad5: 4,
+  Numpad6: 5,
+  Numpad7: 0,
+  Numpad8: 1,
+  Numpad9: 2,
+};
 
 //---------------------------------------------------- init (初始化區)
 startBtn.addEventListener("click", startGame);
-animals.forEach((item) => item.addEventListener("click", getScore));
+animals.forEach((item) =>
+  item.addEventListener("click", (e) => getScore(e.target)),
+);
+
+document.addEventListener("keydown", (e) => getScore(animals[codeMap[e.code]]));
 
 //---------------------------------------------------- private methods (私有方法區)
 function startGame() {
@@ -80,10 +96,10 @@ function toRedEvent({ space, delay }) {
 }
 
 // 獲取得分
-function getScore({ target: animal }) {
+function getScore(animal) {
   if (!animal.src.includes("on")) return; // 不是紅色都忽略
 
-  combo.textContent = ((++score / MAX_COMBO) * 100).toFixed(1);
+  combo.textContent = Math.floor((++score / MAX_COMBO) * 10000) / 100;
   animal.src = IMG.green;
   clearTimeout(animal.dataset.timeId); // 清除自消失的定時器
   animal.dataset.timeId = null; // 清除自消失的定時器 id
