@@ -1,6 +1,5 @@
 import { Link } from 'react-router';
-import PhoneOutlinedIcon from '@mui/icons-material/PhoneOutlined';
-import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
+import Icon from './Icon.jsx';
 
 export default function SiteFooter() {
   return (
@@ -13,8 +12,8 @@ export default function SiteFooter() {
         </div>
         <div>
           <p className="font-semibold">聯絡我們</p>
-          <p className="mt-4 flex items-start gap-2 leading-relaxed"><PhoneOutlinedIcon className="mt-1 text-accent" aria-hidden />電話（02）0000-1111</p>
-          <p className="mt-2 flex items-start gap-2 leading-relaxed"><PlaceOutlinedIcon className="mt-1 text-accent" aria-hidden />100 台北市中正區教材路 8 號</p>
+          <p className="mt-4 flex items-start gap-2 leading-relaxed"><Icon name="call" className="mt-1 text-accent" />電話（02）0000-1111</p>
+          <p className="mt-2 flex items-start gap-2 leading-relaxed"><Icon name="location_on" className="mt-1 text-accent" />100 台北市中正區教材路 8 號</p>
           <p className="mt-4 text-base leading-relaxed text-white/90">出團前以 email 確認。未成行，團費全額退回。</p>
         </div>
         <div>

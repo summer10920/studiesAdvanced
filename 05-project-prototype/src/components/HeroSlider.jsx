@@ -2,8 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import Icon from './Icon.jsx';
 import { ntd } from '../format.js';
 
 export default function HeroSlider({ slides }) {
@@ -32,8 +31,8 @@ export default function HeroSlider({ slides }) {
         />
       ))}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/45 to-ink/25" />
-      <IconButton aria-label="上一張" onClick={() => go(index - 1)} className="absolute top-1/2 left-3 z-20 -translate-y-1/2 bg-white text-ink shadow-card md:left-6"><ChevronLeftIcon /></IconButton>
-      <IconButton aria-label="下一張" onClick={() => go(index + 1)} className="absolute top-1/2 right-3 z-20 -translate-y-1/2 bg-white text-ink shadow-card md:right-6"><ChevronRightIcon /></IconButton>
+      <IconButton aria-label="上一張" onClick={() => go(index - 1)} className="absolute top-1/2 left-3 z-20 -translate-y-1/2 bg-white text-ink shadow-card md:left-6"><Icon name="chevron_left" /></IconButton>
+      <IconButton aria-label="下一張" onClick={() => go(index + 1)} className="absolute top-1/2 right-3 z-20 -translate-y-1/2 bg-white text-ink shadow-card md:right-6"><Icon name="chevron_right" /></IconButton>
       <div className="relative z-10 w-full px-5 pt-24 pb-14 sm:px-8 lg:pb-28 lg:pl-20">
         <p className="font-serif text-3xl"><span className="price-tag">{ntd(slide.price)}</span></p>
         <p className="mt-3 text-base font-medium text-foam">{slide.region} · {slide.days} 天</p>

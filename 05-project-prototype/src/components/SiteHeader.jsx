@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Link, NavLink, useLocation, useNavigate } from 'react-router';
-import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import AppBar from '@mui/material/AppBar';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -8,6 +7,7 @@ import Drawer from '@mui/material/Drawer';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import NavLinks from './NavLinks.jsx';
+import Icon from './Icon.jsx';
 import { useSession } from '../session.jsx';
 
 const item = ({ isActive }) => `inline-flex min-h-11 items-center rounded-full px-3 font-bold ${isActive ? 'bg-action text-white' : 'text-ink hover:bg-mist'}`;
@@ -43,7 +43,7 @@ export default function SiteHeader() {
       <a className="skip" href="#content">跳到內容</a>
       <div className="relative mx-auto flex w-full max-w-6xl items-center justify-between gap-3 px-4 py-2 sm:px-6">
         <Link to={admin ? '/admin' : '/'} className="font-serif text-2xl font-semibold text-ink">{admin ? '洛奇旅行 · 後台' : '洛奇旅行'}</Link>
-        <Button id="nav-toggle" className="md:hidden" variant="outlined" startIcon={<MenuOutlinedIcon />} aria-expanded={open} aria-controls="site-drawer" onClick={() => setOpen(true)}>選單</Button>
+        <Button id="nav-toggle" className="md:hidden" variant="outlined" startIcon={<Icon name="menu" />} aria-expanded={open} aria-controls="site-drawer" onClick={() => setOpen(true)}>選單</Button>
         <div className="hidden items-center gap-1 md:flex">
           {links('site-nav')}
           {account}

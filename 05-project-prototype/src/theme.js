@@ -1,6 +1,5 @@
 import { createElement } from 'react';
 import { createTheme } from '@mui/material/styles';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 /**
  * 色票來源。main.jsx 會寫進 --loki-*，Tailwind 讀這些變數。
@@ -28,6 +27,17 @@ export const applyTokens = () => {
   Object.entries(tokens).forEach(([key, value]) => {
     document.documentElement.style.setProperty(`--loki-${key}`, value);
   });
+};
+
+
+/** Material Symbols 字型 icon（取代 MUI 內建 SVG）。 */
+const ms = (name, props = {}) => createElement('span', { 'aria-hidden': 'true', ...props, className: `material-symbols-outlined ${props.className || ''}`.trim() }, name);
+const SelectArrow = ({ className }) => ms('expand_more', { className });
+const CloseIcon = () => ms('close');
+const StepIcon = ({ active, completed, icon }) => {
+  const base = 'inline-flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold';
+  if (completed) return createElement('span', { className: `${base} bg-action text-white` }, ms('check', { style: { fontSize: 20 } }));
+  return createElement('span', { className: `${base} ${active ? 'bg-action text-white' : 'bg-line text-muted'}` }, icon);
 };
 
 const theme = createTheme({
@@ -98,10 +108,11 @@ const theme = createTheme({
       },
     },
     MuiAccordionSummary: {
-      defaultProps: { expandIcon: createElement(ExpandMoreIcon) },
+      defaultProps: { expandIcon: ms('expand_more') },
       styleOverrides: { root: { minHeight: 56, paddingInline: 20, '&.Mui-expanded': { minHeight: 56 } } },
     },
     MuiChip: {
+      defaultProps: { deleteIcon: ms('cancel') },
       styleOverrides: {
         root: { borderRadius: 999, fontWeight: 700 },
         colorSecondary: { backgroundColor: tokens.accent, color: tokens.ink },
@@ -128,7 +139,23 @@ const theme = createTheme({
     MuiBackdrop: {
       styleOverrides: { root: { backgroundColor: 'rgb(31 42 68 / 45%)' } },
     },
+    MuiSelect: {
+      defaultProps: { IconComponent: SelectArrow },
+    },
+    MuiRating: {
+      defaultProps: {
+        icon: ms('star', { style: { fontVariationSettings: "'FILL' 1" } }),
+        emptyIcon: ms('star'),
+      },
+    },
+    MuiStepLabel: {
+      defaultProps: { slots: { stepIcon: StepIcon } },
+    },
     MuiAlert: {
+      defaultProps: {
+        iconMapping: { success: ms('check_circle'), info: ms('info'), warning: ms('warning'), error: ms('error') },
+        slots: { closeIcon: CloseIcon },
+      },
       styleOverrides: {
         root: { borderRadius: 16, alignItems: 'center' },
         standardSuccess: {
