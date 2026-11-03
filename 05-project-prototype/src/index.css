@@ -2,24 +2,6 @@
 
 @import 'tailwindcss';
 
-/* 與 src/theme.js tokens 同一組。執行時 main.jsx 會再寫一次。 */
-:root {
-  --loki-primary: #3fb27f;
-  --loki-hover: #2e8f63;
-  --loki-action: #1f6b4a;
-  --loki-actionHover: #146845;
-  --loki-accent: #ffc94a;
-  --loki-secondary: #ffc94a;
-  --loki-ink: #1f2a44;
-  --loki-muted: #3a4350;
-  --loki-paper: #faf8f3;
-  --loki-mist: #e7f4ec;
-  --loki-foam: #fff6d6;
-  --loki-line: #e4e0d4;
-  --loki-alert: #c23b4a;
-  --loki-white: #ffffff;
-}
-
 @theme inline {
   --font-sans: 'Noto Sans TC', ui-sans-serif, system-ui, sans-serif;
   --font-serif: 'Noto Serif TC', ui-serif, serif;
