@@ -1,0 +1,14 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /tours/{tourId} {
+      allow read: if true;
+      allow write: if false;
+    }
+    match /orders/{orderId} {
+      allow create: if true;
+      allow read, update: if request.auth != null;
+      allow delete: if false;
+    }
+  }
+}
