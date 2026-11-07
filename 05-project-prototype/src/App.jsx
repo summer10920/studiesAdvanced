@@ -1,40 +1,45 @@
-import { Route, Routes } from 'react-router';
+import { createBrowserRouter, RouterProvider } from 'react-router';
 import { SessionProvider } from './session.jsx';
 import { StoreProvider } from './store.jsx';
-import SiteLayout from './layouts/SiteLayout.jsx';
-import HomePage from './pages/HomePage.jsx';
-import ToursPage from './pages/ToursPage.jsx';
-import TourDetailPage from './pages/TourDetailPage.jsx';
-import BookingPage from './pages/BookingPage.jsx';
-import BookingDonePage from './pages/BookingDonePage.jsx';
-import MyBookingsPage from './pages/MyBookingsPage.jsx';
-import AboutPage from './pages/AboutPage.jsx';
-import LoginPage from './pages/LoginPage.jsx';
-import AdminLoginPage from './pages/AdminLoginPage.jsx';
-import AdminToursPage from './pages/AdminToursPage.jsx';
-import AdminBookingsPage from './pages/AdminBookingsPage.jsx';
+import SiteLayout from './layout/SiteLayout.jsx';
+import HomePage from './features/home/HomePage.jsx';
+import ToursPage from './features/tours/ToursPage.jsx';
+import TourDetailPage from './features/tours/TourDetailPage.jsx';
+import BookingPage from './features/booking/BookingPage.jsx';
+import BookingDonePage from './features/booking/BookingDonePage.jsx';
+import MyBookingsPage from './features/booking/MyBookingsPage.jsx';
+import AboutPage from './features/about/AboutPage.jsx';
+import LoginPage from './features/auth/LoginPage.jsx';
+import AdminLoginPage from './features/admin/AdminLoginPage.jsx';
+import AdminToursPage from './features/admin/AdminToursPage.jsx';
+import AdminBookingsPage from './features/admin/AdminBookingsPage.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
+
+const router = createBrowserRouter([
+  {
+    element: <SiteLayout />,
+    children: [
+      { index: true, element: <HomePage /> },
+      { path: 'tours', element: <ToursPage /> },
+      { path: 'tours/:id', element: <TourDetailPage /> },
+      { path: 'booking', element: <BookingPage /> },
+      { path: 'booking/done', element: <BookingDonePage /> },
+      { path: 'me', element: <MyBookingsPage /> },
+      { path: 'about', element: <AboutPage /> },
+      { path: 'login', element: <LoginPage /> },
+      { path: 'admin/login', element: <AdminLoginPage /> },
+      { path: 'admin', element: <AdminToursPage /> },
+      { path: 'admin/bookings', element: <AdminBookingsPage /> },
+      { path: '*', element: <NotFoundPage /> },
+    ],
+  },
+]);
 
 export default function App() {
   return (
     <SessionProvider>
       <StoreProvider>
-        <Routes>
-          <Route element={<SiteLayout />}>
-            <Route index element={<HomePage />} />
-            <Route path="tours" element={<ToursPage />} />
-            <Route path="tours/:id" element={<TourDetailPage />} />
-            <Route path="booking" element={<BookingPage />} />
-            <Route path="booking/done" element={<BookingDonePage />} />
-            <Route path="me" element={<MyBookingsPage />} />
-            <Route path="about" element={<AboutPage />} />
-            <Route path="login" element={<LoginPage />} />
-            <Route path="admin/login" element={<AdminLoginPage />} />
-            <Route path="admin" element={<AdminToursPage />} />
-            <Route path="admin/bookings" element={<AdminBookingsPage />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Route>
-        </Routes>
+        <RouterProvider router={router} />
       </StoreProvider>
     </SessionProvider>
   );

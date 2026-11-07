@@ -1,5 +1,5 @@
 import { addDoc, collection, doc, getDoc, getDocs, orderBy, query, serverTimestamp, setDoc, updateDoc } from 'firebase/firestore';
-import { tours } from './data/tours.js';
+import { tours } from './features/tours/mock.data.js';
 import { db, missingFirebaseMessage } from './firebase.js';
 
 const database = () => {

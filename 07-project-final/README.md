@@ -21,7 +21,7 @@ pnpm dev
 
 ## 資料
 
-`tours` 任何人可讀。`/seed` 在資料庫仍是測試模式時，把 `src/data/tours.js` 寫進去。換成 `firestore.rules` 之後，瀏覽器不能再寫行程。
+`tours` 任何人可讀。`/seed` 在資料庫仍是測試模式時，把 `src/features/tours/mock.data.js` 寫進去。換成 `firestore.rules` 之後，瀏覽器不能再寫行程。
 
 `orders` 任何人可新增。讀取與更新只限已登入使用者。這份專案沒有註冊，登入者就是在主控台建立的那位管理員。
 

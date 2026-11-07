@@ -1,7 +1,10 @@
+/* 宣告層級順序，後層可以蓋過前層。mui 是我們插入的層名，必須和 MUI 寫死的名稱相同。 */
 @layer theme, base, mui, components, utilities;
 
 @import 'tailwindcss';
 
+/* 把 :root 上的 --loki-*（由 main.jsx 的 applyTokens 寫入）接到 Tailwind 的色名與字型。
+   這份檔案不會引入 theme.js。 */
 @theme inline {
   --font-sans: 'Noto Sans TC', ui-sans-serif, system-ui, sans-serif;
   --font-serif: 'Noto Serif TC', ui-serif, serif;
@@ -23,6 +26,7 @@
   --shadow-card: 0 10px 28px rgb(31 42 68 / 8%);
 }
 
+/* 全站基底：頁面底色與文字、選取顏色、鍵盤焦點外框，以及減少動畫。 */
 @layer base {
   body {
     margin: 0;
@@ -57,6 +61,8 @@
 }
 
 @layer components {
+  /* 「跳到內容」連結：平常藏起來，鍵盤焦點進來才顯示在左上角。
+     不用 display: none，否則焦點進不去、鍵盤也按不到。 */
   .skip {
     position: absolute;
     width: 1px;
@@ -83,36 +89,9 @@
     color: var(--loki-ink);
     padding: 0.5rem 0.75rem;
   }
-
-  .panel {
-    border-radius: 24px;
-    background: var(--loki-white);
-    box-shadow: var(--shadow-card);
-  }
-
-  .price-tag {
-    display: inline-block;
-    border-radius: 999px;
-    background: var(--loki-accent);
-    color: var(--loki-ink);
-    font-weight: 700;
-    line-height: 1.15;
-    padding: 0.12em 0.55em;
-  }
-
-  .text-link {
-    font-weight: 700;
-    color: var(--loki-action);
-    text-decoration-line: underline;
-    text-decoration-color: color-mix(in srgb, var(--loki-action) 45%, transparent);
-    text-underline-offset: 4px;
-  }
-
-  .text-link:hover {
-    color: var(--loki-actionHover);
-  }
 }
 
+/* 把元素文字裡的圖示名稱畫成圖。liga 讓名稱連成一個圖形。 */
 .material-symbols-outlined {
   font-family: 'Material Symbols Outlined';
   font-weight: normal;

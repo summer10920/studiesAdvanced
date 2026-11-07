@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from 'react-router';
+import { NavLink, Outlet, ScrollRestoration } from 'react-router';
 import DemoList from '../pages/DemoList.jsx';
 
 /**
@@ -37,6 +37,7 @@ export default function MainLayout() {
       <main className="px-4 py-6">
         <Outlet />
       </main>
+      <ScrollRestoration />
     </div>
   );
 }

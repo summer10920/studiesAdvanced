@@ -46,6 +46,16 @@ const theme = createTheme({
     primary: { main: tokens.action, light: tokens.primary, dark: tokens.actionHover, contrastText: tokens.white },
     secondary: { main: tokens.accent, dark: '#E8B423', contrastText: tokens.ink },
     error: { main: tokens.alert, contrastText: tokens.white },
+    info: { main: tokens.action, light: tokens.mist, dark: tokens.actionHover, contrastText: tokens.white },
+    success: { main: tokens.action, light: tokens.mist, dark: tokens.actionHover, contrastText: tokens.white },
+    Alert: {
+      infoColor: tokens.ink,
+      infoStandardBg: tokens.mist,
+      infoIconColor: tokens.action,
+      successColor: tokens.action,
+      successStandardBg: tokens.mist,
+      successIconColor: tokens.action,
+    },
     text: { primary: tokens.ink, secondary: tokens.muted },
     background: { default: tokens.paper, paper: tokens.white },
     divider: tokens.line,
@@ -158,11 +168,6 @@ const theme = createTheme({
       },
       styleOverrides: {
         root: { borderRadius: 16, alignItems: 'center' },
-        standardSuccess: {
-          backgroundColor: tokens.mist,
-          color: tokens.action,
-          '& .MuiAlert-icon': { color: tokens.action },
-        },
       },
     },
     MuiTableCell: {

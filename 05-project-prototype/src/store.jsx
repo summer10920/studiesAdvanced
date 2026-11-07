@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from 'react';
-import { tours as seedTours } from './data/tours.js';
-import { bookings as seedBookings } from './data/bookings.js';
+import { tours as seedTours } from './features/tours/mock.data.js';
+import { bookings as seedBookings } from './features/booking/mock.data.js';
 
 const StoreContext = createContext(null);
 

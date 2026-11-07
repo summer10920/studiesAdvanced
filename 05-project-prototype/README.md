@@ -1,8 +1,8 @@
 # 洛奇旅行 · 設計稿
 
-靜態設計稿，給對版型用。資料在 `src/data/*.js`。色票是嫩綠與陽光黃、大圓角、柔和陰影。
+靜態設計稿，給對版型用。假資料在各功能的 `mock.data.js`。色票是嫩綠與陽光黃、大圓角、柔和陰影。
 
-登入、報名、後台儲存都是假流程，資料在 `src/data/*.js`，重整就回到種子。沒有 Firebase。
+登入、報名、後台儲存都是假流程，重整就回到 `mock.data.js` 的種子。沒有 Firebase。
 
 執照字號不是真實立案。
 
@@ -99,10 +99,9 @@ MUI 元件只在 `src/theme.js` 調外觀（色、圓角、陰影、字級）。
 
 | 檔案 | 內容 |
 | --- | --- |
-| `src/data/tours.js` | 8 筆行程 |
-| `src/data/reviews.js` | 4 則評價 |
-| `src/data/bookings.js` | 後台 4 筆，以及「我的報名」範例 4 筆 |
-| `src/data/faqs.js` | 6 則 FAQ |
-| `src/data/options.js` | 地區、主題、天數、價格區間、排序、三則理由 |
+| `src/features/tours/mock.data.js` | 8 筆行程，以及地區、主題、天數、價格區間、排序 |
+| `src/features/home/mock.data.js` | 4 則評價、三則理由、主題圖 |
+| `src/features/booking/mock.data.js` | 後台 4 筆，以及「我的報名」範例 4 筆 |
+| `src/features/about/mock.data.js` | 6 則 FAQ |
 
 後台改行程時，表單沒有的每日行程、圖集、費用含／不含會原樣留著。
