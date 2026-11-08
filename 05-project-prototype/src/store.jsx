@@ -4,7 +4,11 @@ import { bookings as seedBookings } from './features/booking/mock.data.js';
 
 const StoreContext = createContext(null);
 
-const highlightsOf = (text) => String(text).split('\n').map((line) => line.trim()).filter(Boolean);
+const highlightsOf = (text) =>
+  String(text)
+    .split('\n')
+    .map((line) => line.trim())
+    .filter(Boolean);
 
 export function StoreProvider({ children }) {
   const [tours, setTours] = useState(seedTours);
@@ -16,7 +20,8 @@ export function StoreProvider({ children }) {
     const id = draft.id.trim();
     if (!id || !draft.title.trim()) return '編號和標題要填';
     const prev = tours.find((item) => item.id === (editingId || id));
-    if (tours.some((item) => item.id === id && item !== prev)) return '這個編號已經有了';
+    if (tours.some((item) => item.id === id && item !== prev))
+      return '這個編號已經有了';
     const highlights = highlightsOf(draft.highlights);
     const next = prev
       ? {
@@ -31,8 +36,22 @@ export function StoreProvider({ children }) {
           intro: draft.intro.trim(),
           highlights,
           departures: prev.departures.length
-            ? [{ ...prev.departures[0], id: draft.date, date: draft.date, capacity: Number(draft.capacity) }, ...prev.departures.slice(1)]
-            : [{ id: draft.date, date: draft.date, capacity: Number(draft.capacity) }],
+            ? [
+                {
+                  ...prev.departures[0],
+                  id: draft.date,
+                  date: draft.date,
+                  capacity: Number(draft.capacity),
+                },
+                ...prev.departures.slice(1),
+              ]
+            : [
+                {
+                  id: draft.date,
+                  date: draft.date,
+                  capacity: Number(draft.capacity),
+                },
+              ],
         }
       : {
           id,
@@ -48,10 +67,20 @@ export function StoreProvider({ children }) {
           itinerary: [],
           includes: [],
           excludes: [],
-          departures: [{ id: draft.date, date: draft.date, capacity: Number(draft.capacity) }],
+          departures: [
+            {
+              id: draft.date,
+              date: draft.date,
+              capacity: Number(draft.capacity),
+            },
+          ],
           featured: false,
         };
-    setTours(prev ? tours.map((item) => (item.id === prev.id ? next : item)) : [next, ...tours]);
+    setTours(
+      prev
+        ? tours.map((item) => (item.id === prev.id ? next : item))
+        : [next, ...tours],
+    );
     setNotice('已儲存這筆行程');
     return '';
   };
@@ -62,12 +91,19 @@ export function StoreProvider({ children }) {
   };
 
   const setBookingStatus = (id, status) => {
-    setBookings((list) => list.map((item) => (item.id === id ? { ...item, status } : item)));
+    setBookings((list) =>
+      list.map((item) => (item.id === id ? { ...item, status } : item)),
+    );
     setNotice('已更新報名狀態');
   };
 
   const createBooking = (input) => {
-    const row = { id: `local-${Date.now()}`, status: 'pending', uid: 'demo-local', ...input };
+    const row = {
+      id: `local-${Date.now()}`,
+      status: 'pending',
+      uid: 'demo-local',
+      ...input,
+    };
     setBookings((list) => [row, ...list]);
     setLastBooking(row);
     setNotice('報名已送出，狀態是待確認');
@@ -75,7 +111,19 @@ export function StoreProvider({ children }) {
   };
 
   return (
-    <StoreContext.Provider value={{ tours, bookings, lastBooking, notice, clearNotice: () => setNotice(''), saveTour, deleteTour, setBookingStatus, createBooking }}>
+    <StoreContext.Provider
+      value={{
+        tours,
+        bookings,
+        lastBooking,
+        notice,
+        clearNotice: () => setNotice(''),
+        saveTour,
+        deleteTour,
+        setBookingStatus,
+        createBooking,
+      }}
+    >
       {children}
     </StoreContext.Provider>
   );

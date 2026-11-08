@@ -18,23 +18,42 @@ import { useTours } from '../../useAsync.js';
 function AdminToursBody() {
   const { data, loading, error } = useTours();
   const tours = data ?? [];
-  useEffect(() => { document.title = '行程管理 · 洛奇旅行'; }, []);
+  useEffect(() => {
+    document.title = '行程管理 · 洛奇旅行';
+  }, []);
   if (loading || error) return <LoadGate loading={loading} error={error} />;
 
   return (
-    <main id="content" className="mx-auto w-full max-w-6xl flex-1 px-4 py-16 sm:px-6 md:py-24">
+    <main
+      id="content"
+      className="mx-auto w-full max-w-6xl flex-1 px-4 py-16 sm:px-6 md:py-24"
+    >
       <p className="font-bold text-action">管理員</p>
-      <Typography variant="h1" className="mt-2">行程管理</Typography>
-      <p className="mt-3 max-w-prose text-lg leading-relaxed text-muted">清單來自 Firestore。這一章只讀，不在後台新增或修改。還沒有資料時，先寫入種子。</p>
+      <Typography variant="h1" className="mt-2">
+        行程管理
+      </Typography>
+      <p className="mt-3 max-w-prose text-lg leading-relaxed text-muted">
+        清單來自
+        Firestore。這一章只讀，不在後台新增或修改。還沒有資料時，先寫入種子。
+      </p>
       <AdminTabs />
-      <Button className="mt-4" component={Link} to="/seed" variant="outlined">寫入種子</Button>
+      <Button className="mt-4" component={Link} to="/seed" variant="outlined">
+        寫入種子
+      </Button>
       {tours.length ? (
         <>
-          <TableContainer elevation={0} className="rounded-card bg-white shadow-card mt-8 hidden overflow-x-auto md:block">
+          <TableContainer
+            elevation={0}
+            className="rounded-card bg-white shadow-card mt-8 hidden overflow-x-auto md:block"
+          >
             <Table>
               <TableHead>
                 <TableRow>
-                  {['標題', '地區', '主題', '天數', '價格'].map((label) => <TableCell key={label} className="px-4 py-3">{label}</TableCell>)}
+                  {['標題', '地區', '主題', '天數', '價格'].map((label) => (
+                    <TableCell key={label} className="px-4 py-3">
+                      {label}
+                    </TableCell>
+                  ))}
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -44,7 +63,9 @@ function AdminToursBody() {
                     <TableCell className="px-4 py-4">{tour.region}</TableCell>
                     <TableCell className="px-4 py-4">{tour.theme}</TableCell>
                     <TableCell className="px-4 py-4">{tour.days} 天</TableCell>
-                    <TableCell className="px-4 py-4">{ntd(tour.price)}</TableCell>
+                    <TableCell className="px-4 py-4">
+                      {ntd(tour.price)}
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
@@ -53,17 +74,28 @@ function AdminToursBody() {
           <div className="mt-8 grid gap-4 md:hidden">
             {tours.map((tour) => (
               <Card key={tour.id} className="p-6">
-                <h3 className="font-serif text-2xl font-semibold">{tour.title}</h3>
-                <p className="mt-2 text-muted">{tour.region} · {tour.theme} · {tour.days} 天 · {ntd(tour.price)}</p>
+                <h3 className="font-serif text-2xl font-semibold">
+                  {tour.title}
+                </h3>
+                <p className="mt-2 text-muted">
+                  {tour.region} · {tour.theme} · {tour.days} 天 ·{' '}
+                  {ntd(tour.price)}
+                </p>
               </Card>
             ))}
           </div>
         </>
-      ) : <p className="mt-8 text-base text-muted">還沒有行程。</p>}
+      ) : (
+        <p className="mt-8 text-base text-muted">還沒有行程。</p>
+      )}
     </main>
   );
 }
 
 export default function AdminToursPage() {
-  return <AdminGate><AdminToursBody /></AdminGate>;
+  return (
+    <AdminGate>
+      <AdminToursBody />
+    </AdminGate>
+  );
 }

@@ -2,7 +2,7 @@
 
 靜態設計稿，給對版型用。假資料在各功能的 `mock.data.js`。色票是嫩綠與陽光黃、大圓角、柔和陰影。
 
-登入、報名、後台儲存都是假流程，重整就回到 `mock.data.js` 的種子。沒有 Firebase。
+報名與後台儲存改的是這次開啟的記憶體，重整回到 `mock.data.js` 的種子。登入頁只畫畫面，不寫入狀態。沒有 Firebase。
 
 執照字號不是真實立案。
 
@@ -24,19 +24,19 @@ pnpm build
 | `/` | `pages/HomePage.jsx` | 輪播、地區與天數搜尋、熱門、六個主題、三則理由、四則評價 |
 | `/tours` | `pages/ToursPage.jsx` | 篩選、排序、主題查詢參數、卡片、沒有結果 |
 | `/tours/:id` | `pages/TourDetailPage.jsx` | 圖集、亮點、每日行程、費用、出發日。手機底部固定「立即報名」 |
-| `/booking` | `pages/BookingPage.jsx` | 要先登入。姓名與 email 唯讀，電話可填，小計跟著人數變 |
+| `/booking` | `pages/BookingPage.jsx` | 直接打開。姓名與 email 用範例預覽且唯讀，電話可填，小計跟著人數變 |
 | `/booking/done` | `pages/BookingDonePage.jsx` | 剛送出的內容，狀態「待確認」。直接打開則是範例 |
-| `/me` | `pages/MyBookingsPage.jsx` | 林可看到模板那四筆；這次送出的會加在上面。沒有取消 |
+| `/me` | `pages/MyBookingsPage.jsx` | 範例清單四筆。沒有取消 |
 | `/about` | `pages/AboutPage.jsx` | 品牌短述、虛構字號與品保、六則 FAQ |
-| `/login` | `pages/LoginPage.jsx` | 「用 Google 帳號繼續」。假帳號林可 / lin@example.com |
-| `/admin/login` | `pages/AdminLoginPage.jsx` | 假管理員 admin@gmail.com |
-| `/admin` | `pages/AdminToursPage.jsx` | 行程表與編輯。一般帳號會被擋 |
+| `/login` | `pages/LoginPage.jsx` | 「用 Google 帳號繼續」的對話框。按鈕不寫入狀態 |
+| `/admin/login` | `pages/AdminLoginPage.jsx` | email 與密碼欄位。送出不導頁 |
+| `/admin` | `pages/AdminToursPage.jsx` | 行程表與編輯。直接打開 |
 | `/admin/bookings` | `pages/AdminBookingsPage.jsx` | 報名清單，狀態用下拉，不依狀態篩選 |
 | `*` | `pages/NotFoundPage.jsx` | 找不到頁 |
 
 頁首頁尾在 `layouts/SiteLayout.jsx`。契約 id：`#site-header`、`#nav-toggle`、`#tour-list`、`#booking-form`。
 
-未登入按「立即報名」會先到 `/login?next=`，繼續後回到該出發日。頁尾有「後台登入」，模板頁尾沒有這條，方便打開後台稿。
+「立即報名」直接到 `/booking?tourId=...&departureId=...`。頁尾有「後台登入」，模板頁尾沒有這條，方便打開後台稿。
 
 ## MUI 與 Tailwind
 

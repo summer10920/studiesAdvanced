@@ -4,8 +4,14 @@ import Chip from '@mui/material/Chip';
 import { dayOptions, priceBands, regions, sortOptions } from '../mock.data.js';
 import FieldSelect from '../../../_shared/FieldSelect.jsx';
 
-const regionOptions = [{ value: '', label: '不限' }, ...regions.map((item) => ({ value: item, label: item }))];
-const dayChoices = [{ value: '', label: '不限' }, ...dayOptions.map((item) => ({ value: String(item), label: `${item} 天` }))];
+const regionOptions = [
+  { value: '', label: '不限' },
+  ...regions.map((item) => ({ value: item, label: item })),
+];
+const dayChoices = [
+  { value: '', label: '不限' },
+  ...dayOptions.map((item) => ({ value: String(item), label: `${item} 天` })),
+];
 
 export default function TourFilters() {
   const [params, setParams] = useSearchParams();
@@ -36,15 +42,48 @@ export default function TourFilters() {
   return (
     <div className="mt-8">
       <div className="grid gap-4 md:grid-cols-4">
-        <FieldSelect id="region" label="地區" value={region} onChange={(value) => set('region', value)} options={regionOptions} />
-        <FieldSelect id="days" label="天數" value={days} onChange={(value) => set('days', value)} options={dayChoices} />
-        <FieldSelect id="price" label="價格" value={price} onChange={(value) => set('price', value)} options={priceBands} />
-        <FieldSelect id="sort" label="排序" value={sort} onChange={(value) => set('sort', value)} options={sortOptions} />
+        <FieldSelect
+          id="region"
+          label="地區"
+          value={region}
+          onChange={(value) => set('region', value)}
+          options={regionOptions}
+        />
+        <FieldSelect
+          id="days"
+          label="天數"
+          value={days}
+          onChange={(value) => set('days', value)}
+          options={dayChoices}
+        />
+        <FieldSelect
+          id="price"
+          label="價格"
+          value={price}
+          onChange={(value) => set('price', value)}
+          options={priceBands}
+        />
+        <FieldSelect
+          id="sort"
+          label="排序"
+          value={sort}
+          onChange={(value) => set('sort', value)}
+          options={sortOptions}
+        />
       </div>
       <div className="mt-4 flex flex-wrap gap-3">
-        <Button type="button" variant="outlined" onClick={clear}>清除</Button>
+        <Button type="button" variant="outlined" onClick={clear}>
+          清除
+        </Button>
       </div>
-      {theme ? <Chip className="mt-4" color="primary" label={`主題：${theme}`} onDelete={clearTheme} /> : null}
+      {theme ? (
+        <Chip
+          className="mt-4"
+          color="primary"
+          label={`主題：${theme}`}
+          onDelete={clearTheme}
+        />
+      ) : null}
     </div>
   );
 }

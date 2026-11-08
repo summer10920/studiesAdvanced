@@ -1,13 +1,32 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+    function isAdmin() {
+      return signedIn() && request.auth.token.firebase.sign_in_provider == 'password';
+    }
+    function isOwner() {
+      return signedIn() && resource.data.uid == request.auth.uid;
+    }
+
     match /tours/{tourId} {
       allow read: if true;
       allow write: if false;
     }
     match /orders/{orderId} {
-      allow create: if true;
-      allow read, update: if request.auth != null;
+      allow create: if signedIn()
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.status == 'pending'
+        && request.resource.data.name is string
+        && request.resource.data.email is string
+        && request.resource.data.phone is string
+        && request.resource.data.people is int
+        && request.resource.data.people >= 1
+        && request.resource.data.people <= 8;
+      allow read: if isOwner() || isAdmin();
+      allow update: if isAdmin();
       allow delete: if false;
     }
   }

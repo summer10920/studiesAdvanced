@@ -82,6 +82,7 @@ import ActionDemo from './demos/80-action.jsx';
 import ActionStateDemo from './demos/81-action-state.jsx';
 import OptimisticDemo from './demos/82-optimistic.jsx';
 import StatePages from './demos/83-state-pages.jsx';
+import MemoDemo from './demos/84-memo.jsx';
 
 const demos = [
   { id: '01', title: '函式元件', Component: Hello },
@@ -167,6 +168,7 @@ const demos = [
   { id: '81', title: 'useActionState', Component: ActionStateDemo },
   { id: '82', title: 'useOptimistic', Component: OptimisticDemo },
   { id: '83', title: '狀態切頁', Component: StatePages },
+  { id: '84', title: 'useMemo', Component: MemoDemo },
 ];
 
 export default function App() {

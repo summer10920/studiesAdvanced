@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getTour, listOrders, listTours } from './api.js';
+import { getTour, listMyOrders, listOrders, listTours } from './api.js';
 
 export function useAsync(load, deps) {
   const [data, setData] = useState(null);
@@ -14,10 +14,18 @@ export function useAsync(load, deps) {
     setError(null);
     setData(null);
     load()
-      .then((value) => { if (active) setData(value); })
-      .catch((err) => { if (active) setError(err); })
-      .finally(() => { if (active) setLoading(false); });
-    return () => { active = false; };
+      .then((value) => {
+        if (active) setData(value);
+      })
+      .catch((err) => {
+        if (active) setError(err);
+      })
+      .finally(() => {
+        if (active) setLoading(false);
+      });
+    return () => {
+      active = false;
+    };
   }, [tick, ...deps]);
 
   return { data, error, loading, reload: () => setTick((n) => n + 1) };
@@ -26,3 +34,4 @@ export function useAsync(load, deps) {
 export const useTours = () => useAsync(listTours, []);
 export const useTour = (id) => useAsync(() => getTour(id), [id]);
 export const useOrders = () => useAsync(listOrders, []);
+export const useMyOrders = (uid) => useAsync(() => listMyOrders(uid), [uid]);

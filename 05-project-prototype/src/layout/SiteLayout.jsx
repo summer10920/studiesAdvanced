@@ -14,8 +14,15 @@ export default function SiteLayout() {
         <Outlet />
       </div>
       <SiteFooter />
-      <Snackbar open={Boolean(notice)} autoHideDuration={3200} onClose={clearNotice} anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}>
-        <Alert severity="success" variant="filled" onClose={clearNotice}>{notice}</Alert>
+      <Snackbar
+        open={Boolean(notice)}
+        autoHideDuration={3200}
+        onClose={clearNotice}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+      >
+        <Alert severity="success" variant="filled" onClose={clearNotice}>
+          {notice}
+        </Alert>
       </Snackbar>
       <ScrollRestoration />
     </div>

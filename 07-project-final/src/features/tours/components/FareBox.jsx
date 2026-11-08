@@ -4,7 +4,9 @@ const Column = ({ title, items }) => (
   <section>
     <Typography variant="h3">{title}</Typography>
     <ul className="mt-4 list-disc pl-5 leading-relaxed">
-      {items.map((item) => <li key={item}>{item}</li>)}
+      {items.map((item) => (
+        <li key={item}>{item}</li>
+      ))}
     </ul>
   </section>
 );

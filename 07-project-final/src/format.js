@@ -1,15 +1,28 @@
-export const ntd = (value) => `NT$${Number(value).toLocaleString('zh-Hant-TW')}`;
+export const ntd = (value) =>
+  `NT$${Number(value).toLocaleString('zh-Hant-TW')}`;
 
-export const perPerson = (tour) => (tour?.id === 'kyoto-nara' ? '/ 人，不含國際機票' : '/ 人');
+export const perPerson = (tour) =>
+  tour?.id === 'kyoto-nara' ? '/ 人，不含國際機票' : '/ 人';
 
-export const statusLabel = { pending: '待確認', confirmed: '已確認', cancelled: '已取消' };
+export const statusLabel = {
+  pending: '待確認',
+  confirmed: '已確認',
+  cancelled: '已取消',
+};
 
-export const seatsLeft = (bookings, tourId, departure) => Math.max(
-  0,
-  departure.capacity - bookings
-    .filter((item) => item.tourId === tourId && item.departureId === departure.id && item.status !== 'cancelled')
-    .reduce((sum, item) => sum + Number(item.people), 0),
-);
+export const seatsLeft = (bookings, tourId, departure) =>
+  Math.max(
+    0,
+    departure.capacity -
+      bookings
+        .filter(
+          (item) =>
+            item.tourId === tourId &&
+            item.departureId === departure.id &&
+            item.status !== 'cancelled',
+        )
+        .reduce((sum, item) => sum + Number(item.people), 0),
+  );
 
 export const matchPrice = (price, band) => {
   if (!band) return true;

@@ -1,5 +1,4 @@
 import { createBrowserRouter, RouterProvider } from 'react-router';
-import { SessionProvider } from './session.jsx';
 import { StoreProvider } from './store.jsx';
 import SiteLayout from './layout/SiteLayout.jsx';
 import HomePage from './features/home/HomePage.jsx';
@@ -37,10 +36,8 @@ const router = createBrowserRouter([
 
 export default function App() {
   return (
-    <SessionProvider>
-      <StoreProvider>
-        <RouterProvider router={router} />
-      </StoreProvider>
-    </SessionProvider>
+    <StoreProvider>
+      <RouterProvider router={router} />
+    </StoreProvider>
   );
 }

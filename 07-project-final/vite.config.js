@@ -14,7 +14,12 @@ export default defineConfig({
           if (!id.includes('node_modules')) return undefined;
           if (id.includes('@mui') || id.includes('@emotion')) return 'mui';
           if (id.includes('firebase')) return 'firebase';
-          if (id.includes('react-dom') || id.includes('react-router') || id.includes('/react/')) return 'react';
+          if (
+            id.includes('react-dom') ||
+            id.includes('react-router') ||
+            id.includes('/react/')
+          )
+            return 'react';
           return undefined;
         },
       },

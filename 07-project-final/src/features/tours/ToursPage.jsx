@@ -12,19 +12,22 @@ export default function ToursPage() {
   const { data, loading, error } = useTours();
   const tours = data ?? [];
   const [params, setParams] = useSearchParams();
-  useEffect(() => { document.title = '行程 · 洛奇旅行'; }, []);
+  useEffect(() => {
+    document.title = '行程 · 洛奇旅行';
+  }, []);
 
   const region = params.get('region') ?? '';
   const days = params.get('days') ?? '';
   const price = params.get('price') ?? '';
   const theme = params.get('theme') ?? '';
   const sort = params.get('sort') || 'price-asc';
-  const list = tours.filter((tour) => (
-    (!region || tour.region === region)
-    && (!days || String(tour.days) === days)
-    && (!theme || tour.theme === theme)
-    && matchPrice(tour.price, price)
-  ));
+  const list = tours.filter(
+    (tour) =>
+      (!region || tour.region === region) &&
+      (!days || String(tour.days) === days) &&
+      (!theme || tour.theme === theme) &&
+      matchPrice(tour.price, price),
+  );
   const rank = {
     'price-asc': (a, b) => a.price - b.price,
     'price-desc': (a, b) => b.price - a.price,
@@ -34,25 +37,49 @@ export default function ToursPage() {
   if (loading || error) return <LoadGate loading={loading} error={error} />;
 
   return (
-    <main id="content" className="mx-auto w-full max-w-6xl flex-1 px-4 py-16 sm:px-6 md:py-24">
+    <main
+      id="content"
+      className="mx-auto w-full max-w-6xl flex-1 px-4 py-16 sm:px-6 md:py-24"
+    >
       <Typography variant="h1">行程</Typography>
-      <p className="mt-3 max-w-prose text-lg leading-relaxed text-muted">依地區、天數與預算挑選。價格為每人，以新台幣計。</p>
+      <p className="mt-3 max-w-prose text-lg leading-relaxed text-muted">
+        依地區、天數與預算挑選。價格為每人，以新台幣計。
+      </p>
       <TourFilters />
       <div id="tour-list">
-      {visible.length ? (
-        <>
-          <Typography variant="h2" className="mt-10">{visible.length} 筆行程</Typography>
-          <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {visible.map((tour) => <TourCard key={tour.id} tour={tour} showTheme />)}
-          </div>
-        </>
-      ) : (
-        <section id="tour-empty" className="mt-16 rounded-card bg-foam px-6 py-10 shadow-card" aria-labelledby="empty-title">
-          <Typography id="empty-title" variant="h2">沒有符合的行程</Typography>
-          <p className="mt-3 max-w-prose">{tours.length ? '換一個地區或天數，或清掉價格條件。' : '還沒有行程。請先打開 /seed 寫入種子。'}</p>
-          <Button className="mt-6" variant="contained" onClick={() => setParams(new URLSearchParams())}>清除條件</Button>
-        </section>
-      )}
+        {visible.length ? (
+          <>
+            <Typography variant="h2" className="mt-10">
+              {visible.length} 筆行程
+            </Typography>
+            <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {visible.map((tour) => (
+                <TourCard key={tour.id} tour={tour} showTheme />
+              ))}
+            </div>
+          </>
+        ) : (
+          <section
+            id="tour-empty"
+            className="mt-16 rounded-card bg-foam px-6 py-10 shadow-card"
+          >
+            <Typography id="empty-title" variant="h2">
+              沒有符合的行程
+            </Typography>
+            <p className="mt-3 max-w-prose">
+              {tours.length
+                ? '換一個地區或天數，或清掉價格條件。'
+                : '還沒有行程。請先打開 /seed 寫入種子。'}
+            </p>
+            <Button
+              className="mt-6"
+              variant="contained"
+              onClick={() => setParams(new URLSearchParams())}
+            >
+              清除條件
+            </Button>
+          </section>
+        )}
       </div>
     </main>
   );

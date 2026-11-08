@@ -29,25 +29,64 @@ export const applyTokens = () => {
   });
 };
 
-
 /** Material Symbols 字型 icon（取代 MUI 內建 SVG）。 */
-const ms = (name, props = {}) => createElement('span', { 'aria-hidden': 'true', ...props, className: `material-symbols-outlined ${props.className || ''}`.trim() }, name);
+const ms = (name, props = {}) =>
+  createElement(
+    'span',
+    {
+      'aria-hidden': 'true',
+      ...props,
+      className: `material-symbols-outlined ${props.className || ''}`.trim(),
+    },
+    name,
+  );
 const SelectArrow = ({ className }) => ms('expand_more', { className });
 const CloseIcon = () => ms('close');
 const StepIcon = ({ active, completed, icon }) => {
-  const base = 'inline-flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold';
-  if (completed) return createElement('span', { className: `${base} bg-action text-white` }, ms('check', { style: { fontSize: 20 } }));
-  return createElement('span', { className: `${base} ${active ? 'bg-action text-white' : 'bg-line text-muted'}` }, icon);
+  const base =
+    'inline-flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold';
+  if (completed)
+    return createElement(
+      'span',
+      { className: `${base} bg-action text-white` },
+      ms('check', { style: { fontSize: 20 } }),
+    );
+  return createElement(
+    'span',
+    {
+      className: `${base} ${active ? 'bg-action text-white' : 'bg-line text-muted'}`,
+    },
+    icon,
+  );
 };
 
 const theme = createTheme({
   cssVariables: true,
   palette: {
-    primary: { main: tokens.action, light: tokens.primary, dark: tokens.actionHover, contrastText: tokens.white },
-    secondary: { main: tokens.accent, dark: '#E8B423', contrastText: tokens.ink },
+    primary: {
+      main: tokens.action,
+      light: tokens.primary,
+      dark: tokens.actionHover,
+      contrastText: tokens.white,
+    },
+    secondary: {
+      main: tokens.accent,
+      dark: '#E8B423',
+      contrastText: tokens.ink,
+    },
     error: { main: tokens.alert, contrastText: tokens.white },
-    info: { main: tokens.action, light: tokens.mist, dark: tokens.actionHover, contrastText: tokens.white },
-    success: { main: tokens.action, light: tokens.mist, dark: tokens.actionHover, contrastText: tokens.white },
+    info: {
+      main: tokens.action,
+      light: tokens.mist,
+      dark: tokens.actionHover,
+      contrastText: tokens.white,
+    },
+    success: {
+      main: tokens.action,
+      light: tokens.mist,
+      dark: tokens.actionHover,
+      contrastText: tokens.white,
+    },
     Alert: {
       infoColor: tokens.ink,
       infoStandardBg: tokens.mist,
@@ -63,18 +102,44 @@ const theme = createTheme({
   shape: { borderRadius: 12 },
   typography: {
     fontFamily: "'Noto Sans TC', ui-sans-serif, sans-serif",
-    h1: { fontFamily: "'Noto Serif TC', serif", fontWeight: 700, fontSize: '3rem', lineHeight: 1.15, letterSpacing: '-0.02em' },
-    h2: { fontFamily: "'Noto Serif TC', serif", fontWeight: 700, fontSize: '2.25rem', lineHeight: 1.25 },
-    h3: { fontFamily: "'Noto Serif TC', serif", fontWeight: 600, fontSize: '1.5rem', lineHeight: 1.35 },
+    h1: {
+      fontFamily: "'Noto Serif TC', serif",
+      fontWeight: 700,
+      fontSize: '3rem',
+      lineHeight: 1.15,
+      letterSpacing: '-0.02em',
+    },
+    h2: {
+      fontFamily: "'Noto Serif TC', serif",
+      fontWeight: 700,
+      fontSize: '2.25rem',
+      lineHeight: 1.25,
+    },
+    h3: {
+      fontFamily: "'Noto Serif TC', serif",
+      fontWeight: 600,
+      fontSize: '1.5rem',
+      lineHeight: 1.35,
+    },
     body1: { fontSize: '1rem', lineHeight: 1.7 },
     body2: { fontSize: '1rem', lineHeight: 1.7 },
-    button: { fontFamily: "'Noto Sans TC', sans-serif", fontWeight: 700, fontSize: '1rem', textTransform: 'none' },
+    button: {
+      fontFamily: "'Noto Sans TC', sans-serif",
+      fontWeight: 700,
+      fontSize: '1rem',
+      textTransform: 'none',
+    },
   },
   components: {
     MuiButton: {
       defaultProps: { disableElevation: true },
       styleOverrides: {
-        root: { borderRadius: 999, minHeight: 44, paddingInline: 22, fontWeight: 700 },
+        root: {
+          borderRadius: 999,
+          minHeight: 44,
+          paddingInline: 22,
+          fontWeight: 700,
+        },
         containedPrimary: {
           backgroundColor: tokens.action,
           color: tokens.white,
@@ -85,7 +150,14 @@ const theme = createTheme({
           color: tokens.ink,
           '&:hover': { backgroundColor: '#E8B423' },
         },
-        outlined: { borderColor: tokens.line, color: tokens.ink, '&:hover': { borderColor: tokens.action, backgroundColor: tokens.mist } },
+        outlined: {
+          borderColor: tokens.line,
+          color: tokens.ink,
+          '&:hover': {
+            borderColor: tokens.action,
+            backgroundColor: tokens.mist,
+          },
+        },
       },
     },
     MuiIconButton: {
@@ -93,7 +165,12 @@ const theme = createTheme({
     },
     MuiCard: {
       styleOverrides: {
-        root: { borderRadius: 24, boxShadow: '0 10px 28px rgb(31 42 68 / 8%)', backgroundColor: tokens.white, backgroundImage: 'none' },
+        root: {
+          borderRadius: 24,
+          boxShadow: '0 10px 28px rgb(31 42 68 / 8%)',
+          backgroundColor: tokens.white,
+          backgroundImage: 'none',
+        },
       },
     },
     MuiPaper: {
@@ -119,7 +196,13 @@ const theme = createTheme({
     },
     MuiAccordionSummary: {
       defaultProps: { expandIcon: ms('expand_more') },
-      styleOverrides: { root: { minHeight: 56, paddingInline: 20, '&.Mui-expanded': { minHeight: 56 } } },
+      styleOverrides: {
+        root: {
+          minHeight: 56,
+          paddingInline: 20,
+          '&.Mui-expanded': { minHeight: 56 },
+        },
+      },
     },
     MuiChip: {
       defaultProps: { deleteIcon: ms('cancel') },
@@ -163,7 +246,12 @@ const theme = createTheme({
     },
     MuiAlert: {
       defaultProps: {
-        iconMapping: { success: ms('check_circle'), info: ms('info'), warning: ms('warning'), error: ms('error') },
+        iconMapping: {
+          success: ms('check_circle'),
+          info: ms('info'),
+          warning: ms('warning'),
+          error: ms('error'),
+        },
         slots: { closeIcon: CloseIcon },
       },
       styleOverrides: {
@@ -173,11 +261,17 @@ const theme = createTheme({
     MuiTableCell: {
       styleOverrides: {
         root: { borderColor: tokens.line },
-        head: { fontWeight: 700, backgroundColor: tokens.mist, color: tokens.ink },
+        head: {
+          fontWeight: 700,
+          backgroundColor: tokens.mist,
+          color: tokens.ink,
+        },
       },
     },
     MuiTab: {
-      styleOverrides: { root: { textTransform: 'none', fontWeight: 700, minHeight: 48 } },
+      styleOverrides: {
+        root: { textTransform: 'none', fontWeight: 700, minHeight: 48 },
+      },
     },
   },
 });
