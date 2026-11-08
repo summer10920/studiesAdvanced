@@ -1,6 +1,7 @@
 //---------------------------------------------------- public variables  (公用變數區)
 const fetchPath = "./db.json";
 let nationalHoliday, pallet, booked;
+let calendarCtrl;
 
 //---------------------------------------------------- init (初始化區)
 dayjs.locale("zh-tw");
@@ -15,7 +16,21 @@ async function fetchData() {
   const json = await response.json();
   ({ nationalHoliday, pallet, booked } = json);
 
-  calendarService();
+  calendarCtrl = calendarService();
+  calendarCtrl.print();
+
+  // 綁定切換月份按鈕
+  document.querySelector(".ctrlBtn").addEventListener("click", (e) => {
+    e.preventDefault();
+    calendarCtrl.swap(e.target.closest("a").getAttribute("href"));
+  });
+
+  // 選擇日期
+  document.querySelector(".calendar").addEventListener("click", (e) => {
+    e.preventDefault();
+    const sltDay = e.target.closest(".selectDay");
+    sltDay && calendarCtrl.choose(sltDay);
+  });
 }
 
 const calendarService = () => {
@@ -32,8 +47,9 @@ const calendarService = () => {
     thisDate: theDay.add(1, "month"),
   };
 
+  const chooseDays = [null, null];
+
   const listMaker = (obj) => {
-    // console.log(objL, objR);
     const firstDay = dayjs(obj.thisDate).startOf("month").day(); // 0
     const totalDay = dayjs(obj.thisDate).daysInMonth(); // 30
 
@@ -60,6 +76,8 @@ const calendarService = () => {
       // 1. 是否過期
       if (currentDate.isSameOrBefore(today)) className += " delDay";
       else {
+        className += " selectDay";
+
         // 2-1. 是否假日或國定日 =>
         // 方式一:星期六日, dayjs().day() === 6 or 0
         // const getDay = currentDate.day();
@@ -89,7 +107,7 @@ const calendarService = () => {
       }
 
       //----------------------------- B. 插入 li
-      obj.listBox += `<li class="${className}">${i}</li>`;
+      obj.listBox += `<li class="${className}" data-date="${currentDateYMD}">${i}</li>`;
     }
 
     obj.title = `${dayjs.months()[obj.thisDate.month()]} ${obj.thisDate.year()}`;
@@ -105,7 +123,63 @@ const calendarService = () => {
     document.querySelector(".rightDayList").innerHTML = objR.listBox;
     document.querySelector(".leftBar>h4").innerHTML = objL.title;
     document.querySelector(".rightBar>h4").innerHTML = objR.title;
+
+    // document.querySelectorAll('.selectDay').forEach(item => {
+    //   item.addEventListener('click', () => {
+    //     console.log(item.innerText);
+    //   })
+    // })
   };
 
-  listPrint();
+  const chooseList = (node) => {
+    console.log(
+      "action",
+      chooseDays[0]?.dataset.date,
+      chooseDays[1]?.dataset.date,
+    );
+    const [fst, sec] = chooseDays;
+    if (!fst && !sec) {
+      // [null,null]
+      chooseDays[0] = node;
+    } else if (fst && !sec) {
+      // [1st,null]
+      chooseDays[1] = node;
+
+      // 判斷是否為 [2nd,1st]
+      // dayjs(2nd) < dayjs(1st) ?
+      // dayjs(2nd).isSameOrBefore(dayjs(1st)) ?
+      is2before1 = dayjs(node.dataset.date).isSameOrBefore(
+        dayjs(chooseDays[0].dataset.date),
+      );
+      if (is2before1)
+        [chooseDays[1], chooseDays[0]] = [chooseDays[0], chooseDays[1]];
+    } else {
+      // [!null,!null] => 清空, 做成 [1st,null]
+      chooseDays[0] = node;
+      chooseDays[1] = null;
+    }
+
+    console.log(
+      "finish",
+      chooseDays[0]?.dataset.date,
+      chooseDays[1]?.dataset.date,
+    );
+  };
+
+  const changeMonth = (count) => {
+    theDay = theDay.add(count, "month");
+    objL.listBox = "";
+    objL.thisDate = theDay;
+    objR.listBox = "";
+    objR.thisDate = theDay.add(1, "month");
+  };
+
+  return {
+    print: listPrint,
+    swap: (v) => {
+      changeMonth(v === "#prevCtrl" ? -1 : 1);
+      listPrint();
+    },
+    choose: (node) => chooseList(node),
+  };
 };
