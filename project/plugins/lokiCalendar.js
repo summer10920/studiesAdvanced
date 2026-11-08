@@ -2,6 +2,43 @@
 const fetchPath = "./db.json";
 let nationalHoliday, pallet, booked;
 let calendarCtrl;
+const tableData = {
+  //初始的表格資料
+  totalPrice: 0, // 總價
+  normalCount: 0, // 平日入住數
+  holidayCount: 0, // 平日入住數
+  pallet: {
+    //營位資料 => 標題名稱、可賣數量、預約日金、小計、訂購數
+    aArea: {
+      title: "河畔 × A 區",
+      sellCount: 5,
+      sellInfo: "<div></div>",
+      sumPrice: 0,
+      orderCount: 0,
+    },
+    bArea: {
+      title: "山間 × B 區",
+      sellCount: 0,
+      sellInfo: "<div></div>",
+      sumPrice: 0,
+      orderCount: 0,
+    },
+    cArea: {
+      title: "平原 × C 區",
+      sellCount: 0,
+      sellInfo: "<div></div>",
+      sumPrice: 0,
+      orderCount: 0,
+    },
+    dArea: {
+      title: "車屋 × D 區",
+      sellCount: 0,
+      sellInfo: "<div></div>",
+      sumPrice: 0,
+      orderCount: 0,
+    },
+  },
+};
 
 //---------------------------------------------------- init (初始化區)
 dayjs.locale("zh-tw");
@@ -19,6 +56,7 @@ async function fetchData() {
 
   calendarCtrl = calendarService();
   calendarCtrl.print();
+  calendarCtrl.refresh();
 
   // 綁定切換月份按鈕
   document.querySelector(".ctrlBtn").addEventListener("click", (e) => {
@@ -190,6 +228,19 @@ const calendarService = () => {
     objR.thisDate = theDay.add(1, "month");
   };
 
+  const tableMaker = () => {
+    // 更新全域變數內的 tableData
+    console.log("tableMaker");
+  };
+
+  const tablePrint = () => {
+    // 把全域變數內的 tableData 印在畫面
+    document.querySelectorAll("#selectPallet select").forEach((node) => {
+      const palletName = node.name;
+      const count = tableData.pallet[palletName].sellCount;
+    });
+  };
+
   return {
     print: listPrint,
     swap: (v) => {
@@ -200,5 +251,6 @@ const calendarService = () => {
       // if (node === chooseDays[0] && !chooseDays[1]) return; // 提早發現不用做, 但判斷多些
       chooseList(node);
     },
+    refresh: tablePrint,
   };
 };
