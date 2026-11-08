@@ -132,15 +132,11 @@ const calendarService = () => {
   };
 
   const chooseList = (node) => {
-    console.log(
-      "action",
-      chooseDays[0]?.dataset.date,
-      chooseDays[1]?.dataset.date,
-    );
     const [fst, sec] = chooseDays;
     if (!fst && !sec) {
       // [null,null]
       chooseDays[0] = node;
+      node.classList.add("selectHead");
     } else if (fst && !sec) {
       // [1st,null]
       chooseDays[1] = node;
@@ -151,19 +147,22 @@ const calendarService = () => {
       is2before1 = dayjs(node.dataset.date).isSameOrBefore(
         dayjs(chooseDays[0].dataset.date),
       );
-      if (is2before1)
-        [chooseDays[1], chooseDays[0]] = [chooseDays[0], chooseDays[1]];
+      if (is2before1) {
+        // 若發現選反了
+        chooseDays[0].classList.replace("selectHead", "selectFoot"); // 1st class 改 FOOT
+        chooseDays[1].classList.add("selectHead"); // 2nd class 加 HEAD
+        [chooseDays[1], chooseDays[0]] = [chooseDays[0], chooseDays[1]]; // [2nd,1st] => [1st,2nd]
+      } else chooseDays[1].classList.add("selectFoot"); // 如預期的 2nd class 加 FOOT
     } else {
+      // 3rd choose
       // [!null,!null] => 清空, 做成 [1st,null]
+      chooseDays.forEach((item) =>
+        item.classList.remove("selectHead", "selectFoot"),
+      );
+      node.classList.add("selectHead");
       chooseDays[0] = node;
       chooseDays[1] = null;
     }
-
-    console.log(
-      "finish",
-      chooseDays[0]?.dataset.date,
-      chooseDays[1]?.dataset.date,
-    );
   };
 
   const changeMonth = (count) => {
