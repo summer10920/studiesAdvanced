@@ -7,6 +7,7 @@ let calendarCtrl;
 dayjs.locale("zh-tw");
 dayjs.extend(dayjs_plugin_localeData); // 擴充當地語言資料
 dayjs.extend(dayjs_plugin_isSameOrBefore); // 擴充isSameOrBefore功能
+dayjs.extend(dayjs_plugin_isBetween); // 擴充isBetween功能
 
 fetchData();
 
@@ -110,6 +111,8 @@ const calendarService = () => {
       obj.listBox += `<li class="${className}" data-date="${currentDateYMD}">${i}</li>`;
     }
 
+    /* bonus:step3 把上紀錄的 chooseList 補回去 */
+
     obj.title = `${dayjs.months()[obj.thisDate.month()]} ${obj.thisDate.year()}`;
 
     // return obj;
@@ -133,35 +136,49 @@ const calendarService = () => {
 
   const chooseList = (node) => {
     const [fst, sec] = chooseDays;
-    if (!fst && !sec) {
-      // [null,null]
-      chooseDays[0] = node;
-      node.classList.add("selectHead");
-    } else if (fst && !sec) {
-      // [1st,null]
-      chooseDays[1] = node;
+    switch (true) {
+      case !fst && !sec: // [null,null] , 1st choose
+        chooseDays[0] = node;
+        node.classList.add("selectHead");
+        break;
+      case fst && !sec: // [1st,null], 2nd choose, 要注意是否故意反著選
+        if (node === fst) return; // 可讀性高, 雖然慢了幾行才發現可忽略不做
+        chooseDays[1] = node;
 
-      // 判斷是否為 [2nd,1st]
-      // dayjs(2nd) < dayjs(1st) ?
-      // dayjs(2nd).isSameOrBefore(dayjs(1st)) ?
-      is2before1 = dayjs(node.dataset.date).isSameOrBefore(
-        dayjs(chooseDays[0].dataset.date),
-      );
-      if (is2before1) {
-        // 若發現選反了
-        chooseDays[0].classList.replace("selectHead", "selectFoot"); // 1st class 改 FOOT
-        chooseDays[1].classList.add("selectHead"); // 2nd class 加 HEAD
-        [chooseDays[1], chooseDays[0]] = [chooseDays[0], chooseDays[1]]; // [2nd,1st] => [1st,2nd]
-      } else chooseDays[1].classList.add("selectFoot"); // 如預期的 2nd class 加 FOOT
-    } else {
-      // 3rd choose
-      // [!null,!null] => 清空, 做成 [1st,null]
-      chooseDays.forEach((item) =>
-        item.classList.remove("selectHead", "selectFoot"),
-      );
-      node.classList.add("selectHead");
-      chooseDays[0] = node;
-      chooseDays[1] = null;
+        // 判斷是否為 [2nd,1st] => dayjs(2nd).isSameOrBefore(dayjs(1st)) ?
+        is2before1 = dayjs(node.dataset.date).isSameOrBefore(
+          dayjs(chooseDays[0].dataset.date),
+        );
+        if (is2before1) {
+          // 成立
+          chooseDays[0].classList.replace("selectHead", "selectFoot"); // 1st class 改 FOOT
+          chooseDays[1].classList.add("selectHead"); // 2nd class 加 HEAD
+          [chooseDays[1], chooseDays[0]] = [chooseDays[0], chooseDays[1]]; // [2nd,1st] => [1st,2nd]
+        } else chooseDays[1].classList.add("selectFoot"); // 如預期的 2nd class 加 FOOT
+
+        // 規劃 selectConnect
+        document.querySelectorAll(".calendar li.selectDay").forEach((item) => {
+          console.log(item);
+          const isBetween = dayjs(item.dataset.date).isBetween(
+            chooseDays[0].dataset.date,
+            chooseDays[1].dataset.date,
+          );
+          isBetween && item.classList.add("selectConnect");
+        });
+
+        break;
+      default: // [!null,!null], 3rd choose => 清空, 做成 [1st,null]
+        chooseDays.forEach((item) =>
+          item.classList.remove("selectHead", "selectFoot"),
+        );
+        document
+          .querySelectorAll("li.selectConnect")
+          .forEach((item) => item.classList.remove("selectConnect"));
+
+        node.classList.add("selectHead");
+        chooseDays[0] = node;
+        chooseDays[1] = null;
+        break;
     }
   };
 
@@ -179,6 +196,9 @@ const calendarService = () => {
       changeMonth(v === "#prevCtrl" ? -1 : 1);
       listPrint();
     },
-    choose: (node) => chooseList(node),
+    choose: (node) => {
+      // if (node === chooseDays[0] && !chooseDays[1]) return; // 提早發現不用做, 但判斷多些
+      chooseList(node);
+    },
   };
 };
