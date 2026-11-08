@@ -79,10 +79,10 @@
     {
       "date": "2026-12-12",
       "sellout": {
-        "aArea": 1,
-        "bArea": 1,
-        "cArea": 1,
-        "dArea": 1
+        "aArea": 10,
+        "bArea": 10,
+        "cArea": 10,
+        "dArea": 10
       }
     },
     {
@@ -114,6 +114,15 @@
     },
     {
       "date": "2026-12-16",
+      "sellout": {
+        "aArea": 10,
+        "bArea": 10,
+        "cArea": 10,
+        "dArea": 10
+      }
+    },
+    {
+      "date": "2026-12-25",
       "sellout": {
         "aArea": 10,
         "bArea": 10,
