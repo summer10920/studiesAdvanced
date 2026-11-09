@@ -15,14 +15,11 @@ import { useTour } from '../../useAsync.js';
 export default function TourDetailPage() {
   const { id } = useParams();
   const { data: tour, loading, error } = useTour(id);
-  const [departureId, setDepartureId] = useState('');
+  const [departureId, setDepartureId] = useState(tour?.departures[0]?.id ?? '');
   useEffect(() => {
     document.title = tour
       ? `${tour.title} · 洛奇旅行`
       : '找不到頁面 · 洛奇旅行';
-  }, [tour]);
-  useEffect(() => {
-    setDepartureId(tour?.departures[0]?.id ?? '');
   }, [tour]);
   if (loading || error) return <LoadGate loading={loading} error={error} />;
   if (!tour) return <NotFoundPage />;

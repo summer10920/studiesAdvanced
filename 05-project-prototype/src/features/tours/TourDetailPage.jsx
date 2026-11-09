@@ -21,9 +21,6 @@ export default function TourDetailPage() {
       ? `${tour.title} · 洛奇旅行`
       : '找不到頁面 · 洛奇旅行';
   }, [tour]);
-  useEffect(() => {
-    setDepartureId(tour?.departures[0]?.id ?? '');
-  }, [tour]);
   if (!tour) return <NotFoundPage />;
 
   const selected =

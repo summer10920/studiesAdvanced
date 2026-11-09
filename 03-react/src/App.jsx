@@ -83,6 +83,8 @@ import ActionStateDemo from './demos/81-action-state.jsx';
 import OptimisticDemo from './demos/82-optimistic.jsx';
 import StatePages from './demos/83-state-pages.jsx';
 import MemoDemo from './demos/84-memo.jsx';
+import MemoComponentDemo from './demos/86-memo-component.jsx';
+import UseCallbackDemo from './demos/85-callback.jsx';
 
 const demos = [
   { id: '01', title: '函式元件', Component: Hello },
@@ -169,6 +171,8 @@ const demos = [
   { id: '82', title: 'useOptimistic', Component: OptimisticDemo },
   { id: '83', title: '狀態切頁', Component: StatePages },
   { id: '84', title: 'useMemo', Component: MemoDemo },
+  { id: '86', title: 'memo', Component: MemoComponentDemo },
+  { id: '85', title: 'useCallback', Component: UseCallbackDemo },
 ];
 
 export default function App() {

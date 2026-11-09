@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 
 export default function MemoDemo() {
   const [text, setText] = useState('');
-  const [star, setStar] = useState(3);
+  const [star, setStar] = useState(5);
   const label = useMemo(() => {
     console.log('計算中');
     return star >= 4 ? '值得推薦' : '普通';
@@ -18,21 +18,20 @@ export default function MemoDemo() {
           className="rounded border px-2 py-1"
         />
       </label>
+      <p>輸入字數 {text.length}</p>
+      <div className="flex gap-1">
+        {[1, 2, 3, 4, 5].map((n) => (
+          <button
+            key={n}
+            type="button"
+            className="text-2xl text-amber-500"
+            onClick={() => setStar(n)}
+          >
+            {n <= star ? '★' : '☆'}
+          </button>
+        ))}
+      </div>
       <p>星等 {star}</p>
-      <button
-        type="button"
-        className="w-fit rounded bg-teal-800 px-3 py-1 text-white"
-        onClick={() => setStar(Math.max(1, star - 1))}
-      >
-        減一顆
-      </button>
-      <button
-        type="button"
-        className="w-fit rounded bg-teal-800 px-3 py-1 text-white"
-        onClick={() => setStar(Math.min(5, star + 1))}
-      >
-        加一顆
-      </button>
       <p>評語 {label}</p>
     </section>
   );
