@@ -1,51 +1,9 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router';
 import Button from '@mui/material/Button';
-import Chip from '@mui/material/Chip';
 import Typography from '@mui/material/Typography';
+import MyBookingRow from './components/MyBookingRow.jsx';
 import { mySamples } from './mock.data.js';
-import { ntd, statusLabel } from '../../format.js';
-
-const chipColor = {
-  pending: 'primary',
-  confirmed: 'secondary',
-  cancelled: 'error',
-};
-
-function Row({ status, title, date, people, phone, subtotal }) {
-  return (
-    <article className="py-6">
-      <Chip
-        size="small"
-        color={chipColor[status] || 'primary'}
-        label={statusLabel[status] || status}
-      />
-      <Typography variant="h3" className="mt-3">
-        {title}
-      </Typography>
-      <dl className="mt-3 grid gap-3 sm:grid-cols-4">
-        <div>
-          <dt className="text-muted">出發日</dt>
-          <dd>{date}</dd>
-        </div>
-        <div>
-          <dt className="text-muted">人數</dt>
-          <dd>{people}</dd>
-        </div>
-        <div>
-          <dt className="text-muted">電話</dt>
-          <dd>{phone}</dd>
-        </div>
-        <div>
-          <dt className="text-muted">小計</dt>
-          <dd className="font-serif text-2xl font-bold text-action">
-            {ntd(subtotal)}
-          </dd>
-        </div>
-      </dl>
-    </article>
-  );
-}
 
 export default function MyBookingsPage() {
   useEffect(() => {
@@ -69,7 +27,7 @@ export default function MyBookingsPage() {
           </Typography>
           <div className="rounded-card bg-white shadow-card mt-6 max-w-3xl divide-y divide-line px-5">
             {mySamples.map((item) => (
-              <Row
+              <MyBookingRow
                 key={`${item.title}-${item.date}`}
                 status={item.status}
                 title={item.title}

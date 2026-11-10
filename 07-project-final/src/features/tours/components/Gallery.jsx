@@ -21,7 +21,8 @@ export default function Gallery({ images, title }) {
             type="button"
             aria-label={`顯示${title}第 ${index + 1} 張`}
             onClick={() => setActive(index)}
-            className={`h-20 w-28 shrink-0 rounded-2xl ring-2 ring-offset-2 ring-offset-paper focus-visible:outline-none focus-visible:ring-action ${index === active ? 'ring-action' : 'ring-transparent'}`}
+            disabled={index === active}
+            className="h-20 w-28 shrink-0 opacity-60 disabled:opacity-100"
           >
             <img
               className="h-full w-full rounded-2xl object-cover"

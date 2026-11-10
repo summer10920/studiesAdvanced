@@ -1,15 +1,11 @@
 import { useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router';
 import Alert from '@mui/material/Alert';
-import Step from '@mui/material/Step';
-import StepLabel from '@mui/material/StepLabel';
-import Stepper from '@mui/material/Stepper';
 import Typography from '@mui/material/Typography';
 import BookingForm from './components/BookingForm.jsx';
-import { ntd } from '../../format.js';
+import BookingSteps from './components/BookingSteps.jsx';
+import BookingSummary from './components/BookingSummary.jsx';
 import { useStore } from '../../store.jsx';
-
-const steps = ['選出發日', '填寫資料', '送出確認'];
 
 export default function BookingPage() {
   const { tours } = useStore();
@@ -29,24 +25,7 @@ export default function BookingPage() {
       id="content"
       className="mx-auto w-full max-w-6xl flex-1 px-4 py-16 sm:px-6 md:py-24"
     >
-      <Stepper
-        activeStep={1}
-        alternativeLabel
-        className="mb-10"
-        sx={{
-          '& .MuiStepLabel-label': {
-            fontSize: '1.125rem',
-            fontWeight: 700,
-            marginTop: '8px',
-          },
-        }}
-      >
-        {steps.map((label) => (
-          <Step key={label}>
-            <StepLabel>{label}</StepLabel>
-          </Step>
-        ))}
-      </Stepper>
+      <BookingSteps activeStep={1} />
       <Typography variant="h1">報名</Typography>
       <p className="mt-3 max-w-prose text-lg leading-relaxed text-muted">
         這一章先用範例資料畫出姓名與 email。成品會用 Google
@@ -62,33 +41,7 @@ export default function BookingPage() {
       ) : (
         <div className="mt-10 grid items-start gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(18rem,22rem)]">
           <BookingForm tour={tour} departure={departure} />
-          <aside className="rounded-card bg-white shadow-card p-6 md:p-8 lg:sticky lg:top-24">
-            <Typography variant="h2">這趟行程</Typography>
-            <dl className="mt-5 grid gap-4 text-base">
-              <div>
-                <dt className="text-muted">行程</dt>
-                <dd className="mt-1 text-lg font-medium">{tour.title}</dd>
-              </div>
-              <div>
-                <dt className="text-muted">出發日</dt>
-                <dd className="mt-1 text-lg">{departure.date}</dd>
-              </div>
-              <div>
-                <dt className="text-muted">天數</dt>
-                <dd className="mt-1 text-lg">{tour.days} 天</dd>
-              </div>
-              <div>
-                <dt className="text-muted">每人</dt>
-                <dd className="mt-1 whitespace-nowrap font-serif text-3xl font-bold text-ink">
-                  {ntd(tour.price)}
-                  <span className="font-sans text-base font-normal text-muted">
-                    {' '}
-                    / 人
-                  </span>
-                </dd>
-              </div>
-            </dl>
-          </aside>
+          <BookingSummary tour={tour} departure={departure} />
         </div>
       )}
     </main>
