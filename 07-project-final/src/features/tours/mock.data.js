@@ -1,3 +1,5 @@
+import { themeLinks } from '../home/mock.data.js';
+
 const shot = (id) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=1600&q=80`;
 
@@ -272,7 +274,7 @@ export const regions = [
   '京都',
 ];
 
-export const themes = ['城市', '海岸', '山海', '古都', '離島', '日本'];
+export const themes = themeLinks.map((item) => item.theme);
 
 export const dayOptions = [2, 3, 4, 5];
 

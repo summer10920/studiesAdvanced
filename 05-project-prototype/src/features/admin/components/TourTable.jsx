@@ -37,7 +37,6 @@ export default function TourTable({ tours, onEdit, onDelete }) {
                   <div className="flex flex-wrap gap-2">
                     <Button
                       variant="contained"
-                      size="small"
                       disableElevation
                       color="primary"
                       onClick={() => onEdit(tour)}
@@ -46,7 +45,6 @@ export default function TourTable({ tours, onEdit, onDelete }) {
                     </Button>
                     <Button
                       variant="contained"
-                      size="small"
                       disableElevation
                       color="error"
                       onClick={() => onDelete(tour)}
@@ -70,7 +68,6 @@ export default function TourTable({ tours, onEdit, onDelete }) {
             <div className="mt-3 flex flex-wrap gap-2">
               <Button
                 variant="contained"
-                size="small"
                 disableElevation
                 color="primary"
                 onClick={() => onEdit(tour)}
@@ -79,7 +76,6 @@ export default function TourTable({ tours, onEdit, onDelete }) {
               </Button>
               <Button
                 variant="contained"
-                size="small"
                 disableElevation
                 color="error"
                 onClick={() => onDelete(tour)}

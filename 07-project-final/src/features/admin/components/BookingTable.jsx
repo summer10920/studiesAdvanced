@@ -39,7 +39,6 @@ export default function BookingTable({ bookings, onView }) {
                 <TableCell className="px-4 py-4">
                   <Button
                     variant="contained"
-                    size="small"
                     disableElevation
                     color="primary"
                     onClick={() => onView(booking)}
@@ -65,7 +64,6 @@ export default function BookingTable({ bookings, onView }) {
             <Button
               className="mt-3"
               variant="contained"
-              size="small"
               disableElevation
               color="primary"
               onClick={() => onView(booking)}
