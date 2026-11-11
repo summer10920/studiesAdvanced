@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
+import Alert from '@mui/material/Alert';
 import Button from '@mui/material/Button';
+import Snackbar from '@mui/material/Snackbar';
 import Typography from '@mui/material/Typography';
 import AdminGate from './components/AdminGate.jsx';
-import AdminTabs from './components/AdminTabs.jsx';
 import TourTable from './components/TourTable.jsx';
 import TourForm from './components/TourForm.jsx';
-import { draftFromTour, empty, tourFromDraft } from './components/tourDraft.js';
+import { tourFromDraft } from './components/tourDraft.js';
 import LoadGate from '../../LoadGate.jsx';
 import { deleteTour, saveTour } from '../../api.js';
 import { useTours } from '../../useAsync.js';
@@ -14,37 +15,20 @@ import { useTours } from '../../useAsync.js';
 function AdminToursBody() {
   const { data, loading, error, reload } = useTours();
   const tours = data ?? [];
-  const [editingId, setEditingId] = useState(null);
-  const [draft, setDraft] = useState(empty);
-  const [started, setStarted] = useState(false);
-
+  const [open, setOpen] = useState(false);
+  const [tour, setTour] = useState(null);
+  const [notice, setNotice] = useState('');
   useEffect(() => {
     document.title = '行程管理 · 洛奇旅行';
   }, []);
 
-  if (!started && data) {
-    const initial =
-      tours.find((item) => item.id === 'hualien-taroko') || tours[0];
-    if (initial) {
-      setEditingId(initial.id);
-      setDraft(draftFromTour(initial));
-    }
-    setStarted(true);
-  }
+  const close = () => setOpen(false);
 
-  const edit = (tour) => {
-    setEditingId(tour.id);
-    setDraft(draftFromTour(tour));
-    document
-      .getElementById('admin-form')
-      ?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const onSave = async (id, current) => {
-    const { error: message, tour } = tourFromDraft(current);
+  const onSave = async (id, draft) => {
+    const { error: message, tour: next } = tourFromDraft(draft);
     if (message) return message;
     try {
-      await saveTour(id, tour);
+      await saveTour(id, next);
       reload();
       return '';
     } catch (err) {
@@ -70,18 +54,15 @@ function AdminToursBody() {
         行程管理
       </Typography>
       <p className="mt-3 max-w-prose text-lg leading-relaxed text-muted">
-        新增、修改或下架行程。清單來自 Firestore。還沒有資料時，先寫入種子。
+        新增、修改或下架行程。清單來自
+        Firestore。還沒有資料時，先寫入種子。兩頁用頁首切換。
       </p>
-      <AdminTabs />
-      <div className="mt-4 flex flex-wrap gap-3">
+      <div className="mt-8 flex flex-wrap gap-3">
         <Button
           variant="outlined"
           onClick={() => {
-            setEditingId(null);
-            setDraft(empty);
-            document
-              .getElementById('admin-form')
-              ?.scrollIntoView({ behavior: 'smooth' });
+            setTour(null);
+            setOpen(true);
           }}
         >
           新增行程
@@ -91,22 +72,39 @@ function AdminToursBody() {
         </Button>
       </div>
       {tours.length ? (
-        <TourTable tours={tours} onEdit={edit} />
+        <TourTable
+          tours={tours}
+          onEdit={(item) => {
+            setTour(item);
+            setOpen(true);
+          }}
+        />
       ) : (
         <p className="mt-8 text-base text-muted">還沒有行程。</p>
       )}
       <TourForm
-        editingId={editingId}
-        draft={draft}
-        setDraft={setDraft}
-        onSaved={(id) => setEditingId(id)}
+        key={open ? (tour?.id ?? 'create') : 'closed'}
+        open={open}
+        tour={tour}
+        onClose={close}
         onSave={onSave}
         onDelete={onDelete}
-        onClear={() => {
-          setEditingId(null);
-          setDraft(empty);
-        }}
+        onNotice={setNotice}
       />
+      <Snackbar
+        open={Boolean(notice)}
+        autoHideDuration={3200}
+        onClose={() => setNotice('')}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+      >
+        <Alert
+          severity="success"
+          variant="filled"
+          onClose={() => setNotice('')}
+        >
+          {notice}
+        </Alert>
+      </Snackbar>
     </main>
   );
 }

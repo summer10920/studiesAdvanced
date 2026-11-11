@@ -1,31 +1,22 @@
 import { useEffect, useState } from 'react';
+import Alert from '@mui/material/Alert';
 import Button from '@mui/material/Button';
+import Snackbar from '@mui/material/Snackbar';
 import Typography from '@mui/material/Typography';
-import AdminTabs from './components/AdminTabs.jsx';
 import TourTable from './components/TourTable.jsx';
 import TourForm from './components/TourForm.jsx';
-import { draftFromTour, empty } from './components/tourDraft.js';
 import { useStore } from '../../store-context.js';
 
 export default function AdminToursPage() {
   const { tours, saveTour, deleteTour } = useStore();
-  const initial =
-    tours.find((item) => item.id === 'hualien-taroko') || tours[0];
-  const [editingId, setEditingId] = useState(initial?.id ?? null);
-  const [draft, setDraft] = useState(() =>
-    initial ? draftFromTour(initial) : empty,
-  );
+  const [open, setOpen] = useState(false);
+  const [tour, setTour] = useState(null);
+  const [notice, setNotice] = useState('');
   useEffect(() => {
     document.title = '行程管理 · 洛奇旅行';
   }, []);
 
-  const edit = (tour) => {
-    setEditingId(tour.id);
-    setDraft(draftFromTour(tour));
-    document
-      .getElementById('admin-form')
-      ?.scrollIntoView({ behavior: 'smooth' });
-  };
+  const close = () => setOpen(false);
 
   return (
     <main
@@ -37,36 +28,49 @@ export default function AdminToursPage() {
         行程管理
       </Typography>
       <p className="mt-3 max-w-prose text-lg leading-relaxed text-muted">
-        新增、修改或下架行程。列表會立刻更新。
+        新增、修改或下架行程。列表會立刻更新。兩頁用頁首切換。
       </p>
-      <AdminTabs />
-      <div className="mt-4">
+      <div className="mt-8">
         <Button
           variant="outlined"
           onClick={() => {
-            setEditingId(null);
-            setDraft(empty);
-            document
-              .getElementById('admin-form')
-              ?.scrollIntoView({ behavior: 'smooth' });
+            setTour(null);
+            setOpen(true);
           }}
         >
           新增行程
         </Button>
       </div>
-      <TourTable tours={tours} onEdit={edit} />
-      <TourForm
-        editingId={editingId}
-        draft={draft}
-        setDraft={setDraft}
-        onSaved={(id) => setEditingId(id)}
-        onSave={saveTour}
-        onDelete={deleteTour}
-        onClear={() => {
-          setEditingId(null);
-          setDraft(empty);
+      <TourTable
+        tours={tours}
+        onEdit={(item) => {
+          setTour(item);
+          setOpen(true);
         }}
       />
+      <TourForm
+        key={open ? (tour?.id ?? 'create') : 'closed'}
+        open={open}
+        tour={tour}
+        onClose={close}
+        onSave={saveTour}
+        onDelete={deleteTour}
+        onNotice={setNotice}
+      />
+      <Snackbar
+        open={Boolean(notice)}
+        autoHideDuration={3200}
+        onClose={() => setNotice('')}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+      >
+        <Alert
+          severity="success"
+          variant="filled"
+          onClose={() => setNotice('')}
+        >
+          {notice}
+        </Alert>
+      </Snackbar>
     </main>
   );
 }

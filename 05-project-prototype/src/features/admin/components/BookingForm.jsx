@@ -1,0 +1,120 @@
+import { useState } from 'react';
+import Alert from '@mui/material/Alert';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
+import FieldSelect from '../../../_shared/FieldSelect.jsx';
+import { ntd, statusLabel } from '../../../format.js';
+
+const statuses = ['pending', 'confirmed', 'cancelled'];
+
+const Row = ({ label, value }) => (
+  <div className="flex justify-between gap-4">
+    <dt className="text-muted">{label}</dt>
+    <dd className="text-right">{value}</dd>
+  </div>
+);
+
+export default function BookingForm({
+  open,
+  booking,
+  onClose,
+  onSave,
+  onNotice,
+}) {
+  const [status, setStatus] = useState(booking?.status ?? 'pending');
+  const [error, setError] = useState('');
+  const [confirmCancel, setConfirmCancel] = useState(false);
+
+  const commit = async () => {
+    const message = await onSave(booking.id, status);
+    setError(message);
+    if (!message) {
+      onNotice('已更新報名狀態');
+      onClose();
+    }
+  };
+
+  const submit = async (event) => {
+    event.preventDefault();
+    if (status === 'cancelled' && booking.status !== 'cancelled') {
+      setConfirmCancel(true);
+      return;
+    }
+    await commit();
+  };
+
+  return (
+    <>
+      <Dialog
+        open={open}
+        onClose={onClose}
+        fullWidth
+        maxWidth="sm"
+        scroll="paper"
+        aria-labelledby="booking-form-title"
+      >
+        <form onSubmit={submit}>
+          <DialogTitle id="booking-form-title">報名明細</DialogTitle>
+          <DialogContent className="grid gap-4 pt-2">
+            {booking ? (
+              <dl className="grid gap-2 text-base">
+                <Row label="行程" value={booking.tourTitle} />
+                <Row label="出發日" value={booking.date} />
+                <Row label="聯絡人" value={booking.name} />
+                <Row label="Email" value={booking.email} />
+                <Row label="電話" value={booking.phone} />
+                <Row label="人數" value={booking.people} />
+                <Row label="金額" value={ntd(booking.subtotal)} />
+              </dl>
+            ) : null}
+            {error ? <Alert severity="error">{error}</Alert> : null}
+            <FieldSelect
+              id="booking-status"
+              label="狀態"
+              value={status}
+              onChange={setStatus}
+              options={statuses.map((item) => ({
+                value: item,
+                label: statusLabel[item],
+              }))}
+            />
+          </DialogContent>
+          <DialogActions className="flex-wrap gap-2 p-4">
+            <Button type="submit" variant="contained">
+              儲存
+            </Button>
+            <Button type="button" onClick={onClose}>
+              取消
+            </Button>
+          </DialogActions>
+        </form>
+      </Dialog>
+      <Dialog
+        open={confirmCancel}
+        onClose={() => setConfirmCancel(false)}
+        aria-labelledby="cancel-title"
+      >
+        <DialogTitle id="cancel-title">改為已取消？</DialogTitle>
+        <DialogContent>
+          紀錄會留下，以便對帳與計算名額。這就是這筆訂單的刪除。
+        </DialogContent>
+        <DialogActions className="gap-2 p-4">
+          <Button onClick={() => setConfirmCancel(false)}>返回</Button>
+          <Button
+            color="error"
+            variant="contained"
+            onClick={async () => {
+              setConfirmCancel(false);
+              await commit();
+            }}
+          >
+            確認取消
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </>
+  );
+}

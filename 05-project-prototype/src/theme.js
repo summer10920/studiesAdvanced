@@ -268,11 +268,6 @@ const theme = createTheme({
         },
       },
     },
-    MuiTab: {
-      styleOverrides: {
-        root: { textTransform: 'none', fontWeight: 700, minHeight: 48 },
-      },
-    },
   },
 });
 

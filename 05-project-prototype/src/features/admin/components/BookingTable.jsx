@@ -1,68 +1,14 @@
-import { useState } from 'react';
-import Alert from '@mui/material/Alert';
+import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
-import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';
-import Snackbar from '@mui/material/Snackbar';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import { ntd, statusLabel } from '../../../format.js';
-import { useStore } from '../../../store-context.js';
-import { tokens } from '../../../theme.js';
+import { statusLabel } from '../../../format.js';
 
-const statuses = ['pending', 'confirmed', 'cancelled'];
-
-const statusTone = {
-  pending: { border: tokens.accent, color: tokens.ink },
-  confirmed: { border: tokens.action, color: tokens.action },
-  cancelled: { border: '#C5C2B8', color: '#6E756E' },
-};
-
-function StatusSelect({ booking, onStatus }) {
-  const tone = statusTone[booking.status] || statusTone.pending;
-  return (
-    <Select
-      size="small"
-      value={booking.status}
-      onChange={(event) => onStatus(booking.id, event.target.value)}
-      sx={{
-        width: 148,
-        color: tone.color,
-        backgroundColor: tokens.white,
-        '& .MuiOutlinedInput-notchedOutline': {
-          borderColor: tone.border,
-          borderWidth: 2,
-        },
-        '&:hover .MuiOutlinedInput-notchedOutline': {
-          borderColor: tone.border,
-        },
-        '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-          borderColor: tone.border,
-        },
-        '& .MuiSelect-icon': { color: tone.color },
-      }}
-    >
-      {statuses.map((status) => (
-        <MenuItem key={status} value={status}>
-          {statusLabel[status]}
-        </MenuItem>
-      ))}
-    </Select>
-  );
-}
-
-export default function BookingTable({ bookings }) {
-  const { setBookingStatus } = useStore();
-  const [notice, setNotice] = useState('');
-  const onStatus = (id, status) => {
-    setBookingStatus(id, status);
-    setNotice('已更新報名狀態');
-  };
-
+export default function BookingTable({ bookings, onView }) {
   return (
     <>
       <TableContainer
@@ -72,20 +18,8 @@ export default function BookingTable({ bookings }) {
         <Table>
           <TableHead>
             <TableRow>
-              {[
-                ['行程', 'left'],
-                ['出發日', 'left'],
-                ['人數', 'right'],
-                ['姓名', 'left'],
-                ['電話', 'left'],
-                ['小計', 'right'],
-                ['狀態', 'left'],
-              ].map(([label, align]) => (
-                <TableCell
-                  key={label}
-                  align={align}
-                  className="whitespace-nowrap px-4 py-3"
-                >
+              {['行程', '出發日', '姓名', '狀態', '操作'].map((label) => (
+                <TableCell key={label} className="whitespace-nowrap px-4 py-3">
                   {label}
                 </TableCell>
               ))}
@@ -98,25 +32,12 @@ export default function BookingTable({ bookings }) {
                 <TableCell className="whitespace-nowrap px-4 py-4">
                   {booking.date}
                 </TableCell>
-                <TableCell align="right" className="px-4 py-4">
-                  {booking.people}
-                </TableCell>
-                <TableCell className="px-4 py-4">
-                  {booking.name}
-                  <br />
-                  {booking.email}
-                </TableCell>
+                <TableCell className="px-4 py-4">{booking.name}</TableCell>
                 <TableCell className="whitespace-nowrap px-4 py-4">
-                  {booking.phone}
-                </TableCell>
-                <TableCell
-                  align="right"
-                  className="whitespace-nowrap px-4 py-4"
-                >
-                  {ntd(booking.subtotal)}
+                  {statusLabel[booking.status] || booking.status}
                 </TableCell>
                 <TableCell className="px-4 py-4">
-                  <StatusSelect booking={booking} onStatus={onStatus} />
+                  <Button onClick={() => onView(booking)}>查看</Button>
                 </TableCell>
               </TableRow>
             ))}
@@ -129,52 +50,16 @@ export default function BookingTable({ bookings }) {
             <h3 className="font-serif text-2xl font-semibold">
               {booking.tourTitle}
             </h3>
-            <dl className="mt-3 grid gap-2 text-base">
-              <div className="flex justify-between gap-4">
-                <dt className="text-muted">出發日</dt>
-                <dd>{booking.date}</dd>
-              </div>
-              <div className="flex justify-between gap-4">
-                <dt className="text-muted">人數</dt>
-                <dd className="text-right">{booking.people}</dd>
-              </div>
-              <div className="flex justify-between gap-4">
-                <dt className="text-muted">姓名</dt>
-                <dd className="text-right">
-                  {booking.name}
-                  <br />
-                  {booking.email}
-                </dd>
-              </div>
-              <div className="flex justify-between gap-4">
-                <dt className="text-muted">電話</dt>
-                <dd>{booking.phone}</dd>
-              </div>
-              <div className="flex justify-between gap-4">
-                <dt className="text-muted">小計</dt>
-                <dd className="text-right">{ntd(booking.subtotal)}</dd>
-              </div>
-            </dl>
-            <div className="mt-3">
-              <StatusSelect booking={booking} onStatus={onStatus} />
-            </div>
+            <p className="mt-2 text-muted">
+              {booking.date} · {booking.name} ·{' '}
+              {statusLabel[booking.status] || booking.status}
+            </p>
+            <Button className="mt-3" onClick={() => onView(booking)}>
+              查看
+            </Button>
           </Card>
         ))}
       </div>
-      <Snackbar
-        open={Boolean(notice)}
-        autoHideDuration={3200}
-        onClose={() => setNotice('')}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-      >
-        <Alert
-          severity="success"
-          variant="filled"
-          onClose={() => setNotice('')}
-        >
-          {notice}
-        </Alert>
-      </Snackbar>
     </>
   );
 }

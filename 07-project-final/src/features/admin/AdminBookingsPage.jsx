@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import Alert from '@mui/material/Alert';
 import MenuItem from '@mui/material/MenuItem';
+import Snackbar from '@mui/material/Snackbar';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import AdminGate from './components/AdminGate.jsx';
-import AdminTabs from './components/AdminTabs.jsx';
 import BookingTable from './components/BookingTable.jsx';
+import BookingForm from './components/BookingForm.jsx';
 import LoadGate from '../../LoadGate.jsx';
 import { updateOrderStatus } from '../../api.js';
 import { statusLabel } from '../../format.js';
@@ -19,6 +20,8 @@ function AdminBookingsBody() {
   const [status, setStatus] = useState('all');
   const [query, setQuery] = useState('');
   const [sort, setSort] = useState('date-desc');
+  const [open, setOpen] = useState(false);
+  const [booking, setBooking] = useState(null);
   const [notice, setNotice] = useState('');
   useEffect(() => {
     document.title = '報名清單 · 洛奇旅行';
@@ -26,25 +29,28 @@ function AdminBookingsBody() {
 
   const keyword = query.trim();
   const shown = bookings
-    .filter((booking) => status === 'all' || booking.status === status)
-    .filter((booking) => !keyword || booking.name?.includes(keyword))
+    .filter((item) => status === 'all' || item.status === status)
+    .filter((item) => !keyword || item.name?.includes(keyword))
     .sort((a, b) =>
       sort === 'date-asc'
         ? a.date.localeCompare(b.date)
         : b.date.localeCompare(a.date),
     );
 
-  const changeStatus = async (id, next) => {
-    setNotice('');
+  const close = () => setOpen(false);
+
+  const onSave = async (id, next) => {
     try {
       await updateOrderStatus(id, next);
       reload();
+      return '';
     } catch (err) {
-      setNotice(err.message);
+      return err.message;
     }
   };
 
-  if (loading || error) return <LoadGate loading={loading} error={error} />;
+  if (error) return <LoadGate loading={false} error={error} />;
+  if (loading && !data) return <LoadGate loading error={null} />;
 
   return (
     <main
@@ -56,14 +62,8 @@ function AdminBookingsBody() {
         報名清單
       </Typography>
       <p className="mt-3 max-w-prose text-lg leading-relaxed text-muted">
-        查看所有訂單，並把狀態改為待確認、已確認或已取消。
+        查看所有訂單，點一筆看明細並改狀態。兩頁用頁首切換。
       </p>
-      <AdminTabs />
-      {notice ? (
-        <Alert className="mt-6" severity="error">
-          {notice}
-        </Alert>
-      ) : null}
       <div className="mt-8 grid gap-4 md:grid-cols-[minmax(0,12rem)_minmax(0,1fr)_minmax(0,14rem)]">
         <TextField
           select
@@ -94,10 +94,38 @@ function AdminBookingsBody() {
         </TextField>
       </div>
       {shown.length ? (
-        <BookingTable bookings={shown} onStatus={changeStatus} />
+        <BookingTable
+          bookings={shown}
+          onView={(item) => {
+            setBooking(item);
+            setOpen(true);
+          }}
+        />
       ) : (
         <p className="mt-8 text-base text-muted">沒有符合的報名。</p>
       )}
+      <BookingForm
+        key={open ? booking.id : 'closed'}
+        open={open}
+        booking={booking}
+        onClose={close}
+        onSave={onSave}
+        onNotice={setNotice}
+      />
+      <Snackbar
+        open={Boolean(notice)}
+        autoHideDuration={3200}
+        onClose={() => setNotice('')}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+      >
+        <Alert
+          severity="success"
+          variant="filled"
+          onClose={() => setNotice('')}
+        >
+          {notice}
+        </Alert>
+      </Snackbar>
     </main>
   );
 }
