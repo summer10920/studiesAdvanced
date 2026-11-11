@@ -1,37 +1,55 @@
 import { useEffect, useState } from 'react';
-import { getTour, listMyOrders, listOrders, listTours } from './api.js';
+import {
+  getOrder,
+  getTour,
+  listMyOrders,
+  listOrders,
+  listTours,
+} from './api.js';
 
-export function useAsync(load, deps) {
+export function useAsync(load, key) {
+  const [tick, setTick] = useState(0);
+  const requestKey = `${key ?? ''}:${tick}`;
+
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [tick, setTick] = useState(0);
+  const [seenKey, setSeenKey] = useState(requestKey);
+
+  if (seenKey !== requestKey) {
+    setSeenKey(requestKey);
+    setData(null);
+    setError(null);
+    setLoading(true);
+  }
 
   useEffect(() => {
     let active = true;
-    // load 每次 render 都是新函式，不放進依賴；真正會變的是 deps 與 tick。
-    setLoading(true);
-    setError(null);
-    setData(null);
-    load()
+    load(key)
       .then((value) => {
-        if (active) setData(value);
+        if (active) {
+          setData(value);
+          setError(null);
+          setLoading(false);
+        }
       })
       .catch((err) => {
-        if (active) setError(err);
-      })
-      .finally(() => {
-        if (active) setLoading(false);
+        if (active) {
+          setData(null);
+          setError(err);
+          setLoading(false);
+        }
       });
     return () => {
       active = false;
     };
-  }, [tick, ...deps]);
+  }, [requestKey, load, key]);
 
   return { data, error, loading, reload: () => setTick((n) => n + 1) };
 }
 
-export const useTours = () => useAsync(listTours, []);
-export const useTour = (id) => useAsync(() => getTour(id), [id]);
-export const useOrders = () => useAsync(listOrders, []);
-export const useMyOrders = (uid) => useAsync(() => listMyOrders(uid), [uid]);
+export const useTours = () => useAsync(listTours, 'tours');
+export const useTour = (id) => useAsync(getTour, id);
+export const useOrder = (id) => useAsync(getOrder, id);
+export const useOrders = () => useAsync(listOrders, 'orders');
+export const useMyOrders = (uid) => useAsync(listMyOrders, uid);

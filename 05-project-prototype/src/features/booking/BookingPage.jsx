@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
-import { Link, useSearchParams } from 'react-router';
-import Alert from '@mui/material/Alert';
+import { useSearchParams } from 'react-router';
 import Typography from '@mui/material/Typography';
 import BookingForm from './components/BookingForm.jsx';
 import BookingSteps from './components/BookingSteps.jsx';
 import BookingSummary from './components/BookingSummary.jsx';
-import { useStore } from '../../store.jsx';
+import NotFoundPage from '../../pages/NotFoundPage.jsx';
+import { useStore } from '../../store-context.js';
 
 export default function BookingPage() {
   const { tours } = useStore();
@@ -19,6 +19,7 @@ export default function BookingPage() {
   useEffect(() => {
     document.title = '報名 · 洛奇旅行';
   }, []);
+  if (!tour || !departure) return <NotFoundPage />;
 
   return (
     <main
@@ -31,19 +32,10 @@ export default function BookingPage() {
         這一章先用範例資料畫出姓名與 email。成品會用 Google
         帳號帶入。請留下電話，我們會用 email 確認。
       </p>
-      {!tour || !departure ? (
-        <Alert className="mt-8" severity="warning">
-          找不到這趟行程或出發日。
-          <Link className="ml-2 underline" to="/tours">
-            回行程
-          </Link>
-        </Alert>
-      ) : (
-        <div className="mt-10 grid items-start gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(18rem,22rem)]">
-          <BookingForm tour={tour} departure={departure} />
-          <BookingSummary tour={tour} departure={departure} />
-        </div>
-      )}
+      <div className="mt-10 grid items-start gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(18rem,22rem)]">
+        <BookingForm tour={tour} departure={departure} />
+        <BookingSummary tour={tour} departure={departure} />
+      </div>
     </main>
   );
 }

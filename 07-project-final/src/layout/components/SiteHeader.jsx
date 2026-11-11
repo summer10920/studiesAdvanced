@@ -8,7 +8,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import SiteNav from './SiteNav.jsx';
 import Icon from '../../_shared/Icon.jsx';
-import { useAuth } from '../../auth.jsx';
+import { useAuth } from '../../auth-context.js';
 
 const item = ({ isActive }) =>
   `inline-flex min-h-11 items-center rounded-full px-3 font-bold ${isActive ? 'bg-action text-white' : 'text-ink hover:bg-mist'}`;

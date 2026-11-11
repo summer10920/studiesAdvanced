@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import AdminTabs from './components/AdminTabs.jsx';
 import BookingTable from './components/BookingTable.jsx';
 import { statusLabel } from '../../format.js';
-import { useStore } from '../../store.jsx';
+import { useStore } from '../../store-context.js';
 
 const statusOptions = ['all', 'pending', 'confirmed', 'cancelled'];
 

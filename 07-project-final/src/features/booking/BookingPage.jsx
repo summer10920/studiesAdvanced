@@ -1,19 +1,18 @@
 import { useEffect } from 'react';
-import { Link, useNavigate, useSearchParams } from 'react-router';
-import Alert from '@mui/material/Alert';
+import { useSearchParams } from 'react-router';
 import Typography from '@mui/material/Typography';
 import BookingForm from './components/BookingForm.jsx';
 import BookingSteps from './components/BookingSteps.jsx';
 import BookingSummary from './components/BookingSummary.jsx';
 import MemberGate from './components/MemberGate.jsx';
 import LoadGate from '../../LoadGate.jsx';
+import NotFoundPage from '../../pages/NotFoundPage.jsx';
 import { useTours } from '../../useAsync.js';
 
 function BookingBody() {
   const { data, loading, error } = useTours();
   const tours = data ?? [];
   const [params] = useSearchParams();
-  const navigate = useNavigate();
   const tour = tours.find(
     (item) => item.id === (params.get('tourId') || 'hualien-taroko'),
   );
@@ -24,6 +23,7 @@ function BookingBody() {
     document.title = '報名 · 洛奇旅行';
   }, []);
   if (loading || error) return <LoadGate loading={loading} error={error} />;
+  if (!tour || !departure) return <NotFoundPage />;
 
   return (
     <main
@@ -35,23 +35,10 @@ function BookingBody() {
       <p className="mt-3 max-w-prose text-lg leading-relaxed text-muted">
         姓名與 email 來自 Google 帳號。請留下電話，送出後會寫進訂單。
       </p>
-      {!tour || !departure ? (
-        <Alert className="mt-8" severity="warning">
-          找不到這趟行程或出發日。
-          <Link className="ml-2 underline" to="/tours">
-            回行程
-          </Link>
-        </Alert>
-      ) : (
-        <div className="mt-10 grid items-start gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(18rem,22rem)]">
-          <BookingForm
-            tour={tour}
-            departure={departure}
-            onDone={(row) => navigate('/booking/done', { state: row })}
-          />
-          <BookingSummary tour={tour} departure={departure} />
-        </div>
-      )}
+      <div className="mt-10 grid items-start gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(18rem,22rem)]">
+        <BookingForm tour={tour} departure={departure} />
+        <BookingSummary tour={tour} departure={departure} />
+      </div>
     </main>
   );
 }

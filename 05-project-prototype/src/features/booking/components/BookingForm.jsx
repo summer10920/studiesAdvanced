@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import { ntd } from '../../../format.js';
-import { useStore } from '../../../store.jsx';
+import { useStore } from '../../../store-context.js';
 import FieldSelect from '../../../_shared/FieldSelect.jsx';
 
 const preview = { name: '林可', email: 'lin@example.com' };
@@ -29,7 +29,7 @@ export default function BookingForm({ tour, departure }) {
       setError('請填電話，此欄必填');
       return;
     }
-    createBooking({
+    const row = createBooking({
       tourId: tour.id,
       tourTitle: tour.title,
       departureId: departure.id,
@@ -40,7 +40,7 @@ export default function BookingForm({ tour, departure }) {
       phone: phone.trim(),
       subtotal,
     });
-    navigate('/booking/done');
+    navigate(`/booking/${row.id}`, { replace: true });
   };
 
   return (

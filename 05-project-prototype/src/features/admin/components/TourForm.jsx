@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Alert from '@mui/material/Alert';
+import Snackbar from '@mui/material/Snackbar';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -8,36 +9,8 @@ import DialogTitle from '@mui/material/DialogTitle';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import { themes } from '../../tours/mock.data.js';
-import { useStore } from '../../../store.jsx';
+import { useStore } from '../../../store-context.js';
 import FieldSelect from '../../../_shared/FieldSelect.jsx';
-
-const empty = {
-  id: '',
-  title: '',
-  region: '',
-  theme: '城市',
-  days: 2,
-  price: 0,
-  cover: '',
-  intro: '',
-  highlights: '',
-  date: '',
-  capacity: 8,
-};
-
-export const draftFromTour = (tour) => ({
-  id: tour.id,
-  title: tour.title,
-  region: tour.region,
-  theme: tour.theme,
-  days: tour.days,
-  price: tour.price,
-  cover: tour.cover,
-  intro: tour.intro,
-  highlights: tour.highlights.join('\n'),
-  date: tour.departures[0]?.date ?? '',
-  capacity: tour.departures[0]?.capacity ?? 8,
-});
 
 export default function TourForm({
   editingId,
@@ -48,6 +21,7 @@ export default function TourForm({
 }) {
   const { saveTour, deleteTour } = useStore();
   const [error, setError] = useState('');
+  const [notice, setNotice] = useState('');
   const [confirmDelete, setConfirmDelete] = useState(false);
   const set = (key) => (event) =>
     setDraft((current) => ({ ...current, [key]: event.target.value }));
@@ -56,7 +30,10 @@ export default function TourForm({
     event.preventDefault();
     const message = saveTour(editingId, draft);
     setError(message);
-    if (!message) onSaved(draft.id.trim());
+    if (!message) {
+      setNotice('已儲存這筆行程');
+      onSaved(draft.id.trim());
+    }
   };
 
   return (
@@ -178,6 +155,7 @@ export default function TourForm({
             onClick={() => {
               deleteTour(editingId);
               setConfirmDelete(false);
+              setNotice('已刪除這筆行程');
               onClear();
             }}
           >
@@ -185,8 +163,20 @@ export default function TourForm({
           </Button>
         </DialogActions>
       </Dialog>
+      <Snackbar
+        open={Boolean(notice)}
+        autoHideDuration={3200}
+        onClose={() => setNotice('')}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+      >
+        <Alert
+          severity="success"
+          variant="filled"
+          onClose={() => setNotice('')}
+        >
+          {notice}
+        </Alert>
+      </Snackbar>
     </form>
   );
 }
-
-export { empty };

@@ -1,14 +1,16 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router';
 import Alert from '@mui/material/Alert';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import { createOrder } from '../../../api.js';
-import { useAuth } from '../../../auth.jsx';
+import { useAuth } from '../../../auth-context.js';
 import { ntd } from '../../../format.js';
 import FieldSelect from '../../../_shared/FieldSelect.jsx';
 
-export default function BookingForm({ tour, departure, onDone }) {
+export default function BookingForm({ tour, departure }) {
+  const navigate = useNavigate();
   const { user } = useAuth();
   const [people, setPeople] = useState('2');
   const [phone, setPhone] = useState('');
@@ -46,7 +48,7 @@ export default function BookingForm({ tour, departure, onDone }) {
         phone: phone.trim(),
         subtotal,
       });
-      onDone(row);
+      navigate(`/booking/${row.id}`, { replace: true });
     } catch (err) {
       setError(err.message);
       setBusy(false);

@@ -43,6 +43,11 @@ export const seedTours = async () => {
   return created;
 };
 
+export const getOrder = async (id) => {
+  const snap = await getDoc(doc(database(), 'orders', id));
+  return snap.exists() ? { id: snap.id, ...snap.data() } : null;
+};
+
 export const createOrder = async (input) => {
   const ref = await addDoc(collection(database(), 'orders'), {
     ...input,

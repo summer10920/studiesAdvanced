@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import { useAuth } from '../../auth.jsx';
+import { useAuth } from '../../auth-context.js';
 
 export default function AdminLoginPage() {
   const { signIn, provider } = useAuth();

@@ -3,8 +3,9 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import AdminTabs from './components/AdminTabs.jsx';
 import TourTable from './components/TourTable.jsx';
-import TourForm, { draftFromTour, empty } from './components/TourForm.jsx';
-import { useStore } from '../../store.jsx';
+import TourForm from './components/TourForm.jsx';
+import { draftFromTour, empty } from './components/tourDraft.js';
+import { useStore } from '../../store-context.js';
 
 export default function AdminToursPage() {
   const { tours } = useStore();

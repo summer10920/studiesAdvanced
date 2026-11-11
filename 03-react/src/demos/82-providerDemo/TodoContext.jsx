@@ -1,4 +1,5 @@
-import { createContext, useContext, useReducer } from 'react';
+import { useReducer } from 'react';
+import { TodoContext } from './todo-context.js';
 
 const reducer = (todos, action) => {
   switch (action.type) {
@@ -15,8 +16,6 @@ const reducer = (todos, action) => {
   }
 };
 
-const TodoContext = createContext(null);
-
 export function TodoProvider({ children }) {
   const [todos, dispatch] = useReducer(reducer, [
     { id: 1, title: '台北城市漫遊', done: false },
@@ -26,10 +25,4 @@ export function TodoProvider({ children }) {
       {children}
     </TodoContext.Provider>
   );
-}
-
-export function useTodos() {
-  const value = useContext(TodoContext);
-  if (!value) throw new Error('缺少 TodoProvider');
-  return value;
 }

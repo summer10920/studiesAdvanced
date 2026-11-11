@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import MemberGate from './components/MemberGate.jsx';
 import MyBookingRow from './components/MyBookingRow.jsx';
 import LoadGate from '../../LoadGate.jsx';
-import { useAuth } from '../../auth.jsx';
+import { useAuth } from '../../auth-context.js';
 import { useMyOrders } from '../../useAsync.js';
 
 function MyBookingsBody() {

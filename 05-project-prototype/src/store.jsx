@@ -1,8 +1,7 @@
-import { createContext, useContext, useState } from 'react';
+import { useState } from 'react';
 import { tours as seedTours } from './features/tours/mock.data.js';
 import { bookings as seedBookings } from './features/booking/mock.data.js';
-
-const StoreContext = createContext(null);
+import { StoreContext } from './store-context.js';
 
 const highlightsOf = (text) =>
   String(text)
@@ -13,9 +12,6 @@ const highlightsOf = (text) =>
 export function StoreProvider({ children }) {
   const [tours, setTours] = useState(seedTours);
   const [bookings, setBookings] = useState(seedBookings);
-  const [lastBooking, setLastBooking] = useState(null);
-  const [notice, setNotice] = useState('');
-
   const saveTour = (editingId, draft) => {
     const id = draft.id.trim();
     if (!id || !draft.title.trim()) return '編號和標題要填';
@@ -81,20 +77,17 @@ export function StoreProvider({ children }) {
         ? tours.map((item) => (item.id === prev.id ? next : item))
         : [next, ...tours],
     );
-    setNotice('已儲存這筆行程');
     return '';
   };
 
   const deleteTour = (id) => {
     setTours((list) => list.filter((item) => item.id !== id));
-    setNotice('已刪除這筆行程');
   };
 
   const setBookingStatus = (id, status) => {
     setBookings((list) =>
       list.map((item) => (item.id === id ? { ...item, status } : item)),
     );
-    setNotice('已更新報名狀態');
   };
 
   const createBooking = (input) => {
@@ -105,8 +98,6 @@ export function StoreProvider({ children }) {
       ...input,
     };
     setBookings((list) => [row, ...list]);
-    setLastBooking(row);
-    setNotice('報名已送出，狀態是待確認');
     return row;
   };
 
@@ -115,9 +106,6 @@ export function StoreProvider({ children }) {
       value={{
         tours,
         bookings,
-        lastBooking,
-        notice,
-        clearNotice: () => setNotice(''),
         saveTour,
         deleteTour,
         setBookingStatus,
@@ -128,5 +116,3 @@ export function StoreProvider({ children }) {
     </StoreContext.Provider>
   );
 }
-
-export const useStore = () => useContext(StoreContext);

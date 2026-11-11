@@ -6,7 +6,7 @@ import ReasonList from './components/ReasonList.jsx';
 import ReviewList from './components/ReviewList.jsx';
 import ThemeGrid from './components/ThemeGrid.jsx';
 import TourCard from '../tours/components/TourCard.jsx';
-import { useStore } from '../../store.jsx';
+import { useStore } from '../../store-context.js';
 
 export default function HomePage() {
   const { tours } = useStore();

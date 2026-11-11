@@ -1,7 +1,7 @@
 import { Link } from 'react-router';
 import Alert from '@mui/material/Alert';
 import Button from '@mui/material/Button';
-import { useAuth } from '../../../auth.jsx';
+import { useAuth } from '../../../auth-context.js';
 import { missingFirebaseMessage } from '../../../firebase.js';
 
 export default function AdminGate({ children }) {

@@ -10,7 +10,7 @@ import MobileDepartures from './components/MobileDepartures.jsx';
 import TourHeader from './components/TourHeader.jsx';
 import TourHighlights from './components/TourHighlights.jsx';
 import NotFoundPage from '../../pages/NotFoundPage.jsx';
-import { useStore } from '../../store.jsx';
+import { useStore } from '../../store-context.js';
 
 export default function TourDetailPage() {
   const { id } = useParams();

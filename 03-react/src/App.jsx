@@ -71,20 +71,20 @@ import DrillDemo from './demos/69-drill.jsx';
 import ContextDemo from './demos/70-context.jsx';
 import ContextSplitDemo from './demos/71-contextDemo/index.jsx';
 import DefaultDemo from './demos/72-default.jsx';
-import RefDemo from './demos/73-ref.jsx';
-import RefCountDemo from './demos/74-ref-count.jsx';
-import ReducerCountDemo from './demos/75-reducer-count.jsx';
-import ReducerStateDemo from './demos/76-reducer-state.jsx';
-import ReducerDemo from './demos/77-reducer.jsx';
-import TodoPropsDemo from './demos/78-propsDemo/index.jsx';
-import ProviderDemo from './demos/79-providerDemo/index.jsx';
-import ActionDemo from './demos/80-action.jsx';
-import ActionStateDemo from './demos/81-action-state.jsx';
-import OptimisticDemo from './demos/82-optimistic.jsx';
-import StatePages from './demos/83-state-pages.jsx';
-import MemoDemo from './demos/84-memo.jsx';
-import MemoComponentDemo from './demos/86-memo-component.jsx';
-import UseCallbackDemo from './demos/85-callback.jsx';
+import MemoDemo from './demos/73-memo.jsx';
+import MemoComponentDemo from './demos/74-memo-component.jsx';
+import UseCallbackDemo from './demos/75-callback.jsx';
+import RefDemo from './demos/76-ref.jsx';
+import RefCountDemo from './demos/77-ref-count.jsx';
+import ReducerCountDemo from './demos/78-reducer-count.jsx';
+import ReducerStateDemo from './demos/79-reducer-state.jsx';
+import ReducerDemo from './demos/80-reducer.jsx';
+import TodoPropsDemo from './demos/81-propsDemo/index.jsx';
+import ProviderDemo from './demos/82-providerDemo/index.jsx';
+import ActionDemo from './demos/83-action.jsx';
+import ActionStateDemo from './demos/84-action-state.jsx';
+import OptimisticDemo from './demos/85-optimistic.jsx';
+import StatePages from './demos/86-state-pages.jsx';
 
 const demos = [
   { id: '01', title: '函式元件', Component: Hello },
@@ -159,20 +159,20 @@ const demos = [
   { id: '70', title: '用 Context 改善', Component: ContextDemo },
   { id: '71', title: '拆成多個檔案', Component: ContextSplitDemo },
   { id: '72', title: '預設值', Component: DefaultDemo },
-  { id: '73', title: '聚焦輸入框', Component: RefDemo },
-  { id: '74', title: '不觸發渲染的值', Component: RefCountDemo },
-  { id: '75', title: '計數（useReducer）', Component: ReducerCountDemo },
-  { id: '76', title: '待辦（useState）', Component: ReducerStateDemo },
-  { id: '77', title: '待辦（useReducer）', Component: ReducerDemo },
-  { id: '78', title: '拆成元件用 props', Component: TodoPropsDemo },
-  { id: '79', title: '改用 Context', Component: ProviderDemo },
-  { id: '80', title: 'form action', Component: ActionDemo },
-  { id: '81', title: 'useActionState', Component: ActionStateDemo },
-  { id: '82', title: 'useOptimistic', Component: OptimisticDemo },
-  { id: '83', title: '狀態切頁', Component: StatePages },
-  { id: '84', title: 'useMemo', Component: MemoDemo },
-  { id: '86', title: 'memo', Component: MemoComponentDemo },
-  { id: '85', title: 'useCallback', Component: UseCallbackDemo },
+  { id: '73', title: 'useMemo', Component: MemoDemo },
+  { id: '74', title: 'memo', Component: MemoComponentDemo },
+  { id: '75', title: 'useCallback', Component: UseCallbackDemo },
+  { id: '76', title: '聚焦輸入框', Component: RefDemo },
+  { id: '77', title: '不觸發渲染的值', Component: RefCountDemo },
+  { id: '78', title: '計數（useReducer）', Component: ReducerCountDemo },
+  { id: '79', title: '待辦（useState）', Component: ReducerStateDemo },
+  { id: '80', title: '待辦（useReducer）', Component: ReducerDemo },
+  { id: '81', title: '拆成元件用 props', Component: TodoPropsDemo },
+  { id: '82', title: '改用 Context', Component: ProviderDemo },
+  { id: '83', title: 'form action', Component: ActionDemo },
+  { id: '84', title: 'useActionState', Component: ActionStateDemo },
+  { id: '85', title: 'useOptimistic', Component: OptimisticDemo },
+  { id: '86', title: '狀態切頁', Component: StatePages },
 ];
 
 export default function App() {

@@ -5,7 +5,7 @@ import HomePage from './features/home/HomePage.jsx';
 import ToursPage from './features/tours/ToursPage.jsx';
 import TourDetailPage from './features/tours/TourDetailPage.jsx';
 import BookingPage from './features/booking/BookingPage.jsx';
-import BookingDonePage from './features/booking/BookingDonePage.jsx';
+import BookingResultPage from './features/booking/BookingResultPage.jsx';
 import MyBookingsPage from './features/booking/MyBookingsPage.jsx';
 import AboutPage from './features/about/AboutPage.jsx';
 import LoginPage from './features/auth/LoginPage.jsx';
@@ -22,7 +22,7 @@ const router = createBrowserRouter([
       { path: 'tours', element: <ToursPage /> },
       { path: 'tours/:id', element: <TourDetailPage /> },
       { path: 'booking', element: <BookingPage /> },
-      { path: 'booking/done', element: <BookingDonePage /> },
+      { path: 'booking/:id', element: <BookingResultPage /> },
       { path: 'me', element: <MyBookingsPage /> },
       { path: 'about', element: <AboutPage /> },
       { path: 'login', element: <LoginPage /> },

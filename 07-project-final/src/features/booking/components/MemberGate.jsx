@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router';
 import Alert from '@mui/material/Alert';
-import { useAuth } from '../../../auth.jsx';
+import { useAuth } from '../../../auth-context.js';
 import { missingFirebaseMessage } from '../../../firebase.js';
 
 export default function MemberGate({ children }) {

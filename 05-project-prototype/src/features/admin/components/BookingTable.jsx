@@ -1,6 +1,9 @@
+import { useState } from 'react';
+import Alert from '@mui/material/Alert';
 import Card from '@mui/material/Card';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
+import Snackbar from '@mui/material/Snackbar';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -8,7 +11,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { ntd, statusLabel } from '../../../format.js';
-import { useStore } from '../../../store.jsx';
+import { useStore } from '../../../store-context.js';
 import { tokens } from '../../../theme.js';
 
 const statuses = ['pending', 'confirmed', 'cancelled'];
@@ -19,14 +22,13 @@ const statusTone = {
   cancelled: { border: '#C5C2B8', color: '#6E756E' },
 };
 
-function StatusSelect({ booking }) {
-  const { setBookingStatus } = useStore();
+function StatusSelect({ booking, onStatus }) {
   const tone = statusTone[booking.status] || statusTone.pending;
   return (
     <Select
       size="small"
       value={booking.status}
-      onChange={(event) => setBookingStatus(booking.id, event.target.value)}
+      onChange={(event) => onStatus(booking.id, event.target.value)}
       sx={{
         width: 148,
         color: tone.color,
@@ -54,6 +56,13 @@ function StatusSelect({ booking }) {
 }
 
 export default function BookingTable({ bookings }) {
+  const { setBookingStatus } = useStore();
+  const [notice, setNotice] = useState('');
+  const onStatus = (id, status) => {
+    setBookingStatus(id, status);
+    setNotice('已更新報名狀態');
+  };
+
   return (
     <>
       <TableContainer
@@ -107,7 +116,7 @@ export default function BookingTable({ bookings }) {
                   {ntd(booking.subtotal)}
                 </TableCell>
                 <TableCell className="px-4 py-4">
-                  <StatusSelect booking={booking} />
+                  <StatusSelect booking={booking} onStatus={onStatus} />
                 </TableCell>
               </TableRow>
             ))}
@@ -147,11 +156,25 @@ export default function BookingTable({ bookings }) {
               </div>
             </dl>
             <div className="mt-3">
-              <StatusSelect booking={booking} />
+              <StatusSelect booking={booking} onStatus={onStatus} />
             </div>
           </Card>
         ))}
       </div>
+      <Snackbar
+        open={Boolean(notice)}
+        autoHideDuration={3200}
+        onClose={() => setNotice('')}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+      >
+        <Alert
+          severity="success"
+          variant="filled"
+          onClose={() => setNotice('')}
+        >
+          {notice}
+        </Alert>
+      </Snackbar>
     </>
   );
 }

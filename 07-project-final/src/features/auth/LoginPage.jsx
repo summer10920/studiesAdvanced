@@ -6,7 +6,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import { useAuth } from '../../auth.jsx';
+import { useAuth } from '../../auth-context.js';
 
 export default function LoginPage() {
   const navigate = useNavigate();

@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import TourCard from './components/TourCard.jsx';
 import TourFilters from './components/TourFilters.jsx';
 import { matchPrice } from '../../format.js';
-import { useStore } from '../../store.jsx';
+import { useStore } from '../../store-context.js';
 
 export default function ToursPage() {
   const { tours } = useStore();

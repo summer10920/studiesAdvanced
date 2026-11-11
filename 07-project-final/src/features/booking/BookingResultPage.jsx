@@ -1,29 +1,25 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router';
+import { Link, useParams } from 'react-router';
 import Alert from '@mui/material/Alert';
 import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
 import Typography from '@mui/material/Typography';
 import BookingReceipt from './components/BookingReceipt.jsx';
 import BookingSteps from './components/BookingSteps.jsx';
+import MemberGate from './components/MemberGate.jsx';
+import LoadGate from '../../LoadGate.jsx';
+import NotFoundPage from '../../pages/NotFoundPage.jsx';
 import { statusLabel } from '../../format.js';
-import { useStore } from '../../store.jsx';
+import { useOrder } from '../../useAsync.js';
 
-const sample = {
-  tourTitle: '花蓮太魯閣與七星潭四日',
-  date: '2026-12-18',
-  people: 2,
-  phone: '0912000111',
-  subtotal: 53600,
-  status: 'pending',
-};
-
-export default function BookingDonePage() {
-  const { lastBooking } = useStore();
-  const row = lastBooking || sample;
+function BookingResultBody() {
+  const { id } = useParams();
+  const { data: row, loading, error } = useOrder(id);
   useEffect(() => {
-    document.title = '報名已送出 · 洛奇旅行';
-  }, []);
+    document.title = row ? '報名已送出 · 洛奇旅行' : '找不到頁面 · 洛奇旅行';
+  }, [row]);
+  if (loading) return <LoadGate loading={loading} />;
+  if (error || !row) return <NotFoundPage />;
 
   return (
     <main
@@ -36,7 +32,7 @@ export default function BookingDonePage() {
         報名已送出
       </Typography>
       <Alert className="mt-4 max-w-prose" severity="success">
-        我們會用 email 再跟你確認。目前狀態為待確認。
+        我們會用 email 再跟你確認。到「我的報名」可以查看這一筆。
       </Alert>
       <BookingReceipt row={row} />
       <div className="mt-8 flex flex-wrap gap-3">
@@ -48,5 +44,13 @@ export default function BookingDonePage() {
         </Button>
       </div>
     </main>
+  );
+}
+
+export default function BookingResultPage() {
+  return (
+    <MemberGate>
+      <BookingResultBody />
+    </MemberGate>
   );
 }

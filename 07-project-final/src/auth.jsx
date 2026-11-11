@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   GoogleAuthProvider,
   onAuthStateChanged,
@@ -7,8 +7,7 @@ import {
   signOut,
 } from 'firebase/auth';
 import { auth, firebaseReady, missingFirebaseMessage } from './firebase.js';
-
-const AuthContext = createContext(null);
+import { AuthContext } from './auth-context.js';
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
@@ -45,5 +44,3 @@ export function AuthProvider({ children }) {
 
   return <AuthContext.Provider value={api}>{children}</AuthContext.Provider>;
 }
-
-export const useAuth = () => useContext(AuthContext);
