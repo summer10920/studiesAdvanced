@@ -10,14 +10,15 @@ export function StoreProvider({ children }) {
   const saveTour = (editingId, draft) => {
     const { error, tour } = tourFromDraft(draft);
     if (error) return error;
-    const prev = tours.find((item) => item.id === (editingId || tour.id));
-    if (tours.some((item) => item.id === tour.id && item !== prev))
-      return '這個編號已經有了';
-    setTours(
-      prev
-        ? tours.map((item) => (item.id === prev.id ? tour : item))
-        : [tour, ...tours],
-    );
+    if (editingId) {
+      setTours(
+        tours.map((item) =>
+          item.id === editingId ? { ...tour, id: editingId } : item,
+        ),
+      );
+    } else {
+      setTours([{ ...tour, id: `tour-${Date.now()}` }, ...tours]);
+    }
     return '';
   };
 

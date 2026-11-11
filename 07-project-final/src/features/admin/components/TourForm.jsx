@@ -56,8 +56,12 @@ export default function TourForm({ open, tour, onClose, onSave, onNotice }) {
               {error}
             </Alert>
           ) : null}
-          <TextField label="編號" value={draft.id} onChange={set('id')} />
-          <TextField label="標題" value={draft.title} onChange={set('title')} />
+          <TextField
+            className="sm:col-span-2"
+            label="標題"
+            value={draft.title}
+            onChange={set('title')}
+          />
           <TextField
             label="地區"
             value={draft.region}

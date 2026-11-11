@@ -5,7 +5,6 @@ const linesOf = (text) =>
     .filter(Boolean);
 
 export const empty = {
-  id: '',
   title: '',
   region: '',
   theme: '城市',
@@ -22,7 +21,6 @@ export const empty = {
 };
 
 export const draftFromTour = (tour) => ({
-  id: tour.id,
   title: tour.title,
   region: tour.region,
   theme: tour.theme,
@@ -43,8 +41,7 @@ export const draftFromTour = (tour) => ({
 });
 
 export const tourFromDraft = (draft) => {
-  const id = draft.id.trim();
-  if (!id || !draft.title.trim()) return { error: '編號和標題要填' };
+  if (!draft.title.trim()) return { error: '標題要填' };
   const images = (draft.images ?? [])
     .map((item) => String(item).trim())
     .filter(Boolean);
@@ -73,7 +70,6 @@ export const tourFromDraft = (draft) => {
   return {
     error: '',
     tour: {
-      id,
       title: draft.title.trim(),
       region: draft.region.trim(),
       theme: draft.theme,

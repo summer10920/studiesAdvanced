@@ -46,13 +46,10 @@ export const seedTours = async () => {
 
 export const saveTour = async (editingId, tour) => {
   const base = database();
-  const ref = doc(base, 'tours', tour.id);
-  if (!editingId || editingId !== tour.id) {
-    if ((await getDoc(ref)).exists()) throw new Error('這個編號已經有了');
-  }
-  await setDoc(ref, tour);
-  if (editingId && editingId !== tour.id) {
-    await deleteDoc(doc(base, 'tours', editingId));
+  if (editingId) {
+    await setDoc(doc(base, 'tours', editingId), tour);
+  } else {
+    await addDoc(collection(base, 'tours'), tour);
   }
 };
 
