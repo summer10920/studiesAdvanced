@@ -8,7 +8,7 @@ import { draftFromTour, empty } from './components/tourDraft.js';
 import { useStore } from '../../store-context.js';
 
 export default function AdminToursPage() {
-  const { tours } = useStore();
+  const { tours, saveTour, deleteTour } = useStore();
   const initial =
     tours.find((item) => item.id === 'hualien-taroko') || tours[0];
   const [editingId, setEditingId] = useState(initial?.id ?? null);
@@ -60,6 +60,8 @@ export default function AdminToursPage() {
         draft={draft}
         setDraft={setDraft}
         onSaved={(id) => setEditingId(id)}
+        onSave={saveTour}
+        onDelete={deleteTour}
         onClear={() => {
           setEditingId(null);
           setDraft(empty);

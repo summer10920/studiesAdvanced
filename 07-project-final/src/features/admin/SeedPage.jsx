@@ -38,7 +38,7 @@ export default function SeedPage() {
       <Typography variant="h1">寫入行程種子</Typography>
       <p className="mt-3 max-w-prose text-lg leading-relaxed text-muted">
         把專案裡的行程寫進 Firestore 的
-        tours。已經存在的文件會略過，可以重複按。
+        tours。已經存在的文件會略過，可以重複按。規則允許管理員寫入後才能按，請先用後台帳號登入。
       </p>
       {firebaseReady ? null : (
         <Alert className="mt-8" severity="warning">

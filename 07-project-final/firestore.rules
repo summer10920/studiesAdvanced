@@ -13,7 +13,7 @@ service cloud.firestore {
 
     match /tours/{tourId} {
       allow read: if true;
-      allow write: if false;
+      allow write: if isAdmin();
     }
     match /orders/{orderId} {
       allow create: if signedIn()

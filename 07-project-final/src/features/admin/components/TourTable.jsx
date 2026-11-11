@@ -1,3 +1,4 @@
+import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -7,7 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { ntd } from '../../../format.js';
 
-export default function TourTable({ tours }) {
+export default function TourTable({ tours, onEdit }) {
   return (
     <>
       <TableContainer
@@ -17,7 +18,7 @@ export default function TourTable({ tours }) {
         <Table>
           <TableHead>
             <TableRow>
-              {['標題', '地區', '主題', '天數', '價格'].map((label) => (
+              {['標題', '地區', '主題', '天數', '價格', '操作'].map((label) => (
                 <TableCell key={label} className="px-4 py-3">
                   {label}
                 </TableCell>
@@ -32,6 +33,9 @@ export default function TourTable({ tours }) {
                 <TableCell className="px-4 py-4">{tour.theme}</TableCell>
                 <TableCell className="px-4 py-4">{tour.days} 天</TableCell>
                 <TableCell className="px-4 py-4">{ntd(tour.price)}</TableCell>
+                <TableCell className="px-4 py-4">
+                  <Button onClick={() => onEdit(tour)}>編輯</Button>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
@@ -44,6 +48,9 @@ export default function TourTable({ tours }) {
             <p className="mt-2 text-muted">
               {tour.region} · {tour.theme} · {tour.days} 天 · {ntd(tour.price)}
             </p>
+            <Button className="mt-3" onClick={() => onEdit(tour)}>
+              編輯
+            </Button>
           </Card>
         ))}
       </div>

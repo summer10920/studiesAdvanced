@@ -2,15 +2,17 @@ import { useState } from 'react';
 import Alert from '@mui/material/Alert';
 import Snackbar from '@mui/material/Snackbar';
 import Button from '@mui/material/Button';
+import Checkbox from '@mui/material/Checkbox';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
+import FormControlLabel from '@mui/material/FormControlLabel';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import { themes } from '../../tours/mock.data.js';
-import { useStore } from '../../../store-context.js';
 import FieldSelect from '../../../_shared/FieldSelect.jsx';
+import DraftRows from './DraftRows.jsx';
 
 export default function TourForm({
   editingId,
@@ -18,17 +20,20 @@ export default function TourForm({
   setDraft,
   onClear,
   onSaved,
+  onSave,
+  onDelete,
 }) {
-  const { saveTour, deleteTour } = useStore();
   const [error, setError] = useState('');
   const [notice, setNotice] = useState('');
   const [confirmDelete, setConfirmDelete] = useState(false);
   const set = (key) => (event) =>
     setDraft((current) => ({ ...current, [key]: event.target.value }));
+  const setList = (key) => (items) =>
+    setDraft((current) => ({ ...current, [key]: items }));
 
-  const submit = (event) => {
+  const submit = async (event) => {
     event.preventDefault();
-    const message = saveTour(editingId, draft);
+    const message = await onSave(editingId, draft);
     setError(message);
     if (!message) {
       setNotice('已儲存這筆行程');
@@ -46,7 +51,7 @@ export default function TourForm({
         {editingId ? '編輯行程' : '新增行程'}
       </Typography>
       <p className="text-muted sm:col-span-2">
-        每日行程、圖集與費用說明若未出現在表單中，儲存時會一併保留。
+        圖庫、每日行程與出發梯次可增刪列。空的網址列會略過。封面用圖庫第一張。
       </p>
       {error ? (
         <Alert className="sm:col-span-2" severity="error">
@@ -81,13 +86,6 @@ export default function TourForm({
       />
       <TextField
         className="sm:col-span-2"
-        label="封面圖網址"
-        type="url"
-        value={draft.cover}
-        onChange={set('cover')}
-      />
-      <TextField
-        className="sm:col-span-2"
         label="簡介"
         multiline
         minRows={3}
@@ -104,18 +102,118 @@ export default function TourForm({
         onChange={set('highlights')}
       />
       <TextField
-        label="出發日"
-        type="date"
-        slotProps={{ inputLabel: { shrink: true } }}
-        value={draft.date}
-        onChange={set('date')}
+        className="sm:col-span-2"
+        label="費用包含"
+        multiline
+        minRows={3}
+        helperText="一行一則"
+        value={draft.includes}
+        onChange={set('includes')}
       />
       <TextField
-        label="名額"
-        type="number"
-        slotProps={{ htmlInput: { min: 1 } }}
-        value={draft.capacity}
-        onChange={set('capacity')}
+        className="sm:col-span-2"
+        label="費用不含"
+        multiline
+        minRows={3}
+        helperText="一行一則"
+        value={draft.excludes}
+        onChange={set('excludes')}
+      />
+      <DraftRows
+        title="圖庫網址"
+        items={draft.images}
+        blank=""
+        addLabel="新增一張"
+        onChange={setList('images')}
+      >
+        {(item, index, update) => (
+          <TextField
+            className="sm:col-span-2"
+            label={`第 ${index + 1} 張網址`}
+            type="url"
+            helperText={
+              index === 0 ? '第一張會當作列表與輪播的封面' : undefined
+            }
+            value={item}
+            onChange={(event) => update(index, event.target.value)}
+          />
+        )}
+      </DraftRows>
+      <DraftRows
+        title="每日行程"
+        items={draft.itinerary}
+        blank={{ title: '', body: '' }}
+        addLabel="新增一天"
+        onChange={setList('itinerary')}
+      >
+        {(item, index, update) => (
+          <>
+            <p className="text-muted sm:col-span-2">第 {index + 1} 天</p>
+            <TextField
+              className="sm:col-span-2"
+              label="當日標題"
+              value={item.title}
+              onChange={(event) =>
+                update(index, { ...item, title: event.target.value })
+              }
+            />
+            <TextField
+              className="sm:col-span-2"
+              label="當日說明"
+              multiline
+              minRows={2}
+              value={item.body}
+              onChange={(event) =>
+                update(index, { ...item, body: event.target.value })
+              }
+            />
+          </>
+        )}
+      </DraftRows>
+      <DraftRows
+        title="出發梯次"
+        items={draft.departures}
+        blank={{ date: '', capacity: 8 }}
+        addLabel="新增一梯"
+        onChange={setList('departures')}
+      >
+        {(item, index, update) => (
+          <>
+            <TextField
+              label="出發日"
+              type="date"
+              slotProps={{ inputLabel: { shrink: true } }}
+              value={item.date}
+              onChange={(event) =>
+                update(index, { ...item, date: event.target.value })
+              }
+            />
+            <TextField
+              label="名額"
+              type="number"
+              slotProps={{ htmlInput: { min: 1 } }}
+              value={item.capacity}
+              onChange={(event) =>
+                update(index, { ...item, capacity: event.target.value })
+              }
+            />
+          </>
+        )}
+      </DraftRows>
+      <FormControlLabel
+        className="sm:col-span-2"
+        control={
+          <Checkbox
+            checked={draft.featured}
+            onChange={(event) =>
+              setDraft((current) => ({
+                ...current,
+                featured: event.target.checked,
+              }))
+            }
+          />
+        }
+        label="精選，出現在首頁輪播與熱門"
       />
       <div className="flex flex-wrap gap-3 sm:col-span-2">
         <Button type="submit" variant="contained">
@@ -152,11 +250,16 @@ export default function TourForm({
           <Button
             color="error"
             variant="contained"
-            onClick={() => {
-              deleteTour(editingId);
-              setConfirmDelete(false);
-              setNotice('已刪除這筆行程');
-              onClear();
+            onClick={async () => {
+              try {
+                await onDelete(editingId);
+                setConfirmDelete(false);
+                setNotice('已刪除這筆行程');
+                onClear();
+              } catch (err) {
+                setConfirmDelete(false);
+                setError(err.message);
+              }
             }}
           >
             刪除
