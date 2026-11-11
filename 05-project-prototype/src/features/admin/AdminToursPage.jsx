@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react';
 import Alert from '@mui/material/Alert';
 import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
 import Snackbar from '@mui/material/Snackbar';
 import Typography from '@mui/material/Typography';
 import TourTable from './components/TourTable.jsx';
@@ -11,6 +15,7 @@ export default function AdminToursPage() {
   const { tours, saveTour, deleteTour } = useStore();
   const [open, setOpen] = useState(false);
   const [tour, setTour] = useState(null);
+  const [deletingTour, setDeletingTour] = useState(null);
   const [notice, setNotice] = useState('');
   useEffect(() => {
     document.title = '行程管理 · 洛奇旅行';
@@ -47,6 +52,7 @@ export default function AdminToursPage() {
           setTour(item);
           setOpen(true);
         }}
+        onDelete={setDeletingTour}
       />
       <TourForm
         key={open ? (tour?.id ?? 'create') : 'closed'}
@@ -54,9 +60,30 @@ export default function AdminToursPage() {
         tour={tour}
         onClose={close}
         onSave={saveTour}
-        onDelete={deleteTour}
         onNotice={setNotice}
       />
+      <Dialog
+        open={Boolean(deletingTour)}
+        onClose={() => setDeletingTour(null)}
+        aria-labelledby="delete-title"
+      >
+        <DialogTitle id="delete-title">刪除這筆行程？</DialogTitle>
+        <DialogContent>刪除後，這筆行程不會再出現在列表。</DialogContent>
+        <DialogActions className="gap-2 p-4">
+          <Button onClick={() => setDeletingTour(null)}>留下</Button>
+          <Button
+            color="error"
+            variant="contained"
+            onClick={() => {
+              deleteTour(deletingTour.id);
+              setDeletingTour(null);
+              setNotice('已刪除這筆行程');
+            }}
+          >
+            刪除
+          </Button>
+        </DialogActions>
+      </Dialog>
       <Snackbar
         open={Boolean(notice)}
         autoHideDuration={3200}

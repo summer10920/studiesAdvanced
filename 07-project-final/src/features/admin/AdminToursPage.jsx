@@ -2,6 +2,10 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import Alert from '@mui/material/Alert';
 import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
 import Snackbar from '@mui/material/Snackbar';
 import Typography from '@mui/material/Typography';
 import AdminGate from './components/AdminGate.jsx';
@@ -17,6 +21,7 @@ function AdminToursBody() {
   const tours = data ?? [];
   const [open, setOpen] = useState(false);
   const [tour, setTour] = useState(null);
+  const [deletingTour, setDeletingTour] = useState(null);
   const [notice, setNotice] = useState('');
   useEffect(() => {
     document.title = '行程管理 · 洛奇旅行';
@@ -34,11 +39,6 @@ function AdminToursBody() {
     } catch (err) {
       return err.message;
     }
-  };
-
-  const onDelete = async (id) => {
-    await deleteTour(id);
-    reload();
   };
 
   if (error) return <LoadGate loading={false} error={error} />;
@@ -78,6 +78,7 @@ function AdminToursBody() {
             setTour(item);
             setOpen(true);
           }}
+          onDelete={setDeletingTour}
         />
       ) : (
         <p className="mt-8 text-base text-muted">還沒有行程。</p>
@@ -88,9 +89,31 @@ function AdminToursBody() {
         tour={tour}
         onClose={close}
         onSave={onSave}
-        onDelete={onDelete}
         onNotice={setNotice}
       />
+      <Dialog
+        open={Boolean(deletingTour)}
+        onClose={() => setDeletingTour(null)}
+        aria-labelledby="delete-title"
+      >
+        <DialogTitle id="delete-title">刪除這筆行程？</DialogTitle>
+        <DialogContent>刪除後，這筆行程不會再出現在列表。</DialogContent>
+        <DialogActions className="gap-2 p-4">
+          <Button onClick={() => setDeletingTour(null)}>留下</Button>
+          <Button
+            color="error"
+            variant="contained"
+            onClick={async () => {
+              await deleteTour(deletingTour.id);
+              reload();
+              setDeletingTour(null);
+              setNotice('已刪除這筆行程');
+            }}
+          >
+            刪除
+          </Button>
+        </DialogActions>
+      </Dialog>
       <Snackbar
         open={Boolean(notice)}
         autoHideDuration={3200}

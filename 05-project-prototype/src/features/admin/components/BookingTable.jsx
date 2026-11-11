@@ -37,7 +37,15 @@ export default function BookingTable({ bookings, onView }) {
                   {statusLabel[booking.status] || booking.status}
                 </TableCell>
                 <TableCell className="px-4 py-4">
-                  <Button onClick={() => onView(booking)}>查看</Button>
+                  <Button
+                    variant="contained"
+                    size="small"
+                    disableElevation
+                    color="primary"
+                    onClick={() => onView(booking)}
+                  >
+                    查看
+                  </Button>
                 </TableCell>
               </TableRow>
             ))}
@@ -54,7 +62,14 @@ export default function BookingTable({ bookings, onView }) {
               {booking.date} · {booking.name} ·{' '}
               {statusLabel[booking.status] || booking.status}
             </p>
-            <Button className="mt-3" onClick={() => onView(booking)}>
+            <Button
+              className="mt-3"
+              variant="contained"
+              size="small"
+              disableElevation
+              color="primary"
+              onClick={() => onView(booking)}
+            >
               查看
             </Button>
           </Card>

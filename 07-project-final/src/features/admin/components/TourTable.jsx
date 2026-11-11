@@ -8,7 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { ntd } from '../../../format.js';
 
-export default function TourTable({ tours, onEdit }) {
+export default function TourTable({ tours, onEdit, onDelete }) {
   return (
     <>
       <TableContainer
@@ -34,7 +34,26 @@ export default function TourTable({ tours, onEdit }) {
                 <TableCell className="px-4 py-4">{tour.days} 天</TableCell>
                 <TableCell className="px-4 py-4">{ntd(tour.price)}</TableCell>
                 <TableCell className="px-4 py-4">
-                  <Button onClick={() => onEdit(tour)}>編輯</Button>
+                  <div className="flex flex-wrap gap-2">
+                    <Button
+                      variant="contained"
+                      size="small"
+                      disableElevation
+                      color="primary"
+                      onClick={() => onEdit(tour)}
+                    >
+                      編輯
+                    </Button>
+                    <Button
+                      variant="contained"
+                      size="small"
+                      disableElevation
+                      color="error"
+                      onClick={() => onDelete(tour)}
+                    >
+                      刪除
+                    </Button>
+                  </div>
                 </TableCell>
               </TableRow>
             ))}
@@ -48,9 +67,26 @@ export default function TourTable({ tours, onEdit }) {
             <p className="mt-2 text-muted">
               {tour.region} · {tour.theme} · {tour.days} 天 · {ntd(tour.price)}
             </p>
-            <Button className="mt-3" onClick={() => onEdit(tour)}>
-              編輯
-            </Button>
+            <div className="mt-3 flex flex-wrap gap-2">
+              <Button
+                variant="contained"
+                size="small"
+                disableElevation
+                color="primary"
+                onClick={() => onEdit(tour)}
+              >
+                編輯
+              </Button>
+              <Button
+                variant="contained"
+                size="small"
+                disableElevation
+                color="error"
+                onClick={() => onDelete(tour)}
+              >
+                刪除
+              </Button>
+            </div>
           </Card>
         ))}
       </div>
