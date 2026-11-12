@@ -1,21 +1,27 @@
-import { Link, useParams } from 'react-router';
+import { data, Link, useLoaderData } from 'react-router';
 import Alert from '@mui/material/Alert';
 import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
 import Typography from '@mui/material/Typography';
 import BookingReceipt from './components/BookingReceipt.jsx';
 import BookingSteps from './components/BookingSteps.jsx';
-import MemberGate from './components/MemberGate.jsx';
-import LoadGate from '../../LoadGate.jsx';
-import NotFoundPage from '../../pages/NotFoundPage.jsx';
+import { getOrder } from '../../api.js';
+import { MissingFirebase } from '../../AccessNotice.jsx';
+import { requireUser } from '../../auth.js';
 import { statusLabel } from '../../format.js';
-import { useOrder } from '../../useAsync.js';
 
-function BookingResultBody() {
-  const { id } = useParams();
-  const { data: row, loading, error } = useOrder(id);
-  if (loading) return <LoadGate loading={loading} />;
-  if (error || !row) return <NotFoundPage />;
+export const loader = async ({ request, params }) => {
+  const gate = await requireUser(request);
+  if (!gate.firebaseReady) return { firebaseReady: false, row: null };
+  const row = await getOrder(params.id).catch(() => null);
+  if (!row || row.uid !== gate.user.uid)
+    throw data('找不到頁面', { status: 404 });
+  return { firebaseReady: true, row };
+};
+
+export default function BookingResultPage() {
+  const { firebaseReady: ready, row } = useLoaderData();
+  if (!ready) return <MissingFirebase />;
 
   return (
     <main
@@ -41,13 +47,5 @@ function BookingResultBody() {
         </Button>
       </div>
     </main>
-  );
-}
-
-export default function BookingResultPage() {
-  return (
-    <MemberGate>
-      <BookingResultBody />
-    </MemberGate>
   );
 }

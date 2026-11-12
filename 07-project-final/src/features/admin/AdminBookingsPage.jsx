@@ -1,28 +1,58 @@
 import { useState } from 'react';
+import { useLoaderData } from 'react-router';
 import Alert from '@mui/material/Alert';
 import MenuItem from '@mui/material/MenuItem';
 import Snackbar from '@mui/material/Snackbar';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import AdminGate from './components/AdminGate.jsx';
 import BookingTable from './components/BookingTable.jsx';
 import BookingForm from './components/BookingForm.jsx';
-import LoadGate from '../../LoadGate.jsx';
-import { updateOrderStatus } from '../../api.js';
+import { listOrders, updateOrderStatus } from '../../api.js';
+import { AdminDenied, MissingFirebase } from '../../AccessNotice.jsx';
+import { requireAdmin } from '../../auth.js';
+import { missingFirebaseMessage } from '../../firebase.js';
 import { statusLabel } from '../../format.js';
-import { useOrders } from '../../useAsync.js';
 
 const statusOptions = ['all', 'pending', 'confirmed', 'cancelled'];
 
-function AdminBookingsBody() {
-  const { data, loading, error, reload } = useOrders();
-  const bookings = data ?? [];
+export const loader = async ({ request }) => {
+  const gate = await requireAdmin(request);
+  if (!gate.firebaseReady || gate.denied)
+    return {
+      firebaseReady: gate.firebaseReady,
+      denied: Boolean(gate.denied),
+      bookings: [],
+    };
+  return {
+    firebaseReady: true,
+    denied: false,
+    bookings: await listOrders(),
+  };
+};
+
+export const action = async ({ request }) => {
+  const gate = await requireAdmin(request);
+  if (!gate.firebaseReady) return { error: missingFirebaseMessage };
+  if (gate.denied) return { error: '這個帳號不能進入後台。' };
+  const form = await request.formData();
+  try {
+    await updateOrderStatus(String(form.get('id')), String(form.get('status')));
+    return { notice: '已更新報名狀態' };
+  } catch (err) {
+    return { error: err.message };
+  }
+};
+
+export default function AdminBookingsPage() {
+  const { firebaseReady: ready, denied, bookings } = useLoaderData();
   const [status, setStatus] = useState('all');
   const [query, setQuery] = useState('');
   const [sort, setSort] = useState('date-desc');
   const [open, setOpen] = useState(false);
   const [booking, setBooking] = useState(null);
   const [notice, setNotice] = useState('');
+  if (!ready) return <MissingFirebase />;
+  if (denied) return <AdminDenied />;
 
   const keyword = query.trim();
   const shown = bookings
@@ -35,19 +65,6 @@ function AdminBookingsBody() {
     );
 
   const close = () => setOpen(false);
-
-  const onSave = async (id, next) => {
-    try {
-      await updateOrderStatus(id, next);
-      reload();
-      return '';
-    } catch (err) {
-      return err.message;
-    }
-  };
-
-  if (error) return <LoadGate loading={false} error={error} />;
-  if (loading && !data) return <LoadGate loading error={null} />;
 
   return (
     <main
@@ -107,7 +124,6 @@ function AdminBookingsBody() {
         open={open}
         booking={booking}
         onClose={close}
-        onSave={onSave}
         onNotice={setNotice}
       />
       <Snackbar
@@ -125,13 +141,5 @@ function AdminBookingsBody() {
         </Alert>
       </Snackbar>
     </main>
-  );
-}
-
-export default function AdminBookingsPage() {
-  return (
-    <AdminGate>
-      <AdminBookingsBody />
-    </AdminGate>
   );
 }

@@ -1,3 +1,4 @@
+import { useLoaderData } from 'react-router';
 import Alert from '@mui/material/Alert';
 import Typography from '@mui/material/Typography';
 import HeroSearch from './components/HeroSearch.jsx';
@@ -6,14 +7,19 @@ import ReasonList from './components/ReasonList.jsx';
 import ReviewList from './components/ReviewList.jsx';
 import ThemeGrid from './components/ThemeGrid.jsx';
 import TourCard from '../tours/components/TourCard.jsx';
-import LoadGate from '../../LoadGate.jsx';
-import { useTours } from '../../useAsync.js';
+import { listTours } from '../../api.js';
+import { MissingFirebase } from '../../AccessNotice.jsx';
+import { firebaseReady } from '../../firebase.js';
+
+export const loader = async () => {
+  if (!firebaseReady) return { firebaseReady: false, tours: [] };
+  return { firebaseReady: true, tours: await listTours() };
+};
 
 export default function HomePage() {
-  const { data, loading, error } = useTours();
-  const tours = data ?? [];
+  const { firebaseReady: ready, tours } = useLoaderData();
   const featured = tours.filter((tour) => tour.featured);
-  if (loading || error) return <LoadGate loading={loading} error={error} />;
+  if (!ready) return <MissingFirebase />;
 
   return (
     <main id="content">

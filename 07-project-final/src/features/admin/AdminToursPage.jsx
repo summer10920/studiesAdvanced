@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router';
+import { Link, useFetcher, useLoaderData } from 'react-router';
 import Alert from '@mui/material/Alert';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -8,38 +8,72 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import Snackbar from '@mui/material/Snackbar';
 import Typography from '@mui/material/Typography';
-import AdminGate from './components/AdminGate.jsx';
 import TourTable from './components/TourTable.jsx';
 import TourForm from './components/TourForm.jsx';
 import { tourFromDraft } from './components/tourDraft.js';
-import LoadGate from '../../LoadGate.jsx';
-import { deleteTour, saveTour } from '../../api.js';
-import { useTours } from '../../useAsync.js';
+import { deleteTour, listTours, saveTour } from '../../api.js';
+import { AdminDenied, MissingFirebase } from '../../AccessNotice.jsx';
+import { requireAdmin } from '../../auth.js';
+import { missingFirebaseMessage } from '../../firebase.js';
 
-function AdminToursBody() {
-  const { data, loading, error, reload } = useTours();
-  const tours = data ?? [];
+const gateOr = async (request) => {
+  const gate = await requireAdmin(request);
+  if (!gate.firebaseReady) return { error: missingFirebaseMessage };
+  if (gate.denied) return { error: '這個帳號不能進入後台。' };
+  return null;
+};
+
+export const loader = async ({ request }) => {
+  const gate = await requireAdmin(request);
+  if (!gate.firebaseReady || gate.denied)
+    return {
+      firebaseReady: gate.firebaseReady,
+      denied: Boolean(gate.denied),
+      tours: [],
+    };
+  return {
+    firebaseReady: true,
+    denied: false,
+    tours: await listTours(),
+  };
+};
+
+export const action = async ({ request }) => {
+  const blocked = await gateOr(request);
+  if (blocked) return blocked;
+  const form = await request.formData();
+  if (form.get('intent') === 'delete') {
+    await deleteTour(String(form.get('id')));
+    return { notice: '已刪除這筆行程' };
+  }
+  const editingId = String(form.get('editingId') ?? '');
+  const { error, tour } = tourFromDraft(JSON.parse(String(form.get('draft'))));
+  if (error) return { error };
+  await saveTour(editingId, tour);
+  return { notice: '已儲存這筆行程', saved: true };
+};
+
+export default function AdminToursPage() {
+  const { firebaseReady: ready, denied, tours } = useLoaderData();
+  const remove = useFetcher();
   const [open, setOpen] = useState(false);
   const [tour, setTour] = useState(null);
   const [deletingTour, setDeletingTour] = useState(null);
   const [notice, setNotice] = useState('');
+  const [seenRemove, setSeenRemove] = useState(null);
+  if (
+    remove.state === 'idle' &&
+    remove.data?.notice &&
+    remove.data !== seenRemove
+  ) {
+    setSeenRemove(remove.data);
+    setDeletingTour(null);
+    setNotice(remove.data.notice);
+  }
+  if (!ready) return <MissingFirebase />;
+  if (denied) return <AdminDenied />;
 
   const close = () => setOpen(false);
-
-  const onSave = async (id, draft) => {
-    const { error: message, tour: next } = tourFromDraft(draft);
-    if (message) return message;
-    try {
-      await saveTour(id, next);
-      reload();
-      return '';
-    } catch (err) {
-      return err.message;
-    }
-  };
-
-  if (error) return <LoadGate loading={false} error={error} />;
-  if (loading && !data) return <LoadGate loading error={null} />;
 
   return (
     <main
@@ -86,7 +120,6 @@ function AdminToursBody() {
         open={open}
         tour={tour}
         onClose={close}
-        onSave={onSave}
         onNotice={setNotice}
       />
       <Dialog
@@ -101,12 +134,13 @@ function AdminToursBody() {
           <Button
             color="error"
             variant="contained"
-            onClick={async () => {
-              await deleteTour(deletingTour.id);
-              reload();
-              setDeletingTour(null);
-              setNotice('已刪除這筆行程');
-            }}
+            disabled={remove.state !== 'idle'}
+            onClick={() =>
+              remove.submit(
+                { intent: 'delete', id: deletingTour.id },
+                { method: 'post' },
+              )
+            }
           >
             刪除
           </Button>
@@ -127,13 +161,5 @@ function AdminToursBody() {
         </Alert>
       </Snackbar>
     </main>
-  );
-}
-
-export default function AdminToursPage() {
-  return (
-    <AdminGate>
-      <AdminToursBody />
-    </AdminGate>
   );
 }

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useParams } from 'react-router';
+import { data, useLoaderData } from 'react-router';
 import Typography from '@mui/material/Typography';
 import BookingCard from './components/BookingCard.jsx';
 import FareBox from './components/FareBox.jsx';
@@ -9,16 +9,21 @@ import MobileBookingBar from './components/MobileBookingBar.jsx';
 import MobileDepartures from './components/MobileDepartures.jsx';
 import TourHeader from './components/TourHeader.jsx';
 import TourHighlights from './components/TourHighlights.jsx';
-import NotFoundPage from '../../pages/NotFoundPage.jsx';
-import LoadGate from '../../LoadGate.jsx';
-import { useTour } from '../../useAsync.js';
+import { getTour } from '../../api.js';
+import { MissingFirebase } from '../../AccessNotice.jsx';
+import { firebaseReady } from '../../firebase.js';
+
+export const loader = async ({ params }) => {
+  if (!firebaseReady) return { firebaseReady: false, tour: null };
+  const tour = await getTour(params.id);
+  if (!tour) throw data('找不到頁面', { status: 404 });
+  return { firebaseReady: true, tour };
+};
 
 export default function TourDetailPage() {
-  const { id } = useParams();
-  const { data: tour, loading, error } = useTour(id);
+  const { firebaseReady: ready, tour } = useLoaderData();
   const [departureId, setDepartureId] = useState(tour?.departures[0]?.id ?? '');
-  if (loading || error) return <LoadGate loading={loading} error={error} />;
-  if (!tour) return <NotFoundPage />;
+  if (!ready) return <MissingFirebase />;
 
   const selected =
     tour.departures.find((item) => item.id === departureId) ??

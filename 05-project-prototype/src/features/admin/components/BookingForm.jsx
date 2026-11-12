@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useFetcher } from 'react-router';
 import Alert from '@mui/material/Alert';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -17,33 +18,33 @@ const Row = ({ label, value }) => (
   </div>
 );
 
-export default function BookingForm({
-  open,
-  booking,
-  onClose,
-  onSave,
-  onNotice,
-}) {
+export default function BookingForm({ open, booking, onClose, onNotice }) {
+  const fetcher = useFetcher();
+  const handled = useRef(null);
+  const error =
+    fetcher.state === 'idle' && fetcher.data?.error ? fetcher.data.error : '';
   const [status, setStatus] = useState(booking?.status ?? 'pending');
-  const [error, setError] = useState('');
   const [confirmCancel, setConfirmCancel] = useState(false);
 
-  const commit = async () => {
-    const message = await onSave(booking.id, status);
-    setError(message);
-    if (!message) {
-      onNotice('已更新報名狀態');
-      onClose();
-    }
+  useEffect(() => {
+    if (fetcher.state !== 'idle' || !fetcher.data?.notice) return;
+    if (handled.current === fetcher.data) return;
+    handled.current = fetcher.data;
+    onNotice(fetcher.data.notice);
+    onClose();
+  }, [fetcher.state, fetcher.data, onNotice, onClose]);
+
+  const commit = () => {
+    fetcher.submit({ id: booking.id, status }, { method: 'post' });
   };
 
-  const submit = async (event) => {
+  const submit = (event) => {
     event.preventDefault();
     if (status === 'cancelled' && booking.status !== 'cancelled') {
       setConfirmCancel(true);
       return;
     }
-    await commit();
+    commit();
   };
 
   return (
@@ -83,7 +84,11 @@ export default function BookingForm({
             />
           </DialogContent>
           <DialogActions className="flex-wrap gap-2 p-4">
-            <Button type="submit" variant="contained">
+            <Button
+              type="submit"
+              variant="contained"
+              disabled={fetcher.state !== 'idle'}
+            >
               儲存
             </Button>
             <Button type="button" onClick={onClose}>
@@ -106,9 +111,9 @@ export default function BookingForm({
           <Button
             color="error"
             variant="contained"
-            onClick={async () => {
+            onClick={() => {
               setConfirmCancel(false);
-              await commit();
+              commit();
             }}
           >
             確認取消

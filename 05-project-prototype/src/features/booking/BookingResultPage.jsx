@@ -1,19 +1,21 @@
-import { Link, useParams } from 'react-router';
+import { data, Link, useLoaderData } from 'react-router';
 import Alert from '@mui/material/Alert';
 import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
 import Typography from '@mui/material/Typography';
 import BookingReceipt from './components/BookingReceipt.jsx';
 import BookingSteps from './components/BookingSteps.jsx';
-import NotFoundPage from '../../pages/NotFoundPage.jsx';
 import { statusLabel } from '../../format.js';
-import { useStore } from '../../store-context.js';
+import { getBooking } from '../../store.js';
+
+export const loader = ({ params }) => {
+  const row = getBooking(params.id);
+  if (!row) throw data('找不到頁面', { status: 404 });
+  return { row };
+};
 
 export default function BookingResultPage() {
-  const { id } = useParams();
-  const { bookings } = useStore();
-  const row = bookings.find((item) => item.id === id);
-  if (!row) return <NotFoundPage />;
+  const { row } = useLoaderData();
 
   return (
     <main

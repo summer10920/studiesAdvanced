@@ -1,68 +1,42 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router';
+import { Form, useActionData, useNavigation } from 'react-router';
 import Alert from '@mui/material/Alert';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import { createOrder } from '../../../api.js';
-import { useAuth } from '../../../auth-context.js';
 import { ntd } from '../../../format.js';
 import FieldSelect from '../../../_shared/FieldSelect.jsx';
 
-export default function BookingForm({ tour, departure }) {
-  const navigate = useNavigate();
-  const { user } = useAuth();
+export default function BookingForm({ tour, departure, user }) {
+  const actionData = useActionData();
+  const navigation = useNavigation();
   const [people, setPeople] = useState('2');
   const [phone, setPhone] = useState('');
   const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState('');
-  const [busy, setBusy] = useState(false);
   const name = user?.displayName || '';
   const email = user?.email || '';
   const subtotal = tour.price * Number(people);
-  const invalid = !name.trim() || !email.includes('@') || !phone.trim();
-
-  const submit = async (event) => {
-    event.preventDefault();
-    setSubmitted(true);
-    if (invalid) {
-      setError(
-        name.trim() && email.includes('@')
-          ? '請填電話'
-          : '請確認 Google 帳號帶有姓名與 email，並填電話',
-      );
-      return;
-    }
-    setBusy(true);
-    setError('');
-    try {
-      const row = await createOrder({
-        uid: user.uid,
-        tourId: tour.id,
-        tourTitle: tour.title,
-        departureId: departure.id,
-        date: departure.date,
-        people: Number(people),
-        name: name.trim(),
-        email: email.trim(),
-        phone: phone.trim(),
-        subtotal,
-      });
-      navigate(`/booking/${row.id}`, { replace: true });
-    } catch (err) {
-      setError(err.message);
-      setBusy(false);
-    }
-  };
+  const error = actionData?.error ?? '';
+  const submitting =
+    navigation.state === 'submitting' &&
+    new URL(navigation.formAction, 'http://localhost').pathname === '/booking';
 
   return (
-    <form
+    <Form
       id="booking-form"
+      method="post"
+      replace
       noValidate
       className="rounded-card bg-white shadow-card grid gap-4 p-6 md:p-8"
-      onSubmit={submit}
+      onSubmit={() => setSubmitted(true)}
     >
       <Typography variant="h2">填寫資料</Typography>
+      <input type="hidden" name="tourId" value={tour.id} />
+      <input type="hidden" name="tourTitle" value={tour.title} />
+      <input type="hidden" name="departureId" value={departure.id} />
+      <input type="hidden" name="date" value={departure.date} />
+      <input type="hidden" name="people" value={people} />
+      <input type="hidden" name="subtotal" value={subtotal} />
       <div className="grid gap-4 sm:grid-cols-2">
         <TextField
           label="姓名"
@@ -89,6 +63,7 @@ export default function BookingForm({ tour, departure }) {
         }))}
       />
       <TextField
+        name="phone"
         label="電話"
         type="tel"
         required
@@ -106,9 +81,9 @@ export default function BookingForm({ tour, departure }) {
         </span>
       </p>
       <p className="text-muted">小計會依人數更新。送出後我們用 email 確認。</p>
-      <Button type="submit" variant="contained" disabled={busy}>
-        {busy ? '送出中…' : '送出報名'}
+      <Button type="submit" variant="contained" disabled={submitting}>
+        {submitting ? '送出中…' : '送出報名'}
       </Button>
-    </form>
+    </Form>
   );
 }

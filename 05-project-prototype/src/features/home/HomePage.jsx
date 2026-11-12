@@ -4,11 +4,14 @@ import HeroSlider from './components/HeroSlider.jsx';
 import ReasonList from './components/ReasonList.jsx';
 import ReviewList from './components/ReviewList.jsx';
 import ThemeGrid from './components/ThemeGrid.jsx';
+import { useLoaderData } from 'react-router';
 import TourCard from '../tours/components/TourCard.jsx';
-import { useStore } from '../../store-context.js';
+import { getTours } from '../../store.js';
+
+export const loader = () => ({ tours: getTours() });
 
 export default function HomePage() {
-  const { tours } = useStore();
+  const { tours } = useLoaderData();
   const featured = tours.filter((tour) => tour.featured);
 
   return (

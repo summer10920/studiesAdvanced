@@ -1,15 +1,20 @@
-import { useSearchParams } from 'react-router';
+import { useLoaderData, useSearchParams } from 'react-router';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import TourCard from './components/TourCard.jsx';
 import TourFilters from './components/TourFilters.jsx';
-import LoadGate from '../../LoadGate.jsx';
+import { listTours } from '../../api.js';
+import { MissingFirebase } from '../../AccessNotice.jsx';
+import { firebaseReady } from '../../firebase.js';
 import { matchPrice } from '../../format.js';
-import { useTours } from '../../useAsync.js';
+
+export const loader = async () => {
+  if (!firebaseReady) return { firebaseReady: false, tours: [] };
+  return { firebaseReady: true, tours: await listTours() };
+};
 
 export default function ToursPage() {
-  const { data, loading, error } = useTours();
-  const tours = data ?? [];
+  const { firebaseReady: ready, tours } = useLoaderData();
   const [params, setParams] = useSearchParams();
 
   const region = params.get('region') ?? '';
@@ -30,7 +35,7 @@ export default function ToursPage() {
     'days-asc': (a, b) => a.days - b.days || a.price - b.price,
   };
   const visible = [...list].sort(rank[sort] || rank['price-asc']);
-  if (loading || error) return <LoadGate loading={loading} error={error} />;
+  if (!ready) return <MissingFirebase />;
 
   return (
     <main

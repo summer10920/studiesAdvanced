@@ -1,45 +1,110 @@
 import { createBrowserRouter, RouterProvider } from 'react-router';
-import { AuthProvider } from './auth.jsx';
+import { logoutAction, logoutLoader, rootLoader } from './auth.js';
 import SiteLayout from './layout/SiteLayout.jsx';
-import HomePage from './features/home/HomePage.jsx';
-import ToursPage from './features/tours/ToursPage.jsx';
-import TourDetailPage from './features/tours/TourDetailPage.jsx';
-import BookingPage from './features/booking/BookingPage.jsx';
-import BookingResultPage from './features/booking/BookingResultPage.jsx';
-import MyBookingsPage from './features/booking/MyBookingsPage.jsx';
+import HomePage, { loader as homeLoader } from './features/home/HomePage.jsx';
+import ToursPage, {
+  loader as toursLoader,
+} from './features/tours/ToursPage.jsx';
+import TourDetailPage, {
+  loader as tourLoader,
+} from './features/tours/TourDetailPage.jsx';
+import BookingPage, {
+  action as bookingAction,
+  loader as bookingLoader,
+} from './features/booking/BookingPage.jsx';
+import BookingResultPage, {
+  loader as bookingResultLoader,
+} from './features/booking/BookingResultPage.jsx';
+import MyBookingsPage, {
+  loader as myBookingsLoader,
+} from './features/booking/MyBookingsPage.jsx';
 import AboutPage from './features/about/AboutPage.jsx';
-import LoginPage from './features/auth/LoginPage.jsx';
-import SeedPage from './features/admin/SeedPage.jsx';
-import AdminLoginPage from './features/admin/AdminLoginPage.jsx';
-import AdminToursPage from './features/admin/AdminToursPage.jsx';
-import AdminBookingsPage from './features/admin/AdminBookingsPage.jsx';
+import LoginPage, {
+  action as loginAction,
+  loader as loginLoader,
+} from './features/auth/LoginPage.jsx';
+import SeedPage, {
+  action as seedAction,
+  loader as seedLoader,
+} from './features/admin/SeedPage.jsx';
+import AdminLoginPage, {
+  action as adminLoginAction,
+  loader as adminLoginLoader,
+} from './features/admin/AdminLoginPage.jsx';
+import AdminToursPage, {
+  action as adminToursAction,
+  loader as adminToursLoader,
+} from './features/admin/AdminToursPage.jsx';
+import AdminBookingsPage, {
+  action as adminBookingsAction,
+  loader as adminBookingsLoader,
+} from './features/admin/AdminBookingsPage.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
+import RouteErrorPage from './pages/RouteErrorPage.jsx';
 
 const router = createBrowserRouter([
   {
-    element: <SiteLayout />,
+    id: 'root',
+    loader: rootLoader,
+    Component: SiteLayout,
     children: [
-      { index: true, element: <HomePage /> },
-      { path: 'tours', element: <ToursPage /> },
-      { path: 'tours/:id', element: <TourDetailPage /> },
-      { path: 'booking', element: <BookingPage /> },
-      { path: 'booking/:id', element: <BookingResultPage /> },
-      { path: 'me', element: <MyBookingsPage /> },
-      { path: 'about', element: <AboutPage /> },
-      { path: 'login', element: <LoginPage /> },
-      { path: 'seed', element: <SeedPage /> },
-      { path: 'admin/login', element: <AdminLoginPage /> },
-      { path: 'admin', element: <AdminToursPage /> },
-      { path: 'admin/bookings', element: <AdminBookingsPage /> },
-      { path: '*', element: <NotFoundPage /> },
+      {
+        errorElement: <RouteErrorPage />,
+        children: [
+          { index: true, loader: homeLoader, Component: HomePage },
+          { path: 'tours', loader: toursLoader, Component: ToursPage },
+          { path: 'tours/:id', loader: tourLoader, Component: TourDetailPage },
+          {
+            path: 'booking',
+            loader: bookingLoader,
+            action: bookingAction,
+            Component: BookingPage,
+          },
+          {
+            path: 'booking/:id',
+            loader: bookingResultLoader,
+            Component: BookingResultPage,
+          },
+          { path: 'me', loader: myBookingsLoader, Component: MyBookingsPage },
+          { path: 'about', Component: AboutPage },
+          {
+            path: 'login',
+            loader: loginLoader,
+            action: loginAction,
+            Component: LoginPage,
+          },
+          {
+            path: 'seed',
+            loader: seedLoader,
+            action: seedAction,
+            Component: SeedPage,
+          },
+          {
+            path: 'admin/login',
+            loader: adminLoginLoader,
+            action: adminLoginAction,
+            Component: AdminLoginPage,
+          },
+          {
+            path: 'admin',
+            loader: adminToursLoader,
+            action: adminToursAction,
+            Component: AdminToursPage,
+          },
+          {
+            path: 'admin/bookings',
+            loader: adminBookingsLoader,
+            action: adminBookingsAction,
+            Component: AdminBookingsPage,
+          },
+          { path: 'logout', loader: logoutLoader, action: logoutAction },
+          { path: '*', Component: NotFoundPage },
+        ],
+      },
     ],
   },
 ]);
 
 export default function App() {
-  return (
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
-  );
+  return <RouterProvider router={router} />;
 }

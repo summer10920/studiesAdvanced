@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useParams } from 'react-router';
+import { data, useLoaderData } from 'react-router';
 import Typography from '@mui/material/Typography';
 import BookingCard from './components/BookingCard.jsx';
 import FareBox from './components/FareBox.jsx';
@@ -9,15 +9,17 @@ import MobileBookingBar from './components/MobileBookingBar.jsx';
 import MobileDepartures from './components/MobileDepartures.jsx';
 import TourHeader from './components/TourHeader.jsx';
 import TourHighlights from './components/TourHighlights.jsx';
-import NotFoundPage from '../../pages/NotFoundPage.jsx';
-import { useStore } from '../../store-context.js';
+import { getBookings, getTour } from '../../store.js';
+
+export const loader = ({ params }) => {
+  const tour = getTour(params.id);
+  if (!tour) throw data('找不到頁面', { status: 404 });
+  return { tour, bookings: getBookings() };
+};
 
 export default function TourDetailPage() {
-  const { id } = useParams();
-  const { tours, bookings } = useStore();
-  const tour = tours.find((item) => item.id === id);
-  const [departureId, setDepartureId] = useState(tour?.departures[0]?.id ?? '');
-  if (!tour) return <NotFoundPage />;
+  const { tour, bookings } = useLoaderData();
+  const [departureId, setDepartureId] = useState(tour.departures[0]?.id ?? '');
 
   const selected =
     tour.departures.find((item) => item.id === departureId) ??

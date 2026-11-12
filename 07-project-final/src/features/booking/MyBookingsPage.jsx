@@ -1,17 +1,23 @@
-import { Link } from 'react-router';
+import { Link, useLoaderData } from 'react-router';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import MemberGate from './components/MemberGate.jsx';
 import MyBookingRow from './components/MyBookingRow.jsx';
-import LoadGate from '../../LoadGate.jsx';
-import { useAuth } from '../../auth-context.js';
-import { useMyOrders } from '../../useAsync.js';
+import { listMyOrders } from '../../api.js';
+import { MissingFirebase } from '../../AccessNotice.jsx';
+import { requireUser } from '../../auth.js';
 
-function MyBookingsBody() {
-  const { user } = useAuth();
-  const { data, loading, error } = useMyOrders(user.uid);
-  const rows = data ?? [];
-  if (loading || error) return <LoadGate loading={loading} error={error} />;
+export const loader = async ({ request }) => {
+  const gate = await requireUser(request);
+  if (!gate.firebaseReady) return { firebaseReady: false, rows: [] };
+  return {
+    firebaseReady: true,
+    rows: await listMyOrders(gate.user.uid),
+  };
+};
+
+export default function MyBookingsPage() {
+  const { firebaseReady: ready, rows } = useLoaderData();
+  if (!ready) return <MissingFirebase />;
 
   return (
     <main
@@ -59,13 +65,5 @@ function MyBookingsBody() {
         </section>
       )}
     </main>
-  );
-}
-
-export default function MyBookingsPage() {
-  return (
-    <MemberGate>
-      <MyBookingsBody />
-    </MemberGate>
   );
 }

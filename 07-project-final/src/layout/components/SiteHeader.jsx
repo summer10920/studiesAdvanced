@@ -1,5 +1,11 @@
 import { useState } from 'react';
-import { Link, NavLink, useLocation, useNavigate } from 'react-router';
+import {
+  Link,
+  NavLink,
+  useFetcher,
+  useLocation,
+  useRouteLoaderData,
+} from 'react-router';
 import AppBar from '@mui/material/AppBar';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -8,14 +14,13 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import SiteNav from './SiteNav.jsx';
 import Icon from '../../_shared/Icon.jsx';
-import { useAuth } from '../../auth-context.js';
 
 const item = ({ isActive }) =>
   `inline-flex min-h-11 items-center rounded-full px-3 font-bold ${isActive ? 'bg-action text-white' : 'text-ink hover:bg-mist'}`;
 
 export default function SiteHeader() {
-  const { user, provider, ready, signOut } = useAuth();
-  const navigate = useNavigate();
+  const { user } = useRouteLoaderData('root');
+  const fetcher = useFetcher();
   const { pathname } = useLocation();
   const admin = pathname.startsWith('/admin');
   const [open, setOpen] = useState(false);
@@ -25,15 +30,14 @@ export default function SiteHeader() {
     setAnchor(null);
   };
   const logout = () => {
-    signOut();
     close();
-    navigate('/');
+    fetcher.submit({ intent: 'logout' }, { method: 'post', action: '/logout' });
   };
-  const session = admin ? provider === 'password' : Boolean(user);
+  const session = admin ? user?.provider === 'password' : Boolean(user);
   const label = user?.displayName || user?.email || '';
 
   const account = (extra = '') =>
-    !ready ? null : session ? (
+    session ? (
       <Button
         type="button"
         aria-expanded={Boolean(anchor)}

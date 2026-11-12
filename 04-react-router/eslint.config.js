@@ -20,5 +20,14 @@ export default defineConfig([
     },
   },
   reactRefresh.configs.vite(),
+  {
+    files: ['**/*.{js,jsx}'],
+    rules: {
+      'react-refresh/only-export-components': [
+        'error',
+        { allowConstantExport: true, allowExportNames: ['loader', 'action'] },
+      ],
+    },
+  },
   eslintConfigPrettier,
 ]);

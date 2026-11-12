@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useLoaderData } from 'react-router';
 import Alert from '@mui/material/Alert';
 import MenuItem from '@mui/material/MenuItem';
 import Snackbar from '@mui/material/Snackbar';
@@ -7,12 +8,20 @@ import Typography from '@mui/material/Typography';
 import BookingTable from './components/BookingTable.jsx';
 import BookingForm from './components/BookingForm.jsx';
 import { statusLabel } from '../../format.js';
-import { useStore } from '../../store-context.js';
+import { getBookings, setBookingStatus } from '../../store.js';
 
 const statusOptions = ['all', 'pending', 'confirmed', 'cancelled'];
 
+export const loader = () => ({ bookings: getBookings() });
+
+export const action = async ({ request }) => {
+  const form = await request.formData();
+  setBookingStatus(String(form.get('id')), String(form.get('status')));
+  return { notice: '已更新報名狀態' };
+};
+
 export default function AdminBookingsPage() {
-  const { bookings, setBookingStatus } = useStore();
+  const { bookings } = useLoaderData();
   const [status, setStatus] = useState('all');
   const [query, setQuery] = useState('');
   const [sort, setSort] = useState('date-desc');
@@ -31,11 +40,6 @@ export default function AdminBookingsPage() {
     );
 
   const close = () => setOpen(false);
-
-  const onSave = (id, next) => {
-    setBookingStatus(id, next);
-    return '';
-  };
 
   return (
     <main
@@ -95,7 +99,6 @@ export default function AdminBookingsPage() {
         open={open}
         booking={booking}
         onClose={close}
-        onSave={onSave}
         onNotice={setNotice}
       />
       <Snackbar

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useFetcher, useLoaderData } from 'react-router';
 import Alert from '@mui/material/Alert';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -9,14 +10,38 @@ import Snackbar from '@mui/material/Snackbar';
 import Typography from '@mui/material/Typography';
 import TourTable from './components/TourTable.jsx';
 import TourForm from './components/TourForm.jsx';
-import { useStore } from '../../store-context.js';
+import { deleteTour, getTours, saveTour } from '../../store.js';
+
+export const loader = () => ({ tours: getTours() });
+
+export const action = async ({ request }) => {
+  const form = await request.formData();
+  if (form.get('intent') === 'delete') {
+    deleteTour(String(form.get('id')));
+    return { notice: '已刪除這筆行程' };
+  }
+  const editingId = String(form.get('editingId') ?? '');
+  const error = saveTour(editingId, JSON.parse(String(form.get('draft'))));
+  return error ? { error } : { notice: '已儲存這筆行程', saved: true };
+};
 
 export default function AdminToursPage() {
-  const { tours, saveTour, deleteTour } = useStore();
+  const { tours } = useLoaderData();
+  const remove = useFetcher();
   const [open, setOpen] = useState(false);
   const [tour, setTour] = useState(null);
   const [deletingTour, setDeletingTour] = useState(null);
   const [notice, setNotice] = useState('');
+  const [seenRemove, setSeenRemove] = useState(null);
+  if (
+    remove.state === 'idle' &&
+    remove.data?.notice &&
+    remove.data !== seenRemove
+  ) {
+    setSeenRemove(remove.data);
+    setDeletingTour(null);
+    setNotice(remove.data.notice);
+  }
 
   const close = () => setOpen(false);
 
@@ -57,7 +82,6 @@ export default function AdminToursPage() {
         open={open}
         tour={tour}
         onClose={close}
-        onSave={saveTour}
         onNotice={setNotice}
       />
       <Dialog
@@ -72,11 +96,13 @@ export default function AdminToursPage() {
           <Button
             color="error"
             variant="contained"
-            onClick={() => {
-              deleteTour(deletingTour.id);
-              setDeletingTour(null);
-              setNotice('已刪除這筆行程');
-            }}
+            disabled={remove.state !== 'idle'}
+            onClick={() =>
+              remove.submit(
+                { intent: 'delete', id: deletingTour.id },
+                { method: 'post' },
+              )
+            }
           >
             刪除
           </Button>

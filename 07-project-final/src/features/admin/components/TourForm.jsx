@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useFetcher } from 'react-router';
 import Alert from '@mui/material/Alert';
 import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
@@ -13,25 +14,38 @@ import FieldSelect from '../../../_shared/FieldSelect.jsx';
 import DraftRows from './DraftRows.jsx';
 import { draftFromTour, empty } from './tourDraft.js';
 
-export default function TourForm({ open, tour, onClose, onSave, onNotice }) {
+export default function TourForm({ open, tour, onClose, onNotice }) {
   const editingId = tour?.id ?? null;
+  const fetcher = useFetcher();
+  const handled = useRef(null);
+  const error =
+    fetcher.state === 'idle' && fetcher.data?.error ? fetcher.data.error : '';
   const [draft, setDraft] = useState(() =>
     tour ? draftFromTour(tour) : empty(),
   );
-  const [error, setError] = useState('');
   const set = (key) => (event) =>
     setDraft((current) => ({ ...current, [key]: event.target.value }));
   const setList = (key) => (items) =>
     setDraft((current) => ({ ...current, [key]: items }));
 
-  const submit = async (event) => {
+  useEffect(() => {
+    if (fetcher.state !== 'idle' || !fetcher.data?.saved) return;
+    if (handled.current === fetcher.data) return;
+    handled.current = fetcher.data;
+    onNotice(fetcher.data.notice);
+    onClose();
+  }, [fetcher.state, fetcher.data, onNotice, onClose]);
+
+  const submit = (event) => {
     event.preventDefault();
-    const message = await onSave(editingId, draft);
-    setError(message);
-    if (!message) {
-      onNotice('已儲存這筆行程');
-      onClose();
-    }
+    fetcher.submit(
+      {
+        intent: 'save',
+        editingId: editingId ?? '',
+        draft: JSON.stringify(draft),
+      },
+      { method: 'post' },
+    );
   };
 
   return (
@@ -225,7 +239,11 @@ export default function TourForm({ open, tour, onClose, onSave, onNotice }) {
           />
         </DialogContent>
         <DialogActions className="flex-wrap gap-2 p-4">
-          <Button type="submit" variant="contained">
+          <Button
+            type="submit"
+            variant="contained"
+            disabled={fetcher.state !== 'idle'}
+          >
             儲存
           </Button>
           <Button type="button" onClick={onClose}>

@@ -22,9 +22,12 @@
     "react-router": "^8.5.1"
   },
   "devDependencies": {
+    "@babel/core": "^8.1.0",
     "@eslint/js": "^10.0.1",
+    "@rolldown/plugin-babel": "^0.3.1",
     "@tailwindcss/vite": "^4.3.3",
     "@vitejs/plugin-react": "^6.2.1",
+    "babel-plugin-react-compiler": "^1.0.0",
     "eslint": "^10.14.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-react-hooks": "^7.1.1",

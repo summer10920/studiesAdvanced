@@ -1,13 +1,15 @@
-import { useSearchParams } from 'react-router';
+import { useLoaderData, useSearchParams } from 'react-router';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import TourCard from './components/TourCard.jsx';
 import TourFilters from './components/TourFilters.jsx';
 import { matchPrice } from '../../format.js';
-import { useStore } from '../../store-context.js';
+import { getTours } from '../../store.js';
+
+export const loader = () => ({ tours: getTours() });
 
 export default function ToursPage() {
-  const { tours } = useStore();
+  const { tours } = useLoaderData();
   const [params, setParams] = useSearchParams();
 
   const region = params.get('region') ?? '';

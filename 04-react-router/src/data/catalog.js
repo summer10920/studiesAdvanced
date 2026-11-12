@@ -87,6 +87,11 @@ import ProviderDemo from '../examples/82-providerDemo/index.jsx';
 import ActionDemo from '../examples/83-action.jsx';
 import ActionStateDemo from '../examples/84-action-state.jsx';
 import OptimisticDemo from '../examples/85-optimistic.jsx';
+import LoaderDemo from '../examples/86-loader.jsx';
+import FormActionDemo from '../examples/87-action.jsx';
+import RedirectDemo from '../examples/88-redirect-error.jsx';
+import FetcherDemo from '../examples/89-fetcher.jsx';
+import NavigationDemo from '../examples/90-navigation.jsx';
 
 export const topics = [
   { id: 'component', title: '元件' },
@@ -98,6 +103,7 @@ export const topics = [
   { id: 'effect', title: 'Effect 與資料' },
   { id: 'share', title: '共用狀態' },
   { id: 'more', title: 'Ref、Reducer 與 Actions' },
+  { id: 'data', title: '資料模式' },
 ];
 
 export const demos = [
@@ -200,7 +206,12 @@ export const demos = [
   { id: '72', title: '預設值', topic: 'share', Component: DefaultDemo },
   { id: '73', title: 'useMemo', topic: 'share', Component: MemoDemo },
   { id: '74', title: 'memo', topic: 'share', Component: MemoComponentDemo },
-  { id: '75', title: 'useCallback', topic: 'share', Component: UseCallbackDemo },
+  {
+    id: '75',
+    title: 'useCallback',
+    topic: 'share',
+    Component: UseCallbackDemo,
+  },
   { id: '76', title: '聚焦輸入框', topic: 'more', Component: RefDemo },
   { id: '77', title: '不觸發渲染的值', topic: 'more', Component: RefCountDemo },
   {
@@ -240,5 +251,25 @@ export const demos = [
     title: 'useOptimistic',
     topic: 'more',
     Component: OptimisticDemo,
+  },
+  { id: '86', title: 'loader 讀資料', topic: 'data', Component: LoaderDemo },
+  {
+    id: '87',
+    title: 'action 與 Form',
+    topic: 'data',
+    Component: FormActionDemo,
+  },
+  {
+    id: '88',
+    title: 'redirect 與錯誤',
+    topic: 'data',
+    Component: RedirectDemo,
+  },
+  { id: '89', title: 'fetcher 不換頁', topic: 'data', Component: FetcherDemo },
+  {
+    id: '90',
+    title: 'useNavigation',
+    topic: 'data',
+    Component: NavigationDemo,
   },
 ];
