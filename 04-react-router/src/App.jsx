@@ -26,6 +26,9 @@ import NavigationDemo, {
   action as action91,
   loader as loader91,
 } from './examples/91-navigation.jsx';
+import FetcherKeyDemo, {
+  action as action92,
+} from './examples/92-fetcher-key.jsx';
 
 /**
  * 筆記網站的路由表。版型包住首頁、單則筆記、位置頁與找不到的頁面。
@@ -79,6 +82,11 @@ const router = createBrowserRouter(
           loader: loader91,
           action: action91,
           Component: NavigationDemo,
+        },
+        {
+          path: 'demos/92-fetcher-key',
+          action: action92,
+          Component: FetcherKeyDemo,
         },
         { path: 'demos/:slug', element: <DemoPage /> },
         { path: 'where', element: <WherePage /> },

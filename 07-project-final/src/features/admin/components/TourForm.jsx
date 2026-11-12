@@ -14,6 +14,12 @@ import FieldSelect from '../../../_shared/FieldSelect.jsx';
 import DraftRows from './DraftRows.jsx';
 import { draftFromTour, empty } from './tourDraft.js';
 
+/**
+ * 新增與編輯行程的 Dialog。open 控制開關，tour 有值是編輯、沒有是新增，onClose 只給取消鈕。
+ * useFetcher({ key: 'tour-form' }) 與 AdminToursPage 共用同一個 fetcher；只負責送出草稿，結果由頁面讀取。
+ * @param {{ open: boolean, tour: object | null, onClose: () => void }} props
+ * @returns {JSX.Element}
+ */
 export default function TourForm({ open, tour, onClose }) {
   const editingId = tour?.id ?? null;
   const fetcher = useFetcher({ key: 'tour-form' });

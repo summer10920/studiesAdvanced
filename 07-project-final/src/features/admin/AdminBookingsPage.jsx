@@ -10,6 +10,12 @@ import { AdminDenied, MissingFirebase } from '../../AccessNotice.jsx';
 import { requireAdmin } from '../../auth.js';
 import { missingFirebaseMessage } from '../../firebase.js';
 
+/**
+ * 報名清單頁的 loader。先經過 requireAdmin。Firebase 未備好或沒有權限時回傳旗標與空陣列，通過後呼叫 listOrders。
+ * 回傳值交給頁面的 useLoaderData。
+ * @param {{ request: Request }} args
+ * @returns {Promise<{ firebaseReady: boolean, denied: boolean, bookings: object[] }>}
+ */
 export const loader = async ({ request }) => {
   const gate = await requireAdmin(request);
   if (!gate.firebaseReady || gate.denied)
@@ -25,6 +31,13 @@ export const loader = async ({ request }) => {
   };
 };
 
+/**
+ * 接收明細表單。先經過 requireAdmin，未通過就回傳 { error }。
+ * 讀 id 與 status，交給 updateOrderStatus。成功回傳 { notice }，失敗回傳 { error }。
+ * 同一 key 的 useFetcher 可從 fetcher.data 讀到這份結果。
+ * @param {{ request: Request }} args
+ * @returns {Promise<{ notice: string } | { error: string }>}
+ */
 export const action = async ({ request }) => {
   const gate = await requireAdmin(request);
   if (!gate.firebaseReady) return { error: missingFirebaseMessage };
@@ -38,6 +51,13 @@ export const action = async ({ request }) => {
   }
 };
 
+/**
+ * 報名清單頁。未備好或沒有權限時改畫提示。
+ * useFetcher({ key: 'booking-form' }) 與 BookingForm 共用同一個 fetcher。
+ * 渲染時比對尚未處理的 save.data；有 notice 就關窗並寫入提示。
+ * 打開 Dialog 時呼叫 save.reset()，清掉上一次留下的資料。
+ * @returns {JSX.Element}
+ */
 export default function AdminBookingsPage() {
   const { firebaseReady: ready, denied, bookings } = useLoaderData();
   const save = useFetcher({ key: 'booking-form' });

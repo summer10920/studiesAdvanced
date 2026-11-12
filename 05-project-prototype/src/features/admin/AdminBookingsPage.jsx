@@ -7,14 +7,30 @@ import BookingForm from './components/BookingForm.jsx';
 import NoticeSnackbar from '../../_shared/NoticeSnackbar.jsx';
 import { getBookings, setBookingStatus } from '../../store.js';
 
+/**
+ * 報名清單頁的 loader。進頁前呼叫 getBookings，回傳值交給頁面的 useLoaderData。
+ * @returns {{ bookings: object[] }}
+ */
 export const loader = () => ({ bookings: getBookings() });
 
+/**
+ * 接收明細表單。讀 id 與 status，交給 setBookingStatus，回傳 { notice }。
+ * 同一 key 的 useFetcher 可從 fetcher.data 讀到這份結果。
+ * @param {{ request: Request }} args
+ * @returns {Promise<{ notice: string }>}
+ */
 export const action = async ({ request }) => {
   const form = await request.formData();
   setBookingStatus(String(form.get('id')), String(form.get('status')));
   return { notice: '已更新報名狀態' };
 };
 
+/**
+ * 報名清單頁。useFetcher({ key: 'booking-form' }) 與 BookingForm 共用同一個 fetcher。
+ * 渲染時比對尚未處理的 save.data；有 notice 就關窗並寫入提示。
+ * 打開 Dialog 時呼叫 save.reset()，清掉上一次留下的資料。
+ * @returns {JSX.Element}
+ */
 export default function AdminBookingsPage() {
   const { bookings } = useLoaderData();
   const save = useFetcher({ key: 'booking-form' });

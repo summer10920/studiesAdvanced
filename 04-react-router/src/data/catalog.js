@@ -93,6 +93,7 @@ import RedirectList from '../examples/88-redirect-list.jsx';
 import ErrorElementDemo from '../examples/89-error-element.jsx';
 import FetcherDemo from '../examples/90-fetcher.jsx';
 import NavigationDemo from '../examples/91-navigation.jsx';
+import FetcherKeyDemo from '../examples/92-fetcher-key.jsx';
 
 export const topics = [
   { id: 'component', title: '元件' },
@@ -468,5 +469,11 @@ export const demos = [
     title: 'useNavigation',
     topic: 'data',
     Component: NavigationDemo,
+  },
+  {
+    slug: '92-fetcher-key',
+    title: '用 key 共用 fetcher',
+    topic: 'data',
+    Component: FetcherKeyDemo,
   },
 ];

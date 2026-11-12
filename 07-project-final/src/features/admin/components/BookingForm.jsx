@@ -18,6 +18,12 @@ const Row = ({ label, value }) => (
   </div>
 );
 
+/**
+ * 報名明細 Dialog。open 控制開關，booking 是這一筆報名，onClose 只給取消鈕。
+ * useFetcher({ key: 'booking-form' }) 與 AdminBookingsPage 共用同一個 fetcher；只負責送出新狀態，結果由頁面讀取。
+ * @param {{ open: boolean, booking: object | null, onClose: () => void }} props
+ * @returns {JSX.Element}
+ */
 export default function BookingForm({ open, booking, onClose }) {
   const fetcher = useFetcher({ key: 'booking-form' });
   const error =
