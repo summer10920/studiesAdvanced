@@ -55,10 +55,9 @@ export default function BookingForm({ open, booking, onClose, onNotice }) {
         fullWidth
         maxWidth="sm"
         scroll="paper"
-        aria-labelledby="booking-form-title"
       >
         <form onSubmit={submit}>
-          <DialogTitle id="booking-form-title">報名明細</DialogTitle>
+          <DialogTitle>報名明細</DialogTitle>
           <DialogContent className="grid gap-4 pt-2">
             {booking ? (
               <dl className="grid gap-2 text-base">
@@ -97,12 +96,8 @@ export default function BookingForm({ open, booking, onClose, onNotice }) {
           </DialogActions>
         </form>
       </Dialog>
-      <Dialog
-        open={confirmCancel}
-        onClose={() => setConfirmCancel(false)}
-        aria-labelledby="cancel-title"
-      >
-        <DialogTitle id="cancel-title">改為已取消？</DialogTitle>
+      <Dialog open={confirmCancel} onClose={() => setConfirmCancel(false)}>
+        <DialogTitle>改為已取消？</DialogTitle>
         <DialogContent>
           紀錄會留下，以便對帳與計算名額。這就是這筆訂單的刪除。
         </DialogContent>

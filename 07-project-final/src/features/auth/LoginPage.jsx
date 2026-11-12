@@ -60,17 +60,8 @@ export default function LoginPage() {
   return (
     <main className="flex-1">
       <title>用 Google 帳號繼續 · 洛奇旅行</title>
-      <Dialog
-        open
-        onClose={() => navigate('/')}
-        fullWidth
-        maxWidth="xs"
-        aria-labelledby="login-title"
-      >
-        <DialogTitle
-          id="login-title"
-          className="font-serif text-4xl leading-tight"
-        >
+      <Dialog open onClose={() => navigate('/')} fullWidth maxWidth="xs">
+        <DialogTitle className="font-serif text-4xl leading-tight">
           用 Google 帳號繼續
         </DialogTitle>
         <DialogContent>

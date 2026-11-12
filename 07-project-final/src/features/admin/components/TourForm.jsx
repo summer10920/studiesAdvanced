@@ -55,12 +55,9 @@ export default function TourForm({ open, tour, onClose, onNotice }) {
       fullWidth
       maxWidth="md"
       scroll="paper"
-      aria-labelledby="tour-form-title"
     >
       <form id="admin-form" onSubmit={submit}>
-        <DialogTitle id="tour-form-title">
-          {tour ? '編輯行程' : '新增行程'}
-        </DialogTitle>
+        <DialogTitle>{tour ? '編輯行程' : '新增行程'}</DialogTitle>
         <DialogContent className="grid gap-4 pt-2 sm:grid-cols-2">
           <p className="text-muted sm:col-span-2">
             圖庫、每日行程與出發梯次可增刪列。空的網址列會略過。封面用圖庫第一張。
