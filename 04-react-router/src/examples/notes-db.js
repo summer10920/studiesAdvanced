@@ -18,6 +18,20 @@ export const listNotes = () => notes;
 export const getNote = (id) => notes.find((item) => item.id === id) ?? null;
 
 /**
+ * 依 id 更新標題。找到時回傳更新後的那一筆，沒有這筆時回傳 null。
+ * @param {string} id
+ * @param {string} title
+ * @returns {{ id: string, title: string, done: boolean } | null}
+ */
+export const updateNote = (id, title) => {
+  const current = notes.find((item) => item.id === id);
+  if (!current) return null;
+  const note = { ...current, title };
+  notes = notes.map((item) => (item.id === id ? note : item));
+  return note;
+};
+
+/**
  * 新增一筆並放在最前面。id 用目前時間的毫秒數。
  * @param {string} title
  * @returns {{ id: string, title: string, done: boolean }}

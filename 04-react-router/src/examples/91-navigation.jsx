@@ -52,12 +52,12 @@ export default function NavigationDemo() {
     navigation.state === 'loading' || navigation.state === 'submitting';
   return (
     <section>
-      <h1 className="text-2xl font-bold">90 useNavigation</h1>
+      <h1 className="text-2xl font-bold">91 useNavigation</h1>
       {pending ? <p className="mt-3">讀取中</p> : null}
       <p className="mt-3">
         <Link
           className="text-teal-800 underline"
-          to={`/demos/90-navigation?n=${nonce + 1}`}
+          to={`/demos/91-navigation?n=${nonce + 1}`}
         >
           重新讀取
         </Link>

@@ -5,23 +5,26 @@ import Home from './pages/Home.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
 import WherePage from './pages/WherePage.jsx';
 import LoaderDemo, { loader as loader86 } from './examples/86-loader.jsx';
-import ActionDemo, {
-  action as action87,
-} from './examples/87-action.jsx';
+import ActionDemo, { action as action87 } from './examples/87-action.jsx';
 import RedirectDemo, {
   action as action88,
+  editLoader as editLoader88,
   loader as loader88,
+  NoteEdit,
+} from './examples/88-redirect.jsx';
+import ErrorElementDemo, {
+  loader as loader89,
   NoteDetail,
   NoteMissing,
-} from './examples/88-redirect-error.jsx';
+} from './examples/89-error-element.jsx';
 import FetcherDemo, {
-  action as action89,
-  loader as loader89,
-} from './examples/89-fetcher.jsx';
-import NavigationDemo, {
   action as action90,
   loader as loader90,
-} from './examples/90-navigation.jsx';
+} from './examples/90-fetcher.jsx';
+import NavigationDemo, {
+  action as action91,
+  loader as loader91,
+} from './examples/91-navigation.jsx';
 
 /**
  * 筆記網站的路由表。版型包住首頁、單則筆記、位置頁與找不到的頁面。
@@ -43,27 +46,37 @@ const router = createBrowserRouter(
           Component: ActionDemo,
         },
         {
-          path: 'demos/88-redirect-error',
+          path: 'demos/88-redirect',
           loader: loader88,
-          action: action88,
           Component: RedirectDemo,
         },
         {
-          path: 'demos/88-redirect-error/notes/:noteId',
-          loader: loader88,
+          path: 'demos/88-redirect/notes/:noteId',
+          loader: editLoader88,
+          action: action88,
+          Component: NoteEdit,
+        },
+        {
+          path: 'demos/89-error-element',
+          loader: loader89,
+          Component: ErrorElementDemo,
+        },
+        {
+          path: 'demos/89-error-element/notes/:noteId',
+          loader: loader89,
           Component: NoteDetail,
           errorElement: <NoteMissing />,
         },
         {
-          path: 'demos/89-fetcher',
-          loader: loader89,
-          action: action89,
+          path: 'demos/90-fetcher',
+          loader: loader90,
+          action: action90,
           Component: FetcherDemo,
         },
         {
-          path: 'demos/90-navigation',
-          loader: loader90,
-          action: action90,
+          path: 'demos/91-navigation',
+          loader: loader91,
+          action: action91,
           Component: NavigationDemo,
         },
         { path: 'demos/:slug', element: <DemoPage /> },

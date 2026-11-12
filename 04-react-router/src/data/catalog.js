@@ -89,9 +89,10 @@ import ActionStateDemo from '../examples/84-action-state.jsx';
 import OptimisticDemo from '../examples/85-optimistic.jsx';
 import LoaderDemo from '../examples/86-loader.jsx';
 import FormActionDemo from '../examples/87-action.jsx';
-import RedirectDemo from '../examples/88-redirect-error.jsx';
-import FetcherDemo from '../examples/89-fetcher.jsx';
-import NavigationDemo from '../examples/90-navigation.jsx';
+import RedirectDemo from '../examples/88-redirect.jsx';
+import ErrorElementDemo from '../examples/89-error-element.jsx';
+import FetcherDemo from '../examples/90-fetcher.jsx';
+import NavigationDemo from '../examples/91-navigation.jsx';
 
 export const topics = [
   { id: 'component', title: '元件' },
@@ -445,19 +446,25 @@ export const demos = [
     Component: FormActionDemo,
   },
   {
-    slug: '88-redirect-error',
-    title: 'redirect 與錯誤',
+    slug: '88-redirect',
+    title: '送出後轉址',
     topic: 'data',
     Component: RedirectDemo,
   },
   {
-    slug: '89-fetcher',
+    slug: '89-error-element',
+    title: 'errorElement',
+    topic: 'data',
+    Component: ErrorElementDemo,
+  },
+  {
+    slug: '90-fetcher',
     title: 'fetcher 不換頁',
     topic: 'data',
     Component: FetcherDemo,
   },
   {
-    slug: '90-navigation',
+    slug: '91-navigation',
     title: 'useNavigation',
     topic: 'data',
     Component: NavigationDemo,

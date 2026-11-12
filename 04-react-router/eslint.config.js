@@ -25,7 +25,10 @@ export default defineConfig([
     rules: {
       'react-refresh/only-export-components': [
         'error',
-        { allowConstantExport: true, allowExportNames: ['loader', 'action'] },
+        {
+          allowConstantExport: true,
+          allowExportNames: ['loader', 'action', 'editLoader'],
+        },
       ],
     },
   },

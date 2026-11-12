@@ -19,7 +19,7 @@ export const action = async ({ request }) => {
   return { ok: true };
 };
 
-/** 每一列用 fetcher.Form 送出，網址留在 /demos/89-fetcher。 */
+/** 每一列用 fetcher.Form 送出，網址留在 /demos/90-fetcher。 */
 export default function FetcherDemo() {
   /**
    * 讀取這條路由 loader 的回傳值。
@@ -35,7 +35,7 @@ export default function FetcherDemo() {
   const fetcher = useFetcher();
   return (
     <section>
-      <h1 className="text-2xl font-bold">89 fetcher 不換頁</h1>
+      <h1 className="text-2xl font-bold">90 fetcher 不換頁</h1>
       <ul className="mt-4 grid max-w-sm gap-3">
         {notes.map((note) => (
           <li key={note.id} className="flex items-center justify-between gap-3">
