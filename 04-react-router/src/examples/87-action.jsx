@@ -1,20 +1,21 @@
-import { Form, useActionData } from 'react-router';
+import { data, Form, useActionData } from 'react-router';
 import { createItem } from '../api/fake-api.js';
 
 /**
  * 接收這一條路由的表單。request 是這次送出。
  * request.formData() 回傳 Promise，解析後是 FormData。
  * form.get('title') 是 FormData 的方法，讀取 name 為 title 的欄位，不是 HTTP GET。
- * 沒有這個欄位時是 null。標題去掉空白後是空字串就回 { error }。
+ * 沒有這個欄位時是 null。標題去掉空白後是空字串，就回傳
+ * data({ errors: { title } }, { status: 400 })。
  * 有字就呼叫 createItem({ title })，對 jsonplaceholder 發出 POST，
- * 並回傳伺服器建立的物件。這個服務不會把資料留下來，所以這一則不維護清單。
+ * 並回傳 { item }。這個服務不會把資料留下來，所以這一則不維護清單。
  * @param {{ request: Request }} args
- * @returns {Promise<{ error: string } | { item: { id: number, title: string } }>}
+ * @returns {Promise<{ errors: { title: string } } | { item: { id: number, title: string } }>}
  */
 export const action = async ({ request }) => {
   const form = await request.formData();
   const title = String(form.get('title') ?? '').trim();
-  if (!title) return { error: '請填標題' };
+  if (!title) return data({ errors: { title: '請填標題' } }, { status: 400 });
   const item = await createItem({ title });
   return { item };
 };
@@ -27,7 +28,7 @@ export const action = async ({ request }) => {
 export default function ActionDemo() {
   /**
    * 最近一次 action 的回傳值。還沒送出時是 undefined。
-   * @returns {{ error: string } | { item: { id: number, title: string } } | undefined}
+   * @returns {{ errors?: { title: string }, item?: { id: number, title: string } } | undefined}
    */
   const result = useActionData();
   return (
@@ -39,7 +40,9 @@ export default function ActionDemo() {
           className="rounded border px-2 py-1"
           placeholder="新的標題"
         />
-        {result?.error ? <p className="text-red-700">{result.error}</p> : null}
+        {result?.errors?.title ? (
+          <p className="text-red-700">{result.errors.title}</p>
+        ) : null}
         {result?.item ? (
           <p>
             伺服器回傳 #{result.item.id} {result.item.title}
