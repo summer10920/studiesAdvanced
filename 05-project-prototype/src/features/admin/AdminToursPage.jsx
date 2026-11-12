@@ -23,12 +23,19 @@ export const action = async ({ request }) => {
 
 export default function AdminToursPage() {
   const { tours } = useLoaderData();
+  const save = useFetcher({ key: 'tour-form' });
   const remove = useFetcher();
   const [open, setOpen] = useState(false);
   const [tour, setTour] = useState(null);
   const [deletingTour, setDeletingTour] = useState(null);
   const [notice, setNotice] = useState('');
+  const [seenSave, setSeenSave] = useState(null);
   const [seenRemove, setSeenRemove] = useState(null);
+  if (save.state === 'idle' && save.data?.saved && save.data !== seenSave) {
+    setSeenSave(save.data);
+    setOpen(false);
+    setNotice(save.data.notice);
+  }
   if (
     remove.state === 'idle' &&
     remove.data?.notice &&
@@ -40,6 +47,11 @@ export default function AdminToursPage() {
   }
 
   const close = () => setOpen(false);
+  const openTour = (item) => {
+    save.reset();
+    setTour(item);
+    setOpen(true);
+  };
 
   return (
     <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-16 sm:px-6 md:py-24">
@@ -52,30 +64,16 @@ export default function AdminToursPage() {
         新增、修改或下架行程。列表會立刻更新。兩頁用頁首切換。
       </p>
       <div className="mt-8">
-        <Button
-          variant="outlined"
-          onClick={() => {
-            setTour(null);
-            setOpen(true);
-          }}
-        >
+        <Button variant="outlined" onClick={() => openTour(null)}>
           新增行程
         </Button>
       </div>
-      <TourTable
-        tours={tours}
-        onEdit={(item) => {
-          setTour(item);
-          setOpen(true);
-        }}
-        onDelete={setDeletingTour}
-      />
+      <TourTable tours={tours} onEdit={openTour} onDelete={setDeletingTour} />
       <TourForm
         key={open ? (tour?.id ?? 'create') : 'closed'}
         open={open}
         tour={tour}
         onClose={close}
-        onNotice={setNotice}
       />
       <DeleteTourDialog
         tour={deletingTour}

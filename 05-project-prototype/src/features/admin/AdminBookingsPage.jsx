@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useLoaderData } from 'react-router';
+import { useFetcher, useLoaderData } from 'react-router';
 import Typography from '@mui/material/Typography';
 import BookingFilters from './components/BookingFilters.jsx';
 import BookingTable from './components/BookingTable.jsx';
@@ -17,12 +17,19 @@ export const action = async ({ request }) => {
 
 export default function AdminBookingsPage() {
   const { bookings } = useLoaderData();
+  const save = useFetcher({ key: 'booking-form' });
   const [status, setStatus] = useState('all');
   const [query, setQuery] = useState('');
   const [sort, setSort] = useState('date-desc');
   const [open, setOpen] = useState(false);
   const [booking, setBooking] = useState(null);
   const [notice, setNotice] = useState('');
+  const [seenSave, setSeenSave] = useState(null);
+  if (save.state === 'idle' && save.data?.notice && save.data !== seenSave) {
+    setSeenSave(save.data);
+    setOpen(false);
+    setNotice(save.data.notice);
+  }
 
   const keyword = query.trim();
   const shown = bookings
@@ -58,6 +65,7 @@ export default function AdminBookingsPage() {
         <BookingTable
           bookings={shown}
           onView={(item) => {
+            save.reset();
             setBooking(item);
             setOpen(true);
           }}
@@ -70,7 +78,6 @@ export default function AdminBookingsPage() {
         open={open}
         booking={booking}
         onClose={close}
-        onNotice={setNotice}
       />
       <NoticeSnackbar notice={notice} onClose={() => setNotice('')} />
     </main>

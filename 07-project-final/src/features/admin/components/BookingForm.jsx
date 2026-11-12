@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import { useFetcher } from 'react-router';
 import Alert from '@mui/material/Alert';
 import Button from '@mui/material/Button';
@@ -18,21 +18,12 @@ const Row = ({ label, value }) => (
   </div>
 );
 
-export default function BookingForm({ open, booking, onClose, onNotice }) {
-  const fetcher = useFetcher();
-  const handled = useRef(null);
+export default function BookingForm({ open, booking, onClose }) {
+  const fetcher = useFetcher({ key: 'booking-form' });
   const error =
     fetcher.state === 'idle' && fetcher.data?.error ? fetcher.data.error : '';
   const [status, setStatus] = useState(booking?.status ?? 'pending');
   const [confirmCancel, setConfirmCancel] = useState(false);
-
-  useEffect(() => {
-    if (fetcher.state !== 'idle' || !fetcher.data?.notice) return;
-    if (handled.current === fetcher.data) return;
-    handled.current = fetcher.data;
-    onNotice(fetcher.data.notice);
-    onClose();
-  }, [fetcher.state, fetcher.data, onNotice, onClose]);
 
   const commit = () => {
     fetcher.submit({ id: booking.id, status }, { method: 'post' });

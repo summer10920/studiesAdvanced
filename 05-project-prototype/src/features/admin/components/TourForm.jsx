@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import { useFetcher } from 'react-router';
 import Alert from '@mui/material/Alert';
 import Button from '@mui/material/Button';
@@ -14,10 +14,9 @@ import FieldSelect from '../../../_shared/FieldSelect.jsx';
 import DraftRows from './DraftRows.jsx';
 import { draftFromTour, empty } from './tourDraft.js';
 
-export default function TourForm({ open, tour, onClose, onNotice }) {
+export default function TourForm({ open, tour, onClose }) {
   const editingId = tour?.id ?? null;
-  const fetcher = useFetcher();
-  const handled = useRef(null);
+  const fetcher = useFetcher({ key: 'tour-form' });
   const error =
     fetcher.state === 'idle' && fetcher.data?.error ? fetcher.data.error : '';
   const [draft, setDraft] = useState(() =>
@@ -27,14 +26,6 @@ export default function TourForm({ open, tour, onClose, onNotice }) {
     setDraft((current) => ({ ...current, [key]: event.target.value }));
   const setList = (key) => (items) =>
     setDraft((current) => ({ ...current, [key]: items }));
-
-  useEffect(() => {
-    if (fetcher.state !== 'idle' || !fetcher.data?.saved) return;
-    if (handled.current === fetcher.data) return;
-    handled.current = fetcher.data;
-    onNotice(fetcher.data.notice);
-    onClose();
-  }, [fetcher.state, fetcher.data, onNotice, onClose]);
 
   const submit = (event) => {
     event.preventDefault();
