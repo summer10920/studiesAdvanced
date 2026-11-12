@@ -7,7 +7,6 @@ import WherePage from './pages/WherePage.jsx';
 import LoaderDemo, { loader as loader86 } from './examples/86-loader.jsx';
 import ActionDemo, {
   action as action87,
-  loader as loader87,
 } from './examples/87-action.jsx';
 import RedirectDemo, {
   action as action88,
@@ -40,7 +39,6 @@ const router = createBrowserRouter(
         { path: 'demos/86-loader', loader: loader86, Component: LoaderDemo },
         {
           path: 'demos/87-action',
-          loader: loader87,
           action: action87,
           Component: ActionDemo,
         },

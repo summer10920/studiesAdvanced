@@ -1,42 +1,33 @@
-import { Form, useActionData, useLoaderData } from 'react-router';
-import { addNote, listNotes } from './notes-db.js';
-
-/**
- * 進頁前讀清單。回傳值交給 useLoaderData。
- * @returns {{ notes: { id: string, title: string, done: boolean }[] }}
- */
-export const loader = () => ({ notes: listNotes() });
+import { Form, useActionData } from 'react-router';
+import { createItem } from '../api/fake-api.js';
 
 /**
  * 接收這一條路由的表單。request 是這次送出。
  * request.formData() 回傳 Promise，解析後是 FormData。
- * form.get(name) 取出同名欄位，沒有時是 null。
- * 標題去掉空白後是空字串就回 { error }，否則寫入並回空字串。
- * 寫入之後這條路由的 loader 會再跑。
+ * form.get('title') 是 FormData 的方法，讀取 name 為 title 的欄位，不是 HTTP GET。
+ * 沒有這個欄位時是 null。標題去掉空白後是空字串就回 { error }。
+ * 有字就呼叫 createItem({ title })，對 jsonplaceholder 發出 POST，
+ * 並回傳伺服器建立的物件。這個服務不會把資料留下來，所以這一則不維護清單。
  * @param {{ request: Request }} args
- * @returns {Promise<{ error: string }>}
+ * @returns {Promise<{ error: string } | { item: { id: number, title: string } }>}
  */
 export const action = async ({ request }) => {
   const form = await request.formData();
   const title = String(form.get('title') ?? '').trim();
   if (!title) return { error: '請填標題' };
-  addNote(title);
-  return { error: '' };
+  const item = await createItem({ title });
+  return { item };
 };
 
 /**
  * Form method="post" 把欄位送到目前這條路由的 action，不整頁換成另一份文件。
  * 沒有 action 屬性時，目標就是目前網址。
+ * 成功後用 useActionData 顯示伺服器回傳的那一筆。
  */
 export default function ActionDemo() {
   /**
-   * 讀取這條路由 loader 的回傳值。
-   * @returns {{ notes: { id: string, title: string, done: boolean }[] }}
-   */
-  const { notes } = useLoaderData();
-  /**
    * 最近一次 action 的回傳值。還沒送出時是 undefined。
-   * @returns {{ error: string } | undefined}
+   * @returns {{ error: string } | { item: { id: number, title: string } } | undefined}
    */
   const result = useActionData();
   return (
@@ -46,9 +37,14 @@ export default function ActionDemo() {
         <input
           name="title"
           className="rounded border px-2 py-1"
-          placeholder="新的筆記標題"
+          placeholder="新的標題"
         />
         {result?.error ? <p className="text-red-700">{result.error}</p> : null}
+        {result?.item ? (
+          <p>
+            伺服器回傳 #{result.item.id} {result.item.title}
+          </p>
+        ) : null}
         <button
           type="submit"
           className="rounded bg-teal-800 px-3 py-1 text-white"
@@ -56,11 +52,6 @@ export default function ActionDemo() {
           新增
         </button>
       </Form>
-      <ul className="mt-4 grid gap-2">
-        {notes.map((note) => (
-          <li key={note.id}>{note.title}</li>
-        ))}
-      </ul>
     </section>
   );
 }
