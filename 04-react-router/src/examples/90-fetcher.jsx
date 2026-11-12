@@ -9,7 +9,7 @@ export const loader = () => ({ notes: listNotes() });
 
 /**
  * 接收送到這條路由的表單。form.get('id') 取出隱藏欄位。
- * toggleNote 只翻轉那一筆的 done。回傳值可從 fetcher.data 讀到，這一則沒有畫出來。
+ * toggleNote 只翻轉那一筆的 done。回傳值可從 fetcher.data 讀到。
  * @param {{ request: Request }} args
  * @returns {Promise<{ ok: boolean }>}
  */
@@ -29,13 +29,14 @@ export default function FetcherDemo() {
   /**
    * 不換頁的送出。fetcher.Form 把表單送到這條路由的 action，網址不變。
    * state 是 'idle'、'loading' 或 'submitting'，data 是 action 的回傳值。
-   * 這一則只用 Form，沒有把 state 與 data 畫出來。
+   * 畫面用 state 顯示目前狀態。
    * @returns {{ Form: React.ElementType, state: 'idle' | 'loading' | 'submitting', data: unknown }}
    */
   const fetcher = useFetcher();
   return (
     <section>
       <h1 className="text-2xl font-bold">90 fetcher 不換頁</h1>
+      <p className="mt-3">狀態：{fetcher.state}</p>
       <ul className="mt-4 grid max-w-sm gap-3">
         {notes.map((note) => (
           <li key={note.id} className="flex items-center justify-between gap-3">

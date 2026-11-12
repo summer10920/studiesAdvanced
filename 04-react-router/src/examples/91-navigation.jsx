@@ -53,6 +53,7 @@ export default function NavigationDemo() {
   return (
     <section>
       <h1 className="text-2xl font-bold">91 useNavigation</h1>
+      <p className="mt-3">狀態：{navigation.state}</p>
       {pending ? <p className="mt-3">讀取中</p> : null}
       <p className="mt-3">
         <Link
