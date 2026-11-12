@@ -21,7 +21,7 @@ export default function Home() {
         ))}
       </ul>
       <p className="mt-4">
-        <Link className="text-teal-800 underline" to="/demos/01">
+        <Link className="text-teal-800 underline" to="/demos/01-hello">
           從第一則開始
         </Link>
       </p>

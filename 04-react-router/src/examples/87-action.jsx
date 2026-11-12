@@ -1,9 +1,21 @@
 import { Form, useActionData, useLoaderData } from 'react-router';
 import { addNote, listNotes } from './notes-db.js';
 
-/** Form 送到這條路由的 action，寫進同一份筆記後 loader 會自己重跑。 */
+/**
+ * 進頁前讀清單。回傳值交給 useLoaderData。
+ * @returns {{ notes: { id: string, title: string, done: boolean }[] }}
+ */
 export const loader = () => ({ notes: listNotes() });
 
+/**
+ * 接收這一條路由的表單。request 是這次送出。
+ * request.formData() 回傳 Promise，解析後是 FormData。
+ * form.get(name) 取出同名欄位，沒有時是 null。
+ * 標題去掉空白後是空字串就回 { error }，否則寫入並回空字串。
+ * 寫入之後這條路由的 loader 會再跑。
+ * @param {{ request: Request }} args
+ * @returns {Promise<{ error: string }>}
+ */
 export const action = async ({ request }) => {
   const form = await request.formData();
   const title = String(form.get('title') ?? '').trim();
@@ -12,8 +24,20 @@ export const action = async ({ request }) => {
   return { error: '' };
 };
 
+/**
+ * Form method="post" 把欄位送到目前這條路由的 action，不整頁換成另一份文件。
+ * 沒有 action 屬性時，目標就是目前網址。
+ */
 export default function ActionDemo() {
+  /**
+   * 讀取這條路由 loader 的回傳值。
+   * @returns {{ notes: { id: string, title: string, done: boolean }[] }}
+   */
   const { notes } = useLoaderData();
+  /**
+   * 最近一次 action 的回傳值。還沒送出時是 undefined。
+   * @returns {{ error: string } | undefined}
+   */
   const result = useActionData();
   return (
     <section>

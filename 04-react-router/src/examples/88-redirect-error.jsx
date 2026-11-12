@@ -9,23 +9,45 @@ import {
 } from 'react-router';
 import { addNote, getNote, listNotes } from './notes-db.js';
 
-/** 列表新增後 redirect 到明細；明細找不到時丟 404，由 errorElement 接住。 */
+/**
+ * 列表與明細共用。params 是路徑參數，明細路由才有 noteId。
+ * 沒有 noteId 時回傳清單；有 noteId 時回傳那一筆。
+ * 找不到就 throw data(message, { status })。第一個引數會成為 error.data，
+ * status 是狀態碼。丟出後這條路由改畫 errorElement，不畫原本的元件。
+ * @param {{ params: { noteId?: string }, request: Request }} args
+ * @returns {{ notes: { id: string, title: string, done: boolean }[] } | { note: { id: string, title: string, done: boolean } }}
+ */
 export const loader = ({ params }) => {
-  if (!params.id) return { notes: listNotes() };
-  const note = getNote(params.id);
+  if (!params.noteId) return { notes: listNotes() };
+  const note = getNote(params.noteId);
   if (!note) throw data('找不到這則筆記', { status: 404 });
   return { note };
 };
 
+/**
+ * 接收目前路由的表單。formData 與 form.get 的用法和上一則相同。
+ * 標題空白時回錯誤物件。
+ * 成功時回傳 redirect(url)。url 是要去的路徑，路由器改去該網址並跑那一條的 loader。
+ * @param {{ request: Request }} args
+ * @returns {Promise<{ error: string } | Response>}
+ */
 export const action = async ({ request }) => {
   const form = await request.formData();
   const title = String(form.get('title') ?? '').trim();
   if (!title) return { error: '請填標題' };
   const note = addNote(title);
-  return redirect(`/demos/88/${note.id}`);
+  return redirect(`/demos/88-redirect-error/notes/${note.id}`);
 };
 
+/**
+ * 列表頁。Form method="post" 送到目前網址的 action，沒有 action 屬性。
+ * 這一則的列表沒有讀取 useActionData。
+ */
 export default function RedirectDemo() {
+  /**
+   * 沒有 params.noteId 時，loader 回傳的是 { notes }。
+   * @returns {{ notes: { id: string, title: string, done: boolean }[] }}
+   */
   const { notes } = useLoaderData();
   return (
     <section>
@@ -44,7 +66,11 @@ export default function RedirectDemo() {
         </button>
       </Form>
       <p className="mt-4">
-        <Link className="text-teal-800 underline" to="/demos/88/missing">
+        {/* not-found 是不存在的 id，用來觸發 404。這個網址由 demos/88-redirect-error/notes/:noteId 對上，params.noteId 是 'not-found'，沒有另外宣告路由。 */}
+        <Link
+          className="text-teal-800 underline"
+          to="/demos/88-redirect-error/notes/not-found"
+        >
           打開一筆不存在的筆記
         </Link>
       </p>
@@ -53,7 +79,7 @@ export default function RedirectDemo() {
           <li key={note.id}>
             <Link
               className="text-teal-800 underline"
-              to={`/demos/88/${note.id}`}
+              to={`/demos/88-redirect-error/notes/${note.id}`}
             >
               {note.title}
             </Link>
@@ -64,14 +90,18 @@ export default function RedirectDemo() {
   );
 }
 
+/** 明細頁。loader 在有 noteId 時回傳 { note }。 */
 export function NoteDetail() {
+  /**
+   * @returns {{ note: { id: string, title: string, done: boolean } }}
+   */
   const { note } = useLoaderData();
   return (
     <section>
       <h1 className="text-2xl font-bold">{note.title}</h1>
       <p className="mt-2">{note.done ? '已完成' : '未完成'}</p>
       <p className="mt-4">
-        <Link className="text-teal-800 underline" to="/demos/88">
+        <Link className="text-teal-800 underline" to="/demos/88-redirect-error">
           回列表
         </Link>
       </p>
@@ -79,7 +109,14 @@ export function NoteDetail() {
   );
 }
 
+/** 明細路由的 errorElement。列表那一條沒有掛這個元件。 */
 export function NoteMissing() {
+  /**
+   * useRouteError 讀取這條路由丟出的錯誤。
+   * isRouteErrorResponse 為 true 時，error.data 是 throw data() 的第一個引數；
+   * 否則改顯示備用文字。
+   * @returns {unknown}
+   */
   const error = useRouteError();
   const message = isRouteErrorResponse(error) ? error.data : '找不到';
   return (
@@ -87,7 +124,7 @@ export function NoteMissing() {
       <h1 className="text-2xl font-bold">找不到</h1>
       <p className="mt-2">{String(message)}</p>
       <p className="mt-4">
-        <Link className="text-teal-800 underline" to="/demos/88">
+        <Link className="text-teal-800 underline" to="/demos/88-redirect-error">
           回列表
         </Link>
       </p>

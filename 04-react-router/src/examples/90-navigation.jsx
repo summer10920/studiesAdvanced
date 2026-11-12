@@ -7,12 +7,22 @@ import {
 } from 'react-router';
 import { addNote, listNotes } from './notes-db.js';
 
-/** 故意等 400ms，讓 useNavigation 的讀取中與送出中看得到。 */
+/**
+ * 進頁前讀清單。這裡多等 400 毫秒，讓讀取中留在畫面上。
+ * 回傳值交給 useLoaderData。回傳 Promise 時路由器會等待。
+ * @returns {Promise<{ notes: { id: string, title: string, done: boolean }[] }>}
+ */
 export const loader = async () => {
   await new Promise((resolve) => setTimeout(resolve, 400));
   return { notes: listNotes() };
 };
 
+/**
+ * 接收目前路由的表單。同樣先等 400 毫秒。
+ * formData 與 form.get 讀取標題，有字才寫入。回傳 null，這一則沒有用 useActionData。
+ * @param {{ request: Request }} args
+ * @returns {Promise<null>}
+ */
 export const action = async ({ request }) => {
   const form = await request.formData();
   await new Promise((resolve) => setTimeout(resolve, 400));
@@ -21,8 +31,20 @@ export const action = async ({ request }) => {
   return null;
 };
 
+/**
+ * Form method="post" 送到目前網址的 action，沒有 action 屬性。
+ * 送出期間用 navigation.state 停用按鈕。
+ */
 export default function NavigationDemo() {
+  /**
+   * 讀取這條路由 loader 的回傳值。
+   * @returns {{ notes: { id: string, title: string, done: boolean }[] }}
+   */
   const { notes } = useLoaderData();
+  /**
+   * 路由器此刻的導覽。state 為 'idle'（閒置）、'loading'（正在跑 loader）或 'submitting'（正在跑 action）。
+   * @returns {{ state: 'idle' | 'loading' | 'submitting' }}
+   */
   const navigation = useNavigation();
   const [params] = useSearchParams();
   const nonce = Number(params.get('n') ?? '0');
@@ -35,7 +57,7 @@ export default function NavigationDemo() {
       <p className="mt-3">
         <Link
           className="text-teal-800 underline"
-          to={`/demos/90?n=${nonce + 1}`}
+          to={`/demos/90-navigation?n=${nonce + 1}`}
         >
           重新讀取
         </Link>

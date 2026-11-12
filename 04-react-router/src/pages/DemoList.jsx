@@ -13,7 +13,7 @@ export default function DemoList() {
   const visible = demos.filter((demo) => {
     if (!keyword) return true;
     return (
-      demo.id.includes(keyword) || demo.title.toLowerCase().includes(keyword)
+      demo.slug.includes(keyword) || demo.title.toLowerCase().includes(keyword)
     );
   });
 
@@ -44,12 +44,12 @@ export default function DemoList() {
               </h2>
               <ul className="mt-1 grid">
                 {items.map((demo) => (
-                  <li key={demo.id}>
+                  <li key={demo.slug}>
                     <NavLink
                       to={
                         q
-                          ? `/demos/${demo.id}?q=${encodeURIComponent(q)}`
-                          : `/demos/${demo.id}`
+                          ? `/demos/${demo.slug}?q=${encodeURIComponent(q)}`
+                          : `/demos/${demo.slug}`
                       }
                       className={({ isActive }) =>
                         isActive
@@ -57,7 +57,7 @@ export default function DemoList() {
                           : 'block rounded px-2 py-1 text-sm hover:bg-stone-100'
                       }
                     >
-                      {demo.id} {demo.title}
+                      {demo.slug} {demo.title}
                     </NavLink>
                   </li>
                 ))}
