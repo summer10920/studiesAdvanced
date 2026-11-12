@@ -58,10 +58,7 @@ export default function BookingPage() {
   if (!ready) return <MissingFirebase />;
 
   return (
-    <main
-      id="content"
-      className="mx-auto w-full max-w-6xl flex-1 px-4 py-16 sm:px-6 md:py-24"
-    >
+    <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-16 sm:px-6 md:py-24">
       <title>報名 · 洛奇旅行</title>
       <BookingSteps activeStep={1} />
       <Typography variant="h1">報名</Typography>

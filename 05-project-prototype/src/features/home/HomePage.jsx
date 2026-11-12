@@ -15,7 +15,7 @@ export default function HomePage() {
   const featured = tours.filter((tour) => tour.featured);
 
   return (
-    <main id="content">
+    <main>
       <title>洛奇旅行</title>
       <HeroSlider slides={featured.length ? featured : tours.slice(0, 4)} />
       <div className="relative z-20 mx-auto mt-8 w-full max-w-6xl px-4 sm:px-6 lg:-mt-20">

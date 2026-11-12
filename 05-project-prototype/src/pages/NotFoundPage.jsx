@@ -5,10 +5,7 @@ import Typography from '@mui/material/Typography';
 export default function NotFoundPage() {
   const navigate = useNavigate();
   return (
-    <main
-      id="content"
-      className="mx-auto w-full max-w-6xl flex-1 px-4 py-16 sm:px-6 sm:py-24"
-    >
+    <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-16 sm:px-6 sm:py-24">
       <title>找不到頁面 · 洛奇旅行</title>
       <p className="font-serif text-8xl font-bold leading-none text-ink sm:text-9xl">
         404

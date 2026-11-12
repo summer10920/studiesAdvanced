@@ -44,10 +44,7 @@ export default function SeedPage() {
         : '行程都已存在，沒有覆寫。';
 
   return (
-    <main
-      id="content"
-      className="mx-auto w-full max-w-6xl flex-1 px-4 py-16 sm:px-6 md:py-24"
-    >
+    <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-16 sm:px-6 md:py-24">
       <title>寫入行程種子 · 洛奇旅行</title>
       <Typography variant="h1">寫入行程種子</Typography>
       <p className="mt-3 max-w-prose text-lg leading-relaxed text-muted">

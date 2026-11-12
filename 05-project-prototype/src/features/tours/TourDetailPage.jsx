@@ -27,10 +27,7 @@ export default function TourDetailPage() {
   const bookTo = `/booking?tourId=${tour.id}&departureId=${selected.id}`;
 
   return (
-    <main
-      id="content"
-      className="mx-auto w-full max-w-6xl flex-1 px-4 py-16 pb-28 sm:px-6 md:py-24 lg:pb-24"
-    >
+    <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-16 pb-28 sm:px-6 md:py-24 lg:pb-24">
       <title>{`${tour.title} · 洛奇旅行`}</title>
       <div className="lg:grid lg:grid-cols-[minmax(0,1.6fr)_minmax(20rem,24rem)] lg:items-start lg:gap-10">
         <div className="min-w-0">

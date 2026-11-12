@@ -40,9 +40,6 @@ export default function SiteHeader() {
 
   return (
     <AppBar id="site-header" position="sticky" component="header">
-      <a className="skip" href="#content">
-        跳到內容
-      </a>
       <div className="relative mx-auto flex w-full max-w-6xl items-center justify-between gap-3 px-4 py-2 sm:px-6">
         <Link
           to={admin ? '/admin' : '/'}

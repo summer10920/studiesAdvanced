@@ -9,10 +9,7 @@ export default function AdminLoginPage() {
   const [password, setPassword] = useState('');
 
   return (
-    <main
-      id="content"
-      className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-4 py-16 sm:px-6 md:py-24"
-    >
+    <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-4 py-16 sm:px-6 md:py-24">
       <title>後台登入 · 洛奇旅行</title>
       <Paper
         component="form"

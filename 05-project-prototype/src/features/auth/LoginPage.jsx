@@ -9,7 +9,7 @@ export default function LoginPage() {
   const navigate = useNavigate();
 
   return (
-    <main id="content" className="flex-1">
+    <main className="flex-1">
       <title>用 Google 帳號繼續 · 洛奇旅行</title>
       <Dialog
         open

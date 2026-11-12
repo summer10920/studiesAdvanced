@@ -60,37 +60,6 @@
   }
 }
 
-@layer components {
-  /* 「跳到內容」連結：平常藏起來，鍵盤焦點進來才顯示在左上角。
-     不用 display: none，否則焦點進不去、鍵盤也按不到。 */
-  .skip {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-  }
-
-  .skip:focus {
-    position: absolute;
-    top: 0.5rem;
-    left: 1rem;
-    z-index: 80;
-    width: auto;
-    height: auto;
-    margin: 0;
-    clip: auto;
-    overflow: visible;
-    border-radius: 999px;
-    background: var(--loki-white);
-    color: var(--loki-ink);
-    padding: 0.5rem 0.75rem;
-  }
-}
-
 /* 把元素文字裡的圖示名稱畫成圖。liga 讓名稱連成一個圖形。 */
 .material-symbols-outlined {
   font-family: 'Material Symbols Outlined';

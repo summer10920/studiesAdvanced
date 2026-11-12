@@ -7,7 +7,7 @@ const frame = 'mx-auto w-full max-w-6xl flex-1 px-4 py-16 sm:px-6 md:py-24';
 
 export function MissingFirebase() {
   return (
-    <main id="content" className={frame}>
+    <main className={frame}>
       <Alert severity="warning">{missingFirebaseMessage}</Alert>
     </main>
   );
@@ -15,7 +15,7 @@ export function MissingFirebase() {
 
 export function AdminDenied() {
   return (
-    <main id="content" className={frame}>
+    <main className={frame}>
       <Alert severity="warning">
         這個帳號不能進入後台。請改用主控台建立的 email 與密碼。
       </Alert>

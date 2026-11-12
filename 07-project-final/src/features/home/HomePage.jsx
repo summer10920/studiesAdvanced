@@ -22,7 +22,7 @@ export default function HomePage() {
   if (!ready) return <MissingFirebase />;
 
   return (
-    <main id="content">
+    <main>
       <title>洛奇旅行</title>
       {tours.length ? null : (
         <div className="mx-auto w-full max-w-6xl px-4 pt-10 sm:px-6">
