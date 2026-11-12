@@ -12,8 +12,10 @@ import { addNote, getNote, listNotes } from './notes-db.js';
 /**
  * 列表與明細共用。params 是路徑參數，明細路由才有 noteId。
  * 沒有 noteId 時回傳清單；有 noteId 時回傳那一筆。
- * 找不到就 throw data(message, { status })。第一個引數會成為 error.data，
- * status 是狀態碼。丟出後這條路由改畫 errorElement，不畫原本的元件。
+ * 找不到就 throw data(body, { status })。data 把資料和狀態碼包成路由錯誤回應，
+ * 第一個引數會成為 error.data，status 是狀態碼。
+ * 在 loader 裡必須 throw，不能 return：函式在這裡停住，頁面元件不會渲染，
+ * 路由器往上找到最近一個有 errorElement 的路由來畫。
  * @param {{ params: { noteId?: string }, request: Request }} args
  * @returns {{ notes: { id: string, title: string, done: boolean }[] } | { note: { id: string, title: string, done: boolean } }}
  */
@@ -109,12 +111,14 @@ export function NoteDetail() {
   );
 }
 
-/** 明細路由的 errorElement。列表那一條沒有掛這個元件。 */
+/**
+ * 明細路由的 errorElement。列表那一條沒有掛這個元件。
+ * useRouteError 讀取被丟出的值。
+ * isRouteErrorResponse 為 true 時，這是 throw data() 的回應，有 .status 與 .data；
+ * 否則是一般的 Error，改看 .message。這一則找不到時顯示 error.data。
+ */
 export function NoteMissing() {
   /**
-   * useRouteError 讀取這條路由丟出的錯誤。
-   * isRouteErrorResponse 為 true 時，error.data 是 throw data() 的第一個引數；
-   * 否則改顯示備用文字。
    * @returns {unknown}
    */
   const error = useRouteError();
