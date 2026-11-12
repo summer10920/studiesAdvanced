@@ -4,21 +4,23 @@ const linesOf = (text) =>
     .map((line) => line.trim())
     .filter(Boolean);
 
-export const empty = {
+const rowId = () => crypto.randomUUID();
+
+export const empty = () => ({
   title: '',
   region: '',
   theme: '城市',
   days: 2,
   price: 0,
-  images: [''],
+  images: [{ id: rowId(), url: '' }],
   intro: '',
   highlights: '',
-  itinerary: [{ title: '', body: '' }],
+  itinerary: [{ id: rowId(), title: '', body: '' }],
   includes: '',
   excludes: '',
-  departures: [{ date: '', capacity: 8 }],
+  departures: [{ id: rowId(), date: '', capacity: 8 }],
   featured: false,
-};
+});
 
 export const draftFromTour = (tour) => ({
   title: tour.title,
@@ -26,24 +28,30 @@ export const draftFromTour = (tour) => ({
   theme: tour.theme,
   days: tour.days,
   price: tour.price,
-  images: tour.images?.length ? [...tour.images] : [''],
+  images: tour.images?.length
+    ? tour.images.map((url) => ({ id: rowId(), url }))
+    : [{ id: rowId(), url: '' }],
   intro: tour.intro,
   highlights: (tour.highlights ?? []).join('\n'),
   itinerary: tour.itinerary?.length
-    ? tour.itinerary.map(({ title, body }) => ({ title, body }))
-    : [{ title: '', body: '' }],
+    ? tour.itinerary.map(({ title, body }) => ({ id: rowId(), title, body }))
+    : [{ id: rowId(), title: '', body: '' }],
   includes: (tour.includes ?? []).join('\n'),
   excludes: (tour.excludes ?? []).join('\n'),
   departures: tour.departures?.length
-    ? tour.departures.map(({ date, capacity }) => ({ date, capacity }))
-    : [{ date: '', capacity: 8 }],
+    ? tour.departures.map(({ date, capacity }) => ({
+        id: rowId(),
+        date,
+        capacity,
+      }))
+    : [{ id: rowId(), date: '', capacity: 8 }],
   featured: Boolean(tour.featured),
 });
 
 export const tourFromDraft = (draft) => {
   if (!draft.title.trim()) return { error: '標題要填' };
   const images = (draft.images ?? [])
-    .map((item) => String(item).trim())
+    .map((item) => String(item.url ?? '').trim())
     .filter(Boolean);
   const itinerary = (draft.itinerary ?? [])
     .map((item) => ({

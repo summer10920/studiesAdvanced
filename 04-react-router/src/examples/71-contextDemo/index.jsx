@@ -6,7 +6,7 @@ export default function ContextSplitDemo() {
   const [theme, setTheme] = useState('淺色');
 
   return (
-    <ThemeContext.Provider value={theme}>
+    <ThemeContext value={theme}>
       <section className="grid gap-3">
         <button
           type="button"
@@ -17,6 +17,6 @@ export default function ContextSplitDemo() {
         </button>
         <Layout />
       </section>
-    </ThemeContext.Provider>
+    </ThemeContext>
   );
 }

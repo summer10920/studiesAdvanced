@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useParams } from 'react-router';
 import Typography from '@mui/material/Typography';
 import BookingCard from './components/BookingCard.jsx';
@@ -17,11 +17,6 @@ export default function TourDetailPage() {
   const { tours, bookings } = useStore();
   const tour = tours.find((item) => item.id === id);
   const [departureId, setDepartureId] = useState(tour?.departures[0]?.id ?? '');
-  useEffect(() => {
-    document.title = tour
-      ? `${tour.title} · 洛奇旅行`
-      : '找不到頁面 · 洛奇旅行';
-  }, [tour]);
   if (!tour) return <NotFoundPage />;
 
   const selected =
@@ -34,6 +29,7 @@ export default function TourDetailPage() {
       id="content"
       className="mx-auto w-full max-w-6xl flex-1 px-4 py-16 pb-28 sm:px-6 md:py-24 lg:pb-24"
     >
+      <title>{`${tour.title} · 洛奇旅行`}</title>
       <div className="lg:grid lg:grid-cols-[minmax(0,1.6fr)_minmax(20rem,24rem)] lg:items-start lg:gap-10">
         <div className="min-w-0">
           <TourHeader tour={tour} />

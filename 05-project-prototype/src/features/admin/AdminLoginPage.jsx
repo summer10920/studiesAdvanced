@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
@@ -7,15 +7,13 @@ import Typography from '@mui/material/Typography';
 export default function AdminLoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  useEffect(() => {
-    document.title = '後台登入 · 洛奇旅行';
-  }, []);
 
   return (
     <main
       id="content"
       className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-4 py-16 sm:px-6 md:py-24"
     >
+      <title>後台登入 · 洛奇旅行</title>
       <Paper
         component="form"
         elevation={0}

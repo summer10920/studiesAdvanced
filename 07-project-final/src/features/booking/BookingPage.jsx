@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useSearchParams } from 'react-router';
 import Typography from '@mui/material/Typography';
 import BookingForm from './components/BookingForm.jsx';
@@ -19,9 +18,6 @@ function BookingBody() {
   const departure =
     tour?.departures.find((item) => item.id === params.get('departureId')) ||
     tour?.departures[0];
-  useEffect(() => {
-    document.title = '報名 · 洛奇旅行';
-  }, []);
   if (loading || error) return <LoadGate loading={loading} error={error} />;
   if (!tour || !departure) return <NotFoundPage />;
 
@@ -30,6 +26,7 @@ function BookingBody() {
       id="content"
       className="mx-auto w-full max-w-6xl flex-1 px-4 py-16 sm:px-6 md:py-24"
     >
+      <title>報名 · 洛奇旅行</title>
       <BookingSteps activeStep={1} />
       <Typography variant="h1">報名</Typography>
       <p className="mt-3 max-w-prose text-lg leading-relaxed text-muted">

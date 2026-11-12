@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import Typography from '@mui/material/Typography';
 import HeroSearch from './components/HeroSearch.jsx';
 import HeroSlider from './components/HeroSlider.jsx';
@@ -11,12 +10,10 @@ import { useStore } from '../../store-context.js';
 export default function HomePage() {
   const { tours } = useStore();
   const featured = tours.filter((tour) => tour.featured);
-  useEffect(() => {
-    document.title = '洛奇旅行';
-  }, []);
 
   return (
     <main id="content">
+      <title>洛奇旅行</title>
       <HeroSlider slides={featured.length ? featured : tours.slice(0, 4)} />
       <div className="relative z-20 mx-auto mt-8 w-full max-w-6xl px-4 sm:px-6 lg:-mt-20">
         <HeroSearch />

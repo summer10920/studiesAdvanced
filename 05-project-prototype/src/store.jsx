@@ -44,7 +44,7 @@ export function StoreProvider({ children }) {
   };
 
   return (
-    <StoreContext.Provider
+    <StoreContext
       value={{
         tours,
         bookings,
@@ -55,6 +55,6 @@ export function StoreProvider({ children }) {
       }}
     >
       {children}
-    </StoreContext.Provider>
+    </StoreContext>
   );
 }

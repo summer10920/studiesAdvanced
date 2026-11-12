@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
@@ -12,9 +11,6 @@ function MyBookingsBody() {
   const { user } = useAuth();
   const { data, loading, error } = useMyOrders(user.uid);
   const rows = data ?? [];
-  useEffect(() => {
-    document.title = '我的報名 · 洛奇旅行';
-  }, []);
   if (loading || error) return <LoadGate loading={loading} error={error} />;
 
   return (
@@ -22,6 +18,7 @@ function MyBookingsBody() {
       id="content"
       className="mx-auto w-full max-w-6xl flex-1 px-4 py-16 sm:px-6 md:py-24"
     >
+      <title>我的報名 · 洛奇旅行</title>
       <Typography variant="h1">我的報名</Typography>
       <p className="mt-3 max-w-prose text-lg leading-relaxed text-muted">
         這裡列出這個 Google 帳號的訂單。如需改期或取消，請來信或來電。

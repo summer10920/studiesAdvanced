@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router';
 import Alert from '@mui/material/Alert';
 import Button from '@mui/material/Button';
@@ -10,9 +10,6 @@ export default function SeedPage() {
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
-  useEffect(() => {
-    document.title = '寫入行程種子 · 洛奇旅行';
-  }, []);
 
   const run = async () => {
     setBusy(true);
@@ -35,6 +32,7 @@ export default function SeedPage() {
       id="content"
       className="mx-auto w-full max-w-6xl flex-1 px-4 py-16 sm:px-6 md:py-24"
     >
+      <title>寫入行程種子 · 洛奇旅行</title>
       <Typography variant="h1">寫入行程種子</Typography>
       <p className="mt-3 max-w-prose text-lg leading-relaxed text-muted">
         把專案裡的行程寫進 Firestore 的

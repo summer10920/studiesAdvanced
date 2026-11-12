@@ -42,5 +42,5 @@ export function AuthProvider({ children }) {
     [user, ready],
   );
 
-  return <AuthContext.Provider value={api}>{children}</AuthContext.Provider>;
+  return <AuthContext value={api}>{children}</AuthContext>;
 }

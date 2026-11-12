@@ -8,19 +8,23 @@ export default defineConfig({
   preview: { host: 'localhost' },
   build: {
     chunkSizeWarningLimit: 600,
-    rollupOptions: {
+    rolldownOptions: {
       output: {
-        manualChunks(id) {
-          if (!id.includes('node_modules')) return undefined;
-          if (id.includes('@mui') || id.includes('@emotion')) return 'mui';
-          if (id.includes('firebase')) return 'firebase';
-          if (
-            id.includes('react-dom') ||
-            id.includes('react-router') ||
-            id.includes('/react/')
-          )
-            return 'react';
-          return undefined;
+        codeSplitting: {
+          groups: [
+            {
+              test: /node_modules\/(?:react-dom|react-router|\/react\/)/,
+              name: 'react',
+            },
+            {
+              test: /node_modules\/(?:@mui|@emotion)/,
+              name: 'mui',
+            },
+            {
+              test: /node_modules\/firebase/,
+              name: 'firebase',
+            },
+          ],
         },
       },
     },

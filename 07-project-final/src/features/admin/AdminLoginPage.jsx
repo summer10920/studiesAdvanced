@@ -15,9 +15,6 @@ export default function AdminLoginPage() {
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
   useEffect(() => {
-    document.title = '後台登入 · 洛奇旅行';
-  }, []);
-  useEffect(() => {
     if (provider === 'password') navigate('/admin/bookings');
   }, [provider, navigate]);
 
@@ -43,6 +40,7 @@ export default function AdminLoginPage() {
       id="content"
       className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-4 py-16 sm:px-6 md:py-24"
     >
+      <title>後台登入 · 洛奇旅行</title>
       <Paper
         component="form"
         elevation={0}

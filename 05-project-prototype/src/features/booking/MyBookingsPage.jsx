@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
@@ -6,15 +5,12 @@ import MyBookingRow from './components/MyBookingRow.jsx';
 import { mySamples } from './mock.data.js';
 
 export default function MyBookingsPage() {
-  useEffect(() => {
-    document.title = '我的報名 · 洛奇旅行';
-  }, []);
-
   return (
     <main
       id="content"
       className="mx-auto w-full max-w-6xl flex-1 px-4 py-16 sm:px-6 md:py-24"
     >
+      <title>我的報名 · 洛奇旅行</title>
       <Typography variant="h1">我的報名</Typography>
       <p className="mt-3 max-w-prose text-lg leading-relaxed text-muted">
         這一頁用範例清單預覽報名長什麼樣子。成品會依 Google

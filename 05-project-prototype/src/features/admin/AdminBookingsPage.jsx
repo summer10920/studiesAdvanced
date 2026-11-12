@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Alert from '@mui/material/Alert';
 import MenuItem from '@mui/material/MenuItem';
 import Snackbar from '@mui/material/Snackbar';
@@ -19,9 +19,6 @@ export default function AdminBookingsPage() {
   const [open, setOpen] = useState(false);
   const [booking, setBooking] = useState(null);
   const [notice, setNotice] = useState('');
-  useEffect(() => {
-    document.title = '報名清單 · 洛奇旅行';
-  }, []);
 
   const keyword = query.trim();
   const shown = bookings
@@ -45,6 +42,7 @@ export default function AdminBookingsPage() {
       id="content"
       className="mx-auto w-full max-w-6xl flex-1 px-4 py-16 sm:px-6 md:py-24"
     >
+      <title>報名清單 · 洛奇旅行</title>
       <p className="font-bold text-action">管理員</p>
       <Typography variant="h1" className="mt-2">
         報名清單

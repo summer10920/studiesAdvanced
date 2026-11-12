@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -8,12 +7,10 @@ import DialogTitle from '@mui/material/DialogTitle';
 
 export default function LoginPage() {
   const navigate = useNavigate();
-  useEffect(() => {
-    document.title = '用 Google 帳號繼續 · 洛奇旅行';
-  }, []);
 
   return (
     <main id="content" className="flex-1">
+      <title>用 Google 帳號繼續 · 洛奇旅行</title>
       <Dialog
         open
         onClose={() => navigate('/')}

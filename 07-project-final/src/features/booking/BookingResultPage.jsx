@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Link, useParams } from 'react-router';
 import Alert from '@mui/material/Alert';
 import Button from '@mui/material/Button';
@@ -15,9 +14,6 @@ import { useOrder } from '../../useAsync.js';
 function BookingResultBody() {
   const { id } = useParams();
   const { data: row, loading, error } = useOrder(id);
-  useEffect(() => {
-    document.title = row ? '報名已送出 · 洛奇旅行' : '找不到頁面 · 洛奇旅行';
-  }, [row]);
   if (loading) return <LoadGate loading={loading} />;
   if (error || !row) return <NotFoundPage />;
 
@@ -26,6 +22,7 @@ function BookingResultBody() {
       id="content"
       className="mx-auto w-full max-w-6xl flex-1 px-4 py-16 sm:px-6 md:py-24"
     >
+      <title>報名已送出 · 洛奇旅行</title>
       <BookingSteps activeStep={2} />
       <Chip color="primary" label={statusLabel[row.status] || '待確認'} />
       <Typography variant="h1" className="mt-3 max-w-[10em]">

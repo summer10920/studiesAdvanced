@@ -19,7 +19,7 @@ export default function DraftRows({
       <Typography variant="h3">{title}</Typography>
       {items.map((item, index) => (
         <div
-          key={index}
+          key={item.id}
           className="grid gap-3 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start"
         >
           <div className="grid gap-3 sm:grid-cols-2">
@@ -39,7 +39,9 @@ export default function DraftRows({
         <Button
           type="button"
           variant="outlined"
-          onClick={() => onChange([...items, blank])}
+          onClick={() =>
+            onChange([...items, { ...blank, id: crypto.randomUUID() }])
+          }
         >
           {addLabel}
         </Button>

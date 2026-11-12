@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router';
 import Alert from '@mui/material/Alert';
 import Button from '@mui/material/Button';
@@ -23,9 +23,6 @@ function AdminToursBody() {
   const [tour, setTour] = useState(null);
   const [deletingTour, setDeletingTour] = useState(null);
   const [notice, setNotice] = useState('');
-  useEffect(() => {
-    document.title = '行程管理 · 洛奇旅行';
-  }, []);
 
   const close = () => setOpen(false);
 
@@ -49,6 +46,7 @@ function AdminToursBody() {
       id="content"
       className="mx-auto w-full max-w-6xl flex-1 px-4 py-16 sm:px-6 md:py-24"
     >
+      <title>行程管理 · 洛奇旅行</title>
       <p className="font-bold text-action">管理員</p>
       <Typography variant="h1" className="mt-2">
         行程管理

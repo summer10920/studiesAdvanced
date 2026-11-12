@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import Alert from '@mui/material/Alert';
 import Typography from '@mui/material/Typography';
 import HeroSearch from './components/HeroSearch.jsx';
@@ -14,13 +13,11 @@ export default function HomePage() {
   const { data, loading, error } = useTours();
   const tours = data ?? [];
   const featured = tours.filter((tour) => tour.featured);
-  useEffect(() => {
-    document.title = '洛奇旅行';
-  }, []);
   if (loading || error) return <LoadGate loading={loading} error={error} />;
 
   return (
     <main id="content">
+      <title>洛奇旅行</title>
       {tours.length ? null : (
         <div className="mx-auto w-full max-w-6xl px-4 pt-10 sm:px-6">
           <Alert severity="info">還沒有行程。請先打開 /seed 寫入種子。</Alert>

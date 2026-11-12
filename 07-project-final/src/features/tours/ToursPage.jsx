@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useSearchParams } from 'react-router';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
@@ -12,9 +11,6 @@ export default function ToursPage() {
   const { data, loading, error } = useTours();
   const tours = data ?? [];
   const [params, setParams] = useSearchParams();
-  useEffect(() => {
-    document.title = '行程 · 洛奇旅行';
-  }, []);
 
   const region = params.get('region') ?? '';
   const days = params.get('days') ?? '';
@@ -41,6 +37,7 @@ export default function ToursPage() {
       id="content"
       className="mx-auto w-full max-w-6xl flex-1 px-4 py-16 sm:px-6 md:py-24"
     >
+      <title>行程 · 洛奇旅行</title>
       <Typography variant="h1">行程</Typography>
       <p className="mt-3 max-w-prose text-lg leading-relaxed text-muted">
         依地區、天數與預算挑選。價格為每人，以新台幣計。

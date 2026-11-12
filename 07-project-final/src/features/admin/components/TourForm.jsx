@@ -16,7 +16,7 @@ import { draftFromTour, empty } from './tourDraft.js';
 export default function TourForm({ open, tour, onClose, onSave, onNotice }) {
   const editingId = tour?.id ?? null;
   const [draft, setDraft] = useState(() =>
-    tour ? draftFromTour(tour) : empty,
+    tour ? draftFromTour(tour) : empty(),
   );
   const [error, setError] = useState('');
   const set = (key) => (event) =>
@@ -128,7 +128,7 @@ export default function TourForm({ open, tour, onClose, onSave, onNotice }) {
           <DraftRows
             title="圖庫網址"
             items={draft.images}
-            blank=""
+            blank={{ url: '' }}
             addLabel="新增一張"
             onChange={setList('images')}
           >
@@ -140,8 +140,10 @@ export default function TourForm({ open, tour, onClose, onSave, onNotice }) {
                 helperText={
                   index === 0 ? '第一張會當作列表與輪播的封面' : undefined
                 }
-                value={item}
-                onChange={(event) => update(index, event.target.value)}
+                value={item.url}
+                onChange={(event) =>
+                  update(index, { ...item, url: event.target.value })
+                }
               />
             )}
           </DraftRows>

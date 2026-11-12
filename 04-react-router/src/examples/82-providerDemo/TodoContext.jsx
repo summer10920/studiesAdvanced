@@ -21,8 +21,8 @@ export function TodoProvider({ children }) {
     { id: 1, title: '台北城市漫遊', done: false },
   ]);
   return (
-    <TodoContext.Provider value={{ todos, dispatch }}>
+    <TodoContext value={{ todos, dispatch }}>
       {children}
-    </TodoContext.Provider>
+    </TodoContext>
   );
 }

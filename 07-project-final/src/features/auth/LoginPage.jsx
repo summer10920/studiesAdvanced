@@ -17,9 +17,6 @@ export default function LoginPage() {
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
   useEffect(() => {
-    document.title = '用 Google 帳號繼續 · 洛奇旅行';
-  }, []);
-  useEffect(() => {
     if (ready && user) navigate(back, { replace: true });
   }, [ready, user, back, navigate]);
 
@@ -46,6 +43,7 @@ export default function LoginPage() {
 
   return (
     <main id="content" className="flex-1">
+      <title>用 Google 帳號繼續 · 洛奇旅行</title>
       <Dialog
         open
         onClose={() => navigate('/')}

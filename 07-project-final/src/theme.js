@@ -140,16 +140,6 @@ const theme = createTheme({
           paddingInline: 22,
           fontWeight: 700,
         },
-        containedPrimary: {
-          backgroundColor: tokens.action,
-          color: tokens.white,
-          '&:hover': { backgroundColor: tokens.actionHover },
-        },
-        containedSecondary: {
-          backgroundColor: tokens.accent,
-          color: tokens.ink,
-          '&:hover': { backgroundColor: '#E8B423' },
-        },
         outlined: {
           borderColor: tokens.line,
           color: tokens.ink,
