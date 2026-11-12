@@ -1,16 +1,11 @@
 import { useState } from 'react';
 import { useLoaderData } from 'react-router';
-import Alert from '@mui/material/Alert';
-import MenuItem from '@mui/material/MenuItem';
-import Snackbar from '@mui/material/Snackbar';
-import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
+import BookingFilters from './components/BookingFilters.jsx';
 import BookingTable from './components/BookingTable.jsx';
 import BookingForm from './components/BookingForm.jsx';
-import { statusLabel } from '../../format.js';
+import NoticeSnackbar from '../../_shared/NoticeSnackbar.jsx';
 import { getBookings, setBookingStatus } from '../../store.js';
-
-const statusOptions = ['all', 'pending', 'confirmed', 'cancelled'];
 
 export const loader = () => ({ bookings: getBookings() });
 
@@ -51,35 +46,14 @@ export default function AdminBookingsPage() {
       <p className="mt-3 max-w-prose text-lg leading-relaxed text-muted">
         查看所有報名，點一筆看明細並改狀態。兩頁用頁首切換。
       </p>
-      <div className="mt-8 grid gap-4 md:grid-cols-[minmax(0,12rem)_minmax(0,1fr)_minmax(0,14rem)]">
-        <TextField
-          select
-          label="狀態"
-          value={status}
-          onChange={(event) => setStatus(event.target.value)}
-        >
-          {statusOptions.map((value) => (
-            <MenuItem key={value} value={value}>
-              {value === 'all' ? '全部' : statusLabel[value]}
-            </MenuItem>
-          ))}
-        </TextField>
-        <TextField
-          label="搜尋姓名"
-          value={query}
-          onChange={(event) => setQuery(event.target.value)}
-          placeholder="輸入姓名"
-        />
-        <TextField
-          select
-          label="日期排序"
-          value={sort}
-          onChange={(event) => setSort(event.target.value)}
-        >
-          <MenuItem value="date-desc">出發日新到舊</MenuItem>
-          <MenuItem value="date-asc">出發日舊到新</MenuItem>
-        </TextField>
-      </div>
+      <BookingFilters
+        status={status}
+        query={query}
+        sort={sort}
+        onStatusChange={setStatus}
+        onQueryChange={setQuery}
+        onSortChange={setSort}
+      />
       {shown.length ? (
         <BookingTable
           bookings={shown}
@@ -98,20 +72,7 @@ export default function AdminBookingsPage() {
         onClose={close}
         onNotice={setNotice}
       />
-      <Snackbar
-        open={Boolean(notice)}
-        autoHideDuration={3200}
-        onClose={() => setNotice('')}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-      >
-        <Alert
-          severity="success"
-          variant="filled"
-          onClose={() => setNotice('')}
-        >
-          {notice}
-        </Alert>
-      </Snackbar>
+      <NoticeSnackbar notice={notice} onClose={() => setNotice('')} />
     </main>
   );
 }

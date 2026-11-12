@@ -1,7 +1,7 @@
 import { useLoaderData, useSearchParams } from 'react-router';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import TourCard from './components/TourCard.jsx';
+import TourEmpty from './components/TourEmpty.jsx';
 import TourFilters from './components/TourFilters.jsx';
 import { listTours } from '../../api.js';
 import { MissingFirebase } from '../../AccessNotice.jsx';
@@ -58,26 +58,14 @@ export default function ToursPage() {
             </div>
           </>
         ) : (
-          <section
-            id="tour-empty"
-            className="mt-16 rounded-card bg-foam px-6 py-10 shadow-card"
-          >
-            <Typography id="empty-title" variant="h2">
-              沒有符合的行程
-            </Typography>
-            <p className="mt-3 max-w-prose">
-              {tours.length
+          <TourEmpty
+            onClear={() => setParams(new URLSearchParams())}
+            message={
+              tours.length
                 ? '換一個地區或天數，或清掉價格條件。'
-                : '還沒有行程。請先打開 /seed 寫入種子。'}
-            </p>
-            <Button
-              className="mt-6"
-              variant="contained"
-              onClick={() => setParams(new URLSearchParams())}
-            >
-              清除條件
-            </Button>
-          </section>
+                : '還沒有行程。請先打開 /seed 寫入種子。'
+            }
+          />
         )}
       </div>
     </main>

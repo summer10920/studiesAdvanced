@@ -1,15 +1,11 @@
 import { useState } from 'react';
 import { useFetcher, useLoaderData } from 'react-router';
-import Alert from '@mui/material/Alert';
 import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogTitle from '@mui/material/DialogTitle';
-import Snackbar from '@mui/material/Snackbar';
 import Typography from '@mui/material/Typography';
+import DeleteTourDialog from './components/DeleteTourDialog.jsx';
 import TourTable from './components/TourTable.jsx';
 import TourForm from './components/TourForm.jsx';
+import NoticeSnackbar from '../../_shared/NoticeSnackbar.jsx';
 import { deleteTour, getTours, saveTour } from '../../store.js';
 
 export const loader = () => ({ tours: getTours() });
@@ -81,44 +77,18 @@ export default function AdminToursPage() {
         onClose={close}
         onNotice={setNotice}
       />
-      <Dialog
-        open={Boolean(deletingTour)}
+      <DeleteTourDialog
+        tour={deletingTour}
+        busy={remove.state !== 'idle'}
         onClose={() => setDeletingTour(null)}
-        aria-labelledby="delete-title"
-      >
-        <DialogTitle id="delete-title">刪除這筆行程？</DialogTitle>
-        <DialogContent>刪除後，這筆行程不會再出現在列表。</DialogContent>
-        <DialogActions className="gap-2 p-4">
-          <Button onClick={() => setDeletingTour(null)}>留下</Button>
-          <Button
-            color="error"
-            variant="contained"
-            disabled={remove.state !== 'idle'}
-            onClick={() =>
-              remove.submit(
-                { intent: 'delete', id: deletingTour.id },
-                { method: 'post' },
-              )
-            }
-          >
-            刪除
-          </Button>
-        </DialogActions>
-      </Dialog>
-      <Snackbar
-        open={Boolean(notice)}
-        autoHideDuration={3200}
-        onClose={() => setNotice('')}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-      >
-        <Alert
-          severity="success"
-          variant="filled"
-          onClose={() => setNotice('')}
-        >
-          {notice}
-        </Alert>
-      </Snackbar>
+        onConfirm={() =>
+          remove.submit(
+            { intent: 'delete', id: deletingTour.id },
+            { method: 'post' },
+          )
+        }
+      />
+      <NoticeSnackbar notice={notice} onClose={() => setNotice('')} />
     </main>
   );
 }
