@@ -6,12 +6,13 @@ import NotFoundPage from './pages/NotFoundPage.jsx';
 import WherePage from './pages/WherePage.jsx';
 import LoaderDemo, { loader as loader86 } from './examples/86-loader.jsx';
 import ActionDemo, { action as action87 } from './examples/87-action.jsx';
-import RedirectDemo, {
+import RedirectList, {
+  loader as loader88List,
+} from './examples/88-redirect-list.jsx';
+import RedirectEdit, {
   action as action88,
-  editLoader as editLoader88,
-  loader as loader88,
-  NoteEdit,
-} from './examples/88-redirect.jsx';
+  loader as loader88Edit,
+} from './examples/88-redirect-edit.jsx';
 import ErrorElementDemo, {
   loader as loader89,
   NoteDetail,
@@ -46,15 +47,15 @@ const router = createBrowserRouter(
           Component: ActionDemo,
         },
         {
-          path: 'demos/88-redirect',
-          loader: loader88,
-          Component: RedirectDemo,
+          path: 'demos/88-redirect-list',
+          loader: loader88List,
+          Component: RedirectList,
         },
         {
-          path: 'demos/88-redirect/notes/:noteId',
-          loader: editLoader88,
+          path: 'demos/88-redirect-edit/:itemId',
+          loader: loader88Edit,
           action: action88,
-          Component: NoteEdit,
+          Component: RedirectEdit,
         },
         {
           path: 'demos/89-error-element',

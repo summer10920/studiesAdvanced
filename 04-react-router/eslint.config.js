@@ -27,7 +27,7 @@ export default defineConfig([
         'error',
         {
           allowConstantExport: true,
-          allowExportNames: ['loader', 'action', 'editLoader'],
+          allowExportNames: ['loader', 'action'],
         },
       ],
     },

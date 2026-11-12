@@ -89,7 +89,7 @@ import ActionStateDemo from '../examples/84-action-state.jsx';
 import OptimisticDemo from '../examples/85-optimistic.jsx';
 import LoaderDemo from '../examples/86-loader.jsx';
 import FormActionDemo from '../examples/87-action.jsx';
-import RedirectDemo from '../examples/88-redirect.jsx';
+import RedirectList from '../examples/88-redirect-list.jsx';
 import ErrorElementDemo from '../examples/89-error-element.jsx';
 import FetcherDemo from '../examples/90-fetcher.jsx';
 import NavigationDemo from '../examples/91-navigation.jsx';
@@ -446,10 +446,10 @@ export const demos = [
     Component: FormActionDemo,
   },
   {
-    slug: '88-redirect',
+    slug: '88-redirect-list',
     title: '送出後轉址',
     topic: 'data',
-    Component: RedirectDemo,
+    Component: RedirectList,
   },
   {
     slug: '89-error-element',
