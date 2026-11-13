@@ -1,0 +1,36 @@
+const tours = [
+  { id: 'taipei-beitou', title: '台北大稻埕與北投溫泉三日', region: '台北', theme: '城市', days: 3, price: 18600 },
+  { id: 'keelung-jiufen', title: '基隆北海岸與九份兩日', region: '基隆', theme: '海岸', days: 2, price: 9200 },
+  { id: 'hualien-taroko', title: '花蓮太魯閣與七星潭四日', region: '花蓮', theme: '山海', days: 4, price: 26800 },
+  { id: 'taitung-chishang', title: '台東池上與成功海岸三日', region: '台東', theme: '山海', days: 3, price: 21400 },
+  { id: 'tainan-anping', title: '台南府城與安平兩日', region: '台南', theme: '古都', days: 2, price: 8800 },
+  { id: 'kaohsiung-qijin', title: '高雄港都與旗津三日', region: '高雄', theme: '城市', days: 3, price: 14200 },
+  { id: 'kinmen-villages', title: '金門聚落與戰地三日', region: '金門', theme: '離島', days: 3, price: 16800 },
+  { id: 'kyoto-nara', title: '京都嵐山、伏見與奈良五日', region: '京都', theme: '日本', days: 5, price: 52800 },
+];
+
+const bookings = [];
+
+const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+export async function getTours() {
+  await wait(300);
+  return tours;
+}
+
+export async function getTour(id) {
+  await wait(300);
+  return tours.find((tour) => tour.id === id) ?? null;
+}
+
+export async function addBooking(booking) {
+  await wait(400);
+  const saved = { ...booking, id: bookings.length + 1 };
+  bookings.push(saved);
+  return saved;
+}
+
+export async function getBookings() {
+  await wait(300);
+  return bookings;
+}

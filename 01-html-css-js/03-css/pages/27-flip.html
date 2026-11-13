@@ -5,14 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>翻面</title>
     <style>
-      /* TODO: 講義「選讀：視距與背面」
-         轉場寫在 .card，時間約 0.6s。
-         沒有 backface-visibility 時兩面會疊在一起。
-      */
+      body {
+        margin: 1.5rem;
+        font-family: system-ui, "PingFang TC", "Microsoft JhengHei", sans-serif;
+      }
+
+      .scene {
+        width: 10rem;
+        height: 6rem;
+        perspective: 40rem; /* 視距 */
+      }
+
+      .card {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.6s;
+        transform-style: preserve-3d; /* 保留 3D 空間 */
+      }
+
+      .scene:hover .card {
+        transform: rotateY(180deg);
+      }
+
+      .face {
+        position: absolute;
+        inset: 0;
+        margin: 0;
+        text-align: center;
+        line-height: 6rem;
+        backface-visibility: hidden; /* 轉到背後時不畫 */
+      }
+
+      .front {
+        background: #115e59;
+        color: #f0fdfa;
+      }
+
+      .back {
+        background: #9f1239;
+        color: #fff;
+        transform: rotateY(180deg); /* 先轉到背後 */
+      }
     </style>
   </head>
   <body>
-    <!-- TODO: 選讀「視距與背面」。場景寫 perspective。卡片 preserve-3d，hover 時 rotateY(180deg)。背面先轉 180 度，兩面都隱藏背面。 -->
     <div class="scene">
       <div class="card">
         <p class="face front">正面</p>

@@ -1,12 +1,14 @@
-import { useMemo, useState } from 'react';
+// 關閉 React Compiler，才看得到沒有自動記憶化時的行為
+'use no memo';
+
+import { useState } from 'react';
 
 export default function MemoDemo() {
   const [text, setText] = useState('');
   const [star, setStar] = useState(5);
-  const label = useMemo(() => {
-    console.log('計算中');
-    return star >= 4 ? '值得推薦' : '普通';
-  }, [star]);
+
+  console.log('計算中');
+  const label = star >= 4 ? '值得推薦' : '普通';
 
   return (
     <section className="grid max-w-sm gap-3">

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>報名京都三日遊</title>
+  </head>
+  <body>
+    <h1>報名京都三日遊</h1>
+    <form action="#" method="get">
+      <p>
+        <label for="guest-email">信箱</label>
+        <input id="guest-email" name="email" type="email" autocomplete="email" />
+      </p>
+      <p>
+        <label for="guest-tel">電話</label>
+        <input id="guest-tel" name="tel" type="tel" autocomplete="tel" />
+      </p>
+      <p>
+        <label for="guest-people">人數</label>
+        <input id="guest-people" name="people" type="number" min="1" max="10" value="1" />
+      </p>
+      <p>
+        <label for="guest-url">個人頁網址</label>
+        <input id="guest-url" name="website" type="url" placeholder="https://" />
+      </p>
+      <p>
+        <label for="guest-pw">查詢密碼</label>
+        <input id="guest-pw" name="demoPassword" type="password" />
+      </p>
+      <p>
+        <label for="guest-search">搜尋行程</label>
+        <input id="guest-search" name="q" type="search" />
+      </p>
+      <p>
+        <button type="submit">送出報名</button>
+      </p>
+    </form>
+  </body>
+</html>

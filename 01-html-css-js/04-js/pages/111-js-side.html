@@ -17,13 +17,13 @@
         <p id="outro">結語</p>
       </main>
     </article>
-    <p id="status"></p>
-    <!-- TODO: 講義「同層元素」。印出 #card 的 previousElementSibling 與 nextElementSibling 的 id。 -->
     <script>
-      // TODO: 講義「同層元素」。
-      // 印出 #card.previousElementSibling.id。
-      // 印出 #card.nextElementSibling.id。
-      // 換你試試：再印出 #intro.previousElementSibling，結果是 null。
+      const card = document.querySelector('#card');
+      const intro = document.querySelector('#intro');
+      console.log(card.previousElementSibling.id);
+      console.log(card.nextElementSibling.id);
+      console.log(intro.previousElementSibling);
+      console.log(intro.previousElementSibling?.id);
     </script>
   </body>
 </html>

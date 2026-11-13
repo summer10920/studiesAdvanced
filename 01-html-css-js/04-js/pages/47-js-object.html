@@ -7,16 +7,24 @@
   </head>
   <body>
     <p>結果在 DevTools 的 Console。</p>
-    <!-- TODO: 講義「建立與存取屬性」。簡寫、計算屬性、點記法與中括號。換你試試：簡寫做花蓮那筆。 -->
     <script>
-      // TODO: 講義「建立與存取屬性」
-      // 字面值、屬性簡寫 title、計算屬性 [field + 'Code']
-      // 點記法讀 title，中括號讀 place，再讀 placeCode
-      // 印出沒有的 guide，得到 undefined
-      // 換你試試：place 用簡寫做花蓮那筆，印出 title 與 ['price']
-
       const title = '台北城市漫遊';
       const field = 'place';
+
+      const tour = {
+        id: 1,
+        title, // 屬性簡寫，等同 title: title
+        place: '台北',
+        days: 3,
+        price: 12800,
+        [field + 'Code']: 'TPE', // 計算屬性，欄位名稱是 placeCode
+      };
+
+      console.log(tour.title);
+      console.log(tour['place']);
+      console.log(tour[field]);
+      console.log(tour.placeCode);
+      console.log(tour.guide);
     </script>
   </body>
 </html>

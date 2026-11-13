@@ -6,15 +6,23 @@
     <title>removeEventListener</title>
   </head>
   <body>
-    <p id="status">0</p>
+    <p id="output">0</p>
     <button type="button" id="go">加一</button>
-    <button type="button" id="stop">停止</button>
-    <!-- TODO: 講義「removeEventListener」。加一與停止要共用同一個函式參考。換你試試：數到 3 自己解除。 -->
+    <button type="button" id="stopButton">停止</button>
     <script>
-      // TODO: 講義「removeEventListener」。
-      // onClick 把 #status 的數字加 1。#go 綁上 onClick。
-      // #stop 點擊時 removeEventListener 同一個 onClick。
-      // 換你試試：在 onClick 裡，數字到 3 就自己解除。
+      const output = document.querySelector('#output');
+      const go = document.querySelector('#go');
+      const stopButton = document.querySelector('#stopButton');
+
+      const onClick = () => {
+        output.textContent = Number(output.textContent) + 1;
+      };
+
+      go.addEventListener('click', onClick);
+
+      stopButton.addEventListener('click', () => {
+        go.removeEventListener('click', onClick);
+      });
     </script>
   </body>
 </html>

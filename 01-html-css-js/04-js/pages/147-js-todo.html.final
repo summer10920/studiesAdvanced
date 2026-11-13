@@ -60,7 +60,8 @@
           return;
         }
         const data = new FormData(form);
-        const title = String(data.get('title'));
+        const title = String(data.get('title')).trim();
+        if (!title) return;
         state.items.push({ id: state.nextId, title, done: false });
         state.nextId += 1;
         form.querySelector('#title').value = '';
@@ -69,7 +70,7 @@
 
       list.addEventListener('click', (event) => {
         const button = event.target.closest('button');
-        if (!button || !list.contains(button)) return;
+        if (!button) return;
         const id = Number(button.dataset.id);
         const item = state.items.find((row) => row.id === id);
         if (!item) return;

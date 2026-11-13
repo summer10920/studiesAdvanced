@@ -1,4 +1,5 @@
-import { createBrowserRouter, RouterProvider } from 'react-router';
+import { createBrowserRouter } from 'react-router';
+import { RouterProvider } from 'react-router/dom';
 import { logoutAction, logoutLoader, rootLoader } from './auth.js';
 import SiteLayout from './layout/SiteLayout.jsx';
 import HomePage, { loader as homeLoader } from './features/home/HomePage.jsx';

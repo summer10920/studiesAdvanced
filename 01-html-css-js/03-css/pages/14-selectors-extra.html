@@ -5,20 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>進階選擇器</title>
     <style>
-      /* TODO: 講義「選讀：屬性比對與 :is()、:where()、:has()」
-         開頭用 ^= ，結尾用 $= 。
-         勾起時用 .card:has(:checked)，不要寫腳本。
-      */
+      a[href^="https"] {
+        color: #0f766e;
+      }
+
+      a[href$=".pdf"] {
+        color: #9f1239;
+      }
+
+      :is(.tip, .warn) p {
+        color: #115e59;
+      }
+
+      h2 {
+        color: #0f766e;
+      }
+
+      :where(h1, h2) {
+        color: #9f1239;
+      }
+
+      .option:has(:checked) {
+        background: #ccfbf1;
+      }
     </style>
   </head>
   <body>
-    <!-- TODO: 選讀「屬性比對與 :is()、:where()、:has()」。https 開頭的連結深青綠，.pdf 結尾玫瑰紅。h1 與 h2 用 :where 設字重。卡片在核取方塊被勾起時換淺青底。 -->
     <h1>屬性、is、where、has</h1>
-    <p><a href="https://example.com">站外</a></p>
-    <p><a href="guide.pdf">行程 PDF</a></p>
-    <article class="card">
-      <h2>含早餐</h2>
-      <label><input type="checkbox" /> 這張卡片被勾起時換底色</label>
-    </article>
+    <h2>屬性比對</h2>
+    <ul>
+      <li><a href="https://example.com">https 開頭</a></li>
+      <li><a href="guide.pdf">.pdf 結尾</a></li>
+      <li><a href="#top">兩者都不是</a></li>
+    </ul>
+    <h2>一組選擇器</h2>
+    <div class="tip"><p>在 tip 裡的段落</p></div>
+    <div class="warn"><p>在 warn 裡的段落</p></div>
+    <div class="plain"><p>不在名單裡的段落</p></div>
+    <h2>has</h2>
+    <label class="option"><input type="checkbox" /> 勾選後，整列換底色</label>
   </body>
 </html>

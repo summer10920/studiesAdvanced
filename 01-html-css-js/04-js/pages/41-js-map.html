@@ -7,14 +7,19 @@
   </head>
   <body>
     <p>結果在 DevTools 的 Console。</p>
-    <!-- TODO: 講義「forEach 與 map」。forEach 回傳 undefined，map 交回新陣列。換你試試：每筆加 1000。 -->
     <script>
-      // TODO: 講義「forEach 與 map」
-      // forEach 印出 index、price、array.length。它的回傳值是 undefined
-      // map 做出每筆兩倍的新陣列。原陣列不變
-      // 換你試試：map 出每筆加 1000，並確認 prices[0] 仍是 12800
-
       const prices = [12800, 15900, 42800];
+
+      // 三行依序是索引 0、1、2，價格是原數字，長度都是 3
+      prices.forEach((price, index, array) => {
+        console.log(index, price, array.length);
+      });
+
+      // 兩倍的新陣列。原陣列仍是三個原價。forEach 的回傳值是 undefined
+      const doubled = prices.map((price) => price * 2);
+      console.log(doubled);
+      console.log(prices);
+      console.log(prices.forEach((price) => price));
     </script>
   </body>
 </html>

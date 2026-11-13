@@ -7,12 +7,10 @@
   </head>
   <body>
     <p id="box">可見<span style="display: none">隱藏</span></p>
-    <!-- TODO: 講義「textContent 與 innerText」。印出 #box 的 textContent 與 innerText。換你試試：把文字改成只剩「可見」。 -->
     <script>
-      // TODO: 講義「textContent 與 innerText」。
-      // 印出 #box.textContent。
-      // 印出 #box.innerText。
-      // 換你試試：把 textContent 設成「可見」，再印一次 innerText。
+      const box = document.querySelector('#box');
+      console.log(box.textContent);
+      console.log(box.innerText);
     </script>
   </body>
 </html>

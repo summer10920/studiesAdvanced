@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>新增與刪除陣列項目</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const todos = [
+        { id: 1, text: '買牛奶', done: false },
+        { id: 2, text: '寫講義', done: false },
+      ];
+
+      // 新增
+      const added = [...todos, { id: 3, text: '運動', done: false }];
+      console.log(added.length);
+
+      // 刪除 id 為 1 的項目
+      const removed = todos.filter((todo) => todo.id !== 1);
+      console.log(removed);
+
+      // 把 id 為 2 的項目改成完成
+      const toggled = todos.map((todo) =>
+        todo.id === 2 ? { ...todo, done: true } : todo,
+      );
+      console.log(toggled);
+
+      console.log(todos);
+    </script>
+  </body>
+</html>

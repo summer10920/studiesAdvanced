@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>移除與清空</title>
+  </head>
+  <body>
+    <ul id="fruits">
+      <li>蘋果</li>
+      <li id="banana">香蕉</li>
+      <li>橘子</li>
+    </ul>
+    <ul id="drinks">
+      <li>紅茶</li>
+      <li>綠茶</li>
+    </ul>
+    <script>
+      const banana = document.querySelector('#banana');
+      banana.remove();
+
+      const drinks = document.querySelector('#drinks');
+      const item = document.createElement('li');
+      item.textContent = '只剩這項';
+      drinks.replaceChildren(item);
+    </script>
+  </body>
+</html>

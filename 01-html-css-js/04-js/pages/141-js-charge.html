@@ -6,21 +6,26 @@
     <title>空白鍵蓄力</title>
   </head>
   <body>
-    <p id="power">力道 0</p>
-    <!-- TODO: 講義「空白鍵蓄力」。第一步按下空白鍵顯示蓄力中。完成寫法見 141-js-charge.html.final。換你試試：放開時顯示力道。 -->
+    <p id="power">按住空白鍵再放開</p>
     <script>
-      // 第一步：按下空白鍵顯示蓄力中，重複的 keydown 略過。
-      // 完成寫法見 141-js-charge.html.final。
-      // 換你試試：keyup 時用時間差顯示力道。
-
+      const power = document.querySelector('#power');
       let start = 0;
 
       document.addEventListener('keydown', (event) => {
-        if (event.key !== ' ' || event.repeat) return;
+        if (event.key !== ' ') return;
         event.preventDefault();
+        if (event.repeat) return;
         start = event.timeStamp;
-        document.querySelector('#power').textContent = '蓄力中';
+        power.textContent = '蓄力中';
         console.log('蓄力中');
+      });
+
+      document.addEventListener('keyup', (event) => {
+        if (event.key !== ' ' || !start) return;
+        const force = Math.round(event.timeStamp - start);
+        start = 0;
+        power.textContent = `力道 ${force}`;
+        console.log(power.textContent);
       });
     </script>
   </body>

@@ -30,7 +30,7 @@ export default function BookingCard({
           <dd>{tour.departures[0]?.capacity ?? 8} 人</dd>
         </div>
       </dl>
-      <div className="mt-6 grid gap-3">
+      <div className="mt-6 divide-y divide-line border-y border-line">
         {tour.departures.map((departure) => {
           const on = departure.id === selected.id;
           return (
@@ -38,7 +38,8 @@ export default function BookingCard({
               key={departure.id}
               type="button"
               onClick={() => onSelect(departure.id)}
-              className={`rounded-card border px-4 py-3 text-left ${on ? 'border-action bg-mist' : 'border-line bg-white'}`}
+              aria-pressed={on}
+              className={`block w-full px-3 py-3 text-left ${on ? 'bg-mist text-action' : ''}`}
             >
               <span className="block font-medium">{departure.date}</span>
               <span className="text-base text-muted">

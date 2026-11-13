@@ -13,12 +13,17 @@
   </head>
   <body>
     <p id="box">盒子</p>
-    <!-- TODO: 講義「classList」。一次加上 on 與 big，再用 replace 換成 hit。換你試試：強制拿掉 on。 -->
     <script>
-      // TODO: 講義「classList」。
-      // add('on', 'big')，toggle('hit', false)，印出 contains('on')。
-      // replace('big', 'hit')，印出 contains('big')。
-      // 換你試試：toggle('on', false)，再印 contains('on')。
+      const box = document.querySelector('#box');
+
+      box.classList.add('on', 'big');
+      box.classList.toggle('big');
+      box.classList.toggle('big');
+      console.log(box.classList.contains('big'));
+
+      box.classList.replace('big', 'hit');
+      console.log(box.classList.contains('big'));
+      console.log(box.className);
     </script>
   </body>
 </html>

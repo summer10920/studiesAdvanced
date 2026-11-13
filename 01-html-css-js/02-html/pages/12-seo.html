@@ -4,14 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>京都三日 · 洛奇旅行</title>
-    <!-- TODO: 講義「選讀：SEO 與網站資訊」。這些都寫在 head，畫面不會多出文字。
-         描述：加上 meta name="description"，寫這一頁的行程摘要。
-         圖示：加上 link rel="icon"，href 指到一張小圖網址。
-         分享預覽：加上 og:title、og:description、og:image、og:url。
-         正規網址：加上 link rel="canonical"。
-         爬蟲：加上 meta name="robots"，內容寫 index, follow。 -->
+    <!-- 搜尋結果可能摘這一句當摘要，不會畫在頁面上 -->
+    <meta name="description" content="京都三日小團：清水寺、伏見稻荷與嵐山，含兩晚住宿。" />
+    <!-- 分頁標籤旁邊的小圖示 -->
+    <link rel="icon" href="https://placehold.co/32x32/png" />
+    <!-- 貼到 LINE 或 Facebook 時，預覽卡讀這四筆 -->
+    <meta property="og:title" content="京都三日 · 洛奇旅行" />
+    <meta property="og:description" content="清水寺、伏見稻荷與嵐山，週六早上台北車站集合。" />
+    <meta property="og:image" content="https://picsum.photos/id/1016/1200/630" />
+    <!-- example.com 只是示範網址，不是這門課的網站 -->
+    <meta property="og:url" content="https://example.com/trips/kyoto" />
+    <!-- 同一篇有多個網址時，告訴搜尋引擎以這一個為準 -->
+    <link rel="canonical" href="https://example.com/trips/kyoto" />
+    <!-- index：可以收進搜尋；follow：可以沿著頁內連結繼續抓 -->
+    <meta name="robots" content="index, follow" />
   </head>
   <body>
-    <div>京都三日：清水寺、伏見稻荷與嵐山。含兩晚住宿。</div>
+    <h1>京都三日</h1>
+    <p>清水寺、伏見稻荷與嵐山，含兩晚住宿。</p>
   </body>
 </html>

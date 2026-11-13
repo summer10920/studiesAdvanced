@@ -3,20 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>命名與字型檔</title>
+    <title>字型檔</title>
     <style>
-      /* TODO: 講義「選讀：命名與字型檔」
-         @font-face 的 src 指向 tour.woff2。找不到時要落到 system-ui。
-         底線與連字號只是名字，不是新的選擇器語法。
-      */
+      body {
+        font-family: system-ui, "PingFang TC", "Microsoft JhengHei", sans-serif;
+      }
+
+      @font-face {
+        font-family: "Heading";
+        src: local("Georgia"), local("Times New Roman");
+      }
+
+      h1 {
+        font-family: "Heading", system-ui, "PingFang TC", sans-serif;
+      }
     </style>
   </head>
   <body>
-    <!-- TODO: 選讀「命名與字型檔」。用 BEM：card__title、card__price、card__price--soldout。@font-face 註冊 Tour，檔案可以不存在，堆疊後面要有系統字。售完那行灰色加刪除線。 -->
-    <article class="card">
-      <h1 class="card__title">京都三日</h1>
-      <p class="card__price">NT$12,800</p>
-      <p class="card__price card__price--soldout">NT$12,800</p>
-    </article>
+    <h1>Hello, @font-face 字型</h1>
+    <p>標題的英文字用 Heading 這個自取的名字；它沒有中文字，所以中文仍落到後面的系統字。</p>
   </body>
 </html>

@@ -7,7 +7,7 @@ export default function SiteFooter() {
       <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-16 sm:px-6 md:grid-cols-3 md:gap-8 md:py-24">
         <div>
           <p className="font-serif text-2xl font-semibold">洛奇旅行</p>
-          <p className="mt-3 text-lg text-foam">上午走路，下午留白。</p>
+          <p className="mt-3 text-lg text-foam">每團最多 8 人的小團旅行。</p>
           <p className="mt-4 text-base leading-relaxed text-white/90">
             台灣本島小團，以及一條京都短團。出團前用 email 對一次名單。
           </p>

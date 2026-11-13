@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>once 選項</title>
+  </head>
+  <body>
+    <button type="button" id="go">點我</button>
+    <p id="welcome">尚未點</p>
+    <p id="total">累計 0 次</p>
+    <script>
+      const welcome = document.querySelector('#welcome');
+      const total = document.querySelector('#total');
+      const go = document.querySelector('#go');
+      let count = 0;
+
+      go.addEventListener('click', () => {
+        welcome.textContent = '第一次點擊的歡迎訊息';
+      }, { once: true });
+
+      go.addEventListener('click', () => {
+        count += 1;
+        total.textContent = `累計 ${count} 次`;
+      });
+    </script>
+  </body>
+</html>

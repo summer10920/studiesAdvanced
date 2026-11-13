@@ -5,28 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>組合選擇器</title>
     <style>
-      /* TODO: 講義「組合關係」
-         後代用空格，直接子層用 >，兄弟用 ~ 或 +。
-         先做 h2 ~ p，換你試試再改成 h2 + p。
-      */
+      article p {
+        color: #0f766e; /* 後代：任何深度的 p */
+      }
+
+      article > .direct {
+        font-weight: 700; /* 只限 article 的直接小孩 */
+      }
+
+      h2 ~ p {
+        color: #475569; /* 同一個父層裡，h2 之後的全部 p */
+      }
+
+      .stops li + li {
+        text-decoration: line-through; /* 緊接在另一個 li 後面的 li */
+      }
     </style>
   </head>
   <body>
-    <!-- TODO: 講義「組合關係」。article 裡任何 p 深青綠；article 的直接小孩 .direct 較粗；h2 後面的 p 石板色；.stops 裡從第二個 li 起加刪除線。換你試試：標題後面只有緊鄰的第一段變石板色，波浪符號改成加號。 -->
     <h1>關係寫在選擇器中間</h1>
     <article>
       <p class="direct">這段是 article 的直接小孩，所以較粗，也有深色。</p>
       <div>
-        <p>後代仍打得到這段，直接子層打不到，所以不會變粗。</p>
+        <p>後代選擇器打得到這段，直接子層打不到，所以不會變粗。</p>
       </div>
     </article>
-    <h2>相鄰與後面的兄弟</h2>
+    <h2>兄弟關係</h2>
     <p>這個標題後面的段落會改成石板色。</p>
     <p>這段也在標題後面，同樣改色。</p>
     <ul class="stops">
-      <li>台北</li>
-      <li>這一項起才有刪除線</li>
-      <li>濟州</li>
+      <li>第一項沒有刪除線</li>
+      <li>第二項有</li>
+      <li>第三項也有，因為它緊接在第二項後面</li>
     </ul>
   </body>
 </html>

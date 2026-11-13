@@ -4,25 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>自訂斷點</title>
+    <link rel="stylesheet" href="/src/breakpoints.css" />
   </head>
-  <body>
-    <load src="../partials/nav.html" p22="page" />
-    <!-- TODO: 講義「用 @theme 自訂斷點」。先在 src/style.css 的 @theme 加上 --breakpoint-tablet 與 --breakpoint-3xl。
-         兩欄用 tablet: 而不是再定義一個 sm。預設一欄，過了 tablet 才並排。
-         最下面那句預設隱藏，3xl: 才顯示。不要用 initial 拿掉內建斷點。 -->
-    <h1>tablet: 設在 52rem</h1>
-    <p>比 md（48rem）再寬一點才變成兩欄。3xl（120rem）那句只有非常寬的視窗看得到。</p>
-    <div>
-      <article>
-        <h2>左欄</h2>
-        <p>52rem 以前跟右欄上下排。</p>
+  <body class="bg-stone-50 p-6 text-stone-900">
+    <h1 class="text-2xl font-bold">tablet: 設在 52rem</h1>
+    <p class="mt-3 max-w-prose">比 md（48rem）再寬一點才變成兩欄。3xl（120rem）那句只有非常寬的視窗看得到。</p>
+    <div class="mt-6 grid grid-cols-1 gap-4 tablet:grid-cols-2">
+      <article class="rounded-xl bg-white p-4 shadow-sm">
+        <h2 class="font-semibold">左欄</h2>
+        <p class="text-sm text-stone-600">52rem 以前跟右欄上下排。</p>
       </article>
-      <article>
-        <h2>右欄</h2>
-        <p>過了 tablet 才並排。</p>
+      <article class="rounded-xl bg-white p-4 shadow-sm">
+        <h2 class="font-semibold">右欄</h2>
+        <p class="text-sm text-stone-600">過了 tablet 才並排。</p>
       </article>
     </div>
-    <p>視窗到 3xl 了。一般筆電的視窗拉不滿這條，把瀏覽器縮放調小才容易看到。</p>
-    <script type="module" src="/src/main.js"></script>
+    <p class="mt-6 hidden rounded-lg bg-violet-100 px-4 py-3 text-violet-950 3xl:block">
+      視窗到 3xl 了。一般筆電的視窗拉不滿這條，把瀏覽器縮放調小才容易看到。
+    </p>
   </body>
 </html>

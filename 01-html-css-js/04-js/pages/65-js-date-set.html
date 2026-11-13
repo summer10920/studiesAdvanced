@@ -7,15 +7,40 @@
   </head>
   <body>
     <p>結果在 DevTools 的 Console。</p>
-    <!-- TODO: 講義「設定日期與時間」。set 會改原物件，要保留就先 new Date(date)。含進位。換你試試：setHours(24)。 -->
     <script>
-      // TODO: 講義「設定日期與時間」
-      // new Date(2026, 0, 15, 10, 20, 30)，先印日、時、分
-      // setFullYear、setMonth、setDate、setHours(時, 分, 秒)
-      // setMinutes、setSeconds、setMilliseconds、setTime
-      // 複製 base 後分別調到明天、下個月、下一小時，原物件不要被改到
-      // new Date(2026, 0, 1) 再 setDate(32)，會進到 2 月 1 日
-      // 換你試試：2026-01-15 10 時 setHours(24)，印出 16 與 0
+      const date = new Date(2026, 0, 15, 10, 20, 30);
+      console.log(date.getDate(), date.getHours(), date.getMinutes());
+
+      date.setFullYear(2027);
+      date.setMonth(5);
+      date.setDate(20);
+      console.log(date.getFullYear(), date.getMonth() + 1, date.getDate());
+
+      date.setHours(14, 30, 45);
+      date.setMinutes(5);
+      date.setSeconds(8);
+      date.setMilliseconds(250);
+      console.log(
+        date.getHours(),
+        date.getMinutes(),
+        date.getSeconds(),
+        date.getMilliseconds()
+      );
+
+      const base = new Date(2026, 6, 15, 10, 0, 0);
+      const tomorrow = new Date(base);
+      tomorrow.setDate(base.getDate() + 1);
+      const nextMonth = new Date(base);
+      nextMonth.setMonth(base.getMonth() + 1);
+      const nextHour = new Date(base);
+      nextHour.setHours(base.getHours() + 1);
+      console.log(base.getDate(), tomorrow.getDate());
+      console.log(base.getMonth() + 1, nextMonth.getMonth() + 1);
+      console.log(base.getHours(), nextHour.getHours());
+
+      const overflow = new Date(2026, 0, 1);
+      overflow.setDate(32);
+      console.log(overflow.getMonth() + 1, overflow.getDate());
     </script>
   </body>
 </html>

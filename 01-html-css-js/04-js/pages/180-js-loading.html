@@ -6,8 +6,7 @@
     <title>三種狀態的重繪</title>
     <style>
       body { font-family: system-ui, sans-serif; margin: 1.5rem; }
-      button, input { font: inherit; }
-      form { display: flex; gap: 0.5rem; margin: 0.75rem 0; }
+      button { font: inherit; }
       li { margin: 0.35rem 0; }
     </style>
   </head>
@@ -15,9 +14,45 @@
     <p id="status"></p>
     <ul id="list"></ul>
     <button type="button" id="reload">重新載入</button>
-    <!-- TODO: 講義「三種狀態的重繪」。完成寫法見講義。換你試試：把網址改成 data/missing.json。Console 應變成 loading、error、0。畫面文字是讀取失敗。 -->
     <script>
-      // TODO: 講義「三種狀態的重繪」。完成寫法見講義。換你試試：把網址改成 data/missing.json。Console 應變成 loading、error、0。畫面文字是讀取失敗。
+      const state = { status: 'loading', items: [] };
+      const statusEl = document.querySelector('#status');
+      const list = document.querySelector('#list');
+
+      const render = () => {
+        const label = { loading: '載入中', ready: '完成', error: '讀取失敗' };
+        statusEl.textContent = label[state.status];
+        list.replaceChildren();
+        if (state.status !== 'ready') return;
+        state.items.forEach((item) => {
+          const li = document.createElement('li');
+          li.textContent = item.name + ' ' + item.price;
+          list.append(li);
+        });
+      };
+
+      const load = async () => {
+        state.status = 'loading';
+        state.items = [];
+        render();
+        console.log(state.status);
+        try {
+          // 故意等 200 毫秒，讓載入中停留在畫面上
+          await new Promise((resolve) => setTimeout(resolve, 200));
+          const response = await fetch('data/items.json');
+          if (!response.ok) throw new Error(String(response.status));
+          state.items = await response.json();
+          state.status = 'ready';
+        } catch {
+          state.status = 'error';
+        }
+        render();
+        console.log(state.status);
+        console.log(state.items.length);
+      };
+
+      document.querySelector('#reload').addEventListener('click', load);
+      load();
     </script>
   </body>
 </html>

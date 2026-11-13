@@ -5,21 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>文字</title>
     <style>
-      /* TODO: 講義「行內文字」
-         text-align 寫在區塊上。
-         pre-wrap 才留得住行程那段的換行。
-      */
+      body {
+        color: #134e4a;
+        font-family: system-ui, "PingFang TC", "Microsoft JhengHei", sans-serif;
+        line-height: 1.6;
+      }
+
+      .display {
+        font-size: 2rem;
+        color: #f0fdfa;
+        background: #115e59;
+        text-shadow: 0 2px 0 rgb(0 0 0 / 35%); /* 水平 垂直 模糊 顏色 */
+      }
+
+      .center {
+        text-align: center; /* 寫在包著文字的區塊上 */
+      }
+
+      .end {
+        text-align: end;
+      }
+
+      .jump {
+        text-decoration-line: underline;
+        text-decoration-color: #0f766e;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 0.2em;
+      }
+
+      .code {
+        text-transform: uppercase; /* 只改畫面，不改 HTML 裡的字 */
+        letter-spacing: 0.08em;
+      }
+
+      .schedule {
+        white-space: pre-wrap; /* 留下原始碼的換行與空白 */
+        font-family: Menlo, Consolas, monospace;
+        background: #f8fafc;
+      }
     </style>
   </head>
   <body>
-    <!-- TODO: 講義「行內文字」。標題加字影並用淺字深底。一段置中、一段靠行末。連結底線改顏色、2px、離字 0.2em。代碼大寫並加字距。行程用 pre-wrap 留下換行。換你試試：置中改靠行末，底線改 4px。 -->
-    <h1 class="display">洛奇旅行</h1>
+    <h1 class="display">文字樣式</h1>
     <p class="center">這段置中。</p>
     <p class="end">這段靠行末。</p>
-    <p>連結可以只調底線：<a class="jump" href="#top">看行程</a></p>
+    <p>連結可以只調底線：<a class="jump" href="#top">回到頁首</a></p>
     <p class="code">tpe-kt-03</p>
-    <p class="schedule">
-Day 1 台北
+    <p class="schedule">Day 1 台北
 Day 2 京都
 Day 3 濟州</p>
   </body>

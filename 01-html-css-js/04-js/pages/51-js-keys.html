@@ -7,15 +7,18 @@
   </head>
   <body>
     <p>結果在 DevTools 的 Console。</p>
-    <!-- TODO: 講義「靜態方法」。keys、values、entries 寫在 Object 上。換你試試：加上 price 後看 keys 的長度。 -->
     <script>
-      // TODO: 講義「靜態方法」
-      // 印出 Object.keys、Object.values、Object.entries
-      // 印出 tour.keys，確認是 undefined
-      // 印出 typeof tour.toString，確認原型上的方法仍可點出來
-      // 換你試試：加上 price: 12800，印出 keys 的長度
-
       const tour = { id: 1, title: '台北城市漫遊', days: 3 };
+
+      console.log(Object.keys(tour));
+      console.log(Object.values(tour));
+      console.log(Object.entries(tour));
+      console.log(Object.fromEntries(Object.entries(tour)));
+
+      // 物件自己身上沒有 keys，得到 undefined
+      console.log(tour.keys);
+      // toString 來自原型，所以取得到，型別是 function
+      console.log(typeof tour.toString);
     </script>
   </body>
 </html>

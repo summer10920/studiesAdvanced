@@ -6,7 +6,7 @@
 
 ## 開啟
 
-需要 Node.js 24 與 pnpm。
+需要 Node.js 26 與 pnpm。
 
 ```bash
 pnpm install

@@ -5,14 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Flex</title>
     <style>
-      /* TODO: 講義「Flexbox」
-         方向、換行、對齊寫在父層。flex 三個數字寫在項目上。
-         縫用 gap，不要用外距硬湊。
-      */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 1.5rem;
+        color: #134e4a;
+        font-family: system-ui, "PingFang TC", "Microsoft JhengHei", sans-serif;
+      }
+
+      .bar {
+        display: flex;
+        justify-content: space-between; /* 主軸：品牌與連結分到兩端 */
+        align-items: center; /* 交叉軸：垂直置中 */
+        gap: 1rem;
+        padding: 0.75rem 1rem;
+        background: #115e59;
+        color: #f0fdfa;
+      }
+
+      .bar a {
+        color: inherit;
+      }
+
+      .trips {
+        display: flex;
+        flex-wrap: wrap; /* 放不下才換行 */
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .trip {
+        display: flex;
+        flex-direction: column; /* 卡片內改成直排 */
+        flex: 1 1 14rem; /* 可長、可縮、理想寬度 14rem */
+        padding: 1rem;
+        background: #f0fdfa;
+      }
+
+      .trip a {
+        margin-top: auto; /* 吃掉上方剩餘空間，連結被推到底部 */
+      }
     </style>
   </head>
   <body>
-    <!-- TODO: 講義「Flexbox」。頂列 space-between、交叉軸置中。卡片列 wrap、gap，每張 flex: 1 1 14rem，而且自己是直向 Flex，連結用 margin-top: auto 推到底。換你試試：改成 nowrap 再把視窗拉窄。 -->
     <h1>沿一個方向排</h1>
     <header class="bar">
       <strong>洛奇旅行</strong>

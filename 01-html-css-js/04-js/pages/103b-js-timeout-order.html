@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>計時器何時執行</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      console.log('第一行');
+
+      setTimeout(() => {
+        console.log('計時器，延遲 0 毫秒');
+      }, 0);
+
+      console.log('第二行');
+    </script>
+  </body>
+</html>

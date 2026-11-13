@@ -7,9 +7,12 @@
   </head>
   <body>
     <p>結果在 DevTools 的 Console。</p>
-    <!-- TODO: 講義「執行順序」。完成寫法見講義。換你試試：在 C 的後面再加一行同步的 log，文字是 D。B 仍然要在 D 之後。 -->
     <script>
-      // TODO: 講義「執行順序」。完成寫法見講義。換你試試：在 C 的後面再加一行同步的 log，文字是 D。B 仍然要在 D 之後。
+      console.log('A');
+      setTimeout(() => {
+        console.log('B');
+      }, 0);
+      console.log('C');
     </script>
   </body>
 </html>

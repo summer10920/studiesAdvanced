@@ -7,18 +7,41 @@
   </head>
   <body>
     <p>結果在 DevTools 的 Console。</p>
-    <!-- TODO: 講義「箭頭函式」。換你試試：const triple 隱式回傳三倍，印出 triple(5)。 -->
     <script>
-      // TODO: 講義「箭頭函式」
-      // double1 用匿名函式表達式寫 n * 2
-      // double2 拿掉 function、加上 =>，保留大括號與 return
-      // double3 省略大括號與 return（隱式回傳）
-      // sayHi 沒有參數，用 () => 回傳 'Hi'
-      // add 兩個參數，隱式回傳 a + b
-      // forgotten 大括號裡只有 n * 2，沒有 return
-      // pair 用小括號包住物件回傳，欄位 left、right
-      // 印出 double1(4)、double2(4)、double3(4)、sayHi()、add(2, 3)、forgotten(4)、pair(2, 3)
-      // 換你試試：把 const square = function (n) { return n * n; }; 改成最精簡的箭頭函式，印出 square(5)
+      // 1. 匿名函式表達式
+      const double1 = function (n) {
+        return n * 2;
+      };
+
+      // 2. 拿掉 function，加上 =>
+      const double2 = (n) => {
+        return n * 2;
+      };
+
+      // 3. 只有一行 return：省略大括號與 return（隱式回傳）
+      const double3 = (n) => n * 2;
+
+      // 沒有參數：小括號不能省略
+      const sayHi = () => 'Hi';
+
+      // 兩個以上參數：一定要有小括號
+      const add = (a, b) => a + b;
+
+      // 寫了大括號卻忘了 return
+      const forgotten = (n) => {
+        n * 2;
+      };
+
+      // 隱式回傳物件：外面再包一層小括號
+      const pair = (left, right) => ({ left: left, right: right });
+
+      console.log(double1(4));
+      console.log(double2(4));
+      console.log(double3(4));
+      console.log(sayHi());
+      console.log(add(2, 3));
+      console.log(forgotten(4));
+      console.log(pair(2, 3));
     </script>
   </body>
 </html>

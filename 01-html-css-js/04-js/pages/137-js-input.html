@@ -13,12 +13,19 @@
       <option value="藍">藍</option>
     </select>
     <p id="picked"></p>
-    <!-- TODO: 講義「input 與 change」。打字用 input 更新預覽，選單用 change。換你試試：選單也寫進預覽。 -->
     <script>
-      // TODO: 講義「input 與 change」。
-      // #name 的 input 事件把 value 寫進 #preview。
-      // #color 的 change 事件把 value 寫進 #picked。
-      // 換你試試：change 時也把顏色寫進 #preview。
+      const nameInput = document.querySelector('#name');
+      const preview = document.querySelector('#preview');
+      const colorSelect = document.querySelector('#color');
+      const picked = document.querySelector('#picked');
+
+      nameInput.addEventListener('input', () => {
+        preview.textContent = nameInput.value;
+      });
+
+      colorSelect.addEventListener('change', () => {
+        picked.textContent = colorSelect.value;
+      });
     </script>
   </body>
 </html>

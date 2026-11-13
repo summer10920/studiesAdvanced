@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>preventDefault 攔下快捷鍵</title>
+  </head>
+  <body>
+    <p>按 Ctrl + S（Mac 按 ⌘ + S）</p>
+    <p id="output">尚未儲存</p>
+    <script>
+      const output = document.querySelector('#output');
+
+      document.addEventListener('keydown', (event) => {
+        if ((event.ctrlKey || event.metaKey) && event.code === 'KeyS') {
+          event.preventDefault();
+          output.textContent = '已儲存';
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -7,17 +7,34 @@
   </head>
   <body>
     <ul id="list">
-      <li><button type="button" data-id="1">一</button></li>
-      <li><button type="button" data-id="2">二</button></li>
+      <li><button type="button" data-id="1"><span>項目 1</span></button></li>
+      <li><button type="button" data-id="2"><span>項目 2</span></button></li>
     </ul>
-    <p id="status"></p>
-    <!-- TODO: 講義「事件委派」。監聽綁在 #list，用 closest 找 button，並印出 event.target 的標籤名。換你試試：加第三顆按鈕。 -->
+    <button type="button" id="add">新增項目</button>
+    <p id="output"></p>
     <script>
-      // TODO: 講義「事件委派」。
-      // click 綁在 #list。用 closest('button') 取得按鈕。
-      // 沒有按鈕，或按鈕不在清單裡，就 return。
-      // 有的話把 dataset.id 寫進 #status，並印出 event.target.tagName。
-      // 換你試試：HTML 再加一顆 data-id="3"，不要新增監聽。
+      const list = document.querySelector('#list');
+      const add = document.querySelector('#add');
+      const output = document.querySelector('#output');
+      let count = 2;
+
+      list.addEventListener('click', (event) => {
+        const button = event.target.closest('button');
+        if (!button) return;
+        output.textContent = `按了項目 ${button.dataset.id}`;
+        console.log(event.target.tagName, button.dataset.id);
+      });
+
+      add.addEventListener('click', () => {
+        count += 1;
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.dataset.id = count;
+        button.textContent = `項目 ${count}`;
+        const item = document.createElement('li');
+        item.append(button);
+        list.append(item);
+      });
     </script>
   </body>
 </html>

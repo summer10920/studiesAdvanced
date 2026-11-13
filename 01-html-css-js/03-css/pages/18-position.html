@@ -5,28 +5,108 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>定位</title>
     <style>
-      /* TODO: 講義「定位與 z-index」
-         徽章沒有 relative 祖先時會對到整頁。
-         z-index 愈大愈上面。sticky 至少要寫 top。
-      */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 150vh;
+        margin: 1.5rem;
+        color: #134e4a;
+        font-family: system-ui, "PingFang TC", "Microsoft JhengHei", sans-serif;
+      }
+
+      .card {
+        position: relative;
+        width: min(100%, 22rem);
+        padding: 1rem;
+        background: #f0fdfa;
+      }
+
+      .badge {
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+        padding: 0.15rem 0.5rem;
+        background: #9f1239;
+        color: #fff;
+      }
+
+      .pile {
+        position: relative;
+        height: 4.5rem;
+        margin-top: 1rem;
+      }
+
+      .layer {
+        position: absolute;
+        width: 5rem;
+        padding: 0.75rem 0;
+        text-align: center;
+        color: #fff;
+      }
+
+      .low {
+        top: 0.6rem;
+        left: 1.5rem;
+        z-index: 1;
+        background: #0f766e;
+      }
+
+      .high {
+        top: 0;
+        left: 0;
+        z-index: 2;
+        background: #9f1239;
+      }
+
+      .scroller {
+        overflow: auto;
+        height: 7rem;
+        margin-top: 1rem;
+        background: #fff;
+        border: 1px solid #99f6e4;
+      }
+
+      .sticky {
+        position: sticky;
+        top: 0;
+        margin: 0;
+        background: #115e59;
+        color: #f0fdfa;
+      }
+
+      .pin {
+        position: fixed;
+        right: 1rem;
+        bottom: 1rem;
+        margin: 0;
+        padding: 0.4rem 0.7rem;
+        background: #0f766e;
+        color: #fff;
+      }
     </style>
   </head>
   <body>
-    <!-- TODO: 講義「定位與 z-index」。卡片 relative，徽章 absolute 在右上。兩塊色塊重疊，z-index 較大的在上面。白盒 overflow: auto 並做出 sticky。右下角 fixed。換你試試：徽章改到左下。 -->
     <h1>座標跟誰比</h1>
     <article class="card">
       <span class="badge">熱門</span>
-      <h2>京都三日</h2>
+      <h2>卡片標題</h2>
       <p>徽章對準這張卡片，不是整頁。</p>
     </article>
     <div class="pile">
-      <span class="layer low">下層</span>
       <span class="layer high">上層</span>
+      <span class="layer low">下層</span>
     </div>
     <div class="scroller">
       <p class="sticky">這行會黏在這個盒子的上緣</p>
-      <p>往下捲這塊白盒，標題黏住，直到盒子捲完。</p>
-      <p>父層結束後，黏性也結束。</p>
+      <p>第 1 段：往下捲這塊白盒。</p>
+      <p>第 2 段：標題一直黏在上緣。</p>
+      <p>第 3 段：因為白盒就是它的父層。</p>
+      <p>第 4 段：捲到底，標題仍在上緣。</p>
+      <p>第 5 段：最後一段。</p>
     </div>
     <p class="pin">固定在視窗右下</p>
   </body>

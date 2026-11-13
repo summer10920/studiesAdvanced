@@ -7,9 +7,20 @@
   </head>
   <body>
     <p>結果在 DevTools 的 Console。</p>
-    <!-- TODO: 講義「集中錯誤處理」。完成寫法見講義。換你試試：在 catch 裡改印「已處理」，並再 throw error。最後的「繼續」這次不該出現。 -->
     <script>
-      // TODO: 講義「集中錯誤處理」。完成寫法見講義。換你試試：在 catch 裡改印「已處理」，並再 throw error。最後的「繼續」這次不該出現。
+      Promise.resolve()
+        .then(() => {
+          throw new Error('第二步失敗');
+        })
+        .then(() => {
+          console.log('跳過');
+        })
+        .catch((error) => {
+          console.log(error.message);
+        })
+        .then(() => {
+          console.log('繼續');
+        });
     </script>
   </body>
 </html>

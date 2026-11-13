@@ -7,9 +7,20 @@
   </head>
   <body>
     <p>結果在 DevTools 的 Console。</p>
-    <!-- TODO: 講義「存物件要轉 JSON」。完成寫法見講義。換你試試：把 title 改成「寫練習」，其餘流程不變。第二行應變成寫練習。 -->
     <script>
-      // TODO: 講義「存物件要轉 JSON」。完成寫法見講義。換你試試：把 title 改成「寫練習」，其餘流程不變。第二行應變成寫練習。
+      const note = { title: '讀書', done: false };
+
+      localStorage.setItem('note-wrong', note);
+      console.log(localStorage.getItem('note-wrong'));
+
+      localStorage.setItem('note', JSON.stringify(note));
+      const raw = localStorage.getItem('note');
+      const back = JSON.parse(raw);
+      console.log(typeof raw);
+      console.log(back.title);
+
+      localStorage.removeItem('note-wrong');
+      localStorage.removeItem('note');
     </script>
   </body>
 </html>

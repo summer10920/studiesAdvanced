@@ -7,9 +7,13 @@
   </head>
   <body>
     <p>結果在 DevTools 的 Console。</p>
-    <!-- TODO: 講義「JSON.parse 與 JSON.stringify」。完成寫法見講義。換你試試：在 note 加一個欄位 count，值是 2。第一行的文字應含有 count，並多印一行 back.count。 -->
     <script>
-      // TODO: 講義「JSON.parse 與 JSON.stringify」。完成寫法見講義。換你試試：在 note 加一個欄位 count，值是 2。第一行的文字應含有 count，並多印一行 back.count。
+      const note = { title: '讀書', done: false };
+      const raw = JSON.stringify(note);
+      const back = JSON.parse(raw);
+      console.log(raw);
+      console.log(back.title);
+      console.log(back !== note);
     </script>
   </body>
 </html>

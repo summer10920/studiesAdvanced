@@ -7,14 +7,20 @@
   </head>
   <body>
     <p>結果在 DevTools 的 Console。</p>
-    <!-- TODO: 講義「reduce」。起點 0，回呼要回傳累計。換你試試：加上 6800 再加總。 -->
     <script>
-      // TODO: 講義「reduce」
-      // 從 0 把 price 加總。回呼要回傳下一次的累計
-      // 印出總和，並確認原陣列長度仍是 3
-      // 換你試試：再放進 6800，四個數字相加
-
       const prices = [12800, 15900, 42800];
+
+      // 從 0 依序相加，得到 71500
+      const total = prices.reduce((sum, price) => {
+        return sum + price;
+      }, 0);
+      console.log(total);
+
+      // 有起點時，空陣列得到起點 0
+      console.log([].reduce((sum, price) => sum + price, 0));
+
+      // 起點寫成空字串，數字會被接成文字
+      console.log(prices.reduce((sum, price) => sum + price, ''));
     </script>
   </body>
 </html>

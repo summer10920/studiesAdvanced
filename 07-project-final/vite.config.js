@@ -18,7 +18,7 @@ export default defineConfig({
         codeSplitting: {
           groups: [
             {
-              test: /node_modules\/(?:react-dom|react-router|\/react\/)/,
+              test: /node_modules\/(?:react|react-dom|react-router)\//,
               name: 'react',
             },
             {

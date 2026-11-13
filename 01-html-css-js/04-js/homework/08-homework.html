@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>08 回家作業</title>
+    <style>
+      body { font-family: system-ui, sans-serif; margin: 24px; max-width: 720px; }
+      #status { min-height: 1.5em; }
+      #tour-list { padding-left: 20px; }
+    </style>
+  </head>
+  <body>
+    <h1>行程列表</h1>
+    <p>請用 Live Server 開啟，直接雙擊檔案讀不到 JSON。</p>
+    <p>
+      <button id="reload" type="button">重新載入</button>
+      <button id="load-missing" type="button">讀取不存在的檔案</button>
+    </p>
+    <p id="status"></p>
+    <ul id="tour-list"></ul>
+    <p>收藏 <span id="fav-count">0</span> 筆</p>
+
+    <h2>報名</h2>
+    <form id="booking-form">
+      <label>姓名 <input name="name" required /></label>
+      <label>人數 <input name="people" type="number" min="1" max="8" required /></label>
+      <button type="submit">送出</button>
+    </form>
+    <p id="booking-result"></p>
+
+    <script>
+      // 資料在 data/tours.json 與 data/departures.json
+      // 在這裡開始寫
+    </script>
+  </body>
+</html>

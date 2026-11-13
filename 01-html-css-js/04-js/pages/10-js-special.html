@@ -7,13 +7,27 @@
   </head>
   <body>
     <p>結果在 DevTools 的 Console。</p>
-    <!-- TODO: 講義「null、undefined 與 NaN」。換你試試：再檢查 note 是否為 undefined、Number('滿') 是否為 NaN。 -->
     <script>
-      // TODO: 講義「null、undefined 與 NaN」
-      // let guide 不賦值，const backup 為 null，const broken 為 Number('abc')
-      // 印出 guide、backup、backup === null、typeof backup
-      // 印出 broken、typeof broken、Number.isNaN(broken)、broken === broken
-      // 換你試試：note 未賦值是否 === undefined；seats = Number('滿') 是否為 NaN
+      let guide;
+      const backup = null;
+      const broken = Number('abc');
+
+      // 宣告了但還沒給值，讀到 undefined
+      console.log(guide);
+
+      // null 是刻意設的空位，用 === null 判斷
+      console.log(backup);
+      console.log(backup === null);
+      // typeof null 是 object，這是早期留下的結果，不能拿來判斷
+      console.log(typeof backup);
+
+      // 轉成數字失敗得到 NaN，種類仍是 number
+      console.log(broken);
+      console.log(typeof broken);
+
+      // NaN 不等於自己，要用 Number.isNaN 判斷
+      console.log(broken === broken);
+      console.log(Number.isNaN(broken));
     </script>
   </body>
 </html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>真值、假值與短路求值</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      // 假值：全部都是 false
+      console.log(Boolean(false));
+      console.log(Boolean(0));
+      console.log(Boolean(''));
+      console.log(Boolean(null));
+      console.log(Boolean(undefined));
+      console.log(Boolean(NaN));
+
+      // 真值：全部都是 true
+      console.log(Boolean('0'));
+      console.log(Boolean('hello'));
+      console.log(Boolean(-1));
+
+      // 短路求值：交出的是其中一邊的值
+      const name = 'Amy';
+      const empty = '';
+      const count = 0;
+
+      console.log(name && 100);
+      console.log(count && 'has');
+      console.log(name || '訪客');
+      console.log(empty || '訪客');
+
+      // 左邊成立才會執行右邊
+      const isMember = true;
+      const isGuest = false;
+      isMember && console.log('顯示會員價');
+      isGuest && console.log('不會印出');
+    </script>
+  </body>
+</html>

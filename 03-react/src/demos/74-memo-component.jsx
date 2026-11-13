@@ -1,6 +1,9 @@
-import { memo, useState } from 'react';
+// 關閉 React Compiler，才看得到沒有自動記憶化時的行為
+'use no memo';
 
-const StarView = memo(function StarView({ star }) {
+import { useState } from 'react';
+
+function StarView({ star }) {
   console.log('星星列渲染');
 
   return (
@@ -12,7 +15,7 @@ const StarView = memo(function StarView({ star }) {
       ))}
     </div>
   );
-});
+}
 
 export default function MemoComponentDemo() {
   const [text, setText] = useState('');

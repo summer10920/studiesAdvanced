@@ -140,7 +140,7 @@ export default function AdminToursPage() {
         onClose={() => setDeletingTour(null)}
         onConfirm={() =>
           remove.submit(
-            { intent: 'delete', id: deletingTour.id },
+            { intent: 'delete', id: deletingTour?.id },
             { method: 'post' },
           )
         }

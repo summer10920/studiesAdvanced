@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>日期計算</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const start = new Date(2026, 7, 1);
+      const end = new Date(2026, 7, 10);
+      const ms = end - start;
+      console.log(ms);
+      console.log(ms / (1000 * 60 * 60 * 24));
+
+      function daysBetween(from, to) {
+        return Math.round((to - from) / (1000 * 60 * 60 * 24));
+      }
+
+      console.log(daysBetween(new Date(2026, 0, 1), new Date(2026, 11, 31)));
+
+      const deadline = new Date(2026, 7, 1);
+      deadline.setDate(deadline.getDate() + 30);
+      console.log(deadline.getMonth() + 1, deadline.getDate());
+      console.log(new Date(2026, 7, 1) < new Date(2026, 7, 2));
+    </script>
+  </body>
+</html>

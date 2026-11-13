@@ -9,7 +9,7 @@ export default function CountDemo() {
       <button
         type="button"
         className="rounded bg-teal-800 px-3 py-1 text-white"
-        onClick={() => setCount((value) => value + 1)}
+        onClick={() => setCount(count + 1)}
       >
         加一
       </button>

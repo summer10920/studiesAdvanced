@@ -4,7 +4,8 @@ import { demos, topics } from '../data/catalog.js';
 /**
  * 左側目錄。topics 決定分組順序，同一主題的示範排在該組下面，篩完沒有項目的主題不畫。
  * NavLink 的 isActive 為真時，這一則用深色底標出目前頁。
- * 輸入框把關鍵字寫進查詢 q；空字串會清掉查詢。連到單則時帶上同一個 q，換頁後篩選還在。
+ * 輸入框把關鍵字寫進查詢 q；空字串會清掉查詢，replace 讓每次輸入取代同一筆歷史紀錄。
+ * 連到單則時帶上同一個 q，換頁後篩選還在。
  */
 export default function DemoList() {
   const [params, setParams] = useSearchParams();
@@ -19,7 +20,7 @@ export default function DemoList() {
 
   const onSearch = (event) => {
     const next = event.target.value;
-    setParams(next ? { q: next } : {});
+    setParams(next ? { q: next } : {}, { replace: true });
   };
 
   return (

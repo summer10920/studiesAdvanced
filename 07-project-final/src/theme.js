@@ -230,6 +230,7 @@ const theme = createTheme({
         icon: ms('star', { style: { fontVariationSettings: "'FILL' 1" } }),
         emptyIcon: ms('star'),
       },
+      styleOverrides: { iconFilled: { color: tokens.action } },
     },
     MuiStepLabel: {
       defaultProps: { slots: { stepIcon: StepIcon } },

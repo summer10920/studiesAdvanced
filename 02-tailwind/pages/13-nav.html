@@ -5,27 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>導覽列</title>
   </head>
-  <body>
-    <load src="../partials/nav.html" p13="page" />
-    <!-- TODO: 講義「選讀：導覽列」。只做一套 nav。
-         checkbox 加 peer 與 sr-only，id 對到 label 的 for。nav 必須寫在 input 後面。
-         預設 hidden；勾選後 peer-checked:flex，直向、絕對定位蓋住內容。
-         md 以上改回橫排並顯示，選單標籤用 md:hidden 收起。視窗拉到約 390px 再拉過 768px 檢查。 -->
-    <header>
-      <div>
-        <a href="/">洛奇旅行</a>
-        <input id="nav-toggle" type="checkbox" />
-        <label for="nav-toggle">選單</label>
-        <nav>
-          <a href="#home">首頁</a>
-          <a href="#tours">行程</a>
-          <a href="#about">關於</a>
+  <body class="bg-stone-50 text-stone-900">
+    <header class="relative bg-teal-800 text-white">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+        <a class="text-lg font-bold" href="/">洛奇旅行</a>
+        <input id="nav-toggle" class="peer sr-only" type="checkbox" />
+        <label
+          class="cursor-pointer rounded border border-white/40 px-3 py-1 peer-focus-visible:outline-2 md:hidden"
+          for="nav-toggle"
+          >選單</label
+        >
+        <nav
+          class="absolute inset-x-0 top-full hidden flex-col gap-3 bg-teal-800 px-4 py-4 peer-checked:flex md:static md:flex md:flex-row md:gap-6 md:bg-transparent md:p-0"
+        >
+          <a class="hover:underline" href="#home">首頁</a>
+          <a class="hover:underline" href="#tours">行程</a>
+          <a class="hover:underline" href="#about">關於</a>
         </nav>
       </div>
     </header>
-    <main>
-      <h1>把視窗拉窄再拉寬</h1>
-      <p>窄的時候按「選單」。寬到 md 之後，連結回到橫排，按鈕隱藏。</p>
+    <main class="mx-auto max-w-6xl px-4 py-8">
+      <h1 class="text-2xl font-bold">把視窗拉窄再拉寬</h1>
+      <p class="mt-3 max-w-prose text-stone-600">窄的時候按「選單」。寬到 md 之後，連結回到橫排，按鈕隱藏。</p>
     </main>
     <script type="module" src="/src/main.js"></script>
   </body>

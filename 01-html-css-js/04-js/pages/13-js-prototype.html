@@ -7,17 +7,27 @@
   </head>
   <body>
     <p>結果在 DevTools 的 Console。</p>
-    <!-- TODO: 講義「原型」。展開 [[Prototype]]，並對照 MDN 的 String。換你試試：JS 轉小寫後，字面值仍是 JS。 -->
     <script>
-      // TODO: 講義「原型」
-      // word 為 'abc'，印出 toUpperCase 的結果，以及 word 仍是 'abc'
-      // 確認 word.toUpperCase 與 String.prototype.toUpperCase 是同一支函式
-      // 印出 word.length
-      // 數字 42 呼叫 toFixed(0)，並確認它等於 Number.prototype.toFixed
-      // missing 為 null，用 ?. 呼叫 toUpperCase，得到 undefined
-      // 直接對 null 點呼叫會是 TypeError，那一行保持註解
-      // console.dir(word) 與 console.log(String.prototype)，在 Console 展開 [[Prototype]]
-      // 換你試試：印出 'JS'.toLowerCase()，以及字面值仍是 'JS'
+      const word = 'abc';
+
+      // 得到 ABC，word 仍是 abc；這支函式就是字串原型上的那一支
+      console.log(word.toUpperCase());
+      console.log(word);
+      console.log(word.toUpperCase === String.prototype.toUpperCase);
+      // length 是屬性，讀到 3，不用括號
+      console.log(word.length);
+
+      const amount = 42;
+      // toFixed(0) 印出 42，回傳的是字串，而且等於數字原型上的函式
+      console.log(amount.toFixed(0));
+      console.log(amount.toFixed === Number.prototype.toFixed);
+
+      // null 沒有原型，拿掉下一行註解會丟出 TypeError
+      const missing = null;
+      // console.log(missing.toUpperCase());
+
+      // 在 Console 展開這一行，對照字串原型上的方法名稱
+      console.log(String.prototype);
     </script>
   </body>
 </html>

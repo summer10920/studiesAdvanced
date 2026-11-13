@@ -7,9 +7,22 @@
   </head>
   <body>
     <p>結果在 DevTools 的 Console。</p>
-    <!-- TODO: 講義「三種狀態」。完成寫法見講義。換你試試：把第一個 resolve 的文字改成「好了」。同步結束仍要在它前面。 -->
     <script>
-      // TODO: 講義「三種狀態」。完成寫法見講義。換你試試：把第一個 resolve 的文字改成「好了」。同步結束仍要在它前面。
+      new Promise((resolve) => {
+        console.log('執行器');
+        resolve('完成');
+      }).then((value) => {
+        console.log(value);
+      });
+      console.log('同步結束');
+
+      new Promise((resolve, reject) => {
+        resolve('第一次');
+        resolve('第二次');
+        reject(new Error('太晚'));
+      }).then((value) => {
+        console.log(value);
+      });
     </script>
   </body>
 </html>

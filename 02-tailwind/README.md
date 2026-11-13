@@ -1,16 +1,8 @@
 # Tailwind
 
-對應講義 [Tailwind：utilities、RWD、深色模式](https://summer10920.github.io)（`lokiTech-15day-04-tailwind`）。Vite + Tailwind CSS v4（`@tailwindcss/vite`），純 JavaScript，沒有 TypeScript。頁面不用寫 JavaScript，手動深色那一頁除外。
+對應講義 [Tailwind：utilities、RWD、深色模式](https://summer10920.github.io)（`lokiTech-15day-04-tailwind`）。Vite + Tailwind CSS v4（`@tailwindcss/vite`），純 JavaScript，沒有 TypeScript。`pages/` 裡每一頁就是講義裡對應 demo 的完整檔案，每一頁都是獨立頁面，直接開啟就能看。每份講義結尾的回家作業，起始檔是 `pages/homework-04.html`。
 
-`pages/` 裡每一份是該節的起點，不是完成版。依 HTML 註解裡的 TODO 自己補 class。品牌色、自訂斷點與版心寫在 `src/style.css`。手動深色只動 `src/dark-manual.css` 與 `src/dark-toggle.js`。
-
-選單只寫在 `partials/nav.html`。`index.html` 與每一份 `pages/*.html` 的 `body` 開頭各有一行 `<load>`，`vite-plugin-html-inject` 在開發與打包時把同一份選單嵌進去。這一行保持自閉合（`<load ... />`）。目錄頁的路徑是 `./partials/nav.html`，屬性是 `home="page"`。`pages/` 裡路徑是 `../partials/nav.html`，屬性是 `p01="page"` 到 `p28="page"`，號碼對到檔名。多步驟的完成版是同名 `.html.final`，Vite 不會把它當入口。選單裡的 `{=$home}`、`{=$p01}` 會被換成 `page`，沒指定的換成 `false`，所以只有目前這一頁的連結帶 `aria-current="page"`。
-
-選單是貼在上方的頂欄（`sticky top-0`）。同一批連結寫兩次：寬螢幕那份是 `nav`（`hidden md:flex`，橫排並換行），窄螢幕那份放在 `<details>` 與 `<summary>` 裡（`md:hidden`），沒有另寫腳本。關掉的 `details` 不會把桌面連結留在畫面上。目前頁用 `aria-[current=page]:`。深色用 `dark:`。內層用 `container`，左右留白用 `px-4` 與 `sm:px-6`。`@utility container` 仍是 `src/style.css` 的 TODO，補上之後這列會跟著收到版心。
-
-`pages/13-nav.html` 要練的是那一頁自己的導覽（checkbox 與 `peer`），跟這份全站選單分開，兩份都留著。
-
-需要 Node.js 24 與 pnpm。在這個資料夾：
+需要 Node.js 26 與 pnpm。在這個資料夾：
 
 ```bash
 pnpm install
@@ -25,42 +17,36 @@ pnpm dev
 | `pnpm build` | 建置到 `dist/` |
 | `pnpm preview` | 預覽建置結果 |
 
-| 檔案 | 講義小節 |
-| --- | --- |
-| `partials/nav.html` | 全站選單（各頁共用） |
-| `pages/01-compare.html` | 延伸：傳統 CSS 與 utility |
-| `pages/02-naming.html` | 延伸：命名 |
-| `pages/03-size.html` | 延伸：只輸出少數 class |
-| `pages/04-scan.html` | 只輸出用到的 |
-| `pages/05-palette.html` | 延伸：色票（公式表 color） |
-| `pages/06-opacity.html` | 延伸：透明度 |
-| `pages/07-paint.html` | 延伸：文字、背景、邊框 |
-| `pages/08-theme.html` | 用 @theme 自訂品牌色 |
-| `pages/09-dark-system.html` | 預設跟著系統 |
-| `pages/10-dark-toggle.html` | 選讀：手動切換深色 |
-| `pages/11-button.html` | 按鈕 |
-| `pages/12-card.html` | 卡片 |
-| `pages/13-nav.html` | 選讀：導覽列 |
-| `pages/14-form.html` | 延伸：表單欄位 |
-| `pages/15-scale.html` | 延伸：間距、尺寸、字體 |
-| `pages/16-layout.html` | 卡片牆 |
-| `pages/17-states.html` | 選讀：group 與 peer |
-| `pages/18-formula.html` | 延伸：讀一條 class |
-| `pages/19-mobile.html` | 手機優先 |
-| `pages/20-breakpoints.html` | 預設斷點 |
-| `pages/21-container.html` | 版心與 max-w-* |
-| `pages/22-custom-breakpoint.html` | 用 @theme 自訂斷點 |
-| `pages/23-container-query.html` | 容器查詢（`.html.final` 含具名容器） |
-| `pages/24-apply.html` | @apply |
-| `pages/25-layer.html` | 選讀：@layer 與 @utility |
-| `pages/26-arbitrary.html` | 任意值（`!` 為選讀） |
-| `pages/27-max.html` | max-* 範圍變體 |
-| `pages/28-sidebar.html` | 側欄（`.html.final` 為完成版） |
-| `src/style.css` | `@import "tailwindcss"`、`@theme`、`@utility container` |
-| `src/apply.css` | `@apply`（`.btn-solid`） |
-| `src/layer.css` | `@layer components` 與 `@utility chip` |
-| `src/dark-manual.css` | `@custom-variant dark` |
-| `src/dark-toggle.js` | 切換按鈕 |
-| `vite.config.js` | HTML 嵌入、Tailwind 插件、自動收集 `pages/*.html` 入口 |
+- `pages/01-compare.html`：utility-first 是什麼
+- `pages/02-naming.html`：屬性與值
+- `pages/05-palette.html`：色階與透明度
+- `pages/15-scale.html`：間距單位
+- `pages/29-preflight.html`：選讀：Preflight 重置了什麼
+- `pages/04-scan.html`：只輸出用到的 class
+- `pages/30-play-cdn.html`：選讀：Play CDN
+- `pages/11-button.html`：按鈕
+- `pages/12-card.html`：卡片
+- `pages/17-states.html`：hover、focus、active
+- `pages/17b-group-peer.html`：選讀：group 與 peer
+- `pages/09-dark-system.html`：跟著系統
+- `pages/10-dark-toggle.html`：選讀：手動切換
+- `pages/19-mobile.html`：手機優先
+- `pages/20-breakpoints.html`：預設斷點
+- `pages/27-max.html`：max-* 範圍變體
+- `pages/22-custom-breakpoint.html`：用 @theme 自訂斷點
+- `pages/16-layout.html`：卡片牆
+- `pages/21-container.html`：版心與 max-w-*
+- `pages/13-nav.html`：選讀：導覽列
+- `pages/23-container-query.html`：未具名容器
+- `pages/23b-container-named.html`：具名容器
+- `pages/28-sidebar.html`：側欄實作
+- `pages/08-theme.html`：品牌色
+- `pages/08b-theme-spacing-font.html`：間距與字型
+- `pages/24-apply.html`：@apply
+- `pages/26-arbitrary.html`：任意值與 ! 覆寫
+- `pages/26b-important.html`：任意值與 ! 覆寫
+- `pages/25-layer.html`：選讀：@layer 與 @utility
 
-`src/style.css` 以 `@import "tailwindcss"` 開頭。class 寫在 HTML 上。不要裝 Bootstrap，也不要另寫 `tailwind.config.js`。圖片用 [picsum.photos](https://picsum.photos/)，不要把圖檔放進倉庫。`node_modules/` 不要 commit。
+`src/` 放各頁用到的樣式與腳本：`style.css`（`@import "tailwindcss"`、品牌色與間距字型）、`breakpoints.css`、`container.css`、`apply.css`、`layer.css`、`dark-manual.css` 與 `dark-toggle.js`。`vite.config.js` 會自動收集 `pages/*.html` 當作建置入口。
+
+class 寫在 HTML 上。不要裝 Bootstrap，也不要另寫 `tailwind.config.js`。

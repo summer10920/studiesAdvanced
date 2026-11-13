@@ -4,22 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>版心</title>
+    <link rel="stylesheet" href="/src/container.css" />
   </head>
-  <body>
-    <load src="../partials/nav.html" p21="page" />
-    <!-- TODO: 講義「版心與 max-w-*」。先在 src/style.css 寫好 @utility container。
-         上半那塊加上 class container。下半不要用 container 這個名字，改成 mx-auto、max-w-6xl、px-4，較寬時再加左右留白。
-         下半最後一段再用 max-w-3xl，只縮那一段說明。頁面外圍用灰底，兩塊版心用不同底色，才看得出寬度停在哪裡。 -->
-    <div>
-      <p>class="container"</p>
-      <h1>白底停在版心裡，外面仍是灰</h1>
-      <p>這條 container 在 src/style.css，用 @utility 寫成置中、左右留白、最大寬度跟著斷點。</p>
+  <body class="bg-stone-200 text-stone-900">
+    <div class="container bg-white py-8">
+      <p class="text-xs font-medium text-teal-700">class="container"</p>
+      <h1 class="mt-2 text-2xl font-bold">白底停在版心裡，外面仍是灰</h1>
+      <p class="mt-3">這個 container 內建各斷點的最大寬度，src/container.css 再補上置中與左右留白。</p>
     </div>
-    <div>
-      <p>mx-auto max-w-6xl px-4</p>
-      <h2>不取名字時，三個 class 做同一件事</h2>
-      <p>max-w-6xl 是 72rem，管的是整條版心。這段說明再用 max-w-3xl 收到 48rem。</p>
+    <div class="mx-auto mt-6 max-w-6xl bg-teal-50 px-4 py-8 sm:px-6">
+      <p class="text-xs font-medium text-teal-800">mx-auto max-w-6xl px-4</p>
+      <h2 class="mt-2 text-xl font-semibold">不取名字時，三個 class 做同一件事</h2>
+      <p class="mt-3 max-w-3xl">max-w-6xl 是 72rem，管的是整條版心。這段說明再用 max-w-3xl 收到 48rem。</p>
     </div>
-    <script type="module" src="/src/main.js"></script>
   </body>
 </html>

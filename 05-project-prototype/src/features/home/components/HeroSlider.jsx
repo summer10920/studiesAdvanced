@@ -34,7 +34,7 @@ export default function HeroSlider({ slides }) {
           className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 motion-reduce:transition-none ${itemIndex === index ? 'opacity-100' : 'opacity-0'}`}
         />
       ))}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/45 to-ink/25" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/55 to-ink/35" />
       <IconButton
         aria-label="上一張"
         onClick={() => go(index - 1)}

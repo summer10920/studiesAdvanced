@@ -5,21 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>overflow</title>
     <style>
-      /* TODO: 講義「overflow」
-         單行省略三個屬性要同時在。
-         盒子要先有寬與高，溢出才看得清楚。
-      */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 1.5rem;
+        color: #134e4a;
+        font-family: system-ui, "PingFang TC", "Microsoft JhengHei", sans-serif;
+      }
+
+      .box {
+        width: min(100%, 18rem);
+        height: 4rem;
+        margin-bottom: 1rem;
+        background: #f0fdfa;
+      }
+
+      .box p {
+        margin: 0;
+      }
+
+      .clip {
+        overflow: hidden; /* 超出的裁掉，沒有捲軸 */
+      }
+
+      .scroll {
+        overflow: auto; /* 裝不下才出現捲軸 */
+      }
+
+      .one-line {
+        width: min(100%, 18rem);
+        white-space: nowrap; /* 不准換行 */
+        overflow: hidden; /* 超出的裁掉 */
+        text-overflow: ellipsis; /* 尾端改成省略號 */
+      }
     </style>
   </head>
   <body>
-    <!-- TODO: 講義「overflow」。兩塊同高，一塊 hidden、一塊 auto。最下面一行 nowrap + hidden + ellipsis。換你試試：第一塊改成 auto。 -->
     <h1>超出盒子時</h1>
     <div class="box clip">
-      <p>這段比盒子高。hidden 會裁掉下面的句子，不出現捲軸。洛奇旅行的說明在這裡被切掉。</p>
+      <p>這段文字比盒子高。overflow 設成 hidden 時，超出盒子的部分會被裁掉，也不會出現捲軸，所以讀不到後面的句子。</p>
     </div>
     <div class="box scroll">
-      <p>這段同樣比較高。auto 在裝不下時出現捲軸，句子可以捲出來讀完。洛奇旅行的說明在這裡還在。</p>
+      <p>這段文字同樣比盒子高。overflow 設成 auto 時，只在裝不下才出現捲軸，可以捲動把後面的句子讀完。</p>
     </div>
-    <p class="one-line">這一行很長時不要換行，尾端改成省略號。京都、大阪、濟州、花蓮都排在同一行。</p>
+    <p class="one-line">這一行很長，不准換行時超出的部分會被裁掉，尾端改成省略號。</p>
   </body>
 </html>

@@ -12,13 +12,25 @@
   <body>
     <ul id="list"></ul>
     <button type="button" id="add">加一筆</button>
-    <!-- TODO: 講義「狀態與重繪」。state.items 經 render 畫進清單。換你試試：新項目改成「橡皮擦」。 -->
     <script>
-      // TODO: 講義「狀態與重繪」。
-      // state.items 一開始是「筆」與「紙」。
-      // render 用 replaceChildren 清空後，依陣列建立 li。
-      // 點 #add 時 push「新項目」再 render。最後呼叫一次 render。
-      // 換你試試：push 的文字改成「橡皮擦」。
+      const state = { items: ['筆', '紙'] };
+      const list = document.querySelector('#list');
+
+      const render = () => {
+        list.replaceChildren();
+        state.items.forEach((name) => {
+          const li = document.createElement('li');
+          li.textContent = name;
+          list.append(li);
+        });
+      };
+
+      document.querySelector('#add').addEventListener('click', () => {
+        state.items.push(`項目 ${state.items.length + 1}`);
+        render();
+      });
+
+      render();
     </script>
   </body>
 </html>

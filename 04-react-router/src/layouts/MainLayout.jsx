@@ -3,7 +3,7 @@ import DemoList from '../pages/DemoList.jsx';
 
 /**
  * 全站共用的外框。左側是目錄，右側 Outlet 依網址換主區。
- * 標題連回首頁並加上 end，避免停在單則筆記時首頁仍顯示為使用中。
+ * 站名連回 /，NavLink 只在停在總覽時才標成使用中。
  */
 export default function MainLayout() {
   return (
@@ -12,7 +12,6 @@ export default function MainLayout() {
         <div className="px-4 py-4 md:sticky md:top-0 md:max-h-screen md:overflow-y-auto">
           <NavLink
             to="/"
-            end
             className={({ isActive }) =>
               isActive ? 'font-semibold text-teal-800' : 'font-semibold'
             }

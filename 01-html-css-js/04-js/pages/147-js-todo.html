@@ -6,26 +6,15 @@
     <title>待辦清單</title>
     <style>
       body { font-family: system-ui, sans-serif; margin: 1.5rem; }
-      form { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
-      input, button { font: inherit; }
+      button { font: inherit; }
       li { margin: 0.4rem 0; }
       li.done span { text-decoration: line-through; }
       li button { margin-left: 0.35rem; }
     </style>
   </head>
   <body>
-    <form id="editor" novalidate>
-      <input id="title" name="title" required />
-      <button type="submit">新增</button>
-    </form>
     <ul id="list"></ul>
-    <!-- TODO: 講義「待辦清單」。第一步只依 state 畫清單。第二步送出時新增、點擊時切換或刪除。完成寫法見 147-js-todo.html.final。換你試試：空白標題不要新增。 -->
     <script>
-      // 第一步：用 state.items 畫出清單。
-      // 第二步：送出表單時新增，點清單時切換完成或刪除。
-      // 完成寫法見 147-js-todo.html.final。
-      // 換你試試：去掉空白後若標題是空的，不要新增。
-
       const state = {
         nextId: 3,
         items: [

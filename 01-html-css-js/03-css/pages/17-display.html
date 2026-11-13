@@ -5,32 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>display</title>
     <style>
-      /* TODO: 講義「display」
-         none 不佔位，hidden 佔位，opacity 0 仍點得到。
-         圖片位址沿用上面的 picsum，不要下載圖檔。
-      */
+      body {
+        margin: 1.5rem;
+        color: #134e4a;
+        font-family: system-ui, "PingFang TC", "Microsoft JhengHei", sans-serif;
+      }
+
+      .block {
+        margin-bottom: 0.5rem;
+        padding: 0.4rem 0.75rem;
+        background: #f0fdfa;
+      }
+
+      .item {
+        padding: 0.35rem 0.5rem;
+        border: 2px solid #0f766e;
+        background: #ccfbf1;
+      }
+
+      .day {
+        display: inline-block;
+        width: 4.5rem;
+        padding: 0.35rem 0;
+        background: #115e59;
+        color: #f0fdfa;
+        text-align: center;
+      }
     </style>
   </head>
   <body>
-    <!-- TODO: 講義「display」。做 block、行內的邊框、inline-block 的三日標籤、none / hidden / opacity 0 三列，以及圖片改 block 去掉底縫。換你試試：第一列的 2 改成 visibility: hidden。 -->
     <h1>盒子怎麼參加排版</h1>
     <h2>block</h2>
     <div class="block">第一張獨佔一行。</div>
     <div class="block">第二張從下一行開始。</div>
     <h2>inline</h2>
-    <p class="line">行程有<span class="item">甲</span>與<span class="item">乙</span>兩站。</p>
+    <p>這句話裡有<span class="item">甲</span>與<span class="item">乙</span>兩個行內元素。</p>
     <h2>inline-block</h2>
     <p>
-      <span class="day">三日</span>
-      <span class="day">四日</span>
-      <span class="day">五日</span>
+      <span class="day">一</span>
+      <span class="day">二</span>
+      <span class="day">三</span>
     </p>
-    <h2>三種隱藏</h2>
-    <p><span class="cell">1</span><span class="cell gone">2</span><span class="cell">3</span></p>
-    <p><span class="cell">1</span><span class="cell hold">2</span><span class="cell">3</span></p>
-    <p><span class="cell">1</span><span class="cell ghost">2</span><span class="cell">3</span></p>
-    <h2>圖片底縫</h2>
-    <p><img class="photo" alt="" src="https://picsum.photos/id/1015/120/80" /> 行內圖片底下有一條縫。</p>
-    <p><img class="photo block" alt="" src="https://picsum.photos/id/1015/120/80" /> 改成 block 就沒有縫。</p>
   </body>
 </html>

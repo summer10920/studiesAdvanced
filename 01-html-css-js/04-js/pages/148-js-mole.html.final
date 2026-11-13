@@ -31,8 +31,15 @@
       const STAY_MS = 800;
       const SPAWN_MS = 700;
 
+      // 九個洞，每個洞一個狀態：idle、up 或 hit
+      const createHoles = () => [
+        'idle', 'idle', 'idle',
+        'idle', 'idle', 'idle',
+        'idle', 'idle', 'idle',
+      ];
+
       const state = {
-        holes: ['idle', 'idle', 'idle', 'idle', 'idle', 'idle', 'idle', 'idle', 'idle'],
+        holes: createHoles(),
         score: 0,
         timeLeft: 20,
         playing: false,
@@ -91,7 +98,7 @@
       const end = () => {
         state.playing = false;
         clearTimers();
-        state.holes = ['idle', 'idle', 'idle', 'idle', 'idle', 'idle', 'idle', 'idle', 'idle'];
+        state.holes = createHoles();
         render();
       };
 
@@ -111,7 +118,7 @@
         state.score = 0;
         state.timeLeft = 20;
         state.playing = true;
-        state.holes = ['idle', 'idle', 'idle', 'idle', 'idle', 'idle', 'idle', 'idle', 'idle'];
+        state.holes = createHoles();
         state.clockId = setInterval(tick, 1000);
         state.spawnId = setInterval(spawn, SPAWN_MS);
         spawn();
@@ -119,7 +126,7 @@
 
       document.querySelector('#board').addEventListener('click', (event) => {
         const hole = event.target.closest('.hole');
-        if (!hole || !event.currentTarget.contains(hole)) return;
+        if (!hole) return;
         hit(Number(hole.dataset.index));
       });
 

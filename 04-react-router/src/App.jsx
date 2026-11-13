@@ -1,4 +1,5 @@
-import { createBrowserRouter, RouterProvider } from 'react-router';
+import { createBrowserRouter } from 'react-router';
+import { RouterProvider } from 'react-router/dom';
 import MainLayout from './layouts/MainLayout.jsx';
 import DemoPage from './pages/DemoPage.jsx';
 import Home from './pages/Home.jsx';
@@ -32,7 +33,7 @@ import FetcherKeyDemo, {
 
 /**
  * 筆記網站的路由表。版型包住首頁、單則筆記、位置頁與找不到的頁面。
- * 子路由寫在父路由的 children 裡，才會畫進版型的 Outlet。星號放在最後，更具體的路徑先對上。
+ * 子路由寫在父路由的 children 裡，才會畫進版型的 Outlet。路由器依具體程度比對，與寫的順序無關。
  */
 const basename = import.meta.env.BASE_URL.replace(/\/$/, '');
 

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>報名京都三日遊</title>
+  </head>
+  <body>
+    <!-- aria-label 替導覽取名；aria-current 標出目前所在的頁面 -->
+    <nav aria-label="主選單">
+      <a href="11g-a11y-aria.html" aria-current="page">報名</a>
+      <a href="05-links.html">集合方式</a>
+    </nav>
+    <h1>報名京都三日遊</h1>
+    <p>
+      <!-- 有文字的按鈕：名字就是文字，不必再加 ARIA -->
+      <button type="button">試算人數</button>
+      <!-- 只有符號的按鈕：沒有可讀的文字，才用 aria-label 補名字 -->
+      <button type="button" aria-label="關閉">×</button>
+    </p>
+  </body>
+</html>

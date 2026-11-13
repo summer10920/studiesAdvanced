@@ -5,18 +5,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>盒子模型</title>
     <style>
-      /* TODO: 講義「盒子模型」
-         width 在 border-box 時含內距與邊框。
-         左右 margin: auto 才會水平置中。outline 不佔寬高。
-      */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 1.5rem;
+        color: #134e4a;
+        font-family: system-ui, "PingFang TC", "Microsoft JhengHei", sans-serif;
+        line-height: 1.6;
+      }
+
+      .stage {
+        background: #ccfbf1;
+      }
+
+      .card {
+        width: min(100%, 22rem);
+        margin: 0 auto;
+        padding: 1rem;
+        border: 6px solid #0f766e;
+        border-radius: 0.75rem;
+        background: #f0fdfa;
+      }
+
+      .content {
+        margin: 0;
+        background: #fecdd3;
+      }
+
+      .track {
+        width: 16rem;
+        max-width: 100%;
+        margin-bottom: 0.75rem;
+        border: 1px dashed #0f766e;
+      }
+
+      .kid {
+        width: 100%;
+        padding: 0.5rem 1rem;
+        border: 4px solid #115e59;
+        background: #f0fdfa;
+      }
+
+      .content-box .kid {
+        box-sizing: content-box;
+      }
+
+      .collapse p {
+        margin-top: 0.5rem;
+        margin-bottom: 2rem;
+        background: #f0fdfa;
+      }
+
+      .collapse p + p {
+        margin-bottom: 0;
+      }
+
+      .go {
+        padding: 0.4rem 0.9rem;
+        border-radius: 0.4rem;
+        background: #115e59;
+        color: #f0fdfa;
+      }
+
+      .go:focus-visible {
+        outline: 3px solid #9f1239;
+        outline-offset: 3px;
+      }
     </style>
   </head>
   <body>
-    <!-- TODO: 講義「盒子模型」。開頭把 box-sizing 改成 border-box，偽元素也要。卡片含寬度、auto 外距、內距、粗框、圓角。兩條軌道對照 border-box 與 content-box。垂直外距合併。連結用 focus-visible 的 outline。換你試試：第二條也改回 border-box，圓角改 1.5rem。 -->
     <h1>盒子四層</h1>
     <div class="stage">
       <article class="card">
-        <p class="content">淺藍是內容。卡片的淺綠含內距。粗框是邊框。框外淺青是外距。</p>
+        <p class="content">粉紅是內容，外面一圈是內距，粗框是邊框。</p>
       </article>
     </div>
     <h2>兩種算法</h2>
@@ -25,8 +90,9 @@
     <h2>垂直外距合併</h2>
     <div class="collapse">
       <p>這段下外距是 2rem。</p>
-      <p>上外距只有 0.5rem。中間是較大的 2rem。</p>
+      <p>這段上外距只有 0.5rem，兩段之間取較大的 2rem。</p>
     </div>
-    <p><a class="go" href="#top">看行程</a>（用 Tab 移來，焦點框不改變按鈕尺寸）</p>
+    <h2>outline</h2>
+    <p><a class="go" href="#top">用 Tab 移到這裡</a></p>
   </body>
 </html>

@@ -7,9 +7,27 @@
   </head>
   <body>
     <p>結果在 DevTools 的 Console。</p>
-    <!-- TODO: 講義「Promise.race 與 any」。完成寫法見講義。換你試試：把 race 的「快」改成 10 毫秒就失敗。catch 改印「拒絕:」接上 error.message。另外兩組不要改。 -->
     <script>
-      // TODO: 講義「Promise.race 與 any」。完成寫法見講義。換你試試：把 race 的「快」改成 10 毫秒就失敗。catch 改印「拒絕:」接上 error.message。另外兩組不要改。
+      const task = (name, ms, fail) => {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            if (fail) reject(new Error(name));
+            else resolve(name);
+          }, ms);
+        });
+      };
+
+      Promise.race([task('慢', 30, false), task('快', 10, false)]).then((name) => {
+        console.log(name);
+      });
+
+      Promise.any([task('失敗', 5, true), task('成功', 15, false)]).then((name) => {
+        console.log(name);
+      });
+
+      Promise.any([task('甲', 5, true), task('乙', 10, true)]).catch((error) => {
+        console.log(error.name);
+      });
     </script>
   </body>
 </html>

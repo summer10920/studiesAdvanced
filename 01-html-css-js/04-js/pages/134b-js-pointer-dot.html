@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>用方塊內座標放置圓點</title>
+    <style>
+      #pad { position: relative; height: 160px; margin: 40px; background: #ccfbf1; }
+      #dot { position: absolute; left: 0; top: 0; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 50%; background: #0f766e; pointer-events: none; }
+    </style>
+  </head>
+  <body>
+    <p>點一下方塊，圓點會移到點擊的位置</p>
+    <div id="pad"><span id="dot"></span></div>
+    <script>
+      const pad = document.querySelector('#pad');
+      const dot = document.querySelector('#dot');
+
+      pad.addEventListener('click', (event) => {
+        dot.style.left = `${event.offsetX}px`;
+        dot.style.top = `${event.offsetY}px`;
+      });
+    </script>
+  </body>
+</html>

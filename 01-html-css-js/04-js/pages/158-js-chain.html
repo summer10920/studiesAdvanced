@@ -7,9 +7,21 @@
   </head>
   <body>
     <p>結果在 DevTools 的 Console。</p>
-    <!-- TODO: 講義「鏈式傳值」。完成寫法見講義。換你試試：第一環改成加 10。最後應印出 12。wait 的延遲不要改。 -->
     <script>
-      // TODO: 講義「鏈式傳值」。完成寫法見講義。換你試試：第一環改成加 10。最後應印出 12。wait 的延遲不要改。
+      const wait = (value) => {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            resolve(value);
+          }, 10);
+        });
+      };
+
+      Promise.resolve(1)
+        .then((n) => n + 1)
+        .then((n) => wait(n + 1))
+        .then((n) => {
+          console.log(n);
+        });
     </script>
   </body>
 </html>

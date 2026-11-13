@@ -7,9 +7,16 @@
   </head>
   <body>
     <p>結果在 DevTools 的 Console。</p>
-    <!-- TODO: 講義「fetch 與 response.json」。完成寫法見講義。換你試試：改讀 data/users.json，並印出 city。應看到台北與台南。 -->
     <script>
-      // TODO: 講義「fetch 與 response.json」。完成寫法見講義。換你試試：改讀 data/users.json，並印出 city。應看到台北與台南。
+      const main = async () => {
+        const response = await fetch('data/items.json');
+        const items = await response.json();
+        items.forEach((item) => {
+          console.log(item.name);
+        });
+      };
+
+      main();
     </script>
   </body>
 </html>

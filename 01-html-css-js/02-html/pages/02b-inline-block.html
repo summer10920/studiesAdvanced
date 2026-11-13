@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>行內區塊</title>
+    <style>
+      /* 只為了畫出邊界並比較寬高有沒有效，CSS 的寫法下一篇才教 */
+      div,
+      span {
+        border: 1px solid;
+      }
+      .size {
+        width: 10rem;
+        height: 3rem;
+      }
+      .as-inline-block {
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="size">區塊盒：寬高有效，獨佔一行。</div>
+
+    <div>
+      <span class="size">行內盒：寬高無效</span>
+      <span class="size as-inline-block">行內區塊盒一</span>
+      <span class="size as-inline-block">行內區塊盒二</span>
+    </div>
+  </body>
+</html>

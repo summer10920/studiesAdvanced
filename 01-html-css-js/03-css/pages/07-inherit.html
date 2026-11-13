@@ -5,18 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>繼承</title>
     <style>
-      /* TODO: 講義「什麼會繼承」
-         .story 寫 color 與 background。 .price 寫自己的 color。
-         背景不繼承，不要在 p 上再寫背景。
-      */
+      .story {
+        color: #7c2d12; /* 子層沒寫 color，就跟這個 */
+        background: #fff7ed; /* 背景不繼承，只是從下面透出來 */
+      }
+
+      .price {
+        color: #115e59; /* 自己寫了，繼承就停在這一層 */
+      }
     </style>
   </head>
   <body>
-    <!-- TODO: 講義「什麼會繼承」。.story 設磚紅字與淺底。 .price 自己寫深青綠，覆蓋繼承。換你試試：拿掉 .price 的顏色，看它回到磚紅。不要給段落自己的背景。 -->
     <h1>沒寫的屬性會不會跟父層</h1>
     <article class="story">
       <h2>繼承</h2>
-      <p>這段沒寫顏色，所以跟 article 的磚紅。底色是父層透出來的，不是這段自己的背景。</p>
+      <p>這段沒寫顏色，所以跟 article 的磚紅。</p>
       <p class="price">這段自己寫了顏色，不再跟父層。</p>
     </article>
     <p>article 外面這段不跟那塊磚紅。</p>

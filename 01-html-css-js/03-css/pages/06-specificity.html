@@ -5,20 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>權重</title>
     <style>
-      /* TODO: 講義「四欄權重」
-         先寫一般規則，最後才用 important 當對照。
-         換你試試時把 important 拿掉，改成 #sale。
-      */
+      /* 四欄由左到右，不進位：行內、id、class、元素 */
+
+      p {
+        color: #475569; /* 元素欄 */
+      }
+
+      .note {
+        color: #b45309; /* class 欄，贏過元素 */
+      }
+
+      #one {
+        color: #0f766e; /* id 欄，贏過 class */
+      }
+
+      .chip {
+        color: #0369a1;
+      }
+
+      .chip {
+        color: #115e59; /* 權重相同，較下面的贏 */
+      }
+
+      .force {
+        color: #9f1239 !important; /* important 贏過同權重的後寫規則 */
+      }
+
+      .force {
+        color: #94a3b8;
+      }
     </style>
   </head>
   <body>
-    <!-- TODO: 講義「四欄權重」。p、.note、#one 依序用石板、琥珀、深青綠。行內那段已寫在標籤上。 .chip 寫兩次，留下較下面的 #115e59。 .force 先灰再玫瑰紅，玫瑰紅加 important。換你試試：拿掉 important，改用 id sale 留下玫瑰紅。 -->
     <h1>誰贏</h1>
     <p>只有元素選擇器：石板色。</p>
     <p class="note">加上 class：琥珀色。</p>
     <p id="one" class="note">同時有 id 與 class：深青綠。</p>
-    <p id="two" class="note" style="color: #9f1239">行內樣式：玫瑰紅。</p>
+    <p class="note" style="color: #9f1239">行內樣式：玫瑰紅。</p>
     <p class="chip">同權重寫了兩次，留下較下面的深青綠。</p>
-    <p class="force">這段用了 important，留下玫瑰紅。</p>
+    <p class="force">灰色寫在後面，但 important 留下玫瑰紅。</p>
   </body>
 </html>

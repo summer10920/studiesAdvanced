@@ -5,14 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>動畫</title>
     <style>
-      /* TODO: 講義「動畫自己播放」
-         影格名稱要和 animation 的第一個值相同。
-         徽章設成 inline-block，縮放才有寬高可看。
-      */
+      body {
+        margin: 1.5rem;
+        font-family: system-ui, "PingFang TC", "Microsoft JhengHei", sans-serif;
+      }
+
+      @keyframes pulse {
+        from {
+          transform: scale(1);
+        }
+        to {
+          transform: scale(1.08);
+        }
+      }
+
+      .badge {
+        display: inline-block;
+        padding: 0.35rem 0.75rem;
+        background: #115e59;
+        color: #f0fdfa;
+        animation: pulse 1s ease-in-out infinite alternate;
+      }
     </style>
   </head>
   <body>
-    <!-- TODO: 講義「動畫自己播放」。@keyframes 在 1 倍與 1.08 倍之間。徽章 infinite alternate。換你試試：次數改成 1。 -->
     <h1>自己播放</h1>
     <p class="badge">報名中</p>
   </body>

@@ -7,9 +7,28 @@
   </head>
   <body>
     <p>結果在 DevTools 的 Console。</p>
-    <!-- TODO: 講義「依序等待與 Promise.all」。完成寫法見講義。換你試試：把並行甲與並行乙的延遲改成 50，依序的兩件維持 20。依序的兩行應先印完，並行結束變成最後一行。 -->
     <script>
-      // TODO: 講義「依序等待與 Promise.all」。完成寫法見講義。換你試試：把並行甲與並行乙的延遲改成 50，依序的兩件維持 20。依序的兩行應先印完，並行結束變成最後一行。
+      const task = (name, ms) => {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            console.log(name);
+            resolve(name);
+          }, ms);
+        });
+      };
+
+      const oneByOne = async () => {
+        await task('依序甲', 20);
+        await task('依序乙', 20);
+      };
+
+      const together = async () => {
+        await Promise.all([task('並行甲', 20), task('並行乙', 20)]);
+        console.log('並行結束');
+      };
+
+      oneByOne();
+      together();
     </script>
   </body>
 </html>

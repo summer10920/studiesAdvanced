@@ -7,14 +7,25 @@
   </head>
   <body>
     <p>結果在 DevTools 的 Console。</p>
-    <!-- TODO: 講義「函式當作參數」。換你試試：再傳一支箭頭函式做除法，calc(10, 4, ...) 印出 2.5。 -->
     <script>
-      // TODO: 講義「函式當作參數」
-      // calc(a, b, operation) 呼叫 operation(a, b)，印出回傳值
-      // function add 回傳相加
-      // calc(10, 4, add)
-      // 再傳匿名函式做乘法、箭頭函式做減法
-      // 換你試試：再傳 (a, b) => a / b
+      // operation 是接收進來的函式，由 calc 決定何時呼叫它
+      function calc(a, b, operation) {
+        const result = operation(a, b);
+        console.log(result);
+      }
+
+      function add(a, b) {
+        return a + b;
+      }
+
+      calc(10, 4, add); // 傳函式名稱，不加小括號
+      calc(10, 4, function (a, b) {
+        return a * b;
+      });
+      calc(10, 4, (a, b) => a - b);
+      calc(10, 4, (a, b) => a / b);
+
+      // calc(10, 4, add()); // 錯誤：傳進去的是 add() 的回傳值 NaN，不是函式
     </script>
   </body>
 </html>

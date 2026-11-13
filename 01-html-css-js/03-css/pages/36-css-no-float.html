@@ -5,18 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>不要用 float 切欄</title>
     <style>
-      /* TODO: 講義「選讀：不要拿來做多欄」
-         欄距用 gap。
-         最小欄寬約 8rem。
-      */
+      body {
+        margin: 1.5rem;
+        font-family: system-ui, "PingFang TC", "Microsoft JhengHei", sans-serif;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr)); /* 依寬度自動決定欄數 */
+        gap: 0.75rem; /* 欄距與列距 */
+      }
+
+      .cards article {
+        padding: 0.75rem;
+        background: #f0fdfa;
+      }
     </style>
   </head>
   <body>
-    <!-- TODO: 選讀「不要拿來做多欄」。三張卡片用 Grid 的 auto-fit 與 gap。不要寫 float。 -->
-    <div class="trips">
-      <article>京都</article>
-      <article>大阪</article>
-      <article>濟州</article>
+    <div class="cards">
+      <article>卡片 A</article>
+      <article>卡片 B</article>
+      <article>卡片 C</article>
     </div>
   </body>
 </html>

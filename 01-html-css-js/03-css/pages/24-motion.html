@@ -5,20 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>變形</title>
     <style>
-      /* TODO: 講義「變形不推動鄰居」
-         用 transform，不要用 margin 去推鄰居。
-         四格用 Flex 排成一列。
-      */
+      body {
+        margin: 1.5rem;
+        font-family: system-ui, "PingFang TC", "Microsoft JhengHei", sans-serif;
+      }
+
+      .row {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .box {
+        width: 3.5rem;
+        padding: 0.75rem 0;
+        background: #ccfbf1;
+        text-align: center;
+      }
+
+      .move {
+        transform: translateX(1rem);
+      }
+
+      .big {
+        transform: scale(1.25);
+      }
+
+      .turn {
+        transform: rotate(8deg);
+      }
     </style>
   </head>
   <body>
-    <!-- TODO: 講義「變形不推動鄰居」。一列四格：原位、translateX、scale、rotate。換你試試：往右那格改成 translateY(-0.75rem)。 -->
     <h1>變形不推動鄰居</h1>
     <div class="row">
-      <span class="box">原位</span>
-      <span class="box move">往右</span>
-      <span class="box big">放大</span>
-      <span class="box turn">旋轉</span>
+      <div class="box">原位</div>
+      <div class="box move">往右</div>
+      <div class="box big">放大</div>
+      <div class="box turn">旋轉</div>
     </div>
   </body>
 </html>

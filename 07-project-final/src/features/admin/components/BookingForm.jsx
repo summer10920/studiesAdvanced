@@ -32,7 +32,7 @@ export default function BookingForm({ open, booking, onClose }) {
   const [confirmCancel, setConfirmCancel] = useState(false);
 
   const commit = () => {
-    fetcher.submit({ id: booking.id, status }, { method: 'post' });
+    fetcher.submit({ id: booking?.id, status }, { method: 'post' });
   };
 
   const submit = (event) => {

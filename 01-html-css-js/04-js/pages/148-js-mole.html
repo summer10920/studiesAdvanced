@@ -27,14 +27,16 @@
       <button type="button" class="hole" data-index="7"></button>
       <button type="button" class="hole" data-index="8"></button>
     </div>
-    <!-- TODO: 選讀「打地鼠」。第一步只做 state 與 render。完成寫法見 148-js-mole.html.final。換你試試：停留時間改成 1200 毫秒。 -->
     <script>
-      // 第一步：狀態集中在 state，render 依 holes 上色。
-      // 第二步：start、spawn、hit、tick、end。完成寫法見 148-js-mole.html.final。
-      // 換你試試：地鼠停留改成 1200 毫秒。
+      // 九個洞，每個洞一個狀態：idle、up 或 hit
+      const createHoles = () => [
+        'idle', 'idle', 'idle',
+        'idle', 'idle', 'idle',
+        'idle', 'idle', 'idle',
+      ];
 
       const state = {
-        holes: ['idle', 'idle', 'idle', 'idle', 'idle', 'idle', 'idle', 'idle', 'idle'],
+        holes: createHoles(),
         score: 0,
         timeLeft: 20,
         playing: false,

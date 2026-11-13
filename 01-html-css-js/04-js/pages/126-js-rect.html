@@ -5,21 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>尺寸與位置</title>
     <style>
-      #box { display: inline-block; padding: 8px; border: 2px solid #0f766e; }
+      body { margin: 0; }
+      .gap-top { height: 240px; }
+      .gap-bottom { height: 900px; }
+      #box { width: 120px; height: 40px; padding: 8px; border: 2px solid #0f766e; }
     </style>
   </head>
   <body>
-    <div style="height: 240px"></div>
-    <p id="box">目標</p>
-    <div style="height: 900px"></div>
+    <div class="gap-top"></div>
+    <div id="box">目標</div>
+    <div class="gap-bottom"></div>
     <p id="end">頁面底部</p>
-    <!-- TODO: 講義「尺寸與位置」。showBox 印出 getBoundingClientRect 的 top 與 offsetWidth。goEnd 用 scrollIntoView。 -->
     <script>
-      // TODO: 講義「尺寸與位置」。
-      // showBox：印出 #box.getBoundingClientRect().top 取整數，以及 offsetWidth。
-      // goEnd：對 #end 呼叫 scrollIntoView({ behavior: 'smooth' })。
-      // 載入時印出提示，不要自己捲動。
-      // 換你試試：showBox 再多印 offsetHeight。
+      const box = document.querySelector('#box');
+
+      const showBox = () => {
+        const rect = box.getBoundingClientRect();
+        console.log(rect.top);
+        console.log(rect.height);
+        console.log(box.offsetHeight);
+      };
+
+      const goEnd = () => {
+        document.querySelector('#end').scrollIntoView({ behavior: 'smooth' });
+      };
+
+      showBox();
+      console.log('在 Console 輸入 goEnd() 捲到底部，再輸入 showBox() 看 top 的變化');
     </script>
   </body>
 </html>

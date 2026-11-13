@@ -3,13 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>選讀：Session 與 Token</title>
+    <title>選讀：Token 與 Authorization 標頭</title>
   </head>
   <body>
     <p>結果在 DevTools 的 Console。</p>
-    <!-- TODO: 講義「選讀：Session 與 Token」。完成寫法見講義。換你試試：把 token 改成 demo-2。第二行應變成 Bearer demo-2。第一行不要改。 -->
     <script>
-      // TODO: 講義「選讀：Session 與 Token」。完成寫法見講義。換你試試：把 token 改成 demo-2。第二行應變成 Bearer demo-2。第一行不要改。
+      const token = 'demo-token';
+      const options = { headers: { Authorization: `Bearer ${token}` } };
+      console.log(options.headers.Authorization);
+      console.log(JSON.stringify(options));
     </script>
   </body>
 </html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>group 與 peer</title>
+  </head>
+  <body class="space-y-8 bg-stone-100 p-6 text-stone-900">
+    <h1 class="text-2xl font-bold">整組一起變</h1>
+    <!-- group 放在父層，子層寫 group-hover:，滑過整張卡時一起變 -->
+    <!-- transition 開補間，預設約 150 毫秒；duration-300 讓圖片放大慢一點 -->
+    <!-- overflow-hidden 讓放大的圖停在圓角裡 -->
+    <article class="group max-w-sm overflow-hidden rounded-2xl bg-white shadow-sm transition hover:shadow-lg">
+      <img
+        class="h-40 w-full object-cover transition duration-300 group-hover:scale-105"
+        src="https://picsum.photos/id/1015/800/500"
+        alt="山景"
+      />
+      <div class="p-4">
+        <h2 class="font-semibold transition group-hover:text-teal-800">滑過整張卡，標題與圖片一起變</h2>
+        <p class="mt-1 text-sm text-stone-600">父層標記 group，子層用 group-hover。</p>
+      </div>
+    </article>
+    <!-- peer 放在前面的兄弟；後面的兄弟才能寫 peer-checked: -->
+    <div>
+      <input id="agree" class="peer sr-only" type="checkbox" />
+      <label
+        class="inline-block cursor-pointer rounded border border-stone-300 px-3 py-1 peer-checked:border-teal-700 peer-checked:bg-teal-50 peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-teal-700"
+        for="agree"
+      >
+        我已閱讀行前說明
+      </label>
+      <p class="mt-2 hidden text-sm text-teal-800 peer-checked:block">勾選後這行才出現。</p>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

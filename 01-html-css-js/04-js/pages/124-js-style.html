@@ -10,13 +10,15 @@
   </head>
   <body>
     <p id="box">盒子</p>
-    <!-- TODO: 講義「style」。設定背景色與 CSS 變數 --gap。換你試試：把背景色設成空字串。 -->
     <script>
-      // TODO: 講義「style」。
-      // style.backgroundColor 設成 '#ccfbf1'。
-      // setProperty('--gap', '8px')，marginTop 設成 'var(--gap)'。
-      // 印出 style.backgroundColor 與 getPropertyValue('--gap')。
-      // 換你試試：把 backgroundColor 設成空字串後再印一次。
+      const box = document.querySelector('#box');
+
+      box.style.backgroundColor = '#ccfbf1';
+      box.style.setProperty('--gap', '8px');
+      box.style.marginTop = 'var(--gap)';
+
+      console.log(box.style.backgroundColor);
+      console.log(box.style.getPropertyValue('--gap'));
     </script>
   </body>
 </html>

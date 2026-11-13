@@ -6,17 +6,21 @@
     <title>屬性方法</title>
   </head>
   <body>
-    <button type="button" id="go" aria-label="收藏行程">收藏</button>
-    <a id="link" href="/tour">行程</a>
-    <!-- TODO: 講義「屬性方法」。讀改 aria-label，寫上 data-note，並對照 href 的原始路徑。換你試試：移除後再問 aria-label 在不在。 -->
+    <button type="button" id="fav" aria-label="收藏商品">收藏</button>
     <script>
-      // TODO: 講義「屬性方法」。
-      // 印出 #go 的 getAttribute('aria-label')。
-      // setAttribute 把 aria-label 改成 '已收藏'，再印 getAttribute 與 hasAttribute。
-      // removeAttribute 之後，印出 getAttribute('aria-label')。
-      // setAttribute('data-note', '熱門')，印出 getAttribute('data-note')。
-      // 印出 #link 的 getAttribute('href') 與 .href。
-      // 換你試試：再印 hasAttribute('aria-label')。
+      const fav = document.querySelector('#fav');
+
+      console.log(fav.getAttribute('aria-label'));
+      fav.setAttribute('aria-label', '已收藏');
+      console.log(fav.getAttribute('aria-label'));
+      console.log(fav.hasAttribute('aria-label'));
+
+      fav.removeAttribute('aria-label');
+      console.log(fav.hasAttribute('aria-label'));
+      console.log(fav.getAttribute('aria-label'));
+
+      fav.setAttribute('data-note', '熱門');
+      console.log(fav.getAttribute('data-note'));
     </script>
   </body>
 </html>

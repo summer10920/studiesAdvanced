@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>三種隱藏</title>
+    <style>
+      body {
+        margin: 1.5rem;
+        color: #134e4a;
+        font-family: system-ui, "PingFang TC", "Microsoft JhengHei", sans-serif;
+      }
+
+      .cell {
+        display: inline-block;
+        width: 2.5rem;
+        margin-right: 0.35rem;
+        padding: 0.35rem 0;
+        background: #115e59;
+        color: #f0fdfa;
+        text-align: center;
+        text-decoration: none;
+      }
+
+      .gone {
+        display: none;
+      }
+
+      .hold {
+        visibility: hidden;
+      }
+
+      .ghost {
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>三種隱藏</h1>
+    <p>display: none，中間的 2 不佔位</p>
+    <p><span class="cell">1</span><a class="cell gone" href="#clicked">2</a><span class="cell">3</span></p>
+    <p>visibility: hidden，2 看不見但佔位</p>
+    <p><span class="cell">1</span><a class="cell hold" href="#clicked">2</a><span class="cell">3</span></p>
+    <p>opacity: 0，2 看不見、佔位，仍點得到（網址會多出 #clicked）</p>
+    <p><span class="cell">1</span><a class="cell ghost" href="#clicked">2</a><span class="cell">3</span></p>
+  </body>
+</html>

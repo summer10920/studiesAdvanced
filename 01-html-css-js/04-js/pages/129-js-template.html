@@ -10,11 +10,16 @@
       <li><span class="name"></span></li>
     </template>
     <ul id="list"></ul>
-    <!-- TODO: 選讀「template 元素」。複製 template 內容，填上「筆」再插入。換你試試：再加一列「紙」。 -->
     <script>
-      // TODO: 選讀「template 元素」。
-      // 複製 #row 的 content，把 .name 設成「筆」，append 到 #list。
-      // 換你試試：再用同樣方式加一列「紙」。
+      const list = document.querySelector('#list');
+      const row = document.querySelector('#row');
+      const names = ['筆', '紙', '尺'];
+
+      for (const name of names) {
+        const fragment = row.content.cloneNode(true);
+        fragment.querySelector('.name').textContent = name;
+        list.append(fragment);
+      }
     </script>
   </body>
 </html>

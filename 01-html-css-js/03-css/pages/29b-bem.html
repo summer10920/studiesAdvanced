@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BEM 命名</title>
+    <style>
+      .card {
+        width: 16rem;
+        padding: 1rem;
+        border: 1px solid #0f766e;
+      }
+
+      .card__title {
+        margin: 0 0 0.5rem;
+      }
+
+      .card__price {
+        margin: 0;
+        color: #0f766e;
+      }
+
+      .card__price--soldout {
+        color: #64748b;
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+  <body>
+    <article class="card">
+      <h1 class="card__title">商品 A</h1>
+      <p class="card__price">NT$12,800</p>
+      <p class="card__price card__price--soldout">NT$12,800</p>
+    </article>
+  </body>
+</html>

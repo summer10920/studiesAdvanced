@@ -3,21 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>京都素材</title>
+    <title>圖片與替代文字</title>
   </head>
   <body>
-    <!-- TODO: 講義「多媒體」，同一頁依小節補完。不要寫 JavaScript。
-         「圖片元素（img）」：figure 包一張清水寺照片（picsum）與 figcaption，alt 寫畫面內容，並寫上 width、height。
-         再放一張 placehold 示意圖，alt 不要寫「圖片」。
-         「影音元素」：video、audio 加上 controls，裡面用 source，並留一句瀏覽器不支援時看得到的文字。
-         「嵌入元素（iframe）」：嵌入同資料夾的 03-layout.html，一定要有 title。 -->
-    <h1>京都素材</h1>
-    <figure>
-      <img src="https://picsum.photos/id/1015/800/450" alt="" width="800" height="450" />
-    </figure>
-    <p>
-      <img src="https://placehold.co/320x180?text=map" alt="" width="320" height="180" />
-    </p>
-    <!-- TODO: video、audio、iframe -->
+    <h1>圖片與替代文字</h1>
+    <h2>資訊圖：alt 寫出畫面的內容</h2>
+    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 225'%3E%3Crect width='400' height='225' fill='%23bde0fe'/%3E%3Ccircle cx='320' cy='60' r='28' fill='%23ffd166'/%3E%3Cpath d='M0 225 110 80 220 225z' fill='%23588157'/%3E%3Cpath d='M140 225 270 110 400 225z' fill='%233a5a40'/%3E%3C/svg%3E" width="400" height="225" alt="藍天下有太陽與兩座綠色的山" />
+    <h2>裝飾圖：alt 留空</h2>
+    <img src="https://placehold.co/400x20/ccc/ccc" width="400" height="20" alt="" />
+    <h2>圖片當連結：alt 寫出去哪裡</h2>
+    <a href="https://placehold.co/">
+      <img src="https://placehold.co/160x48?text=placehold.co" width="160" height="48" alt="前往 placehold.co 首頁" />
+    </a>
   </body>
 </html>

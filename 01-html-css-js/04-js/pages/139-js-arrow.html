@@ -11,29 +11,24 @@
   </head>
   <body>
     <div id="field"><div id="box"></div></div>
-    <p id="status">0, 0</p>
-    <!-- TODO: 講義「方向鍵移動」。第一步四個方向鍵改位置。完成寫法見 139-js-arrow.html.final。換你試試：碰到邊界要停住。 -->
+    <p id="output">0, 0</p>
     <script>
-      // 第一步：方向鍵移動方塊，先不擋邊界。
-      // 完成寫法見 139-js-arrow.html.final。
-      // 換你試試：碰到 #field 邊緣就停住。
-
       const box = document.querySelector('#box');
-      const status = document.querySelector('#status');
+      const output = document.querySelector('#output');
       let x = 0;
       let y = 0;
 
       document.addEventListener('keydown', (event) => {
+        if (!event.key.startsWith('Arrow')) return;
+        event.preventDefault();
         if (event.key === 'ArrowRight') x += 16;
         if (event.key === 'ArrowLeft') x -= 16;
         if (event.key === 'ArrowDown') y += 16;
         if (event.key === 'ArrowUp') y -= 16;
-        if (!event.key.startsWith('Arrow')) return;
-        event.preventDefault();
         box.style.left = `${x}px`;
         box.style.top = `${y}px`;
-        status.textContent = `${x}, ${y}`;
-        console.log(status.textContent);
+        output.textContent = `${x}, ${y}`;
+        console.log(output.textContent);
       });
     </script>
   </body>

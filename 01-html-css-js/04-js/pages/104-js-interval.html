@@ -7,11 +7,17 @@
   </head>
   <body>
     <p>結果在 DevTools 的 Console。</p>
-    <!-- TODO: 講義「setInterval 與 clearInterval」。 每 400 毫秒讓 count 加 1 並印出。count 到 3 時 clearInterval，再印「已停止」。 換你試試：改成數到 5 才停止。 -->
     <script>
-      // TODO: 講義「setInterval 與 clearInterval」。
-      // 每 400 毫秒讓 count 加 1 並印出。count 到 3 時 clearInterval，再印「已停止」。
-      // 換你試試：改成數到 5 才停止。
+      let count = 0;
+
+      const id = setInterval(() => {
+        count += 1;
+        console.log(count);
+        if (count === 3) {
+          clearInterval(id);
+          console.log('已停止');
+        }
+      }, 400);
     </script>
   </body>
 </html>

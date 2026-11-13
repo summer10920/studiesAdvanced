@@ -5,15 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>分層</title>
     <style>
-      /* TODO: 講義「選讀：自訂屬性與 @layer」
-         先寫 @layer reset, theme; 再分別放規則。
-         不要用 important。
-      */
+      @layer reset, theme;
+
+      @layer reset {
+        .lead {
+          color: #9f1239;
+        }
+      }
+
+      @layer theme {
+        .lead {
+          color: #0f766e;
+        }
+      }
+
+      .free {
+        color: #b45309;
+      }
     </style>
   </head>
   <body>
-    <!-- TODO: 選讀「自訂屬性與 @layer」。宣告 reset 然後 theme。兩層都寫 .lead 的顏色，theme 留深青綠，reset 留玫瑰紅。 -->
-    <h1>兩層搶同一個顏色</h1>
-    <p class="lead">這段應是深青綠。重置層寫在較前面。</p>
+    <h1>分層</h1>
+    <p class="lead">深青綠：theme 層排在 reset 層後面，所以留下 theme 的顏色。</p>
+    <p class="lead free">琥珀色：沒放進任何層的規則，贏過所有層。</p>
   </body>
 </html>

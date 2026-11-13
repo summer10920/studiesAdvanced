@@ -8,13 +8,12 @@ export default function IntroBanner() {
           variant="h2"
           className="text-balance text-4xl leading-snug text-white md:text-5xl"
         >
-          <span className="whitespace-nowrap">把日子排鬆，</span>
+          <span className="whitespace-nowrap">小團旅行，</span>
           <br />
-          <span className="whitespace-nowrap">把路走慢。</span>
+          <span className="whitespace-nowrap">每天只走一段路。</span>
         </Typography>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-foam">
-          每團最多 8
-          人。地名寫清楚，一天只排一段路，下午留給自己。京都五日不含國際機票。
+          每團最多 8 人。地名寫清楚，下午留給自己。京都五日不含國際機票。
         </p>
       </div>
     </section>

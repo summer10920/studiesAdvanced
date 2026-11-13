@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>更新物件欄位</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const user = { name: 'Amy', age: 28, address: { city: '台北', zip: '100' } };
+
+      // 改第一層欄位：展開後覆蓋 age
+      const older = { ...user, age: 29 };
+      console.log(user.age, older.age);
+      console.log(user === older);
+
+      // 改巢狀欄位：address 也要再展開一次
+      const moved = { ...user, address: { ...user.address, city: '高雄' } };
+      console.log(user.address.city);
+      console.log(moved.address.city);
+      console.log(moved.address.zip);
+    </script>
+  </body>
+</html>

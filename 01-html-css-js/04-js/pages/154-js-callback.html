@@ -3,13 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>callback 寫法</title>
+    <title>callback</title>
   </head>
   <body>
     <p>結果在 DevTools 的 Console。</p>
-    <!-- TODO: 講義「callback 寫法」。完成寫法見講義。換你試試：把回呼收到的名字改成「小林」。開始與已登記的順序不要改。 -->
     <script>
-      // TODO: 講義「callback 寫法」。完成寫法見講義。換你試試：把回呼收到的名字改成「小林」。開始與已登記的順序不要改。
+      const done = (name) => {
+        console.log(name);
+      };
+
+      const loadName = (callback) => {
+        setTimeout(() => {
+          callback('小安');
+        }, 10);
+      };
+
+      console.log('開始');
+      loadName(done);
+      console.log('已登記');
     </script>
   </body>
 </html>

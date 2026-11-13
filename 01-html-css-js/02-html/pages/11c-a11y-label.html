@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>報名京都三日遊</title>
+  </head>
+  <body>
+    <h1>報名京都三日遊</h1>
+    <form action="#" method="get">
+      <p>
+        <!-- label 的 for 對上 input 的 id；name 則是送出時的欄位名 -->
+        <label for="guest-name">姓名</label>
+        <input id="guest-name" name="name" type="text" placeholder="王小明" />
+      </p>
+      <fieldset>
+        <legend>交通方式</legend>
+        <!-- 把控制項包進 label，也能建立關聯 -->
+        <label>
+          <input type="radio" name="traffic" value="bus" />
+          巴士
+        </label>
+        <label>
+          <input type="radio" name="traffic" value="train" />
+          電車
+        </label>
+      </fieldset>
+    </form>
+  </body>
+</html>

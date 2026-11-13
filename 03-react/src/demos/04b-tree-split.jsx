@@ -1,0 +1,29 @@
+function PageTitle() {
+  return <h1 className="text-2xl font-bold">洛奇旅行</h1>;
+}
+
+function PageLead() {
+  return <p className="mt-2">先拆開，再由父層排回去。</p>;
+}
+
+function Card({ title, price }) {
+  return (
+    <article className="rounded border border-stone-200 bg-white p-4">
+      <h2 className="text-lg font-semibold">{title}</h2>
+      <p>{price}</p>
+    </article>
+  );
+}
+
+export default function TreeSplitDemo() {
+  return (
+    <section>
+      <PageTitle />
+      <PageLead />
+      <div className="mt-4 grid gap-3">
+        <Card title="台北城市漫遊" price={12800} />
+        <Card title="花蓮山海三日" price={15900} />
+      </div>
+    </section>
+  );
+}

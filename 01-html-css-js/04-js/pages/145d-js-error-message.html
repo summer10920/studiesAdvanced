@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>顯示錯誤訊息</title>
+    <style>
+      .error { color: #b91c1c; }
+    </style>
+  </head>
+  <body>
+    <form id="login" novalidate>
+      <p>
+        <label>Email <input id="email" name="email" type="email" required /></label>
+        <span id="emailError" class="error"></span>
+      </p>
+      <button type="submit">送出</button>
+    </form>
+    <p id="result">尚未送出</p>
+    <script>
+      const form = document.querySelector('#login');
+      const emailInput = document.querySelector('#email');
+      const emailError = document.querySelector('#emailError');
+      const result = document.querySelector('#result');
+
+      emailInput.addEventListener('input', () => {
+        emailError.textContent = emailInput.validationMessage;
+      });
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        emailError.textContent = emailInput.validationMessage;
+        if (!form.checkValidity()) {
+          result.textContent = '還沒通過檢查';
+          return;
+        }
+        result.textContent = `已送出 ${emailInput.value}`;
+      });
+    </script>
+  </body>
+</html>

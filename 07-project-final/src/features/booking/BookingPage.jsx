@@ -35,7 +35,7 @@ export const action = async ({ request }) => {
     return {
       error:
         name.trim() && email.includes('@')
-          ? '請填電話'
+          ? '請填電話，此欄必填'
           : '請確認 Google 帳號帶有姓名與 email，並填電話',
     };
   const row = await createOrder({

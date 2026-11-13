@@ -5,14 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>可補間的變數</title>
     <style>
-      /* TODO: 講義「選讀：語法與初始值」
-         沒有 @property 時，角度多半會瞬間跳過去。
-         transition 的屬性名稱寫 --angle。
-      */
+      @property --angle {
+        syntax: "<angle>"; /* 沒有類型就不能補間 */
+        inherits: false;
+        initial-value: 0deg;
+      }
+
+      body {
+        margin: 1.5rem;
+        font-family: system-ui, "PingFang TC", "Microsoft JhengHei", sans-serif;
+      }
+
+      .swatch {
+        width: min(100%, 16rem);
+        padding: 2rem 1rem;
+        background: linear-gradient(var(--angle), #115e59, #99f6e4);
+        transition: --angle 0.6s linear;
+      }
+
+      .swatch:hover {
+        --angle: 90deg;
+      }
     </style>
   </head>
   <body>
-    <!-- TODO: 選讀「語法與初始值」。@property 把 --angle 註冊成角度、不繼承、初始 0deg。漸層使用這個角度，hover 時轉到 90deg，並用 transition 過渡 0.6s。 -->
     <div class="swatch">滑鼠放上來，漸層的角度會轉過去。</div>
   </body>
 </html>

@@ -8,15 +8,24 @@
   <body>
     <img id="photo" alt="舊說明" src="photo.png" />
     <a id="link" href="/tour">行程</a>
-    <input id="name" type="text" value="原始" />
-    <!-- TODO: 講義「一般 property」。改 id、alt、src、href、value。換你試試：對照 value 的 attribute 與目前值。 -->
+    <input id="nameInput" type="text" value="原始" />
     <script>
-      // TODO: 講義「一般 property」。
-      // #photo.id 設成 'cover'，alt 設成「夏季特賣」，src 設成 'cover.png'。
-      // 印出 id、alt、getAttribute('src')。
-      // #link.href 設成 'https://example.com/tour'，印出 href。
-      // #name.value 設成 '目前'，印出 value。
-      // 換你試試：再印 getAttribute('value') 與 value。
+      const photo = document.querySelector('#photo');
+      const link = document.querySelector('#link');
+      const nameInput = document.querySelector('#nameInput');
+
+      photo.id = 'cover';
+      photo.alt = '夏季特賣';
+      photo.src = 'cover.png';
+      console.log(photo.id);
+      console.log(photo.alt);
+      console.log(photo.getAttribute('src'));
+
+      link.href = 'https://example.com/tour';
+      console.log(link.href);
+
+      nameInput.value = '目前';
+      console.log(nameInput.value);
     </script>
   </body>
 </html>

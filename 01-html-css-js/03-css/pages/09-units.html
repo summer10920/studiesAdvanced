@@ -5,16 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>單位</title>
     <style>
-      /* TODO: 講義「長度」
-         em 相對父層，rem 相對根。一半寬用百分比，寫在已經是區塊的 div 上。
-         不要用 vw 當正文。
-      */
+      .em-box {
+        font-size: 1.25em;
+        background: #f0fdfa;
+      }
+
+      .em-child {
+        font-size: 2em; /* 1.25 × 2 × 16px，乘的是放大後的父層 */
+      }
+
+      .rem-box {
+        font-size: 1.25rem;
+        background: #ecfeff;
+      }
+
+      .rem-child {
+        font-size: 2rem; /* 2 × 16px，不乘父層 */
+      }
+
+      .meter {
+        width: 16rem;
+        background: #ccfbf1;
+      }
+
+      .half {
+        width: 50%; /* 父層寬度的一半 */
+        background: #115e59;
+        color: #fff;
+      }
+
+      .measure-en {
+        max-width: 36ch; /* 約 36 個「0」的寬度 */
+      }
+
+      .measure-zh {
+        max-width: 20em; /* 中文一字約 1em 寬，約 20 字一行 */
+      }
+
+      .vw-title {
+        font-size: 4vw; /* 視窗寬度的 4% */
+      }
     </style>
   </head>
   <body>
-    <!-- TODO: 講義「長度」。html 字級 16px 只為了對數字。做出 1.25em 父層與 2em 子層、1.25rem 父層與 2rem 子層、16rem 軌道與 50% 的一半、36ch 行寬、4vw 標題。換你試試：em 子層改成 2rem。 -->
     <h1>單位</h1>
-    <p>這頁把根字級設成 16px，只為了讓 Computed 好對。</p>
     <div class="em-box">
       父層 1.25em
       <p class="em-child">子層 2em，相對父層，約 40px。</p>
@@ -26,7 +60,8 @@
     <div class="meter">
       <div class="half">父層一半寬</div>
     </div>
-    <p class="measure">這段最寬約 36 個 0 的寬度。中文不會剛好 36 個字，行寬仍收得住。</p>
+    <p class="measure-en">This English paragraph stops growing at about thirty-six zeros wide, so the lines stay easy to read.</p>
+    <p class="measure-zh">這段中文最寬約二十個字，視窗再寬，行也不會拉得太長，讀起來才不吃力。</p>
     <p class="vw-title">這行會跟著視窗寬度變</p>
   </body>
 </html>

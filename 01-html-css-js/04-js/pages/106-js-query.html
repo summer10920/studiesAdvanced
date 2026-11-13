@@ -8,12 +8,19 @@
   <body>
     <h1 id="title">原標題</h1>
     <p class="note">原補充</p>
-    <!-- TODO: 講義「querySelector」。改標題文字，找不到的節點先判斷 null。換你試試：改 .note。 -->
     <script>
-      // TODO: 講義「querySelector」。
-      // 選到 #title，textContent 改成「已選到標題」。
-      // 再選 #missing。先確認是 null，才不要呼叫方法。
-      // 換你試試：選到 .note，textContent 改成「這是補充」。
+      const title = document.querySelector('#title');
+      title.textContent = '已選到標題';
+
+      const note = document.querySelector('.note');
+      note.textContent = '這是補充';
+
+      const missing = document.querySelector('#missing');
+      console.log(missing);
+      console.log(missing?.textContent);
+      if (missing) {
+        missing.textContent = '有找到';
+      }
     </script>
   </body>
 </html>

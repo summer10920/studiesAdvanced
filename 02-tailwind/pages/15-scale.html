@@ -5,30 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>間距刻度</title>
   </head>
-  <body>
-    <load src="../partials/nav.html" p15="page" />
-    <!-- TODO: 講義「間距單位」。頁面淺石底、p-6、深字。
-         卡片最大寬度、大圓角、白底、p-6、淺陰影。
-         標題 text-2xl、加粗。
-         說明 mt-2、小字、石色。這顆用外距，不要再加 gap。
-         標籤列 mt-4、橫排、可換行、gap-3、小字。三顆標籤：圓形、淺青綠底、左右 px-3、上下 py-1、深青綠字。
-         清單 mt-4、space-y-3、小字、行高放鬆、石色。每一列：圓角、淺石底、px-4、py-3。
-         不要在同一顆元素上又寫 gap 又寫 space-y。
-         連結 mt-6、行內區塊、圓角、青綠底、px-4、py-2、小字、字重 500、白字。 -->
-    <article>
-      <h1>第一天 · 花蓮市區</h1>
-      <p>車站東門集合，走完市區再北上七星潭。</p>
-      <div>
-        <span>集合 08:30</span>
-        <span>車站東門</span>
-        <span>含午餐</span>
+  <body class="bg-stone-100 p-6 text-stone-900">
+    <!-- p-6：6 × 0.25rem = 1.5rem，頁面四邊內距 -->
+    <article class="max-w-md rounded-2xl bg-white p-6 shadow-sm">
+      <h1 class="text-2xl font-bold">第一天 · 花蓮市區</h1>
+      <!-- mt-2：只有上外距 0.5rem，把說明推離標題 -->
+      <p class="mt-2 text-sm text-stone-600">車站東門集合，走完市區再北上七星潭。</p>
+      <!-- gap-3：標籤彼此相距 0.75rem。這一組只用 gap，不再寫 space-y -->
+      <div class="mt-4 flex flex-wrap gap-3 text-sm">
+        <span class="rounded-full bg-teal-50 px-3 py-1 text-teal-800">集合 08:30</span>
+        <span class="rounded-full bg-teal-50 px-3 py-1 text-teal-800">車站東門</span>
+        <span class="rounded-full bg-teal-50 px-3 py-1 text-teal-800">含午餐</span>
       </div>
-      <ul>
-        <li>上午：松園別館散步</li>
-        <li>中午：公正街包子</li>
-        <li>下午：七星潭看海</li>
+      <!-- space-y-3：清單上下相鄰的項目相距 0.75rem -->
+      <ul class="mt-4 space-y-3 text-sm leading-6 text-stone-700">
+        <!-- px-4 py-3：左右 1rem、上下 0.75rem，跟父層的縫是兩件事 -->
+        <li class="rounded-lg bg-stone-50 px-4 py-3">上午：松園別館散步</li>
+        <li class="rounded-lg bg-stone-50 px-4 py-3">中午：公正街包子</li>
+        <li class="rounded-lg bg-stone-50 px-4 py-3">下午：七星潭看海</li>
       </ul>
-      <a href="#day1">看集合地圖</a>
+      <!-- px-4 py-2：左右 1rem、上下 0.5rem；mt-6 把按鈕再往下推 1.5rem -->
+      <a class="mt-6 inline-block rounded-lg bg-teal-700 px-4 py-2 text-sm font-medium text-white" href="#day1">
+        看集合地圖
+      </a>
     </article>
     <script type="module" src="/src/main.js"></script>
   </body>

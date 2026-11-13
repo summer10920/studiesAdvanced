@@ -7,15 +7,20 @@
   </head>
   <body>
     <p>結果在 DevTools 的 Console。</p>
-    <!-- TODO: 講義「宣告變數與命名」。宣告 tourTitle 與 TourTitle（同字串），再用一行 console.log 印出兩者。換你試試：加上 placeName「花蓮」與 onSale true，兩個都印出。 -->
     <script>
-      // TODO: 講義「宣告變數與命名」
-      // 用 let 宣告 tourTitle 與 TourTitle，值都是「台北城市漫遊」
-      // TourTitle 能跑，但 PascalCase 習慣上留給 class 和元件用
-      // 再宣告 tourDays 為 3、pricePerPerson 為 12800
-      // 印出 tourTitle、tourDays、pricePerPerson，再用一行 console.log 印出 tourTitle 與 TourTitle
-      // 數字開頭與保留字的錯誤寫法保持註解
-      // 換你試試：再宣告 placeName「花蓮」、onSale 為 true，兩個都印出
+      const userName = 'Amy';
+      const UserName = 'Bob';
+      const pricePerPerson = 12800;
+      const days3 = 3;
+      const returnDate = '2026-12-24';
+
+      console.log(userName, UserName);
+      console.log(pricePerPerson);
+      console.log(days3, returnDate);
+
+      // 下面兩行都會 SyntaxError，所以維持註解
+      // const 3days = 3;
+      // const return = 'x';
     </script>
   </body>
 </html>

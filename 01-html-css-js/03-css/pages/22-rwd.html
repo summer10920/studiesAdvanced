@@ -5,17 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>流動版面</title>
     <style>
-      /* TODO: 講義「流動版面先做完」
-         先讓它在任何寬度都排得下。
-         置中用 margin-left 與 margin-right 的 auto，這一頁還不用邏輯方向。
-      */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 1.5rem;
+        color: #134e4a;
+        font-family: system-ui, "PingFang TC", "Microsoft JhengHei", sans-serif;
+      }
+
+      img {
+        display: block; /* 去掉行內圖片底下的縫 */
+        max-width: 100%; /* 不比父層寬 */
+        height: auto; /* 高度跟著比例走 */
+        margin-bottom: 1rem;
+      }
+
+      .wrap {
+        max-width: 60rem;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+        gap: 1rem;
+      }
+
+      .card {
+        padding: 1rem;
+        background: #f0fdfa;
+      }
     </style>
   </head>
   <body>
-    <!-- TODO: 講義「流動版面先做完」。圖片最大寬度 100% 並改成 block。版心最大 60rem、左右 auto。卡片用 auto-fit 與 minmax(14rem, 1fr)。這一頁不要寫媒體查詢。換你試試：最小寬度改成 18rem。 -->
     <div class="wrap">
-      <h1>洛奇旅行</h1>
-      <img src="https://picsum.photos/id/1016/1200/500" alt="海岸" />
+      <h1>流動版面</h1>
+      <img src="https://picsum.photos/id/1016/1200/500" alt="風景照片" width="1200" height="500" />
       <div class="cards">
         <article class="card">
           <h2>台北城市漫遊</h2>

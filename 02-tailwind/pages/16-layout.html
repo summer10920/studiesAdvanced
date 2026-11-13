@@ -5,35 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Flex 與 Grid</title>
   </head>
-  <body>
-    <load src="../partials/nav.html" p16="page" />
-    <!-- TODO: 講義「卡片牆」。
-         上半：flex、items-center、justify-between、放不下就換行。品牌名在左，兩個連結在右。
-         下半：grid。預設一欄，sm 兩欄，lg 三欄，格子之間用 gap。 -->
+  <body class="space-y-10 bg-stone-50 p-6 text-stone-900">
     <section>
-      <h1>Flex：一列排開</h1>
-      <div>
-        <p>洛奇旅行</p>
-        <div>
+      <h1 class="text-2xl font-bold">Flex：一列排開</h1>
+      <div class="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-xl bg-white p-4">
+        <p class="font-semibold">洛奇旅行</p>
+        <div class="flex gap-4 text-sm text-teal-800">
           <a href="#a">行程</a>
           <a href="#b">關於</a>
         </div>
       </div>
     </section>
     <section>
-      <h2>Grid：卡片牆</h2>
-      <div>
-        <article>
-          <h3>台北</h3>
-          <p>3 天</p>
+      <h2 class="text-2xl font-bold">Grid：卡片牆</h2>
+      <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <article class="rounded-xl bg-white p-4 shadow-sm">
+          <h3 class="font-semibold">台北</h3>
+          <p class="text-sm text-stone-600">3 天</p>
         </article>
-        <article>
-          <h3>花蓮</h3>
-          <p>2 天</p>
+        <article class="rounded-xl bg-white p-4 shadow-sm">
+          <h3 class="font-semibold">花蓮</h3>
+          <p class="text-sm text-stone-600">2 天</p>
         </article>
-        <article>
-          <h3>台南</h3>
-          <p>4 天</p>
+        <article class="rounded-xl bg-white p-4 shadow-sm">
+          <h3 class="font-semibold">台南</h3>
+          <p class="text-sm text-stone-600">4 天</p>
         </article>
       </div>
     </section>

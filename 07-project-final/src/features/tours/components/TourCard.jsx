@@ -11,13 +11,13 @@ export default function TourCard({ tour, showTheme = false }) {
     <Card
       component={Link}
       to={`/tours/${tour.id}`}
-      className="group flex h-full flex-col overflow-hidden text-inherit no-underline"
+      className="flex h-full flex-col overflow-hidden text-inherit no-underline transition-shadow duration-300 hover:shadow-xl motion-reduce:transition-none"
     >
       <CardMedia
         component="img"
         image={tour.cover}
         alt=""
-        className="aspect-[4/3] w-full object-cover transition duration-500 ease-out group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+        className="aspect-[4/3] w-full object-cover"
       />
       <div className="flex flex-1 flex-col p-5 sm:p-6">
         <div className="flex flex-wrap gap-2">

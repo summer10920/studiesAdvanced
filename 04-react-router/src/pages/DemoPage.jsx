@@ -40,7 +40,7 @@ export default function DemoPage() {
           type="button"
           className="rounded bg-stone-200 px-3 py-1 text-sm disabled:opacity-40"
           disabled={!prev}
-          onClick={() => navigate('/demos/' + prev.slug)}
+          onClick={() => prev && navigate('/demos/' + prev.slug)}
         >
           上一則
         </button>
@@ -48,7 +48,7 @@ export default function DemoPage() {
           type="button"
           className="rounded bg-stone-200 px-3 py-1 text-sm disabled:opacity-40"
           disabled={!next}
-          onClick={() => navigate('/demos/' + next.slug)}
+          onClick={() => next && navigate('/demos/' + next.slug)}
         >
           下一則
         </button>

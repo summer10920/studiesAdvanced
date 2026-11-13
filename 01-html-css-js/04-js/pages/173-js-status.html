@@ -7,9 +7,15 @@
   </head>
   <body>
     <p>結果在 DevTools 的 Console。</p>
-    <!-- TODO: 講義「狀態碼分類」。完成寫法見講義。換你試試：把第一個網址也改成 data/missing.json。兩行都應是 404。 -->
     <script>
-      // TODO: 講義「狀態碼分類」。完成寫法見講義。換你試試：把第一個網址也改成 data/missing.json。兩行都應是 404。
+      const main = async () => {
+        const okRes = await fetch('data/items.json');
+        const missing = await fetch('data/missing.json');
+        console.log(okRes.status);
+        console.log(missing.status);
+      };
+
+      main();
     </script>
   </body>
 </html>
