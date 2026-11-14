@@ -5,40 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>洛奇旅行 · Tailwind</title>
   </head>
-  <body>
-    <h1>洛奇旅行 · Tailwind</h1>
-    <p>每一頁對應講義裡的一個 demo。</p>
-    <ul>
-      <li><a href="/pages/01-compare.html">utility-first 是什麼</a></li>
-      <li><a href="/pages/02-naming.html">屬性與值</a></li>
-      <li><a href="/pages/05-palette.html">色階與透明度</a></li>
-      <li><a href="/pages/15-scale.html">間距單位</a></li>
-      <li><a href="/pages/29-preflight.html">選讀：Preflight 重置了什麼</a></li>
-      <li><a href="/pages/04-scan.html">只輸出用到的 class</a></li>
-      <li><a href="/pages/30-play-cdn.html">選讀：Play CDN</a></li>
-      <li><a href="/pages/11-button.html">按鈕</a></li>
-      <li><a href="/pages/12-card.html">卡片</a></li>
-      <li><a href="/pages/17-states.html">hover、focus、active</a></li>
-      <li><a href="/pages/17b-group-peer.html">選讀：group 與 peer</a></li>
-      <li><a href="/pages/09-dark-system.html">跟著系統</a></li>
-      <li><a href="/pages/10-dark-toggle.html">選讀：手動切換</a></li>
-      <li><a href="/pages/19-mobile.html">手機優先</a></li>
-      <li><a href="/pages/20-breakpoints.html">預設斷點</a></li>
-      <li><a href="/pages/27-max.html">max-* 範圍變體</a></li>
-      <li><a href="/pages/22-custom-breakpoint.html">用 @theme 自訂斷點</a></li>
-      <li><a href="/pages/16-layout.html">卡片牆</a></li>
-      <li><a href="/pages/21-container.html">版心與 max-w-*</a></li>
-      <li><a href="/pages/13-nav.html">選讀：導覽列</a></li>
-      <li><a href="/pages/23-container-query.html">未具名容器</a></li>
-      <li><a href="/pages/23b-container-named.html">具名容器</a></li>
-      <li><a href="/pages/28-sidebar.html">側欄實作</a></li>
-      <li><a href="/pages/08-theme.html">品牌色</a></li>
-      <li><a href="/pages/08b-theme-spacing-font.html">間距與字型</a></li>
-      <li><a href="/pages/24-apply.html">@apply</a></li>
-      <li><a href="/pages/26-arbitrary.html">任意值與 ! 覆寫</a></li>
-      <li><a href="/pages/26b-important.html">任意值與 ! 覆寫</a></li>
-      <li><a href="/pages/25-layer.html">選讀：@layer 與 @utility</a></li>
-    </ul>
+  <body class="bg-stone-100 text-stone-900">
+    <main class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10">
+      <h1 class="text-3xl font-bold">洛奇旅行 · Tailwind</h1>
+      <p class="mt-2 text-stone-600">每一頁對應講義裡的一個 demo。</p>
+      <!-- 欄數：手機 1 欄、sm 2 欄、lg 3 欄、xl 4 欄。卡片樣式只寫在 ul：*: 套用到每個直接子層 li，[&_a]: 套用到裡面的 a，[&_span]: 套用到檔名前綴的流水號 -->
+      <ul
+        class="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 *:rounded-lg *:bg-white *:text-teal-800 *:shadow-sm *:hover:bg-teal-700 *:hover:text-white [&_a]:block [&_a]:px-4 [&_a]:py-3 [&_span]:inline-block [&_span]:w-8 [&_span]:font-mono [&_span]:text-sm [&_span]:opacity-60"
+      >
+        <li><a href="/pages/01-compare.html"><span>01</span>utility-first 是什麼</a></li>
+        <li><a href="/pages/02-naming.html"><span>02</span>屬性與值</a></li>
+        <li><a href="/pages/03-palette.html"><span>03</span>色階與透明度</a></li>
+        <li><a href="/pages/04-scale.html"><span>04</span>間距單位</a></li>
+        <li><a href="/pages/05-preflight.html"><span>05</span>選讀：Preflight 重置了什麼</a></li>
+        <li><a href="/pages/06-scan.html"><span>06</span>只輸出用到的 class</a></li>
+        <li><a href="/pages/07-play-cdn.html"><span>07</span>選讀：Play CDN</a></li>
+        <li><a href="/pages/08-button.html"><span>08</span>按鈕</a></li>
+        <li><a href="/pages/09-card.html"><span>09</span>卡片</a></li>
+        <li><a href="/pages/10-states.html"><span>10</span>hover、focus、active</a></li>
+        <li><a href="/pages/11-group-peer.html"><span>11</span>選讀：group 與 peer</a></li>
+        <li><a href="/pages/12-dark-system.html"><span>12</span>跟著系統</a></li>
+        <li><a href="/pages/13-dark-toggle.html"><span>13</span>選讀：手動切換</a></li>
+        <li><a href="/pages/14-mobile.html"><span>14</span>手機優先</a></li>
+        <li><a href="/pages/15-breakpoints.html"><span>15</span>預設斷點</a></li>
+        <li><a href="/pages/16-max.html"><span>16</span>max-* 範圍變體</a></li>
+        <li><a href="/pages/17-custom-breakpoint.html"><span>17</span>用 @theme 自訂斷點</a></li>
+        <li><a href="/pages/18-layout.html"><span>18</span>卡片牆</a></li>
+        <li><a href="/pages/19-container.html"><span>19</span>版心與 max-w-*</a></li>
+        <li><a href="/pages/20-nav.html"><span>20</span>選讀：導覽列</a></li>
+        <li><a href="/pages/21-container-query.html"><span>21</span>未具名容器</a></li>
+        <li><a href="/pages/22-container-named.html"><span>22</span>具名容器</a></li>
+        <li><a href="/pages/23-sidebar.html"><span>23</span>側欄實作</a></li>
+        <li><a href="/pages/24-theme.html"><span>24</span>品牌色</a></li>
+        <li><a href="/pages/25-theme-spacing-font.html"><span>25</span>間距與字型</a></li>
+        <li><a href="/pages/26-apply.html"><span>26</span>@apply</a></li>
+        <li><a href="/pages/27-arbitrary.html"><span>27</span>任意值與 ! 覆寫</a></li>
+        <li><a href="/pages/28-important.html"><span>28</span>任意值與 ! 覆寫</a></li>
+        <li><a href="/pages/29-layer.html"><span>29</span>選讀：@layer 與 @utility</a></li>
+      </ul>
+    </main>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

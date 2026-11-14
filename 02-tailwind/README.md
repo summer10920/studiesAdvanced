@@ -19,33 +19,33 @@ pnpm dev
 
 - `pages/01-compare.html`：utility-first 是什麼
 - `pages/02-naming.html`：屬性與值
-- `pages/05-palette.html`：色階與透明度
-- `pages/15-scale.html`：間距單位
-- `pages/29-preflight.html`：選讀：Preflight 重置了什麼
-- `pages/04-scan.html`：只輸出用到的 class
-- `pages/30-play-cdn.html`：選讀：Play CDN
-- `pages/11-button.html`：按鈕
-- `pages/12-card.html`：卡片
-- `pages/17-states.html`：hover、focus、active
-- `pages/17b-group-peer.html`：選讀：group 與 peer
-- `pages/09-dark-system.html`：跟著系統
-- `pages/10-dark-toggle.html`：選讀：手動切換
-- `pages/19-mobile.html`：手機優先
-- `pages/20-breakpoints.html`：預設斷點
-- `pages/27-max.html`：max-* 範圍變體
-- `pages/22-custom-breakpoint.html`：用 @theme 自訂斷點
-- `pages/16-layout.html`：卡片牆
-- `pages/21-container.html`：版心與 max-w-*
-- `pages/13-nav.html`：選讀：導覽列
-- `pages/23-container-query.html`：未具名容器
-- `pages/23b-container-named.html`：具名容器
-- `pages/28-sidebar.html`：側欄實作
-- `pages/08-theme.html`：品牌色
-- `pages/08b-theme-spacing-font.html`：間距與字型
-- `pages/24-apply.html`：@apply
-- `pages/26-arbitrary.html`：任意值與 ! 覆寫
-- `pages/26b-important.html`：任意值與 ! 覆寫
-- `pages/25-layer.html`：選讀：@layer 與 @utility
+- `pages/03-palette.html`：色階與透明度
+- `pages/04-scale.html`：間距單位
+- `pages/05-preflight.html`：選讀：Preflight 重置了什麼
+- `pages/06-scan.html`：只輸出用到的 class
+- `pages/07-play-cdn.html`：選讀：Play CDN
+- `pages/08-button.html`：按鈕
+- `pages/09-card.html`：卡片
+- `pages/10-states.html`：hover、focus、active
+- `pages/11-group-peer.html`：選讀：group 與 peer
+- `pages/12-dark-system.html`：跟著系統
+- `pages/13-dark-toggle.html`：選讀：手動切換
+- `pages/14-mobile.html`：手機優先
+- `pages/15-breakpoints.html`：預設斷點
+- `pages/16-max.html`：max-* 範圍變體
+- `pages/17-custom-breakpoint.html`：用 @theme 自訂斷點
+- `pages/18-layout.html`：卡片牆
+- `pages/19-container.html`：版心與 max-w-*
+- `pages/20-nav.html`：選讀：導覽列
+- `pages/21-container-query.html`：未具名容器
+- `pages/22-container-named.html`：具名容器
+- `pages/23-sidebar.html`：側欄實作
+- `pages/24-theme.html`：品牌色
+- `pages/25-theme-spacing-font.html`：間距與字型
+- `pages/26-apply.html`：@apply
+- `pages/27-arbitrary.html`：任意值與 ! 覆寫
+- `pages/28-important.html`：任意值與 ! 覆寫
+- `pages/29-layer.html`：選讀：@layer 與 @utility
 
 `src/` 放各頁用到的樣式與腳本：`style.css`（`@import "tailwindcss"`、品牌色與間距字型）、`breakpoints.css`、`container.css`、`apply.css`、`layer.css`、`dark-manual.css` 與 `dark-toggle.js`。`vite.config.js` 會自動收集 `pages/*.html` 當作建置入口。
 
