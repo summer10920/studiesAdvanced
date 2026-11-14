@@ -5,19 +5,9 @@ const readJson = async (response) => {
   return response.json();
 };
 
-let itemsCache = null;
-
-const readLocalItems = async (signal) => {
-  if (!itemsCache) {
-    const response = await fetch('/data/items.json', { signal });
-    itemsCache = await readJson(response);
-  }
-  return itemsCache;
-};
-
 export const getItems = async (signal) => {
-  const items = await readLocalItems(signal);
-  return items.map((item) => ({ ...item }));
+  const response = await fetch('/data/items.json', { signal });
+  return readJson(response);
 };
 
 export const getItem = async (id) => {
@@ -35,11 +25,6 @@ export const createItem = async (item) => {
 };
 
 export const updateItem = async (id, item) => {
-  const items = await readLocalItems();
-  const index = items.findIndex((row) => String(row.id) === String(id));
-  if (index >= 0) {
-    items[index] = { ...items[index], ...item, id: items[index].id };
-  }
   const response = await fetch(itemsUrl + '/' + id, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },

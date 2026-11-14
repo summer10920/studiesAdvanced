@@ -16,4 +16,4 @@ pnpm dev
 | `pnpm preview` | 預覽建置結果   |
 | `pnpm lint`    | ESLint         |
 
-`src/App.jsx` 在左側用目錄切換 `src/demos/` 裡的示範（依講義章節分組、可搜尋，選讀的會標「選讀」，目前的示範記在網址的 `#` 後面），每個示範就是講義裡對應 demo 的完整檔案，編號跟著講義出現的順序。回家作業的起始檔在 `src/homework/`，也在目錄最後的「回家作業」。`pnpm lint` 會報 `52-lint` 與 `61-derive` 兩處，那是講義刻意示範的寫法，不是錯誤。入口是 `index.html` 的 `#root` 與 `src/main.jsx`。
+左側目錄由 `src/Menu.jsx` 負責；示範清單在 `src/demoRegistry.js`（依講義章節分組，選讀會標「選讀」）；`src/App.jsx` 用網址 `#` 記住目前示範並掛上對應元件。每個示範檔在 `src/demos/`，編號跟著講義出現的順序。回家作業的起始檔在 `src/homework/`，也在目錄最後的「回家作業」。`pnpm lint` 會報 `52-lint` 與 `61-derive` 兩處，那是講義刻意示範的寫法，不是錯誤。入口是 `index.html` 的 `#root` 與 `src/main.jsx`。

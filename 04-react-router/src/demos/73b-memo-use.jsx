@@ -1,6 +1,9 @@
+// 關閉 React Compiler，才看得到沒有自動記憶化時的行為
+'use no memo';
+
 import { useMemo, useState } from 'react';
 
-export default function MemoDemo() {
+export default function MemoUseDemo() {
   const [text, setText] = useState('');
   const [star, setStar] = useState(5);
   const label = useMemo(() => {

@@ -1,4 +1,7 @@
-import { memo, useCallback, useState } from 'react';
+// 關閉 React Compiler，才看得到沒有自動記憶化時的行為
+'use no memo';
+
+import { memo, useState } from 'react';
 
 const StarPicker = memo(function StarPicker({ star, onPick }) {
   console.log('星星列渲染');
@@ -22,9 +25,9 @@ const StarPicker = memo(function StarPicker({ star, onPick }) {
 export default function UseCallbackDemo() {
   const [text, setText] = useState('');
   const [star, setStar] = useState(5);
-  const handlePick = useCallback((n) => {
+  const handlePick = (n) => {
     setStar(n);
-  }, []);
+  };
 
   return (
     <section className="grid max-w-sm gap-3">

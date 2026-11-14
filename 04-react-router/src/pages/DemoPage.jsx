@@ -1,40 +1,43 @@
 import { Link, useNavigate, useParams } from 'react-router';
-import { demos, topics } from '../data/catalog.js';
+import { demos, findDemo } from '../demoRegistry.js';
 
 /**
- * 單則筆記。useParams 的 slug 是字串，和目錄的 slug 相同才畫出 Component。
- * 對不到時留在這一頁，並用 Link 回總覽。上一則與下一則跟著目錄陣列，用 useNavigate 改網址；第一則與最後一則的按鈕停用。
+ * 單則示範。useParams 的 slug 對上 demoRegistry 才畫出 Component。
+ * 上一則／下一則用 navigate 改網址。
  */
 export default function DemoPage() {
   const { slug } = useParams();
   const navigate = useNavigate();
-  const demo = demos.find((item) => item.slug === slug);
+  const demo = findDemo(slug);
   const index = demos.findIndex((item) => item.slug === slug);
 
   if (!demo) {
     return (
       <section>
-        <h1 className="text-2xl font-bold">沒有這則筆記</h1>
+        <h1 className="text-2xl font-bold">沒有這個示範</h1>
         <p className="mt-2">
           <Link className="text-teal-800 underline" to="/">
-            回目錄
+            回總覽
           </Link>
         </p>
       </section>
     );
   }
 
-  const topic = topics.find((item) => item.id === demo.topic);
   const prev = demos[index - 1];
   const next = demos[index + 1];
   const View = demo.Component;
 
   return (
     <article>
-      <p className="text-sm text-stone-500">{topic ? topic.title : ''}</p>
-      <h1 className="mt-1 text-2xl font-bold">
-        {demo.slug} {demo.title}
+      <p className="text-xs text-stone-500">{demo.group}</p>
+      <h1 className="text-lg font-bold">
+        {demo.id} {demo.title}
+        {demo.optional ? (
+          <span className="ml-2 text-xs font-normal text-stone-400">選讀</span>
+        ) : null}
       </h1>
+      <p className="mt-1 font-mono text-xs text-stone-400">{demo.slug}</p>
       <div className="mt-4 flex gap-2">
         <button
           type="button"
@@ -42,7 +45,7 @@ export default function DemoPage() {
           disabled={!prev}
           onClick={() => prev && navigate('/demos/' + prev.slug)}
         >
-          上一則
+          上一個
         </button>
         <button
           type="button"
@@ -50,7 +53,7 @@ export default function DemoPage() {
           disabled={!next}
           onClick={() => next && navigate('/demos/' + next.slug)}
         >
-          下一則
+          下一個
         </button>
       </div>
       <div className="mt-6">

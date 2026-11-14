@@ -70,7 +70,7 @@ cd studiesAdvanced
 | 04 Tailwind | `02-tailwind/` | `pnpm dev` |
 | 06–08 JavaScript | `01-html-css-js/04-js/` | Live Server，結果看瀏覽器 Console |
 | 09–10 React | `03-react/` | `pnpm dev` |
-| 11 React Router | `04-react-router/` | `pnpm dev` |
+| 11 React Router | `04-react-router/`（由 `03-react` 複製後改成 data mode） | `pnpm dev` |
 | 12 結業專案 | `06-project-init/`（從空專案開始做）、`05-project-prototype/`（做完的樣子） | `pnpm dev` |
 | 13 Firebase（選讀） | `07-project-final/`（接上 Firebase 的完成品） | `pnpm dev` |
 

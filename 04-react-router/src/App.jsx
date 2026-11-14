@@ -5,35 +5,35 @@ import DemoPage from './pages/DemoPage.jsx';
 import Home from './pages/Home.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
 import WherePage from './pages/WherePage.jsx';
-import LoaderDemo, { loader as loader86 } from './examples/86-loader.jsx';
-import ActionDemo, { action as action87 } from './examples/87-action.jsx';
+import LoaderDemo, { loader as loader86 } from './demos/86-loader.jsx';
+import ActionDemo, { action as action87 } from './demos/87-action.jsx';
 import RedirectList, {
   loader as loader88List,
-} from './examples/88-redirect-list.jsx';
+} from './demos/88-redirect-list.jsx';
 import RedirectEdit, {
   action as action88,
   loader as loader88Edit,
-} from './examples/88-redirect-edit.jsx';
+} from './demos/88-redirect-edit.jsx';
 import ErrorElementDemo, {
   loader as loader89,
   NoteDetail,
   NoteMissing,
-} from './examples/89-error-element.jsx';
+} from './demos/89-error-element.jsx';
 import FetcherDemo, {
   action as action90,
   loader as loader90,
-} from './examples/90-fetcher.jsx';
+} from './demos/90-fetcher.jsx';
 import NavigationDemo, {
   action as action91,
   loader as loader91,
-} from './examples/91-navigation.jsx';
+} from './demos/91-navigation.jsx';
 import FetcherKeyDemo, {
   action as action92,
-} from './examples/92-fetcher-key.jsx';
+} from './demos/92-fetcher-key.jsx';
 
 /**
- * 筆記網站的路由表。版型包住首頁、單則筆記、位置頁與找不到的頁面。
- * 子路由寫在父路由的 children 裡，才會畫進版型的 Outlet。路由器依具體程度比對，與寫的順序無關。
+ * 由 03-react 的 hash App 改成 data mode：路由表決定畫面，側欄在 MainLayout。
+ * 固定路徑的 loader／action 示範比 demos/:slug 更具體，不會被動態段吃掉。
  */
 const basename = import.meta.env.BASE_URL.replace(/\/$/, '');
 

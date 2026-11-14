@@ -1,4 +1,4 @@
-import { useOptimistic, useState } from 'react';
+import { startTransition, useOptimistic, useState } from 'react';
 
 export default function OptimisticDemo() {
   const [name, setName] = useState('台北城市漫遊');
@@ -9,7 +9,8 @@ export default function OptimisticDemo() {
     setOptimisticName(next);
     // 故意不用 fake-api：模擬伺服器 3 秒後才返回，讓先顯示、後更新的差別看得出來
     await new Promise((resolve) => setTimeout(resolve, 3000));
-    setName(next);
+    // await 之後的狀態更新要再包一層 startTransition，樂觀值才會和實際值同一次換掉
+    startTransition(() => setName(next));
   };
 
   return (

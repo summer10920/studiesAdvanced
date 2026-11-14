@@ -1,22 +1,14 @@
-import { memo, useState } from 'react';
+// 關閉 React Compiler，才看得到沒有自動記憶化時的行為
+'use no memo';
 
-const StarView = memo(function StarView({ star }) {
-  console.log('星星列渲染');
+import { useState } from 'react';
 
-  return (
-    <div className="flex gap-1">
-      {[1, 2, 3, 4, 5].map((n) => (
-        <span key={n} className="text-2xl text-amber-500">
-          {n <= star ? '★' : '☆'}
-        </span>
-      ))}
-    </div>
-  );
-});
-
-export default function MemoComponentDemo() {
+export default function MemoDemo() {
   const [text, setText] = useState('');
   const [star, setStar] = useState(5);
+
+  console.log('計算中');
+  const label = star >= 4 ? '值得推薦' : '普通';
 
   return (
     <section className="grid max-w-sm gap-3">
@@ -41,8 +33,8 @@ export default function MemoComponentDemo() {
           </button>
         ))}
       </div>
-      <StarView star={star} />
       <p>星等 {star}</p>
+      <p>評語 {label}</p>
     </section>
   );
 }

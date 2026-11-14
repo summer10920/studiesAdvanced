@@ -1,11 +1,12 @@
 import { useState } from 'react';
 
 export default function TargetDemo() {
-  const [label, setLabel] = useState('尚未點');
+  const [info, setInfo] = useState('尚未點');
 
   const handleClick = (event) => {
-    setLabel(event.currentTarget.textContent);
-    console.log(event.type);
+    setInfo(
+      `type：${event.type}，target：${event.target.tagName}，currentTarget：${event.currentTarget.tagName}`,
+    );
   };
 
   return (
@@ -15,9 +16,9 @@ export default function TargetDemo() {
         className="rounded bg-teal-800 px-3 py-1 text-white"
         onClick={handleClick}
       >
-        記錄這顆按鈕
+        點這裡的 <strong className="underline">粗體字</strong> 或旁邊
       </button>
-      <p className="mt-2">{label}</p>
+      <p className="mt-2">{info}</p>
     </section>
   );
 }

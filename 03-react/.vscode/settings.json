@@ -12,9 +12,6 @@
   "files.eol": "\n",
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
-  "files.exclude": {
-    "**/node_modules": true
-  },
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
   },

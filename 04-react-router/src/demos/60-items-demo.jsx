@@ -79,8 +79,10 @@ export default function ItemsDemo() {
     };
     try {
       if (id === null) {
-        const created = await createItem(fields);
-        setItems((current) => [...current, { ...fields, id: created.id }]);
+        // 練習服務不會真的存，回的編號不可靠，本機清單自己算下一個編號
+        const nextId = Math.max(0, ...items.map((item) => item.id)) + 1;
+        await createItem(fields);
+        setItems((current) => [...current, { ...fields, id: nextId }]);
       } else {
         await updateItem(id, { ...fields, id });
         setItems((current) =>

@@ -1,25 +1,23 @@
 import { Link } from 'react-router';
-import { demos, topics } from '../data/catalog.js';
+import { demos, groups } from '../demoRegistry.js';
 
 /**
- * 筆記總覽。主題與則數來自目錄資料，Link 前往第一則。
- * Link 改的是網址，文件不整頁重載。
+ * 總覽首頁。說明這份專案由 03-react 的 hash 選單改成路徑路由。
  */
 export default function Home() {
   return (
     <section>
-      <h1 className="text-2xl font-bold">練習筆記</h1>
+      <h1 className="text-2xl font-bold">React Router 練習</h1>
       <p className="mt-2 max-w-xl">
-        左側是前兩天的示範目錄。點一則就換到該則的網址，重新整理仍停在同一則，也可以把網址存成書籤。
+        這份專案從 <code className="text-sm">03-react</code> 複製而來，把 hash
+        選單改成 data mode 的路徑路由。左側目錄用{' '}
+        <code className="text-sm">NavLink</code>
+        ，點一則會換成 <code className="text-sm">/demos/…</code>
+        ；重新整理仍停在同一則，也可以把網址存成書籤。
       </p>
-      <p className="mt-4">
-        共 {demos.length} 則，分成 {topics.length} 個主題。
+      <p className="mt-4 text-sm text-stone-600">
+        共 {demos.length} 則，分成 {groups.length} 組。
       </p>
-      <ul className="mt-4 grid gap-1">
-        {topics.map((topic) => (
-          <li key={topic.id}>{topic.title}</li>
-        ))}
-      </ul>
       <p className="mt-4">
         <Link className="text-teal-800 underline" to="/demos/01-hello">
           從第一則開始
