@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>04 回家作業</title>
+  </head>
+  <body
+    class="bg-stone-50 text-stone-900 scheme-light dark:bg-stone-950 dark:text-stone-100 dark:scheme-dark"
+  >
+    <!-- 題目一：版頭兩端對齊；flex-wrap 讓窄螢幕放不下時換行 -->
+    <header
+      class="flex flex-wrap items-center justify-between gap-2 bg-white px-gutter py-4 shadow-sm dark:bg-stone-900"
+    >
+      <a class="font-bold text-brand-700 dark:text-brand-300" href="#"
+        >洛奇旅行</a
+      >
+      <nav class="flex gap-6">
+        <a class="hover:underline" href="#">首頁</a>
+        <a class="hover:underline" href="#">行程</a>
+        <a class="hover:underline" href="#">報名</a>
+      </nav>
+    </header>
+    <!-- 版心：max-w-6xl 是 72rem，mx-auto 水平置中，px-gutter 是 @theme 的左右留白 -->
+    <main class="mx-auto max-w-6xl px-gutter py-8">
+      <h1 class="text-3xl font-bold">熱門行程</h1>
+      <!-- 題目三：手機 1 欄、md 2 欄、lg 4 欄 -->
+      <ul class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <li
+          class="flex flex-col items-start gap-2 rounded-xl border border-stone-200 bg-white p-5 shadow-sm dark:border-stone-700 dark:bg-stone-900"
+        >
+          <p
+            class="rounded-full bg-brand-100 px-3 py-1 text-sm text-brand-800 dark:bg-brand-900 dark:text-brand-100"
+          >
+            城市
+          </p>
+          <h2 class="text-lg font-bold">台北大稻埕與北投溫泉三日</h2>
+          <p class="text-stone-600 dark:text-stone-300">3 天</p>
+          <p class="text-xl font-bold text-tour">NT$18600</p>
+          <a
+            class="rounded-lg bg-brand-600 px-4 py-2 font-medium text-white hover:bg-brand-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900 active:bg-brand-800 dark:focus-visible:outline-white"
+            href="#"
+            >看行程</a
+          >
+        </li>
+        <li
+          class="flex flex-col items-start gap-2 rounded-xl border border-stone-200 bg-white p-5 shadow-sm dark:border-stone-700 dark:bg-stone-900"
+        >
+          <p
+            class="rounded-full bg-brand-100 px-3 py-1 text-sm text-brand-800 dark:bg-brand-900 dark:text-brand-100"
+          >
+            山海
+          </p>
+          <h2 class="text-lg font-bold">花蓮太魯閣與七星潭四日</h2>
+          <p class="text-stone-600 dark:text-stone-300">4 天</p>
+          <p class="text-xl font-bold text-tour">NT$26800</p>
+          <a
+            class="rounded-lg bg-brand-600 px-4 py-2 font-medium text-white hover:bg-brand-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900 active:bg-brand-800 dark:focus-visible:outline-white"
+            href="#"
+            >看行程</a
+          >
+        </li>
+        <li
+          class="flex flex-col items-start gap-2 rounded-xl border border-stone-200 bg-white p-5 shadow-sm dark:border-stone-700 dark:bg-stone-900"
+        >
+          <p
+            class="rounded-full bg-brand-100 px-3 py-1 text-sm text-brand-800 dark:bg-brand-900 dark:text-brand-100"
+          >
+            古都
+          </p>
+          <h2 class="text-lg font-bold">台南府城與安平兩日</h2>
+          <p class="text-stone-600 dark:text-stone-300">2 天</p>
+          <p class="text-xl font-bold text-tour">NT$8800</p>
+          <a
+            class="rounded-lg bg-brand-600 px-4 py-2 font-medium text-white hover:bg-brand-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900 active:bg-brand-800 dark:focus-visible:outline-white"
+            href="#"
+            >看行程</a
+          >
+        </li>
+        <li
+          class="flex flex-col items-start gap-2 rounded-xl border border-stone-200 bg-white p-5 shadow-sm dark:border-stone-700 dark:bg-stone-900"
+        >
+          <p
+            class="rounded-full bg-brand-100 px-3 py-1 text-sm text-brand-800 dark:bg-brand-900 dark:text-brand-100"
+          >
+            日本
+          </p>
+          <h2 class="text-lg font-bold">京都嵐山、伏見與奈良五日</h2>
+          <p class="text-stone-600 dark:text-stone-300">5 天</p>
+          <p class="text-xl font-bold text-tour">NT$52800</p>
+          <a
+            class="rounded-lg bg-brand-600 px-4 py-2 font-medium text-white hover:bg-brand-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900 active:bg-brand-800 dark:focus-visible:outline-white"
+            href="#"
+            >看行程</a
+          >
+        </li>
+      </ul>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

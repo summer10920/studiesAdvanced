@@ -1,73 +1,96 @@
 # studiesAdvanced
 
-洛奇 120 小時在職前端入門課的練習倉庫。講義在 [https://summer10920.github.io](https://summer10920.github.io)（搜尋「在職前端 15 天計畫」）。這個倉庫在第一天 fork 之後，整學期的練習都寫在這裡。
+洛奇 120 小時在職前端課的練習倉庫。講義在 [summer10920.github.io](https://summer10920.github.io)（搜尋「在職前端 15 天計畫」）。課程從 HTML、CSS、Tailwind、JavaScript 學到 React 與 React Router，最後做出一個多頁的旅行社網站；深度停在看得懂、改得動、講得出來，不教 TypeScript。
 
-技術棧停在看得懂、改得動：HTML、CSS、Tailwind CSS v4、JavaScript、React。不上 TypeScript。Node.js 用 **26**（LTS），套件管理只用 **pnpm**。
+## 課程怎麼進行
 
-## Fork 與 clone
+講師不在課堂上現場打程式：每個範例都是這個倉庫裡一份完整、可直接執行的檔案，講師複製進 VS Code、執行後講解觀念。你可以自己讀、改、再執行，也可以請 AI 助手當家教。
 
-你沒有老師倉庫的寫入權限。先 fork [summer10920/studiesAdvanced](https://github.com/summer10920/studiesAdvanced)，再 clone **你自己的**那一份。
+講義分兩種內容：
 
-1. 登入 GitHub，打開老師倉庫，按 **Fork**，並取消勾選「只複製預設分支」，這樣老師為你這一期建立的班級分支（格式 `fe/YYYMM`，YYY 是民國年、MM 是該年第幾期，例如 `fe/11601`）才會一併帶到你的 fork。
+- **主線**：基本觀念，加上結業專案用得到的內容。全部在 120 小時內講完。
+- **選讀**：標題以「選讀：」開頭，上課不講，留給你回家自己讀。Tailwind 公式表（05）與 Firebase 篇（13）整篇都是選讀。
+
+| 階段 | 時數 | 講義 | 內容 |
+| --- | --- | --- | --- |
+| 工具與 HTML | 8 | 01、02 | VS Code、Git 與 GitHub、語意標籤、表單、無障礙 |
+| CSS | 12 | 03 | 選擇器、盒模型、Flex、Grid、響應式版面 |
+| Tailwind | 8 | 04 | 工具類別、響應式、深色模式、自訂主題 |
+| JavaScript | 28 | 06、07、08 | 語法與資料處理、DOM 與事件、fetch 與 async |
+| React | 16 | 09、10 | 元件、狀態、列表、表單、effect、共用狀態 |
+| React Router | 12 | 11 | 路由、版型、動態路由、loader、action |
+| 結業專案 | 32 | 12 | 洛奇旅行網站：前台、後台，資料用記憶體裡的假資料 |
+| 緩衝 | 4 | | |
+
+時數是預估，會依進度挪動。
+
+**回家作業**：02 到 11 每篇最後都有一章，不計分、課堂不講解。起始檔在各練習資料夾的 `homework/`（React 在 `src/homework/`），標準答案在倉庫根目錄的 `homework/`，依講義編號分資料夾、檔名與起始檔相同。先自己做，做完或卡住再對照。
+
+**結業展示**：在本機打包並預覽網站，走完一次從選行程到報名的流程，再口頭說明一個元件的資料從哪裡來。畫面好不好看不單獨評量。
+
+## 開始前準備
+
+上課用的是教室提供的電腦，已初始化好，**結訓後會還原**，所以留在電腦上的檔案不會保留。作業和進度要 commit 並 push 到你自己的 GitHub fork（做法見最後一節），回家才拿得到。
+
+你只需要一個 GitHub 帳號。VS Code、Chrome、Git 在講義 01 確認；Node.js 與 pnpm 到 04 Tailwind 才用得到，課堂上用 nvs 安裝 Node 26，再裝 pnpm，不用事先準備。
+
+自己的電腦要重現環境時，照講義 01 與 04 的步驟安裝即可。
+
+## 取得練習倉庫
+
+你沒有老師倉庫的寫入權限，所以要先 fork，再 clone **你自己的**那一份。
+
+1. 登入 GitHub，打開 [summer10920/studiesAdvanced](https://github.com/summer10920/studiesAdvanced)，按 **Fork**，並**取消勾選**「只複製預設分支」。老師為你這一期建立的班級分支（`fe/YYYMM`，YYY 是民國年、MM 是該年第幾期，例如 `fe/11601`）才會一起帶過去。
 2. 進入你的 fork，按 **Code**，複製 HTTPS 網址。
-3. 在本機：
+3. 在本機 clone 班級分支：
 
 ```bash
 git clone --branch fe/11601 https://github.com/你的帳號/studiesAdvanced.git
 cd studiesAdvanced
 ```
 
-不要 clone 老師的網址再 `git push`，會被拒絕。老師有更新時，先在 GitHub 你的 fork 按 **Sync fork**，再回到這個根目錄 `git pull`。
+`fe/11601` 只是範例，請換成老師公布的班級分支。不要 clone 老師的網址再 `git push`，會被拒絕。老師更新內容時，先在你的 fork 按 **Sync fork**，再在本機根目錄執行 `git pull`。
 
-## 建議的 VS Code 套件
+## VS Code 設定
 
-用 VS Code 打開**這個根目錄**（`studiesAdvanced` 這一層，不要只開子資料夾）。根目錄的 `.vscode/settings.json`、`.vscode/placeholder.code-snippets` 與 `.prettierrc` 會自動套用：存檔排版、占位圖片段都不用再抄到個人設定。
+用 VS Code 打開**這個根目錄**（`studiesAdvanced` 這一層，不要只開子資料夾）。根目錄的 `.vscode/` 與 `.prettierrc` 會自動套用存檔排版與占位圖片段，不用另外設定。
 
-編輯器會讀 `.vscode/extensions.json` 並建議安裝。
+編輯器會依 `.vscode/extensions.json` 建議安裝套件：
 
-**必裝：** Live Server、Prettier、Tailwind CSS IntelliSense、ES7+ React snippets、Git Graph、繁體中文語言包。
-
-**建議：** ESLint、Path Intellisense、Image Preview、GitHub Copilot（免費方案）。
+- 必裝：Live Server、Prettier、Tailwind CSS IntelliSense、ES7+ React snippets、Git Graph、繁體中文語言包。
+- 建議：ESLint、Path Intellisense、Image Preview、GitHub Copilot（免費方案）。
 
 ## 講義對到資料夾
 
-| 講義 | 主題 | 資料夾 | 怎麼跑 |
-| --- | --- | --- | --- |
-| 00 計畫 | 課表與專題契約 | （沒有練習資料夾，讀講義即可） | — |
-| 01 工具 | VS Code、Git、fork | 倉庫根目錄 | 裝套件、完成 clone |
-| 02 HTML | 語意標籤、表單、無障礙 | `01-html-css-js/02-html/` | Live Server |
-| 03 CSS | 選擇器、盒模型、Flex、Grid、RWD | `01-html-css-js/03-css/` | Live Server |
-| 04 Tailwind | utilities、RWD、深色模式 | `02-tailwind/` | `pnpm dev` |
-| 05 Tailwind 公式表 | class 對照 | （沒有練習資料夾，查講義即可） | — |
-| 06 JavaScript 基礎 | 變數、函式、陣列、物件、解構與展開 | `01-html-css-js/04-js/` | Live Server |
-| 07 DOM | 選取元素、事件、表單 | `01-html-css-js/04-js/` | Live Server |
-| 08 非同步 | Promise、fetch、JSON、儲存 | `01-html-css-js/04-js/` | Live Server（`fetch` 讀本機 JSON 不能直接雙擊） |
-| 09 React 基礎 | 元件、props、state、列表與表單 | `03-react/` | `pnpm dev` |
-| 10 React 進階 | effect、共用狀態 | `03-react/` | `pnpm dev` |
-| 11 React Router | 路由、選單、參數 | `04-react-router/`（起點是複製 `03-react`） | `pnpm dev` |
-| 12 結業專案（一）切版 | 洛奇旅行畫面 | `06-project-init/`（從空專案做到與完成品相同）、`05-project-prototype/`（切版完成品） | 講義從 06 做到與 05 相同 |
-| 13 結業專案（二）功能化 | Firestore 與管理員登入 | `07-project-final/`（完成品）。自己練習時複製 `05-project-prototype/`，或沿用做完的 `06-project-init/` | `pnpm install`、`pnpm dev` |
+| 講義 | 資料夾 | 怎麼跑 |
+| --- | --- | --- |
+| 01 工具 | 倉庫根目錄 | 完成 clone、安裝套件 |
+| 02 HTML | `01-html-css-js/02-html/` | Live Server |
+| 03 CSS | `01-html-css-js/03-css/` | Live Server |
+| 04 Tailwind | `02-tailwind/` | `pnpm dev` |
+| 06–08 JavaScript | `01-html-css-js/04-js/` | Live Server，結果看瀏覽器 Console |
+| 09–10 React | `03-react/` | `pnpm dev` |
+| 11 React Router | `04-react-router/` | `pnpm dev` |
+| 12 結業專案 | `06-project-init/`（從空專案開始做）、`05-project-prototype/`（做完的樣子） | `pnpm dev` |
+| 13 Firebase（選讀） | `07-project-final/`（接上 Firebase 的完成品） | `pnpm dev` |
 
-`02-html`、`03-css`、`04-js`、`03-react` 等資料夾裡的檔案，就是講義裡對應 demo 的完整檔案，複製貼上就能執行；各資料夾的 `README.md` 有對照表。每份講義結尾的回家作業，起始檔放在各資料夾的 `homework/`（React 在 `src/homework/`）。
+05 Tailwind 公式表沒有練習資料夾，查講義即可。各資料夾裡的檔案就是講義 demo 的完整檔案，複製貼上就能執行，資料夾的 `README.md` 有對照表。
 
-### 各資料夾怎麼跑
+**Live Server 資料夾**：在檔案總管對目標檔案按右鍵，選 **Open with Live Server**。`fetch` 讀本機 JSON 時不能直接雙擊開檔，一定要用 Live Server。
 
-**HTML／CSS／JavaScript 基礎。** 不需要 Node。VS Code 維持開著倉庫根目錄，在檔案總管對目標的 `index.html` 右鍵 **Open with Live Server**。JavaScript 那一組的結果在瀏覽器 Console。圖片使用 picsum 與 placehold 的網址。
-
-**Tailwind 與 React。** 需要 Node 26 與 pnpm。還沒有 pnpm 時，先確認 Node 已安裝（`node -v`），再執行 `npm install -g pnpm@latest`，然後開一個新終端機。Node 26 不再內建 corepack，所以不用 `corepack enable`。
+**pnpm 資料夾**（04 之後，需要 Node 26 與 pnpm）：進入資料夾後安裝並啟動。
 
 ```bash
-cd 02-tailwind   # 或 03-react、04-react-router、05-project-prototype、06-project-init、07-project-final
+cd 03-react
 pnpm install
 pnpm dev
-cd ..            # 回到倉庫根目錄
 ```
 
-`pnpm build` 產出 `dist/`，`pnpm preview` 預覽建置結果。`node_modules/` 與 `dist/` 已在 `.gitignore`，刪掉之後用 `pnpm install` 裝得回來。
+`pnpm build` 產出 `dist/`，`pnpm preview` 預覽建置結果。`node_modules/` 與 `dist/` 不會進版控，刪掉後用 `pnpm install` 就裝得回來。
 
 ## Commit 你的進度
 
-在**倉庫根目錄**操作。第一次 commit 前，這台電腦要先有作者名稱（只要做一次）：
+在倉庫根目錄操作。第一次 commit 前，先設定作者名稱（只要做一次）：
 
 ```bash
 git config --global user.name "你的名字"
@@ -78,12 +101,12 @@ git config --global user.email "你的信箱@example.com"
 
 ```bash
 git status
-git add 01-html-css/02-html/10-form
+git add 01-html-css-js/02-html/homework
 git commit -m "完成 HTML 報名表欄位"
 git push
 ```
 
 - 訊息寫這次做了哪一節，不要只寫 `update`。
-- 只加入你改過的練習，不要 `git add` 整個 `node_modules`。
-- `push` 是推到你的 fork。
-- 寫壞了先 `git diff` 看差異，再決定要不要還原那個檔案。
+- 只 `git add` 你改過的練習，不要加整個 `node_modules`。
+- `git push` 推到你自己的 fork。
+- 改壞了先 `git diff` 看差異，再決定要不要還原那個檔案。
