@@ -2,14 +2,14 @@
 
 對應講義 [Tailwind：utilities、RWD、深色模式](https://summer10920.github.io)（`lokiTech-15day-04-tailwind`）。Vite + Tailwind CSS v4（`@tailwindcss/vite`），純 JavaScript，沒有 TypeScript。`pages/` 裡每一頁就是講義裡對應 demo 的完整檔案，每一頁都是獨立頁面，直接開啟就能看。每份講義結尾的回家作業，起始檔是 `pages/homework-04.html`。
 
-需要 Node.js 26 與 pnpm。在這個資料夾：
+需要 Node.js 26 與 pnpm。請用「開啟資料夾」打開這個專案（才會套用 `.vscode` 的 Prettier 與 Tailwind IntelliSense）。在這個資料夾：
 
 ```bash
 pnpm install
 pnpm dev
 ```
 
-終端機印出的 Local 網址用瀏覽器打開。存檔後畫面會更新。目錄頁是 `index.html`，網址是 `/`。各節是 `/pages/檔名.html`。
+終端機印出的 Local 網址用瀏覽器打開。存檔後畫面會更新。目錄頁是 `index.html`，網址是 `/`。各節是 `/pages/檔名.html`。排版規則在 `.prettierrc`。
 
 | 指令 | 做什麼 |
 | --- | --- |
