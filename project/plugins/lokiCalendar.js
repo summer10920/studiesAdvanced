@@ -79,8 +79,11 @@ async function fetchData() {
       tableData.totalPrice = 0;
 
       allSelect.forEach((node) => {
+        // 總價加總
         tableData.totalPrice +=
           node.value * tableData.pallet[node.name].sumPrice;
+        // 把當下的 select value 存入到每個 orderCount (字串轉數字)
+        tableData.pallet[node.name].orderCount = +node.value;
       });
 
       const { totalPrice, normalCount, holidayCount } = tableData;
@@ -88,6 +91,40 @@ async function fetchData() {
         `$${totalPrice} / ${normalCount}晚平日，${holidayCount}晚假日`;
     });
   });
+
+  // 按下預約按鈕
+  const offcanvas = new bootstrap.Offcanvas(
+    document.querySelector('.offcanvas'),
+  );
+  document
+    .querySelector('#selectPallet button')
+    .addEventListener('click', (e) => {
+      e.preventDefault();
+      // 刷新 offcanvas 內容
+      let palletItemsHtml = '';
+      const palletData = tableData.pallet;
+      for (const key in palletData) {
+        if (palletData[key].orderCount === 0) continue;
+
+        palletItemsHtml += `<li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">${palletData[key].title} </div>
+              <div>${palletData[key].sellInfo}</div>
+            </div>
+            <span class="badge bg-warning rounded-pill">x <span class="fs-6">${palletData[key].orderCount}</span>帳</span>
+          </li>`;
+      }
+
+      document.querySelector('#orderForm ol').innerHTML = palletItemsHtml;
+      document.querySelector('#orderForm .card-header').textContent =
+        document.querySelector('#selectPallet>h3').textContent;
+      // 如果有沒有palletItems內容，就不開放提交按鈕
+      document.querySelector('#orderForm button[type=submit]').disabled =
+        !palletItemsHtml;
+
+      // 打開 offcanvas
+      offcanvas.show();
+    });
 }
 
 const calendarService = () => {
