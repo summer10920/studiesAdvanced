@@ -125,6 +125,45 @@ async function fetchData() {
       // 打開 offcanvas
       offcanvas.show();
     });
+
+  // 按下提交按鈕
+  document.querySelector('#orderForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // 表單驗證, 如果有錯誤就跳 bs 提示 後面都不做直接 return
+    if (!e.target.checkValidity()) {
+      e.target.classList.add('was-validated');
+      return;
+    }
+
+    const formObj = Object.fromEntries(new FormData(e.target));
+
+    const sleepDays = [];
+    document
+      .querySelectorAll('li.selectHead, li.selectConnect')
+      .forEach((node) => sleepDays.push(node.dataset.date));
+    formObj.selectDate = sleepDays;
+
+    const sellout = {};
+    Object.keys(tableData.pallet).forEach((key) => {
+      sellout[key] = tableData.pallet[key].orderCount;
+    });
+    formObj.sellout = sellout;
+
+    // 提交後端
+    fetch('https://jsonplaceholder.typicode.com/posts', {
+      method: 'POST',
+      body: JSON.stringify(formObj),
+      headers: { 'Content-type': 'application/json; charset=UTF-8' },
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        if (result?.id) {
+          alert('預約成功');
+          document.location.href = '/';
+        }
+      });
+  });
 }
 
 const calendarService = () => {
