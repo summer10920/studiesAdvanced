@@ -108,8 +108,8 @@
       "sellout": {
         "aArea": 10,
         "bArea": 8,
-        "cArea": 10,
-        "dArea": 10
+        "cArea": 5,
+        "dArea": 1
       }
     },
     {
