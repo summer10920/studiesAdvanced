@@ -70,6 +70,24 @@ async function fetchData() {
     const sltDay = e.target.closest('.selectDay');
     sltDay && calendarCtrl.choose(sltDay);
   });
+
+  // 選擇房數, 4個 SELECT 元素
+  const allSelect = document.querySelectorAll('#selectPallet select');
+  allSelect.forEach((slt) => {
+    slt.addEventListener('change', (e) => {
+      e.preventDefault();
+      tableData.totalPrice = 0;
+
+      allSelect.forEach((node) => {
+        tableData.totalPrice +=
+          node.value * tableData.pallet[node.name].sumPrice;
+      });
+
+      const { totalPrice, normalCount, holidayCount } = tableData;
+      document.querySelector('#selectPallet>h3').textContent =
+        `$${totalPrice} / ${normalCount}晚平日，${holidayCount}晚假日`;
+    });
+  });
 }
 
 const calendarService = () => {
@@ -265,7 +283,7 @@ const calendarService = () => {
           const dayPrice = pallet[key][dayPriceKey];
           tableData.pallet[key].sellInfo +=
             `<div>${node.dataset.date}(${dayPrice})</div>`;
-          tableData.pallet[key].sellPrice += dayPrice;
+          tableData.pallet[key].sumPrice += dayPrice;
         }
       }
       // 4. 更新標題上的平日計數
