@@ -95,7 +95,6 @@ import D83 from './demos/83-action.jsx';
 import D84 from './demos/84-action-state.jsx';
 import D84b from './demos/84b-form-status.jsx';
 import D85 from './demos/85-optimistic.jsx';
-import D86 from './demos/86-state-pages.jsx';
 import Homework09 from './homework/09-homework.jsx';
 import Homework10 from './homework/10-homework.jsx';
 
@@ -778,13 +777,6 @@ export const demos = [
     group: '10 共用狀態',
     optional: true,
     Component: D85,
-  },
-  {
-    id: '86',
-    title: '狀態切頁',
-    group: '11 認識路由',
-    optional: false,
-    Component: D86,
   },
   {
     id: 'hw09',
