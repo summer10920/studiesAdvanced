@@ -8,33 +8,35 @@
 
 ## 開啟
 
-需要 Node.js 26 以上與 pnpm。
+需要 Node.js 26 與 pnpm。
 
 ```bash
 pnpm install
-pnpm build
+pnpm dev
 ```
 
-`pnpm build` 會產出 `dist/`，並把 `dist/index.html` 複製成 `dist/404.html`。這份作業沒有啟動 dev server。
+`pnpm build` 會產出 `dist/`，`pnpm preview` 預覽建置結果。
 
 ## 頁面
 
+檔案路徑相對於 `src/`。
+
 | 路徑 | 檔案 | 畫面 |
 | --- | --- | --- |
-| `/` | `pages/HomePage.jsx` | 輪播、地區與天數搜尋、熱門、六個主題、三則理由、四則評價 |
-| `/tours` | `pages/ToursPage.jsx` | 篩選、排序、主題查詢參數、卡片、沒有結果 |
-| `/tours/:id` | `pages/TourDetailPage.jsx` | 圖集、亮點、每日行程、費用、出發日。手機底部固定「立即報名」 |
-| `/booking` | `pages/BookingPage.jsx` | 直接打開。姓名與 email 用範例預覽且唯讀，電話可填，小計跟著人數變 |
-| `/booking/done` | `pages/BookingDonePage.jsx` | 剛送出的內容，狀態「待確認」。直接打開則是範例 |
-| `/me` | `pages/MyBookingsPage.jsx` | 範例清單四筆。沒有取消 |
-| `/about` | `pages/AboutPage.jsx` | 品牌短述、虛構字號與品保、六則 FAQ |
-| `/login` | `pages/LoginPage.jsx` | 「用 Google 帳號繼續」的對話框。按鈕不寫入狀態 |
-| `/admin/login` | `pages/AdminLoginPage.jsx` | email 與密碼欄位。送出不導頁 |
-| `/admin` | `pages/AdminToursPage.jsx` | 行程表與編輯。直接打開 |
-| `/admin/bookings` | `pages/AdminBookingsPage.jsx` | 報名清單，狀態用下拉，不依狀態篩選 |
+| `/` | `features/home/HomePage.jsx` | 輪播、地區與天數搜尋、熱門、六個主題、三則理由、四則評價 |
+| `/tours` | `features/tours/ToursPage.jsx` | 篩選、排序、主題查詢參數、卡片、沒有結果 |
+| `/tours/:id` | `features/tours/TourDetailPage.jsx` | 圖集、亮點、每日行程、費用、出發日。手機底部固定「立即報名」 |
+| `/booking` | `features/booking/BookingPage.jsx` | 帶入行程與出發日，沒帶時用預設行程。姓名與 email 用範例預覽且唯讀，電話必填，小計跟著人數變。送出後導到 `/booking/:id` |
+| `/booking/:id` | `features/booking/BookingResultPage.jsx` | 依編號顯示剛送出的報名，狀態「待確認」。找不到編號時顯示找不到頁 |
+| `/me` | `features/booking/MyBookingsPage.jsx` | 範例清單四筆。沒有取消 |
+| `/about` | `features/about/AboutPage.jsx` | 品牌短述、虛構字號與品保、六則 FAQ |
+| `/login` | `features/auth/LoginPage.jsx` | 「用 Google 帳號繼續」的對話框。按鈕不寫入狀態 |
+| `/admin/login` | `features/admin/AdminLoginPage.jsx` | email 與密碼欄位。送出不導頁 |
+| `/admin` | `features/admin/AdminToursPage.jsx` | 行程表與編輯。直接打開 |
+| `/admin/bookings` | `features/admin/AdminBookingsPage.jsx` | 報名清單，狀態用下拉，不依狀態篩選 |
 | `*` | `pages/NotFoundPage.jsx` | 找不到頁 |
 
-頁首頁尾在 `layouts/SiteLayout.jsx`。契約 id：`#site-header`、`#nav-toggle`、`#tour-list`、`#booking-form`。
+頁首頁尾在 `layout/SiteLayout.jsx`，元件放在 `layout/components/`。路由出錯時顯示 `pages/RouteErrorPage.jsx`。契約 id：`#site-header`、`#nav-toggle`、`#tour-list`、`#booking-form`。
 
 「立即報名」直接到 `/booking?tourId=...&departureId=...`。頁尾有「後台登入」，模板頁尾沒有這條，方便打開後台稿。
 

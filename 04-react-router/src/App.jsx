@@ -4,7 +4,6 @@ import MainLayout from './layouts/MainLayout.jsx';
 import DemoPage from './pages/DemoPage.jsx';
 import Home from './pages/Home.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
-import WherePage from './pages/WherePage.jsx';
 import LoaderDemo, { loader as loader86 } from './demos/86-loader.jsx';
 import ActionDemo, { action as action87 } from './demos/87-action.jsx';
 import RedirectList, {
@@ -30,10 +29,12 @@ import NavigationDemo, {
 import FetcherKeyDemo, {
   action as action92,
 } from './demos/92-fetcher-key.jsx';
+import WherePage from './pages/WherePage.jsx';
 
 /**
- * 由 03-react 的 hash App 改成 data mode：路由表決定畫面，側欄在 MainLayout。
- * 固定路徑的 loader／action 示範比 demos/:slug 更具體，不會被動態段吃掉。
+ * 路由表。外層路由畫版型，index 路由在同一個網址畫首頁。
+ * 子路由寫在 children 裡，才會畫進版型的 Outlet。
+ * basename 取自 Vite 的 BASE_URL。開發時是 /，去掉結尾斜線後等於空字串。
  */
 const basename = import.meta.env.BASE_URL.replace(/\/$/, '');
 
