@@ -15,4 +15,9 @@ onload = () => {
   window.addEventListener('scroll', chgMenuByScroll);
   window.addEventListener('resize', chgMenuByScroll);
   chgMenuByScroll();
+
+  // 啟用 AOS
+  AOS.init({
+    offset: 400,
+  });
 };
