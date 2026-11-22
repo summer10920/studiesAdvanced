@@ -5,10 +5,10 @@
   bottom: 0;
   left: 0;
   right: 0;
-  display: none;
   justify-content: center;
   align-items: center;
   text-align: center;
+  display: none;
 }
 
 #lokiLightBox.open {
@@ -43,4 +43,8 @@
   border: 2px solid white;
   cursor: pointer;
   margin-top: 5px;
+}
+
+#lokiPark .col {
+  cursor: pointer;
 }
