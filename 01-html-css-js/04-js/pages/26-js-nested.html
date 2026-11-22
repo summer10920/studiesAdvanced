@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>巢狀迴圈</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      for (let row = 1; row <= 2; row += 1) {
+        for (let col = 1; col <= 3; col += 1) {
+          console.log(row + '×' + col + '=' + row * col);
+        }
+      }
+    </script>
+  </body>
+</html>

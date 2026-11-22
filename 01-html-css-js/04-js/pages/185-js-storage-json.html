@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>存物件要轉 JSON</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const note = { title: '讀書', done: false };
+
+      localStorage.setItem('note-wrong', note);
+      console.log(localStorage.getItem('note-wrong'));
+
+      localStorage.setItem('note', JSON.stringify(note));
+      const raw = localStorage.getItem('note');
+      const back = JSON.parse(raw);
+      console.log(typeof raw);
+      console.log(back.title);
+
+      localStorage.removeItem('note-wrong');
+      localStorage.removeItem('note');
+    </script>
+  </body>
+</html>

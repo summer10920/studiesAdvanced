@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>不要用 float 切欄</title>
+    <style>
+      body {
+        margin: 1.5rem;
+        font-family: system-ui, "PingFang TC", "Microsoft JhengHei", sans-serif;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr)); /* 依寬度自動決定欄數 */
+        gap: 0.75rem; /* 欄距與列距 */
+      }
+
+      .cards article {
+        padding: 0.75rem;
+        background: #f0fdfa;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cards">
+      <article>卡片 A</article>
+      <article>卡片 B</article>
+      <article>卡片 C</article>
+    </div>
+  </body>
+</html>

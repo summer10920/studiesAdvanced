@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>區塊與行內</title>
+    <style>
+      /* 只為了畫出每顆盒子的邊界，CSS 的寫法下一篇才教 */
+      div,
+      span {
+        border: 1px solid;
+      }
+    </style>
+  </head>
+  <body>
+    <div>區塊盒 A：自己佔一整行。</div>
+    <div>區塊盒 B：不會黏在 A 的後面。</div>
+
+    <div>
+      句子裡的
+      <span>行內盒</span>
+      只包住自己的字，前後的文字繼續同一行。
+    </div>
+    <div>
+      <span>行內盒一</span>
+      <span>行內盒二</span>
+      兩個行內盒並排在同一行。
+    </div>
+
+    <div>
+      外層區塊盒：
+      <div>內層區塊盒：裝在外層裡面，仍然自己佔一行。</div>
+    </div>
+  </body>
+</html>

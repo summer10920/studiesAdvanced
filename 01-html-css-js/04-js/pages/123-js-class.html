@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>classList</title>
+    <style>
+      #box { padding: 0.75rem 1rem; border: 2px solid #0f766e; display: inline-block; }
+      #box.on { background: #99f6e4; }
+      #box.hit { background: #bbf7d0; }
+      #box.big { font-size: 1.4rem; }
+    </style>
+  </head>
+  <body>
+    <p id="box">盒子</p>
+    <script>
+      const box = document.querySelector('#box');
+
+      box.classList.add('on', 'big');
+      box.classList.toggle('big');
+      box.classList.toggle('big');
+      console.log(box.classList.contains('big'));
+
+      box.classList.replace('big', 'hit');
+      console.log(box.classList.contains('big'));
+      console.log(box.className);
+    </script>
+  </body>
+</html>

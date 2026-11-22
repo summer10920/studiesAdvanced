@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>preventDefault 取消連結跳轉</title>
+  </head>
+  <body>
+    <p><a id="jump" href="https://example.com">前往範例</a></p>
+    <p id="output">還在這頁</p>
+    <script>
+      const output = document.querySelector('#output');
+
+      document.querySelector('#jump').addEventListener('click', (event) => {
+        event.preventDefault();
+        output.textContent = '已攔下預設跳轉';
+      });
+    </script>
+  </body>
+</html>

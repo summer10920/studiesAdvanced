@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>async 函式與 await</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const wait = (ms) => {
+        return new Promise((resolve) => {
+          setTimeout(() => resolve(ms), ms);
+        });
+      };
+
+      const run = async () => {
+        console.log('開始');
+        const ms = await wait(10);
+        console.log(ms);
+        return '完成';
+      };
+
+      const result = run();
+      console.log('已呼叫', result);
+      result.then((value) => console.log(value));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>同層元素</title>
+  </head>
+  <body>
+    <article id="story">
+      <main id="app">
+        <p id="intro">前言</p>
+        <section id="card">
+          <h2 id="heading">標題</h2>
+          <p id="text">內文</p>
+          <button type="button" id="action">按鈕</button>
+        </section>
+        <p id="outro">結語</p>
+      </main>
+    </article>
+    <script>
+      const card = document.querySelector('#card');
+      const intro = document.querySelector('#intro');
+      console.log(card.previousElementSibling.id);
+      console.log(card.nextElementSibling.id);
+      console.log(intro.previousElementSibling);
+      console.log(intro.previousElementSibling?.id);
+    </script>
+  </body>
+</html>

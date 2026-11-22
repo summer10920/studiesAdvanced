@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>模板字串</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const title = '台北城市漫遊';
+      const place = '台北';
+      const days = 3;
+      const price = 12800;
+
+      const line = `${place}・${title}・${days} 天・NT$${price}`;
+      console.log(line);
+
+      // 大括號裡可以放運算
+      console.log(`總價 NT$${price * days}`);
+
+      // 反引號可以直接換行
+      const note = `第一行
+第二行`;
+      console.log(note);
+
+      // 要印出字面的 ${}，在 $ 前面加反斜線
+      console.log(`\${price} 會被當成文字`);
+    </script>
+  </body>
+</html>

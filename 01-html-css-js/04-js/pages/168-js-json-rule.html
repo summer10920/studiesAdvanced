@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON 語法規則與常見錯誤</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const texts = [
+        '{"name":"小安"}',
+        "{ name: '小安' }",
+        '{"name":"小安",}',
+      ];
+
+      for (const text of texts) {
+        try {
+          const data = JSON.parse(text);
+          console.log('成功', data.name);
+        } catch (error) {
+          console.log(error.name + '：' + error.message);
+        }
+      }
+    </script>
+  </body>
+</html>

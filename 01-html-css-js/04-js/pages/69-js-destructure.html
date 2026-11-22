@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>物件解構</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const tour = { title: '京都紅葉散步', place: '京都', days: 5, price: 0 };
+
+      const { title, place } = tour;
+      const { days: duration } = tour;
+      const { guide = '未定', price = 999 } = tour;
+
+      console.log(title, place);
+      console.log(duration);
+      console.log(guide);
+      console.log(price);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>選讀：template 元素</title>
+  </head>
+  <body>
+    <template id="row">
+      <li><span class="name"></span></li>
+    </template>
+    <ul id="list"></ul>
+    <script>
+      const list = document.querySelector('#list');
+      const row = document.querySelector('#row');
+      const names = ['筆', '紙', '尺'];
+
+      for (const name of names) {
+        const fragment = row.content.cloneNode(true);
+        fragment.querySelector('.name').textContent = name;
+        list.append(fragment);
+      }
+    </script>
+  </body>
+</html>

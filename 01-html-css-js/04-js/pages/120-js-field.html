@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>一般 property</title>
+  </head>
+  <body>
+    <img id="photo" alt="舊說明" src="photo.png" />
+    <a id="link" href="/tour">行程</a>
+    <input id="nameInput" type="text" value="原始" />
+    <script>
+      const photo = document.querySelector('#photo');
+      const link = document.querySelector('#link');
+      const nameInput = document.querySelector('#nameInput');
+
+      photo.id = 'cover';
+      photo.alt = '夏季特賣';
+      photo.src = 'cover.png';
+      console.log(photo.id);
+      console.log(photo.alt);
+      console.log(photo.getAttribute('src'));
+
+      link.href = 'https://example.com/tour';
+      console.log(link.href);
+
+      nameInput.value = '目前';
+      console.log(nameInput.value);
+    </script>
+  </body>
+</html>

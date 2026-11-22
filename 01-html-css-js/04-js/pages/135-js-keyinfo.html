@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>鍵盤資訊</title>
+    <style>
+      #info { white-space: pre-line; }
+    </style>
+  </head>
+  <body>
+    <p id="info">按任意鍵</p>
+    <script>
+      const info = document.querySelector('#info');
+
+      document.addEventListener('keydown', (event) => {
+        const mods = [
+          event.ctrlKey ? 'Ctrl' : '',
+          event.metaKey ? 'Meta' : '',
+          event.shiftKey ? 'Shift' : '',
+          event.altKey ? 'Alt' : '',
+        ].filter(Boolean);
+
+        info.textContent = [
+          `key：${event.key}`,
+          `code：${event.code}`,
+          `repeat：${event.repeat}`,
+          `修飾鍵：${mods.join('+') || '無'}`,
+        ].join('\n');
+      });
+    </script>
+  </body>
+</html>

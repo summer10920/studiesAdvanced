@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>顏色</title>
+    <style>
+      .named {
+        color: teal;
+      }
+
+      .hex {
+        color: #0f766e;
+      }
+
+      .rgb {
+        color: rgb(15 118 110);
+      }
+
+      .hsl {
+        color: hsl(175 77% 26%); /* 要調深淺，改第三個數 */
+      }
+
+      .mix {
+        color: rgb(15 118 110 / 50%); /* 斜線後面是透明度 */
+      }
+
+      .tag {
+        color: #9f1239;
+        border-bottom: 3px solid currentColor; /* currentColor 就是上面這個字色 */
+      }
+
+      .backdrop {
+        background: #115e59;
+      }
+
+      .frost {
+        background: rgb(240 253 250 / 70%); /* 底下的深色會混進來 */
+      }
+
+      .solid {
+        background: rgb(240 253 250);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>同一套顏色，很多種寫法</h1>
+    <ul>
+      <li class="named">名稱 teal</li>
+      <li class="hex">六碼十六進位</li>
+      <li class="rgb">rgb 空格寫法</li>
+      <li class="hsl">hsl 色相、飽和度、亮度</li>
+      <li class="mix">同一色，一半透明</li>
+    </ul>
+    <p class="tag">字是玫瑰紅，下方的線也跟著字色走</p>
+    <div class="backdrop">
+      <p class="frost">70% 不透明的淺底，透出一點底下的深色。</p>
+      <p class="solid">完全不透明的淺底。</p>
+    </div>
+  </body>
+</html>

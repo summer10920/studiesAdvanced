@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>盒模型與狀態</title>
+    <style>
+      body {
+        margin: 1.5rem;
+        font-family: system-ui, "PingFang TC", "Microsoft JhengHei", sans-serif;
+      }
+
+      .go {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background: #115e59;
+        color: #f0fdfa;
+      }
+
+      .go:hover {
+        background: #0f766e;
+      }
+
+      @media (min-width: 40rem) {
+        .wide {
+          color: #0f766e;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="go" href="#top">回到頁首</a>
+    <p class="wide">視窗寬度達 40rem（640px）以上，這段才變成深青綠。</p>
+  </body>
+</html>

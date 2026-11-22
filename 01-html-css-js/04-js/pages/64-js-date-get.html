@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>讀取日期與時間</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const point = new Date(2026, 7, 1, 14, 30, 45);
+
+      console.log(point.getFullYear());
+      console.log(point.getMonth() + 1);
+      console.log(point.getDate());
+      console.log(point.getDay());
+      console.log(point.getHours(), point.getMinutes(), point.getSeconds());
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>自訂驗證訊息</title>
+  </head>
+  <body>
+    <form id="signup">
+      <p><label>密碼 <input id="password" type="password" required minlength="6" /></label></p>
+      <p><label>再輸入一次 <input id="confirm" type="password" required /></label></p>
+      <button type="submit">送出</button>
+    </form>
+    <p id="result">尚未送出</p>
+    <script>
+      const form = document.querySelector('#signup');
+      const passwordInput = document.querySelector('#password');
+      const confirmInput = document.querySelector('#confirm');
+      const result = document.querySelector('#result');
+
+      const checkMatch = () => {
+        const same = confirmInput.value === passwordInput.value;
+        confirmInput.setCustomValidity(same ? '' : '兩次輸入的密碼不一樣');
+      };
+
+      passwordInput.addEventListener('input', checkMatch);
+      confirmInput.addEventListener('input', checkMatch);
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        result.textContent = '密碼設定完成';
+      });
+    </script>
+  </body>
+</html>

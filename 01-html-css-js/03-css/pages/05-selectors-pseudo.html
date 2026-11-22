@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>偽類與偽元素</title>
+    <style>
+      /* 順序：link、visited、hover、active，focus-visible 放最後 */
+      a:link {
+        color: #0f766e;
+      }
+      a:visited {
+        color: #6d28d9;
+      }
+      a:hover {
+        color: #9f1239;
+      }
+      a:active {
+        color: #b45309;
+      }
+      a:focus-visible {
+        color: #0369a1;
+      }
+
+      .days li:nth-child(odd) {
+        color: #0f766e;
+      }
+      .days li:nth-child(2) {
+        font-weight: 700;
+      }
+
+      .pitfall p:first-child {
+        color: #9f1239; /* 打不中：第一個小孩是 h2 */
+      }
+      .pitfall p:first-of-type {
+        color: #0f766e;
+      }
+
+      .price::before {
+        content: "NT$ ";
+      }
+
+      input::placeholder {
+        color: #94a3b8;
+      }
+      input:disabled {
+        color: #94a3b8;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>狀態、位置、裝飾</h1>
+    <p><a href="#days">把滑鼠放上來，再用 Tab 走進來</a></p>
+    <ul class="days" id="days">
+      <li>奇數項</li>
+      <li>第二項較粗</li>
+      <li>奇數項</li>
+      <li>第四項</li>
+    </ul>
+    <section class="pitfall">
+      <h2>不是第一個小孩</h2>
+      <p>這段是深青綠。第一個小孩是標題，所以段落不是第一個小孩。</p>
+    </section>
+    <p class="price">12800</p>
+    <p><label>姓名 <input type="text" placeholder="王小明" /></label></p>
+    <p><label>狀態 <input type="text" value="已額滿" disabled /></label></p>
+  </body>
+</html>

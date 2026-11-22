@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>時間戳記</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const epoch = new Date(0);
+      console.log(epoch.toISOString());
+      console.log(epoch.toString());
+
+      const point = new Date('2026-08-01T00:00:00Z');
+      console.log(point.getTime());
+      console.log(Date.now());
+
+      const unixSeconds = 1785542400;
+      console.log(new Date(unixSeconds * 1000).toISOString());
+      console.log(Math.floor(point.getTime() / 1000));
+
+      const start = new Date(2026, 7, 1);
+      const end = new Date(2026, 7, 2);
+      console.log(end - start);
+      console.log(end.getTime() - start.getTime());
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>選讀：設定逾時</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const main = async () => {
+        // 時限內完成：照常拿到回應
+        const response = await fetch('data/items.json', {
+          signal: AbortSignal.timeout(3000),
+        });
+        console.log(response.ok);
+
+        // 先等 200 毫秒讓 50 毫秒的時限過期，再發請求
+        const signal = AbortSignal.timeout(50);
+        await new Promise((resolve) => setTimeout(resolve, 200));
+        try {
+          await fetch('data/items.json', { signal });
+        } catch (error) {
+          console.log(error.name);
+        }
+      };
+
+      main();
+    </script>
+  </body>
+</html>

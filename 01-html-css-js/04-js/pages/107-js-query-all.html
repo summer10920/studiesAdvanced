@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>querySelectorAll</title>
+  </head>
+  <body>
+    <ul id="list">
+      <li class="item">蘋果</li>
+      <li class="item">香蕉</li>
+      <li class="item">橘子</li>
+    </ul>
+    <script>
+      const items = document.querySelectorAll('.item');
+      console.log(items.length);
+
+      const names = [...items].map((item) => item.textContent);
+      console.log(names);
+
+      items.forEach((item, index) => {
+        item.textContent = `${index + 1}. ${item.textContent}`;
+      });
+
+      const none = document.querySelectorAll('.missing');
+      console.log(none.length);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>finally</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      function readScore(record) {
+        try {
+          return record.score;
+        } catch (error) {
+          console.log(error.name);
+          return null;
+        } finally {
+          console.log('讀取結束');
+        }
+      }
+
+      console.log(readScore({ score: 90 }));
+      console.log(readScore(null));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>指標座標</title>
+    <style>
+      body { height: 1600px; }
+      #pos { position: sticky; top: 0; margin: 0; padding: 8px; height: 4.5em; background: #fef3c7; white-space: pre-line; }
+      #pad { height: 160px; margin: 40px; background: #ccfbf1; }
+    </style>
+  </head>
+  <body>
+    <p id="pos">在方塊上移動指標</p>
+    <div id="pad"></div>
+    <script>
+      const pos = document.querySelector('#pos');
+      const pad = document.querySelector('#pad');
+
+      pad.addEventListener('pointermove', (event) => {
+        pos.textContent = [
+          `視窗座標 ${event.clientX}, ${event.clientY}`,
+          `文件座標 ${event.pageX}, ${event.pageY}`,
+          `方塊內座標 ${event.offsetX}, ${event.offsetY}`,
+        ].join('\n');
+      });
+    </script>
+  </body>
+</html>

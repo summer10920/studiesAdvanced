@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>querySelector</title>
+  </head>
+  <body>
+    <h1 id="title">原標題</h1>
+    <p class="note">原補充</p>
+    <script>
+      const title = document.querySelector('#title');
+      title.textContent = '已選到標題';
+
+      const note = document.querySelector('.note');
+      note.textContent = '這是補充';
+
+      const missing = document.querySelector('#missing');
+      console.log(missing);
+      console.log(missing?.textContent);
+      if (missing) {
+        missing.textContent = '有找到';
+      }
+    </script>
+  </body>
+</html>

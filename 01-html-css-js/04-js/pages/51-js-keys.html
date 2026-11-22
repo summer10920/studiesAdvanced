@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>靜態方法</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const tour = { id: 1, title: '台北城市漫遊', days: 3 };
+
+      console.log(Object.keys(tour));
+      console.log(Object.values(tour));
+      console.log(Object.entries(tour));
+      console.log(Object.fromEntries(Object.entries(tour)));
+
+      // 物件自己身上沒有 keys，得到 undefined
+      console.log(tour.keys);
+      // toString 來自原型，所以取得到，型別是 function
+      console.log(typeof tour.toString);
+    </script>
+  </body>
+</html>

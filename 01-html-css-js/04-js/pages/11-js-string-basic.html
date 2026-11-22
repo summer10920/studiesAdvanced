@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>建立與存取</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const single = '台北';
+      const double = "it's JS";
+      const plain = `城市`;
+      const title = '台北城市漫遊';
+
+      // 三種包法都是字串，雙引號裡的單引號照樣印出
+      console.log(single);
+      console.log(double);
+      console.log(plain);
+
+      // length 是字元數 6；索引 0 是「台」，索引 2 是「城」
+      console.log(title.length);
+      console.log(title[0]);
+      console.log(title[2]);
+
+      // toUpperCase 把英文轉成大寫，交回新字串；原字串維持小寫
+      const upper = 'taipei'.toUpperCase();
+      console.log(upper);
+      console.log('taipei');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>三種狀態</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      new Promise((resolve) => {
+        console.log('執行器');
+        resolve('完成');
+      }).then((value) => {
+        console.log(value);
+      });
+      console.log('同步結束');
+
+      new Promise((resolve, reject) => {
+        resolve('第一次');
+        resolve('第二次');
+        reject(new Error('太晚'));
+      }).then((value) => {
+        console.log(value);
+      });
+    </script>
+  </body>
+</html>

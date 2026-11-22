@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>綜合練習：大樂透產生器</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      function getLottoNumbers() {
+        const numbers = new Set();
+        while (numbers.size < 6) {
+          const n = Math.floor(Math.random() * 49) + 1;
+          numbers.add(n);
+        }
+        return Array.from(numbers).sort((a, b) => a - b);
+      }
+
+      const picked = getLottoNumbers();
+      console.log(picked);
+      console.log(picked.length);
+      console.log(new Set(picked).size);
+    </script>
+  </body>
+</html>

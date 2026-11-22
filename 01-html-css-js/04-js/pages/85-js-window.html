@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>window 與 document</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      console.log(window.window === window);
+      console.log(document === window.document);
+
+      const course = 'DOM';
+      console.log(window.course);
+    </script>
+  </body>
+</html>

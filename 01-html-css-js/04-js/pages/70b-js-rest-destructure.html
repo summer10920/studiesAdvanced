@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>解構搭配其餘</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const places = ['台北', '花蓮', '京都', '台南'];
+      const [head, ...others] = places;
+      console.log(head);
+      console.log(others);
+
+      const tour = { id: 7, title: '花蓮山海三日', days: 3, price: 15900 };
+      const { id, ...info } = tour;
+      console.log(id);
+      console.log(info);
+    </script>
+  </body>
+</html>

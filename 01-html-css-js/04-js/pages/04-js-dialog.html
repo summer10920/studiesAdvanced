@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>alert、confirm 與 prompt</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。每個視窗都要按掉，後面的程式才會繼續。</p>
+    <script>
+      console.log('alert 之前');
+      console.log(alert('只顯示訊息'));
+      console.log('alert 之後');
+      console.log('confirm 之前');
+      console.log(confirm('要繼續嗎'));
+      console.log('confirm 之後');
+      console.log('prompt 之前');
+      console.log(prompt('請輸入名字'));
+      console.log('prompt 之後');
+    </script>
+  </body>
+</html>

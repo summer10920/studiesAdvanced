@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>進階選擇器</title>
+    <style>
+      a[href^="https"] {
+        color: #0f766e;
+      }
+
+      a[href$=".pdf"] {
+        color: #9f1239;
+      }
+
+      :is(.tip, .warn) p {
+        color: #115e59;
+      }
+
+      h2 {
+        color: #0f766e;
+      }
+
+      :where(h1, h2) {
+        color: #9f1239;
+      }
+
+      .option:has(:checked) {
+        background: #ccfbf1;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>屬性、is、where、has</h1>
+    <h2>屬性比對</h2>
+    <ul>
+      <li><a href="https://example.com">https 開頭</a></li>
+      <li><a href="guide.pdf">.pdf 結尾</a></li>
+      <li><a href="#top">兩者都不是</a></li>
+    </ul>
+    <h2>一組選擇器</h2>
+    <div class="tip"><p>在 tip 裡的段落</p></div>
+    <div class="warn"><p>在 warn 裡的段落</p></div>
+    <div class="plain"><p>不在名單裡的段落</p></div>
+    <h2>has</h2>
+    <label class="option"><input type="checkbox" /> 勾選後，整列換底色</label>
+  </body>
+</html>

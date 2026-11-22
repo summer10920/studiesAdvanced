@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>巢狀地獄</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const addOne = (number, callback) => {
+        setTimeout(() => {
+          callback(number + 1);
+        }, 10);
+      };
+
+      addOne(0, (first) => {
+        console.log(first);
+        addOne(first, (second) => {
+          console.log(second);
+          addOne(second, (third) => {
+            console.log(third);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

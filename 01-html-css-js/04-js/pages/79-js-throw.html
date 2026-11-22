@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>主動拋出錯誤</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      function divide(a, b) {
+        if (b === 0) {
+          throw new Error('除數不能為 0');
+        }
+        return a / b;
+      }
+
+      try {
+        console.log(divide(10, 2));
+        console.log(divide(10, 0));
+        console.log('這行不會印');
+      } catch (error) {
+        console.log(error.name);
+        console.log(error.message);
+      }
+
+      console.log('程式繼續');
+
+      try {
+        throw '不是 Error 物件';
+      } catch (error) {
+        console.log(typeof error);
+        console.log(error.name);
+        console.log(error.message);
+      }
+    </script>
+  </body>
+</html>

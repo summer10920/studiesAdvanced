@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>選讀：捕獲與冒泡</title>
+    <style>
+      #outer { padding: 1rem; background: #ccfbf1; }
+      button { margin-right: 0.4rem; }
+    </style>
+  </head>
+  <body>
+    <div id="outer">
+      <button type="button" id="inner">內層</button>
+      <button type="button" id="stop">停止冒泡</button>
+    </div>
+    <p id="output"></p>
+    <script>
+      const outer = document.querySelector('#outer');
+      const inner = document.querySelector('#inner');
+      const stopButton = document.querySelector('#stop');
+      const output = document.querySelector('#output');
+
+      outer.addEventListener('click', () => {
+        output.textContent = '外捕獲';
+        console.log('外捕獲');
+      }, { capture: true });
+
+      inner.addEventListener('click', () => {
+        output.textContent = `${output.textContent} 內層`;
+        console.log('內層');
+      });
+
+      outer.addEventListener('click', () => {
+        output.textContent = `${output.textContent} 外冒泡`;
+        console.log('外冒泡');
+      });
+
+      stopButton.addEventListener('click', (event) => {
+        event.stopPropagation();
+        output.textContent = `${output.textContent} 停止`;
+        console.log('停止');
+      });
+    </script>
+  </body>
+</html>

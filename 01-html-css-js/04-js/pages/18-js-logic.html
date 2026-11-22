@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>邏輯運算子</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const age = 20;
+      const hasTicket = true;
+      const isAdult = age >= 18;
+
+      console.log(isAdult && hasTicket);
+      console.log(isAdult && age > 60);
+      console.log(age < 10 || hasTicket);
+      console.log(age < 10 || age > 60);
+      console.log(!isAdult);
+    </script>
+  </body>
+</html>

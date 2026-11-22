@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>函式呼叫時展開</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      function total(a, b, c) {
+        return a + b + c;
+      }
+
+      const prices = [12800, 15900, 42800];
+
+      console.log(total(...prices));
+      console.log(total(prices[0], prices[1], prices[2]));
+      console.log(Math.max(...prices));
+    </script>
+  </body>
+</html>

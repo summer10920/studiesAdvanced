@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>outerHTML</title>
+  </head>
+  <body>
+    <p id="note">舊公告</p>
+    <script>
+      const note = document.querySelector('#note');
+      console.log(note.outerHTML);
+
+      note.outerHTML = '<p id="note">新公告</p>';
+      const next = document.querySelector('#note');
+      console.log(note.isConnected);
+      console.log(note === next);
+
+      note.textContent = '改舊的';
+      console.log(next.textContent);
+    </script>
+  </body>
+</html>

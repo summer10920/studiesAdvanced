@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>組合選擇器</title>
+    <style>
+      article p {
+        color: #0f766e; /* 後代：任何深度的 p */
+      }
+
+      article > .direct {
+        font-weight: 700; /* 只限 article 的直接小孩 */
+      }
+
+      h2 ~ p {
+        color: #475569; /* 同一個父層裡，h2 之後的全部 p */
+      }
+
+      .stops li + li {
+        text-decoration: line-through; /* 緊接在另一個 li 後面的 li */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>關係寫在選擇器中間</h1>
+    <article>
+      <p class="direct">這段是 article 的直接小孩，所以較粗，也有深色。</p>
+      <div>
+        <p>後代選擇器打得到這段，直接子層打不到，所以不會變粗。</p>
+      </div>
+    </article>
+    <h2>兄弟關係</h2>
+    <p>這個標題後面的段落會改成石板色。</p>
+    <p>這段也在標題後面，同樣改色。</p>
+    <ul class="stops">
+      <li>第一項沒有刪除線</li>
+      <li>第二項有</li>
+      <li>第三項也有，因為它緊接在第二項後面</li>
+    </ul>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PUT、PATCH、DELETE 與 REST</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const main = async () => {
+        const base = 'https://jsonplaceholder.typicode.com/posts/1';
+        const headers = { 'Content-Type': 'application/json' };
+        const putRes = await fetch(base, {
+          method: 'PUT',
+          headers,
+          body: JSON.stringify({ id: 1, title: '整筆更新', body: '全文', userId: 1 }),
+        });
+        const patchRes = await fetch(base, {
+          method: 'PATCH',
+          headers,
+          body: JSON.stringify({ title: '只改標題' }),
+        });
+        const deleteRes = await fetch(base, { method: 'DELETE' });
+        console.log(putRes.status);
+        console.log(patchRes.status);
+        console.log(deleteRes.status);
+      };
+
+      main();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>區塊作用域</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const place = '台北';
+      const country = '台灣';
+
+      {
+        const place = '花蓮';
+        const days = 3;
+        console.log(place);
+        console.log(days);
+        console.log(country);
+      }
+
+      console.log(place);
+
+      // 下面這行會 ReferenceError，所以維持註解
+      // console.log(days);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>參數與引數</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      function printPair(left, right) {
+        console.log(left);
+        console.log(right);
+      }
+
+      printPair(10, 20);
+      printPair(10);
+      printPair(10, 20, 30);
+
+      function bump(value) {
+        value = value + 1;
+        console.log(value);
+      }
+
+      let value = 5;
+      bump(value);
+      console.log(value);
+
+      // console.log(left);
+    </script>
+  </body>
+</html>

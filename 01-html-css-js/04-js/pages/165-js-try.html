@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>async 函式的錯誤處理</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const fail = async () => {
+        throw new Error('失敗');
+      };
+
+      const run = async () => {
+        try {
+          await fail();
+          console.log('不會到');
+        } catch (error) {
+          console.log(error.message);
+        } finally {
+          console.log('收尾');
+        }
+      };
+
+      run();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>把資料收成文字</title>
+  </head>
+  <body>
+    <pre id="out"></pre>
+    <script>
+      const state = { title: '讀書', done: false };
+      const compact = JSON.stringify(state);
+      const pretty = JSON.stringify(state, null, 2);
+
+      document.querySelector('#out').textContent = pretty;
+      console.log(compact);
+      console.log(typeof compact);
+    </script>
+  </body>
+</html>

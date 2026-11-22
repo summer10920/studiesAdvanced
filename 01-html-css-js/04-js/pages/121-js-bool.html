@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>布林 property</title>
+  </head>
+  <body>
+    <p><button type="button" id="go" disabled>送出</button></p>
+    <p><input id="ok" type="checkbox" /></p>
+    <script>
+      const go = document.querySelector('#go');
+      const ok = document.querySelector('#ok');
+
+      go.disabled = false;
+      console.log(go.disabled);
+      go.hidden = true;
+      console.log(go.hidden);
+      ok.checked = true;
+      console.log(ok.checked);
+    </script>
+  </body>
+</html>

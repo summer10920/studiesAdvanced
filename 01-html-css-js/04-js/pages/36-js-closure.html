@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>選讀：閉包</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      function createCounter() {
+        let count = 0;
+
+        function increment() {
+          count += 1;
+          return count;
+        }
+
+        function getCount() {
+          return count;
+        }
+
+        return {
+          increment: increment,
+          getCount: getCount,
+        };
+      }
+
+      const first = createCounter();
+      console.log(first.increment());
+      console.log(first.increment());
+      console.log(first.getCount());
+      console.log(first.count);
+
+      const second = createCounter();
+      console.log(second.getCount());
+      console.log(first.getCount());
+    </script>
+  </body>
+</html>

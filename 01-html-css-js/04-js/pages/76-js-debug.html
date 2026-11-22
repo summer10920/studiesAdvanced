@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>除錯技巧</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const DEBUG = true;
+
+      function debugLog(message) {
+        if (DEBUG) {
+          console.log('[DEBUG]', message);
+        }
+      }
+
+      function sumScores(scores) {
+        debugLog('開始加總');
+        console.time('加總');
+        let total = 0;
+        for (let i = 0; i < scores.length; i++) {
+          total += scores[i];
+          console.log(`第 ${i} 個：${scores[i]}，目前 ${total}`);
+        }
+        console.timeEnd('加總');
+        // debugger：DevTools 打開時會在這裡暫停，故註解
+        return total;
+      }
+
+      const rows = [
+        { name: '小明', score: 85 },
+        { name: '小華', score: 92 },
+        { name: '小李', score: 78 },
+      ];
+
+      console.table(rows);
+      console.log(sumScores([10, 20, 30]));
+    </script>
+  </body>
+</html>

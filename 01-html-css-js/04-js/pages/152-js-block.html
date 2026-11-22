@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>單執行緒與阻塞</title>
+  </head>
+  <body>
+    <p>點一次按鈕，頁面會停住約 3 秒。這段時間按鈕不會回應，按鈕文字也不會更新。</p>
+    <button type="button" id="busy">開始</button>
+    <script>
+      const button = document.querySelector('#busy');
+      button.addEventListener('click', () => {
+        console.log('開始計算');
+        button.textContent = '計算中';
+        const end = Date.now() + 3000;
+        while (Date.now() < end) {
+          // 故意一直重複比較，讓這個函式 3 秒都不結束
+        }
+        button.textContent = '計算結束';
+        console.log('計算結束');
+      });
+    </script>
+  </body>
+</html>

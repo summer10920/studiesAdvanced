@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>一條規則</title>
+    <style>
+      /* 選擇器 { 屬性: 值; } */
+
+      h1,
+      h2 {
+        font-weight: 400; /* 逗號：h1 與 h2 共用這一組宣告 */
+      }
+
+      h1 {
+        color: #99f6e4; /* 同一個屬性寫兩次，這行會被下面留下的那行蓋掉 */
+        colour: red; /* 屬性名拼錯，只丟掉這一行，標題不會變紅 */
+        color: #115e59;
+        font-size: 2.25rem;
+      }
+
+      p {
+        font-size: 1.125rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>一條規則三個零件</h1>
+    <p>標題是深青綠，不是紅色。</p>
+    <h2>次標題跟主標題共用字重</h2>
+    <p>這段和上一段共用 p 的字級。</p>
+  </body>
+</html>

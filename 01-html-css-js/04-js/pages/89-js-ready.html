@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOMContentLoaded</title>
+    <script>
+      console.log(document.body);
+
+      document.addEventListener('DOMContentLoaded', () => {
+        console.log(document.body.tagName);
+      });
+    </script>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+  </body>
+</html>

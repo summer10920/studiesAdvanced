@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>attribute 與 property</title>
+  </head>
+  <body>
+    <input id="nameInput" type="text" value="原始" />
+    <a id="link" class="nav" href="/tour">行程</a>
+    <script>
+      const nameInput = document.querySelector('#nameInput');
+      const link = document.querySelector('#link');
+
+      nameInput.value = '目前';
+      console.log(nameInput.getAttribute('value'));
+      console.log(nameInput.value);
+
+      console.log(link.getAttribute('href'));
+      console.log(link.href);
+
+      console.log(link.getAttribute('class'));
+      console.log(link.className);
+    </script>
+  </body>
+</html>

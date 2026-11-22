@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>查詢與判斷</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const title = '台北城市漫遊';
+
+      // 「城市」有出現，true；「花蓮」沒有，false
+      console.log(title.includes('城市'));
+      console.log(title.includes('花蓮'));
+      // 開頭是「台北」所以 true，不是「城市」所以 false
+      console.log(title.startsWith('台北'));
+      console.log(title.startsWith('城市'));
+      // 結尾是「漫遊」所以 true，不是「台北」所以 false
+      console.log(title.endsWith('漫遊'));
+      console.log(title.endsWith('台北'));
+      // 「城市」從索引 2 開始；沒有「花蓮」得到 -1
+      console.log(title.indexOf('城市'));
+      console.log(title.indexOf('花蓮'));
+      // 原字串沒有被改
+      console.log(title);
+    </script>
+  </body>
+</html>

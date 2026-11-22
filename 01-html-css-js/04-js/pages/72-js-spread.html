@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>物件展開</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const tour = {
+        title: '台北城市漫遊',
+        days: 3,
+        price: 12800,
+        tags: ['城市'],
+      };
+
+      const discounted = { ...tour, price: 11800 };
+
+      console.log(tour.price);
+      console.log(discounted.price);
+      console.log(discounted.title);
+
+      discounted.tags.push('步行');
+      console.log(tour.tags);
+      console.log(discounted.tags);
+    </script>
+  </body>
+</html>

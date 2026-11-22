@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>reduce</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const prices = [12800, 15900, 42800];
+
+      // 從 0 依序相加，得到 71500
+      const total = prices.reduce((sum, price) => {
+        return sum + price;
+      }, 0);
+      console.log(total);
+
+      // 有起點時，空陣列得到起點 0
+      console.log([].reduce((sum, price) => sum + price, 0));
+
+      // 起點寫成空字串，數字會被接成文字
+      console.log(prices.reduce((sum, price) => sum + price, ''));
+    </script>
+  </body>
+</html>

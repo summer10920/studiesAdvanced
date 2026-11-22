@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>列印</title>
+  </head>
+  <body>
+    <p>在 DevTools 的 Console 呼叫 printPage()。</p>
+    <script>
+      const printPage = () => {
+        console.log('列印之前');
+        print();
+        console.log('列印之後');
+      };
+
+      console.log('呼叫 printPage() 會打開列印對話框');
+    </script>
+  </body>
+</html>

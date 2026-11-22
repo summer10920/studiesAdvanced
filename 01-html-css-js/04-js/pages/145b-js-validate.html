@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>內建驗證屬性</title>
+  </head>
+  <body>
+    <form id="signup">
+      <p>
+        <label>帳號
+          <input name="account" required minlength="4" pattern="[A-Za-z0-9]+" title="只能用英文字母與數字" />
+        </label>
+      </p>
+      <p><label>Email <input name="email" type="email" required /></label></p>
+      <button type="submit">送出</button>
+    </form>
+    <p id="result">尚未送出</p>
+    <script>
+      const form = document.querySelector('#signup');
+      const result = document.querySelector('#result');
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        result.textContent = '通過檢查，進入 submit';
+      });
+    </script>
+  </body>
+</html>

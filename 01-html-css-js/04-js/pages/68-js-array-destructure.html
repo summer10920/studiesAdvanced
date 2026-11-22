@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>陣列解構</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const titles = ['台北城市漫遊', '花蓮山海三日', '京都紅葉散步'];
+
+      const [first, second] = titles;
+      console.log(first);
+      console.log(second);
+
+      const [, , third] = titles;
+      console.log(third);
+      console.log(titles.length);
+
+      // 函式回傳陣列，呼叫端用解構接住
+      function getRange() {
+        return [1, 10];
+      }
+      const [min, max] = getRange();
+      console.log(min, max);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>getElementById</title>
+  </head>
+  <body>
+    <ul id="list">
+      <li class="item">蘋果</li>
+      <li class="item">香蕉</li>
+    </ul>
+    <script>
+      const list = document.getElementById('list');
+      console.log(list === document.querySelector('#list'));
+      console.log(document.getElementById('missing'));
+    </script>
+  </body>
+</html>

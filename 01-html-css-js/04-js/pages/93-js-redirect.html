@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>導向與重新載入</title>
+  </head>
+  <body>
+    <p>在 DevTools 的 Console 呼叫 goAssign()、goReplace() 或 reloadPage()。</p>
+    <script>
+      const target = '92-js-location.html';
+
+      const goAssign = () => {
+        location.assign(target);
+      };
+
+      const goReplace = () => {
+        location.replace(target);
+      };
+
+      const reloadPage = () => {
+        location.reload();
+      };
+
+      console.log('目前頁面：', location.pathname);
+    </script>
+  </body>
+</html>

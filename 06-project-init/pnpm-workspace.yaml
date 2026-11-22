@@ -1,0 +1,2 @@
+minimumReleaseAgeExclude:
+  - '@vitejs/plugin-react@6.2.1'

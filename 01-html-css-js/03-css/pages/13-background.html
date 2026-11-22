@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>背景</title>
+    <style>
+      body {
+        color: #134e4a;
+        font-family: system-ui, "PingFang TC", "Microsoft JhengHei", sans-serif;
+        line-height: 1.6;
+      }
+
+      .swatch,
+      .shade,
+      .hero {
+        padding: 1rem;
+      }
+
+      .swatch {
+        background-color: #f0fdfa;
+      }
+
+      .shade {
+        background-image: linear-gradient(90deg, #99f6e4, #f0fdfa);
+      }
+
+      .photo {
+        height: 8rem;
+        background-color: #042f2e;
+        background-image: url("https://picsum.photos/id/1015/800/500");
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      .cover {
+        background-size: cover;
+      }
+
+      .contain {
+        background-size: contain;
+      }
+
+      .hero {
+        color: #f0fdfa;
+        background-color: #115e59;
+        background-image:
+          linear-gradient(rgb(15 23 42 / 55%), rgb(15 23 42 / 15%)),
+          radial-gradient(circle, #99f6e4 1.5px, transparent 1.6px);
+        background-size: auto, 16px 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>背景</h1>
+    <div class="swatch">只有底色。</div>
+    <div class="shade">線性漸層也是一層背景圖。</div>
+    <p>cover：蓋滿盒子，多的被裁掉。</p>
+    <div class="photo cover"></div>
+    <p>contain：整張都放進盒子，旁邊露出底色。</p>
+    <div class="photo contain"></div>
+    <div class="hero">漸層寫在前面，所以蓋在圓點上面。</div>
+  </body>
+</html>

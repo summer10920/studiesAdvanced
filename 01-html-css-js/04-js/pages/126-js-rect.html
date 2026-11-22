@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>尺寸與位置</title>
+    <style>
+      body { margin: 0; }
+      .gap-top { height: 240px; }
+      .gap-bottom { height: 900px; }
+      #box { width: 120px; height: 40px; padding: 8px; border: 2px solid #0f766e; }
+    </style>
+  </head>
+  <body>
+    <div class="gap-top"></div>
+    <div id="box">目標</div>
+    <div class="gap-bottom"></div>
+    <p id="end">頁面底部</p>
+    <script>
+      const box = document.querySelector('#box');
+
+      const showBox = () => {
+        const rect = box.getBoundingClientRect();
+        console.log(rect.top);
+        console.log(rect.height);
+        console.log(box.offsetHeight);
+      };
+
+      const goEnd = () => {
+        document.querySelector('#end').scrollIntoView({ behavior: 'smooth' });
+      };
+
+      showBox();
+      console.log('在 Console 輸入 goEnd() 捲到底部，再輸入 showBox() 看 top 的變化');
+    </script>
+  </body>
+</html>

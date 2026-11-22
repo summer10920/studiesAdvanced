@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fetch 與 response.json</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const main = async () => {
+        const response = await fetch('data/items.json');
+        const items = await response.json();
+        items.forEach((item) => {
+          console.log(item.name);
+        });
+      };
+
+      main();
+    </script>
+  </body>
+</html>

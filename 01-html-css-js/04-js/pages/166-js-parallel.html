@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>依序等待與 Promise.all</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const task = (name, ms) => {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            console.log(name);
+            resolve(name);
+          }, ms);
+        });
+      };
+
+      const oneByOne = async () => {
+        await task('依序甲', 20);
+        await task('依序乙', 20);
+      };
+
+      const together = async () => {
+        await Promise.all([task('並行甲', 20), task('並行乙', 20)]);
+        console.log('並行結束');
+      };
+
+      oneByOne();
+      together();
+    </script>
+  </body>
+</html>

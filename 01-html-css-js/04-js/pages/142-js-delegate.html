@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>事件委派</title>
+  </head>
+  <body>
+    <ul id="list">
+      <li><button type="button" data-id="1"><span>項目 1</span></button></li>
+      <li><button type="button" data-id="2"><span>項目 2</span></button></li>
+    </ul>
+    <button type="button" id="add">新增項目</button>
+    <p id="output"></p>
+    <script>
+      const list = document.querySelector('#list');
+      const add = document.querySelector('#add');
+      const output = document.querySelector('#output');
+      let count = 2;
+
+      list.addEventListener('click', (event) => {
+        const button = event.target.closest('button');
+        if (!button) return;
+        output.textContent = `按了項目 ${button.dataset.id}`;
+        console.log(event.target.tagName, button.dataset.id);
+      });
+
+      add.addEventListener('click', () => {
+        count += 1;
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.dataset.id = count;
+        button.textContent = `項目 ${count}`;
+        const item = document.createElement('li');
+        item.append(button);
+        list.append(item);
+      });
+    </script>
+  </body>
+</html>

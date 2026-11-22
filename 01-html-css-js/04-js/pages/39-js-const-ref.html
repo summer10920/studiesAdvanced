@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>const 與參考</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const fruits = ['apple', 'banana', 'cherry'];
+
+      fruits[0] = 'kiwi';
+      fruits.push('mango');
+      console.log(fruits);
+
+      function replaceFirst(list) {
+        list[0] = 'pear';
+      }
+
+      replaceFirst(fruits);
+      console.log(fruits[0]);
+      console.log(fruits);
+
+      // 拿掉註解會丟出 TypeError：const 不能改指到另一個陣列
+      // fruits = [];
+    </script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>錯誤類型</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      // SyntaxError：括號沒配對時整份腳本無法執行，所以這行保持註解
+      // console.log('hi'
+
+      try {
+        console.log(notDeclared);
+      } catch (error) {
+        console.log(error.name);
+        console.log(error.message);
+      }
+
+      try {
+        const score = 80;
+        console.log(score.toUpperCase());
+      } catch (error) {
+        console.log(error.name);
+        console.log(error.message);
+      }
+
+      try {
+        const scores = new Array(-1);
+        console.log(scores);
+      } catch (error) {
+        console.log(error.name);
+        console.log(error.message);
+      }
+
+      console.log('三種錯誤都接住了');
+    </script>
+  </body>
+</html>

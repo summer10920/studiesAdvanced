@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>函式參數解構</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const tour = { title: '台北城市漫遊', price: 12800, days: 3 };
+
+      function label({ title, price, unit = 'NT$' }) {
+        return `${title}・${unit}${price}`;
+      }
+
+      console.log(label(tour));
+      console.log(tour.days);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>型別轉換</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      // Number 與 String：互相轉換，並用 typeof 確認種類
+      console.log(Number('3'), typeof Number('3'));
+      console.log(String(12800), typeof String(12800));
+
+      // Number 要求整段都是數字：「3天」是 NaN，空字串是 0
+      console.log(Number('3天'), Number(''));
+
+      // Boolean：0 與空字串是 false，文字 '0' 是 true
+      console.log(Boolean(0), Boolean(''), Boolean('0'));
+
+      // 加號會把數字接成文字；先轉成數字再加才是 6
+      console.log('5' + 1);
+      console.log(Number('5') + 1);
+
+      // parseInt 從左邊讀到不是數字就停；Number 則整段都要合法
+      console.log(Number('12px'), parseInt('12px', 10));
+      console.log(Number('3.8'), parseInt('3.8', 10));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>setInterval 與 clearInterval</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      let count = 0;
+
+      const id = setInterval(() => {
+        count += 1;
+        console.log(count);
+        if (count === 3) {
+          clearInterval(id);
+          console.log('已停止');
+        }
+      }, 400);
+    </script>
+  </body>
+</html>

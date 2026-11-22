@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>switch 與 case</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const light = 'green';
+      let action;
+
+      switch (light) {
+        case 'red':
+          action = '停';
+          break;
+        case 'yellow':
+          action = '注意';
+          break;
+        case 'green':
+          action = '行';
+          break;
+        default:
+          action = '號誌異常';
+      }
+
+      console.log(action);
+    </script>
+  </body>
+</html>

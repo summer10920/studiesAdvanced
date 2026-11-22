@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>forEach 與 map</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const prices = [12800, 15900, 42800];
+
+      // 三行依序是索引 0、1、2，價格是原數字，長度都是 3
+      prices.forEach((price, index, array) => {
+        console.log(index, price, array.length);
+      });
+
+      // 兩倍的新陣列。原陣列仍是三個原價。forEach 的回傳值是 undefined
+      const doubled = prices.map((price) => price * 2);
+      console.log(doubled);
+      console.log(prices);
+      console.log(prices.forEach((price) => price));
+    </script>
+  </body>
+</html>

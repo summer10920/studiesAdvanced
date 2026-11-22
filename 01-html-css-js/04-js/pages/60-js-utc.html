@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UTC 與時區</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const point = new Date('2026-08-01T12:00:00+08:00');
+      console.log(point.toString());
+      console.log(point.toLocaleString('zh-TW'));
+      console.log(point.toISOString());
+      console.log(point.getHours(), point.getUTCHours());
+
+      const dateOnly = new Date('2026-08-01');
+      console.log(dateOnly.toISOString(), dateOnly.getHours());
+
+      const localNoon = new Date('2026-08-01T12:00:00');
+      console.log(localNoon.getHours(), localNoon.toISOString());
+
+      const utcNoon = new Date('2026-08-01T12:00:00Z');
+      console.log(utcNoon.getHours(), utcNoon.toISOString());
+    </script>
+  </body>
+</html>

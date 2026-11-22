@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>箭頭函式</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      // 1. 匿名函式表達式
+      const double1 = function (n) {
+        return n * 2;
+      };
+
+      // 2. 拿掉 function，加上 =>
+      const double2 = (n) => {
+        return n * 2;
+      };
+
+      // 3. 只有一行 return：省略大括號與 return（隱式回傳）
+      const double3 = (n) => n * 2;
+
+      // 沒有參數：小括號不能省略
+      const sayHi = () => 'Hi';
+
+      // 兩個以上參數：一定要有小括號
+      const add = (a, b) => a + b;
+
+      // 寫了大括號卻忘了 return
+      const forgotten = (n) => {
+        n * 2;
+      };
+
+      // 隱式回傳物件：外面再包一層小括號
+      const pair = (left, right) => ({ left: left, right: right });
+
+      console.log(double1(4));
+      console.log(double2(4));
+      console.log(double3(4));
+      console.log(sayHi());
+      console.log(add(2, 3));
+      console.log(forgotten(4));
+      console.log(pair(2, 3));
+    </script>
+  </body>
+</html>

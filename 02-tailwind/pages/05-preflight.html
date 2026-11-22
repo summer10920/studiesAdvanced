@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Preflight</title>
+  </head>
+  <body class="bg-stone-100 p-6 text-stone-900">
+    <h1 class="mb-2 text-2xl font-bold">預設外距被拿掉之後</h1>
+    <p class="mb-6 max-w-prose text-sm text-stone-600">左邊那張卡沒有另外加上外距，右邊用父層把同一份內容撐開。</p>
+    <div class="flex flex-wrap items-start gap-6">
+      <!-- w-80 是 20rem。border-4 的框算在這 20rem 裡面，卡片不會因為加框變寬 -->
+      <section class="w-80 max-w-full rounded-2xl border-4 border-stone-200 bg-white p-5">
+        <p class="text-sm font-medium text-teal-700">花蓮小團</p>
+        <h2 class="text-xl font-semibold">太魯閣三日</h2>
+        <p class="text-sm text-stone-600">清晨進峽谷，下午到海邊。</p>
+        <!-- 清單被重置成沒有圓點，要自己加 list-disc 與左內距 -->
+        <ul class="list-disc pl-5 text-sm text-stone-700">
+          <li>太魯閣步道</li>
+          <li>七星潭</li>
+        </ul>
+        <!-- 圖片是區塊、最大寬度 100%，所以獨佔一行，不會跟文字並排 -->
+        <img class="w-full rounded-lg" src="https://picsum.photos/id/1016/800/500" alt="七星潭海岸" />
+        <!-- 按鈕沒有另外設定字型，跟旁邊內文用同一套字 -->
+        <button type="button" class="rounded-lg bg-teal-700 px-4 py-2 text-sm font-medium text-white">我要報名</button>
+      </section>
+      <!-- space-y-4：子元素上下相距 1rem，補回被拿掉的預設外距 -->
+      <section class="w-80 max-w-full space-y-4 rounded-2xl border-4 border-stone-200 bg-white p-5">
+        <p class="text-sm font-medium text-teal-700">花蓮小團</p>
+        <h2 class="text-xl font-semibold">太魯閣三日</h2>
+        <p class="text-sm text-stone-600">清晨進峽谷，下午到海邊。</p>
+        <ul class="list-disc pl-5 text-sm text-stone-700">
+          <li>太魯閣步道</li>
+          <li>七星潭</li>
+        </ul>
+        <img class="w-full rounded-lg" src="https://picsum.photos/id/1016/800/500" alt="七星潭海岸" />
+        <button type="button" class="rounded-lg bg-teal-700 px-4 py-2 text-sm font-medium text-white">我要報名</button>
+      </section>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

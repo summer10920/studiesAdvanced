@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>讀取查詢參數</title>
+  </head>
+  <body>
+    <p>點下面的連結換一組查詢字串，結果在 DevTools 的 Console。</p>
+    <ul>
+      <li><a href="?page=2&tag=js&tag=css">?page=2&amp;tag=js&amp;tag=css</a></li>
+      <li><a href="?keyword=台北">?keyword=台北</a></li>
+      <li><a href="92b-js-search-params.html">沒有查詢字串</a></li>
+    </ul>
+    <script>
+      const params = new URLSearchParams(location.search);
+
+      console.log(location.search);
+      console.log(params.get('page'));
+      console.log(params.get('tag'));
+      console.log(params.getAll('tag'));
+      console.log(params.has('keyword'));
+      console.log(params.get('keyword'));
+
+      const page = Number(params.get('page') ?? 1);
+      console.log(page);
+    </script>
+  </body>
+</html>

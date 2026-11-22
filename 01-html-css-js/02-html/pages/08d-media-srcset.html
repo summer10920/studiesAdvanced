@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>srcset 與 sizes</title>
+  </head>
+  <body>
+    <h1>srcset 與 sizes</h1>
+    <img
+      src="https://placehold.co/400x225?text=400w"
+      srcset="
+        https://placehold.co/400x225?text=400w   400w,
+        https://placehold.co/800x450?text=800w   800w,
+        https://placehold.co/1200x675?text=1200w 1200w
+      "
+      sizes="800px"
+      width="800"
+      height="450"
+      alt="三種寬度的占位圖，圖上的文字就是被選中的檔案寬度"
+    />
+  </body>
+</html>

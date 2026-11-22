@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>報名京都三日遊</title>
+  </head>
+  <body>
+    <h1>報名京都三日遊</h1>
+    <form action="#" method="get">
+      <p>
+        <label for="guest-date">出發日</label>
+        <input id="guest-date" name="date" type="date" />
+      </p>
+      <p>
+        <label for="guest-time">集合時間</label>
+        <input id="guest-time" name="time" type="time" />
+      </p>
+      <p>
+        <label for="guest-dt">說明會</label>
+        <input id="guest-dt" name="datetime" type="datetime-local" />
+      </p>
+      <p>
+        <label for="guest-month">出發月份</label>
+        <input id="guest-month" name="month" type="month" />
+      </p>
+      <p>
+        <label for="guest-week">出發週</label>
+        <input id="guest-week" name="week" type="week" />
+      </p>
+      <p>
+        <label for="guest-range">期待指數</label>
+        <input id="guest-range" name="score" type="range" min="1" max="5" value="3" />
+      </p>
+      <p>
+        <label for="guest-color">識別色</label>
+        <input id="guest-color" name="color" type="color" value="#0f766e" />
+      </p>
+      <p>
+        <label for="guest-file">護照影本</label>
+        <input id="guest-file" name="file" type="file" accept=".png,.jpg,.pdf" />
+      </p>
+      <p>
+        <button type="submit">送出報名</button>
+      </p>
+    </form>
+  </body>
+</html>

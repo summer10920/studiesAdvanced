@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>搜尋與判斷</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const scores = [88, 92, 76, 92];
+
+      // 92 在陣列裡，true；第一次出現在索引 1
+      console.log(scores.includes(92));
+      console.log(scores.indexOf(92));
+      // 小於 80 的第一個值是 76，索引是 2
+      console.log(scores.find((score) => score < 80));
+      console.log(scores.findIndex((score) => score < 80));
+      // 有分數大於等於 90，true；每一格都大於等於 60，true
+      console.log(scores.some((score) => score >= 90));
+      console.log(scores.every((score) => score >= 60));
+      // 原陣列沒有被改
+      console.log(scores);
+
+      const mixed = [1, NaN];
+      // includes 找得到 NaN；indexOf 得到 -1
+      console.log(mixed.includes(NaN));
+      console.log(mixed.indexOf(NaN));
+    </script>
+  </body>
+</html>

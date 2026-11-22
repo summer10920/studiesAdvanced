@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>while、break 與 continue</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      let count = 3;
+
+      while (count > 0) {
+        console.log(count);
+        count -= 1;
+      }
+
+      console.log('結束');
+
+      for (let n = 1; n <= 5; n += 1) {
+        if (n === 2) {
+          continue;
+        }
+        if (n === 4) {
+          break;
+        }
+        console.log(n);
+      }
+    </script>
+  </body>
+</html>

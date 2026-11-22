@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>宣告變數與命名</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const userName = 'Amy';
+      const UserName = 'Bob';
+      const pricePerPerson = 12800;
+      const days3 = 3;
+      const returnDate = '2026-12-24';
+
+      console.log(userName, UserName);
+      console.log(pricePerPerson);
+      console.log(days3, returnDate);
+
+      // 下面兩行都會 SyntaxError，所以維持註解
+      // const 3days = 3;
+      // const return = 'x';
+    </script>
+  </body>
+</html>

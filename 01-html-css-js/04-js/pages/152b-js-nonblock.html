@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>非阻塞的等待</title>
+  </head>
+  <body>
+    <p>先按「等 3 秒」，再連續按「計數」。計數會馬上增加，3 秒到了，下面的文字才改變。</p>
+    <button type="button" id="wait">等 3 秒</button>
+    <button type="button" id="count">計數 0</button>
+    <p id="message">尚未開始</p>
+    <script>
+      const waitButton = document.querySelector('#wait');
+      const countButton = document.querySelector('#count');
+      const message = document.querySelector('#message');
+
+      waitButton.addEventListener('click', () => {
+        message.textContent = '等待中';
+        setTimeout(() => {
+          message.textContent = '3 秒到了';
+        }, 3000);
+      });
+
+      let times = 0;
+      countButton.addEventListener('click', () => {
+        times += 1;
+        countButton.textContent = `計數 ${times}`;
+      });
+    </script>
+  </body>
+</html>

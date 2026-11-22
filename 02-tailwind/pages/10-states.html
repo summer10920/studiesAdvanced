@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>狀態變體</title>
+  </head>
+  <body class="bg-stone-100 p-6 text-stone-900">
+    <h1 class="text-2xl font-bold">滑過、聚焦、按下、停用</h1>
+    <p class="mt-2 max-w-prose text-sm text-stone-600">
+      滑鼠移上去、按住不放，再用 Tab 鍵逐一移動焦點，觀察每個元件的變化。
+    </p>
+    <div class="mt-6 flex flex-wrap items-center gap-3">
+      <!-- hover:bg-teal-800 滑過變深；active:scale-95 按下時縮小一點 -->
+      <!-- focus-visible: 開頭的三個 class 只在鍵盤聚焦時畫出外框，滑鼠點擊不會 -->
+      <button
+        type="button"
+        class="cursor-pointer rounded-lg bg-teal-700 px-4 py-2 font-medium text-white hover:bg-teal-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-900 active:scale-95"
+      >
+        立即預訂
+      </button>
+      <!-- disabled: 只在帶有 disabled 屬性時才套用 -->
+      <button
+        type="button"
+        class="rounded-lg bg-teal-700 px-4 py-2 font-medium text-white disabled:cursor-not-allowed disabled:bg-stone-300 disabled:text-stone-500"
+        disabled
+      >
+        候補已滿
+      </button>
+    </div>
+    <label class="mt-6 block max-w-xs text-sm font-medium">
+      聯絡信箱
+      <!-- focus: 輸入框一取得焦點就套用，滑鼠點進去也算 -->
+      <!-- focus:outline-hidden 拿掉預設外框，改由邊框與 ring 取代 -->
+      <input
+        class="mt-1 block w-full rounded-lg border border-stone-300 bg-white px-3 py-2 focus:border-teal-700 focus:ring-2 focus:ring-teal-200 focus:outline-hidden"
+        type="email"
+      />
+    </label>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

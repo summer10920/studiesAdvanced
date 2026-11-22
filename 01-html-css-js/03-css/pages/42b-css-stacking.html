@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>層疊情境</title>
+    <style>
+      body {
+        margin: 1.5rem;
+        font-family: system-ui, "PingFang TC", "Microsoft JhengHei", sans-serif;
+      }
+
+      h1 {
+        margin: 0 0 1rem;
+      }
+
+      .pair {
+        position: relative;
+        margin-bottom: 4rem;
+      }
+
+      .owner {
+        height: 3rem;
+        padding: 0.5rem;
+        background: #ccfbf1;
+      }
+
+      .trapped {
+        opacity: 0.99;
+      }
+
+      .tip {
+        position: absolute;
+        z-index: 999;
+        top: 3.5rem;
+        left: 1rem;
+        padding: 0.35rem 0.75rem;
+        background: #115e59;
+        color: #f0fdfa;
+      }
+
+      .cover {
+        position: relative;
+        z-index: 1;
+        height: 3rem;
+        padding: 0.5rem;
+        background: #fde68a;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>z-index 與層疊情境</h1>
+    <div class="pair">
+      <div class="owner">
+        沒有層疊情境
+        <span class="tip">提示 z-index: 999</span>
+      </div>
+      <div class="cover">蓋板 z-index: 1</div>
+    </div>
+    <div class="pair">
+      <div class="owner trapped">
+        owner 有 opacity
+        <span class="tip">提示 z-index: 999</span>
+      </div>
+      <div class="cover">蓋板 z-index: 1</div>
+    </div>
+  </body>
+</html>

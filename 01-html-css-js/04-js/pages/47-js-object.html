@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>建立與存取屬性</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const title = '台北城市漫遊';
+      const field = 'place';
+
+      const tour = {
+        id: 1,
+        title, // 屬性簡寫，等同 title: title
+        place: '台北',
+        days: 3,
+        price: 12800,
+        [field + 'Code']: 'TPE', // 計算屬性，欄位名稱是 placeCode
+      };
+
+      console.log(tour.title);
+      console.log(tour['place']);
+      console.log(tour[field]);
+      console.log(tour.placeCode);
+      console.log(tour.guide);
+    </script>
+  </body>
+</html>

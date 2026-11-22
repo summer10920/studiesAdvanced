@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>選讀：Map</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const prices = new Map();
+      prices.set(1, 12800);
+      prices.set(2, 15900);
+
+      console.log(prices.get(1));
+      console.log(prices.get('1'));
+      console.log(prices.size);
+    </script>
+  </body>
+</html>

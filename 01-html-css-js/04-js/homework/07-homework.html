@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>07 回家作業</title>
+    <style>
+      body { font-family: system-ui, sans-serif; margin: 24px; max-width: 720px; }
+      #theme-filter button { margin: 0 4px 8px 0; }
+      #tour-list { padding-left: 20px; }
+      form label { display: block; margin-bottom: 8px; }
+    </style>
+  </head>
+  <body>
+    <h1>行程列表</h1>
+    <div id="theme-filter">
+      <button type="button" data-theme="all">全部</button>
+      <button type="button" data-theme="城市">城市</button>
+      <button type="button" data-theme="山海">山海</button>
+      <button type="button" data-theme="海岸">海岸</button>
+      <button type="button" data-theme="古都">古都</button>
+      <button type="button" data-theme="離島">離島</button>
+      <button type="button" data-theme="日本">日本</button>
+    </div>
+    <p><input id="search" type="search" placeholder="搜尋標題" /></p>
+    <p>收藏 <span id="fav-count">0</span> 筆</p>
+    <ul id="tour-list"></ul>
+    <p id="empty" hidden>找不到符合的行程</p>
+
+    <h2>報名</h2>
+    <form id="booking-form" novalidate>
+      <label>姓名 <input name="name" required /></label>
+      <label>Email <input name="email" type="email" required /></label>
+      <label>人數 <input name="people" type="number" min="1" max="8" required /></label>
+      <button type="submit">送出</button>
+    </form>
+    <ul id="booking-errors"></ul>
+    <p id="booking-result"></p>
+
+    <script>
+      const tours = [
+        { id: 'taipei-beitou', title: '台北大稻埕與北投溫泉三日', region: '台北', theme: '城市', days: 3, price: 18600 },
+        { id: 'keelung-jiufen', title: '基隆北海岸與九份兩日', region: '基隆', theme: '海岸', days: 2, price: 9200 },
+        { id: 'hualien-taroko', title: '花蓮太魯閣與七星潭四日', region: '花蓮', theme: '山海', days: 4, price: 26800 },
+        { id: 'taitung-chishang', title: '台東池上與成功海岸三日', region: '台東', theme: '山海', days: 3, price: 21400 },
+        { id: 'tainan-anping', title: '台南府城與安平兩日', region: '台南', theme: '古都', days: 2, price: 8800 },
+        { id: 'kaohsiung-qijin', title: '高雄港都與旗津三日', region: '高雄', theme: '城市', days: 3, price: 14200 },
+        { id: 'kinmen-villages', title: '金門聚落與戰地三日', region: '金門', theme: '離島', days: 3, price: 16800 },
+        { id: 'kyoto-nara', title: '京都嵐山、伏見與奈良五日', region: '京都', theme: '日本', days: 5, price: 52800 },
+      ];
+
+      // 在這裡開始寫
+    </script>
+  </body>
+</html>

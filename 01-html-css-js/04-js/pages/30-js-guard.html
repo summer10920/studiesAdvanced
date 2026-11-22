@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>提早 return</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      // 沒有檢查：參數不合理時，除法照樣算出結果
+      function averageRaw(total, count) {
+        return total / count;
+      }
+
+      console.log(averageRaw(240, 3)); // 80
+      console.log(averageRaw(240, 0)); // Infinity
+      console.log(averageRaw(0, 0)); // NaN
+
+      // 提早 return：先擋掉無效輸入，再做正常計算
+      function average(total, count) {
+        if (count <= 0) {
+          console.log('人數必須大於 0');
+          return null;
+        }
+        if (total < 0) {
+          console.log('分數總和不能是負數');
+          return null;
+        }
+        return total / count;
+      }
+
+      console.log(average(240, 3)); // 80
+      console.log(average(240, 0)); // 先印原因，再印 null
+      console.log(average(-10, 2)); // 先印原因，再印 null
+
+      // 不需要回傳值：用 return; 單純終止動作
+      function printScore(name, score) {
+        if (score < 0 || score > 100) {
+          console.log(`${name} 的分數無效`);
+          return;
+        }
+        console.log(`${name} 考了 ${score} 分`);
+      }
+
+      printScore('Amy', 88);
+      printScore('Ben', 120);
+    </script>
+  </body>
+</html>

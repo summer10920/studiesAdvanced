@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>迴圈裡的 await</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const ids = [1, 2, 3];
+
+      const load = (id) => {
+        return new Promise((resolve) => {
+          setTimeout(() => resolve(id), 10);
+        });
+      };
+
+      const run = async () => {
+        for (const id of ids) {
+          const value = await load(id);
+          console.log(value);
+        }
+        const all = await Promise.all(ids.map((id) => load(id)));
+        console.log(all.join(','));
+
+        const done = [];
+        ids.forEach(async (id) => {
+          done.push(await load(id));
+        });
+        console.log(done.length);
+      };
+
+      run();
+    </script>
+  </body>
+</html>

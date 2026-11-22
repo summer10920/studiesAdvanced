@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>clearTimeout</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const pending = setTimeout(() => {
+        console.log('這句不會出現');
+      }, 500);
+      console.log('識別碼', pending);
+
+      clearTimeout(pending);
+      console.log('已取消');
+    </script>
+  </body>
+</html>

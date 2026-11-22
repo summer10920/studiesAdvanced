@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>新增與刪除元素</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const places = ['台北', '花蓮', '京都'];
+
+      console.log(places.push('台南'));
+      console.log(places.pop());
+      console.log(places.unshift('高雄'));
+      console.log(places.shift());
+      console.log(places.splice(1, 1, '台東'));
+      console.log(places);
+    </script>
+  </body>
+</html>

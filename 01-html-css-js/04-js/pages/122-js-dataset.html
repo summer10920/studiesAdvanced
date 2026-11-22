@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dataset</title>
+  </head>
+  <body>
+    <p id="item" data-user-id="7">商品</p>
+    <script>
+      const item = document.querySelector('#item');
+
+      console.log(item.dataset.userId);
+      console.log(item.getAttribute('data-user-id'));
+
+      item.dataset.level = '2';
+      console.log(item.dataset.level);
+      console.log(item.getAttribute('data-level'));
+    </script>
+  </body>
+</html>

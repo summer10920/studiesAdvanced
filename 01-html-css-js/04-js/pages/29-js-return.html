@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>return 與回傳值</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      function getTotal(price, count) {
+        return price * count;
+      }
+
+      function printTotal(price, count) {
+        console.log(price * count);
+      }
+
+      const total = getTotal(80, 3);
+      console.log(total);
+
+      const line = `合計 ${getTotal(80, 2)}`;
+      console.log(line);
+
+      console.log(getTotal(getTotal(10, 2), 4));
+
+      console.log(printTotal(80, 3));
+
+      function blank() {
+        return;
+      }
+
+      console.log(blank());
+    </script>
+  </body>
+</html>

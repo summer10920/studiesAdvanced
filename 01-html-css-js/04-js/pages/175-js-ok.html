@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>檢查 response.ok</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const load = async (url) => {
+        try {
+          const response = await fetch(url);
+          console.log(response.status);
+          if (!response.ok) throw new Error('狀態 ' + response.status);
+          const data = await response.json();
+          console.log(data.length);
+        } catch (error) {
+          console.log(error.message);
+        }
+      };
+
+      const main = async () => {
+        await load('data/missing.json');
+        await load('data/items.json');
+      };
+
+      main();
+    </script>
+  </body>
+</html>

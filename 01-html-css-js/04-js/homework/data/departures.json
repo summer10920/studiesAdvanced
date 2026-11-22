@@ -1,0 +1,106 @@
+[
+  {
+    "tourId": "taipei-beitou",
+    "departures": [
+      {
+        "date": "2026-12-04",
+        "capacity": 8
+      },
+      {
+        "date": "2027-02-19",
+        "capacity": 8
+      }
+    ]
+  },
+  {
+    "tourId": "keelung-jiufen",
+    "departures": [
+      {
+        "date": "2026-12-11",
+        "capacity": 8
+      },
+      {
+        "date": "2027-03-05",
+        "capacity": 8
+      }
+    ]
+  },
+  {
+    "tourId": "hualien-taroko",
+    "departures": [
+      {
+        "date": "2026-12-18",
+        "capacity": 8
+      },
+      {
+        "date": "2027-03-12",
+        "capacity": 8
+      }
+    ]
+  },
+  {
+    "tourId": "taitung-chishang",
+    "departures": [
+      {
+        "date": "2027-01-15",
+        "capacity": 8
+      },
+      {
+        "date": "2027-04-02",
+        "capacity": 8
+      }
+    ]
+  },
+  {
+    "tourId": "tainan-anping",
+    "departures": [
+      {
+        "date": "2026-11-28",
+        "capacity": 8
+      },
+      {
+        "date": "2027-02-26",
+        "capacity": 8
+      }
+    ]
+  },
+  {
+    "tourId": "kaohsiung-qijin",
+    "departures": [
+      {
+        "date": "2027-01-08",
+        "capacity": 8
+      },
+      {
+        "date": "2027-03-19",
+        "capacity": 8
+      }
+    ]
+  },
+  {
+    "tourId": "kinmen-villages",
+    "departures": [
+      {
+        "date": "2027-01-22",
+        "capacity": 8
+      },
+      {
+        "date": "2027-04-16",
+        "capacity": 8
+      }
+    ]
+  },
+  {
+    "tourId": "kyoto-nara",
+    "departures": [
+      {
+        "date": "2027-04-06",
+        "capacity": 8
+      },
+      {
+        "date": "2027-11-02",
+        "capacity": 8
+      }
+    ]
+  }
+]

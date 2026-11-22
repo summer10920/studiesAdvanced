@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>台北大稻埕與北投溫泉三日</title>
+  </head>
+  <body>
+    <!-- 題目一：頁首、主要內容、頁尾 -->
+    <header>
+      <!-- 整頁只有一個 h1（在 main），所以網站名稱用 p，不用標題 -->
+      <p>洛奇旅行</p>
+      <nav>
+        <a href="#">首頁</a>
+        <a href="#">行程</a>
+        <a href="#">報名</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- 題目二：行程簡介 -->
+      <h1>台北大稻埕與北投溫泉三日</h1>
+      <!-- alt 描述圖片內容，圖片載入失敗時會顯示這段文字 -->
+      <img
+        src="https://images.unsplash.com/photo-1519320993082-43a535317ddc?auto=format&amp;fit=crop&amp;w=1600&amp;q=80"
+        alt="台北大稻埕與北投溫泉三日的行程照片"
+      />
+      <p>第一天沿迪化街走到大稻埕碼頭，第二天北投泡湯，下午不排景點。</p>
+
+      <section>
+        <h2>特色</h2>
+        <ul>
+          <li>每團 8 人</li>
+          <li>迪化街只走路，不進購物站</li>
+          <li>兩晚都住北投，不換飯店</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>費用</h2>
+        <!-- 費用分成包含與不包含，各一份清單；h3 接在 h2 之下，不跳級 -->
+        <h3>費用包含</h3>
+        <ul>
+          <li>2 晚住宿</li>
+          <li>當地車資與司機嚮導</li>
+          <li>行程表所列門票</li>
+        </ul>
+        <h3>費用不含</h3>
+        <ul>
+          <li>往返台北的交通</li>
+          <li>午餐</li>
+          <li>個人消費</li>
+        </ul>
+      </section>
+
+      <!-- 題目三：行程表 -->
+      <section>
+        <h2>行程表</h2>
+        <table>
+          <caption>
+            三天行程表
+          </caption>
+          <thead>
+            <tr>
+              <!-- scope="col" 標明這個儲存格是「欄」的表頭 -->
+              <th scope="col">天數</th>
+              <th scope="col">地點</th>
+              <th scope="col">說明</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>第 1 天</td>
+              <td>大稻埕</td>
+              <td>下午從迪化街走到大稻埕碼頭，晚上住北投</td>
+            </tr>
+            <tr>
+              <td>第 2 天</td>
+              <td>北投</td>
+              <td>上午泡湯，下午不排景點</td>
+            </tr>
+            <tr>
+              <td>第 3 天</td>
+              <td>返程</td>
+              <td>早餐後送到捷運站</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 題目四：報名表單 -->
+      <section>
+        <h2>報名</h2>
+        <form action="#" method="post">
+          <p>
+            <label for="name">姓名</label>
+            <input id="name" name="name" type="text" required />
+          </p>
+          <p>
+            <label for="email">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              required
+            />
+          </p>
+          <p>
+            <label for="people">人數（1 到 8 人）</label>
+            <input
+              id="people"
+              name="people"
+              type="number"
+              min="1"
+              max="8"
+              required
+            />
+          </p>
+          <!-- 同一組 radio 共用 name，瀏覽器就只允許選一個 -->
+          <fieldset>
+            <legend>出發日</legend>
+            <p>
+              <input
+                id="date-1"
+                name="date"
+                type="radio"
+                value="2026-12-04"
+                required
+              />
+              <label for="date-1">2026-12-04</label>
+            </p>
+            <p>
+              <input id="date-2" name="date" type="radio" value="2027-02-19" />
+              <label for="date-2">2027-02-19</label>
+            </p>
+          </fieldset>
+          <p>
+            <input id="agree" name="agree" type="checkbox" required />
+            <label for="agree">我同意條款</label>
+          </p>
+          <!-- 明確寫出 type，避免依賴預設值 -->
+          <button type="submit">送出報名</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>洛奇旅行 · 練習用頁面</p>
+    </footer>
+  </body>
+</html>

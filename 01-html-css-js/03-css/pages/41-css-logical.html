@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>邏輯方向</title>
+    <style>
+      body {
+        margin: 1.5rem;
+        font-family: system-ui, "PingFang TC", "Microsoft JhengHei", sans-serif;
+      }
+
+      .card {
+        margin-inline: auto;
+        margin-block-end: 1.5rem;
+        padding-inline-start: 1rem;
+        border-inline-start: 6px solid #0f766e;
+        max-width: 24rem;
+      }
+    </style>
+  </head>
+  <body>
+    <article class="card">
+      <h1>行首有一條邊</h1>
+      <p>預設由左至右，這條邊在左邊。</p>
+    </article>
+    <article class="card" dir="rtl">
+      <h1>行首有一條邊</h1>
+      <p>加上 dir="rtl"，同樣的樣式，邊會換到右邊。</p>
+    </article>
+  </body>
+</html>

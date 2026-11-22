@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>輸入驗證</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      function validateEmail(email) {
+        if (typeof email !== 'string') {
+          throw new TypeError('電子郵件必須是字串');
+        }
+        if (email.length === 0) {
+          throw new Error('電子郵件不能為空');
+        }
+        if (!email.includes('@')) {
+          throw new Error('電子郵件格式不正確');
+        }
+        return true;
+      }
+
+      function processEmail(email) {
+        try {
+          validateEmail(email);
+          console.log('驗證成功', email);
+        } catch (error) {
+          console.log(error.name);
+          console.log(error.message);
+        }
+      }
+
+      processEmail('user@example.com');
+      processEmail('');
+      processEmail('invalid-email');
+      processEmail(123);
+    </script>
+  </body>
+</html>

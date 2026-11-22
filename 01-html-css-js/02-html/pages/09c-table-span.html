@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>儲存格合併</title>
+  </head>
+  <body>
+    <h1>儲存格合併</h1>
+    <table border="1">
+      <caption>京都行程</caption>
+      <thead>
+        <tr>
+          <th scope="col">日</th>
+          <th scope="col">時段</th>
+          <th scope="col">地點</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row" rowspan="2">第一天</th>
+          <td>上午</td>
+          <td>京都車站中央口</td>
+        </tr>
+        <tr>
+          <!-- 第一天已經佔掉這一列的第一格 -->
+          <td>下午</td>
+          <td>清水寺山門</td>
+        </tr>
+        <tr>
+          <th scope="row">第二天</th>
+          <td colspan="2">自由活動（時段與地點合成一格）</td>
+        </tr>
+      </tbody>
+    </table>
+    <table border="1">
+      <caption>團體報名</caption>
+      <thead>
+        <tr>
+          <th scope="col" rowspan="2">團名</th>
+          <th scope="colgroup" colspan="2">人數</th>
+          <th scope="col" rowspan="2">導遊</th>
+        </tr>
+        <tr>
+          <th scope="col">成人</th>
+          <th scope="col">兒童</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">京都三日</th>
+          <td>2</td>
+          <td>1</td>
+          <td>林導遊</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>繞排</title>
+    <style>
+      body {
+        margin: 1.5rem;
+        font-family: system-ui, "PingFang TC", "Microsoft JhengHei", sans-serif;
+      }
+
+      .story {
+        display: flow-root; /* 父層高度包住浮動的圖 */
+        background: #f0fdfa;
+      }
+
+      .story img {
+        float: left; /* 圖靠左，文字繞到右邊 */
+        margin: 0 0.75rem 0.5rem 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="story">
+      <img src="https://picsum.photos/id/1018/160/120" alt="海岸" width="160" height="120" />
+      <p>這段文字沿著照片的右邊走。父層的淺青底要包住照片，不能只剩文字那麼高。</p>
+    </div>
+    <p>下一段接在整則故事的下面。</p>
+  </body>
+</html>

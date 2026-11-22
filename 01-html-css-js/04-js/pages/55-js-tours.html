@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>綜合練習</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const tours = [
+        { id: 1, title: '台北城市漫遊', place: '台北', days: 3, price: 12800 },
+        { id: 2, title: '花蓮山海三日', place: '花蓮', days: 3, price: 15900 },
+        { id: 3, title: '京都紅葉散步', place: '京都', days: 5, price: 42800 },
+      ];
+
+      const filterByDays = (list, days) => {
+        return list.filter((tour) => tour.days === days);
+      };
+
+      const titlesOf = (list) => {
+        return list.map((tour) => tour.title);
+      };
+
+      const findById = (list, id) => {
+        return list.find((tour) => tour.id === id);
+      };
+
+      console.log(titlesOf(filterByDays(tours, 3)));
+      console.log(findById(tours, 1));
+      console.log(findById(tours, 9)?.title);
+      console.log(tours.length);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,133 @@
+/* 題目一：全站基礎與變數 */
+:root {
+  --brand: #0f766e; /* 品牌色：深青綠 */
+  --text: #1c1917; /* 文字色 */
+  --bg: #f5f5f4; /* 頁面底色 */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+}
+
+/* 題目六（手機優先）：先寫窄螢幕，主要內容貼滿但保留左右內距 */
+main {
+  padding: 1rem;
+}
+
+/* 題目二：版頭 */
+.site-header {
+  display: flex;
+  flex-wrap: wrap; /* 窄到放不下就換行，不撐出橫向捲軸 */
+  justify-content: space-between; /* 品牌在左、導覽在右 */
+  align-items: center;
+  gap: 0.5rem 1rem;
+  padding: 1rem;
+  background: #fff;
+  border-bottom: 1px solid #e7e5e4;
+}
+
+.brand {
+  font-weight: 700;
+  color: var(--brand);
+  text-decoration: none;
+}
+
+.site-header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem; /* 連結之間的間距 */
+}
+
+.site-header nav a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+/* 題目四：卡片牆，每欄最小 16rem，放得下幾欄排幾欄 */
+.tour-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* 題目三：卡片外觀 */
+.tour-card {
+  padding: 1.25rem;
+  background: #fff;
+  border: 1px solid #e7e5e4;
+  border-radius: 0.75rem;
+}
+
+.tour-card h2 {
+  margin: 0.5rem 0;
+  font-size: 1.25rem;
+}
+
+.tour-card p {
+  margin: 0.25rem 0;
+}
+
+/* inline-block 讓標籤只和文字一樣寬，同時能有內距 */
+.tour-theme {
+  display: inline-block;
+  padding: 0.125rem 0.75rem;
+  font-size: 0.875rem;
+  color: var(--brand);
+  background: #ccfbf1;
+  border-radius: 1rem; /* 大於標籤高度的一半，兩端就是圓的 */
+}
+
+.tour-price {
+  font-weight: 700;
+}
+
+.tour-link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  text-decoration: none;
+  background: var(--brand);
+  border-radius: 0.5rem;
+  /* 題目五：底色用 0.2 秒慢慢變 */
+  transition: background-color 0.2s ease;
+}
+
+/* 題目五：互動狀態 */
+.tour-link:hover {
+  background: #115e59;
+}
+
+/* 鍵盤聚焦才出現外框；不用 outline: none 拿掉它 */
+.tour-link:focus-visible {
+  outline: 3px solid var(--text);
+  outline-offset: 3px;
+}
+
+.site-footer {
+  padding: 1rem;
+  text-align: center;
+  color: #57534e;
+}
+
+/* 題目六：寬度大於 48rem 才加大版心 */
+@media (min-width: 48rem) {
+  main {
+    max-width: 64rem;
+    margin: 0 auto; /* 水平置中，兩側出現空白 */
+    padding: 2rem;
+  }
+}

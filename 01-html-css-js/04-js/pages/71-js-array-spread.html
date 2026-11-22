@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>陣列展開</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const places = ['台北', '花蓮', '京都'];
+
+      const more = [...places, '台南'];
+      console.log(places);
+      console.log(more);
+
+      const copy = [...places];
+      copy.push('高雄');
+      console.log(places);
+      console.log(copy);
+    </script>
+  </body>
+</html>

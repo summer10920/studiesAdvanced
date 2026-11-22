@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>基本選擇器</title>
+    <style>
+      p {
+        color: #475569;
+      }
+
+      .tour {
+        color: #0f766e;
+      }
+
+      .soldout {
+        text-decoration: line-through;
+      }
+
+      /* 沒有空格：同一個元素同時有這兩個 class */
+      .tour.soldout {
+        color: #64748b;
+      }
+
+      #featured {
+        font-weight: 700;
+      }
+
+      /* 屬性選擇器：有 target="_blank" 的連結 */
+      a[target="_blank"] {
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>選擇器決定規則打到誰</h1>
+    <p>元素選擇器：這段是石板色。</p>
+    <p class="tour">class：行程用字。同一個 class 可以再出現一次。</p>
+    <p class="tour">另一段行程，顏色跟上面那行相同。</p>
+    <p class="tour soldout">兩個 class 都在：字是灰的，而且有刪除線。</p>
+    <p id="featured">id：全頁這一個，字重較粗。</p>
+    <p>
+      <a href="#featured">本頁錨點</a>
+      <a href="https://developer.mozilla.org/zh-TW/" target="_blank" rel="noopener">另開分頁的連結</a>
+    </p>
+  </body>
+</html>

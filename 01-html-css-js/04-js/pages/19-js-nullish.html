@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>空值合併運算子</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const count = 0;
+      const missing = null;
+      const text = '';
+
+      console.log(count || 10); // 0 是假值，被換掉
+      console.log(count ?? 10); // 0 保留
+      console.log(missing ?? 10); // null 才改用右邊
+
+      console.log(text || '尚無備註'); // 空字串被換掉
+      console.log((text ?? '尚無備註').length); // 空字串保留，長度是 0
+    </script>
+  </body>
+</html>

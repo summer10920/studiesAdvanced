@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>返回與前進</title>
+  </head>
+  <body>
+    <p>在 DevTools 的 Console 呼叫 showPlace()、goBack()、goForward() 或 goSteps(步數)。</p>
+    <script>
+      if (location.hash === '') {
+        location.hash = 'one';
+        location.hash = 'two';
+        location.hash = 'three';
+      }
+
+      const showPlace = () => {
+        console.log(location.hash);
+        console.log(history.length);
+      };
+
+      const goBack = () => {
+        history.back();
+      };
+
+      const goForward = () => {
+        history.forward();
+      };
+
+      const goSteps = (step) => {
+        history.go(step);
+      };
+
+      showPlace();
+    </script>
+  </body>
+</html>

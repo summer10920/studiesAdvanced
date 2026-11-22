@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>送出與 FormData</title>
+  </head>
+  <body>
+    <form id="editor">
+      <p><label>標題 <input name="title" type="text" /></label></p>
+      <p>
+        <label>分類
+          <select name="category">
+            <option value="工作">工作</option>
+            <option value="生活">生活</option>
+          </select>
+        </label>
+      </p>
+      <p><label><input name="done" type="checkbox" /> 完成</label></p>
+      <button type="submit">送出</button>
+    </form>
+    <p id="result"></p>
+    <script>
+      const form = document.querySelector('#editor');
+      const result = document.querySelector('#result');
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const data = new FormData(form);
+        console.log(Object.fromEntries(data));
+        const mark = data.has('done') ? '已完成' : '未完成';
+        result.textContent = `${data.get('title')} / ${data.get('category')} / ${mark}`;
+      });
+    </script>
+  </body>
+</html>

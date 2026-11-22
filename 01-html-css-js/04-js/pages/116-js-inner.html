@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>innerHTML</title>
+  </head>
+  <body>
+    <div id="card"><b id="title">標題</b></div>
+    <script>
+      const card = document.querySelector('#card');
+      const title = document.querySelector('#title');
+
+      console.log(card.innerHTML);
+      card.innerHTML += '<i>斜體</i>';
+      console.log(card.innerHTML);
+
+      console.log(title.isConnected);
+      console.log(title === document.querySelector('#title'));
+    </script>
+  </body>
+</html>

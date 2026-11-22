@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>寫入剪貼簿</title>
+  </head>
+  <body>
+    <button type="button">複製文字</button>
+    <script>
+      const button = document.querySelector('button');
+
+      button.addEventListener('click', () => {
+        navigator.clipboard.writeText('BOM').then(() => {
+          console.log('已複製');
+        });
+      });
+
+      console.log('等待點擊');
+    </script>
+  </body>
+</html>

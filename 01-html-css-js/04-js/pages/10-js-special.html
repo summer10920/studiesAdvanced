@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>null、undefined 與 NaN</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      let guide;
+      const backup = null;
+      const broken = Number('abc');
+
+      // 宣告了但還沒給值，讀到 undefined
+      console.log(guide);
+
+      // null 是刻意設的空位，用 === null 判斷
+      console.log(backup);
+      console.log(backup === null);
+      // typeof null 是 object，這是早期留下的結果，不能拿來判斷
+      console.log(typeof backup);
+
+      // 轉成數字失敗得到 NaN，種類仍是 number
+      console.log(broken);
+      console.log(typeof broken);
+
+      // NaN 不等於自己，要用 Number.isNaN 判斷
+      console.log(broken === broken);
+      console.log(Number.isNaN(broken));
+    </script>
+  </body>
+</html>

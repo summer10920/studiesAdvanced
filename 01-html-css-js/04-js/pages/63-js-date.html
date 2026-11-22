@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>建立指定日期</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const now = new Date();
+      const birthday = new Date(1990, 4, 15, 8, 30, 0);
+      const dayOnly = new Date(2026, 7, 1);
+      const isoLocal = new Date('2026-08-01T12:00:00');
+
+      console.log(now.getFullYear());
+      console.log(
+        birthday.getMonth() + 1,
+        birthday.getDate(),
+        birthday.getHours(),
+        birthday.getMinutes()
+      );
+      console.log(dayOnly.getHours(), dayOnly.getMinutes());
+      console.log(isoLocal.getMonth() + 1, isoLocal.getDate(), isoLocal.getHours());
+    </script>
+  </body>
+</html>

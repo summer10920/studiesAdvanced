@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>媒體查詢與深色模式</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const darkQuery = matchMedia('(prefers-color-scheme: dark)');
+      console.log('深色模式', darkQuery.matches);
+
+      const wideQuery = matchMedia('(min-width: 800px)');
+      console.log('寬度至少 800', wideQuery.matches);
+    </script>
+  </body>
+</html>

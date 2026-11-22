@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>new Date 與 Date 的差異</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      console.log(typeof new Date());
+      console.log(typeof Date());
+      console.log(typeof Date().getFullYear);
+      console.log(typeof new Date().getFullYear);
+      console.log(typeof Date.now());
+    </script>
+  </body>
+</html>

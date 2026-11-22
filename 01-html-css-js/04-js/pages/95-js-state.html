@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pushState 與 replaceState</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      history.pushState({ page: 1 }, '', '#one');
+      console.log(history.state.page);
+      console.log(location.hash);
+
+      history.replaceState({ page: 1, note: 'replaced' }, '', '#one');
+      console.log(history.state.note);
+      console.log(history.length);
+    </script>
+  </body>
+</html>

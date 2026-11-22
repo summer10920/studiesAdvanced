@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>動態視窗高度</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: system-ui, "PingFang TC", "Microsoft JhengHei", sans-serif;
+      }
+
+      .hero {
+        min-height: 100dvh; /* 可見視窗的高度，跟著工具列變動 */
+        padding: 1.5rem;
+        background: #115e59;
+        color: #f0fdfa;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hero">
+      <h1>這一屏用 dvh</h1>
+      <p>手機工具列展開或收合時，高度跟著可見範圍變動。</p>
+    </section>
+  </body>
+</html>

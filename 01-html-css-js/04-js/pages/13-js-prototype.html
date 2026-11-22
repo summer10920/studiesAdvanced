@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>原型</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const word = 'abc';
+
+      // 得到 ABC，word 仍是 abc；這支函式就是字串原型上的那一支
+      console.log(word.toUpperCase());
+      console.log(word);
+      console.log(word.toUpperCase === String.prototype.toUpperCase);
+      // length 是屬性，讀到 3，不用括號
+      console.log(word.length);
+
+      const amount = 42;
+      // toFixed(0) 印出 42，回傳的是字串，而且等於數字原型上的函式
+      console.log(amount.toFixed(0));
+      console.log(amount.toFixed === Number.prototype.toFixed);
+
+      // null 沒有原型，拿掉下一行註解會丟出 TypeError
+      const missing = null;
+      // console.log(missing.toUpperCase());
+
+      // 在 Console 展開這一行，對照字串原型上的方法名稱
+      console.log(String.prototype);
+    </script>
+  </body>
+</html>

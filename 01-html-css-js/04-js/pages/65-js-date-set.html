@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>設定日期與時間</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const date = new Date(2026, 0, 15, 10, 20, 30);
+      console.log(date.getDate(), date.getHours(), date.getMinutes());
+
+      date.setFullYear(2027);
+      date.setMonth(5);
+      date.setDate(20);
+      console.log(date.getFullYear(), date.getMonth() + 1, date.getDate());
+
+      date.setHours(14, 30, 45);
+      date.setMinutes(5);
+      date.setSeconds(8);
+      date.setMilliseconds(250);
+      console.log(
+        date.getHours(),
+        date.getMinutes(),
+        date.getSeconds(),
+        date.getMilliseconds()
+      );
+
+      const base = new Date(2026, 6, 15, 10, 0, 0);
+      const tomorrow = new Date(base);
+      tomorrow.setDate(base.getDate() + 1);
+      const nextMonth = new Date(base);
+      nextMonth.setMonth(base.getMonth() + 1);
+      const nextHour = new Date(base);
+      nextHour.setHours(base.getHours() + 1);
+      console.log(base.getDate(), tomorrow.getDate());
+      console.log(base.getMonth() + 1, nextMonth.getMonth() + 1);
+      console.log(base.getHours(), nextHour.getHours());
+
+      const overflow = new Date(2026, 0, 1);
+      overflow.setDate(32);
+      console.log(overflow.getMonth() + 1, overflow.getDate());
+    </script>
+  </body>
+</html>

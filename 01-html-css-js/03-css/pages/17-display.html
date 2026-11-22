@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>display</title>
+    <style>
+      body {
+        margin: 1.5rem;
+        color: #134e4a;
+        font-family: system-ui, "PingFang TC", "Microsoft JhengHei", sans-serif;
+      }
+
+      .block {
+        margin-bottom: 0.5rem;
+        padding: 0.4rem 0.75rem;
+        background: #f0fdfa;
+      }
+
+      .item {
+        padding: 0.35rem 0.5rem;
+        border: 2px solid #0f766e;
+        background: #ccfbf1;
+      }
+
+      .day {
+        display: inline-block;
+        width: 4.5rem;
+        padding: 0.35rem 0;
+        background: #115e59;
+        color: #f0fdfa;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>盒子怎麼參加排版</h1>
+    <h2>block</h2>
+    <div class="block">第一張獨佔一行。</div>
+    <div class="block">第二張從下一行開始。</div>
+    <h2>inline</h2>
+    <p>這句話裡有<span class="item">甲</span>與<span class="item">乙</span>兩個行內元素。</p>
+    <h2>inline-block</h2>
+    <p>
+      <span class="day">一</span>
+      <span class="day">二</span>
+      <span class="day">三</span>
+    </p>
+  </body>
+</html>

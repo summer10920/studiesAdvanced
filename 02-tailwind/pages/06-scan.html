@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>只輸出用到的 class</title>
+  </head>
+  <body class="bg-stone-50 p-6 text-stone-900">
+    <h1 class="text-2xl font-bold">這一梯的報名狀態</h1>
+    <div class="mt-4 flex flex-wrap gap-4">
+      <article class="w-full max-w-sm rounded-2xl border border-stone-200 bg-white p-5">
+        <h2 class="text-lg font-semibold">太魯閣三日</h2>
+        <p class="mt-2 text-sm text-stone-600">4/12 出發 · 尚有名額</p>
+        <!-- bg-teal-700 整串寫在檔案裡，編譯器才會產生這條背景 -->
+        <p class="mt-4 inline-block rounded-full bg-teal-700 px-3 py-1 text-sm font-medium text-white">可報名</p>
+      </article>
+      <article class="w-full max-w-sm rounded-2xl border border-stone-200 bg-white p-5">
+        <h2 class="text-lg font-semibold">清水斷崖一日</h2>
+        <p class="mt-2 text-sm text-stone-600">4/18 出發 · 候補中</p>
+        <!-- 只有框線，沒有任何背景 class -->
+        <p class="mt-4 inline-block rounded-full border border-stone-300 px-3 py-1 text-sm text-stone-700">候補中</p>
+      </article>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

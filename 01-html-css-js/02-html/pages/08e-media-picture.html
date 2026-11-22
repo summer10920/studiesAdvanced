@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>picture 與圖片格式</title>
+  </head>
+  <body>
+    <h1>picture 與圖片格式</h1>
+    <picture>
+      <source type="image/avif" srcset="https://placehold.co/600x338.avif?text=AVIF" />
+      <source type="image/webp" srcset="https://placehold.co/600x338.webp?text=WebP" />
+      <img src="https://placehold.co/600x338.png?text=PNG" width="600" height="338" alt="三種格式的占位圖，圖上的文字就是被選中的格式" />
+    </picture>
+  </body>
+</html>

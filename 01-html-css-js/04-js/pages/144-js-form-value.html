@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>value 與 checked</title>
+  </head>
+  <body>
+    <p><input id="title" type="text" value="草稿" /></p>
+    <p><label><input id="done" type="checkbox" /> 完成</label></p>
+    <p id="result"></p>
+    <script>
+      const titleInput = document.querySelector('#title');
+      const doneInput = document.querySelector('#done');
+      const result = document.querySelector('#result');
+
+      const render = () => {
+        const mark = doneInput.checked ? '已勾選' : '未勾選';
+        result.textContent = `${titleInput.value} / ${mark}`;
+      };
+
+      titleInput.addEventListener('input', render);
+      doneInput.addEventListener('change', render);
+      render();
+    </script>
+  </body>
+</html>

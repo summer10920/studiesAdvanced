@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>斷點</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 1rem;
+        color: #134e4a;
+        font-family: system-ui, "PingFang TC", "Microsoft JhengHei", sans-serif;
+      }
+
+      main,
+      aside {
+        padding: 0.5rem 1rem;
+        background: #f0fdfa;
+      }
+
+      /* 窄畫面的規則寫在查詢外面，連結一項一行 */
+      nav a {
+        display: block;
+      }
+
+      /* 夠寬時才覆蓋成並排 */
+      @media (min-width: 40rem) {
+        .layout {
+          display: grid;
+          grid-template-columns: 1fr 14rem; /* 主文彈性，側欄約 14rem */
+          gap: 1rem;
+        }
+
+        header {
+          grid-column: 1 / -1; /* 標題列跨滿兩欄 */
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        nav a {
+          display: inline-block; /* 蓋過外面的 block */
+          margin-left: 0.75rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="layout">
+      <header>
+        <h1>洛奇旅行</h1>
+        <nav>
+          <a href="#tours">行程</a>
+          <a href="#tips">須知</a>
+        </nav>
+      </header>
+      <main id="tours">
+        <h2>行程</h2>
+        <p>窄的時候導覽在標題下面，一項一行。</p>
+      </main>
+      <aside id="tips">
+        <h2>須知</h2>
+        <p>夠寬時這欄才排到旁邊。</p>
+      </aside>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>即時集合</title>
+  </head>
+  <body>
+    <ul id="list">
+      <li class="item">蘋果</li>
+      <li class="item">香蕉</li>
+    </ul>
+    <script>
+      const list = document.getElementById('list');
+      const live = document.getElementsByClassName('item');
+      const snap = document.querySelectorAll('.item');
+      console.log(live.length);
+      console.log(snap.length);
+
+      const extra = document.createElement('li');
+      extra.className = 'item';
+      extra.textContent = '橘子';
+      list.append(extra);
+
+      console.log(live.length);
+      console.log(snap.length);
+
+      for (const item of live) {
+        console.log(item.textContent);
+      }
+    </script>
+  </body>
+</html>

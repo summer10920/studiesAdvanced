@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>移動與複製</title>
+  </head>
+  <body>
+    <ul id="list">
+      <li id="first">第一</li>
+      <li id="second">第二</li>
+    </ul>
+    <script>
+      const list = document.querySelector('#list');
+      const first = document.querySelector('#first');
+      const second = document.querySelector('#second');
+
+      const copy = first.cloneNode(true);
+      copy.removeAttribute('id');
+      list.append(copy);
+
+      list.prepend(second);
+    </script>
+  </body>
+</html>

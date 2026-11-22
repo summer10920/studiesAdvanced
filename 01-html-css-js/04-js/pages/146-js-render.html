@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>狀態與重繪</title>
+    <style>
+      body { font-family: system-ui, sans-serif; margin: 1.5rem; }
+      button { font: inherit; }
+    </style>
+  </head>
+  <body>
+    <ul id="list"></ul>
+    <button type="button" id="add">加一筆</button>
+    <script>
+      const state = { items: ['筆', '紙'] };
+      const list = document.querySelector('#list');
+
+      const render = () => {
+        list.replaceChildren();
+        state.items.forEach((name) => {
+          const li = document.createElement('li');
+          li.textContent = name;
+          list.append(li);
+        });
+      };
+
+      document.querySelector('#add').addEventListener('click', () => {
+        state.items.push(`項目 ${state.items.length + 1}`);
+        render();
+      });
+
+      render();
+    </script>
+  </body>
+</html>

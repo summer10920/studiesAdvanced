@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>最大值、最小值與亂數</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      console.log(Math.max(1, 5, 3));
+      console.log(Math.min(1, 5, 3));
+
+      const scores = [72, 95, 88];
+      console.log(Math.max(...scores));
+
+      console.log(Math.random());
+
+      function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      console.log(getRandomInt(1, 10));
+    </script>
+  </body>
+</html>

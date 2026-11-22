@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>外距合併</title>
+    <style>
+      body {
+        margin: 1.5rem;
+        font-family: system-ui, "PingFang TC", "Microsoft JhengHei", sans-serif;
+      }
+
+      h1 {
+        margin: 0 0 1rem;
+      }
+
+      .open,
+      .held {
+        padding: 0 1rem 1rem;
+        background: #99f6e4;
+        margin-bottom: 1.5rem;
+      }
+
+      .open p,
+      .held p {
+        margin: 2rem 0 0;
+        padding: 0.5rem;
+        background: #fff;
+      }
+
+      .held {
+        display: flow-root;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>子層的上外距</h1>
+    <div class="open">
+      <p>外距合併：子層的上外距跑到青底的上面。</p>
+    </div>
+    <div class="held">
+      <p>flow-root：子層的上外距留在青底裡面。</p>
+    </div>
+  </body>
+</html>

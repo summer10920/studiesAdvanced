@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>選讀：取消請求</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const main = async () => {
+        const controller = new AbortController();
+        const job = fetch('data/items.json', { signal: controller.signal });
+        controller.abort();
+        try {
+          await job;
+          console.log('不該完成');
+        } catch (error) {
+          console.log(error.name);
+        }
+      };
+
+      main();
+    </script>
+  </body>
+</html>

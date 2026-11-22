@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>let 與 const 的差別</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const productName = '無線滑鼠';
+      const taxRate = 0.05;
+      let price = 12800;
+
+      price = 13900;
+
+      console.log(productName);
+      console.log(taxRate);
+      console.log(price);
+
+      // 下面這行會 TypeError，所以維持註解
+      // taxRate = 0.1;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+@import "./style.css";
+
+@layer components {
+  .kicker {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.025em;
+    color: var(--color-teal-700);
+  }
+}
+
+@utility chip {
+  border-radius: calc(infinity * 1px);
+  padding-inline: 0.75rem;
+  padding-block: 0.25rem;
+  font-size: 0.75rem;
+  background-color: var(--color-teal-50);
+  color: var(--color-teal-900);
+}

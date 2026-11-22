@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise.race 與 any</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const task = (name, ms, fail) => {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            if (fail) reject(new Error(name));
+            else resolve(name);
+          }, ms);
+        });
+      };
+
+      Promise.race([task('慢', 30, false), task('快', 10, false)]).then((name) => {
+        console.log(name);
+      });
+
+      Promise.any([task('失敗', 5, true), task('成功', 15, false)]).then((name) => {
+        console.log(name);
+      });
+
+      Promise.any([task('甲', 5, true), task('乙', 10, true)]).catch((error) => {
+        console.log(error.name);
+      });
+    </script>
+  </body>
+</html>

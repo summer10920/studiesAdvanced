@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>傳統 CSS 與 utility</title>
+    <style>
+      /* 只服務左邊。最大寬度、圓角、白底、陰影收在同一個選擇器 */
+      .trip-card {
+        max-width: 24rem;
+        overflow: hidden;
+        border-radius: 1rem;
+        background: #fff;
+        box-shadow:
+          0 4px 6px -1px rgb(0 0 0 / 0.1),
+          0 2px 4px -2px rgb(0 0 0 / 0.1);
+      }
+      /* 高 11rem、寬 100%、裁切填滿。display:block 拿掉圖片底部的縫 */
+      .trip-card img {
+        display: block;
+        height: 11rem;
+        width: 100%;
+        object-fit: cover;
+      }
+      .trip-card .body {
+        padding: 1.25rem;
+      }
+      /* 眉題：較小字、字重 500、字距略開、青綠 */
+      .trip-card .meta {
+        margin: 0;
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.025em;
+        color: #0f766e;
+      }
+      .trip-card h2 {
+        margin: 0.5rem 0 0;
+        font-size: 1.25rem;
+        font-weight: 600;
+      }
+      .trip-card .summary {
+        margin: 0.5rem 0 0;
+        color: #57534e;
+        font-size: 0.875rem;
+        line-height: 1.5rem;
+      }
+      .trip-card .price {
+        margin: 0.75rem 0 0;
+        color: #134e4a;
+        font-size: 1.125rem;
+        font-weight: 600;
+      }
+      .trip-card a {
+        display: inline-block;
+        margin-top: 1rem;
+        border-radius: 0.5rem;
+        background: #0f766e;
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: #fff;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body class="bg-stone-100 p-6 text-stone-900">
+    <h1 class="mb-2 text-2xl font-bold">同一張行程卡，兩種寫法</h1>
+    <p class="mb-6 max-w-prose text-sm leading-6 text-stone-600">
+      左右兩張是同一趟花蓮小團。左邊外觀收在 style，右邊把同一組外觀拆到標籤上。
+    </p>
+    <div class="flex flex-wrap items-start gap-6">
+      <article class="trip-card">
+        <img src="https://picsum.photos/id/1015/800/500" alt="太魯閣步道" />
+        <div class="body">
+          <p class="meta">花蓮 · 3 天</p>
+          <h2>太魯閣與七星潭</h2>
+          <p class="summary">清晨走峽谷步道，下午到七星潭看海。含兩晚住宿。</p>
+          <p class="price">NT$16,800</p>
+          <a href="#book">看行程</a>
+        </div>
+      </article>
+      <article class="max-w-sm overflow-hidden rounded-2xl bg-white shadow-md">
+        <!-- 圓角 1rem、白底、中等陰影、超出的圖片被裁掉。對齊左邊的 .trip-card -->
+        <img class="h-44 w-full object-cover" src="https://picsum.photos/id/1016/800/500" alt="七星潭海岸" />
+        <div class="p-5">
+          <!-- text-xs 字級、tracking-wide 字距、text-teal-700 文字色 -->
+          <p class="text-xs font-medium tracking-wide text-teal-700">花蓮 · 3 天</p>
+          <h2 class="mt-2 text-xl font-semibold">太魯閣與七星潭</h2>
+          <p class="mt-2 text-sm leading-6 text-stone-600">清晨走峽谷步道，下午到七星潭看海。含兩晚住宿。</p>
+          <p class="mt-3 text-lg font-semibold text-teal-900">NT$16,800</p>
+          <!-- bg-teal-700 只管背景，px-4 py-2 只管內距，rounded-lg 只管圓角 -->
+          <a class="mt-4 inline-block rounded-lg bg-teal-700 px-4 py-2 text-sm font-medium text-white" href="#book">
+            看行程
+          </a>
+        </div>
+      </article>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

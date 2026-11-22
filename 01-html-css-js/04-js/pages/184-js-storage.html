@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>localStorage 與 sessionStorage</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      localStorage.setItem('color', 'teal');
+      sessionStorage.setItem('step', '1');
+      console.log(localStorage.getItem('color'));
+      console.log(sessionStorage.getItem('step'));
+      localStorage.removeItem('color');
+      console.log(localStorage.getItem('color'));
+      console.log(sessionStorage.getItem('step'));
+    </script>
+  </body>
+</html>

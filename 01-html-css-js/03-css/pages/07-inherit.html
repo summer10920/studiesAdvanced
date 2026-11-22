@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>繼承</title>
+    <style>
+      .story {
+        color: #7c2d12; /* 子層沒寫 color，就跟這個 */
+        background: #fff7ed; /* 背景不繼承，只是從下面透出來 */
+      }
+
+      .price {
+        color: #115e59; /* 自己寫了，繼承就停在這一層 */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>沒寫的屬性會不會跟父層</h1>
+    <article class="story">
+      <h2>繼承</h2>
+      <p>這段沒寫顏色，所以跟 article 的磚紅。</p>
+      <p class="price">這段自己寫了顏色，不再跟父層。</p>
+    </article>
+    <p>article 外面這段不跟那塊磚紅。</p>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>往上找</title>
+  </head>
+  <body>
+    <article id="story">
+      <main id="app">
+        <p id="intro">前言</p>
+        <section id="card">
+          <h2 id="heading">標題</h2>
+          <p id="text">內文</p>
+          <button type="button" id="action">按鈕</button>
+        </section>
+        <p id="outro">結語</p>
+      </main>
+    </article>
+    <p id="result"></p>
+    <script>
+      const card = document.querySelector('#card');
+      const result = document.querySelector('#result');
+      result.textContent = `${card.parentElement.id} / ${card.closest('article')?.id}`;
+
+      console.log(card.closest('section') === card);
+      console.log(card.closest('aside'));
+      console.log(card.closest('aside')?.id);
+    </script>
+  </body>
+</html>

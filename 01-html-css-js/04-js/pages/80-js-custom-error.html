@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>自訂錯誤</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      class ValidationError extends Error {
+        constructor(message) {
+          super(message);
+          this.name = 'ValidationError';
+        }
+      }
+
+      function checkUser(user) {
+        if (!user) {
+          throw new ValidationError('資料不能為空');
+        }
+        if (!user.name) {
+          throw new ValidationError('名稱不能為空');
+        }
+        if (user.age < 0) {
+          throw new Error('年齡不能為負數');
+        }
+        return user.name + ' 通過';
+      }
+
+      function run(user) {
+        try {
+          console.log(checkUser(user));
+        } catch (error) {
+          if (error instanceof ValidationError) {
+            console.log('驗證', error.name, error.message);
+          } else {
+            console.log('其他', error.name, error.message);
+          }
+        }
+      }
+
+      run({ name: 'Amy', age: 25 });
+      run(null);
+      run({ age: 25 });
+      run({ name: 'Amy', age: -1 });
+    </script>
+  </body>
+</html>

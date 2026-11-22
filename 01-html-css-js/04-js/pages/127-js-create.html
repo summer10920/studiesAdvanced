@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>建立與插入</title>
+  </head>
+  <body>
+    <div id="stage">
+      <p id="target">目標</p>
+    </div>
+    <script>
+      const target = document.querySelector('#target');
+
+      const before = document.createElement('p');
+      before.textContent = '前面';
+      target.before(before);
+
+      const start = document.createElement('span');
+      start.textContent = '起點';
+      target.prepend(start);
+
+      const end = document.createElement('span');
+      end.textContent = '終點';
+      target.append(end);
+
+      const after = document.createElement('p');
+      after.textContent = '後面';
+      target.after(after);
+
+      target.append(document.createTextNode('尾端文字'));
+    </script>
+  </body>
+</html>

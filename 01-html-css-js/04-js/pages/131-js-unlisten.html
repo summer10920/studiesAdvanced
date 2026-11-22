@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>removeEventListener</title>
+  </head>
+  <body>
+    <p id="output">0</p>
+    <button type="button" id="go">加一</button>
+    <button type="button" id="stopButton">停止</button>
+    <script>
+      const output = document.querySelector('#output');
+      const go = document.querySelector('#go');
+      const stopButton = document.querySelector('#stopButton');
+
+      const onClick = () => {
+        output.textContent = Number(output.textContent) + 1;
+      };
+
+      go.addEventListener('click', onClick);
+
+      stopButton.addEventListener('click', () => {
+        go.removeEventListener('click', onClick);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>requestAnimationFrame</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const id = requestAnimationFrame(() => {
+        console.log('下一幀');
+      });
+      console.log('已預約', id);
+    </script>
+  </body>
+</html>

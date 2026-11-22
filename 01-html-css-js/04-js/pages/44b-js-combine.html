@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>slice、concat 與 join</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const places = ['台北', '花蓮', '京都'];
+
+      // 從索引 1 裁到結尾；從 0 裁到索引 2 之前
+      console.log(places.slice(1));
+      console.log(places.slice(0, 2));
+      // 接上更多值，交回四格的新陣列
+      console.log(places.concat(['台南']));
+      // 接成一個字串
+      console.log(places.join('、'));
+      // 原陣列沒有被改
+      console.log(places);
+    </script>
+  </body>
+</html>

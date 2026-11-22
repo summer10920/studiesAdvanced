@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>函式當作參數</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      // operation 是接收進來的函式，由 calc 決定何時呼叫它
+      function calc(a, b, operation) {
+        const result = operation(a, b);
+        console.log(result);
+      }
+
+      function add(a, b) {
+        return a + b;
+      }
+
+      calc(10, 4, add); // 傳函式名稱，不加小括號
+      calc(10, 4, function (a, b) {
+        return a * b;
+      });
+      calc(10, 4, (a, b) => a - b);
+      calc(10, 4, (a, b) => a / b);
+
+      // calc(10, 4, add()); // 錯誤：傳進去的是 add() 的回傳值 NaN，不是函式
+    </script>
+  </body>
+</html>

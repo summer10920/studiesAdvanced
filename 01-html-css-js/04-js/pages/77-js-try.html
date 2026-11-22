@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>try 與 catch 的基本結構</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      function readName(record) {
+        try {
+          return record.name.toUpperCase();
+        } catch (error) {
+          console.error(error.message);
+          return '無法讀取';
+        }
+      }
+
+      console.log(readName({ name: 'amy' }));
+      console.log(readName(null));
+      console.log('程式繼續');
+    </script>
+  </body>
+</html>

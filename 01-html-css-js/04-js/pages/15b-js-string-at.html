@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>at 與大小寫轉換</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const city = 'taipei';
+
+      // 0 是第一個字元，-1 是最後一個，索引 10 超出範圍
+      console.log(city.at(0));
+      console.log(city.at(-1));
+      console.log(city.at(10));
+
+      // 轉大小寫，city 本身不變
+      console.log(city.toUpperCase());
+      console.log('JS'.toLowerCase());
+      console.log(city);
+    </script>
+  </body>
+</html>

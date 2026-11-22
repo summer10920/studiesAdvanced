@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>方法串接</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const prices = [12800, 15900, 42800, 6800];
+
+      // 留下小於 20000 的三個價格，各乘 2，從 0 加總得到 71000
+      const total = prices
+        .filter((price) => price < 20000)
+        .map((price) => price * 2)
+        .reduce((sum, price) => sum + price, 0);
+
+      console.log(total);
+      console.log(prices);
+
+      // forEach 回傳 undefined，接著呼叫 map 會中斷
+      // prices.filter((price) => price < 20000).forEach((price) => price).map((price) => price);
+    </script>
+  </body>
+</html>

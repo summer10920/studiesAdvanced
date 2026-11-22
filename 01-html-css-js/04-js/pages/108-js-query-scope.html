@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>在容器裡找</title>
+  </head>
+  <body>
+    <section id="news">
+      <p class="item">新聞一</p>
+      <p class="item">新聞二</p>
+    </section>
+    <section id="shop">
+      <p class="item">商品一</p>
+    </section>
+    <script>
+      const shop = document.querySelector('#shop');
+      const news = document.querySelector('#news');
+      console.log(document.querySelectorAll('.item').length);
+      console.log(shop.querySelectorAll('.item').length);
+      console.log(shop.querySelector('#shop'));
+      console.log(news.querySelector('.item').textContent);
+    </script>
+  </body>
+</html>

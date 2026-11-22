@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>自訂斷點</title>
+    <link rel="stylesheet" href="/src/breakpoints.css" />
+  </head>
+  <body class="bg-stone-50 p-6 text-stone-900">
+    <h1 class="text-2xl font-bold">tablet: 設在 52rem</h1>
+    <p class="mt-3 max-w-prose">比 md（48rem）再寬一點才變成兩欄。3xl（120rem）那句只有非常寬的視窗看得到。</p>
+    <div class="mt-6 grid grid-cols-1 gap-4 tablet:grid-cols-2">
+      <article class="rounded-xl bg-white p-4 shadow-sm">
+        <h2 class="font-semibold">左欄</h2>
+        <p class="text-sm text-stone-600">52rem 以前跟右欄上下排。</p>
+      </article>
+      <article class="rounded-xl bg-white p-4 shadow-sm">
+        <h2 class="font-semibold">右欄</h2>
+        <p class="text-sm text-stone-600">過了 tablet 才並排。</p>
+      </article>
+    </div>
+    <p class="mt-6 hidden rounded-lg bg-violet-100 px-4 py-3 text-violet-950 3xl:block">
+      視窗到 3xl 了。一般筆電的視窗拉不滿這條，把瀏覽器縮放調小才容易看到。
+    </p>
+  </body>
+</html>

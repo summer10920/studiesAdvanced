@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>新增修改與刪除屬性</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const tour = {
+        id: 1,
+        title: '台北城市漫遊',
+        days: 3,
+        price: 12800,
+      };
+
+      tour.price = 13900; // 修改
+      tour.seats = 8; // 新增
+      console.log(tour.price);
+      console.log('seats' in tour);
+      console.log(Object.hasOwn(tour, 'seats'));
+
+      // toString 在原型上，不是 tour 自己的欄位
+      console.log('toString' in tour);
+      console.log(Object.hasOwn(tour, 'toString'));
+
+      delete tour.seats;
+      console.log(tour.seats);
+      console.log(tour.days);
+
+      // tour = { id: 2 }; // 拿掉註解會是 TypeError
+    </script>
+  </body>
+</html>

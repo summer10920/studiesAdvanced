@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>分層</title>
+    <style>
+      @layer reset, theme;
+
+      @layer reset {
+        .lead {
+          color: #9f1239;
+        }
+      }
+
+      @layer theme {
+        .lead {
+          color: #0f766e;
+        }
+      }
+
+      .free {
+        color: #b45309;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>分層</h1>
+    <p class="lead">深青綠：theme 層排在 reset 層後面，所以留下 theme 的顏色。</p>
+    <p class="lead free">琥珀色：沒放進任何層的規則，贏過所有層。</p>
+  </body>
+</html>

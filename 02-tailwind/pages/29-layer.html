@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@layer 與 @utility</title>
+  </head>
+  <body class="space-y-4 bg-stone-50 p-6 text-stone-900">
+    <p class="kicker">kicker 在 components 圖層，直接寫有效</p>
+    <p class="md:kicker">md:kicker 不會產生規則，所以這行是普通文字</p>
+    <p class="md:chip">md 以上才套用 chip</p>
+    <script type="module" src="/src/layer.js"></script>
+  </body>
+</html>

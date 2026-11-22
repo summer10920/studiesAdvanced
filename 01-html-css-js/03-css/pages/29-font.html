@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>字型檔</title>
+    <style>
+      body {
+        font-family: system-ui, "PingFang TC", "Microsoft JhengHei", sans-serif;
+      }
+
+      @font-face {
+        font-family: "Heading";
+        src: local("Georgia"), local("Times New Roman");
+      }
+
+      h1 {
+        font-family: "Heading", system-ui, "PingFang TC", sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hello, @font-face 字型</h1>
+    <p>標題的英文字用 Heading 這個自取的名字；它沒有中文字，所以中文仍落到後面的系統字。</p>
+  </body>
+</html>

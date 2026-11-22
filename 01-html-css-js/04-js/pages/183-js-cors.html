@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>選讀：同源政策與 CORS</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const main = async () => {
+        try {
+          await fetch('https://example.com/');
+          console.log('沒被擋');
+        } catch (error) {
+          console.log(error.name);
+        }
+        const local = await fetch('data/items.json');
+        console.log(local.ok);
+      };
+
+      main();
+    </script>
+  </body>
+</html>

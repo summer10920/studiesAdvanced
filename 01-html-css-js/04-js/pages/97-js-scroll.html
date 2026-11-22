@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>捲動位置</title>
+  </head>
+  <body>
+    <p>在 DevTools 的 Console 呼叫 showScroll()、scrollDown() 或 scrollTop()。</p>
+    <div style="height: 1800px"></div>
+    <p>頁面底部</p>
+    <script>
+      const showScroll = () => {
+        console.log(scrollX);
+        console.log(scrollY);
+      };
+
+      const scrollDown = () => {
+        scrollBy({ top: 400, left: 0, behavior: 'smooth' });
+      };
+
+      const scrollTop = () => {
+        scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+      };
+
+      showScroll();
+    </script>
+  </body>
+</html>

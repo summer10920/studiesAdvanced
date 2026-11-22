@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>addEventListener</title>
+  </head>
+  <body>
+    <button type="button" id="go">點我</button>
+    <p id="output">尚未點</p>
+    <script>
+      const output = document.querySelector('#output');
+      const go = document.querySelector('#go');
+      let count = 0;
+
+      go.addEventListener('click', () => {
+        count += 1;
+        output.textContent = `已點 ${count} 次`;
+      });
+
+      go.addEventListener('click', () => {
+        console.log('第二份監聽也跑了');
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>報名京都三日遊</title>
+  </head>
+  <body>
+    <h1>報名京都三日遊</h1>
+    <form action="#" method="get">
+      <p>
+        <label><input type="radio" name="traffic" value="bus" checked /> 巴士</label>
+        <label><input type="radio" name="traffic" value="train" /> 火車</label>
+      </p>
+      <p>
+        <label><input type="checkbox" name="extra" value="insurance" /> 保險</label>
+        <label><input type="checkbox" name="extra" value="meal" /> 餐食</label>
+        <label><input type="checkbox" name="extra" value="veg" /> 素食</label>
+      </p>
+      <p>
+        <label for="tour-select">行程</label>
+        <select id="tour-select" name="tourId">
+          <optgroup label="本島">
+            <option value="1">台北城市漫遊</option>
+            <option value="2">花蓮山海三日</option>
+          </optgroup>
+          <optgroup label="離島">
+            <option value="3">澎湖跳島</option>
+          </optgroup>
+        </select>
+      </p>
+      <p>
+        <label for="city-input">想去的城市</label>
+        <input id="city-input" name="city" type="text" list="city-list" />
+        <datalist id="city-list">
+          <option value="台北"></option>
+          <option value="花蓮"></option>
+          <option value="澎湖"></option>
+        </datalist>
+      </p>
+      <p>
+        <button type="submit">送出報名</button>
+      </p>
+    </form>
+  </body>
+</html>

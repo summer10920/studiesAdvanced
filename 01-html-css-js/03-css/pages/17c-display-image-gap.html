@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>圖片底縫</title>
+    <style>
+      body {
+        margin: 1.5rem;
+        color: #134e4a;
+        font-family: system-ui, "PingFang TC", "Microsoft JhengHei", sans-serif;
+      }
+
+      .frame {
+        width: 4.5rem;
+        background: #0f766e;
+      }
+
+      .photo {
+        width: 4.5rem;
+        height: 3rem;
+      }
+
+      .block {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>圖片底縫</h1>
+    <p>預設的行內圖片，底下露出一條深青綠的縫</p>
+    <div class="frame"><img class="photo" alt="河谷風景" src="https://picsum.photos/id/1015/120/80" /></div>
+    <p>改成 block，縫消失</p>
+    <div class="frame"><img class="photo block" alt="河谷風景" src="https://picsum.photos/id/1015/120/80" /></div>
+  </body>
+</html>

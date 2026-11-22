@@ -1,0 +1,52 @@
+# Tailwind
+
+對應講義 [Tailwind：utilities、RWD、深色模式](https://summer10920.github.io)（`lokiTech-15day-04-tailwind`）。Vite + Tailwind CSS v4（`@tailwindcss/vite`），純 JavaScript，沒有 TypeScript。`pages/` 裡每一頁就是講義裡對應 demo 的完整檔案，每一頁都是獨立頁面，直接開啟就能看。每份講義結尾的回家作業，起始檔是 `pages/homework-04.html`。
+
+需要 Node.js 26 與 pnpm。請用「開啟資料夾」打開這個專案（才會套用 `.vscode` 的 Prettier 與 Tailwind IntelliSense）。在這個資料夾：
+
+```bash
+pnpm install
+pnpm dev
+```
+
+終端機印出的 Local 網址用瀏覽器打開。存檔後畫面會更新。目錄頁是 `index.html`，網址是 `/`。各節是 `/pages/檔名.html`。排版規則在 `.prettierrc`。
+
+| 指令 | 做什麼 |
+| --- | --- |
+| `pnpm dev` | 開發伺服器 |
+| `pnpm build` | 建置到 `dist/` |
+| `pnpm preview` | 預覽建置結果 |
+
+- `pages/01-compare.html`：utility-first 是什麼
+- `pages/02-naming.html`：屬性與值
+- `pages/03-palette.html`：色階與透明度
+- `pages/04-scale.html`：間距單位
+- `pages/05-preflight.html`：選讀：Preflight 重置了什麼
+- `pages/06-scan.html`：只輸出用到的 class
+- `pages/07-play-cdn.html`：選讀：Play CDN
+- `pages/08-button.html`：按鈕
+- `pages/09-card.html`：卡片
+- `pages/10-states.html`：hover、focus、active
+- `pages/11-group-peer.html`：選讀：group 與 peer
+- `pages/12-dark-system.html`：跟著系統
+- `pages/13-dark-toggle.html`：選讀：手動切換
+- `pages/14-mobile.html`：手機優先
+- `pages/15-breakpoints.html`：預設斷點
+- `pages/16-max.html`：max-* 範圍變體
+- `pages/17-custom-breakpoint.html`：用 @theme 自訂斷點
+- `pages/18-layout.html`：卡片牆
+- `pages/19-container.html`：版心與 max-w-*
+- `pages/20-nav.html`：選讀：導覽列
+- `pages/21-container-query.html`：未具名容器
+- `pages/22-container-named.html`：具名容器
+- `pages/23-sidebar.html`：側欄實作
+- `pages/24-theme.html`：品牌色
+- `pages/25-theme-spacing-font.html`：間距與字型
+- `pages/26-apply.html`：@apply
+- `pages/27-arbitrary.html`：任意值與 ! 覆寫
+- `pages/28-important.html`：任意值與 ! 覆寫
+- `pages/29-layer.html`：選讀：@layer 與 @utility
+
+`src/` 放各頁用到的樣式與腳本：`style.css`（`@import "tailwindcss"`、品牌色與間距字型）、`breakpoints.css`、`container.css`、`apply.css`、`layer.css`、`dark-manual.css` 與 `dark-toggle.js`。`vite.config.js` 會自動收集 `pages/*.html` 當作建置入口。
+
+class 寫在 HTML 上。不要裝 Bootstrap，也不要另寫 `tailwind.config.js`。

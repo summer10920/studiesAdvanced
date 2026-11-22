@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>then、catch、finally</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      new Promise((resolve, reject) => {
+        reject(new Error('讀取失敗'));
+      })
+        .then((value) => {
+          console.log(value);
+        })
+        .catch((error) => {
+          console.log(error.message);
+        })
+        .finally(() => {
+          console.log('收尾');
+        });
+    </script>
+  </body>
+</html>

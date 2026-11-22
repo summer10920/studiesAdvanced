@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>do...while</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      let count = 0;
+
+      console.log('while 先檢查');
+      while (count > 0) {
+        count += 1;
+        console.log(count);
+      }
+
+      let tries = 0;
+
+      console.log('do 先執行');
+      do {
+        tries += 1;
+        console.log(tries);
+      } while (tries < 1);
+    </script>
+  </body>
+</html>

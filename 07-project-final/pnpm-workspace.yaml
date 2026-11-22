@@ -1,0 +1,5 @@
+minimumReleaseAgeExclude:
+  - '@vitejs/plugin-react@6.2.1'
+allowBuilds:
+  '@firebase/util': true
+  protobufjs: true

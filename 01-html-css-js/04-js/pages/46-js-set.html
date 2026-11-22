@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>選讀：Set</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const places = ['台北', '花蓮', '台北', '京都'];
+      const unique = new Set(places);
+
+      console.log(unique.size);
+      console.log(unique.has('花蓮'));
+
+      unique.add('台南');
+      console.log(unique.size);
+      unique.add('台北');
+      console.log(unique.size);
+      console.log(Array.from(unique));
+    </script>
+  </body>
+</html>

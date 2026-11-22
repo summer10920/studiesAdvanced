@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>範圍變體</title>
+  </head>
+  <body class="space-y-4 bg-stone-50 p-6 text-stone-900">
+    <h1 class="text-2xl font-bold">max-md: 是小於 md，不是 max-w-md</h1>
+    <p class="hidden rounded-lg bg-amber-100 px-4 py-3 text-amber-950 max-md:block">小於 md（48rem）才看得到這句。</p>
+    <p class="hidden rounded-lg bg-teal-100 px-4 py-3 text-teal-950 md:max-xl:block">md 以上、且小於 xl（80rem）。</p>
+    <p class="hidden rounded-lg bg-violet-100 px-4 py-3 text-violet-950 xl:block">xl 以上一直顯示。</p>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

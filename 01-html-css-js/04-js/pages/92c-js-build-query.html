@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>組出查詢字串</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const query = new URLSearchParams({ page: 2, keyword: '台北' });
+      console.log(query.toString());
+
+      query.set('page', 3);
+      query.append('tag', 'js');
+      console.log(query.toString());
+
+      console.log(`${location.pathname}?${query}`);
+    </script>
+  </body>
+</html>

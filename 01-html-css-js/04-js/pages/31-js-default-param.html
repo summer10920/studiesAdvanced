@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>預設參數</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      function showCount(count = 1) {
+        console.log(count);
+      }
+
+      showCount();
+      showCount(3);
+      showCount(0);
+      showCount(undefined);
+      showCount(null);
+
+      function countByOr(count) {
+        count = count || 1;
+        console.log(count);
+      }
+
+      countByOr(0);
+
+      function countByNullish(count) {
+        console.log(count ?? 1);
+      }
+
+      countByNullish(0);
+      countByNullish(null);
+    </script>
+  </body>
+</html>

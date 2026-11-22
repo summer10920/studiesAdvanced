@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>綜合練習：跨年倒數</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      function getCountdownToNewYear() {
+        const now = new Date();
+        const target = new Date(now.getFullYear(), 11, 31, 23, 59, 59);
+        const diff = Math.max(0, target - now);
+        const sec = Math.floor(diff / 1000) % 60;
+        const min = Math.floor(diff / (1000 * 60)) % 60;
+        const hr = Math.floor(diff / (1000 * 60 * 60)) % 24;
+        const day = Math.floor(diff / (1000 * 60 * 60 * 24));
+        console.log(`距離今年跨年還有 ${day} 天 ${hr} 小時 ${min} 分 ${sec} 秒`);
+      }
+
+      getCountdownToNewYear();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,86 @@
+/* 宣告層級順序，後層可以蓋過前層。mui 是我們插入的層名，必須和 MUI 寫死的名稱相同。 */
+@layer theme, base, mui, components, utilities;
+
+@import 'tailwindcss';
+
+/* 把 :root 上的 --loki-*（由 main.jsx 的 applyTokens 寫入）接到 Tailwind 的色名與字型。
+   這份檔案不會引入 theme.js。 */
+@theme inline {
+  --font-sans: 'Noto Sans TC', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Noto Serif TC', ui-serif, serif;
+  --color-primary: var(--loki-primary);
+  --color-hover: var(--loki-hover);
+  --color-action: var(--loki-action);
+  --color-action-hover: var(--loki-actionHover);
+  --color-accent: var(--loki-accent);
+  --color-secondary: var(--loki-secondary);
+  --color-ink: var(--loki-ink);
+  --color-muted: var(--loki-muted);
+  --color-paper: var(--loki-paper);
+  --color-mist: var(--loki-mist);
+  --color-foam: var(--loki-foam);
+  --color-line: var(--loki-line);
+  --color-alert: var(--loki-alert);
+  --color-white: var(--loki-white);
+  --radius-card: 24px;
+  --shadow-card: 0 10px 28px rgb(31 42 68 / 8%);
+}
+
+/* 全站基底：頁面底色與文字、選取顏色，以及減少動畫。 */
+@layer base {
+  body {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.7;
+    background: var(--loki-paper);
+    color: var(--loki-ink);
+  }
+
+  ::selection {
+    background: #d8f3e6;
+    color: var(--loki-ink);
+  }
+
+  * {
+    scrollbar-color: var(--loki-action) var(--loki-mist);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+}
+
+/* 鍵盤焦點外框。放在 components 層，才蓋得過 mui 層裡 MUI 按鈕自己清掉的 outline；
+   頁尾是深色底，外框改白色，對比才夠。 */
+@layer components {
+  :focus-visible {
+    outline: 2px solid var(--loki-action);
+    outline-offset: 3px;
+  }
+
+  footer :focus-visible {
+    outline-color: var(--loki-white);
+  }
+}
+
+/* 把元素文字裡的圖示名稱畫成圖。liga 讓名稱連成一個圖形。 */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: 'liga';
+}

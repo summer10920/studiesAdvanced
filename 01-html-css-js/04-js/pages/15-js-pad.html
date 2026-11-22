@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>擷取與轉換</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const rawTitle = '  台北城市漫遊  ';
+      const title = rawTitle.trim();
+      const code = '7';
+
+      // 去掉兩端空白：帶空白的長度是 10，去掉之後是 6
+      console.log(title);
+      console.log(rawTitle.length);
+      console.log(title.length);
+
+      // 結束索引不包含，前兩個字是「花蓮」；只給起點則裁到結尾
+      console.log('花蓮山海三日'.slice(0, 2));
+      console.log('花蓮山海三日'.slice(2));
+
+      // replace 只換第一處，replaceAll 全部都換
+      console.log('京都散步與散步'.replace('散步', '五日'));
+      console.log('京都散步與散步'.replaceAll('散步', '五日'));
+
+      // 依「・」拆成三個元素的陣列
+      console.log('台北・花蓮・京都'.split('・'));
+
+      // 補到長度 3，得到 007；code 仍是 7
+      console.log(code.padStart(3, '0'));
+      console.log(code);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>textContent 與 innerText</title>
+  </head>
+  <body>
+    <p id="box">可見<span style="display: none">隱藏</span></p>
+    <script>
+      const box = document.querySelector('#box');
+      console.log(box.textContent);
+      console.log(box.innerText);
+    </script>
+  </body>
+</html>

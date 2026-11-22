@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>方法呼叫時的 this</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const tour = {
+        title: '花蓮山海三日',
+        days: 3,
+        label() {
+          return this.title + '・' + this.days + ' 天';
+        },
+      };
+
+      console.log(tour.label());
+
+      const copied = tour.label;
+      console.log(copied());
+    </script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>集中錯誤處理</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      Promise.resolve()
+        .then(() => {
+          throw new Error('第二步失敗');
+        })
+        .then(() => {
+          console.log('跳過');
+        })
+        .catch((error) => {
+          console.log(error.message);
+        })
+        .then(() => {
+          console.log('繼續');
+        });
+    </script>
+  </body>
+</html>

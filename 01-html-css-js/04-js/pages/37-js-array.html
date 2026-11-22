@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>建立、索引與 length</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const places = ['台北', '花蓮', '京都'];
+
+      console.log(places.length);
+      console.log(places[0]);
+      console.log(places[5]);
+      console.log(places.at(-1));
+      console.log(Array.isArray(places));
+      console.log(typeof places);
+
+      for (const place of places) {
+        console.log(place);
+      }
+    </script>
+  </body>
+</html>

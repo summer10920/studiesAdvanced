@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>從文字還原資料</title>
+  </head>
+  <body>
+    <ul id="list"></ul>
+    <script>
+      const raw = '[{"name":"筆","price":25},{"name":"紙","price":40}]';
+      const items = JSON.parse(raw);
+      const list = document.querySelector('#list');
+
+      items.forEach((item) => {
+        const li = document.createElement('li');
+        li.textContent = item.name + ' ' + item.price;
+        list.append(li);
+        console.log(item.name);
+      });
+    </script>
+  </body>
+</html>

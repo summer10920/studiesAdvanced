@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>比較運算子與嚴格相等</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const age = 20;
+      const ageText = '20';
+
+      console.log(age === 20);
+      console.log(age === ageText);
+      console.log(age !== ageText);
+      console.log(age == ageText); // 會轉型，不要用
+      console.log(age >= 18);
+
+      console.log('10' > '9');
+      console.log(Number('10') > Number('9'));
+    </script>
+  </body>
+</html>

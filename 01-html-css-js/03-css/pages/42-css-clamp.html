@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>多行省略</title>
+    <style>
+      body {
+        margin: 1.5rem;
+        font-family: system-ui, "PingFang TC", "Microsoft JhengHei", sans-serif;
+      }
+
+      .clip {
+        width: min(100%, 16rem);
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="clip">
+      這是一段比較長的說明文字，用來示範多行省略。只要超過兩行，多出來的句子就會被收起來，並在第二行的尾端顯示省略號，第三行不會再出現。
+    </p>
+  </body>
+</html>

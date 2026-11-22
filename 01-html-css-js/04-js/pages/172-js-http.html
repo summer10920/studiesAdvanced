@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>請求與回應的組成</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const main = async () => {
+        const response = await fetch('data/users.json');
+        const type = response.headers.get('content-type') || '';
+        console.log(response.status);
+        console.log(response.ok);
+        console.log(type.includes('json'));
+      };
+
+      main();
+    </script>
+  </body>
+</html>

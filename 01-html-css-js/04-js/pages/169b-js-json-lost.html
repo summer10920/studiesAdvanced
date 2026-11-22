@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>stringify 不會保留的值</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const note = {
+        title: '讀書',
+        memo: undefined,
+        score: NaN,
+        tags: ['a', undefined],
+        created: new Date('2026-01-15T08:00:00Z'),
+        say() {},
+      };
+
+      const raw = JSON.stringify(note);
+      console.log(raw);
+
+      const back = JSON.parse(raw);
+      console.log(typeof back.created);
+      console.log('memo' in back, 'say' in back);
+    </script>
+  </body>
+</html>

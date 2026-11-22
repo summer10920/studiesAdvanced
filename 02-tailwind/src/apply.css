@@ -1,0 +1,7 @@
+@reference "./style.css";
+
+@layer components {
+  .btn-solid {
+    @apply inline-flex items-center rounded-lg bg-teal-700 px-4 py-2 font-medium text-white;
+  }
+}

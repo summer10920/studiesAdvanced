@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>欄位通用屬性</title>
+  </head>
+  <body>
+    <h1>欄位通用屬性</h1>
+    <form action="#" method="get">
+      <p>
+        <label for="guest-name">姓名</label>
+        <input id="guest-name" name="name" type="text" required maxlength="20" />
+      </p>
+      <p>
+        <label for="tour-code">團號</label>
+        <input id="tour-code" name="code" type="text" value="KYOTO-0830" readonly />
+      </p>
+      <p>
+        <label for="sold-out">已額滿梯次</label>
+        <input id="sold-out" name="soldout" type="text" value="8/16 梯" disabled />
+      </p>
+      <p>
+        <button type="submit">送出報名</button>
+      </p>
+    </form>
+  </body>
+</html>

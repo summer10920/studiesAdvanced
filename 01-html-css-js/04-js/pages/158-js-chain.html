@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>鏈式傳值</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const wait = (value) => {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            resolve(value);
+          }, 10);
+        });
+      };
+
+      Promise.resolve(1)
+        .then((n) => n + 1)
+        .then((n) => wait(n + 1))
+        .then((n) => {
+          console.log(n);
+        });
+    </script>
+  </body>
+</html>

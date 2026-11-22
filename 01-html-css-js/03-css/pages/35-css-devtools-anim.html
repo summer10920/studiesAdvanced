@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>動畫面板</title>
+    <style>
+      body {
+        margin: 1.5rem;
+        font-family: system-ui, "PingFang TC", "Microsoft JhengHei", sans-serif;
+      }
+
+      @keyframes pulse {
+        from {
+          transform: scale(1);
+        }
+        to {
+          transform: scale(1.08);
+        }
+      }
+
+      .badge {
+        display: inline-block;
+        padding: 0.35rem 0.75rem;
+        background: #115e59;
+        color: #f0fdfa;
+        animation: pulse 1s ease-in-out infinite alternate;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>打開動畫面板</h1>
+    <p class="badge">報名中</p>
+  </body>
+</html>

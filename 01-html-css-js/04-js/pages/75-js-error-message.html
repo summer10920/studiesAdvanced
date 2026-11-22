@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>讀懂錯誤訊息</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      function formatScore(score) {
+        return score.toFixed(0);
+      }
+
+      function label(score) {
+        return formatScore(score);
+      }
+
+      try {
+        console.log(label(null));
+      } catch (error) {
+        console.log(error.name);
+        console.log(error.message);
+      }
+
+      console.log('程式繼續');
+    </script>
+  </body>
+</html>

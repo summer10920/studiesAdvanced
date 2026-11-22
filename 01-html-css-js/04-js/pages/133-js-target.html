@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>target 與 currentTarget</title>
+  </head>
+  <body>
+    <ul id="menu">
+      <li>蘋果 <b>熱門</b></li>
+      <li>香蕉</li>
+    </ul>
+    <p id="output">點選清單裡的文字</p>
+    <script>
+      const menu = document.querySelector('#menu');
+      const output = document.querySelector('#output');
+
+      menu.addEventListener('click', (event) => {
+        output.textContent = `target：${event.target.tagName}，currentTarget：${event.currentTarget.id}`;
+      });
+    </script>
+  </body>
+</html>

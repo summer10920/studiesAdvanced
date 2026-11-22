@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>alert、confirm 與 prompt</title>
+  </head>
+  <body>
+    <p>在 DevTools 的 Console 呼叫 printIfConfirmed()。</p>
+    <script>
+      const printIfConfirmed = () => {
+        const ok = confirm('要列印這一頁嗎');
+        console.log(ok);
+        if (ok) {
+          print();
+        }
+      };
+
+      console.log('呼叫 printIfConfirmed()');
+    </script>
+  </body>
+</html>

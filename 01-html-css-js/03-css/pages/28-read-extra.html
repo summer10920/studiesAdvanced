@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>容器查詢</title>
+    <style>
+      body {
+        margin: 1.5rem;
+        font-family: system-ui, "PingFang TC", "Microsoft JhengHei", sans-serif;
+      }
+
+      .slot {
+        container-type: inline-size; /* 子層的 @container 看這裡的寬 */
+        margin-bottom: 1rem;
+        border: 1px solid #99f6e4;
+      }
+
+      .narrow {
+        width: min(100%, 16rem);
+      }
+
+      .wide {
+        width: min(100%, 36rem);
+      }
+
+      .card {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .card img {
+        width: 100%;
+        height: auto;
+      }
+
+      @container (min-width: 24rem) {
+        .card {
+          flex-direction: row;
+        }
+
+        .card img {
+          width: 8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slot narrow">
+      <article class="card">
+        <img src="https://picsum.photos/id/1016/640/360" alt="風景照片" />
+        <p>窄框：圖在上面。</p>
+      </article>
+    </div>
+
+    <div class="slot wide">
+      <article class="card">
+        <img src="https://picsum.photos/id/1016/640/360" alt="風景照片" />
+        <p>寬框：圖在左邊，文字在右邊。</p>
+      </article>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>屬性方法</title>
+  </head>
+  <body>
+    <button type="button" id="fav" aria-label="收藏商品">收藏</button>
+    <script>
+      const fav = document.querySelector('#fav');
+
+      console.log(fav.getAttribute('aria-label'));
+      fav.setAttribute('aria-label', '已收藏');
+      console.log(fav.getAttribute('aria-label'));
+      console.log(fav.hasAttribute('aria-label'));
+
+      fav.removeAttribute('aria-label');
+      console.log(fav.hasAttribute('aria-label'));
+      console.log(fav.getAttribute('aria-label'));
+
+      fav.setAttribute('data-note', '熱門');
+      console.log(fav.getAttribute('data-note'));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>流動版面</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 1.5rem;
+        color: #134e4a;
+        font-family: system-ui, "PingFang TC", "Microsoft JhengHei", sans-serif;
+      }
+
+      img {
+        display: block; /* 去掉行內圖片底下的縫 */
+        max-width: 100%; /* 不比父層寬 */
+        height: auto; /* 高度跟著比例走 */
+        margin-bottom: 1rem;
+      }
+
+      .wrap {
+        max-width: 60rem;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+        gap: 1rem;
+      }
+
+      .card {
+        padding: 1rem;
+        background: #f0fdfa;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>流動版面</h1>
+      <img src="https://picsum.photos/id/1016/1200/500" alt="風景照片" width="1200" height="500" />
+      <div class="cards">
+        <article class="card">
+          <h2>台北城市漫遊</h2>
+          <p>窄的時候一欄，拉寬後自動變多欄。</p>
+        </article>
+        <article class="card">
+          <h2>花蓮山海</h2>
+          <p>這裡還沒有媒體查詢。</p>
+        </article>
+      </div>
+    </div>
+  </body>
+</html>

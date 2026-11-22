@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>可選串連</title>
+  </head>
+  <body>
+    <p>結果在 DevTools 的 Console。</p>
+    <script>
+      const tour = { title: '台北城市漫遊', guide: { name: '林' } };
+      const other = { title: '花蓮山海三日' };
+
+      console.log(tour.guide?.name);
+      console.log(other.guide?.name);
+      console.log(other.guide?.name ?? '未定');
+
+      // console.log(other.guide.name); // 拿掉註解會是 TypeError
+    </script>
+  </body>
+</html>
