@@ -20,4 +20,24 @@ onload = () => {
   AOS.init({
     offset: 400,
   });
+
+  // 設計 cookie 同意
+  // --------------------------------
+  const cookieStr = 'cookieAgree=yes';
+  const cookieNode = document.querySelector('#lokiCookie');
+
+  // 先判斷之前有無同意, 還沒同意就跳廣告給他看
+  if (!document.cookie.includes(cookieStr)) {
+    // 因為cookie 包含我指定的NAME, 所以不用秀
+    cookieNode.remove();
+  } else {
+    // 因為不包含 , show it
+    cookieNode.style.display = 'block';
+
+    cookieNode.querySelector('button').addEventListener('click', () => {
+      // console.log('todo');
+      document.cookie = `${cookieStr}; max-age=${60 * 60 * 24 * 180}; SameSite=Lax`;
+      cookieNode.remove();
+    });
+  }
 };
