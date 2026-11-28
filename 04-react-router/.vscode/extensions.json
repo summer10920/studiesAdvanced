@@ -3,12 +3,9 @@
     "ritwickdey.LiveServer",
     "esbenp.prettier-vscode",
     "bradlc.vscode-tailwindcss",
-    "dsznajder.es7-react-js-snippets",
     "mhutchie.git-graph",
     "MS-CEINTL.vscode-language-pack-zh-hant",
     "dbaeumer.vscode-eslint",
-    "christian-kohler.path-intellisense",
-    "kisstkondoros.vscode-gutter-preview",
-    "GitHub.copilot"
+    "kisstkondoros.vscode-gutter-preview"
   ]
 }
