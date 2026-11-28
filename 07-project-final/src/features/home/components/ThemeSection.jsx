@@ -22,7 +22,7 @@ export default function ThemeSection() {
                   alt=""
                   className="absolute inset-0 h-full w-full object-cover"
                 />
-                <span className="absolute inset-0 bg-gradient-to-t from-ink via-ink/25 to-transparent" />
+                <span className="absolute inset-0 bg-linear-to-t from-ink via-ink/25 to-transparent" />
                 <span className="relative mt-auto flex flex-col px-5 py-5 text-white">
                   <span className="font-serif text-3xl font-semibold">
                     {item.theme}

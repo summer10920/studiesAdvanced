@@ -8,7 +8,7 @@ export default function Gallery({ images, title }) {
   return (
     <div className="mt-8">
       <img
-        className="aspect-[3/2] w-full rounded-card object-cover shadow-card"
+        className="aspect-3/2 w-full rounded-card object-cover shadow-card"
         src={current}
         width="1200"
         height="800"
